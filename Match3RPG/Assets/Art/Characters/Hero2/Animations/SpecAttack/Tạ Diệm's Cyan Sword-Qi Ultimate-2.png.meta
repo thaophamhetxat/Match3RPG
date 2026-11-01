@@ -1,0 +1,732 @@
+fileFormatVersion: 2
+guid: c6e83de58031a5347b4ca58d3f3c9b86
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6570595463263985034
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_0"
+  - first:
+      213: 3337036546475648290
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_1"
+  - first:
+      213: -5724590021313528394
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_2"
+  - first:
+      213: 2445906259122550195
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_3"
+  - first:
+      213: 6692131169695306364
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_4"
+  - first:
+      213: 4486229218384709738
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_5"
+  - first:
+      213: -4053497074012384499
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_6"
+  - first:
+      213: 5789934920710272414
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_7"
+  - first:
+      213: -8037861872884100372
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_8"
+  - first:
+      213: 2891721129073291567
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_9"
+  - first:
+      213: 1583572198325860072
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_10"
+  - first:
+      213: 7440725324586735429
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_11"
+  - first:
+      213: 5761465602183462447
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_12"
+  - first:
+      213: -2990231164915726324
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_13"
+  - first:
+      213: 3031361247119246820
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_14"
+  - first:
+      213: 276666263933871481
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_15"
+  - first:
+      213: 3758316953512918529
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_16"
+  - first:
+      213: 4257699772980500350
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_17"
+  - first:
+      213: -5919740100758025265
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_18"
+  - first:
+      213: -6243688649124652744
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_19"
+  - first:
+      213: 6756744874385850986
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_20"
+  - first:
+      213: -6641399996912108628
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_21"
+  - first:
+      213: 6687336531452040073
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_22"
+  - first:
+      213: 4204070822790258956
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_23"
+  - first:
+      213: -7099458745358209611
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_24"
+  - first:
+      213: -8360050736723311270
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_25"
+  - first:
+      213: -1705957355444908043
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_26"
+  - first:
+      213: -503590666345841721
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_27"
+  - first:
+      213: 4832909934309341724
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_28"
+  - first:
+      213: -3677663516265822441
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_29"
+  - first:
+      213: 769629990648272393
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_30"
+  - first:
+      213: -5205555043395548524
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_31"
+  - first:
+      213: -6838635768420707396
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_32"
+  - first:
+      213: -75267432266017234
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_33"
+  - first:
+      213: 6029636793726963959
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_34"
+  - first:
+      213: -37313142468486010
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_35"
+  - first:
+      213: -2728425364862591414
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_36"
+  - first:
+      213: -2566891422442097820
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_37"
+  - first:
+      213: -5593711371395286054
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_38"
+  - first:
+      213: -3980183545789031489
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_39"
+  - first:
+      213: -2726724675098114494
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_40"
+  - first:
+      213: -3230930633234955599
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_41"
+  - first:
+      213: 4434137624962928309
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_42"
+  - first:
+      213: -5863095315346340310
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_43"
+  - first:
+      213: -8937630143305127049
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_44"
+  - first:
+      213: 8678847810567711445
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_45"
+  - first:
+      213: -8370187817052907391
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_46"
+  - first:
+      213: -8480028846834878038
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_47"
+  - first:
+      213: -4550962772693446038
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_48"
+  - first:
+      213: -8066688421374866220
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_49"
+  - first:
+      213: 990985251889256555
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_50"
+  - first:
+      213: 2298544554247294358
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_51"
+  - first:
+      213: -7699034138989520337
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_52"
+  - first:
+      213: 3093444682886083833
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_53"
+  - first:
+      213: 7037392842060857543
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_54"
+  - first:
+      213: 5386495580102886960
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_55"
+  - first:
+      213: -9106391576340641026
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_56"
+  - first:
+      213: -7971804863284284009
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_57"
+  - first:
+      213: -4438916578836456337
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_58"
+  - first:
+      213: -9006321839924758798
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_59"
+  - first:
+      213: 8660582287422292976
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_60"
+  - first:
+      213: -7722772060260433701
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_61"
+  - first:
+      213: 2993213412579204676
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_62"
+  - first:
+      213: 6300549655533930198
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_63"
+  - first:
+      213: -6749394997416642005
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_64"
+  - first:
+      213: -5911235172606319948
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_65"
+  - first:
+      213: 5017473040774209731
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_66"
+  - first:
+      213: -7039883443723231665
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_67"
+  - first:
+      213: 4742048273646069711
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_68"
+  - first:
+      213: 4853227933550450973
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_69"
+  - first:
+      213: 1195879467036034208
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_70"
+  - first:
+      213: 6293423457231313616
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_71"
+  - first:
+      213: 1089550147109213927
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_72"
+  - first:
+      213: -1324817383485229875
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_73"
+  - first:
+      213: -7171102936679006786
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_74"
+  - first:
+      213: 7502775564975402072
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_75"
+  - first:
+      213: -5595063463155408243
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_76"
+  - first:
+      213: -2598998144292871524
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_77"
+  - first:
+      213: -3796187503134677546
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_78"
+  - first:
+      213: 1789232692244824170
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_79"
+  - first:
+      213: -6600255140247526429
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_80"
+  - first:
+      213: 7226865515060042293
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_81"
+  - first:
+      213: 5035451223896940393
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_82"
+  - first:
+      213: 8323817746221951894
+    second: "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_83"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hero2_SpecAttack_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 647.3333
+        width: 323.8
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3146eaac08421364682c62cb9014c7c6
+      internalID: 1875297696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_SpecAttack_01
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 647.3333
+        width: 323.8
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3359006b75d7e8647881e02572f7a4bf
+      internalID: -1823680580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_SpecAttack_02
+      rect:
+        serializedVersion: 2
+        x: 647.6
+        y: 647.3333
+        width: 323.80005
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 066c1ac4f341f3b4e81dcaf9328c7906
+      internalID: 575723034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_SpecAttack_03
+      rect:
+        serializedVersion: 2
+        x: 971.4
+        y: 647.3333
+        width: 323.79993
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b41cabf0fe3a8a4daf6cf39c95ae6f6
+      internalID: -2034253424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_SpecAttack_04
+      rect:
+        serializedVersion: 2
+        x: 1295.2
+        y: 647.3333
+        width: 323.80005
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f69d8394c3c743b4ab3002fa53123244
+      internalID: 1155332384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_SpecAttack_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 323.66666
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d5bd40acb62cb44bb6b3ed7a9402037
+      internalID: 1730944193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_SpecAttack_06
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 323.66666
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ed2cd12e41e86f448be23ef0769efd9
+      internalID: -1087259410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_SpecAttack_07
+      rect:
+        serializedVersion: 2
+        x: 647.6
+        y: 323.66666
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b93ebd69865871c42ab671ac80f665d2
+      internalID: -1306713507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_SpecAttack_08
+      rect:
+        serializedVersion: 2
+        x: 971.4
+        y: 323.66666
+        width: 323.79993
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f586aa05229fa84408fe9db48865085f
+      internalID: 577217937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_SpecAttack_09
+      rect:
+        serializedVersion: 2
+        x: 1295.2
+        y: 323.66666
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef49c1fd890a0540bf4ec0190231cb5
+      internalID: 1405489739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_SpecAttack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 546662a046480734c8a3a25932312add
+      internalID: -1327186966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Hero2_SpecAttack_00: 1875297696
+      Hero2_SpecAttack_01: -1823680580
+      Hero2_SpecAttack_02: 575723034
+      Hero2_SpecAttack_03: -2034253424
+      Hero2_SpecAttack_04: 1155332384
+      Hero2_SpecAttack_05: 1730944193
+      Hero2_SpecAttack_06: -1087259410
+      Hero2_SpecAttack_07: -1306713507
+      Hero2_SpecAttack_08: 577217937
+      Hero2_SpecAttack_09: 1405489739
+      Hero2_SpecAttack_10: -1327186966
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_0": 6570595463263985034
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_1": 3337036546475648290
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_10": 1583572198325860072
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_11": 7440725324586735429
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_12": 5761465602183462447
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_13": -2990231164915726324
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_14": 3031361247119246820
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_15": 276666263933871481
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_16": 3758316953512918529
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_17": 4257699772980500350
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_18": -5919740100758025265
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_19": -6243688649124652744
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_2": -5724590021313528394
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_20": 6756744874385850986
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_21": -6641399996912108628
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_22": 6687336531452040073
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_23": 4204070822790258956
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_24": -7099458745358209611
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_25": -8360050736723311270
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_26": -1705957355444908043
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_27": -503590666345841721
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_28": 4832909934309341724
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_29": -3677663516265822441
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_3": 2445906259122550195
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_30": 769629990648272393
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_31": -5205555043395548524
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_32": -6838635768420707396
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_33": -75267432266017234
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_34": 6029636793726963959
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_35": -37313142468486010
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_36": -2728425364862591414
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_37": -2566891422442097820
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_38": -5593711371395286054
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_39": -3980183545789031489
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_4": 6692131169695306364
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_40": -2726724675098114494
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_41": -3230930633234955599
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_42": 4434137624962928309
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_43": -5863095315346340310
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_44": -8937630143305127049
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_45": 8678847810567711445
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_46": -8370187817052907391
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_47": -8480028846834878038
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_48": -4550962772693446038
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_49": -8066688421374866220
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_5": 4486229218384709738
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_50": 990985251889256555
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_51": 2298544554247294358
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_52": -7699034138989520337
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_53": 3093444682886083833
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_54": 7037392842060857543
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_55": 5386495580102886960
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_56": -9106391576340641026
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_57": -7971804863284284009
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_58": -4438916578836456337
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_59": -9006321839924758798
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_6": -4053497074012384499
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_60": 8660582287422292976
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_61": -7722772060260433701
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_62": 2993213412579204676
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_63": 6300549655533930198
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_64": -6749394997416642005
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_65": -5911235172606319948
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_66": 5017473040774209731
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_67": -7039883443723231665
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_68": 4742048273646069711
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_69": 4853227933550450973
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_7": 5789934920710272414
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_70": 1195879467036034208
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_71": 6293423457231313616
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_72": 1089550147109213927
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_73": -1324817383485229875
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_74": -7171102936679006786
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_75": 7502775564975402072
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_76": -5595063463155408243
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_77": -2598998144292871524
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_78": -3796187503134677546
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_79": 1789232692244824170
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_8": -8037861872884100372
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_80": -6600255140247526429
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_81": 7226865515060042293
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_82": 5035451223896940393
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_83": 8323817746221951894
+      "T\u1EA1 Di\u1EC7m's Cyan Sword-Qi Ultimate-2_9": 2891721129073291567
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

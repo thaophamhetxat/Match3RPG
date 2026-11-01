@@ -1,0 +1,10 @@
+Generated cleaned meditation frames
+MainProgress_Meditation_00.png: g:\UnityProjects\Match3RPG\Match3RPG\Assets\Generated\MainProgress\Meditation\MainProgress_Meditation_00.png
+MainProgress_Meditation_01.png: g:\UnityProjects\Match3RPG\Match3RPG\Assets\Generated\MainProgress\Meditation\MainProgress_Meditation_01.png
+MainProgress_Meditation_05.png: g:\UnityProjects\Match3RPG\Match3RPG\Assets\Generated\MainProgress\Meditation\MainProgress_Meditation_05.png
+MainProgress_Meditation_06.png: g:\UnityProjects\Match3RPG\Match3RPG\Assets\Generated\MainProgress\Meditation\MainProgress_Meditation_06.png
+MainProgress_Meditation_07.png: g:\UnityProjects\Match3RPG\Match3RPG\Assets\Generated\MainProgress\Meditation\MainProgress_Meditation_07.png
+MainProgress_Meditation_08.png: g:\UnityProjects\Match3RPG\Match3RPG\Assets\Generated\MainProgress\Meditation\MainProgress_Meditation_08.png
+MainProgress_Meditation_09.png: g:\UnityProjects\Match3RPG\Match3RPG\Assets\Generated\MainProgress\Meditation\MainProgress_Meditation_09.png
+MainProgress_Meditation_10.png: g:\UnityProjects\Match3RPG\Match3RPG\Assets\Generated\MainProgress\Meditation\MainProgress_Meditation_10.png
+MainProgress_Meditation_11.png: g:\UnityProjects\Match3RPG\Match3RPG\Assets\Generated\MainProgress\Meditation\MainProgress_Meditation_11.png

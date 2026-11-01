@@ -1,0 +1,588 @@
+fileFormatVersion: 2
+guid: bc10f4ac4bf9aaf4493a8c58d5e95bb9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1342014394166389789
+    second: Purple Dragon Attack Sprite Sheet-2_0
+  - first:
+      213: -3787475207464579191
+    second: Purple Dragon Attack Sprite Sheet-2_1
+  - first:
+      213: 803194977823665675
+    second: Purple Dragon Attack Sprite Sheet-2_2
+  - first:
+      213: 4352573931481633139
+    second: Purple Dragon Attack Sprite Sheet-2_3
+  - first:
+      213: -4084751812031563046
+    second: Purple Dragon Attack Sprite Sheet-2_4
+  - first:
+      213: 3431753319885024041
+    second: Purple Dragon Attack Sprite Sheet-2_5
+  - first:
+      213: -7331797947011171710
+    second: Purple Dragon Attack Sprite Sheet-2_6
+  - first:
+      213: -2040511679587993488
+    second: Purple Dragon Attack Sprite Sheet-2_7
+  - first:
+      213: -8065122035198110278
+    second: Purple Dragon Attack Sprite Sheet-2_8
+  - first:
+      213: 443663753257599699
+    second: Purple Dragon Attack Sprite Sheet-2_9
+  - first:
+      213: -8998581357959757777
+    second: Purple Dragon Attack Sprite Sheet-2_10
+  - first:
+      213: 2101501985919340798
+    second: Purple Dragon Attack Sprite Sheet-2_11
+  - first:
+      213: -316296115476037611
+    second: Purple Dragon Attack Sprite Sheet-2_12
+  - first:
+      213: 6017312607009122221
+    second: Purple Dragon Attack Sprite Sheet-2_13
+  - first:
+      213: -7605074430654146090
+    second: Purple Dragon Attack Sprite Sheet-2_14
+  - first:
+      213: 5550062857481200135
+    second: Purple Dragon Attack Sprite Sheet-2_15
+  - first:
+      213: 3041657238689025304
+    second: Purple Dragon Attack Sprite Sheet-2_16
+  - first:
+      213: -1295364352992137722
+    second: Purple Dragon Attack Sprite Sheet-2_17
+  - first:
+      213: -2913916545624566994
+    second: Purple Dragon Attack Sprite Sheet-2_18
+  - first:
+      213: -4273022348457326298
+    second: Purple Dragon Attack Sprite Sheet-2_19
+  - first:
+      213: 1385778444730977217
+    second: Purple Dragon Attack Sprite Sheet-2_20
+  - first:
+      213: -55522966200812138
+    second: Purple Dragon Attack Sprite Sheet-2_21
+  - first:
+      213: -6402139843006493495
+    second: Purple Dragon Attack Sprite Sheet-2_22
+  - first:
+      213: 5924859209548949587
+    second: Purple Dragon Attack Sprite Sheet-2_23
+  - first:
+      213: 2112591513944069080
+    second: Purple Dragon Attack Sprite Sheet-2_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss02_Attack_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 647.3333
+        width: 323.8
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9460def65c1caed459f38d7d2afe6c70
+      internalID: -1637953725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Attack_01
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 647.3333
+        width: 323.8
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c08ab950cd57c604b9553c9e23ba50ef
+      internalID: -1158241875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Attack_02
+      rect:
+        serializedVersion: 2
+        x: 647.6
+        y: 647.3333
+        width: 323.80005
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1661d4e513c4b864384e177cc70aa581
+      internalID: 1208451743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Attack_03
+      rect:
+        serializedVersion: 2
+        x: 971.4
+        y: 647.3333
+        width: 323.79993
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76d8faf2be1e67d4ea87b3737264755d
+      internalID: -1070842495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Attack_04
+      rect:
+        serializedVersion: 2
+        x: 1295.2
+        y: 647.3333
+        width: 323.80005
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c56e33a3de9227479e6540ce73e7d3f
+      internalID: 2058197915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Attack_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 323.66666
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d651b6c5968bbf14ba7c1a3464dee629
+      internalID: 2052006921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Attack_06
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 323.66666
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfd9622b9fa240e45b011e21df5cb639
+      internalID: 566523884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Attack_07
+      rect:
+        serializedVersion: 2
+        x: 647.6
+        y: 323.66666
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d6cf2a1f9dd78f4ba7badb50b9ea973
+      internalID: 1629823821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Attack_08
+      rect:
+        serializedVersion: 2
+        x: 971.4
+        y: 323.66666
+        width: 323.79993
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e6fd63e0cdfd654ab36de6757caa4cc
+      internalID: -2026778828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Attack_09
+      rect:
+        serializedVersion: 2
+        x: 1295.2
+        y: 323.66666
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 076db3453c8d49a47ab6172832a1a12a
+      internalID: -1459645421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b72fb28c3042e44990f196fd0fa46f9
+      internalID: -454294624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 0
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20066becf230e3346a70721361ccfe40
+      internalID: -584689859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 647.6
+        y: 0
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8282deb29703aa4b891273dc0a0b315
+      internalID: -832254522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 971.4
+        y: 0
+        width: 323.79993
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 233414b46ae4ead43bff486ccbf3722e
+      internalID: -1632998017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 1295.2
+        y: 0
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a8a820bcb2e9b48bc989f65f04048b
+      internalID: 1512372419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Boss02_Attack_00: -1637953725
+      Boss02_Attack_01: -1158241875
+      Boss02_Attack_02: 1208451743
+      Boss02_Attack_03: -1070842495
+      Boss02_Attack_04: 2058197915
+      Boss02_Attack_05: 2052006921
+      Boss02_Attack_06: 566523884
+      Boss02_Attack_07: 1629823821
+      Boss02_Attack_08: -2026778828
+      Boss02_Attack_09: -1459645421
+      Boss02_Attack_10: -454294624
+      Boss02_Attack_11: -584689859
+      Boss02_Attack_12: -832254522
+      Boss02_Attack_13: -1632998017
+      Boss02_Attack_14: 1512372419
+      Purple Dragon Attack Sprite Sheet-2_0: 1342014394166389789
+      Purple Dragon Attack Sprite Sheet-2_1: -3787475207464579191
+      Purple Dragon Attack Sprite Sheet-2_10: -8998581357959757777
+      Purple Dragon Attack Sprite Sheet-2_11: 2101501985919340798
+      Purple Dragon Attack Sprite Sheet-2_12: -316296115476037611
+      Purple Dragon Attack Sprite Sheet-2_13: 6017312607009122221
+      Purple Dragon Attack Sprite Sheet-2_14: -7605074430654146090
+      Purple Dragon Attack Sprite Sheet-2_15: 5550062857481200135
+      Purple Dragon Attack Sprite Sheet-2_16: 3041657238689025304
+      Purple Dragon Attack Sprite Sheet-2_17: -1295364352992137722
+      Purple Dragon Attack Sprite Sheet-2_18: -2913916545624566994
+      Purple Dragon Attack Sprite Sheet-2_19: -4273022348457326298
+      Purple Dragon Attack Sprite Sheet-2_2: 803194977823665675
+      Purple Dragon Attack Sprite Sheet-2_20: 1385778444730977217
+      Purple Dragon Attack Sprite Sheet-2_21: -55522966200812138
+      Purple Dragon Attack Sprite Sheet-2_22: -6402139843006493495
+      Purple Dragon Attack Sprite Sheet-2_23: 5924859209548949587
+      Purple Dragon Attack Sprite Sheet-2_24: 2112591513944069080
+      Purple Dragon Attack Sprite Sheet-2_3: 4352573931481633139
+      Purple Dragon Attack Sprite Sheet-2_4: -4084751812031563046
+      Purple Dragon Attack Sprite Sheet-2_5: 3431753319885024041
+      Purple Dragon Attack Sprite Sheet-2_6: -7331797947011171710
+      Purple Dragon Attack Sprite Sheet-2_7: -2040511679587993488
+      Purple Dragon Attack Sprite Sheet-2_8: -8065122035198110278
+      Purple Dragon Attack Sprite Sheet-2_9: 443663753257599699
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

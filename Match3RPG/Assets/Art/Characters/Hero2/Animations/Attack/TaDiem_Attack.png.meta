@@ -1,0 +1,735 @@
+fileFormatVersion: 2
+guid: d706fffe8b2541b4a944051fb6f0de43
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3681805014098464621
+    second: TaDiem_Attack_0
+  - first:
+      213: 8815178255840536971
+    second: TaDiem_Attack_1
+  - first:
+      213: -8019692766047899596
+    second: TaDiem_Attack_2
+  - first:
+      213: -1000414515337612487
+    second: TaDiem_Attack_3
+  - first:
+      213: 624727661393161900
+    second: TaDiem_Attack_4
+  - first:
+      213: 639632315483038550
+    second: TaDiem_Attack_5
+  - first:
+      213: -4629827433274123001
+    second: TaDiem_Attack_6
+  - first:
+      213: -3340318883781886712
+    second: TaDiem_Attack_7
+  - first:
+      213: 7172444793185192145
+    second: TaDiem_Attack_8
+  - first:
+      213: 3044116222357607960
+    second: TaDiem_Attack_9
+  - first:
+      213: 7689509454907774160
+    second: TaDiem_Attack_10
+  - first:
+      213: 4661865754373316624
+    second: TaDiem_Attack_11
+  - first:
+      213: -5630310997612816008
+    second: TaDiem_Attack_12
+  - first:
+      213: -6452810523706799039
+    second: TaDiem_Attack_13
+  - first:
+      213: -7145834963525175715
+    second: TaDiem_Attack_14
+  - first:
+      213: 1409716627030834765
+    second: TaDiem_Attack_15
+  - first:
+      213: 3018869906684256319
+    second: TaDiem_Attack_16
+  - first:
+      213: -4030441220831371354
+    second: TaDiem_Attack_17
+  - first:
+      213: -4222695445186228687
+    second: TaDiem_Attack_18
+  - first:
+      213: 1630626389694041931
+    second: TaDiem_Attack_19
+  - first:
+      213: 3572373093523540509
+    second: TaDiem_Attack_20
+  - first:
+      213: -3113501328976269058
+    second: TaDiem_Attack_21
+  - first:
+      213: 7862737838522901722
+    second: TaDiem_Attack_22
+  - first:
+      213: 7247541739079557634
+    second: TaDiem_Attack_23
+  - first:
+      213: 7335724679359702310
+    second: TaDiem_Attack_24
+  - first:
+      213: -4164144291669564101
+    second: TaDiem_Attack_25
+  - first:
+      213: 2461364240821072010
+    second: TaDiem_Attack_26
+  - first:
+      213: 1283372787636110
+    second: TaDiem_Attack_27
+  - first:
+      213: 6498385120576894384
+    second: TaDiem_Attack_28
+  - first:
+      213: 3800339051338435501
+    second: TaDiem_Attack_29
+  - first:
+      213: 3752115022377033123
+    second: TaDiem_Attack_30
+  - first:
+      213: 4685243095543187785
+    second: TaDiem_Attack_31
+  - first:
+      213: 4570501416917241301
+    second: TaDiem_Attack_32
+  - first:
+      213: -3732193101382450830
+    second: TaDiem_Attack_33
+  - first:
+      213: -6451943573427409128
+    second: TaDiem_Attack_34
+  - first:
+      213: 2669622827742944351
+    second: TaDiem_Attack_35
+  - first:
+      213: 6757323787247721077
+    second: TaDiem_Attack_36
+  - first:
+      213: -2398075375640026474
+    second: TaDiem_Attack_37
+  - first:
+      213: -1779556410721224184
+    second: TaDiem_Attack_38
+  - first:
+      213: 9058635353241120860
+    second: TaDiem_Attack_39
+  - first:
+      213: -6324695825573633174
+    second: TaDiem_Attack_40
+  - first:
+      213: -281290818670750703
+    second: TaDiem_Attack_41
+  - first:
+      213: -1804972972995850509
+    second: TaDiem_Attack_42
+  - first:
+      213: 2680242468720328673
+    second: TaDiem_Attack_43
+  - first:
+      213: -3025827479114875225
+    second: TaDiem_Attack_44
+  - first:
+      213: 4879925030898163023
+    second: TaDiem_Attack_45
+  - first:
+      213: 2005800764717749387
+    second: TaDiem_Attack_46
+  - first:
+      213: -6425801574719861629
+    second: TaDiem_Attack_47
+  - first:
+      213: 443353439820283010
+    second: TaDiem_Attack_48
+  - first:
+      213: 5768882818809464093
+    second: TaDiem_Attack_49
+  - first:
+      213: 1929102100351930842
+    second: TaDiem_Attack_50
+  - first:
+      213: 4195198355505074784
+    second: TaDiem_Attack_51
+  - first:
+      213: 7809476470274450106
+    second: TaDiem_Attack_52
+  - first:
+      213: -3935950075738768173
+    second: TaDiem_Attack_53
+  - first:
+      213: 6339957017191187780
+    second: TaDiem_Attack_54
+  - first:
+      213: 392619394636154866
+    second: TaDiem_Attack_55
+  - first:
+      213: -4870044223787183919
+    second: TaDiem_Attack_56
+  - first:
+      213: -7464959292020849473
+    second: TaDiem_Attack_57
+  - first:
+      213: -4258161612268953408
+    second: TaDiem_Attack_58
+  - first:
+      213: -9108029069950530236
+    second: TaDiem_Attack_59
+  - first:
+      213: -6055139476972795389
+    second: TaDiem_Attack_60
+  - first:
+      213: 8691589137496567361
+    second: TaDiem_Attack_61
+  - first:
+      213: -1984860742561111991
+    second: TaDiem_Attack_62
+  - first:
+      213: 3702027865923205084
+    second: TaDiem_Attack_63
+  - first:
+      213: -1675919268664805864
+    second: TaDiem_Attack_64
+  - first:
+      213: 1868811659560143551
+    second: TaDiem_Attack_65
+  - first:
+      213: 8346468029476241760
+    second: TaDiem_Attack_66
+  - first:
+      213: -350925448837929223
+    second: TaDiem_Attack_67
+  - first:
+      213: 5104213833257113054
+    second: TaDiem_Attack_68
+  - first:
+      213: -2757462475395420080
+    second: TaDiem_Attack_69
+  - first:
+      213: -5187297190697077919
+    second: TaDiem_Attack_70
+  - first:
+      213: 8617012852401780395
+    second: TaDiem_Attack_71
+  - first:
+      213: -57797837722009490
+    second: TaDiem_Attack_72
+  - first:
+      213: -1934690409526959382
+    second: TaDiem_Attack_73
+  - first:
+      213: 3710587963408371968
+    second: TaDiem_Attack_74
+  - first:
+      213: 4290423599618811497
+    second: TaDiem_Attack_75
+  - first:
+      213: 7144302994042309441
+    second: TaDiem_Attack_76
+  - first:
+      213: -9137778133408275625
+    second: TaDiem_Attack_77
+  - first:
+      213: 9060115508034591028
+    second: TaDiem_Attack_78
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hero2_Attack_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7620b614c01314ea62feebaeec4149
+      internalID: -1594130989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Attack_01
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc3dc4baf74aa2843a6a26a748bd5131
+      internalID: -1654853849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Attack_02
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d97ac8ce0de095141bcd574d7676c2c6
+      internalID: -1080551629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Attack_03
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e10d4fa473a42d4a946ed0f6c02bff0
+      internalID: -1155257810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Attack_04
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f46acf007095c6c44840a856ea2a31de
+      internalID: -1037430306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Attack_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34a9739703bf5ae418990f3e821cfbb7
+      internalID: -409284150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Attack_06
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c6ab7f221bd7b24398dd6de3d6738db
+      internalID: 1698237366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Attack_07
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5dfe50e86bd6eb44a828cbadcc25c91d
+      internalID: -393120591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Attack_08
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47c395e652475354cb183954442296b3
+      internalID: -1374152967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Attack_09
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2c20673c65e84a4999035bbff9d045d
+      internalID: -95354352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73cbb0ceae03d824199fee2c2dfd90f0
+      internalID: -1978081314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80fce937b1e56b549aec968f75298f1a
+      internalID: -871693135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Hero2_Attack_00: -1594130989
+      Hero2_Attack_01: -1654853849
+      Hero2_Attack_02: -1080551629
+      Hero2_Attack_03: -1155257810
+      Hero2_Attack_04: -1037430306
+      Hero2_Attack_05: -409284150
+      Hero2_Attack_06: 1698237366
+      Hero2_Attack_07: -393120591
+      Hero2_Attack_08: -1374152967
+      Hero2_Attack_09: -95354352
+      Hero2_Attack_10: -1978081314
+      Hero2_Attack_11: -871693135
+      TaDiem_Attack_0: 3681805014098464621
+      TaDiem_Attack_1: 8815178255840536971
+      TaDiem_Attack_10: 7689509454907774160
+      TaDiem_Attack_11: 4661865754373316624
+      TaDiem_Attack_12: -5630310997612816008
+      TaDiem_Attack_13: -6452810523706799039
+      TaDiem_Attack_14: -7145834963525175715
+      TaDiem_Attack_15: 1409716627030834765
+      TaDiem_Attack_16: 3018869906684256319
+      TaDiem_Attack_17: -4030441220831371354
+      TaDiem_Attack_18: -4222695445186228687
+      TaDiem_Attack_19: 1630626389694041931
+      TaDiem_Attack_2: -8019692766047899596
+      TaDiem_Attack_20: 3572373093523540509
+      TaDiem_Attack_21: -3113501328976269058
+      TaDiem_Attack_22: 7862737838522901722
+      TaDiem_Attack_23: 7247541739079557634
+      TaDiem_Attack_24: 7335724679359702310
+      TaDiem_Attack_25: -4164144291669564101
+      TaDiem_Attack_26: 2461364240821072010
+      TaDiem_Attack_27: 1283372787636110
+      TaDiem_Attack_28: 6498385120576894384
+      TaDiem_Attack_29: 3800339051338435501
+      TaDiem_Attack_3: -1000414515337612487
+      TaDiem_Attack_30: 3752115022377033123
+      TaDiem_Attack_31: 4685243095543187785
+      TaDiem_Attack_32: 4570501416917241301
+      TaDiem_Attack_33: -3732193101382450830
+      TaDiem_Attack_34: -6451943573427409128
+      TaDiem_Attack_35: 2669622827742944351
+      TaDiem_Attack_36: 6757323787247721077
+      TaDiem_Attack_37: -2398075375640026474
+      TaDiem_Attack_38: -1779556410721224184
+      TaDiem_Attack_39: 9058635353241120860
+      TaDiem_Attack_4: 624727661393161900
+      TaDiem_Attack_40: -6324695825573633174
+      TaDiem_Attack_41: -281290818670750703
+      TaDiem_Attack_42: -1804972972995850509
+      TaDiem_Attack_43: 2680242468720328673
+      TaDiem_Attack_44: -3025827479114875225
+      TaDiem_Attack_45: 4879925030898163023
+      TaDiem_Attack_46: 2005800764717749387
+      TaDiem_Attack_47: -6425801574719861629
+      TaDiem_Attack_48: 443353439820283010
+      TaDiem_Attack_49: 5768882818809464093
+      TaDiem_Attack_5: 639632315483038550
+      TaDiem_Attack_50: 1929102100351930842
+      TaDiem_Attack_51: 4195198355505074784
+      TaDiem_Attack_52: 7809476470274450106
+      TaDiem_Attack_53: -3935950075738768173
+      TaDiem_Attack_54: 6339957017191187780
+      TaDiem_Attack_55: 392619394636154866
+      TaDiem_Attack_56: -4870044223787183919
+      TaDiem_Attack_57: -7464959292020849473
+      TaDiem_Attack_58: -4258161612268953408
+      TaDiem_Attack_59: -9108029069950530236
+      TaDiem_Attack_6: -4629827433274123001
+      TaDiem_Attack_60: -6055139476972795389
+      TaDiem_Attack_61: 8691589137496567361
+      TaDiem_Attack_62: -1984860742561111991
+      TaDiem_Attack_63: 3702027865923205084
+      TaDiem_Attack_64: -1675919268664805864
+      TaDiem_Attack_65: 1868811659560143551
+      TaDiem_Attack_66: 8346468029476241760
+      TaDiem_Attack_67: -350925448837929223
+      TaDiem_Attack_68: 5104213833257113054
+      TaDiem_Attack_69: -2757462475395420080
+      TaDiem_Attack_7: -3340318883781886712
+      TaDiem_Attack_70: -5187297190697077919
+      TaDiem_Attack_71: 8617012852401780395
+      TaDiem_Attack_72: -57797837722009490
+      TaDiem_Attack_73: -1934690409526959382
+      TaDiem_Attack_74: 3710587963408371968
+      TaDiem_Attack_75: 4290423599618811497
+      TaDiem_Attack_76: 7144302994042309441
+      TaDiem_Attack_77: -9137778133408275625
+      TaDiem_Attack_78: 9060115508034591028
+      TaDiem_Attack_8: 7172444793185192145
+      TaDiem_Attack_9: 3044116222357607960
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

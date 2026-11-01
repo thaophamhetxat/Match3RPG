@@ -1,0 +1,1040 @@
+fileFormatVersion: 2
+guid: b164416bf03a34f458b201a7716a97c6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -384340493173524819
+    second: VFX_Fireball_0
+  - first:
+      213: 6768821252215601107
+    second: VFX_Fireball_1
+  - first:
+      213: 5357294300972979987
+    second: VFX_Fireball_2
+  - first:
+      213: -9021317721194449972
+    second: VFX_Fireball_3
+  - first:
+      213: -9139294171507344176
+    second: VFX_Fireball_4
+  - first:
+      213: -2557548449442984980
+    second: VFX_Fireball_5
+  - first:
+      213: -6316769369802417620
+    second: VFX_Fireball_6
+  - first:
+      213: 1167021431318453390
+    second: VFX_Fireball_7
+  - first:
+      213: 1453753144080271112
+    second: VFX_Fireball_8
+  - first:
+      213: -5122421160263759079
+    second: VFX_Fireball_9
+  - first:
+      213: -4210953935919394300
+    second: VFX_Fireball_10
+  - first:
+      213: -5791548818596863249
+    second: VFX_Fireball_11
+  - first:
+      213: -333477918467378374
+    second: VFX_Fireball_12
+  - first:
+      213: 481765071063580265
+    second: VFX_Fireball_13
+  - first:
+      213: 5170269505359874188
+    second: VFX_Fireball_14
+  - first:
+      213: -1730488123971876156
+    second: VFX_Fireball_15
+  - first:
+      213: -643858254687167528
+    second: VFX_Fireball_16
+  - first:
+      213: 8942808282779215061
+    second: VFX_Fireball_17
+  - first:
+      213: 7390944393739885942
+    second: VFX_Fireball_18
+  - first:
+      213: 4783614163924166882
+    second: VFX_Fireball_19
+  - first:
+      213: 1068529808063258941
+    second: VFX_Fireball_20
+  - first:
+      213: -495275131235538616
+    second: VFX_Fireball_21
+  - first:
+      213: 7795212575145466734
+    second: VFX_Fireball_22
+  - first:
+      213: 5119368962240071105
+    second: VFX_Fireball_23
+  - first:
+      213: -2765787873765058630
+    second: VFX_Fireball_24
+  - first:
+      213: 8967911062079337026
+    second: VFX_Fireball_25
+  - first:
+      213: 1466379322690942414
+    second: VFX_Fireball_26
+  - first:
+      213: 4916495979240864254
+    second: VFX_Fireball_27
+  - first:
+      213: -3865168764677112202
+    second: VFX_Fireball_28
+  - first:
+      213: -4900087309899397530
+    second: VFX_Fireball_29
+  - first:
+      213: 4010005945717748303
+    second: VFX_Fireball_30
+  - first:
+      213: -6300428111136792608
+    second: VFX_Fireball_31
+  - first:
+      213: 1295669993677961852
+    second: VFX_Fireball_32
+  - first:
+      213: -3491613379134802908
+    second: VFX_Fireball_33
+  - first:
+      213: 4876333351551168042
+    second: VFX_Fireball_34
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_Fireball_0
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 728
+        width: 43
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da6f7979b5c8aaaf0800000000000000
+      internalID: -384340493173524819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 769
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d7fc6ee01fafed50800000000000000
+      internalID: 6768821252215601107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_2
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 735
+        width: 29
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31718b658cee85a40800000000000000
+      internalID: 5357294300972979987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_3
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 737
+        width: 64
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc3b44e5457ddc280800000000000000
+      internalID: -9021317721194449972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_4
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 726
+        width: 47
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dcb1818f54ba2180800000000000000
+      internalID: -9139294171507344176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_5
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 736
+        width: 35
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ceb89175c33c18cd0800000000000000
+      internalID: -2557548449442984980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_6
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 712
+        width: 49
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2adbd0d9b35658a0800000000000000
+      internalID: -6316769369802417620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_7
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 753
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8c11030fc7123010800000000000000
+      internalID: 1167021431318453390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_8
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 720
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 807030048c4cc2410800000000000000
+      internalID: 1453753144080271112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_9
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 696
+        width: 47
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91bc880381189e8b0800000000000000
+      internalID: -5122421160263759079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_10
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 728
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 402ddf3b4bfaf85c0800000000000000
+      internalID: -4210953935919394300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_11
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 688
+        width: 35
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe26330d80940afa0800000000000000
+      internalID: -5791548818596863249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_12
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 716
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a33b059999f3f5bf0800000000000000
+      internalID: -333477918467378374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_13
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 734
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96e7fe597c29fa600800000000000000
+      internalID: 481765071063580265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_14
+      rect:
+        serializedVersion: 2
+        x: 548
+        y: 712
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c88820cc8bc70c740800000000000000
+      internalID: 5170269505359874188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_15
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 662
+        width: 45
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cacf9248321cf7e0800000000000000
+      internalID: -1730488123971876156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_16
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 592
+        width: 60
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8db1ba3245e8017f0800000000000000
+      internalID: -643858254687167528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_17
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 656
+        width: 27
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d4e97d80cc3b1c70800000000000000
+      internalID: 8942808282779215061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_18
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 670
+        width: 57
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67dd78764c8e19660800000000000000
+      internalID: 7390944393739885942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_19
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 636
+        width: 27
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e82a37ccbfc26240800000000000000
+      internalID: 4783614163924166882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_20
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 568
+        width: 81
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d31e689f23e24de00800000000000000
+      internalID: 1068529808063258941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_21
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 577
+        width: 59
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 849ee9864ed6029f0800000000000000
+      internalID: -495275131235538616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_22
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 626
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6b143a49882e2c60800000000000000
+      internalID: 7795212575145466734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_23
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 615
+        width: 12
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c5ca7492f6ab0740800000000000000
+      internalID: 5119368962240071105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_24
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 632
+        width: 30
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab796242592fd99d0800000000000000
+      internalID: -2765787873765058630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_25
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 634
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 242f880d89b647c70800000000000000
+      internalID: 8967911062079337026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_26
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 578
+        width: 75
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec5b8fa8930a95410800000000000000
+      internalID: 1466379322690942414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_27
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 632
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef9b94e5b07ea3440800000000000000
+      internalID: 4916495979240864254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_28
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 626
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67e3c70bc792c5ac0800000000000000
+      internalID: -3865168764677112202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_29
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 628
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6660c0dad846ffbb0800000000000000
+      internalID: -4900087309899397530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_30
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 594
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f42f5b5692766a730800000000000000
+      internalID: 4010005945717748303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_31
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 206
+        width: 316
+        height: 359
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ef5ec693026098a0800000000000000
+      internalID: -6300428111136792608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_32
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 546
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7abe479ef42bf110800000000000000
+      internalID: 1295669993677961852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_33
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 268
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4243bab812c4b8fc0800000000000000
+      internalID: -3491613379134802908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Fireball_34
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 245
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2ee899e8573ca340800000000000000
+      internalID: 4876333351551168042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_Fireball_0: -384340493173524819
+      VFX_Fireball_1: 6768821252215601107
+      VFX_Fireball_10: -4210953935919394300
+      VFX_Fireball_11: -5791548818596863249
+      VFX_Fireball_12: -333477918467378374
+      VFX_Fireball_13: 481765071063580265
+      VFX_Fireball_14: 5170269505359874188
+      VFX_Fireball_15: -1730488123971876156
+      VFX_Fireball_16: -643858254687167528
+      VFX_Fireball_17: 8942808282779215061
+      VFX_Fireball_18: 7390944393739885942
+      VFX_Fireball_19: 4783614163924166882
+      VFX_Fireball_2: 5357294300972979987
+      VFX_Fireball_20: 1068529808063258941
+      VFX_Fireball_21: -495275131235538616
+      VFX_Fireball_22: 7795212575145466734
+      VFX_Fireball_23: 5119368962240071105
+      VFX_Fireball_24: -2765787873765058630
+      VFX_Fireball_25: 8967911062079337026
+      VFX_Fireball_26: 1466379322690942414
+      VFX_Fireball_27: 4916495979240864254
+      VFX_Fireball_28: -3865168764677112202
+      VFX_Fireball_29: -4900087309899397530
+      VFX_Fireball_3: -9021317721194449972
+      VFX_Fireball_30: 4010005945717748303
+      VFX_Fireball_31: -6300428111136792608
+      VFX_Fireball_32: 1295669993677961852
+      VFX_Fireball_33: -3491613379134802908
+      VFX_Fireball_34: 4876333351551168042
+      VFX_Fireball_4: -9139294171507344176
+      VFX_Fireball_5: -2557548449442984980
+      VFX_Fireball_6: -6316769369802417620
+      VFX_Fireball_7: 1167021431318453390
+      VFX_Fireball_8: 1453753144080271112
+      VFX_Fireball_9: -5122421160263759079
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

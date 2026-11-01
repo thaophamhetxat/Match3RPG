@@ -1,0 +1,71 @@
+# Unity .gitignore — cho project Match3RPG (Unity 6, 6000.5.9f1)
+# Cách dùng: copy file này vào THƯ MỤC GỐC của project Unity,
+# đổi tên thành .gitignore (chấm ở đầu, không có đuôi .txt),
+# rồi mới chạy git add.
+# QUAN TRỌNG: file này KHÔNG loại file .meta — Unity cần .meta
+# để giữ GUID, mất .meta là đứt tham chiếu asset (như vụ progress_main01).
+
+# Thư mục Unity tự sinh, không bao giờ commit
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+[Mm]emoryCaptures/
+[Aa]ssets/AssetStoreTools*
+
+# File Visual Studio / Rider tự sinh
+.vs/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Build Android
+*.apk
+*.aab
+*.obb
+*.aab
+exported/
+*.gradle
+gradle/
+
+# Hệ điều hành / editor
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.log
+
+# File nén, file tạm người dùng hay gửi qua chat — không commit vào source
+*.rar
+*.zip
+*.7z
+
+# Secrets — tuyệt đối không commit
+.env
+*.env
+*.key
+*.pem
+credentials.json
+*.token
+
+# ------------------------------------------------------------------
+# TÙY CHỌN: chỉ bật 2 dòng dưới nếu repo để PUBLIC và project có
+# asset mua / asset store (ví dụ Cartoon FX Remaster). Asset store
+# không cho phát tán lại, nên repo Public phải loại folder đó ra.
+# Nếu repo để PRIVATE thì KHÔNG bật, cứ để nguyên để Cooper đọc đủ.
+# Assets/JMO Assets/
+# Assets/Cartoon FX Remaster/
+# ------------------------------------------------------------------

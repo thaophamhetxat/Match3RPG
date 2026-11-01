@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: becaee7fd0b9a3349aa8741b04018319, type: 3}
+  m_Name: region_04_boss_02
+  m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
+  bossId: region_04_boss_02
+  displayName: Shadow Wyvern
+  portrait: {fileID: 21300000, guid: 2452b6bbb17f6344db5aa0066858a857, type: 3}
+  maxHP: 1525
+  attack: 27
+  maxRage: 100
+  startingRage: 0
+  ragePerOrangeGem: 5
+  ragePerReceivedHit: 1
+  criticalEnabled: 1
+  criticalDamageMultiplier: 2
+  statusEffectCapabilities: 8

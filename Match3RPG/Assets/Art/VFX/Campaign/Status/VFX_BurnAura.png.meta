@@ -1,0 +1,494 @@
+fileFormatVersion: 2
+guid: 7dc2eddcac8c03b45b398f203eb7f589
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3724572274902110506
+    second: VFX_BurnAura_0
+  - first:
+      213: 2416636723100002842
+    second: VFX_BurnAura_1
+  - first:
+      213: 6523802456381505751
+    second: VFX_BurnAura_2
+  - first:
+      213: 4575002060162057321
+    second: VFX_BurnAura_3
+  - first:
+      213: 773916022840592862
+    second: VFX_BurnAura_4
+  - first:
+      213: 6041270832589638253
+    second: VFX_BurnAura_5
+  - first:
+      213: -6072364992871720712
+    second: VFX_BurnAura_6
+  - first:
+      213: -3312875936889403910
+    second: VFX_BurnAura_7
+  - first:
+      213: -51376645469427280
+    second: VFX_BurnAura_8
+  - first:
+      213: -3680144412730736662
+    second: VFX_BurnAura_9
+  - first:
+      213: 7079451739849743755
+    second: VFX_BurnAura_10
+  - first:
+      213: -226761727131145664
+    second: VFX_BurnAura_11
+  - first:
+      213: 7952167745773771223
+    second: VFX_BurnAura_12
+  - first:
+      213: 136211583130089931
+    second: VFX_BurnAura_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_BurnAura_0
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 260
+        width: 315
+        height: 567
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a211fc910c650b330800000000000000
+      internalID: 3724572274902110506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_BurnAura_1
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 226
+        width: 78
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1a2a87bb4e998120800000000000000
+      internalID: 2416636723100002842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_BurnAura_2
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 260
+        width: 11
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d0c07df4c3398a50800000000000000
+      internalID: 6523802456381505751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_BurnAura_3
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 230
+        width: 31
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 964c3a2622cad7f30800000000000000
+      internalID: 4575002060162057321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_BurnAura_4
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 278
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed9856bb5808dba00800000000000000
+      internalID: 773916022840592862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_BurnAura_5
+      rect:
+        serializedVersion: 2
+        x: 607
+        y: 198
+        width: 62
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6a0f6070d7e6d350800000000000000
+      internalID: 6041270832589638253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_BurnAura_6
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 198
+        width: 121
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f81d553630aabba0800000000000000
+      internalID: -6072364992871720712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_BurnAura_7
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 259
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af584c443ec4602d0800000000000000
+      internalID: -3312875936889403910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_BurnAura_8
+      rect:
+        serializedVersion: 2
+        x: 401
+        y: 240
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b92b019639794ff0800000000000000
+      internalID: -51376645469427280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_BurnAura_9
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 213
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aefbb05a7208decc0800000000000000
+      internalID: -3680144412730736662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_BurnAura_10
+      rect:
+        serializedVersion: 2
+        x: 474
+        y: 198
+        width: 121
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8dd34e49d34f3260800000000000000
+      internalID: 7079451739849743755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_BurnAura_11
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 212
+        width: 31
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04aa1bd19616adcf0800000000000000
+      internalID: -226761727131145664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_BurnAura_12
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 228
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d91a21be66cb5e60800000000000000
+      internalID: 7952167745773771223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_BurnAura_13
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 222
+        width: 31
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc933c296bbe3e100800000000000000
+      internalID: 136211583130089931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_BurnAura_0: 3724572274902110506
+      VFX_BurnAura_1: 2416636723100002842
+      VFX_BurnAura_10: 7079451739849743755
+      VFX_BurnAura_11: -226761727131145664
+      VFX_BurnAura_12: 7952167745773771223
+      VFX_BurnAura_13: 136211583130089931
+      VFX_BurnAura_2: 6523802456381505751
+      VFX_BurnAura_3: 4575002060162057321
+      VFX_BurnAura_4: 773916022840592862
+      VFX_BurnAura_5: 6041270832589638253
+      VFX_BurnAura_6: -6072364992871720712
+      VFX_BurnAura_7: -3312875936889403910
+      VFX_BurnAura_8: -51376645469427280
+      VFX_BurnAura_9: -3680144412730736662
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

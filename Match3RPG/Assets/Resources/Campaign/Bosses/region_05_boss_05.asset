@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: becaee7fd0b9a3349aa8741b04018319, type: 3}
+  m_Name: region_05_boss_05
+  m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
+  bossId: region_05_boss_05
+  displayName: Spirit Forest Warden
+  portrait: {fileID: 21300000, guid: 69430c249d5139b478ffc6efb5615dfe, type: 3}
+  maxHP: 1900
+  attack: 32
+  maxRage: 100
+  startingRage: 0
+  ragePerOrangeGem: 5
+  ragePerReceivedHit: 1
+  criticalEnabled: 1
+  criticalDamageMultiplier: 2
+  statusEffectCapabilities: 16

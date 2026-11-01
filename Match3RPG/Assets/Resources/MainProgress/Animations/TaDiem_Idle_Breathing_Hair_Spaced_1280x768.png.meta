@@ -1,0 +1,442 @@
+fileFormatVersion: 2
+guid: d3b1d8c728b47d645aff538762b2def4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3461486115469183285
+    second: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_0
+  - first:
+      213: 2507179174018606361
+    second: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_1
+  - first:
+      213: 14773056601203229
+    second: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_2
+  - first:
+      213: -906243193570294075
+    second: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_3
+  - first:
+      213: -5515981920562434292
+    second: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_4
+  - first:
+      213: 8801160508978604485
+    second: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_5
+  - first:
+      213: -7782069474624388988
+    second: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_6
+  - first:
+      213: -7988024425736847819
+    second: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_7
+  - first:
+      213: 8598142306334122697
+    second: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_8
+  - first:
+      213: -5341407107723755211
+    second: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_9
+  - first:
+      213: -4396217755348356728
+    second: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_10
+  - first:
+      213: 7414286579924802312
+    second: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_0
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 539
+        width: 218
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 539cc73484ba90030800000000000000
+      internalID: 3461486115469183285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_1
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 534
+        width: 218
+        height: 211
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 915e2a7dc2a4bc220800000000000000
+      internalID: 2507179174018606361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_2
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 532
+        width: 217
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1226f6440c743000800000000000000
+      internalID: 14773056601203229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_3
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 538
+        width: 217
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c6802fed906c63f0800000000000000
+      internalID: -906243193570294075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_4
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 540
+        width: 218
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0f266d0bab4373b0800000000000000
+      internalID: -5515981920562434292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_5
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 284
+        width: 218
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c9add43ad0042a70800000000000000
+      internalID: 8801160508978604485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_6
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 285
+        width: 217
+        height: 198
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4804a934b09800490800000000000000
+      internalID: -7782069474624388988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_7
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 287
+        width: 217
+        height: 195
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53ebfce6b16d42190800000000000000
+      internalID: -7988024425736847819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_8
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 284
+        width: 217
+        height: 201
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c2ad496fdcb25770800000000000000
+      internalID: 8598142306334122697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_9
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 284
+        width: 218
+        height: 200
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 531016719828fd5b0800000000000000
+      internalID: -5341407107723755211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_10
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 25
+        width: 218
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88132316e3f7df2c0800000000000000
+      internalID: -4396217755348356728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Breathing_Hair_Spaced_1280x768_11
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 27
+        width: 217
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80b1d53ac56d4e660800000000000000
+      internalID: 7414286579924802312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TaDiem_Idle_Breathing_Hair_Spaced_1280x768_0: 3461486115469183285
+      TaDiem_Idle_Breathing_Hair_Spaced_1280x768_1: 2507179174018606361
+      TaDiem_Idle_Breathing_Hair_Spaced_1280x768_10: -4396217755348356728
+      TaDiem_Idle_Breathing_Hair_Spaced_1280x768_11: 7414286579924802312
+      TaDiem_Idle_Breathing_Hair_Spaced_1280x768_2: 14773056601203229
+      TaDiem_Idle_Breathing_Hair_Spaced_1280x768_3: -906243193570294075
+      TaDiem_Idle_Breathing_Hair_Spaced_1280x768_4: -5515981920562434292
+      TaDiem_Idle_Breathing_Hair_Spaced_1280x768_5: 8801160508978604485
+      TaDiem_Idle_Breathing_Hair_Spaced_1280x768_6: -7782069474624388988
+      TaDiem_Idle_Breathing_Hair_Spaced_1280x768_7: -7988024425736847819
+      TaDiem_Idle_Breathing_Hair_Spaced_1280x768_8: 8598142306334122697
+      TaDiem_Idle_Breathing_Hair_Spaced_1280x768_9: -5341407107723755211
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

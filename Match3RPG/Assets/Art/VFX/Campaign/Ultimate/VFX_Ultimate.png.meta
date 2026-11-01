@@ -1,0 +1,702 @@
+fileFormatVersion: 2
+guid: 998e82e3bf0a34d4999291979c3f1276
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6788329250306284548
+    second: VFX_Ultimate_0
+  - first:
+      213: 1386000961535789616
+    second: VFX_Ultimate_1
+  - first:
+      213: -9018577314701880878
+    second: VFX_Ultimate_2
+  - first:
+      213: -8907709594815121331
+    second: VFX_Ultimate_3
+  - first:
+      213: -3961512483162701967
+    second: VFX_Ultimate_4
+  - first:
+      213: -5494662027341929962
+    second: VFX_Ultimate_5
+  - first:
+      213: -5297426271708377751
+    second: VFX_Ultimate_6
+  - first:
+      213: -7908706204921908618
+    second: VFX_Ultimate_7
+  - first:
+      213: 3980027152768779464
+    second: VFX_Ultimate_8
+  - first:
+      213: -2651460632889925749
+    second: VFX_Ultimate_9
+  - first:
+      213: -2549424950972035034
+    second: VFX_Ultimate_10
+  - first:
+      213: 2199277260136956884
+    second: VFX_Ultimate_11
+  - first:
+      213: 8936754078680797717
+    second: VFX_Ultimate_12
+  - first:
+      213: -6014056268089859535
+    second: VFX_Ultimate_13
+  - first:
+      213: -7640706369230589084
+    second: VFX_Ultimate_14
+  - first:
+      213: 1869182865525901232
+    second: VFX_Ultimate_15
+  - first:
+      213: -7188992744965527344
+    second: VFX_Ultimate_16
+  - first:
+      213: -157616695243846892
+    second: VFX_Ultimate_17
+  - first:
+      213: -5968751253275964316
+    second: VFX_Ultimate_18
+  - first:
+      213: 2338676348969201165
+    second: VFX_Ultimate_19
+  - first:
+      213: 8625172632344577551
+    second: VFX_Ultimate_20
+  - first:
+      213: 3741707173911734774
+    second: VFX_Ultimate_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_Ultimate_0
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 198
+        width: 315
+        height: 628
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40c56eeac7df43e50800000000000000
+      internalID: 6788329250306284548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_1
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 272
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03ac0baf7801c3310800000000000000
+      internalID: 1386000961535789616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_2
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 220
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d15cc9f6b397d280800000000000000
+      internalID: -9018577314701880878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_3
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 230
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d48b4be8155716480800000000000000
+      internalID: -8907709594815121331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_4
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 201
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17fbfc3b261e509c0800000000000000
+      internalID: -3961512483162701967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_5
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 245
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 612e4738ff90fb3b0800000000000000
+      internalID: -5494662027341929962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_6
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 220
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96d00037fd2cb76b0800000000000000
+      internalID: -5297426271708377751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_7
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 331
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 672b3b6db91ae3290800000000000000
+      internalID: -7908706204921908618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_8
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 228
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c4413dbb95eb3730800000000000000
+      internalID: 3980027152768779464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_9
+      rect:
+        serializedVersion: 2
+        x: 506
+        y: 276
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8fd9a83a9e143bd0800000000000000
+      internalID: -2651460632889925749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_10
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 264
+        width: 39
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6205bc7b38f9e9cd0800000000000000
+      internalID: -2549424950972035034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_11
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 246
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d3ce0d0407658e10800000000000000
+      internalID: 2199277260136956884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_12
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 314
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 512dac05c7ab50c70800000000000000
+      internalID: 8936754078680797717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_13
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 262
+        width: 79
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 132ea4120b7c98ca0800000000000000
+      internalID: -6014056268089859535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_14
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 214
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46332f41a02c6f590800000000000000
+      internalID: -7640706369230589084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_15
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 252
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b70befa9eba0f910800000000000000
+      internalID: 1869182865525901232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_16
+      rect:
+        serializedVersion: 2
+        x: 614
+        y: 246
+        width: 55
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d82877ff219b3c90800000000000000
+      internalID: -7188992744965527344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_17
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 336
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41bc155637800ddf0800000000000000
+      internalID: -157616695243846892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_18
+      rect:
+        serializedVersion: 2
+        x: 628
+        y: 217
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46c81d3eb5cba2da0800000000000000
+      internalID: -5968751253275964316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_19
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 294
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0eaae0afb5a47020800000000000000
+      internalID: 2338676348969201165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_20
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 314
+        width: 7
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f06c15d9fc4c2b770800000000000000
+      internalID: 8625172632344577551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Ultimate_21
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 234
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f92a8aa9d63de330800000000000000
+      internalID: 3741707173911734774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_Ultimate_0: 6788329250306284548
+      VFX_Ultimate_1: 1386000961535789616
+      VFX_Ultimate_10: -2549424950972035034
+      VFX_Ultimate_11: 2199277260136956884
+      VFX_Ultimate_12: 8936754078680797717
+      VFX_Ultimate_13: -6014056268089859535
+      VFX_Ultimate_14: -7640706369230589084
+      VFX_Ultimate_15: 1869182865525901232
+      VFX_Ultimate_16: -7188992744965527344
+      VFX_Ultimate_17: -157616695243846892
+      VFX_Ultimate_18: -5968751253275964316
+      VFX_Ultimate_19: 2338676348969201165
+      VFX_Ultimate_2: -9018577314701880878
+      VFX_Ultimate_20: 8625172632344577551
+      VFX_Ultimate_21: 3741707173911734774
+      VFX_Ultimate_3: -8907709594815121331
+      VFX_Ultimate_4: -3961512483162701967
+      VFX_Ultimate_5: -5494662027341929962
+      VFX_Ultimate_6: -5297426271708377751
+      VFX_Ultimate_7: -7908706204921908618
+      VFX_Ultimate_8: 3980027152768779464
+      VFX_Ultimate_9: -2651460632889925749
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

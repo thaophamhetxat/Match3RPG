@@ -1,0 +1,564 @@
+fileFormatVersion: 2
+guid: e875883f7c5026043bc799b6cfcb020b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8124508513529722025
+    second: Violet Dragon Ultimate Attack Animation-3_0
+  - first:
+      213: 1010109954930511205
+    second: Violet Dragon Ultimate Attack Animation-3_1
+  - first:
+      213: -3433291524004486015
+    second: Violet Dragon Ultimate Attack Animation-3_2
+  - first:
+      213: -2623575341650485381
+    second: Violet Dragon Ultimate Attack Animation-3_3
+  - first:
+      213: 868333588364249588
+    second: Violet Dragon Ultimate Attack Animation-3_4
+  - first:
+      213: -8797974744518969522
+    second: Violet Dragon Ultimate Attack Animation-3_5
+  - first:
+      213: -3651348624766273311
+    second: Violet Dragon Ultimate Attack Animation-3_6
+  - first:
+      213: 5512917653152206108
+    second: Violet Dragon Ultimate Attack Animation-3_7
+  - first:
+      213: 5425179918586352077
+    second: Violet Dragon Ultimate Attack Animation-3_8
+  - first:
+      213: -3066433297069322216
+    second: Violet Dragon Ultimate Attack Animation-3_9
+  - first:
+      213: 5178094616474987485
+    second: Violet Dragon Ultimate Attack Animation-3_10
+  - first:
+      213: 4826589883326648265
+    second: Violet Dragon Ultimate Attack Animation-3_11
+  - first:
+      213: 1699799336160751422
+    second: Violet Dragon Ultimate Attack Animation-3_12
+  - first:
+      213: -7119964940586565156
+    second: Violet Dragon Ultimate Attack Animation-3_13
+  - first:
+      213: -4368345700602779435
+    second: Violet Dragon Ultimate Attack Animation-3_14
+  - first:
+      213: 8401959009104358025
+    second: Violet Dragon Ultimate Attack Animation-3_15
+  - first:
+      213: 5834629818819056303
+    second: Violet Dragon Ultimate Attack Animation-3_16
+  - first:
+      213: -4145581684389866177
+    second: Violet Dragon Ultimate Attack Animation-3_17
+  - first:
+      213: 3268376105882929022
+    second: Violet Dragon Ultimate Attack Animation-3_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss02_SpecAttack_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 647.3333
+        width: 323.8
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46852f6bdd597b943a4b0d24631c89d5
+      internalID: -371499480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_SpecAttack_01
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 647.3333
+        width: 323.8
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa130ef9c0e05440b3e1a478feec468
+      internalID: 352615852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_SpecAttack_02
+      rect:
+        serializedVersion: 2
+        x: 647.6
+        y: 647.3333
+        width: 323.80005
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf9a441b4b4b15e4897ae61af863bbc5
+      internalID: 1335922191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_SpecAttack_03
+      rect:
+        serializedVersion: 2
+        x: 971.4
+        y: 647.3333
+        width: 323.79993
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 074d9efd0eee1fd468ab59690ef9e761
+      internalID: -1147009410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_SpecAttack_04
+      rect:
+        serializedVersion: 2
+        x: 1295.2
+        y: 647.3333
+        width: 323.80005
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 874021f1b40461441b5c95be02858f87
+      internalID: -654485394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_SpecAttack_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 323.66666
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c49321a949069b4bb20b40399162c7d
+      internalID: 857042339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_SpecAttack_06
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 323.66666
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2538a494b7d42fe4e99a540425bba1c2
+      internalID: -525877515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_SpecAttack_07
+      rect:
+        serializedVersion: 2
+        x: 647.6
+        y: 323.66666
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74a2f95e0075590468457d537c6b04b9
+      internalID: -67277630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_SpecAttack_08
+      rect:
+        serializedVersion: 2
+        x: 971.4
+        y: 323.66666
+        width: 323.79993
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 175edf216f0638d4e9e159aeeba5f03d
+      internalID: -1519486173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_SpecAttack_09
+      rect:
+        serializedVersion: 2
+        x: 1295.2
+        y: 323.66666
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2697e2142a2f644a9d21743e5714ea1
+      internalID: -1124545436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_SpecAttack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e29f3325cc09d40aef75a22cc19478
+      internalID: -1371989144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_SpecAttack_11
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 0
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b46f0669d5c77d940a4c51baadf0f3a6
+      internalID: 92900376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_SpecAttack_12
+      rect:
+        serializedVersion: 2
+        x: 647.6
+        y: 0
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9794b1905ef07e4381dedd1cb1529cd
+      internalID: 281030524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_SpecAttack_13
+      rect:
+        serializedVersion: 2
+        x: 971.4
+        y: 0
+        width: 323.79993
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbe43e4f304f6b946baa95def25a63b5
+      internalID: 105030689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_SpecAttack_14
+      rect:
+        serializedVersion: 2
+        x: 1295.2
+        y: 0
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c23a8fac789baad4aa472f62b3a97f7c
+      internalID: -948810518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Boss02_SpecAttack_00: -371499480
+      Boss02_SpecAttack_01: 352615852
+      Boss02_SpecAttack_02: 1335922191
+      Boss02_SpecAttack_03: -1147009410
+      Boss02_SpecAttack_04: -654485394
+      Boss02_SpecAttack_05: 857042339
+      Boss02_SpecAttack_06: -525877515
+      Boss02_SpecAttack_07: -67277630
+      Boss02_SpecAttack_08: -1519486173
+      Boss02_SpecAttack_09: -1124545436
+      Boss02_SpecAttack_10: -1371989144
+      Boss02_SpecAttack_11: 92900376
+      Boss02_SpecAttack_12: 281030524
+      Boss02_SpecAttack_13: 105030689
+      Boss02_SpecAttack_14: -948810518
+      Violet Dragon Ultimate Attack Animation-3_0: -8124508513529722025
+      Violet Dragon Ultimate Attack Animation-3_1: 1010109954930511205
+      Violet Dragon Ultimate Attack Animation-3_10: 5178094616474987485
+      Violet Dragon Ultimate Attack Animation-3_11: 4826589883326648265
+      Violet Dragon Ultimate Attack Animation-3_12: 1699799336160751422
+      Violet Dragon Ultimate Attack Animation-3_13: -7119964940586565156
+      Violet Dragon Ultimate Attack Animation-3_14: -4368345700602779435
+      Violet Dragon Ultimate Attack Animation-3_15: 8401959009104358025
+      Violet Dragon Ultimate Attack Animation-3_16: 5834629818819056303
+      Violet Dragon Ultimate Attack Animation-3_17: -4145581684389866177
+      Violet Dragon Ultimate Attack Animation-3_18: 3268376105882929022
+      Violet Dragon Ultimate Attack Animation-3_2: -3433291524004486015
+      Violet Dragon Ultimate Attack Animation-3_3: -2623575341650485381
+      Violet Dragon Ultimate Attack Animation-3_4: 868333588364249588
+      Violet Dragon Ultimate Attack Animation-3_5: -8797974744518969522
+      Violet Dragon Ultimate Attack Animation-3_6: -3651348624766273311
+      Violet Dragon Ultimate Attack Animation-3_7: 5512917653152206108
+      Violet Dragon Ultimate Attack Animation-3_8: 5425179918586352077
+      Violet Dragon Ultimate Attack Animation-3_9: -3066433297069322216
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

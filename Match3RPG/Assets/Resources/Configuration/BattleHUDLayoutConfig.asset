@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1cdd7c1af114824a8044416a6e6f001, type: 3}
+  m_Name: BattleHUDLayoutConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Configuration.BattleHUDLayoutConfig
+  heroNameSlot: {x: 0.1, y: 0.918, width: 0.28, height: 0.014}
+  bossNameOffsetNormalized: {x: 0, y: 0}
+  heroNameStyle:
+    fontSize: 24
+    autoSize: 1
+    autoSizeMin: 16
+    autoSizeMax: 24
+    color: {r: 0.9607843, g: 0.7450981, b: 0.345098, a: 1}
+    outlineColor: {r: 0.03, g: 0.025, b: 0.02, a: 0.9}
+    outlineWidth: 0.12
+    alignment: 4097
+  bossNameStyle:
+    fontSize: 24
+    autoSize: 1
+    autoSizeMin: 16
+    autoSizeMax: 24
+    color: {r: 0.9607843, g: 0.7450981, b: 0.345098, a: 1}
+    outlineColor: {r: 0.03, g: 0.025, b: 0.02, a: 0.9}
+    outlineWidth: 0.12
+    alignment: 4100
+  heroHpChannel: {x: 0.075, y: 0.896875, width: 0.195, height: 0.0125}
+  heroHpBarPosition: {x: -353.2, y: 940}
+  bossHpBarOffsetReferencePixels: {x: 0, y: 0}
+  heroHpBarSize: {x: 209.6, y: 30}
+  hpFillInset: 3
+  hpValueStyle:
+    fontSize: 18
+    autoSize: 1
+    autoSizeMin: 14
+    autoSizeMax: 18
+    color: {r: 1, g: 1, b: 1, a: 1}
+    outlineColor: {r: 0.03, g: 0.025, b: 0.02, a: 0.9}
+    outlineWidth: 0.18
+    alignment: 514
+  heroRageChannel: {x: 0.13, y: 0.86025, width: 0.24, height: 0.0125}
+  bossRageOffsetNormalized: {x: 0, y: 0}
+  rageFillInset: 3
+  rageValueStyle:
+    fontSize: 13
+    autoSize: 1
+    autoSizeMin: 10
+    autoSizeMax: 13
+    color: {r: 1, g: 1, b: 1, a: 1}
+    outlineColor: {r: 0.03, g: 0.025, b: 0.02, a: 0.9}
+    outlineWidth: 0.18
+    alignment: 514
+  turnInfoAnchorPosition: {x: 0.5, y: 0.535}
+  turnCountPosition: {x: -250, y: -6}
+  turnCountSize: {x: 140, y: 58}
+  timerPosition: {x: 435, y: -6}
+  timerSize: {x: 90, y: 58}
+  turnCountStyle:
+    fontSize: 28
+    autoSize: 1
+    autoSizeMin: 20
+    autoSizeMax: 28
+    color: {r: 0.9607843, g: 0.7450981, b: 0.345098, a: 1}
+    outlineColor: {r: 0.03, g: 0.025, b: 0.02, a: 0.9}
+    outlineWidth: 0.18
+    alignment: 513
+  timerStyle:
+    fontSize: 28
+    autoSize: 1
+    autoSizeMin: 20
+    autoSizeMax: 28
+    color: {r: 1, g: 1, b: 1, a: 1}
+    outlineColor: {r: 0.03, g: 0.025, b: 0.02, a: 0.9}
+    outlineWidth: 0.18
+    alignment: 514
+  timerNormalColor: {r: 1, g: 1, b: 1, a: 1}
+  timerWarningColor: {r: 1, g: 1, b: 0, a: 1}
+  timerDangerColor: {r: 1, g: 0, b: 0, a: 1}
+  menuHitAreaPosition: {x: -419, y: -1060}
+  menuHitAreaSize: {x: 188, y: 171}

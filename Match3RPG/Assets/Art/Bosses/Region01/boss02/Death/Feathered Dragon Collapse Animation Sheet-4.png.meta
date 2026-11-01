@@ -1,0 +1,916 @@
+fileFormatVersion: 2
+guid: 8d60d4fbc7d2ffe40835b041755d30ba
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3208613926573287445
+    second: Feathered Dragon Collapse Animation Sheet-4_0
+  - first:
+      213: -3066341337698190690
+    second: Feathered Dragon Collapse Animation Sheet-4_1
+  - first:
+      213: -1576716083037648620
+    second: Feathered Dragon Collapse Animation Sheet-4_2
+  - first:
+      213: 5714223348399753341
+    second: Feathered Dragon Collapse Animation Sheet-4_3
+  - first:
+      213: -4818569833813714888
+    second: Feathered Dragon Collapse Animation Sheet-4_4
+  - first:
+      213: -2932113152062858244
+    second: Feathered Dragon Collapse Animation Sheet-4_5
+  - first:
+      213: -8171695976509730515
+    second: Feathered Dragon Collapse Animation Sheet-4_6
+  - first:
+      213: 2848917786866830796
+    second: Feathered Dragon Collapse Animation Sheet-4_7
+  - first:
+      213: -8213508109747229119
+    second: Feathered Dragon Collapse Animation Sheet-4_8
+  - first:
+      213: -3197401908404256932
+    second: Feathered Dragon Collapse Animation Sheet-4_9
+  - first:
+      213: 1795067220547676390
+    second: Feathered Dragon Collapse Animation Sheet-4_10
+  - first:
+      213: 5850801511213842453
+    second: Feathered Dragon Collapse Animation Sheet-4_11
+  - first:
+      213: -9043725941840064694
+    second: Feathered Dragon Collapse Animation Sheet-4_12
+  - first:
+      213: -5360684296280554302
+    second: Feathered Dragon Collapse Animation Sheet-4_13
+  - first:
+      213: -5278467701931275520
+    second: Feathered Dragon Collapse Animation Sheet-4_14
+  - first:
+      213: 133876451058622768
+    second: Feathered Dragon Collapse Animation Sheet-4_15
+  - first:
+      213: 4381881950427997656
+    second: Feathered Dragon Collapse Animation Sheet-4_16
+  - first:
+      213: -2840900007036453580
+    second: Feathered Dragon Collapse Animation Sheet-4_17
+  - first:
+      213: 2275769133953261084
+    second: Feathered Dragon Collapse Animation Sheet-4_18
+  - first:
+      213: -1956487753117522974
+    second: Feathered Dragon Collapse Animation Sheet-4_19
+  - first:
+      213: 2706350629616274192
+    second: Feathered Dragon Collapse Animation Sheet-4_20
+  - first:
+      213: 5031301209698444253
+    second: Feathered Dragon Collapse Animation Sheet-4_21
+  - first:
+      213: 3020893653132155568
+    second: Feathered Dragon Collapse Animation Sheet-4_22
+  - first:
+      213: -7708465083851824521
+    second: Feathered Dragon Collapse Animation Sheet-4_23
+  - first:
+      213: 2342696164437654055
+    second: Feathered Dragon Collapse Animation Sheet-4_24
+  - first:
+      213: -3934195149853522673
+    second: Feathered Dragon Collapse Animation Sheet-4_25
+  - first:
+      213: -6452858804485411761
+    second: Feathered Dragon Collapse Animation Sheet-4_26
+  - first:
+      213: -657239617515421297
+    second: Feathered Dragon Collapse Animation Sheet-4_27
+  - first:
+      213: -2806035006504185949
+    second: Feathered Dragon Collapse Animation Sheet-4_28
+  - first:
+      213: 6012436019586234191
+    second: Feathered Dragon Collapse Animation Sheet-4_29
+  - first:
+      213: 7310107157875275300
+    second: Feathered Dragon Collapse Animation Sheet-4_30
+  - first:
+      213: -1370533998820011707
+    second: Feathered Dragon Collapse Animation Sheet-4_31
+  - first:
+      213: -3278573689744159430
+    second: Feathered Dragon Collapse Animation Sheet-4_32
+  - first:
+      213: 2215668921866811260
+    second: Feathered Dragon Collapse Animation Sheet-4_33
+  - first:
+      213: -6111768156363203139
+    second: Feathered Dragon Collapse Animation Sheet-4_34
+  - first:
+      213: 4286827360745160076
+    second: Feathered Dragon Collapse Animation Sheet-4_35
+  - first:
+      213: 7550418788393747825
+    second: Feathered Dragon Collapse Animation Sheet-4_36
+  - first:
+      213: -591422954345645790
+    second: Feathered Dragon Collapse Animation Sheet-4_37
+  - first:
+      213: 1485969204171686724
+    second: Feathered Dragon Collapse Animation Sheet-4_38
+  - first:
+      213: 1394928806413422144
+    second: Feathered Dragon Collapse Animation Sheet-4_39
+  - first:
+      213: 5074236508218905874
+    second: Feathered Dragon Collapse Animation Sheet-4_40
+  - first:
+      213: 2985358495086797212
+    second: Feathered Dragon Collapse Animation Sheet-4_41
+  - first:
+      213: 5854983305480731245
+    second: Feathered Dragon Collapse Animation Sheet-4_42
+  - first:
+      213: 313953446827723496
+    second: Feathered Dragon Collapse Animation Sheet-4_43
+  - first:
+      213: -3654894387345339472
+    second: Feathered Dragon Collapse Animation Sheet-4_44
+  - first:
+      213: 764382576050463681
+    second: Feathered Dragon Collapse Animation Sheet-4_45
+  - first:
+      213: -8631835675779622899
+    second: Feathered Dragon Collapse Animation Sheet-4_46
+  - first:
+      213: 1546142446466587031
+    second: Feathered Dragon Collapse Animation Sheet-4_47
+  - first:
+      213: 151164049432969128
+    second: Feathered Dragon Collapse Animation Sheet-4_48
+  - first:
+      213: -8323807950226200335
+    second: Feathered Dragon Collapse Animation Sheet-4_49
+  - first:
+      213: 5619754680663452727
+    second: Feathered Dragon Collapse Animation Sheet-4_50
+  - first:
+      213: -8160801177447219132
+    second: Feathered Dragon Collapse Animation Sheet-4_51
+  - first:
+      213: -5365589231745944110
+    second: Feathered Dragon Collapse Animation Sheet-4_52
+  - first:
+      213: 5088163011639546689
+    second: Feathered Dragon Collapse Animation Sheet-4_53
+  - first:
+      213: -7466066340130177869
+    second: Feathered Dragon Collapse Animation Sheet-4_54
+  - first:
+      213: 3115061677938604865
+    second: Feathered Dragon Collapse Animation Sheet-4_55
+  - first:
+      213: -844435519601606719
+    second: Feathered Dragon Collapse Animation Sheet-4_56
+  - first:
+      213: -1036724465657629485
+    second: Feathered Dragon Collapse Animation Sheet-4_57
+  - first:
+      213: 6703926164185843832
+    second: Feathered Dragon Collapse Animation Sheet-4_58
+  - first:
+      213: -1728311243090747015
+    second: Feathered Dragon Collapse Animation Sheet-4_59
+  - first:
+      213: -632561670181674698
+    second: Feathered Dragon Collapse Animation Sheet-4_60
+  - first:
+      213: -2351372449263873051
+    second: Feathered Dragon Collapse Animation Sheet-4_61
+  - first:
+      213: -7468746605491833819
+    second: Feathered Dragon Collapse Animation Sheet-4_62
+  - first:
+      213: 4147009968419897340
+    second: Feathered Dragon Collapse Animation Sheet-4_63
+  - first:
+      213: -212205187424047372
+    second: Feathered Dragon Collapse Animation Sheet-4_64
+  - first:
+      213: -1525913861756651080
+    second: Feathered Dragon Collapse Animation Sheet-4_65
+  - first:
+      213: -4169167940206732070
+    second: Feathered Dragon Collapse Animation Sheet-4_66
+  - first:
+      213: -4568026144044292809
+    second: Feathered Dragon Collapse Animation Sheet-4_67
+  - first:
+      213: 5700248353047975722
+    second: Feathered Dragon Collapse Animation Sheet-4_68
+  - first:
+      213: -2404596160568799928
+    second: Feathered Dragon Collapse Animation Sheet-4_69
+  - first:
+      213: -8862799368610774440
+    second: Feathered Dragon Collapse Animation Sheet-4_70
+  - first:
+      213: 2620915260701535834
+    second: Feathered Dragon Collapse Animation Sheet-4_71
+  - first:
+      213: 7562098414168074133
+    second: Feathered Dragon Collapse Animation Sheet-4_72
+  - first:
+      213: 6408970751186545573
+    second: Feathered Dragon Collapse Animation Sheet-4_73
+  - first:
+      213: -5339160949903134941
+    second: Feathered Dragon Collapse Animation Sheet-4_74
+  - first:
+      213: -3834389308490503322
+    second: Feathered Dragon Collapse Animation Sheet-4_75
+  - first:
+      213: -3701794191141798895
+    second: Feathered Dragon Collapse Animation Sheet-4_76
+  - first:
+      213: 2643151299708968794
+    second: Feathered Dragon Collapse Animation Sheet-4_77
+  - first:
+      213: 160696640420284873
+    second: Feathered Dragon Collapse Animation Sheet-4_78
+  - first:
+      213: -3752351635697884025
+    second: Feathered Dragon Collapse Animation Sheet-4_79
+  - first:
+      213: -6849829025859847729
+    second: Feathered Dragon Collapse Animation Sheet-4_80
+  - first:
+      213: 7528577701853440527
+    second: Feathered Dragon Collapse Animation Sheet-4_81
+  - first:
+      213: 5237953208118122790
+    second: Feathered Dragon Collapse Animation Sheet-4_82
+  - first:
+      213: 8885960619823859824
+    second: Feathered Dragon Collapse Animation Sheet-4_83
+  - first:
+      213: -1524269129189036303
+    second: Feathered Dragon Collapse Animation Sheet-4_84
+  - first:
+      213: -7820744280924412730
+    second: Feathered Dragon Collapse Animation Sheet-4_85
+  - first:
+      213: -7893407895820454135
+    second: Feathered Dragon Collapse Animation Sheet-4_86
+  - first:
+      213: -7842901888223804867
+    second: Feathered Dragon Collapse Animation Sheet-4_87
+  - first:
+      213: -7406655431964051541
+    second: Feathered Dragon Collapse Animation Sheet-4_88
+  - first:
+      213: -1258309744405550596
+    second: Feathered Dragon Collapse Animation Sheet-4_89
+  - first:
+      213: -6840893379546543920
+    second: Feathered Dragon Collapse Animation Sheet-4_90
+  - first:
+      213: -1727416879918292922
+    second: Feathered Dragon Collapse Animation Sheet-4_91
+  - first:
+      213: 2736928674153334242
+    second: Feathered Dragon Collapse Animation Sheet-4_92
+  - first:
+      213: 6537542739107213453
+    second: Feathered Dragon Collapse Animation Sheet-4_93
+  - first:
+      213: -8304165777448881554
+    second: Feathered Dragon Collapse Animation Sheet-4_94
+  - first:
+      213: 2326903778455519927
+    second: Feathered Dragon Collapse Animation Sheet-4_95
+  - first:
+      213: 6276203570456075019
+    second: Feathered Dragon Collapse Animation Sheet-4_96
+  - first:
+      213: 3970610013515377232
+    second: Feathered Dragon Collapse Animation Sheet-4_97
+  - first:
+      213: -3976222030273226674
+    second: Feathered Dragon Collapse Animation Sheet-4_98
+  - first:
+      213: 8653655053058899839
+    second: Feathered Dragon Collapse Animation Sheet-4_99
+  - first:
+      213: -4904471091978106097
+    second: Feathered Dragon Collapse Animation Sheet-4_100
+  - first:
+      213: -1416060075600765100
+    second: Feathered Dragon Collapse Animation Sheet-4_101
+  - first:
+      213: -5108096533811821608
+    second: Feathered Dragon Collapse Animation Sheet-4_102
+  - first:
+      213: 7434089702636348076
+    second: Feathered Dragon Collapse Animation Sheet-4_103
+  - first:
+      213: 3890071458233567003
+    second: Feathered Dragon Collapse Animation Sheet-4_104
+  - first:
+      213: -2819903745231307598
+    second: Feathered Dragon Collapse Animation Sheet-4_105
+  - first:
+      213: 4981078174462912155
+    second: Feathered Dragon Collapse Animation Sheet-4_106
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss02_Death_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 647.3333
+        width: 323.8
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57c47c6e9d3ec0b40821bab6850f6ed3
+      internalID: 1963247664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Death_01
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 647.3333
+        width: 323.8
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5f560e0b51d67d439b5f392e9c4bb53
+      internalID: 1593197350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Death_02
+      rect:
+        serializedVersion: 2
+        x: 647.6
+        y: 647.3333
+        width: 323.80005
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e1561bbfc98dbe459950fabcb605841
+      internalID: 1611714561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Death_03
+      rect:
+        serializedVersion: 2
+        x: 971.4
+        y: 647.3333
+        width: 323.79993
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e17897cf82bb50844b5e41a57b4ba042
+      internalID: 1059378509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Death_04
+      rect:
+        serializedVersion: 2
+        x: 1295.2
+        y: 647.3333
+        width: 323.80005
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d9e711dd49faa14a8c52d43c994ca2b
+      internalID: 1586932805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Death_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 323.66666
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0e8b60dcc82557488ba7ae8e74636da
+      internalID: 1228267627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Death_06
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 323.66666
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8687668a25ddb0d4aad29dab83b06613
+      internalID: -1631791456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Death_07
+      rect:
+        serializedVersion: 2
+        x: 647.6
+        y: 323.66666
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f00986b8b09bb045b3e5dbe7c9b15de
+      internalID: -1936193406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Death_08
+      rect:
+        serializedVersion: 2
+        x: 971.4
+        y: 323.66666
+        width: 323.79993
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de2ef2a017741a742a378df82152b589
+      internalID: -1426808864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Death_09
+      rect:
+        serializedVersion: 2
+        x: 1295.2
+        y: 323.66666
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 548ace78bbc5bb34397a43e005c40989
+      internalID: 1630043325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Death_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a04df72ade44dfe47ac2f9f293b999b9
+      internalID: 1960349837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Death_11
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 0
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 348f77fcb6c8f1342bc29ec3a5392c04
+      internalID: -1238308212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Death_12
+      rect:
+        serializedVersion: 2
+        x: 647.6
+        y: 0
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d4b185b4ce7e1241a6cc1f9e2dc6071
+      internalID: -1693058941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Death_13
+      rect:
+        serializedVersion: 2
+        x: 971.4
+        y: 0
+        width: 323.79993
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b68a5a12baf8a7449286d205ab45761
+      internalID: 154719309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Death_14
+      rect:
+        serializedVersion: 2
+        x: 1295.2
+        y: 0
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dfc1d0d0a9148a49a12ac55b3d7037e
+      internalID: -1835453279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Boss02_Death_00: 1963247664
+      Boss02_Death_01: 1593197350
+      Boss02_Death_02: 1611714561
+      Boss02_Death_03: 1059378509
+      Boss02_Death_04: 1586932805
+      Boss02_Death_05: 1228267627
+      Boss02_Death_06: -1631791456
+      Boss02_Death_07: -1936193406
+      Boss02_Death_08: -1426808864
+      Boss02_Death_09: 1630043325
+      Boss02_Death_10: 1960349837
+      Boss02_Death_11: -1238308212
+      Boss02_Death_12: -1693058941
+      Boss02_Death_13: 154719309
+      Boss02_Death_14: -1835453279
+      Feathered Dragon Collapse Animation Sheet-4_0: -3208613926573287445
+      Feathered Dragon Collapse Animation Sheet-4_1: -3066341337698190690
+      Feathered Dragon Collapse Animation Sheet-4_10: 1795067220547676390
+      Feathered Dragon Collapse Animation Sheet-4_100: -4904471091978106097
+      Feathered Dragon Collapse Animation Sheet-4_101: -1416060075600765100
+      Feathered Dragon Collapse Animation Sheet-4_102: -5108096533811821608
+      Feathered Dragon Collapse Animation Sheet-4_103: 7434089702636348076
+      Feathered Dragon Collapse Animation Sheet-4_104: 3890071458233567003
+      Feathered Dragon Collapse Animation Sheet-4_105: -2819903745231307598
+      Feathered Dragon Collapse Animation Sheet-4_106: 4981078174462912155
+      Feathered Dragon Collapse Animation Sheet-4_11: 5850801511213842453
+      Feathered Dragon Collapse Animation Sheet-4_12: -9043725941840064694
+      Feathered Dragon Collapse Animation Sheet-4_13: -5360684296280554302
+      Feathered Dragon Collapse Animation Sheet-4_14: -5278467701931275520
+      Feathered Dragon Collapse Animation Sheet-4_15: 133876451058622768
+      Feathered Dragon Collapse Animation Sheet-4_16: 4381881950427997656
+      Feathered Dragon Collapse Animation Sheet-4_17: -2840900007036453580
+      Feathered Dragon Collapse Animation Sheet-4_18: 2275769133953261084
+      Feathered Dragon Collapse Animation Sheet-4_19: -1956487753117522974
+      Feathered Dragon Collapse Animation Sheet-4_2: -1576716083037648620
+      Feathered Dragon Collapse Animation Sheet-4_20: 2706350629616274192
+      Feathered Dragon Collapse Animation Sheet-4_21: 5031301209698444253
+      Feathered Dragon Collapse Animation Sheet-4_22: 3020893653132155568
+      Feathered Dragon Collapse Animation Sheet-4_23: -7708465083851824521
+      Feathered Dragon Collapse Animation Sheet-4_24: 2342696164437654055
+      Feathered Dragon Collapse Animation Sheet-4_25: -3934195149853522673
+      Feathered Dragon Collapse Animation Sheet-4_26: -6452858804485411761
+      Feathered Dragon Collapse Animation Sheet-4_27: -657239617515421297
+      Feathered Dragon Collapse Animation Sheet-4_28: -2806035006504185949
+      Feathered Dragon Collapse Animation Sheet-4_29: 6012436019586234191
+      Feathered Dragon Collapse Animation Sheet-4_3: 5714223348399753341
+      Feathered Dragon Collapse Animation Sheet-4_30: 7310107157875275300
+      Feathered Dragon Collapse Animation Sheet-4_31: -1370533998820011707
+      Feathered Dragon Collapse Animation Sheet-4_32: -3278573689744159430
+      Feathered Dragon Collapse Animation Sheet-4_33: 2215668921866811260
+      Feathered Dragon Collapse Animation Sheet-4_34: -6111768156363203139
+      Feathered Dragon Collapse Animation Sheet-4_35: 4286827360745160076
+      Feathered Dragon Collapse Animation Sheet-4_36: 7550418788393747825
+      Feathered Dragon Collapse Animation Sheet-4_37: -591422954345645790
+      Feathered Dragon Collapse Animation Sheet-4_38: 1485969204171686724
+      Feathered Dragon Collapse Animation Sheet-4_39: 1394928806413422144
+      Feathered Dragon Collapse Animation Sheet-4_4: -4818569833813714888
+      Feathered Dragon Collapse Animation Sheet-4_40: 5074236508218905874
+      Feathered Dragon Collapse Animation Sheet-4_41: 2985358495086797212
+      Feathered Dragon Collapse Animation Sheet-4_42: 5854983305480731245
+      Feathered Dragon Collapse Animation Sheet-4_43: 313953446827723496
+      Feathered Dragon Collapse Animation Sheet-4_44: -3654894387345339472
+      Feathered Dragon Collapse Animation Sheet-4_45: 764382576050463681
+      Feathered Dragon Collapse Animation Sheet-4_46: -8631835675779622899
+      Feathered Dragon Collapse Animation Sheet-4_47: 1546142446466587031
+      Feathered Dragon Collapse Animation Sheet-4_48: 151164049432969128
+      Feathered Dragon Collapse Animation Sheet-4_49: -8323807950226200335
+      Feathered Dragon Collapse Animation Sheet-4_5: -2932113152062858244
+      Feathered Dragon Collapse Animation Sheet-4_50: 5619754680663452727
+      Feathered Dragon Collapse Animation Sheet-4_51: -8160801177447219132
+      Feathered Dragon Collapse Animation Sheet-4_52: -5365589231745944110
+      Feathered Dragon Collapse Animation Sheet-4_53: 5088163011639546689
+      Feathered Dragon Collapse Animation Sheet-4_54: -7466066340130177869
+      Feathered Dragon Collapse Animation Sheet-4_55: 3115061677938604865
+      Feathered Dragon Collapse Animation Sheet-4_56: -844435519601606719
+      Feathered Dragon Collapse Animation Sheet-4_57: -1036724465657629485
+      Feathered Dragon Collapse Animation Sheet-4_58: 6703926164185843832
+      Feathered Dragon Collapse Animation Sheet-4_59: -1728311243090747015
+      Feathered Dragon Collapse Animation Sheet-4_6: -8171695976509730515
+      Feathered Dragon Collapse Animation Sheet-4_60: -632561670181674698
+      Feathered Dragon Collapse Animation Sheet-4_61: -2351372449263873051
+      Feathered Dragon Collapse Animation Sheet-4_62: -7468746605491833819
+      Feathered Dragon Collapse Animation Sheet-4_63: 4147009968419897340
+      Feathered Dragon Collapse Animation Sheet-4_64: -212205187424047372
+      Feathered Dragon Collapse Animation Sheet-4_65: -1525913861756651080
+      Feathered Dragon Collapse Animation Sheet-4_66: -4169167940206732070
+      Feathered Dragon Collapse Animation Sheet-4_67: -4568026144044292809
+      Feathered Dragon Collapse Animation Sheet-4_68: 5700248353047975722
+      Feathered Dragon Collapse Animation Sheet-4_69: -2404596160568799928
+      Feathered Dragon Collapse Animation Sheet-4_7: 2848917786866830796
+      Feathered Dragon Collapse Animation Sheet-4_70: -8862799368610774440
+      Feathered Dragon Collapse Animation Sheet-4_71: 2620915260701535834
+      Feathered Dragon Collapse Animation Sheet-4_72: 7562098414168074133
+      Feathered Dragon Collapse Animation Sheet-4_73: 6408970751186545573
+      Feathered Dragon Collapse Animation Sheet-4_74: -5339160949903134941
+      Feathered Dragon Collapse Animation Sheet-4_75: -3834389308490503322
+      Feathered Dragon Collapse Animation Sheet-4_76: -3701794191141798895
+      Feathered Dragon Collapse Animation Sheet-4_77: 2643151299708968794
+      Feathered Dragon Collapse Animation Sheet-4_78: 160696640420284873
+      Feathered Dragon Collapse Animation Sheet-4_79: -3752351635697884025
+      Feathered Dragon Collapse Animation Sheet-4_8: -8213508109747229119
+      Feathered Dragon Collapse Animation Sheet-4_80: -6849829025859847729
+      Feathered Dragon Collapse Animation Sheet-4_81: 7528577701853440527
+      Feathered Dragon Collapse Animation Sheet-4_82: 5237953208118122790
+      Feathered Dragon Collapse Animation Sheet-4_83: 8885960619823859824
+      Feathered Dragon Collapse Animation Sheet-4_84: -1524269129189036303
+      Feathered Dragon Collapse Animation Sheet-4_85: -7820744280924412730
+      Feathered Dragon Collapse Animation Sheet-4_86: -7893407895820454135
+      Feathered Dragon Collapse Animation Sheet-4_87: -7842901888223804867
+      Feathered Dragon Collapse Animation Sheet-4_88: -7406655431964051541
+      Feathered Dragon Collapse Animation Sheet-4_89: -1258309744405550596
+      Feathered Dragon Collapse Animation Sheet-4_9: -3197401908404256932
+      Feathered Dragon Collapse Animation Sheet-4_90: -6840893379546543920
+      Feathered Dragon Collapse Animation Sheet-4_91: -1727416879918292922
+      Feathered Dragon Collapse Animation Sheet-4_92: 2736928674153334242
+      Feathered Dragon Collapse Animation Sheet-4_93: 6537542739107213453
+      Feathered Dragon Collapse Animation Sheet-4_94: -8304165777448881554
+      Feathered Dragon Collapse Animation Sheet-4_95: 2326903778455519927
+      Feathered Dragon Collapse Animation Sheet-4_96: 6276203570456075019
+      Feathered Dragon Collapse Animation Sheet-4_97: 3970610013515377232
+      Feathered Dragon Collapse Animation Sheet-4_98: -3976222030273226674
+      Feathered Dragon Collapse Animation Sheet-4_99: 8653655053058899839
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

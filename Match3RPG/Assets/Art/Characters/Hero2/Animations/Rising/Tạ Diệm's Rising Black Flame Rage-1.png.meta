@@ -1,0 +1,611 @@
+fileFormatVersion: 2
+guid: acfd6d23a8edf254e85d49ffa4f58af4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -23621891823924398
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_0"
+  - first:
+      213: 2276264623881374582
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_1"
+  - first:
+      213: -8666987019472253068
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_2"
+  - first:
+      213: -7099530873364572991
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_3"
+  - first:
+      213: 2513327161746436393
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_4"
+  - first:
+      213: 5379122878628550624
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_5"
+  - first:
+      213: 7985088125009694740
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_6"
+  - first:
+      213: 5931780309877878234
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_7"
+  - first:
+      213: -8631262480837791805
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_8"
+  - first:
+      213: -6847005153461375361
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_9"
+  - first:
+      213: -2057149177945208314
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_10"
+  - first:
+      213: -3823046916020893594
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_11"
+  - first:
+      213: 8848179830423046890
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_12"
+  - first:
+      213: 7013161646057084338
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_13"
+  - first:
+      213: 864033385145742427
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_14"
+  - first:
+      213: 7942697500556449421
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_15"
+  - first:
+      213: -2339816186287032400
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_16"
+  - first:
+      213: 4173757159340104147
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_17"
+  - first:
+      213: 3937846897784959297
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_18"
+  - first:
+      213: 3220314387019703664
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_19"
+  - first:
+      213: 4412262673741504187
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_20"
+  - first:
+      213: 332244081941114332
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_21"
+  - first:
+      213: 7460187837397869423
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_22"
+  - first:
+      213: -7658597013043610111
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_23"
+  - first:
+      213: -7423784678384650058
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_24"
+  - first:
+      213: -1363680285535398116
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_25"
+  - first:
+      213: -322868119111716243
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_26"
+  - first:
+      213: 3183374595798036827
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_27"
+  - first:
+      213: -1583913751212244608
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_28"
+  - first:
+      213: -3402368321489713738
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_29"
+  - first:
+      213: 1715295695077839206
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_30"
+  - first:
+      213: -4932828688064022299
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_31"
+  - first:
+      213: 4535461652116473745
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_32"
+  - first:
+      213: 2210293233533849190
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_33"
+  - first:
+      213: -5662786083409927768
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_34"
+  - first:
+      213: 2770009055829472973
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_35"
+  - first:
+      213: -82583614421926090
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_36"
+  - first:
+      213: -921501971112490446
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_37"
+  - first:
+      213: -5755329342886162972
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_38"
+  - first:
+      213: -8126087369773634874
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_39"
+  - first:
+      213: -2486317943165540783
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_40"
+  - first:
+      213: 3136628238230077974
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_41"
+  - first:
+      213: -7051541661807450162
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_42"
+  - first:
+      213: 1943936356178736334
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_43"
+  - first:
+      213: -3426312254595499805
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_44"
+  - first:
+      213: 2589640173084621528
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_45"
+  - first:
+      213: -5112920308132899694
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_46"
+  - first:
+      213: -3911771843087602802
+    second: "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_47"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hero2_Rising_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 647.3333
+        width: 323.8
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f8f0667d66b7af40abb913951b4e0b5
+      internalID: 584806026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Rising_01
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 647.3333
+        width: 323.8
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 062b88cc34015f049a8de69ec117d12b
+      internalID: -1360331382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Rising_02
+      rect:
+        serializedVersion: 2
+        x: 647.6
+        y: 647.3333
+        width: 323.80005
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e55aabcf472e89d44b5792dc2964ad60
+      internalID: -61815500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Rising_03
+      rect:
+        serializedVersion: 2
+        x: 971.4
+        y: 647.3333
+        width: 323.79993
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3120ad7dee6169d40b8698e6bf9f1486
+      internalID: 1058913290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Rising_04
+      rect:
+        serializedVersion: 2
+        x: 1295.2
+        y: 647.3333
+        width: 323.80005
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71afb1a0fb5a0704baa42f75f077dffc
+      internalID: 680339308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Rising_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 323.66666
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37791781de5f6994dab878a92926afbf
+      internalID: 1183269441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Rising_06
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 323.66666
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c462e1ec5052bd45a53c777afba38fc
+      internalID: 501701433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Rising_07
+      rect:
+        serializedVersion: 2
+        x: 647.6
+        y: 323.66666
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b59d1acb5bdb8034682ea9b03f97df15
+      internalID: -768973273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Rising_08
+      rect:
+        serializedVersion: 2
+        x: 971.4
+        y: 323.66666
+        width: 323.79993
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb5ad5c0ecd8af547872fab80aa09c0b
+      internalID: -1040951150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Rising_09
+      rect:
+        serializedVersion: 2
+        x: 1295.2
+        y: 323.66666
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a582aa7f0576fc4a8d38aa3ea551746
+      internalID: -74997154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Rising_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a69a8bfe4566f84b82f985f1395edf2
+      internalID: 1499051189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Rising_11
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 0
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc6e73213d5549e4dbef96a5db74bd19
+      internalID: -1783959136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Hero2_Rising_00: 584806026
+      Hero2_Rising_01: -1360331382
+      Hero2_Rising_02: -61815500
+      Hero2_Rising_03: 1058913290
+      Hero2_Rising_04: 680339308
+      Hero2_Rising_05: 1183269441
+      Hero2_Rising_06: 501701433
+      Hero2_Rising_07: -768973273
+      Hero2_Rising_08: -1040951150
+      Hero2_Rising_09: -74997154
+      Hero2_Rising_10: 1499051189
+      Hero2_Rising_11: -1783959136
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_0": -23621891823924398
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_1": 2276264623881374582
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_10": -2057149177945208314
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_11": -3823046916020893594
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_12": 8848179830423046890
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_13": 7013161646057084338
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_14": 864033385145742427
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_15": 7942697500556449421
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_16": -2339816186287032400
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_17": 4173757159340104147
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_18": 3937846897784959297
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_19": 3220314387019703664
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_2": -8666987019472253068
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_20": 4412262673741504187
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_21": 332244081941114332
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_22": 7460187837397869423
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_23": -7658597013043610111
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_24": -7423784678384650058
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_25": -1363680285535398116
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_26": -322868119111716243
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_27": 3183374595798036827
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_28": -1583913751212244608
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_29": -3402368321489713738
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_3": -7099530873364572991
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_30": 1715295695077839206
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_31": -4932828688064022299
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_32": 4535461652116473745
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_33": 2210293233533849190
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_34": -5662786083409927768
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_35": 2770009055829472973
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_36": -82583614421926090
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_37": -921501971112490446
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_38": -5755329342886162972
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_39": -8126087369773634874
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_4": 2513327161746436393
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_40": -2486317943165540783
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_41": 3136628238230077974
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_42": -7051541661807450162
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_43": 1943936356178736334
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_44": -3426312254595499805
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_45": 2589640173084621528
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_46": -5112920308132899694
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_47": -3911771843087602802
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_5": 5379122878628550624
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_6": 7985088125009694740
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_7": 5931780309877878234
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_8": -8631262480837791805
+      "T\u1EA1 Di\u1EC7m's Rising Black Flame Rage-1_9": -6847005153461375361
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

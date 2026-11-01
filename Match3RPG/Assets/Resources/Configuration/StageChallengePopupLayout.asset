@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a51898ae7814b9e91b157c8f05d0c63, type: 3}
+  m_Name: StageChallengePopupLayout
+  m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.StageChallengePopupLayoutConfig
+  maxWidthFraction: 0.9
+  maxHeightFraction: 0.94
+  heroPreviewRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  bossPreviewRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  heroPowerTextRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  bossNameTextRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  rewardAreaRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  rewardIconRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  rewardTextRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  stageLabelRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  exitHitRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  startHitRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  powerFontSize: 25
+  bossNameFontSize: 22
+  rewardFontSize: 17
+  stageFontSize: 24
+  textColor: {r: 1, g: 0.92156863, b: 0.74509805, a: 1}
+  outlineColor: {r: 0.035, g: 0.02, b: 0.01, a: 0.9}
+  outlineWidth: 0.16
+  idleFrameSeconds: 0.12
+  maxRewardEntries: 6
+  goldIcon: {fileID: 21300000, guid: bcd5f2eabe89fdd4596af2774adbbe23, type: 3}
+  experienceIcon: {fileID: 21300000, guid: 647c25be21b3a514db4256edcddf96a2, type: 3}
+  combatPowerHpWeight: 1
+  combatPowerAttackWeight: 10
+  combatPowerLevelWeight: 100

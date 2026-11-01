@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2923b16c8f70e242b0f6fbe7bf2d909, type: 3}
+  m_Name: Hero2
+  m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.HeroData
+  heroId: hero_02
+  displayName: "T\u1EA1 Di\u1EC7m"
+  portrait: {fileID: 898444423, guid: 06890592888bd004e9d650c8cfaa83b7, type: 3}
+  selectionPreviewSprite: {fileID: 898444423, guid: 06890592888bd004e9d650c8cfaa83b7, type: 3}
+  staticFallbackSprite: {fileID: 898444423, guid: 06890592888bd004e9d650c8cfaa83b7, type: 3}
+  animationSet: {fileID: 11400000, guid: 1980b78ef16255c43a0b1635b9a22212, type: 2}
+  baseMaxHP: 500
+  baseAttack: 20
+  baseMana: 100
+  baseRage: 100
+  visualScale: 1
+  visualOffset: {x: 0, y: 0}
+  sourceFacing: 1
+  idleNormalizationScaleMultiplier: 1.0172414
+  vfxAnchor: {x: 0.5, y: 0.48}
+  headVfxAnchor: {x: 0.5, y: 0.82}
+  floatingTextAnchor: {x: 0.5, y: 0.88}

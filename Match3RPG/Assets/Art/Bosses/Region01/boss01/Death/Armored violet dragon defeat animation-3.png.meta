@@ -1,0 +1,710 @@
+fileFormatVersion: 2
+guid: 93b8b31ae40208542bd75520eee372ba
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2106262806555364556
+    second: Armored violet dragon defeat animation-3_0
+  - first:
+      213: -5127090975075934228
+    second: Armored violet dragon defeat animation-3_1
+  - first:
+      213: 8749927194753505117
+    second: Armored violet dragon defeat animation-3_2
+  - first:
+      213: 1843549795947158769
+    second: Armored violet dragon defeat animation-3_3
+  - first:
+      213: 7955842256092287036
+    second: Armored violet dragon defeat animation-3_4
+  - first:
+      213: 177519752587332605
+    second: Armored violet dragon defeat animation-3_5
+  - first:
+      213: -7028492227215916555
+    second: Armored violet dragon defeat animation-3_6
+  - first:
+      213: 347340433056864974
+    second: Armored violet dragon defeat animation-3_7
+  - first:
+      213: -8638035366201891258
+    second: Armored violet dragon defeat animation-3_8
+  - first:
+      213: -3192162901236649824
+    second: Armored violet dragon defeat animation-3_9
+  - first:
+      213: -7229260435121478125
+    second: Armored violet dragon defeat animation-3_10
+  - first:
+      213: -290120997068506431
+    second: Armored violet dragon defeat animation-3_11
+  - first:
+      213: 7960543722554096532
+    second: Armored violet dragon defeat animation-3_12
+  - first:
+      213: 7626097550269636186
+    second: Armored violet dragon defeat animation-3_13
+  - first:
+      213: -8952812847600408162
+    second: Armored violet dragon defeat animation-3_14
+  - first:
+      213: -6932475212820816344
+    second: Armored violet dragon defeat animation-3_15
+  - first:
+      213: 1975777045064194916
+    second: Armored violet dragon defeat animation-3_16
+  - first:
+      213: -194333626499172801
+    second: Armored violet dragon defeat animation-3_17
+  - first:
+      213: -8824187079632832847
+    second: Armored violet dragon defeat animation-3_18
+  - first:
+      213: -2424107826045719068
+    second: Armored violet dragon defeat animation-3_19
+  - first:
+      213: -3385635985328513308
+    second: Armored violet dragon defeat animation-3_20
+  - first:
+      213: 6778783316818276769
+    second: Armored violet dragon defeat animation-3_21
+  - first:
+      213: -8157442613468104810
+    second: Armored violet dragon defeat animation-3_22
+  - first:
+      213: -6510848814186296745
+    second: Armored violet dragon defeat animation-3_23
+  - first:
+      213: 7497566505542982423
+    second: Armored violet dragon defeat animation-3_24
+  - first:
+      213: -2039148392653037113
+    second: Armored violet dragon defeat animation-3_25
+  - first:
+      213: -8539485758268349074
+    second: Armored violet dragon defeat animation-3_26
+  - first:
+      213: 9113650454186209976
+    second: Armored violet dragon defeat animation-3_27
+  - first:
+      213: 3238152052178369767
+    second: Armored violet dragon defeat animation-3_28
+  - first:
+      213: -4896102489264290008
+    second: Armored violet dragon defeat animation-3_29
+  - first:
+      213: -6509787956353411959
+    second: Armored violet dragon defeat animation-3_30
+  - first:
+      213: 3216949448186069482
+    second: Armored violet dragon defeat animation-3_31
+  - first:
+      213: -341229664742560394
+    second: Armored violet dragon defeat animation-3_32
+  - first:
+      213: 4942291633005046903
+    second: Armored violet dragon defeat animation-3_33
+  - first:
+      213: 5424471736732900298
+    second: Armored violet dragon defeat animation-3_34
+  - first:
+      213: 7640825988464523255
+    second: Armored violet dragon defeat animation-3_35
+  - first:
+      213: 8126208247350449067
+    second: Armored violet dragon defeat animation-3_36
+  - first:
+      213: 2609232963654417903
+    second: Armored violet dragon defeat animation-3_37
+  - first:
+      213: -2591273976910111861
+    second: Armored violet dragon defeat animation-3_38
+  - first:
+      213: 640139928696887546
+    second: Armored violet dragon defeat animation-3_39
+  - first:
+      213: -384598889886428971
+    second: Armored violet dragon defeat animation-3_40
+  - first:
+      213: 4243687688492266707
+    second: Armored violet dragon defeat animation-3_41
+  - first:
+      213: -4391430184265764443
+    second: Armored violet dragon defeat animation-3_42
+  - first:
+      213: 5306665929173853776
+    second: Armored violet dragon defeat animation-3_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss01_Death_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 841.5
+        width: 280.4
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef6110d07a72bbe489e3b41ea1bd8a40
+      internalID: -286241077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_Death_01
+      rect:
+        serializedVersion: 2
+        x: 280.4
+        y: 841.5
+        width: 280.4
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0befed651fbf83b4eba7d7714ce78ef4
+      internalID: -2118049325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_Death_02
+      rect:
+        serializedVersion: 2
+        x: 560.8
+        y: 841.5
+        width: 280.40002
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2f83888968c1754bbb1964baf95a32d
+      internalID: 1458193560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_Death_03
+      rect:
+        serializedVersion: 2
+        x: 841.2
+        y: 841.5
+        width: 280.39996
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b2175c1eb0139946a49dbb2e2cc445b
+      internalID: -575490033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_Death_04
+      rect:
+        serializedVersion: 2
+        x: 1121.6
+        y: 841.5
+        width: 280.40002
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b794cf3946759c44ba10037834d8bcb
+      internalID: 1075799691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_Death_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 561
+        width: 280.4
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a1a304830d3a1e4e8b82b609945cd4b
+      internalID: -1740843838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_Death_06
+      rect:
+        serializedVersion: 2
+        x: 280.4
+        y: 561
+        width: 280.4
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df6cf31fb7385784e9b51e3401617bf8
+      internalID: 1397959620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_Death_07
+      rect:
+        serializedVersion: 2
+        x: 560.8
+        y: 561
+        width: 280.40002
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dde75dbf340f4614bb605b40f89f3e90
+      internalID: 1039461242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_Death_08
+      rect:
+        serializedVersion: 2
+        x: 841.2
+        y: 561
+        width: 280.39996
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79c7d8d4ee4515d4a9976337cdab7649
+      internalID: -1783437053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_Death_09
+      rect:
+        serializedVersion: 2
+        x: 1121.6
+        y: 561
+        width: 280.40002
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92cceb091a15a154b85da310bb43757b
+      internalID: 1502238552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_Death_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280.5
+        width: 280.4
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8480b01f7ef503e4bb9682cb6b7e8c24
+      internalID: -1199865234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_Death_11
+      rect:
+        serializedVersion: 2
+        x: 280.4
+        y: 280.5
+        width: 280.4
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6368e1e16f069b469b06c1aff445406
+      internalID: 1590019586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_Death_12
+      rect:
+        serializedVersion: 2
+        x: 560.8
+        y: 280.5
+        width: 280.40002
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c7a8c17f0ee9ca46b205f3fc7db7ce6
+      internalID: -1402666762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_Death_13
+      rect:
+        serializedVersion: 2
+        x: 841.2
+        y: 280.5
+        width: 280.39996
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63b8bd0438b5620499064f566bf5b120
+      internalID: 634263734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_Death_14
+      rect:
+        serializedVersion: 2
+        x: 1121.6
+        y: 280.5
+        width: 280.40002
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 784753feecd445147ad69f0e5024f6f6
+      internalID: 446121531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_Death_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 280.4
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c55e2c75862c444d8a799f81050b9a3
+      internalID: 2047708384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_Death_16
+      rect:
+        serializedVersion: 2
+        x: 280.4
+        y: 0
+        width: 280.4
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa0dc2fa425fb6d4f84bac8e398e443c
+      internalID: -472837865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Armored violet dragon defeat animation-3_0: -2106262806555364556
+      Armored violet dragon defeat animation-3_1: -5127090975075934228
+      Armored violet dragon defeat animation-3_10: -7229260435121478125
+      Armored violet dragon defeat animation-3_11: -290120997068506431
+      Armored violet dragon defeat animation-3_12: 7960543722554096532
+      Armored violet dragon defeat animation-3_13: 7626097550269636186
+      Armored violet dragon defeat animation-3_14: -8952812847600408162
+      Armored violet dragon defeat animation-3_15: -6932475212820816344
+      Armored violet dragon defeat animation-3_16: 1975777045064194916
+      Armored violet dragon defeat animation-3_17: -194333626499172801
+      Armored violet dragon defeat animation-3_18: -8824187079632832847
+      Armored violet dragon defeat animation-3_19: -2424107826045719068
+      Armored violet dragon defeat animation-3_2: 8749927194753505117
+      Armored violet dragon defeat animation-3_20: -3385635985328513308
+      Armored violet dragon defeat animation-3_21: 6778783316818276769
+      Armored violet dragon defeat animation-3_22: -8157442613468104810
+      Armored violet dragon defeat animation-3_23: -6510848814186296745
+      Armored violet dragon defeat animation-3_24: 7497566505542982423
+      Armored violet dragon defeat animation-3_25: -2039148392653037113
+      Armored violet dragon defeat animation-3_26: -8539485758268349074
+      Armored violet dragon defeat animation-3_27: 9113650454186209976
+      Armored violet dragon defeat animation-3_28: 3238152052178369767
+      Armored violet dragon defeat animation-3_29: -4896102489264290008
+      Armored violet dragon defeat animation-3_3: 1843549795947158769
+      Armored violet dragon defeat animation-3_30: -6509787956353411959
+      Armored violet dragon defeat animation-3_31: 3216949448186069482
+      Armored violet dragon defeat animation-3_32: -341229664742560394
+      Armored violet dragon defeat animation-3_33: 4942291633005046903
+      Armored violet dragon defeat animation-3_34: 5424471736732900298
+      Armored violet dragon defeat animation-3_35: 7640825988464523255
+      Armored violet dragon defeat animation-3_36: 8126208247350449067
+      Armored violet dragon defeat animation-3_37: 2609232963654417903
+      Armored violet dragon defeat animation-3_38: -2591273976910111861
+      Armored violet dragon defeat animation-3_39: 640139928696887546
+      Armored violet dragon defeat animation-3_4: 7955842256092287036
+      Armored violet dragon defeat animation-3_40: -384598889886428971
+      Armored violet dragon defeat animation-3_41: 4243687688492266707
+      Armored violet dragon defeat animation-3_42: -4391430184265764443
+      Armored violet dragon defeat animation-3_43: 5306665929173853776
+      Armored violet dragon defeat animation-3_5: 177519752587332605
+      Armored violet dragon defeat animation-3_6: -7028492227215916555
+      Armored violet dragon defeat animation-3_7: 347340433056864974
+      Armored violet dragon defeat animation-3_8: -8638035366201891258
+      Armored violet dragon defeat animation-3_9: -3192162901236649824
+      Boss01_Death_00: -286241077
+      Boss01_Death_01: -2118049325
+      Boss01_Death_02: 1458193560
+      Boss01_Death_03: -575490033
+      Boss01_Death_04: 1075799691
+      Boss01_Death_05: -1740843838
+      Boss01_Death_06: 1397959620
+      Boss01_Death_07: 1039461242
+      Boss01_Death_08: -1783437053
+      Boss01_Death_09: 1502238552
+      Boss01_Death_10: -1199865234
+      Boss01_Death_11: 1590019586
+      Boss01_Death_12: -1402666762
+      Boss01_Death_13: 634263734
+      Boss01_Death_14: 446121531
+      Boss01_Death_15: 2047708384
+      Boss01_Death_16: -472837865
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54cb40afb7d99eb4397676b294c40de5, type: 3}
+  m_Name: region_05
+  m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.RegionData
+  regionId: region_05
+  displayName: Spirit Forest
+  mapSprite: {fileID: 21300000, guid: 0dd3421726eca634284f6edaf52bcd49, type: 3}
+  worldMapNodePosition: {x: 0.8, y: 0.59}
+  stages:
+  - stageId: region_05_stage_01
+    stageNumber: 1
+    displayName: Stage 1
+    regionId: region_05
+    isBossStage: 0
+    regionMapNodePosition: {x: 0.45, y: 0.69}
+    bossData: {fileID: 11400000, guid: 169224d9f5148824ca9190e16d6abdef, type: 2}
+  - stageId: region_05_stage_02
+    stageNumber: 2
+    displayName: Stage 2
+    regionId: region_05
+    isBossStage: 0
+    regionMapNodePosition: {x: 0.55, y: 0.57}
+    bossData: {fileID: 11400000, guid: 321904c9119662140bfecd3e02f9e4a9, type: 2}
+  - stageId: region_05_stage_03
+    stageNumber: 3
+    displayName: Stage 3
+    regionId: region_05
+    isBossStage: 0
+    regionMapNodePosition: {x: 0.43, y: 0.45}
+    bossData: {fileID: 11400000, guid: 9f374a3cb6e4bdf42a17f08f9d4ea03e, type: 2}
+  - stageId: region_05_stage_04
+    stageNumber: 4
+    displayName: Stage 4
+    regionId: region_05
+    isBossStage: 0
+    regionMapNodePosition: {x: 0.59, y: 0.39}
+    bossData: {fileID: 11400000, guid: f1be3629174f641468a379e76aabef16, type: 2}
+  - stageId: region_05_stage_05
+    stageNumber: 5
+    displayName: Stage 5
+    regionId: region_05
+    isBossStage: 0
+    regionMapNodePosition: {x: 0.45, y: 0.34}
+    bossData: {fileID: 11400000, guid: f2157b79480f40745aca63195475261c, type: 2}
+  - stageId: region_05_stage_06
+    stageNumber: 6
+    displayName: Stage 6
+    regionId: region_05
+    isBossStage: 0
+    regionMapNodePosition: {x: 0.7, y: 0.28}
+    bossData: {fileID: 11400000, guid: a1406bab7a002aa479f34141fdc6e62a, type: 2}
+  - stageId: region_05_stage_07
+    stageNumber: 7
+    displayName: Stage 7
+    regionId: region_05
+    isBossStage: 0
+    regionMapNodePosition: {x: 0.43, y: 0.22}
+    bossData: {fileID: 11400000, guid: 176214ca8987172428474bd8c432fe14, type: 2}
+  - stageId: region_05_stage_08
+    stageNumber: 8
+    displayName: Stage 8
+    regionId: region_05
+    isBossStage: 0
+    regionMapNodePosition: {x: 0.67, y: 0.17}
+    bossData: {fileID: 11400000, guid: f1b0dd48d9e2d9b4a9164a96f98eb5d7, type: 2}
+  - stageId: region_05_stage_09
+    stageNumber: 9
+    displayName: Stage 9
+    regionId: region_05
+    isBossStage: 0
+    regionMapNodePosition: {x: 0.61, y: 0.13}
+    bossData: {fileID: 11400000, guid: 3c6114861bc00c643ba04a58f6b969f3, type: 2}
+  - stageId: region_05_stage_10
+    stageNumber: 10
+    displayName: Stage 10
+    regionId: region_05
+    isBossStage: 1
+    regionMapNodePosition: {x: 0.62, y: 0.09}
+    bossData: {fileID: 11400000, guid: 25e258b14ad6cc6488740baf928e6c43, type: 2}
+  nextRegionId: 
+  themeColor: {r: 0.34901962, g: 0.7176471, b: 0.52156866, a: 1}
+  isFinalRegion: 1

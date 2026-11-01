@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882e7de979e89344d9f33f64c601dc74, type: 3}
+  m_Name: CampaignCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.CampaignCatalog
+  worldMapSprite: {fileID: 21300000, guid: 193a33fdf976985469dd546f8e16d544, type: 3}
+  worldMapHeaderSprite: {fileID: 21300000, guid: 61a52e40fbbd1b14fbbaa25b1aab14ca, type: 3}
+  worldMapFooterSprite: {fileID: 21300000, guid: 96c8e669bd1b61e4595715f6b1aa5028, type: 3}
+  worldMapMapLayoutPrefab: {fileID: 5674354573457000856, guid: 0c46c7e65f0da13428d41200faa9cc09, type: 3}
+  regions:
+  - {fileID: 11400000, guid: 06d4a4efd34883345a63da9c850c02ba, type: 2}
+  - {fileID: 11400000, guid: 64f6271a1ed7731488cc88775f0311e0, type: 2}
+  - {fileID: 11400000, guid: e5b41ee428a3f9f45b70eb6e18bb34b7, type: 2}
+  - {fileID: 11400000, guid: 9acd1ef399b8b4a41b7cfaf5b9fdcaa3, type: 2}
+  - {fileID: 11400000, guid: b558578ffb94c5c408d9407242119630, type: 2}
+  lockedStageMarker: {fileID: 21300000, guid: f09eca2ad93017849b3a05475e6dee78, type: 3}
+  availableStageMarker: {fileID: 21300000, guid: 68d870e412d854a43a10a33418b59bf6, type: 3}
+  completedStageMarker: {fileID: 21300000, guid: 0c7c97555f6e1d84dba114911a58c4d5, type: 3}
+  bossStageMarker: {fileID: 21300000, guid: d43f64c6c043a164c9f7559086bf707b, type: 3}
+  campaignLockedStageMarker: {fileID: 21300000, guid: f09eca2ad93017849b3a05475e6dee78, type: 3}
+  campaignAvailableStageMarker: {fileID: 21300000, guid: 68d870e412d854a43a10a33418b59bf6, type: 3}
+  campaignCompletedStageMarker: {fileID: 21300000, guid: 0c7c97555f6e1d84dba114911a58c4d5, type: 3}
+  campaignBossStageMarker: {fileID: 21300000, guid: d43f64c6c043a164c9f7559086bf707b, type: 3}
+  campaignStageGlow: {fileID: 21300000, guid: b1503465ea1926347bd7314074bdae3f, type: 3}
+  campaignStagePlatform: {fileID: 21300000, guid: bbc279ba8f09fde43a7322aaaabb9d6b, type: 3}
+  campaignBackButton: {fileID: 21300000, guid: d47b378cd7e4f4044896107239d1e20f, type: 3}
+  campaignRegionHeader: {fileID: 21300000, guid: a08d9f4d1946f8540a6f3f6cdc5850bd, type: 3}
+  campaignTooltipFrame: {fileID: 21300000, guid: 0b48be18c4072124f8d0c51a109fa084, type: 3}

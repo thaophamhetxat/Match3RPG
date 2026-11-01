@@ -1,0 +1,2343 @@
+fileFormatVersion: 2
+guid: c5647ff1fb977ee489bdd858be680a09
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2171093927844328891
+    second: TaDiem_Idle_Meditation_0
+  - first:
+      213: 2652475520935819706
+    second: TaDiem_Idle_Meditation_1
+  - first:
+      213: 7053602706780098692
+    second: TaDiem_Idle_Meditation_2
+  - first:
+      213: 3205749557669747473
+    second: TaDiem_Idle_Meditation_3
+  - first:
+      213: 8050562180009224002
+    second: TaDiem_Idle_Meditation_4
+  - first:
+      213: -6061075181612406377
+    second: TaDiem_Idle_Meditation_5
+  - first:
+      213: 4134751492376179438
+    second: TaDiem_Idle_Meditation_6
+  - first:
+      213: 762766949891680673
+    second: TaDiem_Idle_Meditation_7
+  - first:
+      213: 2478079268809648382
+    second: TaDiem_Idle_Meditation_8
+  - first:
+      213: 9124997201769567697
+    second: TaDiem_Idle_Meditation_9
+  - first:
+      213: 6259266916527445171
+    second: TaDiem_Idle_Meditation_10
+  - first:
+      213: -8962127702035457153
+    second: TaDiem_Idle_Meditation_11
+  - first:
+      213: -7510425386821332617
+    second: TaDiem_Idle_Meditation_12
+  - first:
+      213: 6265047423296802620
+    second: TaDiem_Idle_Meditation_13
+  - first:
+      213: -5833332342297910874
+    second: TaDiem_Idle_Meditation_14
+  - first:
+      213: 726413301461741888
+    second: TaDiem_Idle_Meditation_15
+  - first:
+      213: -8617936101614589469
+    second: TaDiem_Idle_Meditation_16
+  - first:
+      213: -9165284993353706425
+    second: TaDiem_Idle_Meditation_17
+  - first:
+      213: 4557109813863858663
+    second: TaDiem_Idle_Meditation_18
+  - first:
+      213: 8098027369743479772
+    second: TaDiem_Idle_Meditation_19
+  - first:
+      213: 1197917651678822701
+    second: TaDiem_Idle_Meditation_20
+  - first:
+      213: -8719792424939094218
+    second: TaDiem_Idle_Meditation_21
+  - first:
+      213: -1044880875228063144
+    second: TaDiem_Idle_Meditation_22
+  - first:
+      213: -5361720246517337989
+    second: TaDiem_Idle_Meditation_23
+  - first:
+      213: 5848373122046168298
+    second: TaDiem_Idle_Meditation_24
+  - first:
+      213: -1981593002186146959
+    second: TaDiem_Idle_Meditation_25
+  - first:
+      213: -6974934676639228575
+    second: TaDiem_Idle_Meditation_26
+  - first:
+      213: 548154426116352132
+    second: TaDiem_Idle_Meditation_27
+  - first:
+      213: 5164686255082874791
+    second: TaDiem_Idle_Meditation_28
+  - first:
+      213: -6371387034010682512
+    second: TaDiem_Idle_Meditation_29
+  - first:
+      213: 1924784412326689213
+    second: TaDiem_Idle_Meditation_30
+  - first:
+      213: -7552626935493951850
+    second: TaDiem_Idle_Meditation_31
+  - first:
+      213: 7018202171332533517
+    second: TaDiem_Idle_Meditation_32
+  - first:
+      213: -6724104654992448485
+    second: TaDiem_Idle_Meditation_33
+  - first:
+      213: 8913598454789963354
+    second: TaDiem_Idle_Meditation_34
+  - first:
+      213: 5919281605603289671
+    second: TaDiem_Idle_Meditation_35
+  - first:
+      213: 6103168127213065842
+    second: TaDiem_Idle_Meditation_36
+  - first:
+      213: 6313179664732596735
+    second: TaDiem_Idle_Meditation_37
+  - first:
+      213: 5373384134381635577
+    second: TaDiem_Idle_Meditation_38
+  - first:
+      213: -3521558720903371496
+    second: TaDiem_Idle_Meditation_39
+  - first:
+      213: -3539521135501743763
+    second: TaDiem_Idle_Meditation_40
+  - first:
+      213: 2646693008916461858
+    second: TaDiem_Idle_Meditation_41
+  - first:
+      213: 364410077829972906
+    second: TaDiem_Idle_Meditation_42
+  - first:
+      213: -9153774950037058199
+    second: TaDiem_Idle_Meditation_43
+  - first:
+      213: 1056703862896720263
+    second: TaDiem_Idle_Meditation_44
+  - first:
+      213: -1422145452357890618
+    second: TaDiem_Idle_Meditation_45
+  - first:
+      213: -1398879174598856793
+    second: TaDiem_Idle_Meditation_46
+  - first:
+      213: 3958590431165486687
+    second: TaDiem_Idle_Meditation_47
+  - first:
+      213: 7336053373112459030
+    second: TaDiem_Idle_Meditation_48
+  - first:
+      213: -1445668594278201673
+    second: TaDiem_Idle_Meditation_49
+  - first:
+      213: -339148077112462782
+    second: TaDiem_Idle_Meditation_50
+  - first:
+      213: 707487156715233376
+    second: TaDiem_Idle_Meditation_51
+  - first:
+      213: 9134341987778059551
+    second: TaDiem_Idle_Meditation_52
+  - first:
+      213: -3166541958617413448
+    second: TaDiem_Idle_Meditation_53
+  - first:
+      213: 1464204580271050839
+    second: TaDiem_Idle_Meditation_54
+  - first:
+      213: -7635718350419184609
+    second: TaDiem_Idle_Meditation_55
+  - first:
+      213: 3908469404193835982
+    second: TaDiem_Idle_Meditation_56
+  - first:
+      213: -9084513389738391571
+    second: TaDiem_Idle_Meditation_57
+  - first:
+      213: -6547486397175941862
+    second: TaDiem_Idle_Meditation_58
+  - first:
+      213: -4130214523423362336
+    second: TaDiem_Idle_Meditation_59
+  - first:
+      213: 7545097821658900596
+    second: TaDiem_Idle_Meditation_60
+  - first:
+      213: -6884971844894265472
+    second: TaDiem_Idle_Meditation_61
+  - first:
+      213: 2482126396596782212
+    second: TaDiem_Idle_Meditation_62
+  - first:
+      213: 5154182661473854198
+    second: TaDiem_Idle_Meditation_63
+  - first:
+      213: 6276038686393098239
+    second: TaDiem_Idle_Meditation_64
+  - first:
+      213: 4149349916703052382
+    second: TaDiem_Idle_Meditation_65
+  - first:
+      213: -5922895854709376442
+    second: TaDiem_Idle_Meditation_66
+  - first:
+      213: -4094752525438399757
+    second: TaDiem_Idle_Meditation_67
+  - first:
+      213: 6696462684303637606
+    second: TaDiem_Idle_Meditation_68
+  - first:
+      213: 7083295499794083005
+    second: TaDiem_Idle_Meditation_69
+  - first:
+      213: 7137172091797870901
+    second: TaDiem_Idle_Meditation_70
+  - first:
+      213: -3795797061079193443
+    second: TaDiem_Idle_Meditation_71
+  - first:
+      213: 1070523128325397797
+    second: TaDiem_Idle_Meditation_72
+  - first:
+      213: 6178082832568170325
+    second: TaDiem_Idle_Meditation_73
+  - first:
+      213: -3921139557897171021
+    second: TaDiem_Idle_Meditation_74
+  - first:
+      213: 795116831799679362
+    second: TaDiem_Idle_Meditation_75
+  - first:
+      213: -8257025953851953024
+    second: TaDiem_Idle_Meditation_76
+  - first:
+      213: -7151983882134595173
+    second: TaDiem_Idle_Meditation_77
+  - first:
+      213: -7038431017403735324
+    second: TaDiem_Idle_Meditation_78
+  - first:
+      213: 8120943482315887330
+    second: TaDiem_Idle_Meditation_79
+  - first:
+      213: -4492510053850314230
+    second: TaDiem_Idle_Meditation_80
+  - first:
+      213: -4596781037383452322
+    second: TaDiem_Idle_Meditation_81
+  - first:
+      213: 5105788642742178739
+    second: TaDiem_Idle_Meditation_82
+  - first:
+      213: -1850519032851658291
+    second: TaDiem_Idle_Meditation_83
+  - first:
+      213: -3315047376835366197
+    second: TaDiem_Idle_Meditation_84
+  - first:
+      213: -4790701986587963823
+    second: TaDiem_Idle_Meditation_85
+  - first:
+      213: 7598944656496622753
+    second: TaDiem_Idle_Meditation_86
+  - first:
+      213: 5462821602056595319
+    second: TaDiem_Idle_Meditation_87
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 496
+        width: 258
+        height: 272
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb53b27ac66412e10800000000000000
+      internalID: 2171093927844328891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_1
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 132
+        width: 517
+        height: 636
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab97cc0de6c7fc420800000000000000
+      internalID: 2652475520935819706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_2
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 503
+        width: 258
+        height: 265
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4809c5c4a4e63e160800000000000000
+      internalID: 7053602706780098692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_3
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 758
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11b55c7ec3c1d7c20800000000000000
+      internalID: 3205749557669747473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_4
+      rect:
+        serializedVersion: 2
+        x: 1034
+        y: 506
+        width: 246
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 247e4a526a759bf60800000000000000
+      internalID: 8050562180009224002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_5
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 732
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7996e0b3c3cb2eba0800000000000000
+      internalID: -6061075181612406377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_6
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 692
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee239915396916930800000000000000
+      internalID: 4134751492376179438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_7
+      rect:
+        serializedVersion: 2
+        x: 982
+        y: 703
+        width: 57
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a9a3b6ef74e59a00800000000000000
+      internalID: 762766949891680673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_8
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 735
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef8a8ae27f7e36220800000000000000
+      internalID: 2478079268809648382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_9
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 731
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d598e3db9082ae70800000000000000
+      internalID: 9124997201769567697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_10
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 714
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b419f9f8126dd650800000000000000
+      internalID: 6259266916527445171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_11
+      rect:
+        serializedVersion: 2
+        x: 1041
+        y: 703
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7b1d70a65020a380800000000000000
+      internalID: -8962127702035457153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_12
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 711
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 771507217eb95c790800000000000000
+      internalID: -7510425386821332617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_13
+      rect:
+        serializedVersion: 2
+        x: 1258
+        y: 703
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3f0596107be1f650800000000000000
+      internalID: 6265047423296802620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_14
+      rect:
+        serializedVersion: 2
+        x: 1261
+        y: 674
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a129881427db0fa0800000000000000
+      internalID: -5833332342297910874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_15
+      rect:
+        serializedVersion: 2
+        x: 1272
+        y: 690
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 041feb98c0db41a00800000000000000
+      internalID: 726413301461741888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_16
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 644
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e96f3e76c0f66880800000000000000
+      internalID: -8617936101614589469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_17
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 639
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7441fe9bbdd5ec080800000000000000
+      internalID: -9165284993353706425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_18
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 640
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e14dc92b3b1e3f30800000000000000
+      internalID: 4557109813863858663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_19
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 615
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd373f2dcf8f16070800000000000000
+      internalID: 8098027369743479772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_20
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 572
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d218c72e1cbdf9010800000000000000
+      internalID: 1197917651678822701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_21
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 556
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63ffc5c2df21df680800000000000000
+      internalID: -8719792424939094218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_22
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 231
+        width: 275
+        height: 278
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85a9e674166df71f0800000000000000
+      internalID: -1044880875228063144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_23
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 506
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b707059e7d75795b0800000000000000
+      internalID: -5361720246517337989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_24
+      rect:
+        serializedVersion: 2
+        x: 741
+        y: 0
+        width: 300
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aec01855e58992150800000000000000
+      internalID: 5848373122046168298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_25
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 201
+        width: 241
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17b7b47d9a7ff74e0800000000000000
+      internalID: -1981593002186146959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_26
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 505
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16d5d5bcddd043f90800000000000000
+      internalID: -6974934676639228575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_27
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 498
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48829badb8f6b9700800000000000000
+      internalID: 548154426116352132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_28
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 434
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a7ae8a09c6aca740800000000000000
+      internalID: 5164686255082874791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_29
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 445
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07b7347ef394497a0800000000000000
+      internalID: -6371387034010682512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_30
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 427
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db9f0fd993536ba10800000000000000
+      internalID: 1924784412326689213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_31
+      rect:
+        serializedVersion: 2
+        x: 1234
+        y: 442
+        width: 45
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69ef5d451ddaf2790800000000000000
+      internalID: -7552626935493951850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_32
+      rect:
+        serializedVersion: 2
+        x: 1258
+        y: 426
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0d9628d0b9a56160800000000000000
+      internalID: 7018202171332533517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_33
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 359
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b14ef9e217e2fa2a0800000000000000
+      internalID: -6724104654992448485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_34
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 359
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5ef930819673bb70800000000000000
+      internalID: 8913598454789963354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_35
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 321
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74aec733243852250800000000000000
+      internalID: 5919281605603289671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_36
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 276
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2765503631fc2b450800000000000000
+      internalID: 6103168127213065842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_37
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 266
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff92b97d47bec9750800000000000000
+      internalID: 6313179664732596735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 258
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f7898b9668129a40800000000000000
+      internalID: 5373384134381635577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_39
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 0
+        width: 265
+        height: 249
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81520e85009e02fc0800000000000000
+      internalID: -3521558720903371496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_40
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 244
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d696e6bc74811eec0800000000000000
+      internalID: -3539521135501743763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_41
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 242
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 229b9f1d441fab420800000000000000
+      internalID: 2646693008916461858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_42
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 196
+        width: 39
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa3c0a9f805ae0500800000000000000
+      internalID: 364410077829972906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_43
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 243
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96d0c258e2247f080800000000000000
+      internalID: -9153774950037058199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_44
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 244
+        width: 21
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 789fdbc809a2aae00800000000000000
+      internalID: 1056703862896720263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_45
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 245
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cd4545fe36834ce0800000000000000
+      internalID: -1422145452357890618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_46
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 242
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7afe7526dce269ce0800000000000000
+      internalID: -1398879174598856793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_47
+      rect:
+        serializedVersion: 2
+        x: 1114
+        y: 248
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5611ec060dbfe630800000000000000
+      internalID: 3958590431165486687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_48
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 228
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61f9cadbca5eec560800000000000000
+      internalID: 7336053373112459030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_49
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 239
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b60c1fa214ffebe0800000000000000
+      internalID: -1445668594278201673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_50
+      rect:
+        serializedVersion: 2
+        x: 1001
+        y: 229
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2427479ee9a1b4bf0800000000000000
+      internalID: -339148077112462782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_51
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 235
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 060a92312df71d900800000000000000
+      internalID: 707487156715233376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_52
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 234
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1d527e54a3b3ce70800000000000000
+      internalID: 9134341987778059551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_53
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 218
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b84d3e9dde2e04d0800000000000000
+      internalID: -3166541958617413448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_54
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 218
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7505e8dde46e15410800000000000000
+      internalID: 1464204580271050839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_55
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 228
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f143556bd9a780690800000000000000
+      internalID: -7635718350419184609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_56
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 223
+        width: 18
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecbc474173cad3630800000000000000
+      internalID: 3908469404193835982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_57
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 216
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de70d5f24335de180800000000000000
+      internalID: -9084513389738391571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_58
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 171
+        width: 44
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1530a4dfc7a225a0800000000000000
+      internalID: -6547486397175941862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_59
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 215
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e2f03516c78ea6c0800000000000000
+      internalID: -4130214523423362336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_60
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 210
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4786d8f3e7295b860800000000000000
+      internalID: 7545097821658900596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_61
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 205
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08fe280d59aa370a0800000000000000
+      internalID: -6884971844894265472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_62
+      rect:
+        serializedVersion: 2
+        x: 771
+        y: 196
+        width: 21
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48485cc8ec8427220800000000000000
+      internalID: 2482126396596782212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_63
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 191
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f260a492d5578740800000000000000
+      internalID: 5154182661473854198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_64
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 196
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fffd113fee7f81750800000000000000
+      internalID: 6276038686393098239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_65
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 174
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e52d1e9d3c3759930800000000000000
+      internalID: 4149349916703052382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_66
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 170
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64af96ad995adcda0800000000000000
+      internalID: -5922895854709376442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_67
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 154
+        width: 24
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fa4c16e5448c27c0800000000000000
+      internalID: -4094752525438399757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_68
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 170
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66cb39df45d9eec50800000000000000
+      internalID: 6696462684303637606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_69
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 167
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbc69586abbec4260800000000000000
+      internalID: 7083295499794083005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_70
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 178
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 539917004345c0360800000000000000
+      internalID: 7137172091797870901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_71
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 140
+        width: 56
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9827e61fae925bc0800000000000000
+      internalID: -3795797061079193443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_72
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 129
+        width: 47
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52ddca30d134bde00800000000000000
+      internalID: 1070523128325397797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_73
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 125
+        width: 46
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5573a247a95fcb550800000000000000
+      internalID: 6178082832568170325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_74
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 157
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bf8ec0e8505599c0800000000000000
+      internalID: -3921139557897171021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_75
+      rect:
+        serializedVersion: 2
+        x: 647
+        y: 168
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2899a5abb82d80b00800000000000000
+      internalID: 795116831799679362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_76
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 152
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 080397f74a6296d80800000000000000
+      internalID: -8257025953851953024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_77
+      rect:
+        serializedVersion: 2
+        x: 993
+        y: 141
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b995c025d8c0fbc90800000000000000
+      internalID: -7151983882134595173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_78
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 144
+        width: 19
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e22f87e748725e90800000000000000
+      internalID: -7038431017403735324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_79
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 140
+        width: 15
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e25670121363b070800000000000000
+      internalID: 8120943482315887330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_80
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 34
+        width: 56
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0a816a88e567a1c0800000000000000
+      internalID: -4492510053850314230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_81
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 98
+        width: 30
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e59f1845004f430c0800000000000000
+      internalID: -4596781037383452322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_82
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 111
+        width: 20
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b31fdc08b76bd640800000000000000
+      internalID: 5105788642742178739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_83
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 90
+        width: 42
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc907cc7eb2a156e0800000000000000
+      internalID: -1850519032851658291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_84
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 77
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc2332289f59ef1d0800000000000000
+      internalID: -3315047376835366197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_85
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 50
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15e8aa8ece1048db0800000000000000
+      internalID: -4790701986587963823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_86
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 43
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ac755677efd47960800000000000000
+      internalID: 7598944656496622753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TaDiem_Idle_Meditation_87
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 47
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 777e9e5cd47dfcb40800000000000000
+      internalID: 5462821602056595319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

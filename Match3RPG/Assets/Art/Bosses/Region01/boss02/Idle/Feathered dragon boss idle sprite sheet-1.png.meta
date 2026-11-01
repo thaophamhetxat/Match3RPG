@@ -1,0 +1,560 @@
+fileFormatVersion: 2
+guid: e8e56828c5f5e3a4cae3c19e301bfb0d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3716893858006445252
+    second: Feathered dragon boss idle sprite sheet-1_0
+  - first:
+      213: 1343252870863918335
+    second: Feathered dragon boss idle sprite sheet-1_1
+  - first:
+      213: 5408541673480807443
+    second: Feathered dragon boss idle sprite sheet-1_2
+  - first:
+      213: -6497175633201529648
+    second: Feathered dragon boss idle sprite sheet-1_3
+  - first:
+      213: -133688014199740695
+    second: Feathered dragon boss idle sprite sheet-1_4
+  - first:
+      213: 7851915939561027909
+    second: Feathered dragon boss idle sprite sheet-1_5
+  - first:
+      213: 3798047702065720311
+    second: Feathered dragon boss idle sprite sheet-1_6
+  - first:
+      213: 650111268732667750
+    second: Feathered dragon boss idle sprite sheet-1_7
+  - first:
+      213: -6475341263388294428
+    second: Feathered dragon boss idle sprite sheet-1_8
+  - first:
+      213: -7604925357515203053
+    second: Feathered dragon boss idle sprite sheet-1_9
+  - first:
+      213: 1509969795516817916
+    second: Feathered dragon boss idle sprite sheet-1_10
+  - first:
+      213: 7000670165276666244
+    second: Feathered dragon boss idle sprite sheet-1_11
+  - first:
+      213: 1839720323395618648
+    second: Feathered dragon boss idle sprite sheet-1_12
+  - first:
+      213: 2137246392935060879
+    second: Feathered dragon boss idle sprite sheet-1_13
+  - first:
+      213: 1642287658827452552
+    second: Feathered dragon boss idle sprite sheet-1_14
+  - first:
+      213: 2600208592273639110
+    second: Feathered dragon boss idle sprite sheet-1_15
+  - first:
+      213: 8896524036269250708
+    second: Feathered dragon boss idle sprite sheet-1_16
+  - first:
+      213: 7957315851660022734
+    second: Feathered dragon boss idle sprite sheet-1_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss02_Idle_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 647.3333
+        width: 323.8
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 559ad2f0efa4c674f94f6821e8adddfb
+      internalID: -1143876414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Idle_01
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 647.3333
+        width: 323.8
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c85415c77c8bc6438b3004526f40103
+      internalID: 69423904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Idle_02
+      rect:
+        serializedVersion: 2
+        x: 647.6
+        y: 647.3333
+        width: 323.80005
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25042133b92155d4a8507e431d086a88
+      internalID: -613693990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Idle_03
+      rect:
+        serializedVersion: 2
+        x: 971.4
+        y: 647.3333
+        width: 323.79993
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f527bf5e183796542a891a864c7dc6d3
+      internalID: 221013164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Idle_04
+      rect:
+        serializedVersion: 2
+        x: 1295.2
+        y: 647.3333
+        width: 323.80005
+        height: 323.6667
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7be78acb8825fd249a9accbd29888b81
+      internalID: 170347364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Idle_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 323.66666
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a0332d8e236814cbb36663bfa2a1cb
+      internalID: -1464204446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Idle_06
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 323.66666
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86ded7ca04852ad4496b4155532ab730
+      internalID: 1222558969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Idle_07
+      rect:
+        serializedVersion: 2
+        x: 647.6
+        y: 323.66666
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e2da7abd20e70740be28fee3dfa5624
+      internalID: -1463707557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Idle_08
+      rect:
+        serializedVersion: 2
+        x: 971.4
+        y: 323.66666
+        width: 323.79993
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e5f15220aa841749845c6e6805a6f48
+      internalID: 1299684165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Idle_09
+      rect:
+        serializedVersion: 2
+        x: 1295.2
+        y: 323.66666
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47d67f65c2f4fd748b51737f87be3e9f
+      internalID: 1041234984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec6cf3b96ea0112489c57a9f883950b4
+      internalID: -447465568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 323.8
+        y: 0
+        width: 323.8
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 187a5b92aee07044eae297379bf73f10
+      internalID: -1626788952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Idle_12
+      rect:
+        serializedVersion: 2
+        x: 647.6
+        y: 0
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de746b60d5f14df439615e3b565de971
+      internalID: 1113447566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Idle_13
+      rect:
+        serializedVersion: 2
+        x: 971.4
+        y: 0
+        width: 323.79993
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fdb535cdaec5b1489f03674f9c63839
+      internalID: 1953062715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss02_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 1295.2
+        y: 0
+        width: 323.80005
+        height: 323.66666
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4f07409d27b37743858c961fc50d388
+      internalID: -952173335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Boss02_Idle_00: -1143876414
+      Boss02_Idle_01: 69423904
+      Boss02_Idle_02: -613693990
+      Boss02_Idle_03: 221013164
+      Boss02_Idle_04: 170347364
+      Boss02_Idle_05: -1464204446
+      Boss02_Idle_06: 1222558969
+      Boss02_Idle_07: -1463707557
+      Boss02_Idle_08: 1299684165
+      Boss02_Idle_09: 1041234984
+      Boss02_Idle_10: -447465568
+      Boss02_Idle_11: -1626788952
+      Boss02_Idle_12: 1113447566
+      Boss02_Idle_13: 1953062715
+      Boss02_Idle_14: -952173335
+      Feathered dragon boss idle sprite sheet-1_0: 3716893858006445252
+      Feathered dragon boss idle sprite sheet-1_1: 1343252870863918335
+      Feathered dragon boss idle sprite sheet-1_10: 1509969795516817916
+      Feathered dragon boss idle sprite sheet-1_11: 7000670165276666244
+      Feathered dragon boss idle sprite sheet-1_12: 1839720323395618648
+      Feathered dragon boss idle sprite sheet-1_13: 2137246392935060879
+      Feathered dragon boss idle sprite sheet-1_14: 1642287658827452552
+      Feathered dragon boss idle sprite sheet-1_15: 2600208592273639110
+      Feathered dragon boss idle sprite sheet-1_16: 8896524036269250708
+      Feathered dragon boss idle sprite sheet-1_17: 7957315851660022734
+      Feathered dragon boss idle sprite sheet-1_2: 5408541673480807443
+      Feathered dragon boss idle sprite sheet-1_3: -6497175633201529648
+      Feathered dragon boss idle sprite sheet-1_4: -133688014199740695
+      Feathered dragon boss idle sprite sheet-1_5: 7851915939561027909
+      Feathered dragon boss idle sprite sheet-1_6: 3798047702065720311
+      Feathered dragon boss idle sprite sheet-1_7: 650111268732667750
+      Feathered dragon boss idle sprite sheet-1_8: -6475341263388294428
+      Feathered dragon boss idle sprite sheet-1_9: -7604925357515203053
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

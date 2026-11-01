@@ -1,0 +1,659 @@
+fileFormatVersion: 2
+guid: 177c6ccb5c898c240a4b96bd31507472
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6095312657010698105
+    second: TaDiem_Hit_0
+  - first:
+      213: -8532962971106850392
+    second: TaDiem_Hit_1
+  - first:
+      213: 7032206205771829316
+    second: TaDiem_Hit_2
+  - first:
+      213: 3018784830195139204
+    second: TaDiem_Hit_3
+  - first:
+      213: -856329451858061764
+    second: TaDiem_Hit_4
+  - first:
+      213: -7778599143386648933
+    second: TaDiem_Hit_5
+  - first:
+      213: -4310025503040134838
+    second: TaDiem_Hit_6
+  - first:
+      213: -6651277987803808852
+    second: TaDiem_Hit_7
+  - first:
+      213: -1556750336235709608
+    second: TaDiem_Hit_8
+  - first:
+      213: 3133658047589490589
+    second: TaDiem_Hit_9
+  - first:
+      213: 7549545872565780956
+    second: TaDiem_Hit_10
+  - first:
+      213: -8454862188249779596
+    second: TaDiem_Hit_11
+  - first:
+      213: 5548034617540000195
+    second: TaDiem_Hit_12
+  - first:
+      213: 1242946159171252843
+    second: TaDiem_Hit_13
+  - first:
+      213: 7716987788688756374
+    second: TaDiem_Hit_14
+  - first:
+      213: 4220191849621614259
+    second: TaDiem_Hit_15
+  - first:
+      213: 9037031131152858302
+    second: TaDiem_Hit_16
+  - first:
+      213: -5100844281245594960
+    second: TaDiem_Hit_17
+  - first:
+      213: 7688157160933045724
+    second: TaDiem_Hit_18
+  - first:
+      213: 5099058165430472969
+    second: TaDiem_Hit_19
+  - first:
+      213: -1080989966164282388
+    second: TaDiem_Hit_20
+  - first:
+      213: 2164039729519910155
+    second: TaDiem_Hit_21
+  - first:
+      213: 2043248882680366898
+    second: TaDiem_Hit_22
+  - first:
+      213: 6874992870427855256
+    second: TaDiem_Hit_23
+  - first:
+      213: -879945030272210534
+    second: TaDiem_Hit_24
+  - first:
+      213: 7597506721869456247
+    second: TaDiem_Hit_25
+  - first:
+      213: -5821691567499669204
+    second: TaDiem_Hit_26
+  - first:
+      213: -6937937004211279473
+    second: TaDiem_Hit_27
+  - first:
+      213: 8751834975204577154
+    second: TaDiem_Hit_28
+  - first:
+      213: 902087061363619994
+    second: TaDiem_Hit_29
+  - first:
+      213: 8297285539682489688
+    second: TaDiem_Hit_30
+  - first:
+      213: -1834619274096424047
+    second: TaDiem_Hit_31
+  - first:
+      213: -688029554916169430
+    second: TaDiem_Hit_32
+  - first:
+      213: -5100425035208319521
+    second: TaDiem_Hit_33
+  - first:
+      213: -7522881786911648071
+    second: TaDiem_Hit_34
+  - first:
+      213: 1206938852177095251
+    second: TaDiem_Hit_35
+  - first:
+      213: 2231311734986124889
+    second: TaDiem_Hit_36
+  - first:
+      213: 8228273094520439242
+    second: TaDiem_Hit_37
+  - first:
+      213: -6269816284162999406
+    second: TaDiem_Hit_38
+  - first:
+      213: 1380815113633944434
+    second: TaDiem_Hit_39
+  - first:
+      213: -8195547475585477276
+    second: TaDiem_Hit_40
+  - first:
+      213: 7906711747055033813
+    second: TaDiem_Hit_41
+  - first:
+      213: 4990793098793623796
+    second: TaDiem_Hit_42
+  - first:
+      213: 2104750274224425684
+    second: TaDiem_Hit_43
+  - first:
+      213: -2341416400313343123
+    second: TaDiem_Hit_44
+  - first:
+      213: 4475280677333025678
+    second: TaDiem_Hit_45
+  - first:
+      213: 4108752852931234874
+    second: TaDiem_Hit_46
+  - first:
+      213: 384751186577275558
+    second: TaDiem_Hit_47
+  - first:
+      213: 8258814857054772043
+    second: TaDiem_Hit_48
+  - first:
+      213: -3993125819095377064
+    second: TaDiem_Hit_49
+  - first:
+      213: 1982236274891245014
+    second: TaDiem_Hit_50
+  - first:
+      213: -3598240547006314344
+    second: TaDiem_Hit_51
+  - first:
+      213: 5880797433764819304
+    second: TaDiem_Hit_52
+  - first:
+      213: 2640102663630939932
+    second: TaDiem_Hit_53
+  - first:
+      213: 4728514822223998572
+    second: TaDiem_Hit_54
+  - first:
+      213: 7213005237860253844
+    second: TaDiem_Hit_55
+  - first:
+      213: 92753742661573835
+    second: TaDiem_Hit_56
+  - first:
+      213: 1260203997350669255
+    second: TaDiem_Hit_57
+  - first:
+      213: 8307023630554779178
+    second: TaDiem_Hit_58
+  - first:
+      213: 2085151681162181537
+    second: TaDiem_Hit_59
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hero2_Hit_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3a282dee47fc7b408c3f973bdf302f1
+      internalID: 1118340679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Hit_01
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6874f61b8c6533143902337e13c27bac
+      internalID: -1207489656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Hit_02
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 038a021df60b1d744a112090e66cdca8
+      internalID: 916872357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Hit_03
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 139841b0293ea2f4c8729956ae59d628
+      internalID: -1218230647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Hit_04
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6950e96cf47f0e469d0c7a29585963d
+      internalID: -1157256524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Hit_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e191107cce542a94895463d405b19747
+      internalID: -425171486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Hit_06
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d6158c2555bcc4296399e100cd540c
+      internalID: -1291371069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Hit_07
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8afc0442c1b22d4d9661d316bd8d7d7
+      internalID: 1524618639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Hit_08
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef443df4e30b381499fde49c9e1c471c
+      internalID: 681123716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Hit_09
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 256
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9bf43689f4152447b293cd91b939502
+      internalID: 2005413189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Hit_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4510dd092de4f2428d60d9889d07639
+      internalID: 1832579077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hero2_Hit_11
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04d88dd890f81bf44b6568ebaa42d619
+      internalID: -1286989145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Hero2_Hit_00: 1118340679
+      Hero2_Hit_01: -1207489656
+      Hero2_Hit_02: 916872357
+      Hero2_Hit_03: -1218230647
+      Hero2_Hit_04: -1157256524
+      Hero2_Hit_05: -425171486
+      Hero2_Hit_06: -1291371069
+      Hero2_Hit_07: 1524618639
+      Hero2_Hit_08: 681123716
+      Hero2_Hit_09: 2005413189
+      Hero2_Hit_10: 1832579077
+      Hero2_Hit_11: -1286989145
+      TaDiem_Hit_0: 6095312657010698105
+      TaDiem_Hit_1: -8532962971106850392
+      TaDiem_Hit_10: 7549545872565780956
+      TaDiem_Hit_11: -8454862188249779596
+      TaDiem_Hit_12: 5548034617540000195
+      TaDiem_Hit_13: 1242946159171252843
+      TaDiem_Hit_14: 7716987788688756374
+      TaDiem_Hit_15: 4220191849621614259
+      TaDiem_Hit_16: 9037031131152858302
+      TaDiem_Hit_17: -5100844281245594960
+      TaDiem_Hit_18: 7688157160933045724
+      TaDiem_Hit_19: 5099058165430472969
+      TaDiem_Hit_2: 7032206205771829316
+      TaDiem_Hit_20: -1080989966164282388
+      TaDiem_Hit_21: 2164039729519910155
+      TaDiem_Hit_22: 2043248882680366898
+      TaDiem_Hit_23: 6874992870427855256
+      TaDiem_Hit_24: -879945030272210534
+      TaDiem_Hit_25: 7597506721869456247
+      TaDiem_Hit_26: -5821691567499669204
+      TaDiem_Hit_27: -6937937004211279473
+      TaDiem_Hit_28: 8751834975204577154
+      TaDiem_Hit_29: 902087061363619994
+      TaDiem_Hit_3: 3018784830195139204
+      TaDiem_Hit_30: 8297285539682489688
+      TaDiem_Hit_31: -1834619274096424047
+      TaDiem_Hit_32: -688029554916169430
+      TaDiem_Hit_33: -5100425035208319521
+      TaDiem_Hit_34: -7522881786911648071
+      TaDiem_Hit_35: 1206938852177095251
+      TaDiem_Hit_36: 2231311734986124889
+      TaDiem_Hit_37: 8228273094520439242
+      TaDiem_Hit_38: -6269816284162999406
+      TaDiem_Hit_39: 1380815113633944434
+      TaDiem_Hit_4: -856329451858061764
+      TaDiem_Hit_40: -8195547475585477276
+      TaDiem_Hit_41: 7906711747055033813
+      TaDiem_Hit_42: 4990793098793623796
+      TaDiem_Hit_43: 2104750274224425684
+      TaDiem_Hit_44: -2341416400313343123
+      TaDiem_Hit_45: 4475280677333025678
+      TaDiem_Hit_46: 4108752852931234874
+      TaDiem_Hit_47: 384751186577275558
+      TaDiem_Hit_48: 8258814857054772043
+      TaDiem_Hit_49: -3993125819095377064
+      TaDiem_Hit_5: -7778599143386648933
+      TaDiem_Hit_50: 1982236274891245014
+      TaDiem_Hit_51: -3598240547006314344
+      TaDiem_Hit_52: 5880797433764819304
+      TaDiem_Hit_53: 2640102663630939932
+      TaDiem_Hit_54: 4728514822223998572
+      TaDiem_Hit_55: 7213005237860253844
+      TaDiem_Hit_56: 92753742661573835
+      TaDiem_Hit_57: 1260203997350669255
+      TaDiem_Hit_58: 8307023630554779178
+      TaDiem_Hit_59: 2085151681162181537
+      TaDiem_Hit_6: -4310025503040134838
+      TaDiem_Hit_7: -6651277987803808852
+      TaDiem_Hit_8: -1556750336235709608
+      TaDiem_Hit_9: 3133658047589490589
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

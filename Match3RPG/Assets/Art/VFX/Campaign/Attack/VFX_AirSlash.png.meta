@@ -1,0 +1,832 @@
+fileFormatVersion: 2
+guid: 026c5219ecd6e2947a6925d7b5f6541e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6554718451726601392
+    second: VFX_AirSlash_0
+  - first:
+      213: 306479161399849441
+    second: VFX_AirSlash_1
+  - first:
+      213: 3053628943295012007
+    second: VFX_AirSlash_2
+  - first:
+      213: -107390134067289790
+    second: VFX_AirSlash_3
+  - first:
+      213: 463807897150015656
+    second: VFX_AirSlash_4
+  - first:
+      213: -8874703283096174140
+    second: VFX_AirSlash_5
+  - first:
+      213: 3067110356434450757
+    second: VFX_AirSlash_6
+  - first:
+      213: -6222283366473082967
+    second: VFX_AirSlash_7
+  - first:
+      213: -8401729429424951819
+    second: VFX_AirSlash_8
+  - first:
+      213: -274388624970265261
+    second: VFX_AirSlash_9
+  - first:
+      213: 8286759957642779368
+    second: VFX_AirSlash_10
+  - first:
+      213: -8005383188156632629
+    second: VFX_AirSlash_11
+  - first:
+      213: -1991324407226634494
+    second: VFX_AirSlash_12
+  - first:
+      213: 7866544233942388593
+    second: VFX_AirSlash_13
+  - first:
+      213: -3836652365957663356
+    second: VFX_AirSlash_14
+  - first:
+      213: 361193035577708349
+    second: VFX_AirSlash_15
+  - first:
+      213: 4311998827165820485
+    second: VFX_AirSlash_16
+  - first:
+      213: -328216227127915757
+    second: VFX_AirSlash_17
+  - first:
+      213: 4088767489736770340
+    second: VFX_AirSlash_18
+  - first:
+      213: -2069798069000417138
+    second: VFX_AirSlash_19
+  - first:
+      213: -7568182414628208702
+    second: VFX_AirSlash_20
+  - first:
+      213: -7201759939694933643
+    second: VFX_AirSlash_21
+  - first:
+      213: 1773033174207131261
+    second: VFX_AirSlash_22
+  - first:
+      213: 2639987568433081395
+    second: VFX_AirSlash_23
+  - first:
+      213: -3546703369243410704
+    second: VFX_AirSlash_24
+  - first:
+      213: 8453476638145310312
+    second: VFX_AirSlash_25
+  - first:
+      213: 5730940470182840689
+    second: VFX_AirSlash_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_AirSlash_0
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 674
+        width: 55
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bcccd514b907fa50800000000000000
+      internalID: 6554718451726601392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_1
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 664
+        width: 146
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e13c4a6c25d04400800000000000000
+      internalID: 306479161399849441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_2
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 734
+        width: 75
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ac53f8585ba06a20800000000000000
+      internalID: 3053628943295012007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_3
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 698
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 241a986fd39728ef0800000000000000
+      internalID: -107390134067289790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_4
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 712
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a8c5a933d6cf6600800000000000000
+      internalID: 463807897150015656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_5
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 704
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c14f0c5268b6d480800000000000000
+      internalID: -8874703283096174140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_6
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 671
+        width: 52
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54972327e90909a20800000000000000
+      internalID: 3067110356434450757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_7
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 696
+        width: 31
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a7dc89ce3206a9a0800000000000000
+      internalID: -6222283366473082967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_8
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 680
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fd2e24299f076b80800000000000000
+      internalID: -8401729429424951819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_9
+      rect:
+        serializedVersion: 2
+        x: 459
+        y: 684
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35d4d36dffc213cf0800000000000000
+      internalID: -274388624970265261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 690
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ea9a3eb64c700370800000000000000
+      internalID: 8286759957642779368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_11
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 682
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc13a0b976a27e090800000000000000
+      internalID: -8005383188156632629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_12
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 640
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20fe0ba80056d54e0800000000000000
+      internalID: -1991324407226634494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_13
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 655
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17f88025d449b2d60800000000000000
+      internalID: 7866544233942388593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_14
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 642
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4857e68200971cac0800000000000000
+      internalID: -3836652365957663356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_15
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 642
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f44f4f627330500800000000000000
+      internalID: 361193035577708349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_16
+      rect:
+        serializedVersion: 2
+        x: 449
+        y: 626
+        width: 36
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 546ae1d561c47db30800000000000000
+      internalID: 4311998827165820485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_17
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 650
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31b85849411f17bf0800000000000000
+      internalID: -328216227127915757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_18
+      rect:
+        serializedVersion: 2
+        x: 534
+        y: 617
+        width: 35
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4230de26e583eb830800000000000000
+      internalID: 4088767489736770340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_19
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 576
+        width: 32
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e80d07c5f999643e0800000000000000
+      internalID: -2069798069000417138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_20
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 590
+        width: 29
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cf3abc113a68f690800000000000000
+      internalID: -7568182414628208702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_21
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 624
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57948dccd753e0c90800000000000000
+      internalID: -7201759939694933643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_22
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 608
+        width: 33
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7e699b27441b9810800000000000000
+      internalID: 1773033174207131261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_23
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 204
+        width: 315
+        height: 411
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33ca6ebc4be13a420800000000000000
+      internalID: 2639987568433081395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_24
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 602
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0feb090b31497cec0800000000000000
+      internalID: -3546703369243410704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_25
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 610
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86ee6b5c638c05570800000000000000
+      internalID: 8453476638145310312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_AirSlash_26
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 210
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 179882a6ef3688f40800000000000000
+      internalID: 5730940470182840689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_AirSlash_0: 6554718451726601392
+      VFX_AirSlash_1: 306479161399849441
+      VFX_AirSlash_10: 8286759957642779368
+      VFX_AirSlash_11: -8005383188156632629
+      VFX_AirSlash_12: -1991324407226634494
+      VFX_AirSlash_13: 7866544233942388593
+      VFX_AirSlash_14: -3836652365957663356
+      VFX_AirSlash_15: 361193035577708349
+      VFX_AirSlash_16: 4311998827165820485
+      VFX_AirSlash_17: -328216227127915757
+      VFX_AirSlash_18: 4088767489736770340
+      VFX_AirSlash_19: -2069798069000417138
+      VFX_AirSlash_2: 3053628943295012007
+      VFX_AirSlash_20: -7568182414628208702
+      VFX_AirSlash_21: -7201759939694933643
+      VFX_AirSlash_22: 1773033174207131261
+      VFX_AirSlash_23: 2639987568433081395
+      VFX_AirSlash_24: -3546703369243410704
+      VFX_AirSlash_25: 8453476638145310312
+      VFX_AirSlash_26: 5730940470182840689
+      VFX_AirSlash_3: -107390134067289790
+      VFX_AirSlash_4: 463807897150015656
+      VFX_AirSlash_5: -8874703283096174140
+      VFX_AirSlash_6: 3067110356434450757
+      VFX_AirSlash_7: -6222283366473082967
+      VFX_AirSlash_8: -8401729429424951819
+      VFX_AirSlash_9: -274388624970265261
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

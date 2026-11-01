@@ -1,0 +1,770 @@
+fileFormatVersion: 2
+guid: 971dc7424e2819f4d83fea698b76ae9b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2867214708340068657
+    second: "Armored Dragon\u2019s Violet Orb Attack_0"
+  - first:
+      213: -8348243837335731724
+    second: "Armored Dragon\u2019s Violet Orb Attack_1"
+  - first:
+      213: -3872750960451622373
+    second: "Armored Dragon\u2019s Violet Orb Attack_2"
+  - first:
+      213: -725707403868599633
+    second: "Armored Dragon\u2019s Violet Orb Attack_3"
+  - first:
+      213: -2533750093355572048
+    second: "Armored Dragon\u2019s Violet Orb Attack_4"
+  - first:
+      213: 4140919636168097737
+    second: "Armored Dragon\u2019s Violet Orb Attack_5"
+  - first:
+      213: -4058541397971604045
+    second: "Armored Dragon\u2019s Violet Orb Attack_6"
+  - first:
+      213: 7085737723320875500
+    second: "Armored Dragon\u2019s Violet Orb Attack_7"
+  - first:
+      213: 1855308512789923781
+    second: "Armored Dragon\u2019s Violet Orb Attack_8"
+  - first:
+      213: 4638989800244567388
+    second: "Armored Dragon\u2019s Violet Orb Attack_9"
+  - first:
+      213: -1437217489315642106
+    second: "Armored Dragon\u2019s Violet Orb Attack_10"
+  - first:
+      213: 3207852547506635475
+    second: "Armored Dragon\u2019s Violet Orb Attack_11"
+  - first:
+      213: -5592376915263999955
+    second: "Armored Dragon\u2019s Violet Orb Attack_12"
+  - first:
+      213: 2661073957637920310
+    second: "Armored Dragon\u2019s Violet Orb Attack_13"
+  - first:
+      213: -4142129072987123076
+    second: "Armored Dragon\u2019s Violet Orb Attack_14"
+  - first:
+      213: -7505173975610732667
+    second: "Armored Dragon\u2019s Violet Orb Attack_15"
+  - first:
+      213: 2927788802432736230
+    second: "Armored Dragon\u2019s Violet Orb Attack_16"
+  - first:
+      213: -4914980841899758073
+    second: "Armored Dragon\u2019s Violet Orb Attack_17"
+  - first:
+      213: 5283045059497225167
+    second: "Armored Dragon\u2019s Violet Orb Attack_18"
+  - first:
+      213: -3748135291767833625
+    second: "Armored Dragon\u2019s Violet Orb Attack_19"
+  - first:
+      213: -1119986096349721157
+    second: "Armored Dragon\u2019s Violet Orb Attack_20"
+  - first:
+      213: 5249091798035685049
+    second: "Armored Dragon\u2019s Violet Orb Attack_21"
+  - first:
+      213: 8101579046457767610
+    second: "Armored Dragon\u2019s Violet Orb Attack_22"
+  - first:
+      213: 1424026795512273973
+    second: "Armored Dragon\u2019s Violet Orb Attack_23"
+  - first:
+      213: 4736292014649075573
+    second: "Armored Dragon\u2019s Violet Orb Attack_24"
+  - first:
+      213: 1747939761216319488
+    second: "Armored Dragon\u2019s Violet Orb Attack_25"
+  - first:
+      213: 3735281314220337858
+    second: "Armored Dragon\u2019s Violet Orb Attack_26"
+  - first:
+      213: -297645704978318617
+    second: "Armored Dragon\u2019s Violet Orb Attack_27"
+  - first:
+      213: 5206236120201695302
+    second: "Armored Dragon\u2019s Violet Orb Attack_28"
+  - first:
+      213: -809343601596461299
+    second: "Armored Dragon\u2019s Violet Orb Attack_29"
+  - first:
+      213: 5504538745126351054
+    second: "Armored Dragon\u2019s Violet Orb Attack_30"
+  - first:
+      213: 8401489817394907850
+    second: "Armored Dragon\u2019s Violet Orb Attack_31"
+  - first:
+      213: -6904570277413887097
+    second: "Armored Dragon\u2019s Violet Orb Attack_32"
+  - first:
+      213: -4955854638949349087
+    second: "Armored Dragon\u2019s Violet Orb Attack_33"
+  - first:
+      213: 3751742136508833946
+    second: "Armored Dragon\u2019s Violet Orb Attack_34"
+  - first:
+      213: 8326774209804665048
+    second: "Armored Dragon\u2019s Violet Orb Attack_35"
+  - first:
+      213: -6472538248992200061
+    second: "Armored Dragon\u2019s Violet Orb Attack_36"
+  - first:
+      213: 2584940919114027042
+    second: "Armored Dragon\u2019s Violet Orb Attack_37"
+  - first:
+      213: -5585194921736570814
+    second: "Armored Dragon\u2019s Violet Orb Attack_38"
+  - first:
+      213: -8642744337438828294
+    second: "Armored Dragon\u2019s Violet Orb Attack_39"
+  - first:
+      213: -3456938977232863381
+    second: "Armored Dragon\u2019s Violet Orb Attack_40"
+  - first:
+      213: 3570035302980924940
+    second: "Armored Dragon\u2019s Violet Orb Attack_41"
+  - first:
+      213: -1793337665320123976
+    second: "Armored Dragon\u2019s Violet Orb Attack_42"
+  - first:
+      213: 748356318078212680
+    second: "Armored Dragon\u2019s Violet Orb Attack_43"
+  - first:
+      213: -3758991488776074070
+    second: "Armored Dragon\u2019s Violet Orb Attack_44"
+  - first:
+      213: -3026738019110304453
+    second: "Armored Dragon\u2019s Violet Orb Attack_45"
+  - first:
+      213: -3353837725021149156
+    second: "Armored Dragon\u2019s Violet Orb Attack_46"
+  - first:
+      213: -9052242245148338402
+    second: "Armored Dragon\u2019s Violet Orb Attack_47"
+  - first:
+      213: -5675650137075354991
+    second: "Armored Dragon\u2019s Violet Orb Attack_48"
+  - first:
+      213: 954041126206639821
+    second: "Armored Dragon\u2019s Violet Orb Attack_49"
+  - first:
+      213: 3515784501882051661
+    second: "Armored Dragon\u2019s Violet Orb Attack_50"
+  - first:
+      213: -7656046585231051216
+    second: "Armored Dragon\u2019s Violet Orb Attack_51"
+  - first:
+      213: -9144051123775200425
+    second: "Armored Dragon\u2019s Violet Orb Attack_52"
+  - first:
+      213: 1622240602698865283
+    second: "Armored Dragon\u2019s Violet Orb Attack_53"
+  - first:
+      213: -60689044413758861
+    second: "Armored Dragon\u2019s Violet Orb Attack_54"
+  - first:
+      213: -4742237416004077856
+    second: "Armored Dragon\u2019s Violet Orb Attack_55"
+  - first:
+      213: -6823716679239938213
+    second: "Armored Dragon\u2019s Violet Orb Attack_56"
+  - first:
+      213: 1498908655112245142
+    second: "Armored Dragon\u2019s Violet Orb Attack_57"
+  - first:
+      213: 2852925389701849047
+    second: "Armored Dragon\u2019s Violet Orb Attack_58"
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 841.5
+        width: 280.4
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd11d2289bf57f54ea539f156f840a62
+      internalID: -510106698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_01
+      rect:
+        serializedVersion: 2
+        x: 280.4
+        y: 841.5
+        width: 280.4
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 389e8cb1a6bca54499d826940fc7e512
+      internalID: -1485103168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_02
+      rect:
+        serializedVersion: 2
+        x: 560.8
+        y: 841.5
+        width: 280.40002
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d5d67a010c7c8d41a5824b04d65a645
+      internalID: 371378804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_03
+      rect:
+        serializedVersion: 2
+        x: 841.2
+        y: 841.5
+        width: 280.39996
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6275c13ce51232c4db964f5f2572ce2f
+      internalID: -2145294533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_04
+      rect:
+        serializedVersion: 2
+        x: 1121.6
+        y: 841.5
+        width: 280.40002
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4968994ffcc72414e8052d6fefcace0a
+      internalID: -540079437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 561
+        width: 280.4
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: befb1e169529acd40bfb9df6a23a2e5b
+      internalID: 2140266396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_06
+      rect:
+        serializedVersion: 2
+        x: 280.4
+        y: 561
+        width: 280.4
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b33db7fd2130a64992871f85dcca148
+      internalID: -108394850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_07
+      rect:
+        serializedVersion: 2
+        x: 560.8
+        y: 561
+        width: 280.40002
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 784b13e656652c347a98cd3e8cb0e731
+      internalID: -577268283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_08
+      rect:
+        serializedVersion: 2
+        x: 841.2
+        y: 561
+        width: 280.39996
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec0f1f2ac7d97a2438b722d0f352e4a0
+      internalID: 462986930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_09
+      rect:
+        serializedVersion: 2
+        x: 1121.6
+        y: 561
+        width: 280.40002
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cd3e5210f250554387de0a2b21b0b30
+      internalID: 2105124749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280.5
+        width: 280.4
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 634f1e21f1db631469ba399e981a509d
+      internalID: 426593014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_11
+      rect:
+        serializedVersion: 2
+        x: 280.4
+        y: 280.5
+        width: 280.4
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36c84654a9b3cdc439690fb19af12204
+      internalID: -1674438709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_12
+      rect:
+        serializedVersion: 2
+        x: 560.8
+        y: 280.5
+        width: 280.40002
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a637d06d67638914a896e2493bb335c4
+      internalID: -638225787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_13
+      rect:
+        serializedVersion: 2
+        x: 841.2
+        y: 280.5
+        width: 280.39996
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4001bc6d2252b7c479acade6c582d3a2
+      internalID: 29934377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_14
+      rect:
+        serializedVersion: 2
+        x: 1121.6
+        y: 280.5
+        width: 280.40002
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9dbfc94762a780c4e8fcc302fa16dbb7
+      internalID: 2247322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 280.4
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0eb9128c67d19784c8c97760b7e45675
+      internalID: 622371089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss01_SpecAttack_16
+      rect:
+        serializedVersion: 2
+        x: 280.4
+        y: 0
+        width: 280.4
+        height: 280.5
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21dfd13f447effd43b621206f2e16018
+      internalID: -1047443314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      "Armored Dragon\u2019s Violet Orb Attack_0": -2867214708340068657
+      "Armored Dragon\u2019s Violet Orb Attack_1": -8348243837335731724
+      "Armored Dragon\u2019s Violet Orb Attack_10": -1437217489315642106
+      "Armored Dragon\u2019s Violet Orb Attack_11": 3207852547506635475
+      "Armored Dragon\u2019s Violet Orb Attack_12": -5592376915263999955
+      "Armored Dragon\u2019s Violet Orb Attack_13": 2661073957637920310
+      "Armored Dragon\u2019s Violet Orb Attack_14": -4142129072987123076
+      "Armored Dragon\u2019s Violet Orb Attack_15": -7505173975610732667
+      "Armored Dragon\u2019s Violet Orb Attack_16": 2927788802432736230
+      "Armored Dragon\u2019s Violet Orb Attack_17": -4914980841899758073
+      "Armored Dragon\u2019s Violet Orb Attack_18": 5283045059497225167
+      "Armored Dragon\u2019s Violet Orb Attack_19": -3748135291767833625
+      "Armored Dragon\u2019s Violet Orb Attack_2": -3872750960451622373
+      "Armored Dragon\u2019s Violet Orb Attack_20": -1119986096349721157
+      "Armored Dragon\u2019s Violet Orb Attack_21": 5249091798035685049
+      "Armored Dragon\u2019s Violet Orb Attack_22": 8101579046457767610
+      "Armored Dragon\u2019s Violet Orb Attack_23": 1424026795512273973
+      "Armored Dragon\u2019s Violet Orb Attack_24": 4736292014649075573
+      "Armored Dragon\u2019s Violet Orb Attack_25": 1747939761216319488
+      "Armored Dragon\u2019s Violet Orb Attack_26": 3735281314220337858
+      "Armored Dragon\u2019s Violet Orb Attack_27": -297645704978318617
+      "Armored Dragon\u2019s Violet Orb Attack_28": 5206236120201695302
+      "Armored Dragon\u2019s Violet Orb Attack_29": -809343601596461299
+      "Armored Dragon\u2019s Violet Orb Attack_3": -725707403868599633
+      "Armored Dragon\u2019s Violet Orb Attack_30": 5504538745126351054
+      "Armored Dragon\u2019s Violet Orb Attack_31": 8401489817394907850
+      "Armored Dragon\u2019s Violet Orb Attack_32": -6904570277413887097
+      "Armored Dragon\u2019s Violet Orb Attack_33": -4955854638949349087
+      "Armored Dragon\u2019s Violet Orb Attack_34": 3751742136508833946
+      "Armored Dragon\u2019s Violet Orb Attack_35": 8326774209804665048
+      "Armored Dragon\u2019s Violet Orb Attack_36": -6472538248992200061
+      "Armored Dragon\u2019s Violet Orb Attack_37": 2584940919114027042
+      "Armored Dragon\u2019s Violet Orb Attack_38": -5585194921736570814
+      "Armored Dragon\u2019s Violet Orb Attack_39": -8642744337438828294
+      "Armored Dragon\u2019s Violet Orb Attack_4": -2533750093355572048
+      "Armored Dragon\u2019s Violet Orb Attack_40": -3456938977232863381
+      "Armored Dragon\u2019s Violet Orb Attack_41": 3570035302980924940
+      "Armored Dragon\u2019s Violet Orb Attack_42": -1793337665320123976
+      "Armored Dragon\u2019s Violet Orb Attack_43": 748356318078212680
+      "Armored Dragon\u2019s Violet Orb Attack_44": -3758991488776074070
+      "Armored Dragon\u2019s Violet Orb Attack_45": -3026738019110304453
+      "Armored Dragon\u2019s Violet Orb Attack_46": -3353837725021149156
+      "Armored Dragon\u2019s Violet Orb Attack_47": -9052242245148338402
+      "Armored Dragon\u2019s Violet Orb Attack_48": -5675650137075354991
+      "Armored Dragon\u2019s Violet Orb Attack_49": 954041126206639821
+      "Armored Dragon\u2019s Violet Orb Attack_5": 4140919636168097737
+      "Armored Dragon\u2019s Violet Orb Attack_50": 3515784501882051661
+      "Armored Dragon\u2019s Violet Orb Attack_51": -7656046585231051216
+      "Armored Dragon\u2019s Violet Orb Attack_52": -9144051123775200425
+      "Armored Dragon\u2019s Violet Orb Attack_53": 1622240602698865283
+      "Armored Dragon\u2019s Violet Orb Attack_54": -60689044413758861
+      "Armored Dragon\u2019s Violet Orb Attack_55": -4742237416004077856
+      "Armored Dragon\u2019s Violet Orb Attack_56": -6823716679239938213
+      "Armored Dragon\u2019s Violet Orb Attack_57": 1498908655112245142
+      "Armored Dragon\u2019s Violet Orb Attack_58": 2852925389701849047
+      "Armored Dragon\u2019s Violet Orb Attack_6": -4058541397971604045
+      "Armored Dragon\u2019s Violet Orb Attack_7": 7085737723320875500
+      "Armored Dragon\u2019s Violet Orb Attack_8": 1855308512789923781
+      "Armored Dragon\u2019s Violet Orb Attack_9": 4638989800244567388
+      Boss01_SpecAttack_00: -510106698
+      Boss01_SpecAttack_01: -1485103168
+      Boss01_SpecAttack_02: 371378804
+      Boss01_SpecAttack_03: -2145294533
+      Boss01_SpecAttack_04: -540079437
+      Boss01_SpecAttack_05: 2140266396
+      Boss01_SpecAttack_06: -108394850
+      Boss01_SpecAttack_07: -577268283
+      Boss01_SpecAttack_08: 462986930
+      Boss01_SpecAttack_09: 2105124749
+      Boss01_SpecAttack_10: 426593014
+      Boss01_SpecAttack_11: -1674438709
+      Boss01_SpecAttack_12: -638225787
+      Boss01_SpecAttack_13: 29934377
+      Boss01_SpecAttack_14: 2247322
+      Boss01_SpecAttack_15: 622371089
+      Boss01_SpecAttack_16: -1047443314
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
