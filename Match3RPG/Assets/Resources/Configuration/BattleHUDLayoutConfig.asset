@@ -12,7 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cdd7c1af114824a8044416a6e6f001, type: 3}
   m_Name: BattleHUDLayoutConfig
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Configuration.BattleHUDLayoutConfig
-  heroNameSlot: {x: 0.1, y: 0.918, width: 0.28, height: 0.014}
+  heroNameSlot:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
   bossNameOffsetNormalized: {x: 0, y: 0}
   heroNameStyle:
     fontSize: 24
@@ -32,28 +37,44 @@ MonoBehaviour:
     outlineColor: {r: 0.03, g: 0.025, b: 0.02, a: 0.9}
     outlineWidth: 0.12
     alignment: 4100
-  heroHpChannel: {x: 0.075, y: 0.896875, width: 0.195, height: 0.0125}
-  heroHpBarPosition: {x: -353.2, y: 940}
-  bossHpBarOffsetReferencePixels: {x: 0, y: 0}
-  heroHpBarSize: {x: 209.6, y: 30}
+  heroHpChannel:
+    serializedVersion: 2
+    x: 0.075
+    y: 0.896875
+    width: 0.375
+    height: 0.0625
+  heroSoulHpChannel:
+    serializedVersion: 2
+    x: 0.032
+    y: 0.851
+    width: 0.38
+    height: 0.057
+  heroHpBarPosition: {x: -273.57, y: 942.1729}
+  bossHpBarOffsetReferencePixels: {x: 8, y: 0}
+  heroHpBarSize: {x: 404.2218, y: 120.1733}
   hpFillInset: 3
   hpValueStyle:
-    fontSize: 18
+    fontSize: 20
     autoSize: 1
-    autoSizeMin: 14
-    autoSizeMax: 18
+    autoSizeMin: 4
+    autoSizeMax: 20
     color: {r: 1, g: 1, b: 1, a: 1}
     outlineColor: {r: 0.03, g: 0.025, b: 0.02, a: 0.9}
     outlineWidth: 0.18
     alignment: 514
-  heroRageChannel: {x: 0.13, y: 0.86025, width: 0.24, height: 0.0125}
+  heroRageChannel:
+    serializedVersion: 2
+    x: 0.11
+    y: 0.842
+    width: 0.21
+    height: 0.048
   bossRageOffsetNormalized: {x: 0, y: 0}
   rageFillInset: 3
   rageValueStyle:
-    fontSize: 13
+    fontSize: 18
     autoSize: 1
     autoSizeMin: 10
-    autoSizeMax: 13
+    autoSizeMax: 18
     color: {r: 1, g: 1, b: 1, a: 1}
     outlineColor: {r: 0.03, g: 0.025, b: 0.02, a: 0.9}
     outlineWidth: 0.18

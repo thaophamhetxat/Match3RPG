@@ -10,7 +10,15 @@ namespace Match3RPG.Core
         Lightning,
         BaguaShuffle,
         RainbowColor,
-        RainbowFullBoard
+        RainbowFullBoard,
+        LineLineCombo,
+        RainbowBaguaCombo,
+        RainbowBombCombo,
+        RainbowLineHorizontal,
+        RainbowLineVertical,
+        RainbowLightningCombo,
+        AreaBombFiveByFive,
+        FallbackBaguaShuffle
     }
 
     public readonly struct SpecialActivation
@@ -18,13 +26,18 @@ namespace Match3RPG.Core
         public SpecialActivationKind Kind { get; }
         public BoardPos Position { get; }
         public GemType? TargetGemType { get; }
+        public BoardPos? TargetPosition { get; }
+        public int SequenceIndex { get; }
 
         public SpecialActivation(SpecialActivationKind kind, BoardPos position,
-            GemType? targetGemType = null)
+            GemType? targetGemType = null, BoardPos? targetPosition = null,
+            int sequenceIndex = 0)
         {
             Kind = kind;
             Position = position;
             TargetGemType = targetGemType;
+            TargetPosition = targetPosition;
+            SequenceIndex = sequenceIndex;
         }
     }
 

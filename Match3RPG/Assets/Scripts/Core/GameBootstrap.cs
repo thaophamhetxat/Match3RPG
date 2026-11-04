@@ -11,6 +11,9 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Match3RPG.Core
 {
@@ -66,6 +69,10 @@ namespace Match3RPG.Core
         [SerializeField] Sprite tabSettingsSprite;
         [SerializeField] Sprite victorySprite;
         [SerializeField] Sprite defeatSprite;
+        [SerializeField] Sprite heroHpBarSprite;
+        [SerializeField] Sprite bossHpBarSprite;
+        [SerializeField] Sprite soulHpBarSprite;
+        [SerializeField] Sprite rageHpBarSprite;
     #pragma warning restore 0649
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
         [SerializeField] bool tintHpFillForAlignment;
@@ -103,8 +110,10 @@ namespace Match3RPG.Core
         CharacterView heroCharacterView;
         CharacterView bossCharacterView;
         Slider heroHpBar;
+        Slider heroSoulHpBar;
         Slider heroRageBar;
         Slider bossHpBar;
+        Slider bossSoulHpBar;
         Slider bossRageBar;
         TMP_Text heroNameText;
         TMP_Text bossNameText;
@@ -118,6 +127,7 @@ namespace Match3RPG.Core
         Sprite barFillSprite;
         BattleHUDLayoutValues hudLayoutValues;
         bool hudLayoutFallbackWarningLogged;
+        bool invalidHudChannelsWarningLogged;
         Vector2 lastCanvasSize = new Vector2(-1f, -1f);
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
         bool battleLayoutDiagnosticsLogged;
@@ -127,8 +137,10 @@ namespace Match3RPG.Core
 
         void Awake()
         {
+            BattleHUDPreviewMarker.CleanupScenePreview();
             Application.targetFrameRate = 60;
             Screen.orientation = ScreenOrientation.Portrait;
+            ResolveBattleBarSprites();
             BuildRuntimeGame();
         }
 
@@ -167,6 +179,51 @@ namespace Match3RPG.Core
             StartCoroutine(heroCharacterView.Attack());
         }
 #endif
+
+        void ResolveBattleBarSprites()
+        {
+            heroHpBarSprite = ResolveBattleBarSprite(heroHpBarSprite,
+                "Assets/Art/Battle/BarHP/Bar_HPNormal_Hero.png",
+                "Battle/BarHP/Bar_HPNormal_Hero");
+            bossHpBarSprite = ResolveBattleBarSprite(bossHpBarSprite,
+                "Assets/Art/Battle/BarHP/Bar_HPNormal_Boss.png",
+                "Battle/BarHP/Bar_HPNormal_Boss");
+            soulHpBarSprite = ResolveBattleBarSprite(soulHpBarSprite,
+                "Assets/Art/Battle/BarHP/Bar_HPSoul.png",
+                "Battle/BarHP/Bar_HPSoul");
+            rageHpBarSprite = ResolveBattleBarSprite(rageHpBarSprite,
+                "Assets/Art/Battle/BarHP/Bar_Rage.png",
+                "Battle/BarHP/Bar_Rage");
+
+            if (heroHpBarSprite == null || bossHpBarSprite == null || soulHpBarSprite == null || rageHpBarSprite == null)
+            {
+                Debug.LogWarning("Battle HUD bar sprites are still unresolved. Expected Bar_HPNormal_Hero, " +
+                    "Bar_HPNormal_Boss, Bar_HPSoul, and Bar_Rage under Assets/Art/Battle/BarHP or under Assets/Resources/Battle/BarHP.", this);
+            }
+        }
+
+        static Sprite ResolveBattleBarSprite(Sprite assignedSprite, string editorAssetPath, string resourcesPath)
+        {
+            if (assignedSprite != null)
+                return assignedSprite;
+#if UNITY_EDITOR
+            Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(editorAssetPath);
+            if (sprite != null)
+                return sprite;
+#endif
+            if (!string.IsNullOrEmpty(resourcesPath))
+            {
+                Sprite loaded = Resources.Load<Sprite>(resourcesPath);
+                if (loaded != null)
+                    return loaded;
+
+                string fileName = resourcesPath.Substring(resourcesPath.LastIndexOf('/') + 1);
+                loaded = Resources.Load<Sprite>(fileName);
+                if (loaded != null)
+                    return loaded;
+            }
+            return null;
+        }
 
         static string GetObjectPath(Transform transform)
         {
@@ -403,16 +460,22 @@ namespace Match3RPG.Core
                 TextAlignmentOptions.Center, Color.white);
 
             heroHpBar = CreateBar(battleLayoutReferenceRoot, "HeroHPBar", Vector2.zero,
-                Vector2.one, new Color32(89, 197, 128, 255), out heroHpValueText,
+                Vector2.one, new Color32(89, 197, 128, 255), heroHpBarSprite, out heroHpValueText,
                 hudLayoutValues.HpValueStyle);
+            heroSoulHpBar = CreateBar(battleLayoutReferenceRoot, "HeroSoulHPBar", Vector2.zero,
+                Vector2.one, new Color32(139, 128, 224, 255), soulHpBarSprite, out _,
+                hudLayoutValues.RageValueStyle);
             heroRageBar = CreateBar(battleLayoutReferenceRoot, "HeroRageBar", Vector2.zero,
-                Vector2.one, new Color32(242, 112, 43, 255), out heroRageValueText,
+                Vector2.one, new Color32(242, 112, 43, 255), rageHpBarSprite, out heroRageValueText,
                 hudLayoutValues.RageValueStyle);
             bossHpBar = CreateBar(battleLayoutReferenceRoot, "BossHPBar", Vector2.zero,
-                Vector2.one, new Color32(226, 91, 78, 255), out bossHpValueText,
+                Vector2.one, new Color32(226, 91, 78, 255), bossHpBarSprite, out bossHpValueText,
                 hudLayoutValues.HpValueStyle);
+            bossSoulHpBar = CreateBar(battleLayoutReferenceRoot, "BossSoulHPBar", Vector2.zero,
+                Vector2.one, new Color32(139, 128, 224, 255), soulHpBarSprite, out _,
+                hudLayoutValues.RageValueStyle);
             bossRageBar = CreateBar(battleLayoutReferenceRoot, "BossRageBar", Vector2.zero,
-                Vector2.one, new Color32(242, 112, 43, 255), out bossRageValueText,
+                Vector2.one, new Color32(242, 112, 43, 255), rageHpBarSprite, out bossRageValueText,
                 hudLayoutValues.RageValueStyle);
             turnInfoLayerRect = CreateRect("TurnInfoLayer", battleLayoutReferenceRoot,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
@@ -504,9 +567,9 @@ namespace Match3RPG.Core
             RectTransform hudObject = CreateRect("BattleHUD", battleHudLayer,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
             BattleHUD hud = hudObject.gameObject.AddComponent<BattleHUD>();
-            hud.Configure(heroHpBar, bossHpBar, heroRageBar, bossRageBar, manaBar, ultimateBar,
-                heroHpValueText, bossHpValueText, heroRageValueText, bossRageValueText,
-                manaValue, ultimateValue);
+            hud.Configure(heroHpBar, bossHpBar, heroSoulHpBar, bossSoulHpBar,
+                heroRageBar, bossRageBar, manaBar, ultimateBar, heroHpValueText,
+                bossHpValueText, heroRageValueText, bossRageValueText, manaValue, ultimateValue);
 
             GameObject boardObject = new GameObject("BoardManager");
             BoardManager board = boardObject.AddComponent<BoardManager>();
@@ -889,6 +952,13 @@ namespace Match3RPG.Core
         Slider CreateBar(Transform parent, string name, Vector2 min, Vector2 max, Color fillColor,
             out TMP_Text valueText, int fontSize = 19, float fillInset = 3f)
         {
+            return CreateBar(parent, name, min, max, fillColor, null, out valueText,
+                fontSize, fillInset);
+        }
+
+        Slider CreateBar(Transform parent, string name, Vector2 min, Vector2 max, Color fillColor,
+            Sprite fillSprite, out TMP_Text valueText, int fontSize = 19, float fillInset = 3f)
+        {
             RectTransform rect = CreateRect(name, parent, min, max, Vector2.zero, Vector2.zero);
             Image background = AddImage(rect.gameObject, Color.clear);
             background.raycastTarget = false;
@@ -902,9 +972,22 @@ namespace Match3RPG.Core
             RectTransform fillArea = CreateRect("FillArea", rect, Vector2.zero, Vector2.one,
                 Vector2.one * fillInset, Vector2.one * -fillInset);
             RectTransform fill = CreateRect("Fill", fillArea, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
-            Image fillImage = AddImage(fill.gameObject, fillColor);
-            fillImage.sprite = GetBarFillSprite();
+            Image fillImage = AddImage(fill.gameObject, Color.white);
+            if (fillSprite != null)
+                ApplyRoundedBarSprite(fillImage, fillSprite, Color.white, true);
+            else
+            {
+                fillImage.sprite = GetBarFillSprite();
+                fillImage.type = Image.Type.Sliced;
+                fillImage.fillCenter = true;
+                fillImage.raycastTarget = false;
+            }
+            fillImage.color = Color.white;
             fillImage.raycastTarget = false;
+            fillImage.type = Image.Type.Filled;
+            fillImage.fillMethod = Image.FillMethod.Horizontal;
+            fillImage.fillAmount = 1f;
+            fillImage.fillOrigin = (int)Image.OriginHorizontal.Left;
             slider.fillRect = fill;
             slider.direction = Slider.Direction.LeftToRight;
             valueText = CreateRuntimeText(rect, "Value", "", Vector2.zero, Vector2.one,
@@ -912,13 +995,58 @@ namespace Match3RPG.Core
             valueText.raycastTarget = false;
             valueText.outlineColor = new Color(.03f, .025f, .02f, .9f);
             valueText.outlineWidth = .18f;
+            ApplyRoundedBarTrack(background, fillSprite, new Color32(42, 46, 61, 255));
+            RectMask2D fillMask = fillArea.GetComponent<RectMask2D>();
+            if (fillMask == null)
+                fillMask = fillArea.gameObject.AddComponent<RectMask2D>();
+            fillMask.padding = Vector4.zero;
+            fillMask.softness = Vector2Int.zero;
             return slider;
         }
 
-        Slider CreateBar(Transform parent, string name, Vector2 min, Vector2 max,
-            Color fillColor, out TMP_Text valueText, BattleHUDTextStyle valueTextStyle)
+        Sprite ResolveBarSpriteForSlider(Slider slider)
         {
-            Slider slider = CreateBar(parent, name, min, max, fillColor,
+            if (slider == null)
+                return null;
+            if (slider == heroHpBar)
+                return heroHpBarSprite;
+            if (slider == bossHpBar)
+                return bossHpBarSprite;
+            if (slider == heroSoulHpBar || slider == bossSoulHpBar)
+                return soulHpBarSprite;
+            if (slider == heroRageBar || slider == bossRageBar)
+                return rageHpBarSprite;
+            return null;
+        }
+
+        static void ApplyRoundedBarTrack(Image trackImage, Sprite fillSprite, Color trackColor)
+        {
+            if (trackImage == null)
+                return;
+            trackImage.type = Image.Type.Sliced;
+            trackImage.fillCenter = true;
+            if (fillSprite != null)
+                trackImage.sprite = fillSprite;
+            trackImage.color = trackColor;
+            trackImage.raycastTarget = false;
+        }
+
+        static void ApplyRoundedBarSprite(Image barImage, Sprite barSprite, Color fillColor, bool setFillCenter)
+        {
+            if (barImage == null)
+                return;
+            barImage.type = Image.Type.Sliced;
+            barImage.fillCenter = setFillCenter;
+            barImage.color = Color.white;
+            barImage.raycastTarget = false;
+            if (barSprite != null)
+                barImage.sprite = barSprite;
+        }
+
+        Slider CreateBar(Transform parent, string name, Vector2 min, Vector2 max,
+            Color fillColor, Sprite fillSprite, out TMP_Text valueText, BattleHUDTextStyle valueTextStyle)
+        {
+            Slider slider = CreateBar(parent, name, min, max, fillColor, fillSprite,
                 out valueText, valueTextStyle.FontSize);
             ApplyTextStyle(valueText, valueTextStyle);
             return slider;
@@ -939,16 +1067,50 @@ namespace Match3RPG.Core
 
         BattleHUDLayoutValues ResolveHudLayoutValues()
         {
+            BattleHUDLayoutValues values;
             if (hudLayoutConfig != null)
-                return hudLayoutConfig.GetValues();
+                values = hudLayoutConfig.GetValues();
+            else
+                values = BattleHUDLayoutConfig.DefaultValues;
 
-            if (!hudLayoutFallbackWarningLogged)
+            BattleHUDLayoutValues configuredValues = values;
+            BattleHUDLayoutValues defaults = BattleHUDLayoutConfig.DefaultValues;
+            bool invalidSoulChannels = !HasArea(values.HeroSoulHpChannel)
+                || !HasArea(values.BossSoulHpChannel);
+            bool invalidRageChannels = !HasArea(values.HeroRageChannel)
+                || !HasArea(values.BossRageChannel);
+            if (invalidSoulChannels)
+            {
+                values.HeroSoulHpChannel = defaults.HeroSoulHpChannel;
+                values.BossSoulHpChannel = defaults.BossSoulHpChannel;
+            }
+            if (invalidRageChannels)
+            {
+                values.HeroRageChannel = defaults.HeroRageChannel;
+                values.BossRageChannel = defaults.BossRageChannel;
+            }
+            if ((invalidSoulChannels || invalidRageChannels)
+                && !invalidHudChannelsWarningLogged)
+            {
+                string configName = hudLayoutConfig != null
+                    ? hudLayoutConfig.name : "built-in defaults";
+                Debug.LogWarning($"Battle HUD layout '{configName}' has invalid Soul/Rage channels; "
+                    + $"raw channels: HeroSoul={configuredValues.HeroSoulHpChannel}, "
+                    + $"BossSoul={configuredValues.BossSoulHpChannel}, HeroRage={configuredValues.HeroRageChannel}, "
+                    + $"BossRage={configuredValues.BossRageChannel}; using built-in channel defaults for those bars.", this);
+                invalidHudChannelsWarningLogged = true;
+            }
+
+            if (hudLayoutConfig == null && !hudLayoutFallbackWarningLogged)
             {
                 Debug.LogWarning("BattleHUDLayoutConfig is not assigned; using the built-in layout defaults.", this);
                 hudLayoutFallbackWarningLogged = true;
             }
-            return BattleHUDLayoutConfig.DefaultValues;
+
+            return values;
         }
+
+        static bool HasArea(Rect channel) => channel.width > 0f && channel.height > 0f;
 
         void ApplyHudLayout()
         {
@@ -969,10 +1131,14 @@ namespace Match3RPG.Core
             ConfigurePaintedBar(bossHpBar, hudLayoutValues.BossHpChannel, true,
                 hudLayoutValues.HpValueStyle, hudLayoutValues.HpFillInset,
                 hudLayoutValues.BossHpBarPosition, hudLayoutValues.HeroHpBarSize);
+            ConfigurePaintedBar(heroSoulHpBar, hudLayoutValues.HeroSoulHpChannel, false,
+                hudLayoutValues.RageValueStyle, hudLayoutValues.RageFillInset, showTrack: true);
+            ConfigurePaintedBar(bossSoulHpBar, hudLayoutValues.BossSoulHpChannel, true,
+                hudLayoutValues.RageValueStyle, hudLayoutValues.RageFillInset, showTrack: true);
             ConfigurePaintedBar(heroRageBar, hudLayoutValues.HeroRageChannel, false,
-                hudLayoutValues.RageValueStyle, hudLayoutValues.RageFillInset);
+                hudLayoutValues.RageValueStyle, hudLayoutValues.RageFillInset, showTrack: true);
             ConfigurePaintedBar(bossRageBar, hudLayoutValues.BossRageChannel, true,
-                hudLayoutValues.RageValueStyle, hudLayoutValues.RageFillInset);
+                hudLayoutValues.RageValueStyle, hudLayoutValues.RageFillInset, showTrack: true);
 
             if (turnInfoAnchorRect != null)
             {
@@ -1026,7 +1192,7 @@ namespace Match3RPG.Core
 
         void ConfigurePaintedBar(Slider slider, Rect normalizedChannel, bool drainRight,
             BattleHUDTextStyle valueTextStyle, float fillInset, Vector2? fixedPosition = null,
-            Vector2? fixedSize = null)
+            Vector2? fixedSize = null, bool showTrack = false)
         {
             if (slider == null || battleLayoutReferenceRoot == null)
                 return;
@@ -1055,11 +1221,22 @@ namespace Match3RPG.Core
             Image fillImage = slider.fillRect != null
                 ? slider.fillRect.GetComponent<Image>()
                 : null;
+            Image trackImage = slider.GetComponent<Image>();
             foreach (Image image in slider.GetComponentsInChildren<Image>(true))
             {
                 image.raycastTarget = false;
-                if (image != fillImage)
-                    image.enabled = false;
+                if (image == fillImage)
+                {
+                    image.enabled = true;
+                    continue;
+                }
+                if (image == trackImage)
+                {
+                    image.enabled = true;
+                    image.color = new Color32(42, 46, 61, 255);
+                    continue;
+                }
+                image.enabled = false;
             }
 
             slider.targetGraphic = null;
@@ -1071,12 +1248,15 @@ namespace Match3RPG.Core
             if (fillImage != null)
             {
                 fillImage.enabled = true;
+                Sprite fillSprite = ResolveBarSpriteForSlider(slider);
+                ApplyRoundedBarSprite(fillImage, fillSprite != null ? fillSprite : GetBarFillSprite(),
+                    Color.white, true);
                 fillImage.type = Image.Type.Filled;
                 fillImage.fillMethod = Image.FillMethod.Horizontal;
                 fillImage.fillOrigin = drainRight
                     ? (int)Image.OriginHorizontal.Right
                     : (int)Image.OriginHorizontal.Left;
-                fillImage.sprite = GetBarFillSprite();
+                fillImage.fillAmount = 1f;
                 fillImage.raycastTarget = false;
                 Color fillColor = fillImage.color;
                 if (fillColor.a <= 0f)
@@ -1099,6 +1279,11 @@ namespace Match3RPG.Core
                 fillArea.anchorMax = Vector2.one;
                 fillArea.offsetMin = Vector2.one * fillInset;
                 fillArea.offsetMax = Vector2.one * -fillInset;
+                RectMask2D fillMask = fillArea.GetComponent<RectMask2D>();
+                if (fillMask == null)
+                    fillMask = fillArea.gameObject.AddComponent<RectMask2D>();
+                fillMask.padding = Vector4.zero;
+                fillMask.softness = Vector2Int.zero;
             }
 
             TMP_Text valueText = slider.GetComponentInChildren<TMP_Text>(true);
@@ -1123,14 +1308,18 @@ namespace Match3RPG.Core
             RectTransform rect = slider.transform as RectTransform;
             RectTransform fillRect = slider.fillRect as RectTransform;
             string path = GetObjectPath(slider.transform);
+            Image trackImage = slider.GetComponent<Image>();
             string fillInfo = fillImage != null
                 ? $"ImageType={fillImage.type} FillMethod={fillImage.fillMethod} "
                     + $"FillOrigin={fillImage.fillOrigin} Raycast={fillImage.raycastTarget}"
                 : "FillImage=(missing)";
+            string trackInfo = trackImage != null
+                ? $"TrackImageEnabled={trackImage.enabled} TrackColor={trackImage.color}"
+                : "TrackImage=(missing)";
             string textInfo = valueText != null ? $"Text={GetObjectPath(valueText.transform)}" : "Text=(missing)";
             Debug.Log($"Painted HUD bar audit: Path={path} Parent={rect.parent.name} "
                 + $"Anchors={rect.anchorMin}->{rect.anchorMax} Position={rect.anchoredPosition} "
-                + $"Size={rect.rect.size} BackgroundImages=disabled "
+                + $"Size={rect.rect.size} {trackInfo} "
                 + $"FillRect={(fillRect != null ? fillRect.rect.size.ToString() : "(missing)")} "
                 + $"{fillInfo} {textInfo}.", slider);
 #endif

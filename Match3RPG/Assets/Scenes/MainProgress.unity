@@ -161,6 +161,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81aa12c4c20d41cb9e3d0a42d64ce9ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  starChartFont: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
+  characterStatusBackground: {fileID: 4832561907876120854, guid: cc32c050fc795b1428b3b26981ae5e36, type: 3}
+  inventoryScreenBackgrounds:
+  - {fileID: -3813682660328900248, guid: 7caba68b082674440ad6f3e1c7930784, type: 3}
+  - {fileID: 4983565442672153312, guid: 67a608508eb9fa941bede1b2ad0c6d7e, type: 3}
+  - {fileID: 2453087660993149719, guid: 6e8d21da3849e2745ab88e9961965c0a, type: 3}
+  - {fileID: 8186570122465956950, guid: 612a9bfd3ce84e94f8f075975fe0fe76, type: 3}
+  - {fileID: 8540486787646207116, guid: d2507266f88e82844851d060a2a51803, type: 3}
+  inventoryItemSlot: {fileID: 3058935652362658835, guid: a889d25c8642fd34dace92786c0df812, type: 3}
+  inventoryItemSprites:
+  - {fileID: -3225394765379087701, guid: 2815d371c63b73442b95e9931dcca000, type: 3}
+  - {fileID: -2292485059370607928, guid: e7598caf582d7224d97a5fc9cc8ea1cf, type: 3}
+  - {fileID: 1664311342941835901, guid: e17b832c58b4b6c4c8bc50dc46213147, type: 3}
+  - {fileID: -5702116091706209478, guid: 2f95f2f5d1f8a324daa6cb8249ba004d, type: 3}
+  inventoryItemPopupBackgrounds:
+  - {fileID: 408844765408167726, guid: 4a60b4f68d3bdcc479905dc40ecd575d, type: 3}
+  - {fileID: -509670099248116714, guid: 0cbe34b1a36f2ea4cbb95c874f70b171, type: 3}
+  - {fileID: 603980020361836941, guid: c031664c578e57b4390cda31c1d250f3, type: 3}
   starChartBaseGemSprites:
   - {fileID: 21300000, guid: 1581bc17b2025b849b69370a8b569983, type: 3}
   - {fileID: 21300000, guid: b22480dce211bae43b519ea04b54b2ad, type: 3}

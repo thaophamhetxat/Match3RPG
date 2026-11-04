@@ -60,6 +60,7 @@ namespace Match3RPG.Battle
         public float AccuracyPercent { get; }
         public int Speed { get; }
         public int ExperienceStars { get; }
+        public int HealthStars { get; }
         public int ShieldStars { get; }
         public int MaxMana { get; }
         public int MaxRage { get; }
@@ -90,6 +91,7 @@ namespace Match3RPG.Battle
             AccuracyPercent = 100f + levelsGained * .5f + starBonuses.ManaStars * .5f;
             Speed = ClampToPositiveInt(10L + levelsGained + starBonuses.ManaStars);
             ExperienceStars = starBonuses.ExperienceStars;
+            HealthStars = starBonuses.HealthStars;
             ShieldStars = starBonuses.ShieldStars;
             MaxMana = Math.Max(1, config.BaseMana);
             MaxRage = Math.Max(1, config.BaseRage);
