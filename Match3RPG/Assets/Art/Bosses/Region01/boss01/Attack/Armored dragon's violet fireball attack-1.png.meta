@@ -336,344 +336,14 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boss01_Attack_00
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 841.5
-        width: 280.4
-        height: 280.5
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0f12e08742fac1c45b505153adf4bf3d
-      internalID: 2011884967
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss01_Attack_01
-      rect:
-        serializedVersion: 2
-        x: 280.4
-        y: 841.5
-        width: 280.4
-        height: 280.5
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6c9d7e1f04362b640a0dd4b8b6075dac
-      internalID: 743788597
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss01_Attack_02
-      rect:
-        serializedVersion: 2
-        x: 560.8
-        y: 841.5
-        width: 280.40002
-        height: 280.5
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5e3fcfa90ebd04c4186cce9bc3fb6e65
-      internalID: 394214752
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss01_Attack_03
-      rect:
-        serializedVersion: 2
-        x: 841.2
-        y: 841.5
-        width: 280.39996
-        height: 280.5
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 984afcc2475e6c34cba1912dd4cf1779
-      internalID: -535984208
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss01_Attack_04
-      rect:
-        serializedVersion: 2
-        x: 1121.6
-        y: 841.5
-        width: 280.40002
-        height: 280.5
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5a0e900b04394da478b83a3287c6d7aa
-      internalID: -1251153062
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss01_Attack_05
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 561
-        width: 280.4
-        height: 280.5
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0011be20dea3f264eadf4f3e17461442
-      internalID: -1748122870
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss01_Attack_06
-      rect:
-        serializedVersion: 2
-        x: 280.4
-        y: 561
-        width: 280.4
-        height: 280.5
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cd8454033e25e634f95888c8c7a7767b
-      internalID: 486827152
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss01_Attack_07
-      rect:
-        serializedVersion: 2
-        x: 560.8
-        y: 561
-        width: 280.40002
-        height: 280.5
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 27f6d2b912777db468e6e86778b567f2
-      internalID: 531391698
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss01_Attack_08
-      rect:
-        serializedVersion: 2
-        x: 841.2
-        y: 561
-        width: 280.39996
-        height: 280.5
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e166cabc71bd36d4f9f982d595412de2
-      internalID: -1732006397
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss01_Attack_09
-      rect:
-        serializedVersion: 2
-        x: 1121.6
-        y: 561
-        width: 280.40002
-        height: 280.5
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 248b109ef7f9b2947b8ce5b6595b523e
-      internalID: 1940952139
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss01_Attack_10
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 280.5
-        width: 280.4
-        height: 280.5
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 853f94dfb9820aa449302e349f14bac1
-      internalID: -1598363122
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss01_Attack_11
-      rect:
-        serializedVersion: 2
-        x: 280.4
-        y: 280.5
-        width: 280.4
-        height: 280.5
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7990743e3aa38d438ada1969e376d3a
-      internalID: -2055645732
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss01_Attack_12
-      rect:
-        serializedVersion: 2
-        x: 560.8
-        y: 280.5
-        width: 280.40002
-        height: 280.5
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52005449864e6f446a068cd269334af0
-      internalID: -1364009695
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss01_Attack_13
-      rect:
-        serializedVersion: 2
-        x: 841.2
-        y: 280.5
-        width: 280.39996
-        height: 280.5
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 67c24143b92e13f429aa2c8fc213ac3b
-      internalID: 397765691
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss01_Attack_14
-      rect:
-        serializedVersion: 2
-        x: 1121.6
-        y: 280.5
-        width: 280.40002
-        height: 280.5
-      alignment: 9
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0e8a1278b139c04419d1875ad3c842b7
-      internalID: 1984565867
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Boss01_Attack_15
+      name: Armored dragon's violet fireball attack-1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 280.4
-        height: 280.5
-      alignment: 9
+        width: 280
+        height: 304
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -681,21 +351,21 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a99f366a84ab1c642bedf67211ec0fac
-      internalID: -1345551375
+      spriteID: 02737b3eb79444244bcadd707423c607
+      internalID: 5733777825864434793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boss01_Attack_16
+      name: Armored dragon's violet fireball attack-1_1
       rect:
         serializedVersion: 2
-        x: 280.4
+        x: 280
         y: 0
-        width: 280.4
-        height: 280.5
-      alignment: 9
+        width: 280
+        height: 304
+      alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
@@ -703,8 +373,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 58a35564b70e6654e9ed9f384117229d
-      internalID: 1608930152
+      spriteID: 89f83b84594de074599177d58255183e
+      internalID: 7154107602745199539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armored dragon's violet fireball attack-1_2
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 280
+        height: 304
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9ad451f1366fb04d9e626d37f310fd4
+      internalID: 2543497726930084072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armored dragon's violet fireball attack-1_3
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 0
+        width: 280
+        height: 304
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e82b2450cc10087439f6d6b0a64671e6
+      internalID: -7323881166509414775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armored dragon's violet fireball attack-1_4
+      rect:
+        serializedVersion: 2
+        x: 1120
+        y: 0
+        width: 280
+        height: 304
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f65dd71afa919304d98793e96581032a
+      internalID: 5884769216094706529
       vertices: []
       indices: 
       edges: []
@@ -721,96 +457,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":5.0,"y":1.0},"gridSpriteSize":{"x":280.0,"y":304.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Armored dragon's violet fireball attack-1_0: 5733777825864434793
       Armored dragon's violet fireball attack-1_1: 7154107602745199539
-      Armored dragon's violet fireball attack-1_10: 8652379890744694348
-      Armored dragon's violet fireball attack-1_11: -725273550867257931
-      Armored dragon's violet fireball attack-1_12: 7216985550586285879
-      Armored dragon's violet fireball attack-1_13: -2850492134190819874
-      Armored dragon's violet fireball attack-1_14: -1991838625366185144
-      Armored dragon's violet fireball attack-1_15: 4050722949735443966
-      Armored dragon's violet fireball attack-1_16: 8084725619003583721
-      Armored dragon's violet fireball attack-1_17: -5089854576404147434
-      Armored dragon's violet fireball attack-1_18: -3201214162814396309
-      Armored dragon's violet fireball attack-1_19: -5646853068856914586
       Armored dragon's violet fireball attack-1_2: 2543497726930084072
-      Armored dragon's violet fireball attack-1_20: 1883949850266654983
-      Armored dragon's violet fireball attack-1_21: -3577560146331621526
-      Armored dragon's violet fireball attack-1_22: -6479016061192170807
-      Armored dragon's violet fireball attack-1_23: -8991419373392069770
-      Armored dragon's violet fireball attack-1_24: -1803150932462440301
-      Armored dragon's violet fireball attack-1_25: 4013974543577677097
-      Armored dragon's violet fireball attack-1_26: -1692358937128052831
-      Armored dragon's violet fireball attack-1_27: 7871754920244199446
-      Armored dragon's violet fireball attack-1_28: -3693751643785954839
-      Armored dragon's violet fireball attack-1_29: 5285800317967000509
       Armored dragon's violet fireball attack-1_3: -7323881166509414775
-      Armored dragon's violet fireball attack-1_30: 5684844450924300293
-      Armored dragon's violet fireball attack-1_31: 5161111867699445801
-      Armored dragon's violet fireball attack-1_32: -1115481488369191127
-      Armored dragon's violet fireball attack-1_33: 8990534275315448909
-      Armored dragon's violet fireball attack-1_34: 4496049539036672600
-      Armored dragon's violet fireball attack-1_35: -1668357100633864190
-      Armored dragon's violet fireball attack-1_36: -4517118406188558428
-      Armored dragon's violet fireball attack-1_37: 8706139875387914000
-      Armored dragon's violet fireball attack-1_38: -955873587874927300
-      Armored dragon's violet fireball attack-1_39: -5094125134245100703
       Armored dragon's violet fireball attack-1_4: 5884769216094706529
-      Armored dragon's violet fireball attack-1_40: -3800848842071692140
-      Armored dragon's violet fireball attack-1_41: -7255415901852898419
-      Armored dragon's violet fireball attack-1_42: 4555634944024753491
-      Armored dragon's violet fireball attack-1_43: 1675648042200398352
-      Armored dragon's violet fireball attack-1_44: 8099778635987992137
-      Armored dragon's violet fireball attack-1_45: 6749264510414728437
-      Armored dragon's violet fireball attack-1_46: -6234272719728854704
-      Armored dragon's violet fireball attack-1_47: -8081880476895154831
-      Armored dragon's violet fireball attack-1_48: -4001636806972827552
-      Armored dragon's violet fireball attack-1_49: 387487376901053606
-      Armored dragon's violet fireball attack-1_5: -208595710941226974
-      Armored dragon's violet fireball attack-1_50: -7636956818823526136
-      Armored dragon's violet fireball attack-1_51: 3782361984924526646
-      Armored dragon's violet fireball attack-1_52: 5565662219184783223
-      Armored dragon's violet fireball attack-1_53: 6459702766098954296
-      Armored dragon's violet fireball attack-1_54: -5293936770852387463
-      Armored dragon's violet fireball attack-1_55: -5776142602429245987
-      Armored dragon's violet fireball attack-1_56: 228346010168129959
-      Armored dragon's violet fireball attack-1_57: -5932005878459969188
-      Armored dragon's violet fireball attack-1_58: 4050894431852987059
-      Armored dragon's violet fireball attack-1_59: -2151274107788556084
-      Armored dragon's violet fireball attack-1_6: -8422854989623165957
-      Armored dragon's violet fireball attack-1_60: -7229097315464041007
-      Armored dragon's violet fireball attack-1_61: -8405461333872634076
-      Armored dragon's violet fireball attack-1_62: -3564122934769126743
-      Armored dragon's violet fireball attack-1_63: -1065645588591721618
-      Armored dragon's violet fireball attack-1_64: -5971911120475273921
-      Armored dragon's violet fireball attack-1_65: 2077338596188565789
-      Armored dragon's violet fireball attack-1_66: -1466577502910828091
-      Armored dragon's violet fireball attack-1_67: 4933775289664773109
-      Armored dragon's violet fireball attack-1_68: 4172278533544479699
-      Armored dragon's violet fireball attack-1_69: -8279014460389430191
-      Armored dragon's violet fireball attack-1_7: 4946115735072907860
-      Armored dragon's violet fireball attack-1_70: 7381166189630422354
-      Armored dragon's violet fireball attack-1_8: 4812076803061771640
-      Armored dragon's violet fireball attack-1_9: -8667840271330539246
-      Boss01_Attack_00: 2011884967
-      Boss01_Attack_01: 743788597
-      Boss01_Attack_02: 394214752
-      Boss01_Attack_03: -535984208
-      Boss01_Attack_04: -1251153062
-      Boss01_Attack_05: -1748122870
-      Boss01_Attack_06: 486827152
-      Boss01_Attack_07: 531391698
-      Boss01_Attack_08: -1732006397
-      Boss01_Attack_09: 1940952139
-      Boss01_Attack_10: -1598363122
-      Boss01_Attack_11: -2055645732
-      Boss01_Attack_12: -1364009695
-      Boss01_Attack_13: 397765691
-      Boss01_Attack_14: 1984565867
-      Boss01_Attack_15: -1345551375
-      Boss01_Attack_16: 1608930152
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
