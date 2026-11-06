@@ -31,7 +31,6 @@ namespace Match3RPG.Battle
     {
         [SerializeField, Min(0.1f)] float lifetime = .9f;
         [SerializeField, Min(0f)] float riseDistance = 72f;
-        [SerializeField, Min(0f)] float stackSpacing = 30f;
         [SerializeField] TMP_FontAsset fontAsset;
         Sprite criticalStrikeIcon;
         Sprite soulDiamondIcon;
@@ -39,6 +38,7 @@ namespace Match3RPG.Battle
 
         readonly Stack<TextMeshProUGUI> pool = new Stack<TextMeshProUGUI>();
         readonly List<ActiveText> activeTexts = new List<ActiveText>();
+        readonly List<OwnerQueue> ownerQueues = new List<OwnerQueue>();
         RectTransform overlayRect;
 
         sealed class ActiveText
@@ -46,6 +46,20 @@ namespace Match3RPG.Battle
             public CharacterView Owner;
             public TextMeshProUGUI Text;
             public Image Icon;
+        }
+
+        sealed class PendingText
+        {
+            public CharacterView Owner;
+            public FloatingTextType Type;
+            public int Amount;
+        }
+
+        sealed class OwnerQueue
+        {
+            public CharacterView Owner;
+            public readonly Queue<PendingText> Requests = new Queue<PendingText>();
+            public bool IsProcessing;
         }
 
         public void Configure(TMP_FontAsset configuredFont = null)
@@ -86,11 +100,48 @@ namespace Match3RPG.Battle
                 return;
             }
 
-            int stackIndex = 0;
-            for (int i = 0; i < activeTexts.Count; i++)
-                if (activeTexts[i].Owner == owner)
-                    stackIndex++;
+            OwnerQueue ownerQueue = null;
+            for (int i = 0; i < ownerQueues.Count; i++)
+            {
+                if (ownerQueues[i].Owner == owner)
+                {
+                    ownerQueue = ownerQueues[i];
+                    break;
+                }
+            }
 
+            if (ownerQueue == null)
+            {
+                ownerQueue = new OwnerQueue { Owner = owner };
+                ownerQueues.Add(ownerQueue);
+            }
+
+            ownerQueue.Requests.Enqueue(new PendingText { Owner = owner, Type = type, Amount = amount });
+            if (!ownerQueue.IsProcessing)
+                StartCoroutine(ProcessOwnerQueue(ownerQueue));
+        }
+
+        IEnumerator ProcessOwnerQueue(OwnerQueue ownerQueue)
+        {
+            ownerQueue.IsProcessing = true;
+            while (ownerQueue.Requests.Count > 0)
+            {
+                PendingText request = ownerQueue.Requests.Dequeue();
+                if (request.Owner == null || request.Owner.FloatingTextAnchor == null)
+                    continue;
+
+                yield return StartCoroutine(ShowQueuedText(request));
+            }
+
+            ownerQueue.IsProcessing = false;
+            ownerQueues.Remove(ownerQueue);
+        }
+
+        IEnumerator ShowQueuedText(PendingText request)
+        {
+            CharacterView owner = request.Owner;
+            FloatingTextType type = request.Type;
+            int amount = request.Amount;
             TextMeshProUGUI text = pool.Count > 0 ? pool.Pop() : CreateText();
             Image icon = text.transform.Find("Icon") != null
                 ? text.transform.Find("Icon").GetComponent<Image>()
@@ -112,8 +163,8 @@ namespace Match3RPG.Battle
                 icon.gameObject.SetActive(sprite != null && UseIcon(type));
                 if (icon.enabled)
                 {
-                    icon.rectTransform.sizeDelta = new Vector2(28f, 28f);
-                    icon.rectTransform.anchoredPosition = new Vector2(-12f, 0f);
+                    icon.rectTransform.sizeDelta = IconSizeFor(type);
+                    icon.rectTransform.anchoredPosition = new Vector2(IconPositionXFor(type), 0f);
                     icon.preserveAspect = true;
                     icon.color = Color.white;
                 }
@@ -129,18 +180,24 @@ namespace Match3RPG.Battle
                 Debug.LogError("Unable to convert the character anchor to floating-text coordinates.", this);
                 text.gameObject.SetActive(false);
                 pool.Push(text);
-                return;
+                yield break;
             }
 
-            text.rectTransform.anchoredPosition = localPosition + Vector2.up * (stackIndex * stackSpacing);
+            text.rectTransform.anchoredPosition = localPosition;
             ActiveText active = new ActiveText { Owner = owner, Text = text, Icon = icon };
             activeTexts.Add(active);
-            StartCoroutine(Animate(active, text.rectTransform.anchoredPosition, text.color));
+            yield return StartCoroutine(Animate(active, text.rectTransform.anchoredPosition, text.color));
         }
 
         public void ClearActiveTexts()
         {
             StopAllCoroutines();
+            foreach (OwnerQueue ownerQueue in ownerQueues)
+            {
+                ownerQueue.Requests.Clear();
+                ownerQueue.IsProcessing = false;
+            }
+            ownerQueues.Clear();
             foreach (ActiveText active in activeTexts)
                 if (active.Text != null)
                     active.Text.gameObject.SetActive(false);
@@ -265,6 +322,17 @@ namespace Match3RPG.Battle
         {
             return type == FloatingTextType.Damage || type == FloatingTextType.Critical
                 || type == FloatingTextType.SoulDamage || type == FloatingTextType.SoulCritical;
+        }
+
+        static Vector2 IconSizeFor(FloatingTextType type)
+        {
+            float size = type == FloatingTextType.Damage || type == FloatingTextType.Critical ? 36f : 28f;
+            return new Vector2(size, size);
+        }
+
+        static float IconPositionXFor(FloatingTextType type)
+        {
+            return type == FloatingTextType.Damage || type == FloatingTextType.Critical ? -16f : -12f;
         }
 
         Sprite IconSpriteFor(FloatingTextType type)
