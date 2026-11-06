@@ -591,7 +591,7 @@ namespace Match3RPG.Battle
             ShowResource(targetView, FloatingTextType.Damage, hpLost);
             ShowResource(actorView, FloatingTextType.Heal, hpGained);
             if (hpGained > 0)
-                combatVfx?.PlayHeal(actor);
+                combatVfx?.PlayLifeSteal(actor);
 
             int targetRageBefore = GetRage(targetActor);
             int receiverRageRoom = Mathf.Max(0, GetMaxRage(actor) - GetRage(actor));

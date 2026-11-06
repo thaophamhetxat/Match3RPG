@@ -1,0 +1,1827 @@
+fileFormatVersion: 2
+guid: 7cc9ecf0b6215b44ba0bb058e9367ad8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4022055428714120
+    second: healing_aura_0
+  - first:
+      213: 6853863184134377157
+    second: healing_aura_1
+  - first:
+      213: -5230005300000514305
+    second: healing_aura_2
+  - first:
+      213: -6219701589651459599
+    second: healing_aura_3
+  - first:
+      213: 2027734105330231693
+    second: healing_aura_4
+  - first:
+      213: -2432127355652711330
+    second: healing_aura_5
+  - first:
+      213: 2193242154606876670
+    second: healing_aura_6
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HealingAura_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2338
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 536e0c693349c8743b4b7b342cee5192
+      internalID: 1135408087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_01
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 2338
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 428368f4eac2bf1498be08dee03b733b
+      internalID: 1610315761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_02
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 2338
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2163a4d8675bf44b9548a7067353c00
+      internalID: 312511599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_03
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 2338
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 052a19ba1ec2d8949b07af865320b23f
+      internalID: -1140894975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_04
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 2338
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0dcd7bdacb072544ab7c293c2513368
+      internalID: -826032464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_05
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 2338
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a3777ae3603dc24d89a9c64738ce025
+      internalID: 972498787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_06
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 2338
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22c9f509d9d64cf4694ce018e8e12210
+      internalID: -709115385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_07
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 2338
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9a86c4afcda6ec4bb29993a23e98f3b
+      internalID: -85880167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_08
+      rect:
+        serializedVersion: 2
+        x: 1888
+        y: 2338
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e13792c03db5de458c0e38dfc1e76ec
+      internalID: -2064430124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_09
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2004
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33700f0a60e115e4e952ea927e45190e
+      internalID: 1607260544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_10
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 2004
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a17eef9c3384c25418468ac258a99e27
+      internalID: 2066350201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_11
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 2004
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16f66f38b0ab65d43886ca2b6971e0a8
+      internalID: -258882849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_12
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 2004
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 807f22dd3ddfa8040aaf39d85a3f3a09
+      internalID: 2071022582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_13
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 2004
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 281c484a3844d314888d0c663d9c5ca3
+      internalID: 615421626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_14
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 2004
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc4f577666845c94fa364ac3fc38c798
+      internalID: -686331402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_15
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 2004
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aef3b60dd14f4044983eecc8744438e2
+      internalID: 467103477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_16
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 2004
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3042f637977fa44da17d65742a16b35
+      internalID: -434317951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_17
+      rect:
+        serializedVersion: 2
+        x: 1888
+        y: 2004
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce9fb99e10d70874f9c4e962c969d17d
+      internalID: -1546815342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1670
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f63ab769340b3f04f8f14ea793a285a5
+      internalID: 1634429466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_19
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 1670
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 506465630b19ad24097c3de6845fa968
+      internalID: 1348670721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_20
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 1670
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba76dbb1c25b74c448faf39f2ef66a5e
+      internalID: 1035281317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_21
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1670
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27e39455db890a24e9daa8fdd4dc63f8
+      internalID: 1435634396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_22
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 1670
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98a29bbec6e6ecb4cb18f7fe9f69177d
+      internalID: 1568774236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_23
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 1670
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b1c8dd8e3e0831408598231ab93fdc1
+      internalID: 1633961217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_24
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 1670
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 430a0de66c4def94e9c908cd6e49bf98
+      internalID: -369184014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_25
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 1670
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c29b953d2076a84f885fdf1d3958d79
+      internalID: 1235250206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_26
+      rect:
+        serializedVersion: 2
+        x: 1888
+        y: 1670
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 174ee579bee1e1a4094095ef8413e832
+      internalID: -1821718082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1336
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e28598a5fa917c499aac1bbdcb4acca
+      internalID: 849527977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_28
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 1336
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9c7acb7f5f8cde46a43bf8fb57dc59c
+      internalID: 535113126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_29
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 1336
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3466f2ea8d81f0b46aa33948ee85c043
+      internalID: -1628911489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_30
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1336
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12ba885ed0d5f5b45b5efc8d8f599804
+      internalID: -2062534551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_31
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 1336
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adcf58deed2f6994aa6ca3cb392c60bf
+      internalID: 270901741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_32
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 1336
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cfadf5e405145d4ca9d67032e2e1ea6
+      internalID: -1510085362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_33
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 1336
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f0d5bc1b5d9ba5458531f023b2658f3
+      internalID: 1703125750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_34
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 1336
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daea319f86d06b043ba0c25b2ce36d9a
+      internalID: -220127292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_35
+      rect:
+        serializedVersion: 2
+        x: 1888
+        y: 1336
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90b57ddd5f42499469ed6060e39e22ad
+      internalID: -1015820384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1002
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 805d51cdbf2a0a146a2c03cddcfcfce3
+      internalID: 23776848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_37
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 1002
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09af7a8a78ada2e4f901ea40ca85868f
+      internalID: 46845640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_38
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 1002
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c00598e4a56248549b6a105926f62d4c
+      internalID: -2130507863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_39
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1002
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1fea843402f2b54eb58cfe94b1bb89e
+      internalID: 686342181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_40
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 1002
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f950ef8e84a459449335ffd2f9506a2
+      internalID: 2020579145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_41
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 1002
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b50869e407626541bf408656b1af011
+      internalID: -839977284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_42
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 1002
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc2e41e9cef0d7a4886fa0f3b0f1f002
+      internalID: -1424713410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_43
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 1002
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2767ef4eb69f9cf4c8ed9c6573fba5e8
+      internalID: -1238459878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_44
+      rect:
+        serializedVersion: 2
+        x: 1888
+        y: 1002
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b048e99ba7cd73488c1896564936dd8
+      internalID: -1329903607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 668
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 394888ddb8b11c64bb7cf7df73d01cda
+      internalID: -1849404612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_46
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 668
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed980918c52314e4a844add4c382520d
+      internalID: 309922244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_47
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 668
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e8b5655d7227bd49a72a2f767846830
+      internalID: 1263049318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_48
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 668
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bc1e125e70f12c4695ccdc48a1764e2
+      internalID: 759838393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_49
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 668
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c88443714776443ad75e7b70fcc2de
+      internalID: -836183376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_50
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 668
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 723c91cf479e17f49811927f02451010
+      internalID: -426166942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_51
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 668
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34b828fac06edb54f8b7bd90213bcf5c
+      internalID: 1883555186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_52
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 668
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91f3094e96d887f45bd0712b4d80ab7c
+      internalID: 15793185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_53
+      rect:
+        serializedVersion: 2
+        x: 1888
+        y: 668
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68aea0e2087d7441bad8d209cf54ba9
+      internalID: -366315759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 334
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15d118a89dd364940b08c1377e3caa35
+      internalID: -1976646637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_55
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 334
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b43b33105fdc104408de3c313c480144
+      internalID: 534141577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_56
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 334
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 710933df92ecf304db12b75a45f974c3
+      internalID: -409191377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_57
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 334
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 045dfd3f60ea6f74b98bb8c6e328b53f
+      internalID: 1529801903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_58
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 334
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 358f3c7bb07c1334b9f3048ce6a52758
+      internalID: 1488487109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_59
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 334
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f59010300671fab44818cc2e54fffbc0
+      internalID: -79194702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_60
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 334
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00e8e8abcd24ce9458a8cab8ec4abca9
+      internalID: -1750451749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_61
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 334
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b402d25b38ae9714db20c8a707da5d34
+      internalID: 1100108189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_62
+      rect:
+        serializedVersion: 2
+        x: 1888
+        y: 334
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f10a2ecdf027eb4cb420325ee2410e7
+      internalID: 807778458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b58a6383807a05d45b6f409faf9a2cdc
+      internalID: -1974180740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_64
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 0
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2e20d15dbb4a20479e0a825972ede88
+      internalID: -1812611157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_65
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 0
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59d53ee634a55f0469e410a56c3eb2ab
+      internalID: -183732918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_66
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 0
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b6c8c4076322714d800c24424e157d5
+      internalID: 1643018687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_67
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 0
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c157d14e9b4ac5349b3677c30e3d213c
+      internalID: -794433752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_68
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 0
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cb4fd6dc7f52dd4e94622b1eeb4e274
+      internalID: 1096975876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_69
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 0
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98572044bef26d5458acbd22224017f5
+      internalID: -460505083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_70
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 0
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95d1bdbf8f093954a94d85543db89ba1
+      internalID: 610358964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealingAura_71
+      rect:
+        serializedVersion: 2
+        x: 1888
+        y: 0
+        width: 236
+        height: 334
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 153f737d30f1019428a04d8cc70e133a
+      internalID: 909320904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      HealingAura_00: 1135408087
+      HealingAura_01: 1610315761
+      HealingAura_02: 312511599
+      HealingAura_03: -1140894975
+      HealingAura_04: -826032464
+      HealingAura_05: 972498787
+      HealingAura_06: -709115385
+      HealingAura_07: -85880167
+      HealingAura_08: -2064430124
+      HealingAura_09: 1607260544
+      HealingAura_10: 2066350201
+      HealingAura_11: -258882849
+      HealingAura_12: 2071022582
+      HealingAura_13: 615421626
+      HealingAura_14: -686331402
+      HealingAura_15: 467103477
+      HealingAura_16: -434317951
+      HealingAura_17: -1546815342
+      HealingAura_18: 1634429466
+      HealingAura_19: 1348670721
+      HealingAura_20: 1035281317
+      HealingAura_21: 1435634396
+      HealingAura_22: 1568774236
+      HealingAura_23: 1633961217
+      HealingAura_24: -369184014
+      HealingAura_25: 1235250206
+      HealingAura_26: -1821718082
+      HealingAura_27: 849527977
+      HealingAura_28: 535113126
+      HealingAura_29: -1628911489
+      HealingAura_30: -2062534551
+      HealingAura_31: 270901741
+      HealingAura_32: -1510085362
+      HealingAura_33: 1703125750
+      HealingAura_34: -220127292
+      HealingAura_35: -1015820384
+      HealingAura_36: 23776848
+      HealingAura_37: 46845640
+      HealingAura_38: -2130507863
+      HealingAura_39: 686342181
+      HealingAura_40: 2020579145
+      HealingAura_41: -839977284
+      HealingAura_42: -1424713410
+      HealingAura_43: -1238459878
+      HealingAura_44: -1329903607
+      HealingAura_45: -1849404612
+      HealingAura_46: 309922244
+      HealingAura_47: 1263049318
+      HealingAura_48: 759838393
+      HealingAura_49: -836183376
+      HealingAura_50: -426166942
+      HealingAura_51: 1883555186
+      HealingAura_52: 15793185
+      HealingAura_53: -366315759
+      HealingAura_54: -1976646637
+      HealingAura_55: 534141577
+      HealingAura_56: -409191377
+      HealingAura_57: 1529801903
+      HealingAura_58: 1488487109
+      HealingAura_59: -79194702
+      HealingAura_60: -1750451749
+      HealingAura_61: 1100108189
+      HealingAura_62: 807778458
+      HealingAura_63: -1974180740
+      HealingAura_64: -1812611157
+      HealingAura_65: -183732918
+      HealingAura_66: 1643018687
+      HealingAura_67: -794433752
+      HealingAura_68: 1096975876
+      HealingAura_69: -460505083
+      HealingAura_70: 610358964
+      HealingAura_71: 909320904
+      healing_aura_0: 4022055428714120
+      healing_aura_1: 6853863184134377157
+      healing_aura_2: -5230005300000514305
+      healing_aura_3: -6219701589651459599
+      healing_aura_4: 2027734105330231693
+      healing_aura_5: -2432127355652711330
+      healing_aura_6: 2193242154606876670
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

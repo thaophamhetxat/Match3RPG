@@ -17,6 +17,7 @@ namespace Match3RPG.Battle
         Burn,
         Freeze,
         Poison,
-        RageReady
+        RageReady,
+        LifeSteal = 16
     }
 }

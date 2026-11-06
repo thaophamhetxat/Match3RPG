@@ -40,7 +40,22 @@ namespace Match3RPG.Battle
         public void BeginTransient(CombatVFXType type, float duration, Vector2 destination,
             bool travels, System.Action onComplete)
         {
-            StartCoroutine(PlayTransient(type, duration, destination, travels, onComplete));
+            StartCoroutine(PlayTransient(type, duration, destination, travels, null, 0f, onComplete));
+        }
+
+        public void BeginFrameTransient(CombatVFXType type, Sprite[] frames, float frameRate,
+            float duration, System.Action onComplete)
+        {
+            if (frames == null || frames.Length == 0)
+            {
+                onComplete?.Invoke();
+                Destroy(gameObject);
+                return;
+            }
+
+            image.sprite = frames[0];
+            StartCoroutine(PlayTransient(type, duration, rectTransform.anchoredPosition,
+                false, frames, frameRate, onComplete));
         }
 
         public void BeginPersistent(CombatVFXType type)
@@ -49,7 +64,7 @@ namespace Match3RPG.Battle
         }
 
         IEnumerator PlayTransient(CombatVFXType type, float duration, Vector2 destination,
-            bool travels, System.Action onComplete)
+            bool travels, Sprite[] frames, float frameRate, System.Action onComplete)
         {
             Vector3 baseScale = rectTransform.localScale;
             Vector2 start = rectTransform.anchoredPosition;
@@ -60,11 +75,16 @@ namespace Match3RPG.Battle
             {
                 elapsed += Time.unscaledDeltaTime;
                 float t = Mathf.Clamp01(elapsed / safeDuration);
+                if (frames != null && frames.Length > 0)
+                {
+                    int frameIndex = Mathf.Min(Mathf.FloorToInt(elapsed * frameRate), frames.Length - 1);
+                    image.sprite = frames[frameIndex];
+                }
                 float scale = ScaleAt(type, t);
                 rectTransform.localScale = new Vector3(baseScale.x * scale, baseScale.y * scale, 1f);
                 if (travels)
                     rectTransform.anchoredPosition = Vector2.Lerp(start, destination, EaseOut(t));
-                else if (type == CombatVFXType.Heal)
+                else if (type == CombatVFXType.Heal || type == CombatVFXType.LifeSteal)
                     rectTransform.anchoredPosition = start + Vector2.up * (24f * t);
 
                 color.a = AlphaAt(type, t);
@@ -131,6 +151,7 @@ namespace Match3RPG.Battle
                     return t < .55f ? Mathf.Lerp(.75f, 1.1f, EaseOut(t / .55f))
                         : Mathf.Lerp(1.1f, 1f, (t - .55f) / .45f);
                 case CombatVFXType.Heal:
+                case CombatVFXType.LifeSteal:
                     return Mathf.Lerp(.72f, 1f, EaseOut(t));
                 case CombatVFXType.Ultimate:
                     return t < .55f ? Mathf.Lerp(.6f, 1.2f, EaseOut(t / .55f))
@@ -146,7 +167,7 @@ namespace Match3RPG.Battle
 
         static float AlphaAt(CombatVFXType type, float t)
         {
-            if (type == CombatVFXType.Heal)
+            if (type == CombatVFXType.Heal || type == CombatVFXType.LifeSteal)
                 return t < .2f ? t / .2f : 1f - .55f * ((t - .2f) / .8f);
             if (type == CombatVFXType.Ultimate)
                 return t < .55f ? Mathf.Lerp(.2f, 1f, t / .55f)
