@@ -33,6 +33,7 @@ namespace Match3RPG.Battle
         [SerializeField, Min(0f)] float riseDistance = 72f;
         [SerializeField, Min(0f)] float stackSpacing = 30f;
         [SerializeField] TMP_FontAsset fontAsset;
+        [SerializeField] Sprite criticalStrikeIcon;
 
         readonly Stack<TextMeshProUGUI> pool = new Stack<TextMeshProUGUI>();
         readonly List<ActiveText> activeTexts = new List<ActiveText>();
@@ -226,8 +227,8 @@ namespace Match3RPG.Battle
                 case FloatingTextType.Critical:
                 case FloatingTextType.SoulCritical: return 64f;
                 case FloatingTextType.Damage:
-                case FloatingTextType.SoulDamage:
-                case FloatingTextType.Heal: return 48f;
+                case FloatingTextType.SoulDamage: return 48f;
+                case FloatingTextType.Heal: return 32f;
                 default: return 32f;
             }
         }
@@ -237,41 +238,29 @@ namespace Match3RPG.Battle
             switch (type)
             {
                 case FloatingTextType.Critical:
-                case FloatingTextType.SoulCritical:
-                    return 0.28f;
+                case FloatingTextType.SoulCritical: return 0.28f;
                 case FloatingTextType.Damage:
-                case FloatingTextType.SoulDamage:
-                case FloatingTextType.Heal:
-                    return 0.25f;
-                default:
-                    return 0.2f;
+                case FloatingTextType.SoulDamage: return 0.25f;
+                case FloatingTextType.Heal: return 0f;
+                default: return 0.2f;
             }
         }
 
         static bool UseIcon(FloatingTextType type)
         {
             return type == FloatingTextType.Damage || type == FloatingTextType.Critical
-                || type == FloatingTextType.Heal || type == FloatingTextType.SoulDamage
-                || type == FloatingTextType.SoulCritical;
+                || type == FloatingTextType.SoulDamage || type == FloatingTextType.SoulCritical;
         }
 
-        static Sprite IconSpriteFor(FloatingTextType type)
+        Sprite IconSpriteFor(FloatingTextType type)
         {
-            string[] names = type == FloatingTextType.Heal
-                ? new[] { "Base_05_Heart", "Gem_Green" }
-                : type == FloatingTextType.SoulDamage || type == FloatingTextType.SoulCritical
-                    ? new[] { "Base_07_Diamond", "Gem_Orange" }
-                    : type == FloatingTextType.Critical
-                        ? new[] { "Base_03_Star", "Gem_Yellow" }
-                        : new[] { "Base_06_Fire", "Gem_Red" };
-
-            foreach (Sprite sprite in Resources.FindObjectsOfTypeAll<Sprite>())
+            if (type == FloatingTextType.Damage || type == FloatingTextType.Critical)
+                return criticalStrikeIcon;
+            if (type == FloatingTextType.SoulDamage || type == FloatingTextType.SoulCritical)
             {
-                if (sprite == null)
-                    continue;
-                foreach (string name in names)
+                foreach (Sprite sprite in Resources.FindObjectsOfTypeAll<Sprite>())
                 {
-                    if (string.Equals(sprite.name, name, StringComparison.OrdinalIgnoreCase))
+                    if (sprite != null && (sprite.name == "Base_07_Diamond" || sprite.name == "Gem_Orange"))
                         return sprite;
                 }
             }
