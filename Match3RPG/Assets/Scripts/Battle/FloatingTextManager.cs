@@ -33,7 +33,9 @@ namespace Match3RPG.Battle
         [SerializeField, Min(0f)] float riseDistance = 72f;
         [SerializeField, Min(0f)] float stackSpacing = 30f;
         [SerializeField] TMP_FontAsset fontAsset;
-        [SerializeField] Sprite criticalStrikeIcon;
+        Sprite criticalStrikeIcon;
+        Sprite soulDiamondIcon;
+        bool iconSpritesLoaded;
 
         readonly Stack<TextMeshProUGUI> pool = new Stack<TextMeshProUGUI>();
         readonly List<ActiveText> activeTexts = new List<ActiveText>();
@@ -49,6 +51,19 @@ namespace Match3RPG.Battle
         public void Configure(TMP_FontAsset configuredFont = null)
         {
             overlayRect = (RectTransform)transform;
+            if (!iconSpritesLoaded)
+            {
+                criticalStrikeIcon = Resources.Load<Sprite>("FloatingTextIcons/critical_strike");
+                if (criticalStrikeIcon == null)
+                    Debug.LogError("Unable to load floating-text icon at Assets/Resources/FloatingTextIcons/critical_strike.png (Resources.Load<Sprite>(\"FloatingTextIcons/critical_strike\")).", this);
+
+                soulDiamondIcon = Resources.Load<Sprite>("FloatingTextIcons/soul_diamond");
+                if (soulDiamondIcon == null)
+                    Debug.LogError("Unable to load floating-text icon at Assets/Resources/FloatingTextIcons/soul_diamond.png (Resources.Load<Sprite>(\"FloatingTextIcons/soul_diamond\")).", this);
+
+                iconSpritesLoaded = true;
+            }
+
             if (configuredFont != null) fontAsset = configuredFont;
             if (fontAsset == null) fontAsset = TMP_Settings.defaultFontAsset;
             if (fontAsset == null)
@@ -257,13 +272,7 @@ namespace Match3RPG.Battle
             if (type == FloatingTextType.Damage || type == FloatingTextType.Critical)
                 return criticalStrikeIcon;
             if (type == FloatingTextType.SoulDamage || type == FloatingTextType.SoulCritical)
-            {
-                foreach (Sprite sprite in Resources.FindObjectsOfTypeAll<Sprite>())
-                {
-                    if (sprite != null && (sprite.name == "Base_07_Diamond" || sprite.name == "Gem_Orange"))
-                        return sprite;
-                }
-            }
+                return soulDiamondIcon;
             return null;
         }
 
