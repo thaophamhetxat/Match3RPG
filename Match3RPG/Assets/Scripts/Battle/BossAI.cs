@@ -38,12 +38,20 @@ namespace Match3RPG.Battle
                 switch (activation.Kind)
                 {
                     case SpecialActivationKind.RainbowFullBoard: score += 1500; break;
+                    case SpecialActivationKind.RainbowBaguaCombo: score += 800; break;
+                    case SpecialActivationKind.RainbowBombCombo: score += 800; break;
                     case SpecialActivationKind.RainbowColor: score += 700; break;
                     case SpecialActivationKind.AreaBomb: score += 400; break;
                     case SpecialActivationKind.Lightning: score += 250; break;
                     case SpecialActivationKind.BaguaShuffle: score += 100; break;
                     case SpecialActivationKind.Line: score += 300; break;
+                    case SpecialActivationKind.LineLineCombo: score += 600; break;
                     case SpecialActivationKind.BombLineCombo: score += 450; break;
+                    case SpecialActivationKind.RainbowLineHorizontal: score += 250; break;
+                    case SpecialActivationKind.RainbowLineVertical: score += 250; break;
+                    case SpecialActivationKind.RainbowLightningCombo: score += 30; break;
+                    case SpecialActivationKind.AreaBombFiveByFive: score += 800; break;
+                    case SpecialActivationKind.FallbackBaguaShuffle: score += 100; break;
                 }
             }
 

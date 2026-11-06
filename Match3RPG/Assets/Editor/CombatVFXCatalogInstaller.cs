@@ -30,7 +30,7 @@ namespace Match3RPG.Editor
             VfxRoot + "Attack/VFX_AirSlash.png",
             VfxRoot + "Attack/VFX_Dash.png",
             VfxRoot + "Heal/VFX_Heal.png",
-            VfxRoot + "Defense/VFX_Shield.png",
+            VfxRoot + "Shield/shield_ring.png",
             VfxRoot + "Defense/VFX_ShieldHit.png",
             VfxRoot + "Impact/VFX_HitImpact.png",
             VfxRoot + "Impact/VFX_HitPhysical.png",

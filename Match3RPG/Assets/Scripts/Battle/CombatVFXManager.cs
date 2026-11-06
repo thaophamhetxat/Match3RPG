@@ -59,8 +59,7 @@ namespace Match3RPG.Battle
 
             if (preferredAttack == CombatVFXType.Fireball || preferredAttack == CombatVFXType.AirSlash)
             {
-                CombatVFXType impactType = shielded ? CombatVFXType.ShieldHit
-                    : critical ? CombatVFXType.CriticalHit : CombatVFXType.HitImpact;
+                CombatVFXType impactType = critical ? CombatVFXType.CriticalHit : CombatVFXType.HitImpact;
                 PlayProjectile(preferredAttack, sourceAnchor, targetAnchor, impactType,
                     FacingSign(attacker));
                 return;
@@ -68,8 +67,7 @@ namespace Match3RPG.Battle
 
             if (firstHit && actor != BattleActor.Player)
                 PlayAt(CombatVFXType.Slash, targetAnchor, .23f, FacingSign(attacker));
-            PlayAt(shielded ? CombatVFXType.ShieldHit
-                : critical ? CombatVFXType.CriticalHit : CombatVFXType.HitImpact,
+            PlayAt(critical ? CombatVFXType.CriticalHit : CombatVFXType.HitImpact,
                 targetAnchor, TransientLifetime, FacingSign(attacker));
         }
 
@@ -267,7 +265,7 @@ namespace Match3RPG.Battle
         {
             switch (type)
             {
-                case CombatVFXType.Shield: return new Vector2(240f, 250f);
+                case CombatVFXType.Shield: return new Vector2(550f, 550f);
                 case CombatVFXType.Stun: return new Vector2(145f, 100f);
                 case CombatVFXType.Burn: return new Vector2(210f, 225f);
                 case CombatVFXType.Freeze: return new Vector2(215f, 235f);
@@ -293,9 +291,8 @@ namespace Match3RPG.Battle
             CombatVFXType[] transientTypes =
             {
                 CombatVFXType.Slash, CombatVFXType.Fireball, CombatVFXType.AirSlash,
-                CombatVFXType.Dash, CombatVFXType.Heal, CombatVFXType.ShieldHit,
-                CombatVFXType.HitImpact, CombatVFXType.HitPhysical,
-                CombatVFXType.CriticalHit, CombatVFXType.Ultimate
+                CombatVFXType.Dash, CombatVFXType.Heal, CombatVFXType.HitImpact,
+                CombatVFXType.HitPhysical, CombatVFXType.CriticalHit, CombatVFXType.Ultimate
             };
             foreach (CombatVFXType type in transientTypes)
             {

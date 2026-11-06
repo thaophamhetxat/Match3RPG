@@ -23,6 +23,22 @@ namespace Match3RPG.Campaign
         };
 
         static readonly Color LockedColor = new Color32(82, 91, 104, 210);
+        static readonly float[] BranchAngleOffsets =
+        {
+            -5f, 3f, -2f, 6f, -4f, 2f, 5f
+        };
+        static readonly float[] BranchStartRadii =
+        {
+            .20f, .215f, .19f, .205f, .22f, .195f, .21f
+        };
+        static readonly float[] BranchEndRadii =
+        {
+            .45f, .43f, .46f, .44f, .425f, .455f, .435f
+        };
+        static readonly float[] BranchCurveOffsets =
+        {
+            -.006f, .008f, -.01f, .005f, .011f, -.008f, .004f
+        };
         static readonly bool[][] TrigramPatterns =
         {
             new[] { true, true, true },
@@ -99,14 +115,16 @@ namespace Match3RPG.Campaign
         public static Vector2 GetStarPosition(Rect rect, int branchIndex, int starIndex)
         {
             float unit = Mathf.Min(rect.width, rect.height);
-            float angle = Mathf.PI * .5f
-                + branchIndex * Mathf.PI * 2f / BranchCount;
+            float angle = Mathf.PI * .5f + branchIndex * Mathf.PI * 2f / BranchCount
+                + BranchAngleOffsets[branchIndex] * Mathf.Deg2Rad;
             Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
             Vector2 perpendicular = new Vector2(-direction.y, direction.x);
             float progress = starIndex / (float)(StarsPerBranch - 1);
-            float radius = Mathf.Lerp(.205f, .46f, progress) * unit;
-            float zigzagOffset = (starIndex % 2 == 0 ? -.032f : .032f) * unit;
-            return rect.center + direction * radius + perpendicular * zigzagOffset;
+            float radius = Mathf.Lerp(BranchStartRadii[branchIndex],
+                BranchEndRadii[branchIndex], progress) * unit;
+            float curveOffset = Mathf.Sin(progress * Mathf.PI)
+                * BranchCurveOffsets[branchIndex] * unit;
+            return rect.center + direction * radius + perpendicular * curveOffset;
         }
 
         protected override void OnPopulateMesh(VertexHelper vertexHelper)
@@ -120,6 +138,12 @@ namespace Match3RPG.Campaign
             for (int branch = 0; branch < BranchCount; branch++)
             {
                 int litCount = litStarCounts[branch];
+                Vector2 firstPosition = GetStarPosition(rect, branch, 0);
+                Color firstSegmentColor = litCount > 0
+                    ? BranchColors[branch] : LockedColor;
+                firstSegmentColor.a *= litCount > 0 ? .82f : .62f;
+                AddLine(vertexHelper, rect.center, firstPosition, unit * .008f,
+                    firstSegmentColor);
                 for (int star = 0; star < StarsPerBranch; star++)
                 {
                     Vector2 position = GetStarPosition(rect, branch, star);
@@ -134,7 +158,17 @@ namespace Match3RPG.Campaign
                     }
 
                     bool lit = star < litCount;
-                    Color starColor = lit ? BranchColors[branch] : LockedColor;
+                    Color starColor = lit ? BranchColors[branch]
+                        : star == 0
+                            ? new Color32(255, 230, 160, 255)
+                            : LockedColor;
+                    if (star == 0)
+                    {
+                        AddDisc(vertexHelper, position, unit * .034f,
+                            new Color32(255, 215, 120, 55));
+                        AddRing(vertexHelper, position, unit * .03f,
+                            unit * .004f, new Color32(255, 215, 120, 235));
+                    }
                     AddStar(vertexHelper, position, unit * .019f,
                         starColor * color);
                     if (branch == selectedBranch && star == selectedStar)

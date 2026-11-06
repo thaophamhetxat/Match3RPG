@@ -11,6 +11,7 @@ namespace Match3RPG.Battle
     public sealed class BattleController : MonoBehaviour
     {
         const int BoardAttackBonusPerGem = 10;
+        const int BaseHealthPerGem = 15;
         [SerializeField] CharacterView hero, boss;
         [SerializeField] BattleHUD hud;
         [SerializeField] FloatingTextManager floatingTextManager;
@@ -21,7 +22,6 @@ namespace Match3RPG.Battle
         [SerializeField, Min(0)] private int heroAttack = 50;
         [SerializeField, Min(0)] private int heroSoulAttack = 50;
         [SerializeField, Min(0)] private int manaPerGem = 10;
-        [SerializeField, Min(0)] private int healthPerGem = 50;
         [SerializeField, Min(0)] private int ragePerGem = 5;
         [SerializeField, Min(0)] private int shieldPerGem = 50;
         [SerializeField, Min(0)] private int drainHpPerGem = 50;
@@ -36,6 +36,7 @@ namespace Match3RPG.Battle
         [SerializeField, Min(0f)] private float heroAccuracyPercent = 100f;
         [SerializeField, Min(0)] private int heroSpeed = 10;
         [SerializeField, Min(0)] private int experienceStars;
+        [SerializeField, Min(0)] private int healthStars;
         [SerializeField, Min(0)] private int shieldStars;
         [SerializeField, Min(0)] private int bossAttackDamagePerGem;
         [SerializeField, Min(1)] private int bossMaxRage = 100;
@@ -48,6 +49,8 @@ namespace Match3RPG.Battle
         [SerializeField] private CombatVFXType bossAttackVfx = CombatVFXType.Slash;
         [SerializeField, Min(0f)] private float multiHitInterval = .15f;
         [SerializeField] private bool showReceivedHitRageText;
+        [Header("Temporary layout test mode")]
+        [SerializeField] private bool layoutTestMode = false;
 
         int heroHp, bossHp, heroSoulHp, bossSoulHp, mana, ultimate, bossMana, bossUltimate;
         int heroMaxSoulHp, bossMaxSoulHp;
@@ -57,6 +60,8 @@ namespace Match3RPG.Battle
         int loggedHeroMaxRage = int.MinValue;
         bool statsInitialized;
         bool soulEnabled;
+        bool soulDamageEnabled;
+        int heroBattleEntryLevel = 1;
         bool heroProgressionConfigured;
         PlayerProgressionService progressionService;
         StarChartGemInventoryService starChartGemInventory;
@@ -66,6 +71,7 @@ namespace Match3RPG.Battle
             || (soulEnabled && (heroSoulHp <= 0 || bossSoulHp <= 0));
         public bool PlayerWon => bossHp <= 0 || (soulEnabled && bossSoulHp <= 0);
         public bool SoulEnabled => soulEnabled;
+        public int HeroBattleEntryLevel => heroBattleEntryLevel;
         public float BossHealthRatio => bossMaxHp <= 0 ? 0f : (float)bossHp / bossMaxHp;
         public float BossRageRatio => (float)bossRage / BossMaxRage;
         public int HeroHealth => heroHp;
@@ -103,9 +109,13 @@ namespace Match3RPG.Battle
             RuntimeBossStats? runtimeBossStats = null)
         {
             heroProgressionConfigured = false;
+            heroBattleEntryLevel = 1;
+            soulDamageEnabled = false;
             if (runtimeHeroStats.HasValue)
             {
                 RuntimeHeroStats stats = runtimeHeroStats.Value;
+                heroBattleEntryLevel = stats.Level;
+                soulDamageEnabled = heroBattleEntryLevel >= 10;
                 heroMaxHp = stats.MaxHP;
                 heroMaxSoulHp = stats.MaxSoulHP;
                 heroAttack = stats.Attack;
@@ -116,6 +126,7 @@ namespace Match3RPG.Battle
                 heroAccuracyPercent = stats.AccuracyPercent;
                 heroSpeed = stats.Speed;
                 experienceStars = stats.ExperienceStars;
+                healthStars = stats.HealthStars;
                 shieldStars = stats.ShieldStars;
                 maxMana = stats.MaxMana;
                 maxRage = stats.MaxRage;
@@ -133,6 +144,7 @@ namespace Match3RPG.Battle
                 heroAccuracyPercent = 100f;
                 heroSpeed = 10;
                 experienceStars = 0;
+                healthStars = 0;
                 shieldStars = 0;
                 heroProgressionConfigured = false;
                 maxMana = Mathf.Max(1, heroData.BaseMana);
@@ -143,6 +155,7 @@ namespace Match3RPG.Battle
             {
                 soulEnabled = false;
                 experienceStars = 0;
+                healthStars = 0;
                 shieldStars = 0;
             }
 
@@ -207,12 +220,36 @@ namespace Match3RPG.Battle
             bossSoulHp = bossMaxSoulHp;
             heroRage = 0;
             bossRage = Mathf.Clamp(bossStartingRage, 0, BossMaxRage);
+            if (layoutTestMode)
+                ApplyLayoutTestState();
             statsInitialized = true;
+        }
+
+        void ApplyLayoutTestState()
+        {
+            if (!layoutTestMode)
+                return;
+
+            heroHp = Mathf.Max(0, heroMaxHp);
+            bossHp = Mathf.Max(0, bossMaxHp);
+            heroSoulHp = Mathf.Max(0, heroMaxSoulHp);
+            bossSoulHp = Mathf.Max(0, bossMaxSoulHp);
+            heroRage = Mathf.Max(0, MaxRage);
+            bossRage = Mathf.Max(0, BossMaxRage);
+            mana = Mathf.Max(0, maxMana);
+            ultimate = 100;
+            bossMana = Mathf.Max(0, bossMaxMana);
+            bossUltimate = 100;
         }
 
         public IEnumerator ResolveMove(BattleActor actor, MoveResult move)
         {
             if (move == null || !move.IsValid || IsGameOver) yield break;
+            if (layoutTestMode)
+            {
+                ApplyLayoutTestState();
+                Refresh();
+            }
 
             starChartGemInventory.CollectMatch(move);
             int attackGems = Count(move, GemType.Attack);
@@ -226,7 +263,8 @@ namespace Match3RPG.Battle
             if (actor == BattleActor.Player)
             {
                 int previousHealth = heroHp;
-                heroHp = Mathf.Min(heroMaxHp, heroHp + healthGems * healthPerGem);
+                heroHp = Mathf.Min(heroMaxHp, heroHp
+                    + healthGems * AddNonNegative(BaseHealthPerGem, healthStars));
                 if (heroHp > previousHealth)
                     combatVfx?.PlayHeal(BattleActor.Player);
                 ShowResource(hero, FloatingTextType.Heal, heroHp - previousHealth);
@@ -255,7 +293,7 @@ namespace Match3RPG.Battle
             else
             {
                 int previousBossHealth = bossHp;
-                bossHp = Mathf.Min(bossMaxHp, bossHp + healthGems * healthPerGem);
+                bossHp = Mathf.Min(bossMaxHp, bossHp + healthGems * BaseHealthPerGem);
                 if (bossHp > previousBossHealth)
                     combatVfx?.PlayHeal(BattleActor.Boss);
                 ShowResource(boss, FloatingTextType.Heal, bossHp - previousBossHealth);
@@ -295,13 +333,13 @@ namespace Match3RPG.Battle
             int shieldBefore = heroShield;
             int damage = ApplyDamage(BattleActor.Player, Mathf.Max(0, invalidMovePenaltyDamage));
             int shieldAbsorbed = shieldBefore - heroShield;
-            if (damage > 0 || shieldAbsorbed > 0)
+            if (damage > 0)
             {
-                combatVfx?.PlayAttack(BattleActor.Boss, false, bossAttackVfx, true,
-                    shieldAbsorbed > 0 || (combatVfx != null
-                        && combatVfx.IsPersistentEffectActive(BattleActor.Player, CombatVFXType.Shield)));
+                bool shielded = shieldAbsorbed > 0 || (combatVfx != null
+                    && combatVfx.IsPersistentEffectActive(BattleActor.Player, CombatVFXType.Shield));
+                combatVfx?.PlayAttack(BattleActor.Boss, false, bossAttackVfx, true, shielded);
                 ShowResource(hero, FloatingTextType.Damage, damage);
-                if (damage > 0) AddReceivedHitRage(BattleActor.Player);
+                AddReceivedHitRage(BattleActor.Player);
                 if (hero != null) yield return hero.Hit();
             }
             if ((heroHp == 0 || (soulEnabled && heroSoulHp == 0)) && hero != null)
@@ -370,17 +408,21 @@ namespace Match3RPG.Battle
                     int shieldAbsorbed = targetActor == BattleActor.Player ? shieldBefore - heroShield : 0;
                     if (damage <= 0 && shieldAbsorbed <= 0) break;
 
-                    bool shielded = shieldAbsorbed > 0 || (combatVfx != null
-                        && combatVfx.IsPersistentEffectActive(targetActor, CombatVFXType.Shield));
-                    combatVfx?.PlayAttack(actor, critical, attackVfx, firstSuccessfulHit, shielded);
-                    firstSuccessfulHit = false;
-                    FloatingTextType damageText = soulHit
-                        ? (critical ? FloatingTextType.SoulCritical : FloatingTextType.SoulDamage)
-                        : (critical ? FloatingTextType.Critical : FloatingTextType.Damage);
-                    ShowResource(target, damageText, damage);
-                    if (damage > 0) rageGainedByTarget += AddReceivedHitRage(targetActor);
-                    Refresh();
-                    if (target != null) yield return target.Hit();
+                    if (damage > 0)
+                    {
+                        bool shielded = shieldAbsorbed > 0 || (combatVfx != null
+                            && combatVfx.IsPersistentEffectActive(targetActor, CombatVFXType.Shield));
+                        combatVfx?.PlayAttack(actor, critical, attackVfx, firstSuccessfulHit, shielded);
+                        firstSuccessfulHit = false;
+                        FloatingTextType damageText = soulHit
+                            && soulDamageEnabled
+                            ? (critical ? FloatingTextType.SoulCritical : FloatingTextType.SoulDamage)
+                            : (critical ? FloatingTextType.Critical : FloatingTextType.Damage);
+                        ShowResource(target, damageText, damage);
+                        rageGainedByTarget += AddReceivedHitRage(targetActor);
+                        Refresh();
+                        if (target != null) yield return target.Hit();
+                    }
                     if (hit + 1 < totalHitCount && !IsGameOver && multiHitInterval > 0f)
                         yield return new WaitForSecondsRealtime(multiHitInterval);
                 }
@@ -390,13 +432,13 @@ namespace Match3RPG.Battle
                     int shieldBefore = targetActor == BattleActor.Player ? heroShield : 0;
                     int damage = ApplyDamage(targetActor, bonusDamage);
                     int shieldAbsorbed = targetActor == BattleActor.Player ? shieldBefore - heroShield : 0;
-                    if (damage > 0 || shieldAbsorbed > 0)
+                    if (damage > 0)
                     {
                         bool shielded = shieldAbsorbed > 0 || (combatVfx != null
                             && combatVfx.IsPersistentEffectActive(targetActor, CombatVFXType.Shield));
                         combatVfx?.PlayAttack(actor, false, attackVfx, firstSuccessfulHit, shielded);
                         ShowResource(target, FloatingTextType.Damage, damage);
-                        if (damage > 0) rageGainedByTarget += AddReceivedHitRage(targetActor);
+                        rageGainedByTarget += AddReceivedHitRage(targetActor);
                         Refresh();
                         if (target != null) yield return target.Hit();
                     }
@@ -432,6 +474,8 @@ namespace Match3RPG.Battle
 
         int ApplyDamage(BattleActor target, int amount, bool shieldCanAbsorb = true)
         {
+            if (layoutTestMode)
+                return 0;
             if (amount <= 0 || IsGameOver) return 0;
             amount = AbsorbShield(target, amount, shieldCanAbsorb);
             if (amount <= 0) return 0;
@@ -446,7 +490,11 @@ namespace Match3RPG.Battle
 
         int ApplySoulDamage(BattleActor target, int amount)
         {
+            if (layoutTestMode)
+                return 0;
             if (!soulEnabled || amount <= 0 || IsGameOver) return 0;
+            if (!soulDamageEnabled)
+                return ApplyDamage(target, amount);
             amount = AbsorbShield(target, amount, true);
             if (amount <= 0) return 0;
             int previous = target == BattleActor.Player ? heroSoulHp : bossSoulHp;
@@ -464,6 +512,11 @@ namespace Match3RPG.Battle
                 return amount;
             int absorbed = Mathf.Min(heroShield, amount);
             heroShield -= absorbed;
+            if (heroShield <= 0)
+            {
+                heroShield = 0;
+                combatVfx?.SetPersistentEffect(BattleActor.Player, CombatVFXType.Shield, false);
+            }
             ShowResource(hero, FloatingTextType.ShieldLost, absorbed);
             return amount - absorbed;
         }
@@ -497,6 +550,8 @@ namespace Match3RPG.Battle
             long totalShield = (long)heroShield + (long)gemCount * effectiveShieldPerGem;
             heroShield = totalShield >= int.MaxValue ? int.MaxValue : (int)totalShield;
             heroShieldTurns = 2;
+            if (heroShield > 0)
+                combatVfx?.SetPersistentEffect(BattleActor.Player, CombatVFXType.Shield, true);
             long gained = (long)gemCount * effectiveShieldPerGem;
             ShowResource(hero, FloatingTextType.Shield,
                 gained >= int.MaxValue ? int.MaxValue : (int)gained);
@@ -509,6 +564,7 @@ namespace Match3RPG.Battle
             if (heroShieldTurns == 0)
             {
                 heroShield = 0;
+                combatVfx?.SetPersistentEffect(BattleActor.Player, CombatVFXType.Shield, false);
                 Refresh();
             }
         }
@@ -600,6 +656,8 @@ namespace Match3RPG.Battle
 
         int AddReceivedHitRage(BattleActor actor)
         {
+            if (layoutTestMode)
+                return 0;
             int rageGain = actor == BattleActor.Player ? ragePerReceivedHit : bossRagePerReceivedHit;
             if (rageGain <= 0) return 0;
             return AddRage(actor, rageGain);
@@ -607,6 +665,11 @@ namespace Match3RPG.Battle
 
         int AddRage(BattleActor actor, int amount)
         {
+            if (layoutTestMode)
+            {
+                SetRage(actor, GetMaxRage(actor));
+                return 0;
+            }
             int previous = GetRage(actor);
             SetRage(actor, previous + Mathf.Max(0, amount));
             int gained = GetRage(actor) - previous;
@@ -625,11 +688,22 @@ namespace Match3RPG.Battle
 
         void SetRage(BattleActor actor, int value)
         {
+            if (layoutTestMode)
+            {
+                if (actor == BattleActor.Player)
+                    heroRage = Mathf.Max(0, MaxRage);
+                else
+                    bossRage = Mathf.Max(0, BossMaxRage);
+                UpdateRageReadyVfx(actor);
+                Refresh();
+                return;
+            }
             if (actor == BattleActor.Player)
                 heroRage = Mathf.Clamp(value, 0, MaxRage);
             else
                 bossRage = Mathf.Clamp(value, 0, BossMaxRage);
             UpdateRageReadyVfx(actor);
+            Refresh();
         }
 
         void UpdateRageReadyVfx(BattleActor actor)
@@ -706,7 +780,6 @@ namespace Match3RPG.Battle
         public void SetRageForDebug(BattleActor actor, int value)
         {
             SetRage(actor, value);
-            Refresh();
         }
 #endif
     }

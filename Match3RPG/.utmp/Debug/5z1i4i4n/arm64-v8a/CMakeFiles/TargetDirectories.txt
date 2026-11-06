@@ -1,0 +1,8 @@
+G:/UnityProjects/Match3RPG/Match3RPG/.utmp/Debug/5z1i4i4n/arm64-v8a/CMakeFiles/edit_cache.dir
+G:/UnityProjects/Match3RPG/Match3RPG/.utmp/Debug/5z1i4i4n/arm64-v8a/CMakeFiles/rebuild_cache.dir
+G:/UnityProjects/Match3RPG/Match3RPG/.utmp/Debug/5z1i4i4n/arm64-v8a/GameActivity/CMakeFiles/game.dir
+G:/UnityProjects/Match3RPG/Match3RPG/.utmp/Debug/5z1i4i4n/arm64-v8a/GameActivity/CMakeFiles/edit_cache.dir
+G:/UnityProjects/Match3RPG/Match3RPG/.utmp/Debug/5z1i4i4n/arm64-v8a/GameActivity/CMakeFiles/rebuild_cache.dir
+G:/UnityProjects/Match3RPG/Match3RPG/.utmp/Debug/5z1i4i4n/arm64-v8a/FramePacing/CMakeFiles/swappywrapper.dir
+G:/UnityProjects/Match3RPG/Match3RPG/.utmp/Debug/5z1i4i4n/arm64-v8a/FramePacing/CMakeFiles/edit_cache.dir
+G:/UnityProjects/Match3RPG/Match3RPG/.utmp/Debug/5z1i4i4n/arm64-v8a/FramePacing/CMakeFiles/rebuild_cache.dir

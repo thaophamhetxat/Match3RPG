@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: a73a746d707e603449e291bef9dd1765
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9007727084126848886
+    second: PauseMenu_Tab_Info_0
+  - first:
+      213: 7316894019698168262
+    second: PauseMenu_Tab_Info_1
+  - first:
+      213: 4872610027907580309
+    second: PauseMenu_Tab_Info_2
+  - first:
+      213: -8493280359731949831
+    second: PauseMenu_Tab_Info_3
+  - first:
+      213: 523805248149291629
+    second: PauseMenu_Tab_Info_4
+  - first:
+      213: -477074152943959277
+    second: PauseMenu_Tab_Info_5
+  - first:
+      213: 2441558849495391467
+    second: PauseMenu_Tab_Info_6
+  - first:
+      213: -6756736187988535821
+    second: PauseMenu_Tab_Info_7
+  - first:
+      213: 7130322443166525694
+    second: PauseMenu_Tab_Info_8
+  - first:
+      213: -5794588041234198383
+    second: PauseMenu_Tab_Info_9
+  - first:
+      213: 6118735884477039727
+    second: PauseMenu_Tab_Info_10
+  - first:
+      213: -4219356316054708965
+    second: PauseMenu_Tab_Info_11
+  - first:
+      213: -6341347190220276991
+    second: PauseMenu_Tab_Info_12
+  - first:
+      213: 2430046270494755403
+    second: PauseMenu_Tab_Info_13
+  - first:
+      213: -4094638753492663836
+    second: PauseMenu_Tab_Info_14
+  - first:
+      213: -5680590237011409171
+    second: PauseMenu_Tab_Info_15
+  - first:
+      213: -2298150756426868767
+    second: PauseMenu_Tab_Info_16
+  - first:
+      213: 2348326776946091540
+    second: PauseMenu_Tab_Info_17
+  - first:
+      213: 1817015417142736236
+    second: PauseMenu_Tab_Info_18
+  - first:
+      213: -2695209238934530281
+    second: PauseMenu_Tab_Info_19
+  - first:
+      213: 4002626925626526056
+    second: PauseMenu_Tab_Info_20
+  - first:
+      213: -1243214260618447396
+    second: PauseMenu_Tab_Info_21
+  - first:
+      213: 8428352613492872085
+    second: PauseMenu_Tab_Info_22
+  - first:
+      213: -214425849307740088
+    second: PauseMenu_Tab_Info_23
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1178
+        height: 1312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 677cb0bde00e10d70800000000000000
+      internalID: 9007727084126848886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1159
+        width: 68
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c11a472854da8560800000000000000
+      internalID: 7316894019698168262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1235
+        width: 5
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5910072110dfe9340800000000000000
+      internalID: 4872610027907580309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_3
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 1157
+        width: 28
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fe006c138ec12a80800000000000000
+      internalID: -8493280359731949831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_4
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 1193
+        width: 24
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d628c63191ee44700800000000000000
+      internalID: 523805248149291629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_5
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 1247
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3134146e5971169f0800000000000000
+      internalID: -477074152943959277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_6
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 1257
+        width: 41
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bec526276d822e120800000000000000
+      internalID: 2441558849495391467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_7
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 1209
+        width: 33
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f59ae95c304b32a0800000000000000
+      internalID: -6756736187988535821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_8
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 1206
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef8afe6eb7ef3f260800000000000000
+      internalID: 7130322443166525694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_9
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 1261
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1905286a0ec759fa0800000000000000
+      internalID: -5794588041234198383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_10
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 1199
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6480b45edd1ae450800000000000000
+      internalID: 6118735884477039727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1035
+        width: 78
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1d12c029c5d175c0800000000000000
+      internalID: -4219356316054708965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_12
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 1125
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10bbf7114520ff7a0800000000000000
+      internalID: -6341347190220276991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_13
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 1106
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4a4a94453249b120800000000000000
+      internalID: 2430046270494755403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_14
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 909
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e1858e7fbbec27c0800000000000000
+      internalID: -4094638753492663836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 713
+        width: 62
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de60268c64d7a21b0800000000000000
+      internalID: -5680590237011409171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_16
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 469
+        width: 36
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e791ea20145b10e0800000000000000
+      internalID: -2298150756426868767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_17
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 247
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 416e86cf2cee69020800000000000000
+      internalID: 2348326776946091540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 165
+        width: 5
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c65733a15e5573910800000000000000
+      internalID: 1817015417142736236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_19
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 122
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 717d4fd1a71b89ad0800000000000000
+      internalID: -2695209238934530281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_20
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 73
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86902666bff2c8730800000000000000
+      internalID: 4002626925626526056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_21
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 71
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd5332087373fbee0800000000000000
+      internalID: -1243214260618447396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_22
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 46
+        width: 16
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5935af0fb0687f470800000000000000
+      internalID: 8428352613492872085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PauseMenu_Tab_Info_23
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 21
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 848c95d73d4360df0800000000000000
+      internalID: -214425849307740088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      PauseMenu_Tab_Info_0: 9007727084126848886
+      PauseMenu_Tab_Info_1: 7316894019698168262
+      PauseMenu_Tab_Info_10: 6118735884477039727
+      PauseMenu_Tab_Info_11: -4219356316054708965
+      PauseMenu_Tab_Info_12: -6341347190220276991
+      PauseMenu_Tab_Info_13: 2430046270494755403
+      PauseMenu_Tab_Info_14: -4094638753492663836
+      PauseMenu_Tab_Info_15: -5680590237011409171
+      PauseMenu_Tab_Info_16: -2298150756426868767
+      PauseMenu_Tab_Info_17: 2348326776946091540
+      PauseMenu_Tab_Info_18: 1817015417142736236
+      PauseMenu_Tab_Info_19: -2695209238934530281
+      PauseMenu_Tab_Info_2: 4872610027907580309
+      PauseMenu_Tab_Info_20: 4002626925626526056
+      PauseMenu_Tab_Info_21: -1243214260618447396
+      PauseMenu_Tab_Info_22: 8428352613492872085
+      PauseMenu_Tab_Info_23: -214425849307740088
+      PauseMenu_Tab_Info_3: -8493280359731949831
+      PauseMenu_Tab_Info_4: 523805248149291629
+      PauseMenu_Tab_Info_5: -477074152943959277
+      PauseMenu_Tab_Info_6: 2441558849495391467
+      PauseMenu_Tab_Info_7: -6756736187988535821
+      PauseMenu_Tab_Info_8: 7130322443166525694
+      PauseMenu_Tab_Info_9: -5794588041234198383
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

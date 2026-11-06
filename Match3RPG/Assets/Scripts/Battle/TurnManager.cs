@@ -8,12 +8,12 @@ namespace Match3RPG.Battle
 {
     public sealed class TurnManager : MonoBehaviour
     {
+        const float PlayerDecisionSeconds = 10f;
         [SerializeField] BoardManager board;
         [SerializeField] BattleController battle;
         [SerializeField] BossAI bossAI;
         [SerializeField] TurnIndicator turnIndicator;
         [SerializeField] TurnTimer turnTimer;
-        [SerializeField, Min(1f)] float playerDecisionSeconds = 10f;
         [SerializeField, Min(1)] int maximumStoredTurns = 5;
         [SerializeField, Min(0f)] float bossThinkingDelay = .8f;
         [SerializeField, Min(0f)] float bossTurnDisplayDelay = .15f;
@@ -132,7 +132,7 @@ namespace Match3RPG.Battle
         void Start()
         {
             board.EnsureBoardReady();
-            activeTurn = StartCoroutine(StartPlayerPhase(true, false, playerDecisionSeconds));
+            activeTurn = StartCoroutine(StartPlayerPhase(true, false, PlayerDecisionSeconds));
         }
 
         void BindBoard()
@@ -157,7 +157,7 @@ namespace Match3RPG.Battle
             yield return WaitWhileStatusPopupClosed();
             if (resolved == null)
             {
-                BeginPlayerDecision(playerDecisionSeconds, false);
+                BeginPlayerDecision(PlayerDecisionSeconds, false);
                 yield break;
             }
 
@@ -175,7 +175,7 @@ namespace Match3RPG.Battle
                 yield return WaitWhileStatusPopupClosed();
                 if (CheckBattleEnd()) yield break;
 
-                float counterattackNextDecisionTime = playerDecisionSeconds;
+                float counterattackNextDecisionTime = PlayerDecisionSeconds;
                 yield return EnsureBoardPlayable(BattleActor.Player, counterattackNextDecisionTime,
                     time => counterattackNextDecisionTime = time);
                 ContinueAfterPlayerAction(false, counterattackNextDecisionTime);
@@ -190,7 +190,7 @@ namespace Match3RPG.Battle
             yield return WaitWhileStatusPopupClosed();
             if (CheckBattleEnd()) yield break;
 
-            float nextDecisionTime = playerDecisionSeconds;
+            float nextDecisionTime = PlayerDecisionSeconds;
             yield return EnsureBoardPlayable(BattleActor.Player, nextDecisionTime, time => nextDecisionTime = time);
             ContinueAfterPlayerAction(resolved.ExtraTurnsGranted > 0, nextDecisionTime);
         }
@@ -200,7 +200,7 @@ namespace Match3RPG.Battle
             BattleTurnState nextState = GetStateAfterPlayerAction(playerTurnsRemaining);
             if (nextState == BattleTurnState.PlayerTurn)
             {
-                BeginPlayerDecision(earnedExtraTurn ? playerDecisionSeconds : savedTime, earnedExtraTurn);
+                BeginPlayerDecision(earnedExtraTurn ? PlayerDecisionSeconds : savedTime, earnedExtraTurn);
                 return;
             }
             extraTurnMessage = false;
@@ -227,7 +227,7 @@ namespace Match3RPG.Battle
             yield return WaitWhileStatusPopupClosed();
             if (CheckBattleEnd()) yield break;
 
-            float nextDecisionTime = playerDecisionSeconds;
+            float nextDecisionTime = PlayerDecisionSeconds;
             yield return EnsureBoardPlayable(BattleActor.Player, nextDecisionTime, time => nextDecisionTime = time);
             ContinueAfterPlayerAction(false, nextDecisionTime);
         }
@@ -323,7 +323,7 @@ namespace Match3RPG.Battle
             }
 
             if (CheckBattleEnd()) yield break;
-            activeTurn = StartCoroutine(StartPlayerPhase(true, false, playerDecisionSeconds));
+            activeTurn = StartCoroutine(StartPlayerPhase(true, false, PlayerDecisionSeconds));
         }
 
         IEnumerator EnsureBoardPlayable(BattleActor actor, float savedTime, System.Action<float> timeRestored)

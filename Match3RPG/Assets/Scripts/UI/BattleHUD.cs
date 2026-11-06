@@ -7,7 +7,6 @@ namespace Match3RPG.UI
     public sealed class BattleHUD : MonoBehaviour
     {
         [SerializeField] Slider heroHp, bossHp, mana, ultimate;
-        // TODO: Bind these optional bars when the HUD has Soul HP slots; do not generate a new layout here.
         [SerializeField] Slider heroSoulHp, bossSoulHp;
         [SerializeField] Slider heroRage, bossRage;
         [SerializeField] TMP_Text heroHpText, bossHpText, heroRageText, bossRageText, manaText, ultimateText;
@@ -25,8 +24,21 @@ namespace Match3RPG.UI
             Slider manaBar, Slider ultimateBar, TMP_Text heroValue, TMP_Text bossValue, TMP_Text heroRageValue,
             TMP_Text bossRageValue, TMP_Text manaValue, TMP_Text ultimateValue)
         {
+            Configure(heroHealth, bossHealth, null, null, heroRageBar, bossRageBar,
+                manaBar, ultimateBar, heroValue, bossValue, heroRageValue, bossRageValue,
+                manaValue, ultimateValue);
+        }
+
+        public void Configure(Slider heroHealth, Slider bossHealth, Slider heroSoulHealth,
+            Slider bossSoulHealth, Slider heroRageBar, Slider bossRageBar,
+            Slider manaBar, Slider ultimateBar, TMP_Text heroValue, TMP_Text bossValue,
+            TMP_Text heroRageValue, TMP_Text bossRageValue, TMP_Text manaValue,
+            TMP_Text ultimateValue)
+        {
             heroHp = heroHealth;
             bossHp = bossHealth;
+            heroSoulHp = heroSoulHealth;
+            bossSoulHp = bossSoulHealth;
             heroRage = heroRageBar;
             bossRage = bossRageBar;
             mana = manaBar;
@@ -64,8 +76,8 @@ namespace Match3RPG.UI
         {
             Set(heroHp, hero, heroMax);
             Set(bossHp, boss, bossMax);
-            SetSoul(heroSoulHp, heroSoulValue, heroSoulMax, soulEnabled);
-            SetSoul(bossSoulHp, bossSoulValue, bossSoulMax, soulEnabled);
+            SetSoul(heroSoulHp, heroSoulValue, heroSoulMax);
+            SetSoul(bossSoulHp, bossSoulValue, bossSoulMax);
             Set(mana, manaValue, 100);
             Set(ultimate, ultimateValue, 100);
             SetRage(heroRage, heroRageText, heroRageValue, heroMaxRage);
@@ -83,16 +95,43 @@ namespace Match3RPG.UI
             if (slider == null) return;
             max = Mathf.Max(0, max);
             slider.maxValue = max;
-            slider.value = max > 0 ? Mathf.Clamp(value, 0, max) : 0;
+            float clamped = max > 0 ? Mathf.Clamp(value, 0, max) : 0f;
+            slider.value = clamped;
+
+            if (slider.fillRect != null)
+            {
+                Image fill = slider.fillRect.GetComponent<Image>();
+                if (fill != null)
+                {
+                    fill.type = Image.Type.Filled;
+                    fill.fillMethod = Image.FillMethod.Horizontal;
+                    fill.fillOrigin = slider.direction == Slider.Direction.RightToLeft
+                        ? (int)Image.OriginHorizontal.Right
+                        : (int)Image.OriginHorizontal.Left;
+                    fill.fillAmount = max > 0 ? clamped / max : 0f;
+                }
+            }
+            else
+            {
+                Image fill = slider.GetComponentInChildren<Image>(true);
+                if (fill != null && fill.transform != slider.transform)
+                {
+                    fill.type = Image.Type.Filled;
+                    fill.fillMethod = Image.FillMethod.Horizontal;
+                    fill.fillOrigin = slider.direction == Slider.Direction.RightToLeft
+                        ? (int)Image.OriginHorizontal.Right
+                        : (int)Image.OriginHorizontal.Left;
+                    fill.fillAmount = max > 0 ? clamped / max : 0f;
+                }
+            }
         }
 
-        static void SetSoul(Slider slider, int value, int max, bool enabled)
+        static void SetSoul(Slider slider, int value, int max)
         {
             if (slider == null) return;
-            if (slider.gameObject.activeSelf != enabled)
-                slider.gameObject.SetActive(enabled);
-            if (enabled)
-                Set(slider, value, max);
+            if (!slider.gameObject.activeSelf)
+                slider.gameObject.SetActive(true);
+            Set(slider, value, max);
         }
 
         static void SetRage(Slider slider, TMP_Text text, int value, int max)
@@ -100,16 +139,7 @@ namespace Match3RPG.UI
             max = Mathf.Max(0, max);
             value = max > 0 ? Mathf.Clamp(value, 0, max) : 0;
             Set(slider, value, max);
-            SetText(text, max > 0 && value >= max ? "RAGE MAX" : $"{value} / {max}");
-            if (slider != null && slider.fillRect != null)
-            {
-                Image fill = slider.fillRect.GetComponent<Image>();
-                if (fill != null)
-                {
-                    fill.enabled = true;
-                    fill.color = max > 0 && value >= max ? RageReadyColor : RageColor;
-                }
-            }
+            SetText(text, $"{value} / {max}");
         }
 
         static void SetText(TMP_Text text, string value) { if (text != null) text.text = value; }

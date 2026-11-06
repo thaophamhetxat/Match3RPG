@@ -50,6 +50,8 @@ namespace Match3RPG.Configuration
         public BattleHUDTextStyle BossNameStyle;
         public Rect HeroHpChannel;
         public Rect BossHpChannel;
+        public Rect HeroSoulHpChannel;
+        public Rect BossSoulHpChannel;
         public Vector2 HeroHpBarPosition;
         public Vector2 BossHpBarPosition;
         public Vector2 HeroHpBarSize;
@@ -76,8 +78,9 @@ namespace Match3RPG.Configuration
     public sealed class BattleHUDLayoutConfig : ScriptableObject
     {
         static readonly Rect DefaultHeroNameSlot = new Rect(.10f, .918f, .28f, .014f);
-        static readonly Rect DefaultHeroHpChannel = new Rect(.075f, .896875f, .195f, .0125f);
-        static readonly Rect DefaultHeroRageChannel = new Rect(.13f, .86025f, .24f, .0125f);
+        static readonly Rect DefaultHeroHpChannel = new Rect(.075f, .896875f, .38f, .0625f);
+        static readonly Rect DefaultHeroSoulHpChannel = new Rect(.075f, .8785f, .38f, .0625f);
+        static readonly Rect DefaultHeroRageChannel = new Rect(.095f, .86025f, .38f, .0625f);
 
         [Header("Names")]
         [SerializeField, Tooltip("Hero name slot in normalized BattleLayoutReferenceRoot coordinates (0..1). Boss is mirrored automatically.")]
@@ -94,12 +97,14 @@ namespace Match3RPG.Configuration
         [Header("HP Bar")]
         [SerializeField, Tooltip("Hero HP channel in normalized BattleLayoutReferenceRoot coordinates (0..1). Boss is mirrored automatically.")]
         Rect heroHpChannel = DefaultHeroHpChannel;
+        [SerializeField, Tooltip("Hero Soul HP channel between HP and Rage in normalized BattleLayoutReferenceRoot coordinates (0..1). Boss is mirrored automatically.")]
+        Rect heroSoulHpChannel = DefaultHeroSoulHpChannel;
         [SerializeField, Tooltip("Hero HP bar anchored position in reference pixels (1080x1920 BattleLayoutReferenceRoot). Boss X is mirrored automatically.")]
-        Vector2 heroHpBarPosition = new Vector2(-353.2f, 940f);
+        Vector2 heroHpBarPosition = new Vector2(-282.57f, 942.1729f);
         [SerializeField, Tooltip("Optional Boss HP bar offset in reference pixels (1080x1920 BattleLayoutReferenceRoot).")]
         Vector2 bossHpBarOffsetReferencePixels;
         [SerializeField, Tooltip("Hero HP bar size in reference pixels (1080x1920 BattleLayoutReferenceRoot).")]
-        Vector2 heroHpBarSize = new Vector2(209.6f, 30f);
+        Vector2 heroHpBarSize = new Vector2(385.6318f, 122.1733f);
         [SerializeField, Min(0f), Tooltip("Inset between HP fill and bar edges in reference pixels (1080x1920 BattleLayoutReferenceRoot).")]
         float hpFillInset = 3f;
         [SerializeField] BattleHUDTextStyle hpValueStyle = new BattleHUDTextStyle(18, true,
@@ -172,6 +177,8 @@ namespace Match3RPG.Configuration
             var invalid = new StringBuilder();
             AppendInvalidSize(invalid, nameof(heroNameSlot), heroNameSlot.width, heroNameSlot.height);
             AppendInvalidSize(invalid, nameof(heroHpChannel), heroHpChannel.width, heroHpChannel.height);
+            AppendInvalidSize(invalid, nameof(heroSoulHpChannel), heroSoulHpChannel.width,
+                heroSoulHpChannel.height);
             AppendInvalidSize(invalid, nameof(heroHpBarSize), heroHpBarSize.x, heroHpBarSize.y);
             AppendInvalidSize(invalid, nameof(heroRageChannel), heroRageChannel.width, heroRageChannel.height);
             AppendInvalidSize(invalid, nameof(turnCountSize), turnCountSize.x, turnCountSize.y);
@@ -205,6 +212,7 @@ namespace Match3RPG.Configuration
         {
             Rect heroName = heroNameSlot;
             Rect heroHp = heroHpChannel;
+            Rect heroSoulHp = heroSoulHpChannel;
             Rect heroRage = heroRageChannel;
             return new BattleHUDLayoutValues
             {
@@ -214,6 +222,8 @@ namespace Match3RPG.Configuration
                 BossNameStyle = bossNameStyle,
                 HeroHpChannel = heroHp,
                 BossHpChannel = Mirror(heroHp, Vector2.zero),
+                HeroSoulHpChannel = heroSoulHp,
+                BossSoulHpChannel = Mirror(heroSoulHp, Vector2.zero),
                 HeroHpBarPosition = heroHpBarPosition,
                 BossHpBarPosition = new Vector2(-heroHpBarPosition.x, heroHpBarPosition.y)
                     + bossHpBarOffsetReferencePixels,
@@ -250,9 +260,11 @@ namespace Match3RPG.Configuration
                 .12f, TextAlignmentOptions.MidlineRight),
             HeroHpChannel = DefaultHeroHpChannel,
             BossHpChannel = Mirror(DefaultHeroHpChannel, Vector2.zero),
-            HeroHpBarPosition = new Vector2(-353.2f, 940f),
-            BossHpBarPosition = new Vector2(353.2f, 940f),
-            HeroHpBarSize = new Vector2(209.6f, 30f),
+            HeroSoulHpChannel = DefaultHeroSoulHpChannel,
+            BossSoulHpChannel = Mirror(DefaultHeroSoulHpChannel, Vector2.zero),
+            HeroHpBarPosition = new Vector2(-282.57f, 942.1729f),
+            BossHpBarPosition = new Vector2(282.57f, 942.1729f),
+            HeroHpBarSize = new Vector2(385.6318f, 122.1733f),
             HpFillInset = 3f,
             HeroRageChannel = DefaultHeroRageChannel,
             BossRageChannel = Mirror(DefaultHeroRageChannel, Vector2.zero),

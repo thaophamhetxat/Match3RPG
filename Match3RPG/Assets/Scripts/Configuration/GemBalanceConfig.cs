@@ -8,7 +8,7 @@ namespace Match3RPG.Configuration
         [SerializeField, Min(0)] int attackDamagePerGem = 10;
         [SerializeField, Min(0)] int manaPerGem = 10;
         [SerializeField, Min(0)] int experiencePerGem = 1;
-        [SerializeField, Min(0)] int healthPerGem = 50;
+        [SerializeField, Min(0)] int healthPerGem = 15;
         [SerializeField, Min(0)] int ragePerGem = 5;
         [SerializeField, Min(0)] int shieldPerGem = 50;
         [SerializeField, Min(0)] int drainHpPerGem = 50;

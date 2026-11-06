@@ -63,10 +63,12 @@ namespace Match3RPG.Board
 
             GemSpecialType firstSpecial = swapped.SpecialAt(from);
             GemSpecialType secondSpecial = swapped.SpecialAt(to);
-            if (firstSpecial == GemSpecialType.AreaBomb && secondSpecial == GemSpecialType.AreaBomb)
-                return move;
             if (ContainsRainbow(firstSpecial, secondSpecial)
                 && (firstSpecial != GemSpecialType.Rainbow || secondSpecial != GemSpecialType.Rainbow)
+                && firstSpecial != GemSpecialType.Bagua && secondSpecial != GemSpecialType.Bagua
+                && firstSpecial != GemSpecialType.AreaBomb && secondSpecial != GemSpecialType.AreaBomb
+                && firstSpecial != GemSpecialType.Line && secondSpecial != GemSpecialType.Line
+                && firstSpecial != GemSpecialType.Lightning && secondSpecial != GemSpecialType.Lightning
                 && (firstSpecial != GemSpecialType.None && secondSpecial != GemSpecialType.None))
                 return move;
 
@@ -124,8 +126,29 @@ namespace Match3RPG.Board
             HashSet<BoardPos> clear = new HashSet<BoardPos>();
             HashSet<BoardPos> reserved = new HashSet<BoardPos>();
             HashSet<BoardPos> handledSpecials = new HashSet<BoardPos>();
+            bool fullLineSwapCombination = !directActivation && initialSwap
+                && IsFullLineSwapCombination(board, move);
+            bool rainbowBaguaSwap = !directActivation && initialSwap
+                && TryGetRainbowSpecialPair(board, move, GemSpecialType.Bagua,
+                    out _, out _);
+            bool rainbowBombSwap = !directActivation && initialSwap
+                && TryGetRainbowSpecialPair(board, move, GemSpecialType.AreaBomb,
+                    out _, out _);
+            bool rainbowLineSwap = !directActivation && initialSwap
+                && TryGetRainbowSpecialPair(board, move, GemSpecialType.Line,
+                    out _, out _);
+            bool rainbowLightningSwap = !directActivation && initialSwap
+                && TryGetRainbowSpecialPair(board, move, GemSpecialType.Lightning,
+                    out _, out _);
+            bool bombBombSwap = !directActivation && initialSwap
+                && IsBombBombSwap(board, move);
+            bool fallbackSpecialSwap = !directActivation && initialSwap
+                && IsFallbackSpecialSwap(board, move);
+            bool specialSwapCombination = rainbowBaguaSwap || rainbowBombSwap
+                || rainbowLineSwap || rainbowLightningSwap || bombBombSwap
+                || fallbackSpecialSwap;
 
-            if (!directActivation)
+            if (!directActivation && !fullLineSwapCombination && !specialSwapCombination)
             {
                 FindLines(board, result);
                 foreach (MatchSegment segment in result.Segments)
@@ -133,9 +156,11 @@ namespace Match3RPG.Board
                     clear.Add(position);
             }
 
-            List<SpecialGemCreation> createdSpecials = SelectSpecials(result,
-                initialSwap && !directActivation ? move.To : (BoardPos?)null,
-                board, rollBonusSpecials);
+            List<SpecialGemCreation> createdSpecials = fullLineSwapCombination || specialSwapCombination
+                ? new List<SpecialGemCreation>()
+                : SelectSpecials(result,
+                    initialSwap && !directActivation ? move.To : (BoardPos?)null,
+                    board, rollBonusSpecials);
             foreach (SpecialGemCreation creation in createdSpecials)
             {
                 result.CreatedSpecials.Add(creation);
@@ -185,12 +210,25 @@ namespace Match3RPG.Board
                 handledSpecials.Add(move.From);
             }
             else if (initialSwap && TryResolveSwapCombination(board, move, clear, reserved,
-                handledSpecials, result))
+                handledSpecials, result, rollBonusSpecials))
             {
                 // The supported combination has already added its unique affected cells.
             }
 
             ExpandSpecials(board, clear, reserved, handledSpecials, result);
+            if (fallbackSpecialSwap)
+            {
+                AddFallbackBaguaActivations(board, move, result);
+            }
+            HashSet<BoardPos> consumedRainbows = new HashSet<BoardPos>();
+            if (initialSwap && !directActivation)
+            {
+                if (board.SpecialAt(move.From) == GemSpecialType.Rainbow)
+                    consumedRainbows.Add(move.From);
+                if (board.SpecialAt(move.To) == GemSpecialType.Rainbow)
+                    consumedRainbows.Add(move.To);
+            }
+            PreserveUnconsumedRainbows(board, clear, consumedRainbows);
 
             result.LongestMatch = result.Segments.Count == 0
                 ? 0
@@ -202,6 +240,8 @@ namespace Match3RPG.Board
                 if (directActivation && board.SpecialAt(move.From) == GemSpecialType.Lightning
                     && (position.Equals(move.From) || board.SpecialAt(position) != GemSpecialType.None))
                     continue;
+                if (rainbowLightningSwap && !IsOrdinaryGem(board, position))
+                    continue;
                 GemType type = board.TypeAt(position);
                 result.GemCounts.TryGetValue(type, out int count);
                 result.GemCounts[type] = count + 1;
@@ -209,9 +249,64 @@ namespace Match3RPG.Board
             return result;
         }
 
+        public MatchResult ResolveRainbowBaguaCombo(BoardSnapshot board,
+            BoardPos rainbowPosition, BoardPos baguaPosition)
+        {
+            MatchResult result = new MatchResult { ComboIndex = 1 };
+            int colorCount = (int)GemType.Soul - (int)GemType.Attack + 1;
+            int[] counts = new int[colorCount];
+            for (int row = 0; row < board.Rows; row++)
+            for (int column = 0; column < board.Columns; column++)
+            {
+                GemType type = board.TypeAt(new BoardPos(row, column));
+                if (IsColoredGemType(type))
+                    counts[(int)type - (int)GemType.Attack]++;
+            }
+
+            int maximum = counts.Max();
+            List<GemType> mostCommonTypes = new List<GemType>();
+            for (int index = 0; index < counts.Length; index++)
+                if (counts[index] == maximum && maximum > 0)
+                    mostCommonTypes.Add((GemType)((int)GemType.Attack + index));
+
+            HashSet<BoardPos> clear = new HashSet<BoardPos>
+            {
+                rainbowPosition,
+                baguaPosition
+            };
+            if (mostCommonTypes.Count > 0)
+            {
+                GemType selectedType = mostCommonTypes[
+                    UnityEngine.Random.Range(0, mostCommonTypes.Count)];
+                result.SpecialActivations.Add(new SpecialActivation(
+                    SpecialActivationKind.RainbowColor, rainbowPosition, selectedType));
+                for (int row = 0; row < board.Rows; row++)
+                for (int column = 0; column < board.Columns; column++)
+                {
+                    BoardPos position = new BoardPos(row, column);
+                    if (board.TypeAt(position) == selectedType)
+                        clear.Add(position);
+                }
+            }
+            result.SpecialActivations.Add(new SpecialActivation(
+                SpecialActivationKind.BaguaShuffle, baguaPosition));
+
+            HashSet<BoardPos> handled = new HashSet<BoardPos>
+            {
+                rainbowPosition,
+                baguaPosition
+            };
+            ExpandSpecials(board, clear, new HashSet<BoardPos>(), handled, result);
+            PreserveUnconsumedRainbows(board, clear,
+                new HashSet<BoardPos> { rainbowPosition });
+            AddClearedPositions(board, clear, result);
+            return result;
+        }
+
         bool TryResolveSwapCombination(BoardSnapshot board, MoveResult move,
             HashSet<BoardPos> clear, HashSet<BoardPos> reserved,
-            HashSet<BoardPos> handledSpecials, MatchResult result)
+            HashSet<BoardPos> handledSpecials, MatchResult result,
+            bool rollBonusSpecials)
         {
             GemSpecialType first = board.SpecialAt(move.From);
             GemSpecialType second = board.SpecialAt(move.To);
@@ -230,6 +325,80 @@ namespace Match3RPG.Board
             if (second == GemSpecialType.Rainbow && first == GemSpecialType.None)
                 return AddRainbowColor(board, move.To, board.TypeAt(move.From), clear, reserved, result);
 
+            BoardPos rainbowPosition;
+            BoardPos partnerPosition;
+            if (TryGetRainbowSpecialPair(board, move, GemSpecialType.Bagua,
+                out rainbowPosition, out partnerPosition))
+            {
+                handledSpecials.Add(rainbowPosition);
+                handledSpecials.Add(partnerPosition);
+                clear.Add(rainbowPosition);
+                clear.Add(partnerPosition);
+                result.SpecialActivations.Add(new SpecialActivation(
+                    SpecialActivationKind.RainbowBaguaCombo, rainbowPosition));
+                return true;
+            }
+
+            if (TryGetRainbowSpecialPair(board, move, GemSpecialType.AreaBomb,
+                out rainbowPosition, out partnerPosition))
+            {
+                return ResolveRainbowBombCombo(board, rainbowPosition,
+                    partnerPosition, clear, reserved, handledSpecials, result,
+                    rollBonusSpecials);
+            }
+
+            if (TryGetRainbowSpecialPair(board, move, GemSpecialType.Line,
+                out rainbowPosition, out partnerPosition))
+            {
+                ResolveRainbowLineCombo(board, rainbowPosition, partnerPosition,
+                    clear, handledSpecials, result);
+                return true;
+            }
+
+            if (TryGetRainbowSpecialPair(board, move, GemSpecialType.Lightning,
+                out rainbowPosition, out partnerPosition))
+            {
+                ResolveRainbowLightningCombo(board, rainbowPosition, partnerPosition,
+                    clear, handledSpecials, result);
+                return true;
+            }
+
+            if (IsBombBombSwap(board, move))
+            {
+                BoardPos center = move.To;
+                clear.Add(move.From);
+                clear.Add(move.To);
+                result.SpecialActivations.Add(new SpecialActivation(
+                    SpecialActivationKind.AreaBombFiveByFive, center,
+                    board.TypeAt(center)));
+                handledSpecials.Add(move.From);
+                handledSpecials.Add(move.To);
+                for (int row = center.Row - 2; row <= center.Row + 2; row++)
+                for (int column = center.Col - 2; column <= center.Col + 2; column++)
+                {
+                    if (row >= 0 && row < board.Rows
+                        && column >= 0 && column < board.Columns)
+                    {
+                        BoardPos position = new BoardPos(row, column);
+                        clear.Add(position);
+                    }
+                }
+                return true;
+            }
+
+            if (first == GemSpecialType.Line && second == GemSpecialType.Line)
+            {
+                handledSpecials.Add(move.From);
+                handledSpecials.Add(move.To);
+                result.SpecialActivations.Add(new SpecialActivation(
+                    SpecialActivationKind.LineLineCombo, move.To));
+                for (int column = 0; column < board.Columns; column++)
+                    AddPosition(clear, reserved, new BoardPos(move.To.Row, column));
+                for (int row = 0; row < board.Rows; row++)
+                    AddPosition(clear, reserved, new BoardPos(row, move.To.Col));
+                return true;
+            }
+
             BoardPos bombPosition;
             if (first == GemSpecialType.AreaBomb && IsLineSpecial(second))
             {
@@ -241,7 +410,8 @@ namespace Match3RPG.Board
             }
             else
             {
-                return false;
+                return ResolveFallbackSpecialCombo(board, move, clear,
+                    handledSpecials, result);
             }
 
             BoardPos linePosition = bombPosition.Equals(move.From) ? move.To : move.From;
@@ -263,6 +433,283 @@ namespace Match3RPG.Board
                         AddPosition(clear, reserved, new BoardPos(clearRow, column));
             }
             return true;
+        }
+
+        static bool ResolveFallbackSpecialCombo(BoardSnapshot board, MoveResult move,
+            HashSet<BoardPos> clear, HashSet<BoardPos> handledSpecials,
+            MatchResult result)
+        {
+            GemSpecialType first = board.SpecialAt(move.From);
+            GemSpecialType second = board.SpecialAt(move.To);
+            if (first == GemSpecialType.None || second == GemSpecialType.None
+                || first == GemSpecialType.Rainbow || second == GemSpecialType.Rainbow
+                || IsBombBombSwap(board, move)
+                || (first == GemSpecialType.Line && second == GemSpecialType.Line)
+                || (first == GemSpecialType.AreaBomb && second == GemSpecialType.Line)
+                || (second == GemSpecialType.AreaBomb && first == GemSpecialType.Line))
+                return false;
+
+            clear.Add(move.From);
+            clear.Add(move.To);
+            handledSpecials.Add(move.From);
+            handledSpecials.Add(move.To);
+            if (first != GemSpecialType.Lightning)
+                AddFallbackSpecialEffect(board, move.From, first, clear, result);
+            if (second != GemSpecialType.Lightning)
+                AddFallbackSpecialEffect(board, move.To, second, clear, result);
+            if (first == GemSpecialType.Lightning)
+                AddFallbackSpecialEffect(board, move.From, first, clear, result);
+            if (second == GemSpecialType.Lightning)
+                AddFallbackSpecialEffect(board, move.To, second, clear, result);
+            return true;
+        }
+
+        static void AddFallbackSpecialEffect(BoardSnapshot board, BoardPos source,
+            GemSpecialType special, HashSet<BoardPos> clear, MatchResult result)
+        {
+            switch (special)
+            {
+                case GemSpecialType.AreaBomb:
+                    result.SpecialActivations.Add(new SpecialActivation(
+                        SpecialActivationKind.AreaBomb, source));
+                    AddAreaBomb(board, source, clear, new HashSet<BoardPos>());
+                    break;
+                case GemSpecialType.Line:
+                    result.SpecialActivations.Add(new SpecialActivation(
+                        SpecialActivationKind.Line, source));
+                    for (int offset = -2; offset <= 2; offset++)
+                    {
+                        int row = source.Row + offset;
+                        int column = source.Col + offset;
+                        if (row >= 0 && row < board.Rows)
+                            clear.Add(new BoardPos(row, source.Col));
+                        if (column >= 0 && column < board.Columns)
+                            clear.Add(new BoardPos(source.Row, column));
+                    }
+                    break;
+                case GemSpecialType.Lightning:
+                    AddLightningTargets(board, source, clear);
+                    result.SpecialActivations.Add(new SpecialActivation(
+                        SpecialActivationKind.Lightning, source));
+                    break;
+            }
+        }
+
+        static void AddFallbackBaguaActivations(BoardSnapshot board, MoveResult move,
+            MatchResult result)
+        {
+            int sequence = 0;
+            if (board.SpecialAt(move.From) == GemSpecialType.Bagua)
+                result.SpecialActivations.Add(new SpecialActivation(
+                    SpecialActivationKind.FallbackBaguaShuffle, move.From,
+                    sequenceIndex: sequence++));
+            if (board.SpecialAt(move.To) == GemSpecialType.Bagua)
+                result.SpecialActivations.Add(new SpecialActivation(
+                    SpecialActivationKind.FallbackBaguaShuffle, move.To,
+                    sequenceIndex: sequence));
+        }
+
+        static bool IsFallbackSpecialSwap(BoardSnapshot board, MoveResult move)
+        {
+            GemSpecialType first = board.SpecialAt(move.From);
+            GemSpecialType second = board.SpecialAt(move.To);
+            return first != GemSpecialType.None && second != GemSpecialType.None
+                && first != GemSpecialType.Rainbow && second != GemSpecialType.Rainbow
+                && !IsBombBombSwap(board, move)
+                && !(first == GemSpecialType.Line && second == GemSpecialType.Line)
+                && !(first == GemSpecialType.AreaBomb && second == GemSpecialType.Line)
+                && !(second == GemSpecialType.AreaBomb && first == GemSpecialType.Line);
+        }
+
+        static bool IsBombBombSwap(BoardSnapshot board, MoveResult move) =>
+            board.SpecialAt(move.From) == GemSpecialType.AreaBomb
+            && board.SpecialAt(move.To) == GemSpecialType.AreaBomb;
+
+        static void ResolveRainbowLineCombo(BoardSnapshot board,
+            BoardPos rainbowPosition, BoardPos linePosition,
+            HashSet<BoardPos> clear, HashSet<BoardPos> handledSpecials,
+            MatchResult result)
+        {
+            clear.Add(rainbowPosition);
+            clear.Add(linePosition);
+            handledSpecials.Add(rainbowPosition);
+            handledSpecials.Add(linePosition);
+
+            List<int> rows = Enumerable.Range(0, board.Rows).ToList();
+            List<int> columns = Enumerable.Range(0, board.Columns).ToList();
+            ShuffleInPlace(rows);
+            ShuffleInPlace(columns);
+            int totalLines = UnityEngine.Random.Range(4, 7);
+            int horizontalLines = UnityEngine.Random.Range(1, totalLines);
+            int verticalLines = totalLines - horizontalLines;
+
+            for (int index = 0; index < horizontalLines; index++)
+            {
+                int row = rows[index];
+                result.SpecialActivations.Add(new SpecialActivation(
+                    SpecialActivationKind.RainbowLineHorizontal,
+                    new BoardPos(row, 0)));
+                for (int column = 0; column < board.Columns; column++)
+                    clear.Add(new BoardPos(row, column));
+            }
+            for (int index = 0; index < verticalLines; index++)
+            {
+                int column = columns[index];
+                result.SpecialActivations.Add(new SpecialActivation(
+                    SpecialActivationKind.RainbowLineVertical,
+                    new BoardPos(0, column)));
+                for (int row = 0; row < board.Rows; row++)
+                    clear.Add(new BoardPos(row, column));
+            }
+
+        }
+
+        static void ResolveRainbowLightningCombo(BoardSnapshot board,
+            BoardPos rainbowPosition, BoardPos lightningPosition,
+            HashSet<BoardPos> clear, HashSet<BoardPos> handledSpecials,
+            MatchResult result)
+        {
+            clear.Add(rainbowPosition);
+            clear.Add(lightningPosition);
+            handledSpecials.Add(rainbowPosition);
+            handledSpecials.Add(lightningPosition);
+
+            for (int sequence = 0; sequence < 3; sequence++)
+            {
+                List<BoardPos> candidates = new List<BoardPos>();
+                for (int row = 0; row < board.Rows; row++)
+                for (int column = 0; column < board.Columns; column++)
+                {
+                    BoardPos position = new BoardPos(row, column);
+                    if (!clear.Contains(position) && IsOrdinaryGem(board, position))
+                        candidates.Add(position);
+                }
+
+                if (candidates.Count == 0)
+                    break;
+
+                ShuffleInPlace(candidates);
+                int targetCount = Mathf.Min(
+                    UnityEngine.Random.Range(5, 11), candidates.Count);
+                for (int index = 0; index < targetCount; index++)
+                {
+                    BoardPos target = candidates[index];
+                    clear.Add(target);
+                    result.SpecialActivations.Add(new SpecialActivation(
+                        SpecialActivationKind.RainbowLightningCombo,
+                        lightningPosition, targetPosition: target,
+                        sequenceIndex: sequence));
+                }
+            }
+        }
+
+        bool ResolveRainbowBombCombo(BoardSnapshot board, BoardPos rainbowPosition,
+            BoardPos bombPosition, HashSet<BoardPos> clear,
+            HashSet<BoardPos> reserved, HashSet<BoardPos> handledSpecials,
+            MatchResult result, bool rollConversions)
+        {
+            GemType bombGemType = board.TypeAt(bombPosition);
+            clear.Add(rainbowPosition);
+            handledSpecials.Add(rainbowPosition);
+            result.SpecialActivations.Add(new SpecialActivation(
+                SpecialActivationKind.RainbowBombCombo, rainbowPosition, bombGemType));
+
+            List<BoardPos> convertedBombs = new List<BoardPos>();
+            if (rollConversions)
+            {
+                List<BoardPos> normalGems = new List<BoardPos>();
+                for (int row = 0; row < board.Rows; row++)
+                for (int column = 0; column < board.Columns; column++)
+                {
+                    BoardPos position = new BoardPos(row, column);
+                    if (board.TypeAt(position) == bombGemType
+                        && board.SpecialAt(position) == GemSpecialType.None)
+                        normalGems.Add(position);
+                }
+
+                if (normalGems.Count >= 3)
+                {
+                    ShuffleInPlace(normalGems);
+                    int conversionCount = UnityEngine.Random.Range(
+                        3, Mathf.Min(4, normalGems.Count) + 1);
+                    for (int index = 0; index < conversionCount; index++)
+                    {
+                        BoardPos position = normalGems[index];
+                        convertedBombs.Add(position);
+                        result.CreatedSpecials.Add(new SpecialGemCreation(
+                            GemSpecialType.AreaBomb, bombGemType, position, null));
+                    }
+                }
+            }
+
+            List<BoardPos> bombsToActivate = new List<BoardPos>(convertedBombs);
+            for (int row = 0; row < board.Rows; row++)
+            for (int column = 0; column < board.Columns; column++)
+            {
+                BoardPos position = new BoardPos(row, column);
+                if (board.SpecialAt(position) == GemSpecialType.AreaBomb)
+                    bombsToActivate.Add(position);
+            }
+
+            foreach (BoardPos position in bombsToActivate)
+            {
+                handledSpecials.Add(position);
+                result.SpecialActivations.Add(new SpecialActivation(
+                    SpecialActivationKind.AreaBomb, position));
+                for (int row = position.Row - 1; row <= position.Row + 1; row++)
+                for (int column = position.Col - 1; column <= position.Col + 1; column++)
+                {
+                    if (row < 0 || row >= board.Rows
+                        || column < 0 || column >= board.Columns)
+                        continue;
+                    AddPosition(clear, reserved, new BoardPos(row, column));
+                }
+            }
+            return true;
+        }
+
+        static bool TryGetRainbowSpecialPair(BoardSnapshot board, MoveResult move,
+            GemSpecialType partnerType, out BoardPos rainbowPosition,
+            out BoardPos partnerPosition)
+        {
+            if (board.SpecialAt(move.From) == GemSpecialType.Rainbow
+                && board.SpecialAt(move.To) == partnerType)
+            {
+                rainbowPosition = move.From;
+                partnerPosition = move.To;
+                return true;
+            }
+            if (board.SpecialAt(move.To) == GemSpecialType.Rainbow
+                && board.SpecialAt(move.From) == partnerType)
+            {
+                rainbowPosition = move.To;
+                partnerPosition = move.From;
+                return true;
+            }
+            rainbowPosition = default;
+            partnerPosition = default;
+            return false;
+        }
+
+        static bool IsColoredGemType(GemType type) =>
+            type >= GemType.Attack && type <= GemType.Soul;
+
+        static void ShuffleInPlace<T>(IList<T> items)
+        {
+            for (int index = items.Count - 1; index > 0; index--)
+            {
+                int other = UnityEngine.Random.Range(0, index + 1);
+                (items[index], items[other]) = (items[other], items[index]);
+            }
+        }
+
+        static bool IsFullLineSwapCombination(BoardSnapshot board, MoveResult move)
+        {
+            GemSpecialType first = board.SpecialAt(move.From);
+            GemSpecialType second = board.SpecialAt(move.To);
+            return (first == GemSpecialType.Line && second == GemSpecialType.Line)
+                || (first == GemSpecialType.AreaBomb && second == GemSpecialType.Line)
+                || (second == GemSpecialType.AreaBomb && first == GemSpecialType.Line);
         }
 
         static bool AddRainbowColor(BoardSnapshot board, BoardPos rainbowPosition, GemType targetType,
@@ -509,7 +956,8 @@ namespace Match3RPG.Board
             for (int column = 0; column < board.Columns; column++)
             {
                 BoardPos position = new BoardPos(row, column);
-                if (!position.Equals(source) && IsOrdinaryGem(board, position))
+                if (!clear.Contains(position) && !position.Equals(source)
+                    && IsOrdinaryGem(board, position))
                     candidates.Add(position);
             }
 
@@ -624,7 +1072,7 @@ namespace Match3RPG.Board
                 {
                     result.SpecialActivations.Add(new SpecialActivation(
                         SpecialActivationKind.Line, position));
-                    for (int offset = -1; offset <= 1; offset++)
+                    for (int offset = -2; offset <= 2; offset++)
                     {
                         int row = position.Row + offset;
                         int column = position.Col + offset;
@@ -648,6 +1096,33 @@ namespace Match3RPG.Board
                         AddAndQueue(clear, reserved, pending, new BoardPos(row, column));
                     }
                 }
+                else if (special == GemSpecialType.Lightning)
+                {
+                    result.SpecialActivations.Add(new SpecialActivation(
+                        SpecialActivationKind.Lightning, position));
+                    AddLightningTargets(board, position, clear);
+                }
+                else if (special == GemSpecialType.Bagua)
+                {
+                    result.SpecialActivations.Add(new SpecialActivation(
+                        SpecialActivationKind.FallbackBaguaShuffle, position));
+                }
+            }
+        }
+
+        static void PreserveUnconsumedRainbows(BoardSnapshot board,
+            HashSet<BoardPos> clear, ISet<BoardPos> consumedRainbows)
+        {
+            for (int row = 0; row < board.Rows; row++)
+            for (int column = 0; column < board.Columns; column++)
+            {
+                BoardPos position = new BoardPos(row, column);
+                if (board.SpecialAt(position) != GemSpecialType.Rainbow
+                    && board.TypeAt(position) != GemType.Rainbow)
+                    continue;
+                if (consumedRainbows.Contains(position))
+                    continue;
+                clear.Remove(position);
             }
         }
 
@@ -674,6 +1149,19 @@ namespace Match3RPG.Board
         {
             if (!reserved.Contains(position))
                 clear.Add(position);
+        }
+
+        static void AddClearedPositions(BoardSnapshot board, HashSet<BoardPos> clear,
+            MatchResult result)
+        {
+            result.ClearPositions.AddRange(clear.OrderBy(position => position.Row)
+                .ThenBy(position => position.Col));
+            foreach (BoardPos position in result.ClearPositions)
+            {
+                GemType type = board.TypeAt(position);
+                result.GemCounts.TryGetValue(type, out int count);
+                result.GemCounts[type] = count + 1;
+            }
         }
 
         static void AddAll(BoardSnapshot board, HashSet<BoardPos> clear, HashSet<BoardPos> reserved)

@@ -26,8 +26,9 @@ MonoBehaviour:
   criticalDamageMultiplier: 2
   statusEffectCapabilities: 1
   preferredAttackVfx: 0
-  visualScale: 2.35
-  visualOffset: {x: 0, y: 0}
+  defaultLootTableId: 
+  visualScale: 2
+  visualOffset: {x: 0, y: 150}
   sourceFacing: 1
   vfxAnchor: {x: 0.5, y: 0.58}
   headVfxAnchor: {x: 0.5, y: 1.22}

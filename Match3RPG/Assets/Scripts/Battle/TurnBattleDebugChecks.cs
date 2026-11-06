@@ -20,6 +20,22 @@ namespace Match3RPG.Battle
         const int DebugBoardRows = 7;
         const int DebugBoardColumns = 7;
 
+        [MenuItem("Tools/Match3RPG/Run battle HUD regression checks %#h")]
+        public static void RunBattleHudRegressionChecks()
+        {
+            if (!Application.isPlaying)
+            {
+                Debug.LogError("Run battle HUD regression checks while the game is in Play Mode.");
+                return;
+            }
+
+            CheckBattleGemValues();
+            CheckRageAndMultiHitCombat();
+            CheckSoulLevelRules();
+            CheckRageHud();
+            Debug.Log("Battle HUD Rage and Soul HP regression checks passed.");
+        }
+
         public static void RunAll(TurnManager activeTurnManager)
         {
             if (!Application.isPlaying || activeTurnManager == null)
@@ -27,6 +43,7 @@ namespace Match3RPG.Battle
                 Debug.LogError("Run deterministic turn battle checks from a TurnManager while the game is in Play Mode.");
                 return;
             }
+
             SpecialGemResolver resolver = new SpecialGemResolver();
             CheckMatchThreeEndsTurn(resolver);
             CheckMatchFourCreatesLinesWithoutExtraTurn(resolver);
@@ -35,12 +52,21 @@ namespace Match3RPG.Battle
             CheckMatchPriorityAndMultipleSpecials(resolver);
             CheckTLShapeSpecialCreation(resolver);
             CheckLineClearsCross(resolver);
+            CheckCollateralSpecialActivation(resolver);
+            CheckLineLineCombo(resolver);
+            CheckBombBombCombo(resolver);
+            CheckFallbackSpecialCombos(resolver);
+            CheckRainbowBaguaCombo(resolver);
+            CheckRainbowBombCombo(resolver);
+            CheckRainbowLineCombo(resolver);
+            CheckRainbowLightningCombo(resolver);
             CheckExtraTurnRules(resolver);
             CheckSevenBySevenBoard();
             CheckSelectionArrowDirections();
             CheckSingleColumnGravityPreservesUnaffectedColumns();
             CheckBattleGemValues();
             CheckShieldBlocksSoulDamage();
+            CheckHealthStarHealing();
             CheckSoulLevelRules();
             CheckRageAndMultiHitCombat();
             CheckRageHud();
@@ -87,6 +113,14 @@ namespace Match3RPG.Battle
             CheckMatchSixCreatesRainbow(new SpecialGemResolver());
             CheckTLShapeSpecialCreation(new SpecialGemResolver());
             CheckLineClearsCross(new SpecialGemResolver());
+            CheckCollateralSpecialActivation(new SpecialGemResolver());
+            CheckLineLineCombo(new SpecialGemResolver());
+            CheckBombBombCombo(new SpecialGemResolver());
+            CheckFallbackSpecialCombos(new SpecialGemResolver());
+            CheckRainbowBaguaCombo(new SpecialGemResolver());
+            CheckRainbowBombCombo(new SpecialGemResolver());
+            CheckRainbowLineCombo(new SpecialGemResolver());
+            CheckRainbowLightningCombo(new SpecialGemResolver());
             CheckExtraTurnRules(new SpecialGemResolver());
             CheckCascadeMatchFourDoesNotGrantExtraTurn(new SpecialGemResolver());
             CheckCreatedSpecialVisualsRefresh();
@@ -161,6 +195,13 @@ namespace Match3RPG.Battle
             Require(action.ExtraTurnsGranted == 1 && action.CreatedMatch5
                 && match.CreatedRainbowCount == 1,
                 "A Player initial Match-5 must grant exactly one stored turn.");
+            MoveResult bossAction = new MoveResult(new BoardPos(0, 2), new BoardPos(0, 3));
+            bossAction.AddMatch(match);
+            Require(bossAction.ExtraTurnsGranted == 1
+                && TurnManager.ConsumeTurn(1, bossAction.ExtraTurnsGranted, 5) == 1
+                && TurnManager.GetStateAfterMove(BattleActor.Boss, bossAction.GrantsExtraTurn)
+                    == BattleTurnState.BossTurn,
+                "A Boss Match-5 must create one Rainbow and earn exactly one extra Boss turn.");
         }
 
         static void CheckMatchSixCreatesRainbow(SpecialGemResolver resolver)
@@ -183,6 +224,13 @@ namespace Match3RPG.Battle
                 && vertical.CreatedLineCount == 0 && vertical.ExtraTurnsGranted == 1
                 && vertical.Segments.Count(segment => !segment.IsHorizontal && segment.Length == 6) == 1,
                 "Initial vertical Match-6 must create exactly one Rainbow and grant one Extra Turn.");
+            MoveResult bossAction = new MoveResult(new BoardPos(2, 0), new BoardPos(3, 0));
+            bossAction.AddMatch(match);
+            Require(bossAction.ExtraTurnsGranted == 1
+                && TurnManager.ConsumeTurn(1, bossAction.ExtraTurnsGranted, 5) == 1
+                && TurnManager.GetStateAfterMove(BattleActor.Boss, bossAction.GrantsExtraTurn)
+                    == BattleTurnState.BossTurn,
+                "A Boss Match-6 must create one Rainbow and earn exactly one extra Boss turn, not two.");
 
             MatchResult seven = resolver.ResolveCurrent(LineBoard(7, true, GemSpecialType.None),
                 new MoveResult(default, default), false, 1, false);
@@ -384,11 +432,16 @@ namespace Match3RPG.Battle
             Require(rainbowPair.IsValid && rainbowPair.ExtraTurnsGranted == 0,
                 "Rainbow plus Rainbow must not grant an Extra Turn.");
 
+            GemType[,] bombLineTypes = BaselineTypes();
+            for (int row = 0; row < 3; row++)
+                bombLineTypes[row, 3] = GemType.Mana;
+            bombLineTypes[3, 3] = GemType.Attack;
+            bombLineTypes[3, 4] = GemType.Mana;
             GemSpecialType[,] bombLineSpecials = new GemSpecialType[DebugBoardRows, DebugBoardColumns];
             bombLineSpecials[3, 3] = GemSpecialType.AreaBomb;
             bombLineSpecials[3, 4] = GemSpecialType.Line;
             MoveResult bombLine = resolver.EvaluateSwap(
-                new BoardSnapshot(BaselineTypes(), bombLineSpecials),
+                new BoardSnapshot(bombLineTypes, bombLineSpecials),
                 new BoardPos(3, 3), new BoardPos(3, 4));
             HashSet<BoardPos> bombLineExpected = new HashSet<BoardPos>();
             for (int offset = -1; offset <= 1; offset++)
@@ -401,8 +454,29 @@ namespace Match3RPG.Battle
             Require(bombLine.IsValid && bombLine.ExtraTurnsGranted == 0
                 && bombLine.InitialMatch.SpecialActivations.Any(activation =>
                     activation.Kind == SpecialActivationKind.BombLineCombo)
+                && bombLine.InitialMatch.SpecialActivations.Count == 1
+                && bombLine.InitialMatch.CreatedSpecials.Count == 0
+                && bombLine.InitialMatch.ClearPositions.Count == 33
                 && bombLineExpected.SetEquals(bombLine.InitialMatch.ClearPositions),
-                "Bomb+Line swap must clear exactly three full rows and three full columns.");
+                "Bomb+Line must clear 33 unique cells across three full rows and columns without also resolving a normal match or either special separately.");
+
+            GemSpecialType[,] edgeBombLineSpecials =
+                new GemSpecialType[DebugBoardRows, DebugBoardColumns];
+            edgeBombLineSpecials[0, 0] = GemSpecialType.AreaBomb;
+            edgeBombLineSpecials[0, 1] = GemSpecialType.Line;
+            MoveResult edgeBombLine = resolver.EvaluateSwap(
+                new BoardSnapshot(BaselineTypes(), edgeBombLineSpecials),
+                new BoardPos(0, 0), new BoardPos(0, 1));
+            HashSet<BoardPos> edgeBombLineExpected = new HashSet<BoardPos>();
+            for (int row = 0; row <= 1; row++)
+            for (int column = 0; column < DebugBoardColumns; column++)
+                edgeBombLineExpected.Add(new BoardPos(row, column));
+            for (int column = 0; column <= 1; column++)
+            for (int row = 0; row < DebugBoardRows; row++)
+                edgeBombLineExpected.Add(new BoardPos(row, column));
+            Require(edgeBombLine.IsValid && edgeBombLine.InitialMatch.ClearPositions.Count == 24
+                && edgeBombLineExpected.SetEquals(edgeBombLine.InitialMatch.ClearPositions),
+                "Bomb+Line near a corner must clip its two affected rows and columns to 24 cells.");
 
             MoveResult bossMatch4 = new MoveResult(default, default);
             bossMatch4.AddMatch(match4);
@@ -1361,7 +1435,8 @@ namespace Match3RPG.Battle
                 vfx.Configure(viewport, boardRoot, null, null, cells, vfxLayer);
                 BoardPos[] crossCenters =
                 {
-                    new BoardPos(3, 3)
+                    new BoardPos(3, 3),
+                    new BoardPos(0, 0)
                 };
                 int seed = 0;
                 foreach (BoardPos center in crossCenters)
@@ -1375,11 +1450,11 @@ namespace Match3RPG.Battle
                             cells[center.Row, center.Col].RectTransform.rect.center));
                     Vector2 actualCenter = (start + end) * .5f;
                     BoardPos expectedStartCell = horizontal
-                        ? new BoardPos(3, 2)
-                        : new BoardPos(4, 3);
+                        ? new BoardPos(center.Row, Mathf.Max(0, center.Col - 2))
+                        : new BoardPos(Mathf.Min(DebugBoardRows - 1, center.Row + 2), center.Col);
                     BoardPos expectedEndCell = horizontal
-                        ? new BoardPos(3, 4)
-                        : new BoardPos(2, 3);
+                        ? new BoardPos(center.Row, Mathf.Min(DebugBoardColumns - 1, center.Col + 2))
+                        : new BoardPos(Mathf.Max(0, center.Row - 2), center.Col);
                     Vector2 expectedStart = vfxLayer.InverseTransformPoint(
                         cells[expectedStartCell.Row, expectedStartCell.Col].RectTransform.TransformPoint(
                             cells[expectedStartCell.Row, expectedStartCell.Col].RectTransform.rect.center));
@@ -1390,7 +1465,7 @@ namespace Match3RPG.Battle
                         && Vector2.Distance(start, expectedStart) <= .01f
                         && Vector2.Distance(end, expectedEnd) <= .01f
                         && Mathf.Abs(horizontal ? end.y - start.y : end.x - start.x) <= .01f,
-                        "A Line must draw zig-zag beams across exactly the five cells in its plus.");
+                        "A Line beam must span two cells on each side, clipped at board edges.");
                     LightningLineVFX lightning = CreateDebugLightning(vfxLayer, start, end,
                         horizontal, gemCellSize, seed++);
                     Require(lightning.PathPointCount == 13 && !lightning.raycastTarget
@@ -1901,24 +1976,30 @@ namespace Match3RPG.Battle
                     "Stacked Shield HP must absorb ordinary incoming damage before Hero HP.");
                 battle.AdvancePlayerTurn();
                 Require(battle.HeroShield == 130, "Shield must remain active for its second player turn.");
+                Finish(battle.ResolveMove(BattleActor.Boss, DamageMove(1)));
+                Require(battle.HeroShield == 110 && battle.HeroHealth == 500,
+                    "Boss turns between Player turns must not reduce Shield duration.");
                 battle.AdvancePlayerTurn();
                 Require(battle.HeroShield == 0, "Shield must expire after two player turns without a refresh.");
 
-                Finish(battle.ResolveMove(BattleActor.Boss, DamageMove(1)));
-                Finish(battle.ResolveMove(BattleActor.Player, ResourceMove(GemType.Health, 1)));
-                Require(battle.HeroHealth == 500, "A Health match must restore 50 HP and respect the health cap.");
+                Finish(battle.ResolveMove(BattleActor.Boss, DamageMove(3)));
+                Finish(battle.ResolveMove(BattleActor.Player, ResourceMove(GemType.Health, 3)));
+                Require(battle.HeroHealth == 485,
+                    "Three Health gems must restore exactly 45 HP with no Health stars.");
                 Finish(battle.ResolveMove(BattleActor.Player, ResourceMove(GemType.Mana, 1)));
                 Require(battle.HeroMana == 10, "A Mana match must grant 10 Mana per gem.");
+                int rageBeforeGem = battle.HeroRage;
                 Finish(battle.ResolveMove(BattleActor.Player, ResourceMove(GemType.Rage, 1)));
-                Require(battle.HeroRage == 5, "A Rage match must grant 5 Rage per gem.");
+                Require(battle.HeroRage - rageBeforeGem == 5,
+                    $"A Rage match must grant 5 Rage per gem (before {rageBeforeGem}, after {battle.HeroRage}).");
 
                 Finish(battle.ResolveMove(BattleActor.Boss, DamageMove(1)));
                 Finish(battle.ResolveMove(BattleActor.Boss, ResourceMove(GemType.Mana, 10)));
                 battle.SetRageForDebug(BattleActor.Boss, 10);
                 Finish(battle.ResolveMove(BattleActor.Player, ResourceMove(GemType.ExpDrain, 1)));
-                Require(battle.BossHealth == 980 && battle.HeroHealth == 500
+                Require(battle.BossHealth == 965 && battle.HeroHealth == 500
                     && battle.BossMana == 99 && battle.HeroMana == 11
-                    && battle.BossRage == 5 && battle.HeroRage == 12,
+                    && battle.BossRage == 5 && battle.HeroRage == 14,
                     "ExpDrain must transfer only available resources within the receiving caps.");
 
                 int bossHealthBeforeAttack = battle.BossHealth;
@@ -1968,6 +2049,45 @@ namespace Match3RPG.Battle
             }
         }
 
+        static void CheckHealthStarHealing()
+        {
+            GameObject battleObject = new GameObject("TurnDebugLeafStarBattle");
+            HeroData heroData = ScriptableObject.CreateInstance<HeroData>();
+            BossData bossData = ScriptableObject.CreateInstance<BossData>();
+            try
+            {
+                heroData.Configure("debug_leaf_hero", "Debug Leaf Hero", null, null, null, null,
+                    500, 20, 100, 100, 1f, Vector2.zero, CharacterFacing.Right);
+                bossData.Configure("debug_leaf_boss", "Debug Leaf Boss", null, 1000, 20, 100,
+                    0, 5, 1, true, 2f, BossStatusEffectCapability.None);
+                RuntimeHeroStats noLeafStars = new RuntimeHeroStats(heroData,
+                    new HeroProgressSaveData { level = 1 });
+                RuntimeHeroStats oneLeafStar = new RuntimeHeroStats(heroData,
+                    new HeroProgressSaveData { level = 1 },
+                    starBonuses: new StarChartStatBonuses(0, 0, 0, 0, 1, 0, 0));
+                Require(noLeafStars.MaxHP == 500 && oneLeafStar.MaxHP == 550
+                    && oneLeafStar.HealthStars == 1,
+                    "One Health star must add 50 Max HP and be available as a healing bonus.");
+
+                BattleController battle = battleObject.AddComponent<BattleController>();
+                battle.Configure(null, null, null, bossData: bossData,
+                    runtimeHeroStats: oneLeafStar,
+                    runtimeBossStats: new RuntimeBossStats(bossData, 1));
+                Finish(battle.ResolveMove(BattleActor.Boss, DamageMove(3)));
+                Require(battle.HeroHealth == 490,
+                    "The debug Boss must lower the one-star Hero to 490 HP before healing.");
+                Finish(battle.ResolveMove(BattleActor.Player, ResourceMove(GemType.Health, 3)));
+                Require(battle.HeroHealth == 538 && battle.HeroMaxHealth == 550,
+                    "One Health star must heal 16 per gem: a 3-gem match restores 48 HP, with Max HP +50.");
+            }
+            finally
+            {
+                UnityEngine.Object.DestroyImmediate(battleObject);
+                UnityEngine.Object.DestroyImmediate(heroData);
+                UnityEngine.Object.DestroyImmediate(bossData);
+            }
+        }
+
         static void CheckSoulLevelRules()
         {
             HeroData heroData = ScriptableObject.CreateInstance<HeroData>();
@@ -1997,6 +2117,8 @@ namespace Match3RPG.Battle
 
                 bossData.Configure("debug_boss", "Debug Boss", null, 2500, 20, 100,
                     0, 5, 1, true, 2f, BossStatusEffectCapability.None);
+                CheckSoulDamageLevelGate(heroData, bossData, levelNine, false);
+                CheckSoulDamageLevelGate(heroData, bossData, levelTen, true);
                 for (int index = 0; index < regions.Length; index++)
                 {
                     regions[index] = ScriptableObject.CreateInstance<RegionData>();
@@ -2064,6 +2186,38 @@ namespace Match3RPG.Battle
             }
         }
 
+        static void CheckSoulDamageLevelGate(HeroData heroData, BossData bossData,
+            RuntimeHeroStats heroStats, bool expectSoulDamage)
+        {
+            GameObject battleObject = new GameObject($"TurnDebugSoulDamageLevel{heroStats.Level}");
+            try
+            {
+                BattleController battle = battleObject.AddComponent<BattleController>();
+                battle.Configure(null, null, null, bossData: bossData,
+                    runtimeHeroStats: heroStats,
+                    runtimeBossStats: new RuntimeBossStats(bossData, 1));
+                int normalHpBefore = battle.HeroHealth;
+                int soulHpBefore = battle.HeroSoulHealth;
+
+                Finish(battle.ResolveMove(BattleActor.Boss, ResourceMove(GemType.Soul, 1)));
+
+                Require(battle.HeroBattleEntryLevel == heroStats.Level,
+                    "Soul damage gating must use the Hero level captured when battle starts.");
+                if (expectSoulDamage)
+                    Require(battle.HeroHealth == normalHpBefore
+                        && battle.HeroSoulHealth < soulHpBefore,
+                        "A level-10 Hero must take Soul-gem damage on Soul HP only.");
+                else
+                    Require(battle.HeroHealth < normalHpBefore
+                        && battle.HeroSoulHealth == soulHpBefore,
+                        "A sub-level-10 Hero must take Soul-gem damage on normal HP only.");
+            }
+            finally
+            {
+                UnityEngine.Object.DestroyImmediate(battleObject);
+            }
+        }
+
         static void CheckRageHud()
         {
             GameObject root = new GameObject("TurnDebugRageHud");
@@ -2072,6 +2226,10 @@ namespace Match3RPG.Battle
                 Slider heroHp = CreateDebugSlider(root.transform, "HeroHP");
                 Slider bossHp = CreateDebugSlider(root.transform, "BossHP");
                 bossHp.direction = Slider.Direction.RightToLeft;
+                Slider heroSoulHp = CreateDebugSlider(root.transform, "HeroSoulHP");
+                Slider bossSoulHp = CreateDebugSlider(root.transform, "BossSoulHP");
+                heroSoulHp.gameObject.SetActive(false);
+                bossSoulHp.gameObject.SetActive(false);
                 Slider heroRage = CreateDebugSlider(root.transform, "HeroRage");
                 Slider bossRage = CreateDebugSlider(root.transform, "BossRage");
                 TMP_Text heroHpText = CreateDebugText(root.transform, "HeroHPText");
@@ -2079,28 +2237,47 @@ namespace Match3RPG.Battle
                 TMP_Text heroRageText = CreateDebugText(root.transform, "HeroRageText");
                 TMP_Text bossRageText = CreateDebugText(root.transform, "BossRageText");
                 BattleHUD hud = root.AddComponent<BattleHUD>();
-                hud.Configure(heroHp, bossHp, heroRage, bossRage, null, null,
-                    heroHpText, bossHpText, heroRageText, bossRageText, null, null);
+                hud.Configure(heroHp, bossHp, heroSoulHp, bossSoulHp, heroRage, bossRage,
+                    null, null, heroHpText, bossHpText, heroRageText, bossRageText, null, null);
 
-                hud.Render(400, 500, 750, 1000, 15, 65, 100, 0, 0);
+                hud.Render(400, 500, 750, 1000, 5, 65, 100, 100, 0, 0,
+                    300, 600, 0, 800, false);
                 Require(heroHp.value == 400 && bossHp.value == 750
-                    && heroRage.value == 15 && bossRage.value == 65
-                    && heroRageText.text == "15 / 100" && bossRageText.text == "65 / 100",
-                    "HP and each character's Rage bar/text must update independently.");
-                hud.Render(300, 500, 500, 1000, 40, 100, 100, 0, 0);
+                    && heroRage.value == 5 && bossRage.value == 65
+                    && Mathf.Approximately(heroRage.normalizedValue, .05f)
+                    && heroRageText.text == "5 / 100" && bossRageText.text == "65 / 100"
+                    && heroSoulHp.gameObject.activeSelf && bossSoulHp.gameObject.activeSelf
+                    && heroSoulHp.value == 300 && bossSoulHp.value == 0,
+                    "Hero and Boss Rage values must render proportionally, and Soul bars stay visible below level 10.");
+
+                BattleController battle = root.AddComponent<BattleController>();
+                battle.Configure(null, null, hud);
+                battle.ConfigureDebugStats(500, 1000);
+                battle.SetRageForDebug(BattleActor.Player, 5);
+                battle.SetRageForDebug(BattleActor.Boss, 50);
+                Require(heroRage.value == 5 && heroRageText.text == "5 / 100"
+                    && bossRage.value == 50 && bossRageText.text == "50 / 100",
+                    "Changing either character's Rage must immediately refresh the bound HUD.");
+
+                hud.Render(300, 500, 500, 1000, 40, 100, 100, 100, 0, 0,
+                    250, 600, 700, 800, true);
                 Require(heroHp.value == 300 && bossHp.value == 500
                     && heroRage.value == 40 && bossRage.value == 100
                     && heroHpText.text == "300 / 500" && bossHpText.text == "500 / 1000"
-                    && bossRageText.text == "RAGE MAX"
+                    && bossRageText.text == "100 / 100"
+                    && heroSoulHp.gameObject.activeSelf && bossSoulHp.gameObject.activeSelf
+                    && heroSoulHp.value == 250 && bossSoulHp.value == 700
                     && Mathf.Approximately(heroHp.fillRect.anchorMax.x, .6f)
                     && Mathf.Approximately(bossHp.fillRect.anchorMin.x, .5f)
                     && Mathf.Approximately(bossHp.fillRect.anchorMax.x, 1f),
                     "HP loss, healing, and Rage gain must update each bound Slider and value label.");
-                hud.Render(400, 500, 750, 1000, 100, 100, 100, 0, 0);
-                Require(heroRageText.text == "RAGE MAX" && bossRageText.text == "RAGE MAX"
+                hud.Render(400, 500, 750, 1000, 100, 100, 100, 100, 0, 0,
+                    0, 0, 0, 0, false);
+                Require(heroRageText.text == "100 / 100" && bossRageText.text == "100 / 100"
                     && heroRage.fillRect.GetComponent<Image>().color != new Color32(242, 112, 43, 255),
                     "Full Rage must show readiness and brighten its bar.");
-                hud.Render(0, 0, 0, 0, 0, 0, 0, 0, 0);
+                hud.Render(0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, false);
                 Require(heroHp.value == 0 && bossHp.value == 0
                     && heroRage.value == 0 && bossRage.value == 0
                     && heroRageText.text == "0 / 0" && bossRageText.text == "0 / 0",
@@ -2162,18 +2339,610 @@ namespace Match3RPG.Battle
             for (int column = 2; column <= 4; column++)
                 types[3, column] = GemType.Attack;
             specials[3, 3] = GemSpecialType.Line;
+            specials[0, 0] = GemSpecialType.Line;
             MatchResult match = resolver.ResolveCurrent(new BoardSnapshot(types, specials),
                 new MoveResult(new BoardPos(3, 3), new BoardPos(3, 4)), true, 1, false);
             HashSet<BoardPos> expected = new HashSet<BoardPos>
             {
-                new BoardPos(3, 2), new BoardPos(3, 3), new BoardPos(3, 4),
-                new BoardPos(2, 3), new BoardPos(4, 3)
+                new BoardPos(3, 1), new BoardPos(3, 2), new BoardPos(3, 3),
+                new BoardPos(3, 4), new BoardPos(3, 5), new BoardPos(1, 3),
+                new BoardPos(2, 3), new BoardPos(4, 3), new BoardPos(5, 3)
             };
             Require(match.SpecialActivations.Any(activation =>
                     activation.Kind == SpecialActivationKind.Line)
-                && match.ClearPositions.Count == 5
+                && match.SpecialActivations.Count == 1
+                && match.ClearPositions.Count == 9
                 && expected.SetEquals(match.ClearPositions),
-                "A matched Line must clear exactly the five cells in a plus, with its center counted once.");
+                "A matched Line must clear exactly nine in-bounds cells in a plus without activating an unrelated Line.");
+
+            GemType[,] edgeTypes = BaselineTypes();
+            GemSpecialType[,] edgeSpecials = new GemSpecialType[DebugBoardRows, DebugBoardColumns];
+            for (int column = 0; column <= 2; column++)
+                edgeTypes[0, column] = GemType.Attack;
+            edgeSpecials[0, 0] = GemSpecialType.Line;
+            MatchResult edgeMatch = resolver.ResolveCurrent(
+                new BoardSnapshot(edgeTypes, edgeSpecials),
+                new MoveResult(new BoardPos(0, 0), new BoardPos(0, 1)),
+                true, 1, false);
+            HashSet<BoardPos> expectedEdge = new HashSet<BoardPos>
+            {
+                new BoardPos(0, 0), new BoardPos(0, 1), new BoardPos(0, 2),
+                new BoardPos(1, 0), new BoardPos(2, 0)
+            };
+            Require(edgeMatch.ClearPositions.Count == 5
+                && expectedEdge.SetEquals(edgeMatch.ClearPositions),
+                "A Line at a corner must clip its plus to five cells without wrapping around.");
+        }
+
+        static void CheckCollateralSpecialActivation(SpecialGemResolver resolver)
+        {
+            UnityEngine.Random.State previousRandomState = UnityEngine.Random.state;
+            try
+            {
+                GemType[,] types = BaselineTypes();
+                GemSpecialType[,] specials =
+                    new GemSpecialType[DebugBoardRows, DebugBoardColumns];
+                BoardPos source = new BoardPos(3, 3);
+                BoardPos collateralLine = new BoardPos(3, 4);
+                BoardPos collateralBomb = new BoardPos(4, 4);
+                BoardPos collateralLightning = new BoardPos(2, 2);
+                BoardPos collateralBagua = new BoardPos(2, 4);
+                BoardPos collateralRainbow = new BoardPos(2, 3);
+                BoardPos distantBomb = new BoardPos(0, 0);
+                specials[source.Row, source.Col] = GemSpecialType.AreaBomb;
+                specials[collateralLine.Row, collateralLine.Col] = GemSpecialType.Line;
+                specials[collateralBomb.Row, collateralBomb.Col] = GemSpecialType.AreaBomb;
+                specials[collateralLightning.Row, collateralLightning.Col] =
+                    GemSpecialType.Lightning;
+                specials[collateralBagua.Row, collateralBagua.Col] = GemSpecialType.Bagua;
+                specials[collateralRainbow.Row, collateralRainbow.Col] = GemSpecialType.Rainbow;
+                specials[distantBomb.Row, distantBomb.Col] = GemSpecialType.AreaBomb;
+
+                MoveResult directBomb = resolver.EvaluateDirectActivation(
+                    new BoardSnapshot(types, specials), source);
+                MatchResult result = resolver.ResolveCurrent(
+                    new BoardSnapshot(types, specials), directBomb,
+                    false, 1, true);
+                Require(result.SpecialActivations.Count(activation =>
+                        activation.Kind == SpecialActivationKind.AreaBomb) == 2
+                    && result.SpecialActivations.Any(activation =>
+                        activation.Kind == SpecialActivationKind.Line
+                        && activation.Position.Equals(collateralLine))
+                    && result.SpecialActivations.Any(activation =>
+                        activation.Kind == SpecialActivationKind.Lightning
+                        && activation.Position.Equals(collateralLightning))
+                    && result.SpecialActivations.Any(activation =>
+                        activation.Kind == SpecialActivationKind.FallbackBaguaShuffle
+                        && activation.Position.Equals(collateralBagua))
+                    && !result.SpecialActivations.Any(activation =>
+                        activation.Kind == SpecialActivationKind.AreaBomb
+                        && activation.Position.Equals(distantBomb))
+                    && !result.ClearPositions.Contains(collateralRainbow),
+                    "A Bomb must activate only specials hit in its chain region, including Line, Lightning, and Bagua, while preserving a hit Rainbow.");
+            }
+            finally
+            {
+                UnityEngine.Random.state = previousRandomState;
+            }
+        }
+
+        static void CheckLineLineCombo(SpecialGemResolver resolver)
+        {
+            GemType[,] types = BaselineTypes();
+            GemSpecialType[,] specials = new GemSpecialType[DebugBoardRows, DebugBoardColumns];
+            specials[3, 3] = GemSpecialType.Line;
+            specials[3, 4] = GemSpecialType.Line;
+            types[3, 3] = GemType.Attack;
+            types[3, 4] = GemType.Mana;
+            Require(types[3, 3] != types[3, 4],
+                "The Line+Line regression must cover different underlying Gem colors.");
+            for (int row = 0; row < 3; row++)
+                types[row, 4] = GemType.Attack;
+
+            MoveResult combo = resolver.EvaluateSwap(
+                new BoardSnapshot(types, specials),
+                new BoardPos(3, 3), new BoardPos(3, 4));
+            HashSet<BoardPos> expected = new HashSet<BoardPos>();
+            for (int column = 0; column < DebugBoardColumns; column++)
+                expected.Add(new BoardPos(3, column));
+            for (int row = 0; row < DebugBoardRows; row++)
+                expected.Add(new BoardPos(row, 4));
+
+            Require(combo.IsValid
+                && combo.InitialMatch.SpecialActivations.Count == 1
+                && combo.InitialMatch.SpecialActivations[0].Kind
+                    == SpecialActivationKind.LineLineCombo
+                && combo.InitialMatch.ClearPositions.Count == 13
+                && combo.InitialMatch.CreatedSpecials.Count == 0
+                && expected.SetEquals(combo.InitialMatch.ClearPositions)
+                && combo.InitialMatch.ClearPositions.Contains(new BoardPos(3, 3))
+                && combo.InitialMatch.ClearPositions.Contains(new BoardPos(3, 4))
+                && combo.InitialMatch.ExtraTurnsGranted == 0,
+                "Different-colored adjacent Lines must be consumed by one full-row/full-column clear of 13 unique cells.");
+        }
+
+        static void CheckBombBombCombo(SpecialGemResolver resolver)
+        {
+            GemType[,] types = BaselineTypes();
+            GemSpecialType[,] specials =
+                new GemSpecialType[DebugBoardRows, DebugBoardColumns];
+            BoardPos draggedBomb = new BoardPos(3, 3);
+            BoardPos destination = new BoardPos(3, 4);
+            types[draggedBomb.Row, draggedBomb.Col] = GemType.Attack;
+            types[destination.Row, destination.Col] = GemType.Health;
+            specials[draggedBomb.Row, draggedBomb.Col] = GemSpecialType.AreaBomb;
+            specials[destination.Row, destination.Col] = GemSpecialType.AreaBomb;
+            specials[0, 0] = GemSpecialType.Line;
+
+            MoveResult move = resolver.EvaluateSwap(new BoardSnapshot(types, specials),
+                draggedBomb, destination);
+            MatchResult result = move.InitialMatch;
+            HashSet<BoardPos> expected = new HashSet<BoardPos>();
+            for (int row = destination.Row - 2; row <= destination.Row + 2; row++)
+            for (int column = destination.Col - 2; column <= destination.Col + 2; column++)
+                expected.Add(new BoardPos(row, column));
+            SpecialActivation blast = result.SpecialActivations.Single();
+            Require(move.IsValid
+                && blast.Kind == SpecialActivationKind.AreaBombFiveByFive
+                && blast.Position.Equals(destination)
+                && blast.TargetGemType == GemType.Attack
+                && result.SpecialActivations.Count == 1
+                && result.ClearPositions.Count == 25
+                && expected.SetEquals(result.ClearPositions)
+                && result.ClearPositions.Contains(draggedBomb)
+                && result.ClearPositions.Contains(destination),
+                "Bomb+Bomb must consume both bombs with one 5x5 blast centered on the dragged Bomb's destination and styled by its color.");
+
+            GemType[,] edgeTypes = BaselineTypes();
+            GemSpecialType[,] edgeSpecials =
+                new GemSpecialType[DebugBoardRows, DebugBoardColumns];
+            edgeSpecials[0, 0] = GemSpecialType.AreaBomb;
+            edgeSpecials[0, 1] = GemSpecialType.AreaBomb;
+            MoveResult edgeMove = resolver.EvaluateSwap(
+                new BoardSnapshot(edgeTypes, edgeSpecials),
+                new BoardPos(0, 0), new BoardPos(0, 1));
+            HashSet<BoardPos> expectedEdge = new HashSet<BoardPos>();
+            for (int row = 0; row <= 2; row++)
+            for (int column = 0; column <= 3; column++)
+                expectedEdge.Add(new BoardPos(row, column));
+            Require(edgeMove.IsValid && edgeMove.InitialMatch.ClearPositions.Count == 12
+                && expectedEdge.SetEquals(edgeMove.InitialMatch.ClearPositions),
+                "Bomb+Bomb at the edge must clip the single 5x5 blast to the 12 in-bounds cells.");
+        }
+
+        static void CheckFallbackSpecialCombos(SpecialGemResolver resolver)
+        {
+            UnityEngine.Random.State previousRandomState = UnityEngine.Random.state;
+            try
+            {
+                UnityEngine.Random.InitState(2405);
+                GemType[,] bombTypes = BaselineTypes();
+                GemSpecialType[,] bombSpecials =
+                    new GemSpecialType[DebugBoardRows, DebugBoardColumns];
+                BoardPos bombFrom = new BoardPos(3, 3);
+                BoardPos bombTo = new BoardPos(3, 4);
+                bombTypes[bombFrom.Row, bombFrom.Col] = GemType.Health;
+                bombTypes[bombTo.Row, bombTo.Col] = GemType.Lightning;
+                bombSpecials[bombFrom.Row, bombFrom.Col] = GemSpecialType.AreaBomb;
+                bombSpecials[bombTo.Row, bombTo.Col] = GemSpecialType.Lightning;
+                MoveResult bombLightning = resolver.EvaluateSwap(
+                    new BoardSnapshot(bombTypes, bombSpecials),
+                    bombFrom, bombTo);
+                HashSet<BoardPos> bombArea = new HashSet<BoardPos>();
+                for (int row = bombTo.Row - 1; row <= bombTo.Row + 1; row++)
+                for (int column = bombTo.Col - 1; column <= bombTo.Col + 1; column++)
+                    bombArea.Add(new BoardPos(row, column));
+                int lightningTargetsOutsideBombArea =
+                    bombLightning.InitialMatch.ClearPositions.Count(position =>
+                        !bombArea.Contains(position));
+                Require(bombLightning.IsValid
+                    && bombLightning.InitialMatch.SpecialActivations.Count(activation =>
+                        activation.Kind == SpecialActivationKind.AreaBomb) == 1
+                    && bombLightning.InitialMatch.SpecialActivations.Count(activation =>
+                        activation.Kind == SpecialActivationKind.Lightning) == 1
+                    && lightningTargetsOutsideBombArea >= 5
+                    && lightningTargetsOutsideBombArea <= 10,
+                    "Bomb+Lightning fallback must run one colored 3x3 Bomb and one independent 5-10 ordinary-gem Lightning effect.");
+
+                UnityEngine.Random.InitState(2406);
+                GemType[,] lineTypes = BaselineTypes();
+                GemSpecialType[,] lineSpecials =
+                    new GemSpecialType[DebugBoardRows, DebugBoardColumns];
+                BoardPos linePosition = new BoardPos(3, 3);
+                BoardPos baguaPosition = new BoardPos(3, 4);
+                lineSpecials[linePosition.Row, linePosition.Col] = GemSpecialType.Line;
+                lineSpecials[baguaPosition.Row, baguaPosition.Col] = GemSpecialType.Bagua;
+                MoveResult lineBagua = resolver.EvaluateSwap(
+                    new BoardSnapshot(lineTypes, lineSpecials),
+                    linePosition, baguaPosition);
+                SpecialActivation[] lineBaguaActivations =
+                    lineBagua.InitialMatch.SpecialActivations.ToArray();
+                HashSet<BoardPos> expectedLine = new HashSet<BoardPos>();
+                BoardPos actualLinePosition = lineBaguaActivations[0].Position;
+                for (int offset = -2; offset <= 2; offset++)
+                {
+                    if (actualLinePosition.Row + offset >= 0
+                        && actualLinePosition.Row + offset < DebugBoardRows)
+                        expectedLine.Add(new BoardPos(actualLinePosition.Row + offset,
+                            actualLinePosition.Col));
+                    if (actualLinePosition.Col + offset >= 0
+                        && actualLinePosition.Col + offset < DebugBoardColumns)
+                        expectedLine.Add(new BoardPos(actualLinePosition.Row,
+                            actualLinePosition.Col + offset));
+                }
+                Require(lineBagua.IsValid && lineBaguaActivations.Length == 2
+                    && lineBaguaActivations[0].Kind == SpecialActivationKind.Line
+                    && lineBaguaActivations[1].Kind
+                        == SpecialActivationKind.FallbackBaguaShuffle
+                    && lineBagua.InitialMatch.ClearPositions.Count == 9
+                    && expectedLine.SetEquals(lineBagua.InitialMatch.ClearPositions),
+                    "Line+Bagua fallback must clear the Line's nine-cell plus before scheduling the Bagua shuffle.");
+
+                CheckFallbackPair(resolver, GemSpecialType.AreaBomb,
+                    GemSpecialType.Bagua, 1, 0, 1);
+                CheckFallbackPair(resolver, GemSpecialType.Line,
+                    GemSpecialType.Lightning, 1, 1, 0);
+                CheckFallbackPair(resolver, GemSpecialType.Lightning,
+                    GemSpecialType.Lightning, 0, 2, 0);
+                CheckFallbackPair(resolver, GemSpecialType.Lightning,
+                    GemSpecialType.Bagua, 0, 1, 1);
+                CheckFallbackPair(resolver, GemSpecialType.Bagua,
+                    GemSpecialType.Bagua, 0, 0, 2);
+            }
+            finally
+            {
+                UnityEngine.Random.state = previousRandomState;
+            }
+        }
+
+        static void CheckFallbackPair(SpecialGemResolver resolver,
+            GemSpecialType first, GemSpecialType second,
+            int expectedBombs, int expectedLightnings, int expectedBaguaShuffles)
+        {
+            GemType[,] types = BaselineTypes();
+            GemSpecialType[,] specials =
+                new GemSpecialType[DebugBoardRows, DebugBoardColumns];
+            BoardPos from = new BoardPos(3, 3);
+            BoardPos to = new BoardPos(3, 4);
+            types[from.Row, from.Col] = GemType.Health;
+            types[to.Row, to.Col] = GemType.Mana;
+            specials[from.Row, from.Col] = first;
+            specials[to.Row, to.Col] = second;
+            MoveResult move = resolver.EvaluateSwap(new BoardSnapshot(types, specials),
+                from, to);
+            List<SpecialActivation> activations = move.InitialMatch.SpecialActivations;
+            Require(move.IsValid
+                && activations.Count(activation =>
+                    activation.Kind == SpecialActivationKind.AreaBomb) == expectedBombs
+                && activations.Count(activation =>
+                    activation.Kind == SpecialActivationKind.Lightning) == expectedLightnings
+                && activations.Count(activation =>
+                    activation.Kind == SpecialActivationKind.FallbackBaguaShuffle)
+                    == expectedBaguaShuffles,
+                $"{first}+{second} fallback must activate both individual special effects.");
+        }
+
+        static void CheckRainbowBaguaCombo(SpecialGemResolver resolver)
+        {
+            GemType[,] types = new GemType[DebugBoardRows, DebugBoardColumns];
+            GemSpecialType[,] specials = new GemSpecialType[DebugBoardRows, DebugBoardColumns];
+            for (int row = 0; row < DebugBoardRows; row++)
+            for (int column = 0; column < DebugBoardColumns; column++)
+                types[row, column] = GemType.Attack;
+            types[0, 0] = GemType.Mana;
+            types[0, 1] = GemType.Mana;
+            types[0, 2] = GemType.Mana;
+            types[0, 3] = GemType.Mana;
+            types[0, 4] = GemType.Mana;
+            types[0, 5] = GemType.Mana;
+            types[0, 6] = GemType.Mana;
+            types[1, 0] = GemType.Mana;
+            types[1, 1] = GemType.Mana;
+            types[1, 2] = GemType.Mana;
+            types[1, 3] = GemType.Rainbow;
+            types[1, 4] = GemType.Bagua;
+            specials[1, 3] = GemSpecialType.Rainbow;
+            specials[1, 4] = GemSpecialType.Bagua;
+            specials[2, 0] = GemSpecialType.Line;
+            types[2, 0] = GemType.Attack;
+
+            BoardSnapshot source = new BoardSnapshot(types, specials);
+            MoveResult move = resolver.EvaluateSwap(source,
+                new BoardPos(1, 3), new BoardPos(1, 4));
+            Require(move.IsValid && move.InitialMatch.ClearPositions.Count == 2
+                && move.InitialMatch.SpecialActivations.Count == 1
+                && move.InitialMatch.SpecialActivations[0].Kind
+                    == SpecialActivationKind.RainbowBaguaCombo,
+                "Rainbow+Bagua must be accepted without requiring a normal match and must defer the color clear.");
+
+            BoardSnapshot shuffled = source.Clone();
+            shuffled.Swap(new BoardPos(1, 3), new BoardPos(1, 4));
+            MatchResult resolved = resolver.ResolveRainbowBaguaCombo(shuffled,
+                new BoardPos(1, 4), new BoardPos(1, 3));
+            SpecialActivation rainbowClear = resolved.SpecialActivations.First(
+                activation => activation.Kind == SpecialActivationKind.RainbowColor);
+            HashSet<BoardPos> allAttackPositions = new HashSet<BoardPos>();
+            for (int row = 0; row < DebugBoardRows; row++)
+            for (int column = 0; column < DebugBoardColumns; column++)
+                if (shuffled.TypeAt(new BoardPos(row, column)) == GemType.Attack)
+                    allAttackPositions.Add(new BoardPos(row, column));
+            Require(rainbowClear.TargetGemType == GemType.Attack
+                && resolved.ClearPositions.Contains(new BoardPos(2, 0))
+                && resolved.ClearPositions.Contains(new BoardPos(1, 4))
+                && resolved.ClearPositions.Contains(new BoardPos(1, 3))
+                && allAttackPositions.IsSubsetOf(
+                    new HashSet<BoardPos>(resolved.ClearPositions))
+                && resolved.SpecialActivations.Any(activation =>
+                    activation.Kind == SpecialActivationKind.Line
+                    && activation.Position.Equals(new BoardPos(2, 0))),
+                "After the shuffle, Rainbow+Bagua must clear the unique maximum color and activate any Line hit by that color clear.");
+
+            GemType[,] tiedTypes = new GemType[DebugBoardRows, DebugBoardColumns];
+            GemSpecialType[,] tiedSpecials = new GemSpecialType[DebugBoardRows, DebugBoardColumns];
+            for (int row = 0; row < DebugBoardRows; row++)
+            for (int column = 0; column < DebugBoardColumns; column++)
+                tiedTypes[row, column] = GemType.Soul;
+            for (int index = 2; index < DebugBoardRows * DebugBoardColumns - 1; index++)
+                tiedTypes[index / DebugBoardColumns, index % DebugBoardColumns] =
+                    index % 2 == 0 ? GemType.Attack : GemType.Mana;
+            tiedTypes[0, 0] = GemType.Rainbow;
+            tiedTypes[0, 1] = GemType.Bagua;
+            tiedSpecials[0, 0] = GemSpecialType.Rainbow;
+            tiedSpecials[0, 1] = GemSpecialType.Bagua;
+            tiedTypes[DebugBoardRows - 1, DebugBoardColumns - 1] = GemType.Soul;
+            MatchResult tied = resolver.ResolveRainbowBaguaCombo(
+                new BoardSnapshot(tiedTypes, tiedSpecials),
+                new BoardPos(0, 0), new BoardPos(0, 1));
+            GemType? tiedTarget = tied.SpecialActivations.FirstOrDefault(
+                activation => activation.Kind == SpecialActivationKind.RainbowColor)
+                .TargetGemType;
+            Require((tiedTarget == GemType.Attack || tiedTarget == GemType.Mana)
+                && tied.ClearPositions.Where(position => position.Row != 0
+                    || (position.Col != 0 && position.Col != 1))
+                    .All(position => tiedTypes[position.Row, position.Col] == tiedTarget),
+                "When top colors tie, Rainbow+Bagua must choose one tied color and not clear the other.");
+        }
+
+        static void CheckRainbowBombCombo(SpecialGemResolver resolver)
+        {
+            GemType[,] types = new GemType[DebugBoardRows, DebugBoardColumns];
+            GemSpecialType[,] specials = new GemSpecialType[DebugBoardRows, DebugBoardColumns];
+            for (int row = 0; row < DebugBoardRows; row++)
+            for (int column = 0; column < DebugBoardColumns; column++)
+                types[row, column] = GemType.Soul;
+            types[3, 3] = GemType.Rainbow;
+            specials[3, 3] = GemSpecialType.Rainbow;
+            types[3, 4] = GemType.Health;
+            specials[3, 4] = GemSpecialType.AreaBomb;
+            for (int index = 0; index < 5; index++)
+            {
+                int row = index / 5;
+                int column = index % 5;
+                types[row, column] = GemType.Health;
+            }
+            types[0, 6] = GemType.Health;
+            specials[0, 6] = GemSpecialType.Line;
+            types[6, 6] = GemType.Attack;
+            specials[6, 6] = GemSpecialType.AreaBomb;
+
+            BoardSnapshot source = new BoardSnapshot(types, specials);
+            MoveResult move = resolver.EvaluateSwap(source,
+                new BoardPos(3, 3), new BoardPos(3, 4));
+            BoardSnapshot swapped = source.Clone();
+            swapped.Swap(move.From, move.To);
+            UnityEngine.Random.State previousRandomState = UnityEngine.Random.state;
+            try
+            {
+                UnityEngine.Random.InitState(724);
+                MatchResult result = resolver.ResolveCurrent(swapped, move,
+                    true, 1, false, rollBonusSpecials: true);
+                List<BoardPos> conversions = result.CreatedSpecials
+                    .Select(creation => creation.Position).ToList();
+                List<BoardPos> bombActivations = result.SpecialActivations
+                    .Where(activation => activation.Kind == SpecialActivationKind.AreaBomb)
+                    .Select(activation => activation.Position).ToList();
+                Require(move.IsValid && conversions.Count >= 3 && conversions.Count <= 4
+                    && conversions.Distinct().Count() == conversions.Count
+                    && conversions.All(position => swapped.TypeAt(position) == GemType.Health
+                        && swapped.SpecialAt(position) == GemSpecialType.None)
+                    && bombActivations.Count == conversions.Count + 2
+                    && bombActivations.Contains(new BoardPos(3, 4))
+                    && bombActivations.Contains(new BoardPos(6, 6))
+                    && result.ClearPositions.Contains(new BoardPos(3, 3)),
+                    "Rainbow+Bomb must convert 3-4 ordinary matching-color gems, consume Rainbow, and activate every existing and newly made Bomb.");
+
+                int expectedClearCount = 0;
+                HashSet<BoardPos> expectedClear = new HashSet<BoardPos>
+                {
+                    new BoardPos(3, 3)
+                };
+                foreach (BoardPos bomb in bombActivations)
+                for (int row = bomb.Row - 1; row <= bomb.Row + 1; row++)
+                for (int column = bomb.Col - 1; column <= bomb.Col + 1; column++)
+                    if (row >= 0 && row < DebugBoardRows
+                        && column >= 0 && column < DebugBoardColumns)
+                        expectedClear.Add(new BoardPos(row, column));
+                expectedClearCount = expectedClear.Count;
+                Require(result.ClearPositions.Count == expectedClearCount
+                    && expectedClear.SetEquals(result.ClearPositions),
+                    "Rainbow+Bomb must clear exactly the union of each Bomb's 3x3 blast and the Rainbow.");
+
+                GemType[,] fewTypes = new GemType[DebugBoardRows, DebugBoardColumns];
+                GemSpecialType[,] fewSpecials = new GemSpecialType[DebugBoardRows, DebugBoardColumns];
+                for (int row = 0; row < DebugBoardRows; row++)
+                for (int column = 0; column < DebugBoardColumns; column++)
+                    fewTypes[row, column] = GemType.Soul;
+                fewTypes[0, 0] = GemType.Rainbow;
+                fewSpecials[0, 0] = GemSpecialType.Rainbow;
+                fewTypes[0, 1] = GemType.Health;
+                fewSpecials[0, 1] = GemSpecialType.AreaBomb;
+                fewTypes[1, 0] = GemType.Health;
+                fewTypes[1, 1] = GemType.Health;
+                BoardSnapshot fewSource = new BoardSnapshot(fewTypes, fewSpecials);
+                MoveResult fewMove = resolver.EvaluateSwap(fewSource,
+                    new BoardPos(0, 0), new BoardPos(0, 1));
+                BoardSnapshot fewSwapped = fewSource.Clone();
+                fewSwapped.Swap(fewMove.From, fewMove.To);
+                MatchResult fewResult = resolver.ResolveCurrent(fewSwapped, fewMove,
+                    true, 1, false, rollBonusSpecials: true);
+                Require(fewMove.IsValid && fewResult.CreatedSpecials.Count == 0
+                    && fewResult.SpecialActivations.Count(activation =>
+                        activation.Kind == SpecialActivationKind.AreaBomb) == 1,
+                    "Rainbow+Bomb with fewer than three ordinary matching-color gems must skip conversion and still activate the existing Bomb.");
+            }
+            finally
+            {
+                UnityEngine.Random.state = previousRandomState;
+            }
+        }
+
+        static void CheckRainbowLineCombo(SpecialGemResolver resolver)
+        {
+            GemType[,] types = new GemType[DebugBoardRows, DebugBoardColumns];
+            GemSpecialType[,] specials = new GemSpecialType[DebugBoardRows, DebugBoardColumns];
+            for (int row = 0; row < DebugBoardRows; row++)
+            for (int column = 0; column < DebugBoardColumns; column++)
+            {
+                types[row, column] = GemType.Attack;
+            }
+            types[3, 3] = GemType.Rainbow;
+            specials[3, 3] = GemSpecialType.Rainbow;
+            types[3, 4] = GemType.Health;
+            specials[3, 4] = GemSpecialType.Line;
+
+            BoardSnapshot source = new BoardSnapshot(types, specials);
+            UnityEngine.Random.State previousRandomState = UnityEngine.Random.state;
+            bool sawOneRowThreeColumns = false;
+            bool sawThreeRowsOneColumn = false;
+            try
+            {
+                for (int seed = 0; seed < 100; seed++)
+                {
+                    UnityEngine.Random.InitState(seed);
+                    MoveResult move = resolver.EvaluateSwap(source,
+                        new BoardPos(3, 3), new BoardPos(3, 4));
+                    MatchResult result = move.InitialMatch;
+                    List<SpecialActivation> rows = result.SpecialActivations
+                        .Where(activation => activation.Kind
+                            == SpecialActivationKind.RainbowLineHorizontal).ToList();
+                    List<SpecialActivation> columns = result.SpecialActivations
+                        .Where(activation => activation.Kind
+                            == SpecialActivationKind.RainbowLineVertical).ToList();
+                    int totalLines = rows.Count + columns.Count;
+                    HashSet<BoardPos> expected = new HashSet<BoardPos>
+                    {
+                        new BoardPos(3, 3),
+                        new BoardPos(3, 4)
+                    };
+                    foreach (SpecialActivation row in rows)
+                        for (int column = 0; column < DebugBoardColumns; column++)
+                            expected.Add(new BoardPos(row.Position.Row, column));
+                    foreach (SpecialActivation column in columns)
+                        for (int row = 0; row < DebugBoardRows; row++)
+                            expected.Add(new BoardPos(row, column.Position.Col));
+
+                    Require(move.IsValid && rows.Count >= 1 && columns.Count >= 1
+                        && totalLines >= 4 && totalLines <= 6
+                        && rows.Select(activation => activation.Position.Row).Distinct().Count()
+                            == rows.Count
+                        && columns.Select(activation => activation.Position.Col).Distinct().Count()
+                            == columns.Count
+                        && result.SpecialActivations.All(activation =>
+                            activation.Kind == SpecialActivationKind.RainbowLineHorizontal
+                            || activation.Kind == SpecialActivationKind.RainbowLineVertical)
+                        && expected.SetEquals(result.ClearPositions),
+                        "Rainbow+Line must clear exactly 4-6 distinct full rows/columns, both directions, without chaining Lines.");
+                    sawOneRowThreeColumns |= rows.Count == 1 && columns.Count == 3;
+                    sawThreeRowsOneColumn |= rows.Count == 3 && columns.Count == 1;
+                }
+
+                Require(sawOneRowThreeColumns && sawThreeRowsOneColumn,
+                    "Rainbow+Line must support both one-row/three-column and three-row/one-column splits.");
+            }
+            finally
+            {
+                UnityEngine.Random.state = previousRandomState;
+            }
+        }
+
+        static void CheckRainbowLightningCombo(SpecialGemResolver resolver)
+        {
+            GemType[,] types = new GemType[DebugBoardRows, DebugBoardColumns];
+            GemSpecialType[,] specials = new GemSpecialType[DebugBoardRows, DebugBoardColumns];
+            for (int row = 0; row < DebugBoardRows; row++)
+            for (int column = 0; column < DebugBoardColumns; column++)
+                types[row, column] = (GemType)((row + column) % 6);
+            types[3, 3] = GemType.Rainbow;
+            specials[3, 3] = GemSpecialType.Rainbow;
+            types[3, 4] = GemType.Lightning;
+            specials[3, 4] = GemSpecialType.Lightning;
+            types[0, 0] = GemType.Attack;
+            specials[0, 0] = GemSpecialType.Line;
+            types[6, 6] = GemType.Health;
+            specials[6, 6] = GemSpecialType.AreaBomb;
+
+            BoardSnapshot source = new BoardSnapshot(types, specials);
+            UnityEngine.Random.State previousRandomState = UnityEngine.Random.state;
+            try
+            {
+                UnityEngine.Random.InitState(2404);
+                MoveResult move = resolver.EvaluateSwap(source,
+                    new BoardPos(3, 3), new BoardPos(3, 4));
+                MatchResult result = move.InitialMatch;
+                List<SpecialActivation> targets = result.SpecialActivations
+                    .Where(activation => activation.Kind
+                        == SpecialActivationKind.RainbowLightningCombo).ToList();
+                HashSet<BoardPos> targetPositions = new HashSet<BoardPos>(
+                    targets.Where(activation => activation.TargetPosition.HasValue)
+                        .Select(activation => activation.TargetPosition.Value));
+                int[] waveCounts = Enumerable.Range(0, 3)
+                    .Select(sequence => targets.Count(activation =>
+                        activation.SequenceIndex == sequence)).ToArray();
+                Require(move.IsValid && waveCounts.All(count => count >= 5 && count <= 10)
+                    && targets.All(activation => activation.TargetPosition.HasValue
+                        && source.SpecialAt(activation.TargetPosition.Value) == GemSpecialType.None)
+                    && targetPositions.Count == targets.Count
+                    && result.ClearPositions.Contains(new BoardPos(3, 3))
+                    && result.ClearPositions.Contains(new BoardPos(3, 4))
+                    && result.GemCounts.Values.Sum() == targets.Count
+                    && result.ClearPositions.Where(position =>
+                        !position.Equals(new BoardPos(3, 3))
+                        && !position.Equals(new BoardPos(3, 4)))
+                        .All(position => source.SpecialAt(position) == GemSpecialType.None),
+                    "Rainbow+Lightning must run three 5-10 ordinary-gem waves without selecting or chaining specials.");
+
+                GemType[,] fewTypes = new GemType[DebugBoardRows, DebugBoardColumns];
+                GemSpecialType[,] fewSpecials =
+                    new GemSpecialType[DebugBoardRows, DebugBoardColumns];
+                for (int row = 0; row < DebugBoardRows; row++)
+                for (int column = 0; column < DebugBoardColumns; column++)
+                    fewSpecials[row, column] = GemSpecialType.Line;
+                fewTypes[0, 0] = GemType.Rainbow;
+                fewSpecials[0, 0] = GemSpecialType.Rainbow;
+                fewTypes[0, 1] = GemType.Lightning;
+                fewSpecials[0, 1] = GemSpecialType.Lightning;
+                fewTypes[0, 2] = GemType.Attack;
+                fewSpecials[0, 2] = GemSpecialType.None;
+                fewTypes[0, 3] = GemType.Health;
+                fewSpecials[0, 3] = GemSpecialType.None;
+                BoardSnapshot fewSource = new BoardSnapshot(fewTypes, fewSpecials);
+
+                UnityEngine.Random.InitState(2405);
+                MoveResult fewMove = resolver.EvaluateSwap(fewSource,
+                    new BoardPos(0, 0), new BoardPos(0, 1));
+                List<SpecialActivation> fewTargets = fewMove.InitialMatch.SpecialActivations
+                    .Where(activation => activation.Kind
+                        == SpecialActivationKind.RainbowLightningCombo).ToList();
+                Require(fewMove.IsValid && fewTargets.Count == 2
+                    && fewTargets.All(activation => activation.SequenceIndex == 0)
+                    && fewTargets.Select(activation => activation.TargetPosition).Distinct().Count() == 2
+                    && fewMove.InitialMatch.ClearPositions.Count == 4,
+                    "Rainbow+Lightning must clear all remaining ordinary gems when fewer than five remain, then leave later waves empty.");
+            }
+            finally
+            {
+                UnityEngine.Random.state = previousRandomState;
+            }
         }
 
         static void CheckDirectAreaBomb(SpecialGemResolver resolver)

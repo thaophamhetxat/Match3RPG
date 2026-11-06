@@ -477,8 +477,50 @@ namespace Match3RPG.Board
                 yield break;
             }
 
-            MatchResult match = specialResolver.ResolveCurrent(CreateSnapshot(), result,
-                !result.IsDirectActivation, 1, result.IsDirectActivation, rollBonusSpecials: true);
+            bool rainbowBaguaCombo = requestedMove.InitialMatch != null
+                && requestedMove.InitialMatch.SpecialActivations.Any(activation =>
+                    activation.Kind == SpecialActivationKind.RainbowBaguaCombo);
+            MatchResult match;
+            if (rainbowBaguaCombo)
+            {
+                GemView firstSwappedGem = grid[result.From.Row, result.From.Col];
+                GemView secondSwappedGem = grid[result.To.Row, result.To.Col];
+                if (firstSwappedGem == null || secondSwappedGem == null
+                    || (firstSwappedGem.SpecialType != GemSpecialType.Rainbow
+                        && secondSwappedGem.SpecialType != GemSpecialType.Rainbow)
+                    || (firstSwappedGem.SpecialType != GemSpecialType.Bagua
+                        && secondSwappedGem.SpecialType != GemSpecialType.Bagua))
+                {
+                    Debug.LogError("Rainbow+Bagua swap no longer points to its two special Gems.", this);
+                    FinishResolution();
+                    completed?.Invoke(null);
+                    yield break;
+                }
+                GemView rainbowGem = firstSwappedGem.SpecialType == GemSpecialType.Rainbow
+                    ? firstSwappedGem : secondSwappedGem;
+                GemView baguaGem = firstSwappedGem.SpecialType == GemSpecialType.Bagua
+                    ? firstSwappedGem : secondSwappedGem;
+
+                bool shuffleSucceeded = false;
+                yield return baguaShuffleService.Shuffle(this,
+                    succeeded => shuffleSucceeded = succeeded, allowRegeneration: false);
+                if (!shuffleSucceeded)
+                {
+                    Debug.LogError("Rainbow+Bagua could not find a match-free playable shuffle without changing the board.", this);
+                    yield return AnimateSwap(result.From, result.To);
+                    FinishResolution();
+                    completed?.Invoke(null);
+                    yield break;
+                }
+
+                match = specialResolver.ResolveRainbowBaguaCombo(CreateSnapshot(),
+                    rainbowGem.Position, baguaGem.Position);
+            }
+            else
+            {
+                match = specialResolver.ResolveCurrent(CreateSnapshot(), result,
+                    !result.IsDirectActivation, 1, result.IsDirectActivation, rollBonusSpecials: true);
+            }
             if (!match.HasMatch)
             {
                 if (!result.IsDirectActivation) yield return AnimateSwap(result.From, result.To);
@@ -564,6 +606,22 @@ namespace Match3RPG.Board
 #if UNITY_EDITOR
                 CompareBoardSnapshots(beforeResolution, CreateSnapshot(), affectedColumns);
 #endif
+                int baguaShuffleCount = match.SpecialActivations.Count(activation =>
+                    activation.Kind == SpecialActivationKind.FallbackBaguaShuffle);
+                for (int shuffleIndex = 0; shuffleIndex < baguaShuffleCount; shuffleIndex++)
+                {
+                    bool shuffleSucceeded = false;
+                    yield return baguaShuffleService.Shuffle(this,
+                        succeeded => shuffleSucceeded = succeeded,
+                        allowRegeneration: false);
+                    if (!shuffleSucceeded)
+                    {
+                        Debug.LogError("Bagua activation could not find a match-free playable shuffle without changing gems.", this);
+                        FinishResolution();
+                        completed?.Invoke(null);
+                        yield break;
+                    }
+                }
                 if (gemSettleDelay > 0f)
                     yield return new WaitForSecondsRealtime(gemSettleDelay);
                 combo++;

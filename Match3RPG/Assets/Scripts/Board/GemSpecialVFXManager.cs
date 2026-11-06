@@ -140,10 +140,19 @@ namespace Match3RPG.Board
                 yield break;
             }
 
+            if (activations != null && activations.Any(activation =>
+                activation.Kind == SpecialActivationKind.RainbowLightningCombo))
+            {
+                yield return PlayRainbowLightningWaves(activations, clearMatchedGems);
+                yield break;
+            }
+
             float duration = 0f;
             int lightningIndex = 0;
             List<BoardBurstVFX.Burst> bursts = new List<BoardBurstVFX.Burst>();
             List<BoardBurstVFX.Arc> arcs = new List<BoardBurstVFX.Arc>();
+            List<BoardPos> fallbackBaguaShuffles = new List<BoardPos>();
+            bool rainbowLineFlashesAdded = false;
             bool fullBoardClear = activations != null
                 && activations.Any(activation => activation.Kind == SpecialActivationKind.RainbowFullBoard);
 
@@ -167,6 +176,34 @@ namespace Match3RPG.Board
                                 StartCoroutine(ShowLineCross(lightningIndex, activation.Position));
                                 lightningIndex += 2;
                                 AddCellFlashes(bursts, clearedGems, i);
+                                duration = Mathf.Max(duration, LineEffectSeconds);
+                                break;
+                            case SpecialActivationKind.LineLineCombo:
+                                StartCoroutine(ShowBoardLine(lightningIndex++, true,
+                                    activation.Position.Row));
+                                StartCoroutine(ShowBoardLine(lightningIndex++, false,
+                                    activation.Position.Col));
+                                AddCellFlashes(bursts, clearedGems, i);
+                                duration = Mathf.Max(duration, LineEffectSeconds);
+                                break;
+                            case SpecialActivationKind.RainbowLineHorizontal:
+                                StartCoroutine(ShowBoardLine(lightningIndex++, true,
+                                    activation.Position.Row));
+                                if (!rainbowLineFlashesAdded)
+                                {
+                                    AddCellFlashes(bursts, clearedGems, i);
+                                    rainbowLineFlashesAdded = true;
+                                }
+                                duration = Mathf.Max(duration, LineEffectSeconds);
+                                break;
+                            case SpecialActivationKind.RainbowLineVertical:
+                                StartCoroutine(ShowBoardLine(lightningIndex++, false,
+                                    activation.Position.Col));
+                                if (!rainbowLineFlashesAdded)
+                                {
+                                    AddCellFlashes(bursts, clearedGems, i);
+                                    rainbowLineFlashesAdded = true;
+                                }
                                 duration = Mathf.Max(duration, LineEffectSeconds);
                                 break;
                             case SpecialActivationKind.BombLineCombo:
@@ -200,6 +237,11 @@ namespace Match3RPG.Board
                                 }
                                 duration = Mathf.Max(duration, GetBombExplosionDuration());
                                 break;
+                            case SpecialActivationKind.AreaBombFiveByFive:
+                                StartCoroutine(ShowBombFiveByFive(activation.Position,
+                                    activation.TargetGemType ?? GemType.Attack));
+                                duration = Mathf.Max(duration, GetBombExplosionDuration());
+                                break;
                             case SpecialActivationKind.Lightning:
                                 bursts.Add(new BoardBurstVFX.Burst(CellCenter(activation.Position),
                                     Mathf.Min(grid.cellSize.x, grid.cellSize.y),
@@ -210,7 +252,15 @@ namespace Match3RPG.Board
                             case SpecialActivationKind.BaguaShuffle:
                                 PlayBaguaShuffle(activation.Position);
                                 break;
+                            case SpecialActivationKind.FallbackBaguaShuffle:
+                                fallbackBaguaShuffles.Add(activation.Position);
+                                break;
                             case SpecialActivationKind.RainbowColor:
+                                AddRainbowConnections(activation.Position, activation.TargetGemType,
+                                    clearedGems, bursts, arcs);
+                                duration = Mathf.Max(duration, LineEffectSeconds);
+                                break;
+                            case SpecialActivationKind.RainbowBombCombo:
                                 AddRainbowConnections(activation.Position, activation.TargetGemType,
                                     clearedGems, bursts, arcs);
                                 duration = Mathf.Max(duration, LineEffectSeconds);
@@ -242,6 +292,19 @@ namespace Match3RPG.Board
             if (bursts.Count > 0 || arcs.Count > 0)
                 StartCoroutine(ShowBurstEffect(bursts, arcs, duration));
 
+            if (fallbackBaguaShuffles.Count > 0)
+            {
+                if (duration > 0f)
+                    yield return new WaitForSecondsRealtime(duration);
+                foreach (BoardPos position in fallbackBaguaShuffles)
+                {
+                    PlayBaguaShuffle(position);
+                    yield return new WaitForSecondsRealtime(BaguaEffectSeconds);
+                }
+                clearMatchedGems?.Invoke();
+                yield break;
+            }
+
             if (duration <= 0f)
             {
                 clearMatchedGems?.Invoke();
@@ -254,6 +317,44 @@ namespace Match3RPG.Board
             float remainingDuration = duration - clearDelay;
             if (remainingDuration > 0f)
                 yield return new WaitForSecondsRealtime(remainingDuration);
+        }
+
+        IEnumerator PlayRainbowLightningWaves(
+            IReadOnlyList<SpecialActivation> activations, Action clearMatchedGems)
+        {
+            float cellSize = Mathf.Min(grid.cellSize.x, grid.cellSize.y);
+            for (int sequence = 0; sequence < 3; sequence++)
+            {
+                List<BoardBurstVFX.Burst> bursts = new List<BoardBurstVFX.Burst>();
+                List<BoardBurstVFX.Arc> arcs = new List<BoardBurstVFX.Arc>();
+                int targetIndex = 0;
+                foreach (SpecialActivation activation in activations)
+                {
+                    if (activation.Kind != SpecialActivationKind.RainbowLightningCombo
+                        || activation.SequenceIndex != sequence
+                        || !activation.TargetPosition.HasValue)
+                        continue;
+
+                    Vector2 source = CellCenter(activation.Position);
+                    Vector2 target = CellCenter(activation.TargetPosition.Value);
+                    if (targetIndex == 0)
+                        bursts.Add(new BoardBurstVFX.Burst(source, cellSize,
+                            BoardBurstStyle.Electric, sequence));
+                    arcs.Add(new BoardBurstVFX.Arc(source, target, cellSize,
+                        sequence * 10 + targetIndex));
+                    bursts.Add(new BoardBurstVFX.Burst(target, cellSize * .82f,
+                        BoardBurstStyle.WhiteBlueFlash, sequence * 10 + targetIndex));
+                    targetIndex++;
+                }
+
+                if (targetIndex == 0)
+                    continue;
+
+                StartCoroutine(ShowBurstEffect(bursts, arcs, CellBurstSeconds));
+                yield return new WaitForSecondsRealtime(CellBurstSeconds);
+            }
+
+            clearMatchedGems?.Invoke();
         }
 
         public void PlayBaguaShuffle(BoardPos center)
@@ -417,16 +518,16 @@ namespace Match3RPG.Board
 
             if (horizontal)
             {
-                int firstColumn = Mathf.Max(0, center.Col - 1);
-                int lastColumn = Mathf.Min(boardCells.GetLength(1) - 1, center.Col + 1);
+                int firstColumn = Mathf.Max(0, center.Col - 2);
+                int lastColumn = Mathf.Min(boardCells.GetLength(1) - 1, center.Col + 2);
                 start = CellCenter(new BoardPos(center.Row, firstColumn));
                 end = CellCenter(new BoardPos(center.Row, lastColumn));
                 cellSize = grid.cellSize.x;
                 return true;
             }
 
-            int firstRow = Mathf.Max(0, center.Row - 1);
-            int lastRow = Mathf.Min(boardCells.GetLength(0) - 1, center.Row + 1);
+            int firstRow = Mathf.Max(0, center.Row - 2);
+            int lastRow = Mathf.Min(boardCells.GetLength(0) - 1, center.Row + 2);
             start = CellCenter(new BoardPos(lastRow, center.Col));
             end = CellCenter(new BoardPos(firstRow, center.Col));
             cellSize = grid.cellSize.y;
@@ -546,6 +647,36 @@ namespace Match3RPG.Board
             {
                 new BoardBurstVFX.Burst(center, size, styleEntry.style, 0, styleEntry.color)
             };
+            yield return ShowBurstEffect(bursts, Array.Empty<BoardBurstVFX.Arc>(),
+                Mathf.Max(.12f, effectEntry.duration));
+        }
+
+        IEnumerator ShowBombFiveByFive(BoardPos position, GemType gemType)
+        {
+            if (!TryGetAreaExplosionGeometry(position, out _, out Vector2 cellSize, out _))
+                yield break;
+
+            BoardVFXCatalog.EffectEntry effectEntry = GetBomb3x3Entry();
+            BoardVFXCatalog.GemStyleEntry styleEntry =
+                GetBombStyleEntry(gemType, effectEntry.color);
+            float baseSize = Mathf.Max(cellSize.x, cellSize.y);
+            List<BoardBurstVFX.Burst> bursts = new List<BoardBurstVFX.Burst>();
+            for (int row = position.Row - 2; row <= position.Row + 2; row++)
+            for (int column = position.Col - 2; column <= position.Col + 2; column++)
+            {
+                if (row < 0 || row >= boardCells.GetLength(0)
+                    || column < 0 || column >= boardCells.GetLength(1)
+                    || boardCells[row, column] == null)
+                    continue;
+
+                bool center = row == position.Row && column == position.Col;
+                bursts.Add(new BoardBurstVFX.Burst(
+                    CellCenter(new BoardPos(row, column)),
+                    baseSize * (center ? 1.35f : .82f),
+                    styleEntry.style, row * boardCells.GetLength(1) + column,
+                    styleEntry.color));
+            }
+
             yield return ShowBurstEffect(bursts, Array.Empty<BoardBurstVFX.Arc>(),
                 Mathf.Max(.12f, effectEntry.duration));
         }
