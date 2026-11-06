@@ -7,6 +7,8 @@ namespace Match3RPG.Battle
     public sealed class CombatVFXManager : MonoBehaviour
     {
         const float TransientLifetime = .24f;
+        public const float HealingAuraDuration = 2.4f;
+        public const float LifeStealDuration = 2f;
         readonly bool[] missingSpritesLogged = new bool[17];
         CombatVFXView[,] persistentEffects;
         CombatVFXCatalog catalog;
@@ -32,32 +34,44 @@ namespace Match3RPG.Battle
                 Debug.LogError("Combat VFX catalog is missing at Resources/CombatVFX/CombatVFXCatalog.", this);
         }
 
-        public void PlayHeal(BattleActor actor)
-        {
-            PlayFrameSequence(CombatVFXType.Heal, GetCharacter(actor), 2.4f,
-                new Vector2(230f, 325f), 1f);
-        }
-
-        public void PlayLifeSteal(BattleActor actor)
+        public bool PlayHeal(BattleActor actor)
         {
             CharacterView character = GetCharacter(actor);
-            PlayFrameSequence(CombatVFXType.LifeSteal, character, 2f,
-                new Vector2(240f, 195f), FacingSign(character));
+            RectTransform anchor = character != null ? character.VFXAnchor : null;
+            return anchor != null && PlayFrameSequence(CombatVFXType.Heal, anchor.position,
+                HealingAuraDuration, new Vector2(230f, 325f), 1f);
         }
 
-        void PlayFrameSequence(CombatVFXType type, CharacterView character,
+        public bool PlayLifeSteal(BattleActor actor)
+        {
+            CharacterView character = GetCharacter(actor);
+            CharacterView target = GetCharacter(Opponent(actor));
+            RectTransform sourceAnchor = character != null ? character.VFXAnchor : null;
+            RectTransform targetAnchor = target != null ? target.VFXAnchor : null;
+            if (sourceAnchor == null || targetAnchor == null)
+                return false;
+
+            Vector3 midpoint = (sourceAnchor.position + targetAnchor.position) * .5f;
+            return PlayFrameSequence(CombatVFXType.LifeSteal, midpoint,
+                LifeStealDuration, new Vector2(380f, 310f), FacingSign(character));
+        }
+
+        bool PlayFrameSequence(CombatVFXType type, Vector3 worldPosition,
             float duration, Vector2 size, float direction)
         {
-            RectTransform anchor = character != null ? character.VFXAnchor : null;
-            if (anchor == null || transientRoot == null || !TryGetFrames(type, out Sprite[] frames))
-                return;
+            if (transientRoot == null || !TryGetFrames(type, out Sprite[] frames))
+                return false;
 
-            Vector2 position = ToTransientPosition(anchor.position);
+            float normalizedPivotY = frames[0].pivot.y / frames[0].rect.height;
+            float offsetY = (normalizedPivotY - .5f) * size.y;
+            Vector2 position = ToTransientPosition(worldPosition);
+            position.y += offsetY;
             RectTransform rect;
             Image image;
             CombatVFXView view = CreateView(transientRoot, frames[0], type, size,
                 position, direction, out rect, out image);
             view.BeginFrameTransient(type, frames, 30f, duration, null);
+            return true;
         }
 
         public void PlayUltimate(BattleActor actor)

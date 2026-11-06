@@ -259,14 +259,16 @@ namespace Match3RPG.Battle
             int rageGems = Count(move, GemType.Rage);
             int shieldGems = Count(move, GemType.Shield);
             int soulGems = soulEnabled ? Count(move, GemType.Soul) : 0;
+            float precedingVfxDuration = 0f;
 
             if (actor == BattleActor.Player)
             {
                 int previousHealth = heroHp;
                 heroHp = Mathf.Min(heroMaxHp, heroHp
                     + healthGems * AddNonNegative(BaseHealthPerGem, healthStars));
-                if (heroHp > previousHealth)
-                    combatVfx?.PlayHeal(BattleActor.Player);
+                if (heroHp > previousHealth && combatVfx != null
+                    && combatVfx.PlayHeal(BattleActor.Player))
+                    precedingVfxDuration = CombatVFXManager.HealingAuraDuration;
                 ShowResource(hero, FloatingTextType.Heal, heroHp - previousHealth);
                 int previousMana = mana;
                 mana = Mathf.Min(maxMana, mana + manaGems * manaPerGem);
@@ -274,10 +276,15 @@ namespace Match3RPG.Battle
                 AddExperience(experienceGems);
                 AddGemRage(BattleActor.Player, rageGems);
                 AddShield(shieldGems);
-                ApplyDrain(BattleActor.Player, experienceGems);
+                precedingVfxDuration = Mathf.Max(precedingVfxDuration,
+                    ApplyDrain(BattleActor.Player, experienceGems));
 
                 if (attackGems > 0 || soulGems > 0)
+                {
+                    if (precedingVfxDuration > 0f)
+                        yield return new WaitForSeconds(precedingVfxDuration);
                     yield return ResolveAttackAction(BattleActor.Player, attackGems, 0, soulGems);
+                }
 
                 if (ultimate >= 100 && bossHp > 0 && !IsGameOver)
                 {
@@ -294,17 +301,23 @@ namespace Match3RPG.Battle
             {
                 int previousBossHealth = bossHp;
                 bossHp = Mathf.Min(bossMaxHp, bossHp + healthGems * BaseHealthPerGem);
-                if (bossHp > previousBossHealth)
-                    combatVfx?.PlayHeal(BattleActor.Boss);
+                if (bossHp > previousBossHealth && combatVfx != null
+                    && combatVfx.PlayHeal(BattleActor.Boss))
+                    precedingVfxDuration = CombatVFXManager.HealingAuraDuration;
                 ShowResource(boss, FloatingTextType.Heal, bossHp - previousBossHealth);
                 int previousBossMana = bossMana;
                 bossMana = Mathf.Min(bossMaxMana, bossMana + manaGems * manaPerGem);
                 ShowResource(boss, FloatingTextType.Mana, bossMana - previousBossMana);
                 AddGemRage(BattleActor.Boss, rageGems);
-                ApplyDrain(BattleActor.Boss, experienceGems);
+                precedingVfxDuration = Mathf.Max(precedingVfxDuration,
+                    ApplyDrain(BattleActor.Boss, experienceGems));
 
                 if (attackGems > 0 || soulGems > 0)
+                {
+                    if (precedingVfxDuration > 0f)
+                        yield return new WaitForSeconds(precedingVfxDuration);
                     yield return ResolveAttackAction(BattleActor.Boss, attackGems, 0, soulGems);
+                }
 
                 if (bossUltimate >= 100 && heroHp > 0 && !IsGameOver)
                 {
@@ -569,10 +582,10 @@ namespace Match3RPG.Battle
             }
         }
 
-        void ApplyDrain(BattleActor actor, int gemCount)
+        float ApplyDrain(BattleActor actor, int gemCount)
         {
             if (gemCount <= 0)
-                return;
+                return 0f;
 
             BattleActor targetActor = actor == BattleActor.Player
                 ? BattleActor.Boss
@@ -590,8 +603,9 @@ namespace Match3RPG.Battle
             int hpGained = RestoreHealth(actor, hpLost);
             ShowResource(targetView, FloatingTextType.Damage, hpLost);
             ShowResource(actorView, FloatingTextType.Heal, hpGained);
-            if (hpGained > 0)
-                combatVfx?.PlayLifeSteal(actor);
+            float lifeStealDuration = 0f;
+            if (hpGained > 0 && combatVfx != null && combatVfx.PlayLifeSteal(actor))
+                lifeStealDuration = CombatVFXManager.LifeStealDuration;
 
             int targetRageBefore = GetRage(targetActor);
             int receiverRageRoom = Mathf.Max(0, GetMaxRage(actor) - GetRage(actor));
@@ -615,6 +629,7 @@ namespace Match3RPG.Battle
             ShowResource(targetView, FloatingTextType.ManaLost, manaLost);
             ShowResource(actorView, FloatingTextType.Mana, manaGained);
             Refresh();
+            return lifeStealDuration;
         }
 
         int RestoreHealth(BattleActor actor, int amount)
