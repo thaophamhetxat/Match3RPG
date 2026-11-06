@@ -333,13 +333,13 @@ namespace Match3RPG.Battle
             int shieldBefore = heroShield;
             int damage = ApplyDamage(BattleActor.Player, Mathf.Max(0, invalidMovePenaltyDamage));
             int shieldAbsorbed = shieldBefore - heroShield;
-            if (damage > 0 || shieldAbsorbed > 0)
+            if (damage > 0)
             {
-                combatVfx?.PlayAttack(BattleActor.Boss, false, bossAttackVfx, true,
-                    shieldAbsorbed > 0 || (combatVfx != null
-                        && combatVfx.IsPersistentEffectActive(BattleActor.Player, CombatVFXType.Shield)));
+                bool shielded = shieldAbsorbed > 0 || (combatVfx != null
+                    && combatVfx.IsPersistentEffectActive(BattleActor.Player, CombatVFXType.Shield));
+                combatVfx?.PlayAttack(BattleActor.Boss, false, bossAttackVfx, true, shielded);
                 ShowResource(hero, FloatingTextType.Damage, damage);
-                if (damage > 0) AddReceivedHitRage(BattleActor.Player);
+                AddReceivedHitRage(BattleActor.Player);
                 if (hero != null) yield return hero.Hit();
             }
             if ((heroHp == 0 || (soulEnabled && heroSoulHp == 0)) && hero != null)
@@ -408,18 +408,21 @@ namespace Match3RPG.Battle
                     int shieldAbsorbed = targetActor == BattleActor.Player ? shieldBefore - heroShield : 0;
                     if (damage <= 0 && shieldAbsorbed <= 0) break;
 
-                    bool shielded = shieldAbsorbed > 0 || (combatVfx != null
-                        && combatVfx.IsPersistentEffectActive(targetActor, CombatVFXType.Shield));
-                    combatVfx?.PlayAttack(actor, critical, attackVfx, firstSuccessfulHit, shielded);
-                    firstSuccessfulHit = false;
-                    FloatingTextType damageText = soulHit
-                        && soulDamageEnabled
-                        ? (critical ? FloatingTextType.SoulCritical : FloatingTextType.SoulDamage)
-                        : (critical ? FloatingTextType.Critical : FloatingTextType.Damage);
-                    ShowResource(target, damageText, damage);
-                    if (damage > 0) rageGainedByTarget += AddReceivedHitRage(targetActor);
-                    Refresh();
-                    if (target != null) yield return target.Hit();
+                    if (damage > 0)
+                    {
+                        bool shielded = shieldAbsorbed > 0 || (combatVfx != null
+                            && combatVfx.IsPersistentEffectActive(targetActor, CombatVFXType.Shield));
+                        combatVfx?.PlayAttack(actor, critical, attackVfx, firstSuccessfulHit, shielded);
+                        firstSuccessfulHit = false;
+                        FloatingTextType damageText = soulHit
+                            && soulDamageEnabled
+                            ? (critical ? FloatingTextType.SoulCritical : FloatingTextType.SoulDamage)
+                            : (critical ? FloatingTextType.Critical : FloatingTextType.Damage);
+                        ShowResource(target, damageText, damage);
+                        rageGainedByTarget += AddReceivedHitRage(targetActor);
+                        Refresh();
+                        if (target != null) yield return target.Hit();
+                    }
                     if (hit + 1 < totalHitCount && !IsGameOver && multiHitInterval > 0f)
                         yield return new WaitForSecondsRealtime(multiHitInterval);
                 }
@@ -429,13 +432,13 @@ namespace Match3RPG.Battle
                     int shieldBefore = targetActor == BattleActor.Player ? heroShield : 0;
                     int damage = ApplyDamage(targetActor, bonusDamage);
                     int shieldAbsorbed = targetActor == BattleActor.Player ? shieldBefore - heroShield : 0;
-                    if (damage > 0 || shieldAbsorbed > 0)
+                    if (damage > 0)
                     {
                         bool shielded = shieldAbsorbed > 0 || (combatVfx != null
                             && combatVfx.IsPersistentEffectActive(targetActor, CombatVFXType.Shield));
                         combatVfx?.PlayAttack(actor, false, attackVfx, firstSuccessfulHit, shielded);
                         ShowResource(target, FloatingTextType.Damage, damage);
-                        if (damage > 0) rageGainedByTarget += AddReceivedHitRage(targetActor);
+                        rageGainedByTarget += AddReceivedHitRage(targetActor);
                         Refresh();
                         if (target != null) yield return target.Hit();
                     }
@@ -509,6 +512,11 @@ namespace Match3RPG.Battle
                 return amount;
             int absorbed = Mathf.Min(heroShield, amount);
             heroShield -= absorbed;
+            if (heroShield <= 0)
+            {
+                heroShield = 0;
+                combatVfx?.SetPersistentEffect(BattleActor.Player, CombatVFXType.Shield, false);
+            }
             ShowResource(hero, FloatingTextType.ShieldLost, absorbed);
             return amount - absorbed;
         }
@@ -542,6 +550,8 @@ namespace Match3RPG.Battle
             long totalShield = (long)heroShield + (long)gemCount * effectiveShieldPerGem;
             heroShield = totalShield >= int.MaxValue ? int.MaxValue : (int)totalShield;
             heroShieldTurns = 2;
+            if (heroShield > 0)
+                combatVfx?.SetPersistentEffect(BattleActor.Player, CombatVFXType.Shield, true);
             long gained = (long)gemCount * effectiveShieldPerGem;
             ShowResource(hero, FloatingTextType.Shield,
                 gained >= int.MaxValue ? int.MaxValue : (int)gained);
@@ -554,6 +564,7 @@ namespace Match3RPG.Battle
             if (heroShieldTurns == 0)
             {
                 heroShield = 0;
+                combatVfx?.SetPersistentEffect(BattleActor.Player, CombatVFXType.Shield, false);
                 Refresh();
             }
         }

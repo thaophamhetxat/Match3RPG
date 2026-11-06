@@ -26,6 +26,6 @@ MonoBehaviour:
   visualOffset: {x: 0, y: 0}
   sourceFacing: 1
   idleNormalizationScaleMultiplier: 1.0172414
-  vfxAnchor: {x: 0.5, y: 0.48}
+  vfxAnchor: {x: 0.5, y: 0.2}
   headVfxAnchor: {x: 0.5, y: 0.82}
   floatingTextAnchor: {x: 0.5, y: 0.88}
