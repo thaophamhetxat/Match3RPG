@@ -182,15 +182,33 @@ namespace Match3RPG.Battle
             RectTransform anchor = type == CombatVFXType.Stun && character != null
                 ? character.HeadVFXAnchor
                 : character != null ? character.PersistentVFXAnchor : null;
-            if (anchor == null || !TryGetSprite(type, out Sprite sprite))
+            if (anchor == null)
                 return;
+
+            bool hasFrames = TryGetFrames(type, out Sprite[] frames, false);
+            Sprite sprite;
+            if (hasFrames)
+                sprite = frames[0];
+            else if (!TryGetSprite(type, out sprite))
+                return;
+
+            Vector2 size = PersistentSize(type);
+            Vector2 position = Vector2.zero;
+            if (hasFrames)
+            {
+                float normalizedPivotY = frames[0].pivot.y / frames[0].rect.height;
+                position.y = (normalizedPivotY - .5f) * size.y;
+            }
 
             RectTransform rect;
             Image image;
-            CombatVFXView view = CreateView(anchor, sprite, type, PersistentSize(type),
-                Vector2.zero, 0f, out rect, out image);
+            CombatVFXView view = CreateView(anchor, sprite, type, size,
+                position, 0f, out rect, out image);
             persistentEffects[actorIndex, typeIndex] = view;
-            view.BeginPersistent(type);
+            if (hasFrames)
+                view.BeginPersistent(type, frames, 30f);
+            else
+                view.BeginPersistent(type);
         }
 
         void PlayProjectile(CombatVFXType type, RectTransform source, RectTransform target,
@@ -279,11 +297,17 @@ namespace Match3RPG.Battle
 
         bool TryGetFrames(CombatVFXType type, out Sprite[] frames)
         {
+            return TryGetFrames(type, out frames, true);
+        }
+
+        bool TryGetFrames(CombatVFXType type, out Sprite[] frames, bool logMissing)
+        {
             frames = catalog != null ? catalog.GetFrames(type) : null;
             if (frames != null && frames.Length > 0 && frames[0] != null)
                 return true;
 
-            LogMissingSprite(type);
+            if (logMissing)
+                LogMissingSprite(type);
             return false;
         }
 
@@ -323,6 +347,7 @@ namespace Match3RPG.Battle
                 case CombatVFXType.Burn: return new Vector2(210f, 225f);
                 case CombatVFXType.Freeze: return new Vector2(215f, 235f);
                 case CombatVFXType.Poison: return new Vector2(205f, 220f);
+                case CombatVFXType.RageReady: return new Vector2(230f, 260f);
                 default: return new Vector2(170f, 170f);
             }
         }

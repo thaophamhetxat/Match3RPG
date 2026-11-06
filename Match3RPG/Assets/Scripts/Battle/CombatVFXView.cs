@@ -60,7 +60,12 @@ namespace Match3RPG.Battle
 
         public void BeginPersistent(CombatVFXType type)
         {
-            StartCoroutine(PulsePersistent(type));
+            StartCoroutine(PulsePersistent(type, null, 0f));
+        }
+
+        public void BeginPersistent(CombatVFXType type, Sprite[] frames, float frameRate)
+        {
+            StartCoroutine(PulsePersistent(type, frames, frameRate));
         }
 
         IEnumerator PlayTransient(CombatVFXType type, float duration, Vector2 destination,
@@ -99,12 +104,17 @@ namespace Match3RPG.Battle
             Destroy(gameObject);
         }
 
-        IEnumerator PulsePersistent(CombatVFXType type)
+        IEnumerator PulsePersistent(CombatVFXType type, Sprite[] frames, float frameRate)
         {
             float phase = 0f;
             while (true)
             {
                 phase += Time.unscaledDeltaTime;
+                if (frames != null && frames.Length > 0)
+                {
+                    int frameIndex = Mathf.FloorToInt(phase * frameRate) % frames.Length;
+                    image.sprite = frames[frameIndex];
+                }
                 float pulse = (Mathf.Sin(phase * PulseSpeed(type)) + 1f) * .5f;
                 float scale = Mathf.Lerp(.94f, 1.06f, pulse);
                 rectTransform.localScale = new Vector3(scale, scale, 1f);

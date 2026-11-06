@@ -17,6 +17,7 @@ namespace Match3RPG.Editor
         const string CatalogPath = CatalogFolder + "/CombatVFXCatalog.asset";
         const string HealingAuraPath = VfxRoot + "Other/healing_aura.png";
         const string LifeStealPath = VfxRoot + "Other/life_steal.png";
+        const string RageAuraPath = VfxRoot + "Other/rage_aura_blue.png";
 
         static readonly CombatVFXType[] VfxTypes =
         {
@@ -64,8 +65,11 @@ namespace Match3RPG.Editor
                     frames[index] = LoadFrameSprites(HealingAuraPath, "HealingAura", 72);
                 else if (VfxTypes[index] == CombatVFXType.LifeSteal)
                     frames[index] = LoadFrameSprites(LifeStealPath, "LifeSteal", 60);
+                else if (VfxTypes[index] == CombatVFXType.RageReady)
+                    frames[index] = LoadFrameSprites(RageAuraPath, "RageAura", 30);
 
-                sprites[index] = frames[index] != null && frames[index].Length > 0
+                sprites[index] = VfxTypes[index] != CombatVFXType.RageReady
+                    && frames[index] != null && frames[index].Length > 0
                     ? frames[index][0]
                     : AssetDatabase.LoadAssetAtPath<Sprite>(SpritePaths[index]);
                 if (sprites[index] == null)
@@ -109,6 +113,13 @@ namespace Match3RPG.Editor
                     EnsureFrameSheetImportSettings(assetPath, "LifeSteal", 8, 8, 60,
                         SpriteAlignment.Center, new Vector2(.5f, .5f));
                     spriteCount += 60;
+                    continue;
+                }
+                if (string.Equals(assetPath, RageAuraPath, StringComparison.OrdinalIgnoreCase))
+                {
+                    EnsureFrameSheetImportSettings(assetPath, "RageAura", 6, 5, 30,
+                        SpriteAlignment.BottomCenter, new Vector2(.5f, 0f));
+                    spriteCount += 30;
                     continue;
                 }
 
