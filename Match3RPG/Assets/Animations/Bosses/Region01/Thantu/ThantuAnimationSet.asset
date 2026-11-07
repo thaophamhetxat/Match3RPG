@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae33acac3484a744c99640a33dd63419, type: 3}
+  m_Name: ThantuAnimationSet
+  m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Battle.CharacterAnimationSet
+  characterId: Thantu
+  animatorController: {fileID: 9100000, guid: 70a931587e71058419310a2949586986, type: 2}
+  idleClip: {fileID: 7400000, guid: 0c59c55334fca5145a674cdb0ed24e6f, type: 2}
+  attackClip: {fileID: 7400000, guid: fc23e52d1fd2fc94186ca4fa7a3a147f, type: 2}
+  specAttackClip: {fileID: 0}
+  skillClip: {fileID: 0}
+  hitClip: {fileID: 0}
+  dodgeClip: {fileID: 0}
+  risingClip: {fileID: 0}
+  deathClip: {fileID: 0}
+  attackImpactNormalizedTime: 0.57
+  attackNormalizationScaleMultiplier: 1.06
+  attackInPlace: 0
+  idleFacesForward: 1
+  idleFrames:
+  - {fileID: 719725248, guid: 8eb86c411717c12439e92265c923ee3b, type: 3}
+  - {fileID: 866436260, guid: 8eb86c411717c12439e92265c923ee3b, type: 3}
+  - {fileID: -425275001, guid: 8eb86c411717c12439e92265c923ee3b, type: 3}
+  - {fileID: -1562534692, guid: 8eb86c411717c12439e92265c923ee3b, type: 3}
+  - {fileID: -2090403058, guid: 8eb86c411717c12439e92265c923ee3b, type: 3}
+  - {fileID: 1860852661, guid: 8eb86c411717c12439e92265c923ee3b, type: 3}
+  - {fileID: 416192166, guid: 8eb86c411717c12439e92265c923ee3b, type: 3}
+  - {fileID: -826660144, guid: 8eb86c411717c12439e92265c923ee3b, type: 3}
+  - {fileID: -738408953, guid: 8eb86c411717c12439e92265c923ee3b, type: 3}
+  - {fileID: 2089436243, guid: 8eb86c411717c12439e92265c923ee3b, type: 3}
+  - {fileID: 1164463642, guid: 8eb86c411717c12439e92265c923ee3b, type: 3}
+  attackFrames:
+  - {fileID: 1204240734, guid: e5e6c2ae8dd5be2498b7d182ad4bc8a4, type: 3}
+  - {fileID: -1286289092, guid: e5e6c2ae8dd5be2498b7d182ad4bc8a4, type: 3}
+  - {fileID: 24036468, guid: e5e6c2ae8dd5be2498b7d182ad4bc8a4, type: 3}
+  - {fileID: -2110042298, guid: e5e6c2ae8dd5be2498b7d182ad4bc8a4, type: 3}
+  - {fileID: 351771884, guid: e5e6c2ae8dd5be2498b7d182ad4bc8a4, type: 3}
+  - {fileID: 1577172778, guid: e5e6c2ae8dd5be2498b7d182ad4bc8a4, type: 3}
+  - {fileID: -631710109, guid: e5e6c2ae8dd5be2498b7d182ad4bc8a4, type: 3}
+  - {fileID: -547281443, guid: e5e6c2ae8dd5be2498b7d182ad4bc8a4, type: 3}
+  - {fileID: 483779749, guid: e5e6c2ae8dd5be2498b7d182ad4bc8a4, type: 3}
+  - {fileID: 433939868, guid: e5e6c2ae8dd5be2498b7d182ad4bc8a4, type: 3}
+  - {fileID: -160052688, guid: e5e6c2ae8dd5be2498b7d182ad4bc8a4, type: 3}
+  - {fileID: -2062307073, guid: e5e6c2ae8dd5be2498b7d182ad4bc8a4, type: 3}
+  - {fileID: 1601632408, guid: e5e6c2ae8dd5be2498b7d182ad4bc8a4, type: 3}
+  specAttackFrameCount: 0
+  skillFrameCount: 0
+  hitFrameCount: 0
+  dodgeFrameCount: 0
+  risingFrameCount: 0
+  deathFrameCount: 0

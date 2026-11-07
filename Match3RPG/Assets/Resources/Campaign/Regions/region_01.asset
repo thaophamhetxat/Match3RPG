@@ -50,7 +50,7 @@ MonoBehaviour:
     regionId: region_01
     isBossStage: 0
     regionMapNodePosition: {x: 0.385, y: 0.612}
-    bossData: {fileID: 11400000, guid: b6aa82c1d68921f4a8e6664b298b7ac7, type: 2}
+    bossData: {fileID: 11400000, guid: 53781b2ee1b4e434982737f8d65eb05e, type: 2}
     lootTableId: 
   - stageId: region_01_stage_05
     stageNumber: 5
