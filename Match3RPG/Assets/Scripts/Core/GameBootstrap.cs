@@ -751,7 +751,7 @@ namespace Match3RPG.Core
                 float sourceAspect = sourceWidth > 0f && sourceHeight > 0f ? sourceWidth / sourceHeight : 0f;
                 Debug.Log("[BattleLayoutRuntime] "
                     + $"viewportWidth={canvasWidth:F1} viewportHeight={canvasHeight:F1} "
-                    + "referenceWidth=1080 referenceHeight=1920 "
+                    + "referenceWidth=1080 referenceHeight=2400 "
                     + $"uniformFitScale={uniformFitScale:F4} "
                     + $"BattleLayoutReferenceRootFinalSize=({battleLayoutReferenceRoot.rect.width:F1}, {battleLayoutReferenceRoot.rect.height:F1}) "
                     + $"BattleLayoutV2BackgroundFinalSize=({(battleLayoutV2BackgroundImage != null ? battleLayoutV2BackgroundImage.rectTransform.rect.width : 0f):F1}, {(battleLayoutV2BackgroundImage != null ? battleLayoutV2BackgroundImage.rectTransform.rect.height : 0f):F1}) "
@@ -801,7 +801,7 @@ namespace Match3RPG.Core
             float cellHeight = (gridRect.rect.height
                 - boardGrid.spacing.y * (RuntimeBoardSize - 1)) / RuntimeBoardSize;
             float cellSize = Mathf.Min(cellWidth, cellHeight);
-            boardGrid.cellSize = Vector2.one * cellSize;
+            boardGrid.cellSize = new Vector2(cellWidth, cellHeight);
             cellBackgroundGrid.cellSize = boardGrid.cellSize;
             boardRootRect.localScale = Vector3.one;
             cellBackgroundGridRect.localScale = Vector3.one;
