@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: region_01_boss_03_demon
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
   bossId: region_01_boss_03_demon
-  displayName: Boss03 Demon
+  displayName: Vulong
   portrait: {fileID: -2648648825015682815, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
-  animationSet: {fileID: 11400000, guid: 59f94a7e783424a49a3666d6f10830aa, type: 2}
+  animationSet: {fileID: 11400000, guid: c8f0baac648cb394d9c67de78e8d6566, type: 2}
   maxHP: 1150
   attack: 22
   maxRage: 100

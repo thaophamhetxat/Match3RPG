@@ -1,0 +1,615 @@
+fileFormatVersion: 2
+guid: 6f25849911e420247b3e82d87c23b7bd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7166475938844333816
+    second: vulong_atk_0
+  - first:
+      213: -6085231830092941799
+    second: vulong_atk_1
+  - first:
+      213: -716382325125760631
+    second: vulong_atk_2
+  - first:
+      213: -8422930288512105326
+    second: vulong_atk_3
+  - first:
+      213: 2708767393129542339
+    second: vulong_atk_4
+  - first:
+      213: -1054038801507386748
+    second: vulong_atk_5
+  - first:
+      213: 3373168874187619239
+    second: vulong_atk_6
+  - first:
+      213: -4546250745866929251
+    second: vulong_atk_7
+  - first:
+      213: 4775940406736102572
+    second: vulong_atk_8
+  - first:
+      213: 1640771541668425348
+    second: vulong_atk_9
+  - first:
+      213: 4731988116322886281
+    second: vulong_atk_10
+  - first:
+      213: 5861507719947214961
+    second: vulong_atk_11
+  - first:
+      213: -8918929462078888548
+    second: vulong_atk_12
+  - first:
+      213: -8649575119398479227
+    second: vulong_atk_13
+  - first:
+      213: -2454164781771587909
+    second: vulong_atk_14
+  - first:
+      213: -6544551718337637664
+    second: vulong_atk_15
+  - first:
+      213: -1528870479255355175
+    second: vulong_atk_16
+  - first:
+      213: 567735206880295326
+    second: vulong_atk_17
+  - first:
+      213: 8745528631448545568
+    second: vulong_atk_18
+  - first:
+      213: 3934429901376099092
+    second: vulong_atk_19
+  - first:
+      213: 3208752005809236164
+    second: vulong_atk_20
+  - first:
+      213: 3910678063551470032
+    second: vulong_atk_21
+  - first:
+      213: -8004462792332268510
+    second: vulong_atk_22
+  - first:
+      213: -6967625749786455969
+    second: vulong_atk_23
+  - first:
+      213: -530971117749155485
+    second: vulong_atk_24
+  - first:
+      213: -6383609901458789250
+    second: vulong_atk_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Vulong_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a8cef5ee6437ae4a98e318c8e2ae456
+      internalID: -1828342547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulong_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 112198a2b94502442a9fd5acea5bcaa9
+      internalID: 2024851730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulong_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35846a2933610f74ea7b21e2469096d2
+      internalID: 1792417846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulong_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 883fdce7b8e24ff4b8790c5c32a241f7
+      internalID: -1159154753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulong_Attack_08
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b31e2d7cde931846ba0fd87b35a7561
+      internalID: -1901798797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulong_Attack_09
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21063ab9afe13624789f0f757ac9991e
+      internalID: 1365301836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulong_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fae23c2ad4eb76c4087f0a4fee0c48dd
+      internalID: 457074736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulong_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78c61832b16eb1848b02c3ea18c9eb0d
+      internalID: 1822561817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulong_Attack_04
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f8f8a6be3a28d744a5c54cfd809f50a
+      internalID: 1634331440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulong_Attack_05
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 013d1eca9e560f84b9d7977f62f35948
+      internalID: 981294016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulong_Attack_06
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a01a172aaeb16a499db1524a299ed08
+      internalID: -1290568595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulong_Attack_07
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b43d422fe1cdb35499bfc8e5b9d9c47a
+      internalID: 1988444335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulong_Attack_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77e08799a5580e8438930b2e79a89f26
+      internalID: -1267434095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulong_Attack_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b2e4e05da422184195fc479c95ae7b9
+      internalID: -1944197890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulong_Attack_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 538c6e0a98f1cf447ab9bfc221f9b7aa
+      internalID: -1477741727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vulong_Attack_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fb67f29f355f8b4184c645cef99588d
+      internalID: -361088053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ccc7641062a8cd14a8b3413103ae66cc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Vulong_Attack_00: -1267434095
+      Vulong_Attack_01: -1944197890
+      Vulong_Attack_02: -1477741727
+      Vulong_Attack_03: -361088053
+      Vulong_Attack_04: 1634331440
+      Vulong_Attack_05: 981294016
+      Vulong_Attack_06: -1290568595
+      Vulong_Attack_07: 1988444335
+      Vulong_Attack_08: -1901798797
+      Vulong_Attack_09: 1365301836
+      Vulong_Attack_10: 457074736
+      Vulong_Attack_11: 1822561817
+      Vulong_Attack_12: -1828342547
+      Vulong_Attack_13: 2024851730
+      Vulong_Attack_14: 1792417846
+      Vulong_Attack_15: -1159154753
+      vulong_atk_0: 7166475938844333816
+      vulong_atk_1: -6085231830092941799
+      vulong_atk_10: 4731988116322886281
+      vulong_atk_11: 5861507719947214961
+      vulong_atk_12: -8918929462078888548
+      vulong_atk_13: -8649575119398479227
+      vulong_atk_14: -2454164781771587909
+      vulong_atk_15: -6544551718337637664
+      vulong_atk_16: -1528870479255355175
+      vulong_atk_17: 567735206880295326
+      vulong_atk_18: 8745528631448545568
+      vulong_atk_19: 3934429901376099092
+      vulong_atk_2: -716382325125760631
+      vulong_atk_20: 3208752005809236164
+      vulong_atk_21: 3910678063551470032
+      vulong_atk_22: -8004462792332268510
+      vulong_atk_23: -6967625749786455969
+      vulong_atk_24: -530971117749155485
+      vulong_atk_25: -6383609901458789250
+      vulong_atk_3: -8422930288512105326
+      vulong_atk_4: 2708767393129542339
+      vulong_atk_5: -1054038801507386748
+      vulong_atk_6: 3373168874187619239
+      vulong_atk_7: -4546250745866929251
+      vulong_atk_8: 4775940406736102572
+      vulong_atk_9: 1640771541668425348
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
