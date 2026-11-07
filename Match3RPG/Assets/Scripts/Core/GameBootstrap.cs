@@ -433,7 +433,9 @@ namespace Match3RPG.Core
                 idleFeetPaddingFraction: GetIdleFeetPaddingFraction(bossAnimationSet),
                 attackNormalizationMultiplier: bossAnimationSet != null
                     ? bossAnimationSet.AttackNormalizationScaleMultiplier
-                    : 1f);
+                    : 1f,
+                attackInPlace: bossAnimationSet != null && bossAnimationSet.AttackInPlace,
+                idleFacesForward: bossAnimationSet != null && bossAnimationSet.IdleFacesForward);
             combatVfx.Configure(Resources.Load<CombatVFXCatalog>("CombatVFX/CombatVFXCatalog"),
                 effectLayer, heroCharacterView, bossCharacterView);
 
@@ -893,7 +895,8 @@ namespace Match3RPG.Core
             float specAttackNormalizationMultiplier = 1f, float skillNormalizationMultiplier = 1f,
             Vector2? vfxAnchorPosition = null, Vector2? headVfxAnchorPosition = null,
             Vector2? floatingAnchorPosition = null, float idleFeetPaddingFraction = 0f,
-            float attackNormalizationMultiplier = 1f)
+            float attackNormalizationMultiplier = 1f,
+            bool attackInPlace = false, bool idleFacesForward = false)
         {
             RectTransform characterRoot = CreateRect(objectName, parent, min, max, Vector2.zero, Vector2.zero);
             RectTransform visualRect = CreateRect("CharacterVisual", characterRoot, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
@@ -921,7 +924,8 @@ namespace Match3RPG.Core
                 facingDirection, spriteFacingDirection, animationDriver,
                 idleNormalizationMultiplier, scaleTransitionDuration,
                 specAttackNormalizationMultiplier, skillNormalizationMultiplier,
-                idleFeetPaddingFraction, attackNormalizationMultiplier);
+                idleFeetPaddingFraction, attackNormalizationMultiplier,
+                attackInPlace, idleFacesForward);
             RectTransform floatingTextAnchor = CreateRect("FloatingTextAnchor", characterRoot,
                 floatingAnchorPosition ?? new Vector2(.5f, .88f),
                 floatingAnchorPosition ?? new Vector2(.5f, .88f), Vector2.zero, Vector2.zero);

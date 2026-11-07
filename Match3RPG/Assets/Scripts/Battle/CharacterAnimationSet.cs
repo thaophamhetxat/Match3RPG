@@ -17,6 +17,8 @@ namespace Match3RPG.Battle
         [SerializeField] AnimationClip deathClip;
         [SerializeField, Range(0f, 1f)] float attackImpactNormalizedTime = .52f;
         [SerializeField, Min(.1f)] float attackNormalizationScaleMultiplier = 1f;
+        [SerializeField] bool attackInPlace;
+        [SerializeField] bool idleFacesForward;
         [SerializeField] Sprite[] idleFrames = System.Array.Empty<Sprite>();
         [SerializeField] Sprite[] attackFrames = System.Array.Empty<Sprite>();
         [SerializeField, Min(0)] int specAttackFrameCount;
@@ -38,6 +40,8 @@ namespace Match3RPG.Battle
         public AnimationClip DeathClip => deathClip;
         public float AttackImpactNormalizedTime => attackImpactNormalizedTime;
         public float AttackNormalizationScaleMultiplier => attackNormalizationScaleMultiplier;
+        public bool AttackInPlace => attackInPlace;
+        public bool IdleFacesForward => idleFacesForward;
         public Sprite[] IdleFrames => idleFrames;
         public Sprite[] AttackFrames => attackFrames;
         public bool IsReady => animatorController != null && idleClip != null && attackClip != null;

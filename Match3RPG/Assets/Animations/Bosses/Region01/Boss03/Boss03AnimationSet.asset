@@ -24,6 +24,8 @@ MonoBehaviour:
   deathClip: {fileID: 0}
   attackImpactNormalizedTime: 0.2626728
   attackNormalizationScaleMultiplier: 2.53
+  attackInPlace: 1
+  idleFacesForward: 1
   idleFrames:
   - {fileID: -2648648825015682815, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
   - {fileID: -2174820985167751313, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
