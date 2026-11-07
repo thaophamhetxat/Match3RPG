@@ -279,11 +279,14 @@ namespace Match3RPG.Battle
             {
                 if (!approach && heroAnimation != null)
                     yield return heroAnimation.WaitForAttackComplete();
+                if (!approach)
+                    RestoreIdleScaleAndFacing();
                 Vector2 target = approach ? homePosition + AttackOffset(1f) : homePosition;
-                float scaleTarget = approach
-                    ? idleNormalizationScaleMultiplier * attackNormalizationScaleMultiplier
-                    : idleNormalizationScaleMultiplier;
-                yield return MoveTo(target, approach ? .10f : .14f, version, scaleTarget);
+                if (approach)
+                    yield return MoveTo(target, .10f, version,
+                        idleNormalizationScaleMultiplier * attackNormalizationScaleMultiplier);
+                else
+                    yield return MoveTo(target, .14f, version);
             }
             finally
             {
@@ -317,7 +320,9 @@ namespace Match3RPG.Battle
                     if (version != animationVersion) yield break;
                     if (heroAnimation != null)
                         yield return heroAnimation.WaitForAttackComplete();
-                    yield return MoveTo(homePosition, .14f, version, idleNormalizationScaleMultiplier);
+                    if (version != animationVersion) yield break;
+                    RestoreIdleScaleAndFacing();
+                    yield return MoveTo(homePosition, .14f, version);
                 }
                 else if (animationState == CharacterState.Hit)
                 {
@@ -460,6 +465,12 @@ namespace Match3RPG.Battle
         {
             if (rectTransform != null && baseVisualScaleInitialized)
                 rectTransform.localScale = GetVisualScale(multiplier);
+        }
+
+        void RestoreIdleScaleAndFacing()
+        {
+            SetVisualScale(idleNormalizationScaleMultiplier);
+            ApplyFacingDirection();
         }
 
         void RestoreHomeVisual()
