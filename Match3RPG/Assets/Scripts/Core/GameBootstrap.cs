@@ -935,10 +935,15 @@ namespace Match3RPG.Core
             RectTransform headVfxAnchor = CreateRect("HeadVFXAnchor", characterRoot,
                 headVfxAnchorPosition ?? new Vector2(.5f, .82f),
                 headVfxAnchorPosition ?? new Vector2(.5f, .82f), Vector2.zero, Vector2.zero);
+            const float healAnchorY = 0.41f;
+            RectTransform healAnchor = CreateRect("HealAnchor", characterRoot,
+                new Vector2(.5f, healAnchorY),
+                new Vector2(.5f, healAnchorY), Vector2.zero, Vector2.zero);
             vfxAnchor.SetAsLastSibling();
             persistentVfxAnchor.SetAsLastSibling();
             headVfxAnchor.SetAsLastSibling();
-            view.SetCombatVFXAnchors(vfxAnchor, persistentVfxAnchor, headVfxAnchor);
+            healAnchor.SetAsLastSibling();
+            view.SetCombatVFXAnchors(vfxAnchor, persistentVfxAnchor, headVfxAnchor, healAnchor);
             if (characterSprite == null)
                 Debug.LogWarning($"Character sprite missing for {objectName}; using the existing placeholder.", this);
             return view;

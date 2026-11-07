@@ -34,37 +34,24 @@ namespace Match3RPG.Battle
                 Debug.LogError("Combat VFX catalog is missing at Resources/CombatVFX/CombatVFXCatalog.", this);
         }
 
-//public bool PlayHeal(BattleActor actor)
-//{
-//    CharacterView character = GetCharacter(actor);
-//    RectTransform anchor = character != null ? character.VFXAnchor : null;
-//    if (anchor == null)
-//        return false;
+        public bool PlayHeal(BattleActor actor)
+        {
+            CharacterView character = GetCharacter(actor);
+            RectTransform anchorOverride = actor == BattleActor.Boss && character != null
+                ? character.HealAnchor
+                : null;
+            RectTransform anchor = actor == BattleActor.Boss
+                ? anchorOverride
+                : character != null ? character.VFXAnchor : null;
+            if (anchor == null)
+                return false;
 
-//    Vector3 position = anchor.position;
-//    if (actor == BattleActor.Boss)
-//        position.y -= 600f;   // hạ vòng aura của boss xuống ngang chân
-//    if (actor == BattleActor.Player)
-//    position.y += 100f;   // hạ vòng của hero (đổi số tùy ý)
-//    return PlayFrameSequence(CombatVFXType.Heal, position,
-//        HealingAuraDuration, new Vector2(230f, 325f), 1f);
-//}
-
-public bool PlayHeal(BattleActor actor)
-{
-    CharacterView character = GetCharacter(actor);
-    RectTransform anchor = character != null
-        ? (actor == BattleActor.Boss ? character.PersistentVFXAnchor : character.VFXAnchor)
-        : null;
-    if (anchor == null)
-        return false;
-
-    Vector3 position = anchor.position;
-    if (actor == BattleActor.Player)
-        position.y += 100f;   // giữ nguyên chỉnh của hero
-    return PlayFrameSequence(CombatVFXType.Heal, position,
-        HealingAuraDuration, new Vector2(230f, 325f), 1f);
-}
+            Vector3 position = anchor.position;
+            if (actor == BattleActor.Player)
+                position.y += 100f;
+            return PlayFrameSequence(CombatVFXType.Heal, position,
+                HealingAuraDuration, new Vector2(230f, 325f), 1f, anchorOverride);
+        }
 
 
 
@@ -91,11 +78,13 @@ public bool PlayHeal(BattleActor actor)
         }
 
         bool PlayFrameSequence(CombatVFXType type, Vector3 worldPosition,
-            float duration, Vector2 size, float direction)
+            float duration, Vector2 size, float direction, RectTransform anchorOverride = null)
         {
             if (transientRoot == null || !TryGetFrames(type, out Sprite[] frames))
                 return false;
 
+            if (anchorOverride != null)
+                worldPosition = anchorOverride.position;
             float normalizedPivotY = frames[0].pivot.y / frames[0].rect.height;
             float offsetY = (normalizedPivotY - .5f) * size.y;
             Vector2 position = ToTransientPosition(worldPosition);
