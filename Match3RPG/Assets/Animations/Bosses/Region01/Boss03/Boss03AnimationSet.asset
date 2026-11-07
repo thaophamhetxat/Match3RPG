@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae33acac3484a744c99640a33dd63419, type: 3}
+  m_Name: Boss03AnimationSet
+  m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Battle.CharacterAnimationSet
+  characterId: Boss03
+  animatorController: {fileID: 9100000, guid: 1305d9b7ef5c82d479729a848c5bb86a, type: 2}
+  idleClip: {fileID: 7400000, guid: 5a51cdcdb5a1fe84ea0dbe2ff5464f72, type: 2}
+  attackClip: {fileID: 7400000, guid: f2ee9c396aaf66e40afc242922909fbd, type: 2}
+  specAttackClip: {fileID: 0}
+  skillClip: {fileID: 0}
+  hitClip: {fileID: 0}
+  dodgeClip: {fileID: 0}
+  risingClip: {fileID: 0}
+  deathClip: {fileID: 0}
+  attackImpactNormalizedTime: 0.2626728
+  idleFrames:
+  - {fileID: -2648648825015682815, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: -2174820985167751313, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: -625810289823316445, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: 761372483969106647, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: -2978363779907256579, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: -6482084483222352722, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: 8013235558464492195, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: -4497771989350990401, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: -7874145480757280124, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: 3437338289645662793, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: 2442755400594115746, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: -2293173939109832970, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: 5093476852632423698, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: 6219262068222402797, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: -4643743346017183111, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: -3017106017020872223, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: -8922787474174001789, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: 5461000856706154144, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: 4523447727183805299, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  - {fileID: 7102330024263728511, guid: d11c79ffa7ccfb142ba5b94313155f9e, type: 3}
+  attackFrames:
+  - {fileID: 3636447413348717229, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: -680669177390504682, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: 2242795193376327272, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: -7523874339897824399, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: 1845221925377840699, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: 6295405975732889887, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: 6816934280076193223, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: 8568981047066963914, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: 4466798355323104594, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: -1237498197857241302, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: -2987412567724672220, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: 3851914436444915130, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: 4981170404786147184, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: 7438173020427047592, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: 7808551840258694390, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: -5171413141510630491, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: -8648620545164660900, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: 3062664856499783392, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: -6462128719218667776, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: -7216948323777860808, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: -7451727079642560860, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  - {fileID: 4331142759872516690, guid: 0c3f55d2f8569b6429b7a95983151d6a, type: 3}
+  specAttackFrameCount: 0
+  skillFrameCount: 0
+  hitFrameCount: 0
+  dodgeFrameCount: 0
+  risingFrameCount: 0
+  deathFrameCount: 0

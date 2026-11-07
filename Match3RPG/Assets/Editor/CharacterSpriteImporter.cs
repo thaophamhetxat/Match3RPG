@@ -141,8 +141,7 @@ namespace Match3RPG.Editor
 
             string[] segments = path.Substring(BossAnimationRoot.Length).Split('/');
             return segments.Length == 3
-                && (string.Equals(segments[0], "boss01", StringComparison.OrdinalIgnoreCase)
-                    || string.Equals(segments[0], "boss02", StringComparison.OrdinalIgnoreCase))
+                && segments[0].StartsWith("boss", StringComparison.OrdinalIgnoreCase)
                 && Array.IndexOf(BossBattleFolders, segments[1]) >= 0;
         }
 

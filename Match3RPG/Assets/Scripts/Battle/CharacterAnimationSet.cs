@@ -15,6 +15,7 @@ namespace Match3RPG.Battle
         [SerializeField] AnimationClip dodgeClip;
         [SerializeField] AnimationClip risingClip;
         [SerializeField] AnimationClip deathClip;
+        [SerializeField, Range(0f, 1f)] float attackImpactNormalizedTime = .52f;
         [SerializeField] Sprite[] idleFrames = System.Array.Empty<Sprite>();
         [SerializeField] Sprite[] attackFrames = System.Array.Empty<Sprite>();
         [SerializeField, Min(0)] int specAttackFrameCount;
@@ -34,6 +35,7 @@ namespace Match3RPG.Battle
         public AnimationClip DodgeClip => dodgeClip;
         public AnimationClip RisingClip => risingClip;
         public AnimationClip DeathClip => deathClip;
+        public float AttackImpactNormalizedTime => attackImpactNormalizedTime;
         public Sprite[] IdleFrames => idleFrames;
         public Sprite[] AttackFrames => attackFrames;
         public bool IsReady => animatorController != null && idleClip != null && attackClip != null;
@@ -79,7 +81,8 @@ namespace Match3RPG.Battle
             AnimationClip skill, AnimationClip hit, AnimationClip dodge,
             AnimationClip rising, AnimationClip death, Sprite[] idleSprites,
             Sprite[] attackSprites, int specAttackFrames, int skillFrames,
-            int hitFrames, int dodgeFrames, int risingFrames, int deathFrames)
+            int hitFrames, int dodgeFrames, int risingFrames, int deathFrames,
+            float singleHitImpactNormalizedTime = .52f)
         {
             characterId = id;
             animatorController = controller;
@@ -91,6 +94,7 @@ namespace Match3RPG.Battle
             dodgeClip = dodge;
             risingClip = rising;
             deathClip = death;
+            attackImpactNormalizedTime = Mathf.Clamp01(singleHitImpactNormalizedTime);
             idleFrames = idleSprites ?? System.Array.Empty<Sprite>();
             attackFrames = attackSprites ?? System.Array.Empty<Sprite>();
             specAttackFrameCount = Mathf.Max(0, specAttackFrames);

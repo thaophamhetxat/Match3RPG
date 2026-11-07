@@ -17,6 +17,7 @@ namespace Match3RPG.Battle
         static readonly int DodgeState = Animator.StringToHash("Base Layer.Dodge");
         static readonly int RisingState = Animator.StringToHash("Base Layer.Rising");
         static readonly int DeathState = Animator.StringToHash("Base Layer.Death");
+        const float DefaultAttackImpactNormalizedTime = .52f;
 
         Animator animator;
         string characterId = "Hero";
@@ -28,6 +29,7 @@ namespace Match3RPG.Battle
         AnimationClip risingClip;
         AnimationClip deathClip;
         bool attackFramesAvailable;
+        float attackImpactNormalizedTime = DefaultAttackImpactNormalizedTime;
         BattleCharacterAnimState currentState = BattleCharacterAnimState.Idle;
         int attackVersion;
         int lastObservedStateHash;
@@ -53,7 +55,8 @@ namespace Match3RPG.Battle
                 presentation != null ? presentation.SkillClip : null,
                 null, null, null,
                 presentation != null ? presentation.DeathClip : null,
-                presentation != null && presentation.HasAttackFrames);
+                presentation != null && presentation.HasAttackFrames,
+                DefaultAttackImpactNormalizedTime);
         }
 
         public void Configure(Animator characterAnimator, CharacterAnimationSet animations)
@@ -67,13 +70,16 @@ namespace Match3RPG.Battle
                 animations != null ? animations.DodgeClip : null,
                 animations != null ? animations.RisingClip : null,
                 animations != null ? animations.DeathClip : null,
-                animations != null && animations.HasAttackFrames);
+                animations != null && animations.HasAttackFrames,
+                animations != null
+                    ? animations.AttackImpactNormalizedTime
+                    : DefaultAttackImpactNormalizedTime);
         }
 
         void ConfigureAnimator(Animator characterAnimator, AnimationClip attack,
             AnimationClip specAttack, AnimationClip skill, AnimationClip hit,
             AnimationClip dodge, AnimationClip rising, AnimationClip death,
-            bool hasAttackFrames)
+            bool hasAttackFrames, float singleHitImpactNormalizedTime)
         {
             animator = characterAnimator;
             attackClip = attack;
@@ -84,6 +90,7 @@ namespace Match3RPG.Battle
             risingClip = rising;
             deathClip = death;
             attackFramesAvailable = hasAttackFrames;
+            attackImpactNormalizedTime = Mathf.Clamp01(singleHitImpactNormalizedTime);
             if (!IsReady)
             {
                 Debug.LogWarning($"{characterId} animation controller is unavailable; the static portrait will be used.", this);
@@ -282,7 +289,7 @@ namespace Match3RPG.Battle
                 yield break;
 
             int version = attackVersion;
-            float threshold = GetImpactThreshold(hitIndex, hitCount);
+            float threshold = GetImpactThreshold(hitIndex, hitCount, attackImpactNormalizedTime);
             float elapsed = 0f;
             while (version == attackVersion && elapsed < attackClip.length)
             {
@@ -369,10 +376,10 @@ namespace Match3RPG.Battle
             }
         }
 
-        static float GetImpactThreshold(int hitIndex, int hitCount)
+        static float GetImpactThreshold(int hitIndex, int hitCount, float singleHitImpactNormalizedTime)
         {
             if (hitCount <= 1)
-                return .52f;
+                return Mathf.Clamp01(singleHitImpactNormalizedTime);
             if (hitCount == 3)
                 return hitIndex == 0 ? .28f : hitIndex == 1 ? .52f : .78f;
             return Mathf.Lerp(.18f, .84f, hitIndex / (float)(hitCount - 1));
