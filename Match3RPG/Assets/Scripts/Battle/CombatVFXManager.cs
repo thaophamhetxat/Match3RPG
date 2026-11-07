@@ -34,13 +34,39 @@ namespace Match3RPG.Battle
                 Debug.LogError("Combat VFX catalog is missing at Resources/CombatVFX/CombatVFXCatalog.", this);
         }
 
-        public bool PlayHeal(BattleActor actor)
-        {
-            CharacterView character = GetCharacter(actor);
-            RectTransform anchor = character != null ? character.VFXAnchor : null;
-            return anchor != null && PlayFrameSequence(CombatVFXType.Heal, anchor.position,
-                HealingAuraDuration, new Vector2(230f, 325f), 1f);
-        }
+//public bool PlayHeal(BattleActor actor)
+//{
+//    CharacterView character = GetCharacter(actor);
+//    RectTransform anchor = character != null ? character.VFXAnchor : null;
+//    if (anchor == null)
+//        return false;
+
+//    Vector3 position = anchor.position;
+//    if (actor == BattleActor.Boss)
+//        position.y -= 600f;   // hạ vòng aura của boss xuống ngang chân
+//    if (actor == BattleActor.Player)
+//    position.y += 100f;   // hạ vòng của hero (đổi số tùy ý)
+//    return PlayFrameSequence(CombatVFXType.Heal, position,
+//        HealingAuraDuration, new Vector2(230f, 325f), 1f);
+//}
+
+public bool PlayHeal(BattleActor actor)
+{
+    CharacterView character = GetCharacter(actor);
+    RectTransform anchor = character != null
+        ? (actor == BattleActor.Boss ? character.PersistentVFXAnchor : character.VFXAnchor)
+        : null;
+    if (anchor == null)
+        return false;
+
+    Vector3 position = anchor.position;
+    if (actor == BattleActor.Player)
+        position.y += 100f;   // giữ nguyên chỉnh của hero
+    return PlayFrameSequence(CombatVFXType.Heal, position,
+        HealingAuraDuration, new Vector2(230f, 325f), 1f);
+}
+
+
 
         public bool PlayLifeSteal(BattleActor actor)
         {
@@ -51,9 +77,17 @@ namespace Match3RPG.Battle
             if (sourceAnchor == null || targetAnchor == null)
                 return false;
 
+            //Vector3 midpoint = (sourceAnchor.position + targetAnchor.position) * .5f;
+            //midpoint.y -= 200f;
+            //return PlayFrameSequence(CombatVFXType.LifeSteal, midpoint,
+            //    LifeStealDuration, new Vector2(450f, 365f), FacingSign(character));
+
             Vector3 midpoint = (sourceAnchor.position + targetAnchor.position) * .5f;
+            midpoint.y -= 200f;
+            float length = Vector3.Distance(sourceAnchor.position, targetAnchor.position) * 0.9f;
+            float height = length * 294f / 362f;
             return PlayFrameSequence(CombatVFXType.LifeSteal, midpoint,
-                LifeStealDuration, new Vector2(380f, 310f), FacingSign(character));
+                LifeStealDuration, new Vector2(length, height), FacingSign(character));
         }
 
         bool PlayFrameSequence(CombatVFXType type, Vector3 worldPosition,
@@ -198,6 +232,10 @@ namespace Match3RPG.Battle
             {
                 float normalizedPivotY = frames[0].pivot.y / frames[0].rect.height;
                 position.y = (normalizedPivotY - .5f) * size.y;
+            }
+            if (type == CombatVFXType.RageReady)
+            {
+                position.y += 277f;
             }
 
             RectTransform rect;
@@ -347,7 +385,7 @@ namespace Match3RPG.Battle
                 case CombatVFXType.Burn: return new Vector2(210f, 225f);
                 case CombatVFXType.Freeze: return new Vector2(215f, 235f);
                 case CombatVFXType.Poison: return new Vector2(205f, 220f);
-                case CombatVFXType.RageReady: return new Vector2(230f, 260f);
+                case CombatVFXType.RageReady: return new Vector2(1150f, 550f);
                 default: return new Vector2(170f, 170f);
             }
         }

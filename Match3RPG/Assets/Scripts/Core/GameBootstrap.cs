@@ -1018,15 +1018,16 @@ namespace Match3RPG.Core
             float anchorX = onLeft ? 0f : 1f;
             Vector2 anchor = new Vector2(anchorX, .5f);
             RectTransform rect = CreateRect(name, parent, anchor, anchor,
-                new Vector2(-labelSize * .5f, -labelSize * .5f),
-                new Vector2(labelSize * .5f, labelSize * .5f));
+                new Vector2(-labelSize * .5f, -labelSize * .5f+ 19f),
+                new Vector2(labelSize * .5f, labelSize * .5f+ 19f));
             TextMeshProUGUI text = rect.gameObject.AddComponent<TextMeshProUGUI>();
             text.font = TMP_Settings.defaultFontAsset;
+            text.fontStyle = FontStyles.Bold;
             text.text = "0";
-            text.fontSize = 30f;
+            text.fontSize = 40f;
             text.enableAutoSizing = true;
             text.fontSizeMin = 24f;
-            text.fontSizeMax = 30f;
+            text.fontSizeMax = 40f;
             text.alignment = TextAlignmentOptions.Center;
             text.color = new Color32(61, 43, 26, 255);
             text.outlineColor = new Color(1f, 1f, 1f, .9f);

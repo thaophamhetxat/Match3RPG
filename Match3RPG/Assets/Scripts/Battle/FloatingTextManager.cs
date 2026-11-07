@@ -29,7 +29,7 @@ namespace Match3RPG.Battle
 
     public sealed class FloatingTextManager : MonoBehaviour
     {
-        [SerializeField, Min(0.1f)] float lifetime = .9f;
+        [SerializeField, Min(0.1f)] float lifetime = .4f;
         [SerializeField, Min(0f)] float riseDistance = 72f;
         [SerializeField] TMP_FontAsset fontAsset;
         Sprite criticalStrikeIcon;
