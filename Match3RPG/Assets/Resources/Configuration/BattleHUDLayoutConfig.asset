@@ -80,15 +80,15 @@ MonoBehaviour:
     outlineWidth: 0.18
     alignment: 514
   turnInfoAnchorPosition: {x: 0.5, y: 0.535}
-  turnCountPosition: {x: -250, y: -6}
+  turnCountPosition: {x: -250, y: -2}
   turnCountSize: {x: 140, y: 58}
-  timerPosition: {x: 435, y: -6}
+  timerPosition: {x: 435, y: -4}
   timerSize: {x: 90, y: 58}
   turnCountStyle:
-    fontSize: 28
+    fontSize: 40
     autoSize: 1
     autoSizeMin: 20
-    autoSizeMax: 28
+    autoSizeMax: 44
     color: {r: 0.9607843, g: 0.7450981, b: 0.345098, a: 1}
     outlineColor: {r: 0.03, g: 0.025, b: 0.02, a: 0.9}
     outlineWidth: 0.18
@@ -97,7 +97,7 @@ MonoBehaviour:
     fontSize: 28
     autoSize: 1
     autoSizeMin: 20
-    autoSizeMax: 28
+    autoSizeMax: 44
     color: {r: 1, g: 1, b: 1, a: 1}
     outlineColor: {r: 0.03, g: 0.025, b: 0.02, a: 0.9}
     outlineWidth: 0.18

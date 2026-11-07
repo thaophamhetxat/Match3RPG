@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Match3RPG.Battle
 {
@@ -27,24 +29,55 @@ namespace Match3RPG.Battle
 
     public sealed class FloatingTextManager : MonoBehaviour
     {
-        [SerializeField, Min(0.1f)] float lifetime = .85f;
-        [SerializeField, Min(0f)] float riseDistance = 48f;
-        [SerializeField, Min(0f)] float stackSpacing = 30f;
+        [SerializeField, Min(0.1f)] float lifetime = .4f;
+        [SerializeField, Min(0f)] float riseDistance = 72f;
         [SerializeField] TMP_FontAsset fontAsset;
+        Sprite criticalStrikeIcon;
+        Sprite soulDiamondIcon;
+        bool iconSpritesLoaded;
 
         readonly Stack<TextMeshProUGUI> pool = new Stack<TextMeshProUGUI>();
         readonly List<ActiveText> activeTexts = new List<ActiveText>();
+        readonly List<OwnerQueue> ownerQueues = new List<OwnerQueue>();
         RectTransform overlayRect;
 
         sealed class ActiveText
         {
             public CharacterView Owner;
             public TextMeshProUGUI Text;
+            public Image Icon;
+        }
+
+        sealed class PendingText
+        {
+            public CharacterView Owner;
+            public FloatingTextType Type;
+            public int Amount;
+        }
+
+        sealed class OwnerQueue
+        {
+            public CharacterView Owner;
+            public readonly Queue<PendingText> Requests = new Queue<PendingText>();
+            public bool IsProcessing;
         }
 
         public void Configure(TMP_FontAsset configuredFont = null)
         {
             overlayRect = (RectTransform)transform;
+            if (!iconSpritesLoaded)
+            {
+                criticalStrikeIcon = Resources.Load<Sprite>("FloatingTextIcons/critical_strike");
+                if (criticalStrikeIcon == null)
+                    Debug.LogError("Unable to load floating-text icon at Assets/Resources/FloatingTextIcons/critical_strike.png (Resources.Load<Sprite>(\"FloatingTextIcons/critical_strike\")).", this);
+
+                soulDiamondIcon = Resources.Load<Sprite>("FloatingTextIcons/soul_diamond");
+                if (soulDiamondIcon == null)
+                    Debug.LogError("Unable to load floating-text icon at Assets/Resources/FloatingTextIcons/soul_diamond.png (Resources.Load<Sprite>(\"FloatingTextIcons/soul_diamond\")).", this);
+
+                iconSpritesLoaded = true;
+            }
+
             if (configuredFont != null) fontAsset = configuredFont;
             if (fontAsset == null) fontAsset = TMP_Settings.defaultFontAsset;
             if (fontAsset == null)
@@ -67,15 +100,76 @@ namespace Match3RPG.Battle
                 return;
             }
 
-            int stackIndex = 0;
-            for (int i = 0; i < activeTexts.Count; i++)
-                if (activeTexts[i].Owner == owner)
-                    stackIndex++;
+            OwnerQueue ownerQueue = null;
+            for (int i = 0; i < ownerQueues.Count; i++)
+            {
+                if (ownerQueues[i].Owner == owner)
+                {
+                    ownerQueue = ownerQueues[i];
+                    break;
+                }
+            }
 
+            if (ownerQueue == null)
+            {
+                ownerQueue = new OwnerQueue { Owner = owner };
+                ownerQueues.Add(ownerQueue);
+            }
+
+            ownerQueue.Requests.Enqueue(new PendingText { Owner = owner, Type = type, Amount = amount });
+            if (!ownerQueue.IsProcessing)
+                StartCoroutine(ProcessOwnerQueue(ownerQueue));
+        }
+
+        IEnumerator ProcessOwnerQueue(OwnerQueue ownerQueue)
+        {
+            ownerQueue.IsProcessing = true;
+            while (ownerQueue.Requests.Count > 0)
+            {
+                PendingText request = ownerQueue.Requests.Dequeue();
+                if (request.Owner == null || request.Owner.FloatingTextAnchor == null)
+                    continue;
+
+                yield return StartCoroutine(ShowQueuedText(request));
+            }
+
+            ownerQueue.IsProcessing = false;
+            ownerQueues.Remove(ownerQueue);
+        }
+
+        IEnumerator ShowQueuedText(PendingText request)
+        {
+            CharacterView owner = request.Owner;
+            FloatingTextType type = request.Type;
+            int amount = request.Amount;
             TextMeshProUGUI text = pool.Count > 0 ? pool.Pop() : CreateText();
+            Image icon = text.transform.Find("Icon") != null
+                ? text.transform.Find("Icon").GetComponent<Image>()
+                : null;
             text.text = Format(type, amount);
             text.color = ColorFor(type);
             text.alpha = 1f;
+            text.fontSize = FontSizeFor(type);
+            text.fontStyle = FontStyles.Bold;
+            text.outlineColor = new Color(0f, 0f, 0f, 0.9f);
+            text.outlineWidth = OutlineWidthFor(type);
+            text.alignment = TextAlignmentOptions.Left;
+            text.transform.localScale = Vector3.one * 1.3f;
+            if (icon != null)
+            {
+                Sprite sprite = IconSpriteFor(type);
+                icon.sprite = sprite;
+                icon.enabled = sprite != null && UseIcon(type);
+                icon.gameObject.SetActive(sprite != null && UseIcon(type));
+                if (icon.enabled)
+                {
+                    icon.rectTransform.sizeDelta = IconSizeFor(type);
+                    icon.rectTransform.anchoredPosition = new Vector2(IconPositionXFor(type), 0f);
+                    icon.preserveAspect = true;
+                    icon.color = Color.white;
+                }
+            }
+            text.rectTransform.anchoredPosition = new Vector2(12f, 0f);
             text.gameObject.SetActive(true);
 
             Vector3 worldPosition = owner.FloatingTextAnchor.position;
@@ -86,18 +180,24 @@ namespace Match3RPG.Battle
                 Debug.LogError("Unable to convert the character anchor to floating-text coordinates.", this);
                 text.gameObject.SetActive(false);
                 pool.Push(text);
-                return;
+                yield break;
             }
 
-            text.rectTransform.anchoredPosition = localPosition + Vector2.up * (stackIndex * stackSpacing);
-            ActiveText active = new ActiveText { Owner = owner, Text = text };
+            text.rectTransform.anchoredPosition = localPosition;
+            ActiveText active = new ActiveText { Owner = owner, Text = text, Icon = icon };
             activeTexts.Add(active);
-            StartCoroutine(Animate(active, text.rectTransform.anchoredPosition, text.color));
+            yield return StartCoroutine(Animate(active, text.rectTransform.anchoredPosition, text.color));
         }
 
         public void ClearActiveTexts()
         {
             StopAllCoroutines();
+            foreach (OwnerQueue ownerQueue in ownerQueues)
+            {
+                ownerQueue.Requests.Clear();
+                ownerQueue.IsProcessing = false;
+            }
+            ownerQueues.Clear();
             foreach (ActiveText active in activeTexts)
                 if (active.Text != null)
                     active.Text.gameObject.SetActive(false);
@@ -118,6 +218,29 @@ namespace Match3RPG.Battle
             text.fontStyle = FontStyles.Bold;
             text.alignment = TextAlignmentOptions.Center;
             text.raycastTarget = false;
+            text.enableWordWrapping = false;
+            text.overflowMode = TextOverflowModes.Overflow;
+            text.outlineColor = new Color(0f, 0f, 0f, .9f);
+            text.outlineWidth = 0.2f;
+
+            GameObject iconObject = new GameObject("Icon", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+            iconObject.transform.SetParent(textObject.transform, false);
+            RectTransform iconRect = (RectTransform)iconObject.transform;
+            iconRect.anchorMin = new Vector2(0f, 0.5f);
+            iconRect.anchorMax = new Vector2(0f, 0.5f);
+            iconRect.pivot = new Vector2(0.5f, 0.5f);
+            iconRect.sizeDelta = new Vector2(28f, 28f);
+            iconRect.anchoredPosition = new Vector2(-10f, 0f);
+            Image icon = iconObject.GetComponent<Image>();
+            icon.raycastTarget = false;
+            icon.enabled = false;
+            icon.preserveAspect = true;
+
+            text.rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+            text.rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+            text.rectTransform.pivot = new Vector2(0.5f, 0.5f);
+            text.rectTransform.sizeDelta = new Vector2(200f, 56f);
+            text.rectTransform.anchoredPosition = new Vector2(12f, 0f);
             text.gameObject.SetActive(false);
             return text;
         }
@@ -131,8 +254,12 @@ namespace Match3RPG.Battle
                 elapsed += Time.unscaledDeltaTime;
                 float progress = Mathf.Clamp01(elapsed / duration);
                 float easedProgress = progress * (2f - progress);
+                float scale = Mathf.Lerp(1.3f, 1f, Mathf.SmoothStep(0f, 1f, progress));
                 active.Text.rectTransform.anchoredPosition = startPosition + Vector2.up * (riseDistance * easedProgress);
+                active.Text.rectTransform.localScale = new Vector3(scale, scale, 1f);
                 active.Text.color = new Color(color.r, color.g, color.b, 1f - progress);
+                if (active.Icon != null)
+                    active.Icon.color = new Color(1f, 1f, 1f, 1f - progress);
                 yield return null;
             }
 
@@ -145,12 +272,12 @@ namespace Match3RPG.Battle
         {
             switch (type)
             {
-                case FloatingTextType.Damage: return $"-{amount} HP";
-                case FloatingTextType.Critical: return $"-{amount} HP!";
-                case FloatingTextType.SoulDamage: return $"-{amount} SOUL";
-                case FloatingTextType.SoulCritical: return $"-{amount} SOUL!";
+                case FloatingTextType.Damage: return amount.ToString();
+                case FloatingTextType.Critical: return amount.ToString() + "!";
+                case FloatingTextType.SoulDamage: return amount.ToString();
+                case FloatingTextType.SoulCritical: return amount.ToString() + "!";
                 case FloatingTextType.CriticalReady: return "CRITICAL!";
-                case FloatingTextType.Heal: return $"+{amount} HP";
+                case FloatingTextType.Heal: return "+" + amount;
                 case FloatingTextType.Mana: return $"+{amount} MANA";
                 case FloatingTextType.ManaLost: return $"-{amount} MANA";
                 case FloatingTextType.RageLost: return $"-{amount} RAGE";
@@ -165,11 +292,63 @@ namespace Match3RPG.Battle
             }
         }
 
+        static float FontSizeFor(FloatingTextType type)
+        {
+            switch (type)
+            {
+                case FloatingTextType.Critical:
+                case FloatingTextType.SoulCritical: return 64f;
+                case FloatingTextType.Damage:
+                case FloatingTextType.SoulDamage: return 48f;
+                case FloatingTextType.Heal: return 32f;
+                default: return 32f;
+            }
+        }
+
+        static float OutlineWidthFor(FloatingTextType type)
+        {
+            switch (type)
+            {
+                case FloatingTextType.Critical:
+                case FloatingTextType.SoulCritical: return 0.28f;
+                case FloatingTextType.Damage:
+                case FloatingTextType.SoulDamage: return 0.25f;
+                case FloatingTextType.Heal: return 0f;
+                default: return 0.2f;
+            }
+        }
+
+        static bool UseIcon(FloatingTextType type)
+        {
+            return type == FloatingTextType.Damage || type == FloatingTextType.Critical
+                || type == FloatingTextType.SoulDamage || type == FloatingTextType.SoulCritical;
+        }
+
+        static Vector2 IconSizeFor(FloatingTextType type)
+        {
+            float size = type == FloatingTextType.Damage || type == FloatingTextType.Critical ? 36f : 28f;
+            return new Vector2(size, size);
+        }
+
+        static float IconPositionXFor(FloatingTextType type)
+        {
+            return type == FloatingTextType.Damage || type == FloatingTextType.Critical ? -16f : -12f;
+        }
+
+        Sprite IconSpriteFor(FloatingTextType type)
+        {
+            if (type == FloatingTextType.Damage || type == FloatingTextType.Critical)
+                return criticalStrikeIcon;
+            if (type == FloatingTextType.SoulDamage || type == FloatingTextType.SoulCritical)
+                return soulDiamondIcon;
+            return null;
+        }
+
         static Color ColorFor(FloatingTextType type)
         {
             switch (type)
             {
-                case FloatingTextType.Damage: return new Color32(255, 104, 90, 255);
+                case FloatingTextType.Damage: return new Color32(255, 159, 28, 255);
                 case FloatingTextType.Critical: return new Color32(255, 211, 72, 255);
                 case FloatingTextType.SoulDamage: return new Color32(242, 242, 255, 255);
                 case FloatingTextType.SoulCritical: return new Color32(255, 255, 255, 255);

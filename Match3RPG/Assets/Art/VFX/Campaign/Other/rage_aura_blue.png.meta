@@ -1,0 +1,917 @@
+fileFormatVersion: 2
+guid: 765aadbda51e8c844a040cf42be8e1e6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8675616721281950522
+    second: rage_aura_blue_0
+  - first:
+      213: 3214129604671353110
+    second: rage_aura_blue_1
+  - first:
+      213: 4978519190661768693
+    second: rage_aura_blue_2
+  - first:
+      213: -5353264413172594947
+    second: rage_aura_blue_3
+  - first:
+      213: 4186087304052590639
+    second: rage_aura_blue_4
+  - first:
+      213: -6328530330583008038
+    second: rage_aura_blue_5
+  - first:
+      213: -2089463874582474164
+    second: rage_aura_blue_6
+  - first:
+      213: -4616491336346294467
+    second: rage_aura_blue_7
+  - first:
+      213: 306498726838615387
+    second: rage_aura_blue_8
+  - first:
+      213: -7268379403089198885
+    second: rage_aura_blue_9
+  - first:
+      213: 2702676117493535043
+    second: rage_aura_blue_10
+  - first:
+      213: 2506340496354796195
+    second: rage_aura_blue_11
+  - first:
+      213: -2299742174754913244
+    second: rage_aura_blue_12
+  - first:
+      213: -2369599890219078776
+    second: rage_aura_blue_13
+  - first:
+      213: 4228114813994319923
+    second: rage_aura_blue_14
+  - first:
+      213: -8360523858344747434
+    second: rage_aura_blue_15
+  - first:
+      213: -3064453047197313865
+    second: rage_aura_blue_16
+  - first:
+      213: -8424473150723356031
+    second: rage_aura_blue_17
+  - first:
+      213: 1734360159712761129
+    second: rage_aura_blue_18
+  - first:
+      213: 4010122018952540676
+    second: rage_aura_blue_19
+  - first:
+      213: -347562102538199924
+    second: rage_aura_blue_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: RageAura_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2224
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 388e3a2d634de67429b6d244eb3d3167
+      internalID: -2002594627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_01
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 2224
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cc454b99b3f8524b98b9e964101a8da
+      internalID: -617362022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_02
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 2224
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fcdce02779d8a7418ff3f41c463c01d
+      internalID: 841956264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_03
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 2224
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a648edc154137444a2b51f498ad9078
+      internalID: -281023802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_04
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 2224
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67445ad0529038e4ebca8c48e46669b5
+      internalID: 15243107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_05
+      rect:
+        serializedVersion: 2
+        x: 2480
+        y: 2224
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 120d23445de177f4b845acc646c9193d
+      internalID: -944522733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_06
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1668
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89600a03ad43ba248855228b9fc967b1
+      internalID: 888692019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_07
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 1668
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3692d75c4167490449fe0543df6bf6b7
+      internalID: -1401025670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_08
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 1668
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9f825e37c5dfdd469f0f888314b1c64
+      internalID: 1726965388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_09
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 1668
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f073229a5bf8644bad5c67703ea6b0d
+      internalID: 1150735513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_10
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 1668
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fff0994699e51d84c8b7816132ee6de8
+      internalID: 342432181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_11
+      rect:
+        serializedVersion: 2
+        x: 2480
+        y: 1668
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10eb1637b10f3be438f1a83b3a78c79e
+      internalID: 335089498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1112
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c0237c54134a544aa2998d605f5aeeb
+      internalID: -1130759556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_13
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 1112
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407cd3b97dd3ee743b1c4483de63948a
+      internalID: 1879635657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_14
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 1112
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a777807eae3bc2c458795647a1b850d7
+      internalID: -1351706429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_15
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 1112
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c7f06c349054e34cac1996d5b2409cd
+      internalID: 1936341459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_16
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 1112
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40a74ddae50fbbe4ab9f257e7845b7a0
+      internalID: -1744950401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_17
+      rect:
+        serializedVersion: 2
+        x: 2480
+        y: 1112
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a182c6e9960f3f545af96ff4f53cf4a6
+      internalID: 497861965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 556
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 623ffca6f9ed6b74687c4337eb4aa26b
+      internalID: 279656001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_19
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 556
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caeb84157ec0d7a42871f3056a65956f
+      internalID: 204144607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_20
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 556
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fe53400baea9a9408247b9f53a4f793
+      internalID: 465205299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_21
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 556
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1e173e65346f1142b6374e55a41fc12
+      internalID: 1160064009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_22
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 556
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58ceead5690ee92498f56cc3528cf22c
+      internalID: 1754924639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_23
+      rect:
+        serializedVersion: 2
+        x: 2480
+        y: 556
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0750d1ee1b9acee408b04ea8a43f9295
+      internalID: 1489423459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ce742f2a06f2ff4f89b249c3bd02ce4
+      internalID: 1199519874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_25
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 0
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de2dee7ce2fdb5e42bf56d97a70635dd
+      internalID: -1209166769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_26
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 0
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2199672a8bc42e14cab710f3255e7e40
+      internalID: -1578800484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_27
+      rect:
+        serializedVersion: 2
+        x: 1488
+        y: 0
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 471509cfb4c20e24a9567925e51c4c2e
+      internalID: 723872123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_28
+      rect:
+        serializedVersion: 2
+        x: 1984
+        y: 0
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbd4dd4543e53ab4f8052c35df732762
+      internalID: 2009550742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RageAura_29
+      rect:
+        serializedVersion: 2
+        x: 2480
+        y: 0
+        width: 496
+        height: 556
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b31231a29a693c443848b515a6ca02a3
+      internalID: -1862808237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      RageAura_00: -2002594627
+      RageAura_01: -617362022
+      RageAura_02: 841956264
+      RageAura_03: -281023802
+      RageAura_04: 15243107
+      RageAura_05: -944522733
+      RageAura_06: 888692019
+      RageAura_07: -1401025670
+      RageAura_08: 1726965388
+      RageAura_09: 1150735513
+      RageAura_10: 342432181
+      RageAura_11: 335089498
+      RageAura_12: -1130759556
+      RageAura_13: 1879635657
+      RageAura_14: -1351706429
+      RageAura_15: 1936341459
+      RageAura_16: -1744950401
+      RageAura_17: 497861965
+      RageAura_18: 279656001
+      RageAura_19: 204144607
+      RageAura_20: 465205299
+      RageAura_21: 1160064009
+      RageAura_22: 1754924639
+      RageAura_23: 1489423459
+      RageAura_24: 1199519874
+      RageAura_25: -1209166769
+      RageAura_26: -1578800484
+      RageAura_27: 723872123
+      RageAura_28: 2009550742
+      RageAura_29: -1862808237
+      rage_aura_blue_0: -8675616721281950522
+      rage_aura_blue_1: 3214129604671353110
+      rage_aura_blue_10: 2702676117493535043
+      rage_aura_blue_11: 2506340496354796195
+      rage_aura_blue_12: -2299742174754913244
+      rage_aura_blue_13: -2369599890219078776
+      rage_aura_blue_14: 4228114813994319923
+      rage_aura_blue_15: -8360523858344747434
+      rage_aura_blue_16: -3064453047197313865
+      rage_aura_blue_17: -8424473150723356031
+      rage_aura_blue_18: 1734360159712761129
+      rage_aura_blue_19: 4010122018952540676
+      rage_aura_blue_2: 4978519190661768693
+      rage_aura_blue_20: -347562102538199924
+      rage_aura_blue_3: -5353264413172594947
+      rage_aura_blue_4: 4186087304052590639
+      rage_aura_blue_5: -6328530330583008038
+      rage_aura_blue_6: -2089463874582474164
+      rage_aura_blue_7: -4616491336346294467
+      rage_aura_blue_8: 306498726838615387
+      rage_aura_blue_9: -7268379403089198885
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

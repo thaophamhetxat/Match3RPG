@@ -121,6 +121,8 @@ namespace Match3RPG.Core
         TMP_Text timerText;
         TMP_Text heroHpValueText;
         TMP_Text bossHpValueText;
+        TMP_Text heroHpSegmentText;
+        TMP_Text bossHpSegmentText;
         TMP_Text heroRageValueText;
         TMP_Text bossRageValueText;
         TurnIndicator turnIndicator;
@@ -402,6 +404,7 @@ namespace Match3RPG.Core
                 visualScale: selectedHeroData != null
                     ? selectedHeroData.VisualScale * HeroVisualScaleMultiplier
                     : HeroVisualScaleMultiplier,
+                    visualOffset: new Vector2(0f, 40f),
                 attackDistance: 12f,
                 characterAnimationSet: heroAnimationReady ? heroAnimationSet : null,
                 idleNormalizationMultiplier: selectedHeroData != null
@@ -462,6 +465,8 @@ namespace Match3RPG.Core
             heroHpBar = CreateBar(battleLayoutReferenceRoot, "HeroHPBar", Vector2.zero,
                 Vector2.one, new Color32(89, 197, 128, 255), heroHpBarSprite, out heroHpValueText,
                 hudLayoutValues.HpValueStyle);
+            heroHpSegmentText = CreateHpSegmentText(heroHpBar.transform,
+                "HeroHPSegmentCount", true);
             heroSoulHpBar = CreateBar(battleLayoutReferenceRoot, "HeroSoulHPBar", Vector2.zero,
                 Vector2.one, new Color32(139, 128, 224, 255), soulHpBarSprite, out _,
                 hudLayoutValues.RageValueStyle);
@@ -471,6 +476,8 @@ namespace Match3RPG.Core
             bossHpBar = CreateBar(battleLayoutReferenceRoot, "BossHPBar", Vector2.zero,
                 Vector2.one, new Color32(226, 91, 78, 255), bossHpBarSprite, out bossHpValueText,
                 hudLayoutValues.HpValueStyle);
+            bossHpSegmentText = CreateHpSegmentText(bossHpBar.transform,
+                "BossHPSegmentCount", false);
             bossSoulHpBar = CreateBar(battleLayoutReferenceRoot, "BossSoulHPBar", Vector2.zero,
                 Vector2.one, new Color32(139, 128, 224, 255), soulHpBarSprite, out _,
                 hudLayoutValues.RageValueStyle);
@@ -569,7 +576,8 @@ namespace Match3RPG.Core
             BattleHUD hud = hudObject.gameObject.AddComponent<BattleHUD>();
             hud.Configure(heroHpBar, bossHpBar, heroSoulHpBar, bossSoulHpBar,
                 heroRageBar, bossRageBar, manaBar, ultimateBar, heroHpValueText,
-                bossHpValueText, heroRageValueText, bossRageValueText, manaValue, ultimateValue);
+                bossHpValueText, heroRageValueText, bossRageValueText, manaValue, ultimateValue,
+                heroHpSegmentText, bossHpSegmentText);
 
             GameObject boardObject = new GameObject("BoardManager");
             BoardManager board = boardObject.AddComponent<BoardManager>();
@@ -1002,6 +1010,30 @@ namespace Match3RPG.Core
             fillMask.padding = Vector4.zero;
             fillMask.softness = Vector2Int.zero;
             return slider;
+        }
+
+        TMP_Text CreateHpSegmentText(Transform parent, string name, bool onLeft)
+        {
+            float labelSize = hudLayoutValues.HeroHpBarSize.y * 2f;
+            float anchorX = onLeft ? 0f : 1f;
+            Vector2 anchor = new Vector2(anchorX, .5f);
+            RectTransform rect = CreateRect(name, parent, anchor, anchor,
+                new Vector2(-labelSize * .5f, -labelSize * .5f+ 19f),
+                new Vector2(labelSize * .5f, labelSize * .5f+ 19f));
+            TextMeshProUGUI text = rect.gameObject.AddComponent<TextMeshProUGUI>();
+            text.font = TMP_Settings.defaultFontAsset;
+            text.fontStyle = FontStyles.Bold;
+            text.text = "0";
+            text.fontSize = 40f;
+            text.enableAutoSizing = true;
+            text.fontSizeMin = 24f;
+            text.fontSizeMax = 40f;
+            text.alignment = TextAlignmentOptions.Center;
+            text.color = new Color32(61, 43, 26, 255);
+            text.outlineColor = new Color(1f, 1f, 1f, .9f);
+            text.outlineWidth = .08f;
+            text.raycastTarget = false;
+            return text;
         }
 
         Sprite ResolveBarSpriteForSlider(Slider slider)

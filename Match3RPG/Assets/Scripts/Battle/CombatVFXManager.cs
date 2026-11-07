@@ -7,7 +7,9 @@ namespace Match3RPG.Battle
     public sealed class CombatVFXManager : MonoBehaviour
     {
         const float TransientLifetime = .24f;
-        readonly bool[] missingSpritesLogged = new bool[16];
+        public const float HealingAuraDuration = 2.4f;
+        public const float LifeStealDuration = 2f;
+        readonly bool[] missingSpritesLogged = new bool[17];
         CombatVFXView[,] persistentEffects;
         CombatVFXCatalog catalog;
         RectTransform transientRoot;
@@ -32,9 +34,78 @@ namespace Match3RPG.Battle
                 Debug.LogError("Combat VFX catalog is missing at Resources/CombatVFX/CombatVFXCatalog.", this);
         }
 
-        public void PlayHeal(BattleActor actor)
+//public bool PlayHeal(BattleActor actor)
+//{
+//    CharacterView character = GetCharacter(actor);
+//    RectTransform anchor = character != null ? character.VFXAnchor : null;
+//    if (anchor == null)
+//        return false;
+
+//    Vector3 position = anchor.position;
+//    if (actor == BattleActor.Boss)
+//        position.y -= 600f;   // hạ vòng aura của boss xuống ngang chân
+//    if (actor == BattleActor.Player)
+//    position.y += 100f;   // hạ vòng của hero (đổi số tùy ý)
+//    return PlayFrameSequence(CombatVFXType.Heal, position,
+//        HealingAuraDuration, new Vector2(230f, 325f), 1f);
+//}
+
+public bool PlayHeal(BattleActor actor)
+{
+    CharacterView character = GetCharacter(actor);
+    RectTransform anchor = character != null
+        ? (actor == BattleActor.Boss ? character.PersistentVFXAnchor : character.VFXAnchor)
+        : null;
+    if (anchor == null)
+        return false;
+
+    Vector3 position = anchor.position;
+    if (actor == BattleActor.Player)
+        position.y += 100f;   // giữ nguyên chỉnh của hero
+    return PlayFrameSequence(CombatVFXType.Heal, position,
+        HealingAuraDuration, new Vector2(230f, 325f), 1f);
+}
+
+
+
+        public bool PlayLifeSteal(BattleActor actor)
         {
-            PlayAt(CombatVFXType.Heal, GetCharacter(actor)?.VFXAnchor, .78f, 0f);
+            CharacterView character = GetCharacter(actor);
+            CharacterView target = GetCharacter(Opponent(actor));
+            RectTransform sourceAnchor = character != null ? character.VFXAnchor : null;
+            RectTransform targetAnchor = target != null ? target.VFXAnchor : null;
+            if (sourceAnchor == null || targetAnchor == null)
+                return false;
+
+            //Vector3 midpoint = (sourceAnchor.position + targetAnchor.position) * .5f;
+            //midpoint.y -= 200f;
+            //return PlayFrameSequence(CombatVFXType.LifeSteal, midpoint,
+            //    LifeStealDuration, new Vector2(450f, 365f), FacingSign(character));
+
+            Vector3 midpoint = (sourceAnchor.position + targetAnchor.position) * .5f;
+            midpoint.y -= 200f;
+            float length = Vector3.Distance(sourceAnchor.position, targetAnchor.position) * 0.9f;
+            float height = length * 294f / 362f;
+            return PlayFrameSequence(CombatVFXType.LifeSteal, midpoint,
+                LifeStealDuration, new Vector2(length, height), FacingSign(character));
+        }
+
+        bool PlayFrameSequence(CombatVFXType type, Vector3 worldPosition,
+            float duration, Vector2 size, float direction)
+        {
+            if (transientRoot == null || !TryGetFrames(type, out Sprite[] frames))
+                return false;
+
+            float normalizedPivotY = frames[0].pivot.y / frames[0].rect.height;
+            float offsetY = (normalizedPivotY - .5f) * size.y;
+            Vector2 position = ToTransientPosition(worldPosition);
+            position.y += offsetY;
+            RectTransform rect;
+            Image image;
+            CombatVFXView view = CreateView(transientRoot, frames[0], type, size,
+                position, direction, out rect, out image);
+            view.BeginFrameTransient(type, frames, 30f, duration, null);
+            return true;
         }
 
         public void PlayUltimate(BattleActor actor)
@@ -145,15 +216,37 @@ namespace Match3RPG.Battle
             RectTransform anchor = type == CombatVFXType.Stun && character != null
                 ? character.HeadVFXAnchor
                 : character != null ? character.PersistentVFXAnchor : null;
-            if (anchor == null || !TryGetSprite(type, out Sprite sprite))
+            if (anchor == null)
                 return;
+
+            bool hasFrames = TryGetFrames(type, out Sprite[] frames, false);
+            Sprite sprite;
+            if (hasFrames)
+                sprite = frames[0];
+            else if (!TryGetSprite(type, out sprite))
+                return;
+
+            Vector2 size = PersistentSize(type);
+            Vector2 position = Vector2.zero;
+            if (hasFrames)
+            {
+                float normalizedPivotY = frames[0].pivot.y / frames[0].rect.height;
+                position.y = (normalizedPivotY - .5f) * size.y;
+            }
+            if (type == CombatVFXType.RageReady)
+            {
+                position.y += 277f;
+            }
 
             RectTransform rect;
             Image image;
-            CombatVFXView view = CreateView(anchor, sprite, type, PersistentSize(type),
-                Vector2.zero, 0f, out rect, out image);
+            CombatVFXView view = CreateView(anchor, sprite, type, size,
+                position, 0f, out rect, out image);
             persistentEffects[actorIndex, typeIndex] = view;
-            view.BeginPersistent(type);
+            if (hasFrames)
+                view.BeginPersistent(type, frames, 30f);
+            else
+                view.BeginPersistent(type);
         }
 
         void PlayProjectile(CombatVFXType type, RectTransform source, RectTransform target,
@@ -183,7 +276,8 @@ namespace Match3RPG.Battle
             bool followsAnchor = type == CombatVFXType.Dash;
             RectTransform parent = followsAnchor ? anchor : transientRoot;
             Vector2 position = followsAnchor ? Vector2.zero : ToTransientPosition(anchor.position);
-            Vector2 size = type == CombatVFXType.Heal ? new Vector2(190f, 210f)
+            Vector2 size = type == CombatVFXType.Heal ? new Vector2(230f, 325f)
+                : type == CombatVFXType.LifeSteal ? new Vector2(240f, 195f)
                 : type == CombatVFXType.Ultimate ? new Vector2(260f, 260f)
                 : type == CombatVFXType.Slash ? new Vector2(230f, 170f)
                 : type == CombatVFXType.Dash ? new Vector2(240f, 120f)
@@ -235,13 +329,34 @@ namespace Match3RPG.Battle
             if (sprite != null)
                 return true;
 
+            LogMissingSprite(type);
+            return false;
+        }
+
+        bool TryGetFrames(CombatVFXType type, out Sprite[] frames)
+        {
+            return TryGetFrames(type, out frames, true);
+        }
+
+        bool TryGetFrames(CombatVFXType type, out Sprite[] frames, bool logMissing)
+        {
+            frames = catalog != null ? catalog.GetFrames(type) : null;
+            if (frames != null && frames.Length > 0 && frames[0] != null)
+                return true;
+
+            if (logMissing)
+                LogMissingSprite(type);
+            return false;
+        }
+
+        void LogMissingSprite(CombatVFXType type)
+        {
             int index = (int)type;
             if (index >= 0 && index < missingSpritesLogged.Length && !missingSpritesLogged[index])
             {
                 missingSpritesLogged[index] = true;
                 Debug.LogWarning($"Combat VFX sprite is missing for {type}; skipping this visual effect.", this);
             }
-            return false;
         }
 
         Vector2 ToTransientPosition(Vector3 worldPosition)
@@ -270,6 +385,7 @@ namespace Match3RPG.Battle
                 case CombatVFXType.Burn: return new Vector2(210f, 225f);
                 case CombatVFXType.Freeze: return new Vector2(215f, 235f);
                 case CombatVFXType.Poison: return new Vector2(205f, 220f);
+                case CombatVFXType.RageReady: return new Vector2(1150f, 550f);
                 default: return new Vector2(170f, 170f);
             }
         }
@@ -292,7 +408,8 @@ namespace Match3RPG.Battle
             {
                 CombatVFXType.Slash, CombatVFXType.Fireball, CombatVFXType.AirSlash,
                 CombatVFXType.Dash, CombatVFXType.Heal, CombatVFXType.HitImpact,
-                CombatVFXType.HitPhysical, CombatVFXType.CriticalHit, CombatVFXType.Ultimate
+                CombatVFXType.HitPhysical, CombatVFXType.CriticalHit, CombatVFXType.Ultimate,
+                CombatVFXType.LifeSteal
             };
             foreach (CombatVFXType type in transientTypes)
             {
@@ -302,9 +419,11 @@ namespace Match3RPG.Battle
                 else if (type == CombatVFXType.ShieldHit || type == CombatVFXType.HitImpact
                     || type == CombatVFXType.HitPhysical || type == CombatVFXType.CriticalHit)
                     PlayAt(type, boss != null ? boss.VFXAnchor : null, TransientLifetime, 1f);
+                else if (type == CombatVFXType.LifeSteal)
+                    PlayLifeSteal(BattleActor.Player);
                 else
                     PlayAt(type, hero != null ? hero.VFXAnchor : null,
-                        type == CombatVFXType.Heal ? .78f : TransientLifetime, 1f);
+                        type == CombatVFXType.Heal ? 2.4f : TransientLifetime, 1f);
                 yield return new WaitForSecondsRealtime(.18f);
             }
 

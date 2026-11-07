@@ -10,6 +10,8 @@ namespace Match3RPG.UI
         [SerializeField] Slider heroSoulHp, bossSoulHp;
         [SerializeField] Slider heroRage, bossRage;
         [SerializeField] TMP_Text heroHpText, bossHpText, heroRageText, bossRageText, manaText, ultimateText;
+        [SerializeField] TMP_Text heroHpSegmentText, bossHpSegmentText;
+        const int HpSegmentSize = 10000;
         static readonly Color RageColor = new Color32(242, 112, 43, 255);
         static readonly Color RageReadyColor = new Color32(255, 190, 62, 255);
 
@@ -35,6 +37,17 @@ namespace Match3RPG.UI
             TMP_Text heroRageValue, TMP_Text bossRageValue, TMP_Text manaValue,
             TMP_Text ultimateValue)
         {
+            Configure(heroHealth, bossHealth, heroSoulHealth, bossSoulHealth,
+                heroRageBar, bossRageBar, manaBar, ultimateBar, heroValue, bossValue,
+                heroRageValue, bossRageValue, manaValue, ultimateValue, null, null);
+        }
+
+        public void Configure(Slider heroHealth, Slider bossHealth, Slider heroSoulHealth,
+            Slider bossSoulHealth, Slider heroRageBar, Slider bossRageBar,
+            Slider manaBar, Slider ultimateBar, TMP_Text heroValue, TMP_Text bossValue,
+            TMP_Text heroRageValue, TMP_Text bossRageValue, TMP_Text manaValue,
+            TMP_Text ultimateValue, TMP_Text heroSegmentValue, TMP_Text bossSegmentValue)
+        {
             heroHp = heroHealth;
             bossHp = bossHealth;
             heroSoulHp = heroSoulHealth;
@@ -45,6 +58,8 @@ namespace Match3RPG.UI
             ultimate = ultimateBar;
             heroHpText = heroValue;
             bossHpText = bossValue;
+            heroHpSegmentText = heroSegmentValue;
+            bossHpSegmentText = bossSegmentValue;
             heroRageText = heroRageValue;
             bossRageText = bossRageValue;
             manaText = manaValue;
@@ -74,20 +89,34 @@ namespace Match3RPG.UI
             int bossRageValue, int heroMaxRage, int bossMaxRage, int manaValue, int ultimateValue,
             int heroSoulValue, int heroSoulMax, int bossSoulValue, int bossSoulMax, bool soulEnabled)
         {
-            Set(heroHp, hero, heroMax);
-            Set(bossHp, boss, bossMax);
+            SetHealth(heroHp, hero, heroMax, heroHpText, heroHpSegmentText);
+            SetHealth(bossHp, boss, bossMax, bossHpText, bossHpSegmentText);
             SetSoul(heroSoulHp, heroSoulValue, heroSoulMax);
             SetSoul(bossSoulHp, bossSoulValue, bossSoulMax);
             Set(mana, manaValue, 100);
             Set(ultimate, ultimateValue, 100);
             SetRage(heroRage, heroRageText, heroRageValue, heroMaxRage);
             SetRage(bossRage, bossRageText, bossRageValue, bossMaxRage);
-            int safeHeroMax = Mathf.Max(0, heroMax);
-            int safeBossMax = Mathf.Max(0, bossMax);
-            SetText(heroHpText, $"{(safeHeroMax > 0 ? Mathf.Clamp(hero, 0, safeHeroMax) : 0)} / {safeHeroMax}");
-            SetText(bossHpText, $"{(safeBossMax > 0 ? Mathf.Clamp(boss, 0, safeBossMax) : 0)} / {safeBossMax}");
             SetText(manaText, $"{manaValue} / 100");
             SetText(ultimateText, $"{ultimateValue} / 100");
+        }
+
+        static void SetHealth(Slider slider, int remaining, int max, TMP_Text valueText,
+            TMP_Text segmentText)
+        {
+            int safeMax = Mathf.Max(0, max);
+            int safeRemaining = safeMax > 0 ? Mathf.Clamp(remaining, 0, safeMax) : 0;
+            bool split = safeMax > HpSegmentSize;
+            int segmentCount = split ? Mathf.FloorToInt(safeRemaining / (float)HpSegmentSize) : 0;
+            int segmentValue = safeRemaining % HpSegmentSize;
+            if (segmentValue == 0 && safeRemaining > 0)
+                segmentValue = HpSegmentSize;
+            int segmentMax = split ? HpSegmentSize : safeMax;
+            int displayedValue = split ? segmentValue : safeRemaining;
+
+            Set(slider, displayedValue, segmentMax);
+            SetText(valueText, $"{displayedValue} / {segmentMax}");
+            SetText(segmentText, segmentCount.ToString());
         }
 
         static void Set(Slider slider, int value, int max)
