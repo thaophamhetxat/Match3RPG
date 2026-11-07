@@ -16,6 +16,7 @@ namespace Match3RPG.Battle
         [SerializeField] AnimationClip risingClip;
         [SerializeField] AnimationClip deathClip;
         [SerializeField, Range(0f, 1f)] float attackImpactNormalizedTime = .52f;
+        [SerializeField, Min(.1f)] float attackNormalizationScaleMultiplier = 1f;
         [SerializeField] Sprite[] idleFrames = System.Array.Empty<Sprite>();
         [SerializeField] Sprite[] attackFrames = System.Array.Empty<Sprite>();
         [SerializeField, Min(0)] int specAttackFrameCount;
@@ -36,6 +37,7 @@ namespace Match3RPG.Battle
         public AnimationClip RisingClip => risingClip;
         public AnimationClip DeathClip => deathClip;
         public float AttackImpactNormalizedTime => attackImpactNormalizedTime;
+        public float AttackNormalizationScaleMultiplier => attackNormalizationScaleMultiplier;
         public Sprite[] IdleFrames => idleFrames;
         public Sprite[] AttackFrames => attackFrames;
         public bool IsReady => animatorController != null && idleClip != null && attackClip != null;
@@ -82,7 +84,8 @@ namespace Match3RPG.Battle
             AnimationClip rising, AnimationClip death, Sprite[] idleSprites,
             Sprite[] attackSprites, int specAttackFrames, int skillFrames,
             int hitFrames, int dodgeFrames, int risingFrames, int deathFrames,
-            float singleHitImpactNormalizedTime = .52f)
+            float singleHitImpactNormalizedTime = .52f,
+            float attackScaleNormalizationMultiplier = 1f)
         {
             characterId = id;
             animatorController = controller;
@@ -95,6 +98,7 @@ namespace Match3RPG.Battle
             risingClip = rising;
             deathClip = death;
             attackImpactNormalizedTime = Mathf.Clamp01(singleHitImpactNormalizedTime);
+            attackNormalizationScaleMultiplier = Mathf.Max(.1f, attackScaleNormalizationMultiplier);
             idleFrames = idleSprites ?? System.Array.Empty<Sprite>();
             attackFrames = attackSprites ?? System.Array.Empty<Sprite>();
             specAttackFrameCount = Mathf.Max(0, specAttackFrames);

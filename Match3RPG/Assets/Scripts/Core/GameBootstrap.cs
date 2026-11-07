@@ -430,7 +430,10 @@ namespace Match3RPG.Core
                     ? battleBossData.HeadVfxAnchor : new Vector2(.5f, .82f),
                 floatingAnchorPosition: battleBossData != null
                     ? battleBossData.FloatingTextAnchor : new Vector2(.5f, .88f),
-                idleFeetPaddingFraction: GetIdleFeetPaddingFraction(bossAnimationSet));
+                idleFeetPaddingFraction: GetIdleFeetPaddingFraction(bossAnimationSet),
+                attackNormalizationMultiplier: bossAnimationSet != null
+                    ? bossAnimationSet.AttackNormalizationScaleMultiplier
+                    : 1f);
             combatVfx.Configure(Resources.Load<CombatVFXCatalog>("CombatVFX/CombatVFXCatalog"),
                 effectLayer, heroCharacterView, bossCharacterView);
 
@@ -889,7 +892,8 @@ namespace Match3RPG.Core
             float scaleTransitionDuration = HeroPresentationConfig.DefaultVisualScaleTransitionDuration,
             float specAttackNormalizationMultiplier = 1f, float skillNormalizationMultiplier = 1f,
             Vector2? vfxAnchorPosition = null, Vector2? headVfxAnchorPosition = null,
-            Vector2? floatingAnchorPosition = null, float idleFeetPaddingFraction = 0f)
+            Vector2? floatingAnchorPosition = null, float idleFeetPaddingFraction = 0f,
+            float attackNormalizationMultiplier = 1f)
         {
             RectTransform characterRoot = CreateRect(objectName, parent, min, max, Vector2.zero, Vector2.zero);
             RectTransform visualRect = CreateRect("CharacterVisual", characterRoot, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
@@ -917,7 +921,7 @@ namespace Match3RPG.Core
                 facingDirection, spriteFacingDirection, animationDriver,
                 idleNormalizationMultiplier, scaleTransitionDuration,
                 specAttackNormalizationMultiplier, skillNormalizationMultiplier,
-                idleFeetPaddingFraction);
+                idleFeetPaddingFraction, attackNormalizationMultiplier);
             RectTransform floatingTextAnchor = CreateRect("FloatingTextAnchor", characterRoot,
                 floatingAnchorPosition ?? new Vector2(.5f, .88f),
                 floatingAnchorPosition ?? new Vector2(.5f, .88f), Vector2.zero, Vector2.zero);

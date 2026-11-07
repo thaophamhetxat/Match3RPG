@@ -33,6 +33,7 @@ namespace Match3RPG.Battle
         bool baseVisualScaleInitialized;
         bool configuredVisualOffsetInitialized;
         float idleNormalizationScaleMultiplier = 1f;
+        float attackNormalizationScaleMultiplier = 1f;
         float specAttackNormalizationScaleMultiplier = 1f;
         float skillNormalizationScaleMultiplier = 1f;
         float idleFeetPaddingFraction;
@@ -65,7 +66,8 @@ namespace Match3RPG.Battle
             float scaleTransitionDuration = HeroPresentationConfig.DefaultVisualScaleTransitionDuration,
             float specAttackNormalizationMultiplier = 1f,
             float skillNormalizationMultiplier = 1f,
-            float idleFeetPadding = 0f)
+            float idleFeetPadding = 0f,
+            float attackNormalizationMultiplier = 1f)
         {
             portrait = characterPortrait;
             rectTransform = characterVisual;
@@ -76,6 +78,7 @@ namespace Match3RPG.Battle
             spriteFacingDirection = spriteFacing;
             heroAnimation = animationDriver;
             idleNormalizationScaleMultiplier = Mathf.Max(.1f, idleNormalizationMultiplier);
+            attackNormalizationScaleMultiplier = Mathf.Max(.1f, attackNormalizationMultiplier);
             specAttackNormalizationScaleMultiplier = Mathf.Max(.1f, specAttackNormalizationMultiplier);
             skillNormalizationScaleMultiplier = Mathf.Max(.1f, skillNormalizationMultiplier);
             idleFeetPaddingFraction = Mathf.Clamp01(idleFeetPadding);
@@ -277,7 +280,9 @@ namespace Match3RPG.Battle
                 if (!approach && heroAnimation != null)
                     yield return heroAnimation.WaitForAttackComplete();
                 Vector2 target = approach ? homePosition + AttackOffset(1f) : homePosition;
-                float scaleTarget = idleNormalizationScaleMultiplier;
+                float scaleTarget = approach
+                    ? idleNormalizationScaleMultiplier * attackNormalizationScaleMultiplier
+                    : idleNormalizationScaleMultiplier;
                 yield return MoveTo(target, approach ? .10f : .14f, version, scaleTarget);
             }
             finally
@@ -308,7 +313,7 @@ namespace Match3RPG.Battle
                 if (animationState == CharacterState.Attack)
                 {
                     yield return MoveTo(homePosition + AttackOffset(1f), .10f, version,
-                        idleNormalizationScaleMultiplier);
+                        idleNormalizationScaleMultiplier * attackNormalizationScaleMultiplier);
                     if (version != animationVersion) yield break;
                     if (heroAnimation != null)
                         yield return heroAnimation.WaitForAttackComplete();
@@ -346,7 +351,7 @@ namespace Match3RPG.Battle
                         : skillAnimationState == BattleCharacterAnimState.SpecAttack
                             ? specAttackNormalizationScaleMultiplier
                             : skillAnimationState == BattleCharacterAnimState.Attack
-                                ? 1f
+                                ? idleNormalizationScaleMultiplier * attackNormalizationScaleMultiplier
                                 : idleNormalizationScaleMultiplier;
                     yield return MoveTo(homePosition + AttackOffset(1.25f), .14f, version, skillScale);
                     if (version != animationVersion) yield break;
