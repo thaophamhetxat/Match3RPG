@@ -352,7 +352,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 2058
+        y: 1204
         width: 362
         height: 294
       alignment: 0
@@ -374,7 +374,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 362
-        y: 2058
+        y: 1204
         width: 362
         height: 294
       alignment: 0
@@ -396,7 +396,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 724
-        y: 2058
+        y: 1204
         width: 362
         height: 294
       alignment: 0
@@ -418,7 +418,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1086
-        y: 2058
+        y: 1204
         width: 362
         height: 294
       alignment: 0
@@ -440,7 +440,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1448
-        y: 2058
+        y: 1204
         width: 362
         height: 294
       alignment: 0
@@ -462,7 +462,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1810
-        y: 2058
+        y: 1204
         width: 362
         height: 294
       alignment: 0
@@ -484,7 +484,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2172
-        y: 2058
+        y: 1204
         width: 362
         height: 294
       alignment: 0
@@ -506,7 +506,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2534
-        y: 2058
+        y: 1204
         width: 362
         height: 294
       alignment: 0
@@ -528,7 +528,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1764
+        y: 910
         width: 362
         height: 294
       alignment: 0
@@ -550,7 +550,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 362
-        y: 1764
+        y: 910
         width: 362
         height: 294
       alignment: 0
@@ -572,7 +572,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 724
-        y: 1764
+        y: 910
         width: 362
         height: 294
       alignment: 0
@@ -594,7 +594,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1086
-        y: 1764
+        y: 910
         width: 362
         height: 294
       alignment: 0
@@ -616,7 +616,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1448
-        y: 1764
+        y: 910
         width: 362
         height: 294
       alignment: 0
@@ -638,7 +638,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1810
-        y: 1764
+        y: 910
         width: 362
         height: 294
       alignment: 0
@@ -660,7 +660,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2172
-        y: 1764
+        y: 910
         width: 362
         height: 294
       alignment: 0
@@ -682,7 +682,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2534
-        y: 1764
+        y: 910
         width: 362
         height: 294
       alignment: 0
@@ -704,7 +704,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1470
+        y: 616
         width: 362
         height: 294
       alignment: 0
@@ -726,7 +726,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 362
-        y: 1470
+        y: 616
         width: 362
         height: 294
       alignment: 0
@@ -748,7 +748,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 724
-        y: 1470
+        y: 616
         width: 362
         height: 294
       alignment: 0
@@ -770,7 +770,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1086
-        y: 1470
+        y: 616
         width: 362
         height: 294
       alignment: 0
@@ -792,7 +792,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1448
-        y: 1470
+        y: 616
         width: 362
         height: 294
       alignment: 0
@@ -814,7 +814,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1810
-        y: 1470
+        y: 616
         width: 362
         height: 294
       alignment: 0
@@ -836,7 +836,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2172
-        y: 1470
+        y: 616
         width: 362
         height: 294
       alignment: 0
@@ -858,7 +858,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2534
-        y: 1470
+        y: 616
         width: 362
         height: 294
       alignment: 0
@@ -880,7 +880,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1176
+        y: 322
         width: 362
         height: 294
       alignment: 0
@@ -902,7 +902,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 362
-        y: 1176
+        y: 322
         width: 362
         height: 294
       alignment: 0
@@ -924,7 +924,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 724
-        y: 1176
+        y: 322
         width: 362
         height: 294
       alignment: 0
@@ -946,7 +946,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1086
-        y: 1176
+        y: 322
         width: 362
         height: 294
       alignment: 0
@@ -968,7 +968,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1448
-        y: 1176
+        y: 322
         width: 362
         height: 294
       alignment: 0
@@ -990,7 +990,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1810
-        y: 1176
+        y: 322
         width: 362
         height: 294
       alignment: 0
@@ -1012,7 +1012,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2172
-        y: 1176
+        y: 322
         width: 362
         height: 294
       alignment: 0
@@ -1034,7 +1034,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2534
-        y: 1176
+        y: 322
         width: 362
         height: 294
       alignment: 0
@@ -1056,7 +1056,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 882
+        y: 28
         width: 362
         height: 294
       alignment: 0
@@ -1078,7 +1078,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 362
-        y: 882
+        y: 28
         width: 362
         height: 294
       alignment: 0
@@ -1100,7 +1100,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 724
-        y: 882
+        y: 28
         width: 362
         height: 294
       alignment: 0
@@ -1122,7 +1122,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1086
-        y: 882
+        y: 28
         width: 362
         height: 294
       alignment: 0
@@ -1144,7 +1144,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1448
-        y: 882
+        y: 28
         width: 362
         height: 294
       alignment: 0
@@ -1166,7 +1166,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1810
-        y: 882
+        y: 28
         width: 362
         height: 294
       alignment: 0
@@ -1188,7 +1188,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2172
-        y: 882
+        y: 28
         width: 362
         height: 294
       alignment: 0
@@ -1210,7 +1210,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2534
-        y: 882
+        y: 28
         width: 362
         height: 294
       alignment: 0
@@ -1223,446 +1223,6 @@ TextureImporter:
       bones: []
       spriteID: c87574c9f3459f94ca1461258bf39e6f
       internalID: 806828247
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_40
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 588
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 127fdff23bdaef242b0e91dd94f97a4f
-      internalID: -498783123
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_41
-      rect:
-        serializedVersion: 2
-        x: 362
-        y: 588
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b02dbef3e70bd5844859e815f6da765c
-      internalID: 225206410
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_42
-      rect:
-        serializedVersion: 2
-        x: 724
-        y: 588
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df9a86028bdab804791fc251c002d3ed
-      internalID: -1360300482
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_43
-      rect:
-        serializedVersion: 2
-        x: 1086
-        y: 588
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cb358d1b1e50ab247ae5a981a738d035
-      internalID: 895042732
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_44
-      rect:
-        serializedVersion: 2
-        x: 1448
-        y: 588
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c5cf1434981a9dc408670b7b492d6a31
-      internalID: 683393145
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_45
-      rect:
-        serializedVersion: 2
-        x: 1810
-        y: 588
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 896af75ddc78f5343a8c3aacb95a78f9
-      internalID: -1630340815
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_46
-      rect:
-        serializedVersion: 2
-        x: 2172
-        y: 588
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bc577dfbaec4c2e41966abe21887a425
-      internalID: 1107568305
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_47
-      rect:
-        serializedVersion: 2
-        x: 2534
-        y: 588
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a733f26b23b3c884586cadeaee53f273
-      internalID: 1498962607
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_48
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 294
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 851c7bff8eb0c7a49a09f44e72a63cbc
-      internalID: 1742559490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_49
-      rect:
-        serializedVersion: 2
-        x: 362
-        y: 294
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9ef65535434c8754881f64b151d7f363
-      internalID: 1407523636
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_50
-      rect:
-        serializedVersion: 2
-        x: 724
-        y: 294
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9a2bfb1a8344cd64d9b6da541bd2dc5a
-      internalID: -1002384907
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_51
-      rect:
-        serializedVersion: 2
-        x: 1086
-        y: 294
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1f47416a69e3c7347b14af2b80a87a2f
-      internalID: 1469201200
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_52
-      rect:
-        serializedVersion: 2
-        x: 1448
-        y: 294
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c60ce449050523b41964cd6241b7b203
-      internalID: -535512483
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_53
-      rect:
-        serializedVersion: 2
-        x: 1810
-        y: 294
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b87dfbdf3dae7646a9891c8fa2b915e
-      internalID: -1547650561
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_54
-      rect:
-        serializedVersion: 2
-        x: 2172
-        y: 294
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 39851cf9c1fa1d7498151cf0b02052f0
-      internalID: 533820325
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_55
-      rect:
-        serializedVersion: 2
-        x: 2534
-        y: 294
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e9c4bbf6b2504a24285ef219d70e79d2
-      internalID: -1036742606
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_56
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7b3df87b0a438ea46be1918aed788203
-      internalID: 1558377691
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_57
-      rect:
-        serializedVersion: 2
-        x: 362
-        y: 0
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 77d4e109bbfb9dd4495ca4725c8ca62e
-      internalID: 1404090961
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_58
-      rect:
-        serializedVersion: 2
-        x: 724
-        y: 0
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: da0cdb9dd00282e4e8a23f23ccf63e01
-      internalID: -793679490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LifeSteal_59
-      rect:
-        serializedVersion: 2
-        x: 1086
-        y: 0
-        width: 362
-        height: 294
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c0b03b6eb06f4e47a0cc3bd2b1a6606
-      internalID: 1745673235
       vertices: []
       indices: 
       edges: []

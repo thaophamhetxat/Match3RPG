@@ -8,7 +8,7 @@ namespace Match3RPG.Battle
     {
         const float TransientLifetime = .24f;
         public const float HealingAuraDuration = 2.4f;
-        public const float LifeStealDuration = 2f;
+        public const float LifeStealDuration = 1.333f;
         readonly bool[] missingSpritesLogged = new bool[17];
         CombatVFXView[,] persistentEffects;
         CombatVFXCatalog catalog;
