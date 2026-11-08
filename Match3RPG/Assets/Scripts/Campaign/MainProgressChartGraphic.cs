@@ -31,51 +31,51 @@ namespace Match3RPG.Campaign
         {
             new[]
             {
-                new Vector2(.085f, .74f), new Vector2(.085f, .66f), new Vector2(.065f, .56f),
-                new Vector2(.045f, .43f), new Vector2(.025f, .30f), new Vector2(.105f, .56f),
-                new Vector2(.125f, .45f), new Vector2(.145f, .34f), new Vector2(.155f, .23f),
-                new Vector2(.165f, .12f)
+                new Vector2(.085f, .74f), new Vector2(.085f, .66f), new Vector2(.075f, .56f),
+                new Vector2(.065f, .46f), new Vector2(.055f, .36f), new Vector2(.095f, .56f),
+                new Vector2(.105f, .46f), new Vector2(.115f, .35f), new Vector2(.125f, .24f),
+                new Vector2(.135f, .13f)
             },
             new[]
             {
                 new Vector2(.22f, .74f), new Vector2(.22f, .66f), new Vector2(.22f, .57f),
-                new Vector2(.22f, .49f), new Vector2(.19f, .40f), new Vector2(.17f, .31f),
-                new Vector2(.25f, .40f), new Vector2(.27f, .31f), new Vector2(.29f, .22f),
-                new Vector2(.31f, .13f)
+                new Vector2(.21f, .48f), new Vector2(.20f, .39f), new Vector2(.18f, .30f),
+                new Vector2(.24f, .41f), new Vector2(.26f, .31f), new Vector2(.28f, .22f),
+                new Vector2(.30f, .13f)
             },
             new[]
             {
                 new Vector2(.35f, .74f), new Vector2(.35f, .66f), new Vector2(.35f, .57f),
-                new Vector2(.32f, .48f), new Vector2(.30f, .39f), new Vector2(.28f, .30f),
-                new Vector2(.38f, .48f), new Vector2(.40f, .37f), new Vector2(.42f, .26f),
-                new Vector2(.44f, .15f)
+                new Vector2(.34f, .48f), new Vector2(.32f, .39f), new Vector2(.30f, .30f),
+                new Vector2(.37f, .47f), new Vector2(.39f, .37f), new Vector2(.41f, .26f),
+                new Vector2(.43f, .15f)
             },
             new[]
             {
                 new Vector2(.49f, .74f), new Vector2(.49f, .66f), new Vector2(.49f, .57f),
-                new Vector2(.49f, .49f), new Vector2(.49f, .40f), new Vector2(.46f, .31f),
-                new Vector2(.43f, .22f), new Vector2(.53f, .31f), new Vector2(.56f, .20f),
-                new Vector2(.59f, .09f)
+                new Vector2(.49f, .48f), new Vector2(.49f, .39f), new Vector2(.47f, .30f),
+                new Vector2(.45f, .21f), new Vector2(.53f, .31f), new Vector2(.55f, .20f),
+                new Vector2(.57f, .09f)
             },
             new[]
             {
-                new Vector2(.63f, .74f), new Vector2(.61f, .65f), new Vector2(.59f, .55f),
-                new Vector2(.57f, .45f), new Vector2(.66f, .65f), new Vector2(.69f, .56f),
-                new Vector2(.72f, .47f), new Vector2(.75f, .38f), new Vector2(.78f, .29f),
-                new Vector2(.81f, .20f)
+                new Vector2(.63f, .74f), new Vector2(.63f, .66f), new Vector2(.61f, .57f),
+                new Vector2(.59f, .48f), new Vector2(.57f, .39f), new Vector2(.64f, .59f),
+                new Vector2(.67f, .50f), new Vector2(.70f, .39f), new Vector2(.73f, .28f),
+                new Vector2(.75f, .18f)
             },
             new[]
             {
                 new Vector2(.77f, .74f), new Vector2(.77f, .66f), new Vector2(.77f, .57f),
-                new Vector2(.74f, .48f), new Vector2(.72f, .38f), new Vector2(.81f, .48f),
-                new Vector2(.84f, .38f), new Vector2(.87f, .29f), new Vector2(.90f, .20f),
-                new Vector2(.93f, .11f)
+                new Vector2(.75f, .48f), new Vector2(.73f, .39f), new Vector2(.81f, .49f),
+                new Vector2(.83f, .39f), new Vector2(.85f, .29f), new Vector2(.87f, .19f),
+                new Vector2(.89f, .10f)
             },
             new[]
             {
-                new Vector2(.91f, .74f), new Vector2(.91f, .66f), new Vector2(.87f, .56f),
-                new Vector2(.85f, .45f), new Vector2(.91f, .56f), new Vector2(.91f, .45f),
-                new Vector2(.94f, .56f), new Vector2(.95f, .45f), new Vector2(.96f, .34f),
+                new Vector2(.91f, .74f), new Vector2(.91f, .66f), new Vector2(.89f, .57f),
+                new Vector2(.87f, .48f), new Vector2(.91f, .56f), new Vector2(.91f, .47f),
+                new Vector2(.93f, .57f), new Vector2(.94f, .47f), new Vector2(.95f, .35f),
                 new Vector2(.96f, .23f)
             }
         };
@@ -124,6 +124,12 @@ namespace Match3RPG.Campaign
             selectedBranch = branchIndex;
             selectedStar = starIndex;
             SetVerticesDirty();
+        }
+
+        void Update()
+        {
+            if (Array.Exists(litStarCounts, litCount => litCount > 0))
+                SetVerticesDirty();
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -219,10 +225,15 @@ namespace Match3RPG.Campaign
                     }
 
                     bool lit = star < litCount;
+                    float pulse = lit
+                        ? 1f + .18f * Mathf.Sin(Time.unscaledTime * 5f + branch * .9f + star * .7f)
+                        : 1f;
                     Color starColor = lit ? BranchColors[branch]
                         : star == 0
                             ? new Color32(255, 230, 160, 255)
                             : LockedColor;
+                    if (lit)
+                        starColor = Color.Lerp(starColor, new Color32(255, 98, 98, 255), .35f);
                     if (star == 0)
                     {
                         AddDisc(vertexHelper, position, unit * .030f,
@@ -230,8 +241,11 @@ namespace Match3RPG.Campaign
                         AddRing(vertexHelper, position, unit * .026f,
                             unit * .004f, new Color32(255, 215, 120, 235));
                     }
-                    AddStar(vertexHelper, position, unit * .019f,
+                    AddStar(vertexHelper, position, unit * (.019f * pulse),
                         starColor * color);
+                    if (lit)
+                        AddRing(vertexHelper, position, unit * (.028f * pulse),
+                            unit * .0035f, new Color32(255, 112, 112, 220));
                     if (branch == selectedBranch && star == selectedStar)
                         AddRing(vertexHelper, position, unit * .032f,
                             unit * .004f, BranchColors[branch] * color);

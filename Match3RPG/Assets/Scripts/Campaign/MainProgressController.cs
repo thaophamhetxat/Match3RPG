@@ -773,12 +773,7 @@ namespace Match3RPG.Campaign
 
             previousRealmButton = CreateCharacterHitButton(starChartUIGroup.transform, "PreviousRealm",
                 .10f, realmSelectorMinY, .21f, realmSelectorMaxY, SelectPreviousStarChartRealm);
-            Image previousRealmImage = previousRealmButton.GetComponent<Image>();
-            previousRealmImage.color = new Color32(22, 29, 35, 255);
-            previousRealmImage.raycastTarget = true;
-            Outline previousRealmOutline = previousRealmButton.gameObject.AddComponent<Outline>();
-            previousRealmOutline.effectColor = Gold;
-            previousRealmOutline.effectDistance = new Vector2(2f, -2f);
+            ConfigureOutlinedButton(previousRealmButton, new Color32(18, 25, 31, 255), Gold, 2f);
             TMP_Text previousRealmArrow = AddLabel(starChartUIGroup.transform, "PreviousRealmArrow",
                 "◁", 42, Gold, new Vector2(.10f, realmSelectorMinY),
                 new Vector2(.21f, realmSelectorMaxY), TextAlignmentOptions.Center);
@@ -816,12 +811,7 @@ namespace Match3RPG.Campaign
 
             nextRealmButton = CreateCharacterHitButton(starChartUIGroup.transform, "NextRealm",
                 .79f, realmSelectorMinY, .90f, realmSelectorMaxY, SelectNextStarChartRealm);
-            Image nextRealmImage = nextRealmButton.GetComponent<Image>();
-            nextRealmImage.color = new Color32(22, 29, 35, 255);
-            nextRealmImage.raycastTarget = true;
-            Outline nextRealmOutline = nextRealmButton.gameObject.AddComponent<Outline>();
-            nextRealmOutline.effectColor = Gold;
-            nextRealmOutline.effectDistance = new Vector2(2f, -2f);
+            ConfigureOutlinedButton(nextRealmButton, new Color32(18, 25, 31, 255), Gold, 2f);
             TMP_Text nextRealmArrow = AddLabel(starChartUIGroup.transform, "NextRealmArrow",
                 "▷", 42, Gold, new Vector2(.79f, realmSelectorMinY),
                 new Vector2(.90f, realmSelectorMaxY), TextAlignmentOptions.Center);
@@ -1113,17 +1103,32 @@ namespace Match3RPG.Campaign
         {
             Button button = CreateCharacterHitButton(parent, name,
                 anchorMin.x, anchorMin.y, anchorMax.x, anchorMax.y, onClick);
-            Image image = button.GetComponent<Image>();
-            image.color = new Color32(28, 35, 44, 245);
-            image.raycastTarget = true;
-            button.transition = Selectable.Transition.None;
-            Outline outline = button.gameObject.AddComponent<Outline>();
-            outline.effectColor = Gold;
-            outline.effectDistance = new Vector2(2f, -2f);
+            ConfigureOutlinedButton(button, new Color32(28, 35, 44, 245), Gold, 2.5f);
             TMP_Text labelText = AddLabel(parent, $"{name}Label", label, fontSize,
                 Color.white, anchorMin, anchorMax, TextAlignmentOptions.Center);
             labelText.raycastTarget = false;
             return button;
+        }
+
+        static void ConfigureOutlinedButton(Button button, Color32 backgroundColor,
+            Color32 borderColor, float borderThickness)
+        {
+            if (button == null)
+                return;
+
+            Image image = button.GetComponent<Image>();
+            if (image != null)
+            {
+                image.color = backgroundColor;
+                image.raycastTarget = true;
+            }
+
+            button.transition = Selectable.Transition.None;
+            Outline outline = button.gameObject.GetComponent<Outline>();
+            if (outline == null)
+                outline = button.gameObject.AddComponent<Outline>();
+            outline.effectColor = borderColor;
+            outline.effectDistance = new Vector2(borderThickness, -borderThickness);
         }
 
         void CreateStarNodePopup()
@@ -1175,7 +1180,7 @@ namespace Match3RPG.Campaign
         void CreateTotalBuffPopup()
         {
             totalBuffPopup = CreateAnchoredRect(starChartUIGroup.transform, "TotalBuffPopup",
-                new Vector2(.22f, .22f), new Vector2(.78f, .62f),
+                new Vector2(.25f, .28f), new Vector2(.75f, .58f),
                 Vector2.zero, Vector2.zero).gameObject;
             Image popupBackground = totalBuffPopup.AddComponent<Image>();
             popupBackground.color = new Color32(16, 20, 28, 230);
@@ -1184,7 +1189,7 @@ namespace Match3RPG.Campaign
             popupOutline.effectDistance = new Vector2(3f, -3f);
             totalBuffPopupText = AddLabel(totalBuffPopup.transform, "TotalBuffPopupText",
                 string.Empty, 22, Color.white,
-                new Vector2(.06f, .17f), new Vector2(.94f, .84f),
+                new Vector2(.06f, .15f), new Vector2(.94f, .82f),
                 TextAlignmentOptions.TopLeft);
             ApplyStarChartTextStyle(totalBuffPopupText, 22);
             Button closeButton = CreatePanelButton(totalBuffPopup.transform, "TotalBuffCloseButton",
