@@ -765,20 +765,67 @@ namespace Match3RPG.Campaign
                 : 0;
             SelectStarChartRealm(FindRealmIndex(heroLevel), heroLevel);
 
+            float realmSelectorMinY = .66f;
+            float realmSelectorMaxY = .71f;
+            float realmSelectorWidth = .54f;
+            float realmSelectorLeft = .5f - realmSelectorWidth * .5f;
+            float realmSelectorRight = .5f + realmSelectorWidth * .5f;
+
             previousRealmButton = CreateCharacterHitButton(starChartUIGroup.transform, "PreviousRealm",
-                .11f, .672f, .21f, .704f, SelectPreviousStarChartRealm);
-            CreateAnchoredLabel(starChartUIGroup.transform, "PreviousRealmArrow", "‹", 24, Color.white,
-                new Vector2(.11f, .672f), new Vector2(.21f, .704f), out TMP_Text previousRealmArrow);
-            CreateAnchoredLabel(starChartUIGroup.transform, "RealmSelector", GetRealmButtonLabel(),
-                24, Color.white, new Vector2(.22f, .672f),
-                new Vector2(.78f, .704f), out realmButtonLabel);
+                .10f, realmSelectorMinY, .21f, realmSelectorMaxY, SelectPreviousStarChartRealm);
+            Image previousRealmImage = previousRealmButton.GetComponent<Image>();
+            previousRealmImage.color = new Color32(22, 29, 35, 255);
+            previousRealmImage.raycastTarget = true;
+            Outline previousRealmOutline = previousRealmButton.gameObject.AddComponent<Outline>();
+            previousRealmOutline.effectColor = Gold;
+            previousRealmOutline.effectDistance = new Vector2(2f, -2f);
+            TMP_Text previousRealmArrow = AddLabel(starChartUIGroup.transform, "PreviousRealmArrow",
+                "◁", 42, Gold, new Vector2(.10f, realmSelectorMinY),
+                new Vector2(.21f, realmSelectorMaxY), TextAlignmentOptions.Center);
+            ApplyStarChartTextStyle(previousRealmArrow, 42);
+
+            RectTransform realmSelectorFrame = CreateAnchoredRect(starChartUIGroup.transform,
+                "RealmSelectorFrame", new Vector2(realmSelectorLeft, realmSelectorMinY),
+                new Vector2(realmSelectorRight, realmSelectorMaxY), Vector2.zero, Vector2.zero);
+            Image realmSelectorBackground = realmSelectorFrame.gameObject.AddComponent<Image>();
+            realmSelectorBackground.color = new Color32(12, 27, 36, 255);
+            realmSelectorBackground.raycastTarget = false;
+            Outline realmSelectorOutline = realmSelectorFrame.gameObject.AddComponent<Outline>();
+            realmSelectorOutline.effectColor = Gold;
+            realmSelectorOutline.effectDistance = new Vector2(3f, -3f);
+
+            RectTransform realmSelectorInnerBorder = CreateAnchoredRect(realmSelectorFrame,
+                "RealmSelectorInnerBorder", new Vector2(.035f, .10f), new Vector2(.965f, .90f),
+                Vector2.zero, Vector2.zero);
+            Image realmSelectorInnerImage = realmSelectorInnerBorder.gameObject.AddComponent<Image>();
+            realmSelectorInnerImage.color = new Color32(22, 38, 48, 255);
+            realmSelectorInnerImage.raycastTarget = false;
+            Outline realmSelectorInnerOutline = realmSelectorInnerBorder.gameObject.AddComponent<Outline>();
+            realmSelectorInnerOutline.effectColor = MutedGold;
+            realmSelectorInnerOutline.effectDistance = new Vector2(1.5f, -1.5f);
+
+            realmButtonLabel = AddLabel(realmSelectorFrame, "RealmSelector",
+                GetRealmButtonLabel(), 30, Gold, new Vector2(.04f, .12f),
+                new Vector2(.96f, .88f), TextAlignmentOptions.Center);
+            realmButtonLabel.enableAutoSizing = true;
+            realmButtonLabel.fontSizeMin = 20;
+            realmButtonLabel.fontSizeMax = 32;
+            realmButtonLabel.overflowMode = TextOverflowModes.Overflow;
+            realmButtonLabel.enableWordWrapping = false;
+            ApplyStarChartTextStyle(realmButtonLabel, 30);
+
             nextRealmButton = CreateCharacterHitButton(starChartUIGroup.transform, "NextRealm",
-                .79f, .672f, .89f, .704f, SelectNextStarChartRealm);
-            CreateAnchoredLabel(starChartUIGroup.transform, "NextRealmArrow", "›", 24, Color.white,
-                new Vector2(.79f, .672f), new Vector2(.89f, .704f), out TMP_Text nextRealmArrow);
-            ApplyStarChartTextStyle(previousRealmArrow, 28);
-            ApplyStarChartTextStyle(realmButtonLabel, 24);
-            ApplyStarChartTextStyle(nextRealmArrow, 28);
+                .79f, realmSelectorMinY, .90f, realmSelectorMaxY, SelectNextStarChartRealm);
+            Image nextRealmImage = nextRealmButton.GetComponent<Image>();
+            nextRealmImage.color = new Color32(22, 29, 35, 255);
+            nextRealmImage.raycastTarget = true;
+            Outline nextRealmOutline = nextRealmButton.gameObject.AddComponent<Outline>();
+            nextRealmOutline.effectColor = Gold;
+            nextRealmOutline.effectDistance = new Vector2(2f, -2f);
+            TMP_Text nextRealmArrow = AddLabel(starChartUIGroup.transform, "NextRealmArrow",
+                "▷", 42, Gold, new Vector2(.79f, realmSelectorMinY),
+                new Vector2(.90f, realmSelectorMaxY), TextAlignmentOptions.Center);
+            ApplyStarChartTextStyle(nextRealmArrow, 42);
             RefreshRealmNavigationButtons();
 
             starChartContent = CreateAnchoredRect(starChartUIGroup.transform, "StarChartContent",
@@ -1128,7 +1175,7 @@ namespace Match3RPG.Campaign
         void CreateTotalBuffPopup()
         {
             totalBuffPopup = CreateAnchoredRect(starChartUIGroup.transform, "TotalBuffPopup",
-                new Vector2(.18f, .18f), new Vector2(.82f, .82f),
+                new Vector2(.22f, .22f), new Vector2(.78f, .62f),
                 Vector2.zero, Vector2.zero).gameObject;
             Image popupBackground = totalBuffPopup.AddComponent<Image>();
             popupBackground.color = new Color32(16, 20, 28, 230);
@@ -1136,12 +1183,12 @@ namespace Match3RPG.Campaign
             popupOutline.effectColor = Gold;
             popupOutline.effectDistance = new Vector2(3f, -3f);
             totalBuffPopupText = AddLabel(totalBuffPopup.transform, "TotalBuffPopupText",
-                string.Empty, 20, Color.white,
-                new Vector2(.06f, .08f), new Vector2(.94f, .88f),
+                string.Empty, 22, Color.white,
+                new Vector2(.06f, .17f), new Vector2(.94f, .84f),
                 TextAlignmentOptions.TopLeft);
-            ApplyStarChartTextStyle(totalBuffPopupText, 20);
+            ApplyStarChartTextStyle(totalBuffPopupText, 22);
             Button closeButton = CreatePanelButton(totalBuffPopup.transform, "TotalBuffCloseButton",
-                "ĐÓNG", new Vector2(180f, 52f), new Vector2(.5f, .06f), new Color32(74, 54, 44, 255));
+                "ĐÓNG", new Vector2(180f, 52f), new Vector2(.5f, .08f), new Color32(74, 54, 44, 255));
             closeButton.onClick.AddListener(CloseTotalBuffPopup);
             totalBuffPopup.SetActive(false);
         }
