@@ -23,21 +23,61 @@ namespace Match3RPG.Campaign
         };
 
         static readonly Color LockedColor = new Color32(82, 91, 104, 210);
-        static readonly float[] BranchAngleOffsets =
+        static readonly float[] BranchRootXs =
         {
-            -5f, 3f, -2f, 6f, -4f, 2f, 5f
+            .085f, .22f, .35f, .49f, .63f, .77f, .91f
         };
-        static readonly float[] BranchStartRadii =
+        static readonly Vector2[][] BranchStarLayouts =
         {
-            .20f, .215f, .19f, .205f, .22f, .195f, .21f
-        };
-        static readonly float[] BranchEndRadii =
-        {
-            .45f, .43f, .46f, .44f, .425f, .455f, .435f
-        };
-        static readonly float[] BranchCurveOffsets =
-        {
-            -.006f, .008f, -.01f, .005f, .011f, -.008f, .004f
+            new[]
+            {
+                new Vector2(.085f, .74f), new Vector2(.085f, .66f), new Vector2(.085f, .58f),
+                new Vector2(.085f, .49f), new Vector2(.12f, .41f), new Vector2(.12f, .32f),
+                new Vector2(.085f, .23f), new Vector2(.14f, .15f), new Vector2(.10f, .09f),
+                new Vector2(.12f, .05f)
+            },
+            new[]
+            {
+                new Vector2(.22f, .74f), new Vector2(.22f, .66f), new Vector2(.18f, .58f),
+                new Vector2(.22f, .49f), new Vector2(.28f, .40f), new Vector2(.28f, .31f),
+                new Vector2(.22f, .23f), new Vector2(.30f, .15f), new Vector2(.25f, .09f),
+                new Vector2(.28f, .05f)
+            },
+            new[]
+            {
+                new Vector2(.35f, .74f), new Vector2(.35f, .66f), new Vector2(.35f, .57f),
+                new Vector2(.35f, .48f), new Vector2(.41f, .40f), new Vector2(.41f, .31f),
+                new Vector2(.35f, .23f), new Vector2(.43f, .15f), new Vector2(.38f, .09f),
+                new Vector2(.41f, .05f)
+            },
+            new[]
+            {
+                new Vector2(.49f, .74f), new Vector2(.49f, .66f), new Vector2(.45f, .58f),
+                new Vector2(.49f, .49f), new Vector2(.56f, .40f), new Vector2(.56f, .31f),
+                new Vector2(.49f, .22f), new Vector2(.58f, .15f), new Vector2(.52f, .09f),
+                new Vector2(.56f, .05f)
+            },
+            new[]
+            {
+                new Vector2(.63f, .74f), new Vector2(.63f, .66f), new Vector2(.68f, .58f),
+                new Vector2(.63f, .49f), new Vector2(.60f, .40f), new Vector2(.60f, .31f),
+                new Vector2(.72f, .22f), new Vector2(.63f, .15f), new Vector2(.74f, .09f),
+                new Vector2(.66f, .05f)
+            },
+            new[]
+            {
+                new Vector2(.77f, .74f), new Vector2(.77f, .66f), new Vector2(.82f, .58f),
+                new Vector2(.77f, .49f), new Vector2(.74f, .40f), new Vector2(.74f, .31f),
+                new Vector2(.84f, .22f), new Vector2(.77f, .15f), new Vector2(.86f, .09f),
+                new Vector2(.79f, .05f)
+            },
+            new[]
+            {
+                new Vector2(.91f, .74f), new Vector2(.91f, .66f), new Vector2(.94f, .58f),
+                new Vector2(.91f, .49f), new Vector2(.87f, .40f), new Vector2(.87f, .31f),
+                new Vector2(.98f, .22f), new Vector2(.91f, .15f), new Vector2(.99f, .09f),
+                new Vector2(.93f, .05f)
+            }
         };
         static readonly bool[][] TrigramPatterns =
         {
@@ -110,21 +150,28 @@ namespace Match3RPG.Campaign
 
             if (hitBranch >= 0)
                 StarClicked?.Invoke(hitBranch, hitStar);
+            else
+                StarClicked?.Invoke(-1, -1);
         }
 
         public static Vector2 GetStarPosition(Rect rect, int branchIndex, int starIndex)
         {
-            float unit = Mathf.Min(rect.width, rect.height);
-            float angle = Mathf.PI * .5f + branchIndex * Mathf.PI * 2f / BranchCount
-                + BranchAngleOffsets[branchIndex] * Mathf.Deg2Rad;
-            Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
-            Vector2 perpendicular = new Vector2(-direction.y, direction.x);
-            float progress = starIndex / (float)(StarsPerBranch - 1);
-            float radius = Mathf.Lerp(BranchStartRadii[branchIndex],
-                BranchEndRadii[branchIndex], progress) * unit;
-            float curveOffset = Mathf.Sin(progress * Mathf.PI)
-                * BranchCurveOffsets[branchIndex] * unit;
-            return rect.center + direction * radius + perpendicular * curveOffset;
+            if (branchIndex < 0 || branchIndex >= BranchStarLayouts.Length)
+                throw new ArgumentOutOfRangeException(nameof(branchIndex));
+            if (starIndex < 0 || starIndex >= BranchStarLayouts[branchIndex].Length)
+                throw new ArgumentOutOfRangeException(nameof(starIndex));
+
+            Vector2 relative = BranchStarLayouts[branchIndex][starIndex];
+            return new Vector2(
+                rect.xMin + rect.width * relative.x,
+                rect.yMin + rect.height * relative.y);
+        }
+
+        static Vector2 GetBranchRootPosition(Rect rect, int branchIndex)
+        {
+            float rootX = rect.xMin + rect.width * BranchRootXs[branchIndex];
+            float rootY = rect.yMin + rect.height * .78f;
+            return new Vector2(rootX, rootY);
         }
 
         protected override void OnPopulateMesh(VertexHelper vertexHelper)
@@ -139,11 +186,12 @@ namespace Match3RPG.Campaign
             {
                 int litCount = litStarCounts[branch];
                 Vector2 firstPosition = GetStarPosition(rect, branch, 0);
-                Color firstSegmentColor = litCount > 0
-                    ? BranchColors[branch] : LockedColor;
+                Vector2 rootPosition = GetBranchRootPosition(rect, branch);
+                Color firstSegmentColor = litCount > 0 ? BranchColors[branch] : LockedColor;
                 firstSegmentColor.a *= litCount > 0 ? .82f : .62f;
-                AddLine(vertexHelper, rect.center, firstPosition, unit * .008f,
+                AddLine(vertexHelper, rootPosition, firstPosition, unit * .008f,
                     firstSegmentColor);
+
                 for (int star = 0; star < StarsPerBranch; star++)
                 {
                     Vector2 position = GetStarPosition(rect, branch, star);
@@ -164,9 +212,9 @@ namespace Match3RPG.Campaign
                             : LockedColor;
                     if (star == 0)
                     {
-                        AddDisc(vertexHelper, position, unit * .034f,
+                        AddDisc(vertexHelper, position, unit * .030f,
                             new Color32(255, 215, 120, 55));
-                        AddRing(vertexHelper, position, unit * .03f,
+                        AddRing(vertexHelper, position, unit * .026f,
                             unit * .004f, new Color32(255, 215, 120, 235));
                     }
                     AddStar(vertexHelper, position, unit * .019f,
@@ -177,7 +225,7 @@ namespace Match3RPG.Campaign
                 }
             }
 
-            DrawBagua(vertexHelper, rect.center, unit);
+            DrawBagua(vertexHelper, rect);
         }
 
         static void AddRing(VertexHelper vertexHelper, Vector2 center,
@@ -195,10 +243,12 @@ namespace Match3RPG.Campaign
             }
         }
 
-        static void DrawBagua(VertexHelper vertexHelper, Vector2 center, float unit)
+        static void DrawBagua(VertexHelper vertexHelper, Rect rect)
         {
-            float outerRadius = unit * .17f;
-            float innerRadius = unit * .155f;
+            float unit = Mathf.Min(rect.width, rect.height);
+            Vector2 center = new Vector2(rect.center.x, rect.yMin + rect.height * .88f);
+            float outerRadius = unit * .065f;
+            float innerRadius = unit * .055f;
             AddDisc(vertexHelper, center, outerRadius, new Color32(225, 190, 111, 255));
             AddDisc(vertexHelper, center, innerRadius, new Color32(16, 20, 28, 255));
 
@@ -208,37 +258,48 @@ namespace Match3RPG.Campaign
                     / TrigramPatterns.Length;
                 Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
                 Vector2 tangent = new Vector2(-direction.y, direction.x);
-                Vector2 trigramCenter = center + direction * unit * .112f;
+                Vector2 trigramCenter = center + direction * unit * .043f;
                 for (int bar = 0; bar < TrigramPatterns[trigram].Length; bar++)
                 {
                     Vector2 barCenter = trigramCenter
-                        + direction * ((bar - 1) * unit * .014f);
+                        + direction * ((bar - 1) * unit * .009f);
                     if (TrigramPatterns[trigram][bar])
-                        AddLine(vertexHelper, barCenter - tangent * unit * .019f,
-                            barCenter + tangent * unit * .019f, unit * .007f,
+                        AddLine(vertexHelper, barCenter - tangent * unit * .014f,
+                            barCenter + tangent * unit * .014f, unit * .0055f,
                             new Color32(235, 219, 174, 255));
                     else
                     {
-                        AddLine(vertexHelper, barCenter - tangent * unit * .019f,
-                            barCenter - tangent * unit * .004f, unit * .007f,
+                        AddLine(vertexHelper, barCenter - tangent * unit * .014f,
+                            barCenter - tangent * unit * .003f, unit * .0055f,
                             new Color32(235, 219, 174, 255));
-                        AddLine(vertexHelper, barCenter + tangent * unit * .004f,
-                            barCenter + tangent * unit * .019f, unit * .007f,
+                        AddLine(vertexHelper, barCenter + tangent * unit * .003f,
+                            barCenter + tangent * unit * .014f, unit * .0055f,
                             new Color32(235, 219, 174, 255));
                     }
                 }
             }
 
-            float yinYangRadius = unit * .068f;
+            float yinYangRadius = unit * .025f;
             AddDisc(vertexHelper, center, yinYangRadius, new Color32(232, 226, 205, 255));
             DrawHalfDisc(vertexHelper, center, yinYangRadius, true,
                 new Color32(24, 29, 38, 255));
             DrawHalfDisc(vertexHelper, center, yinYangRadius, false,
                 new Color32(232, 226, 205, 255));
             AddDisc(vertexHelper, center + Vector2.up * yinYangRadius * .48f,
-                yinYangRadius * .17f, new Color32(232, 226, 205, 255));
+                yinYangRadius * .16f, new Color32(232, 226, 205, 255));
             AddDisc(vertexHelper, center + Vector2.down * yinYangRadius * .48f,
-                yinYangRadius * .17f, new Color32(24, 29, 38, 255));
+                yinYangRadius * .16f, new Color32(24, 29, 38, 255));
+
+            float barY = rect.yMin + rect.height * .78f;
+            float leftX = rect.xMin + rect.width * .08f;
+            float rightX = rect.xMin + rect.width * .92f;
+            float centerX = rect.center.x;
+            AddLine(vertexHelper, new Vector2(leftX, barY),
+                new Vector2(rightX, barY), unit * .006f,
+                new Color32(232, 195, 104, 255));
+            AddLine(vertexHelper, new Vector2(centerX, center.y),
+                new Vector2(centerX, barY), unit * .006f,
+                new Color32(232, 195, 104, 255));
         }
 
         static void AddLine(VertexHelper vertexHelper, Vector2 start, Vector2 end,

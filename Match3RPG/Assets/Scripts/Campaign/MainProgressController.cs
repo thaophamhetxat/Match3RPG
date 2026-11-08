@@ -65,6 +65,14 @@ namespace Match3RPG.Campaign
         Button nextRealmButton;
         GameObject breakthroughPopup;
         RectTransform starChartGraphicRect;
+        ScrollRect starChartZoomScrollRect;
+        RectTransform starNodePopup;
+        TMP_Text starNodePopupText;
+        Button starNodePopupCloseButton;
+        Button totalBuffButton;
+        GameObject totalBuffPopup;
+        TMP_Text totalBuffPopupText;
+        float currentStarChartZoom = 1f;
         MainProgressChartGraphic starChartGraphic;
         StarChartGemInventoryService starChartGemInventory;
         readonly TMP_Text[] baseGemInventoryCountLabels = new TMP_Text[7];
@@ -772,15 +780,33 @@ namespace Match3RPG.Campaign
             starChartContent = CreateAnchoredRect(starChartUIGroup.transform, "StarChartContent",
                 new Vector2(.09f, .265f), new Vector2(.91f, .632f),
                 Vector2.zero, Vector2.zero).gameObject;
+            Mask chartMask = starChartContent.AddComponent<Mask>();
+            chartMask.showMaskGraphic = false;
+            Image chartViewportImage = starChartContent.AddComponent<Image>();
+            chartViewportImage.color = new Color(1f, 1f, 1f, 0f);
+            chartViewportImage.raycastTarget = false;
+            starChartZoomScrollRect = starChartContent.AddComponent<ScrollRect>();
+            starChartZoomScrollRect.viewport = starChartContent.GetComponent<RectTransform>();
+            starChartZoomScrollRect.horizontal = false;
+            starChartZoomScrollRect.vertical = true;
+            starChartZoomScrollRect.movementType = ScrollRect.MovementType.Clamped;
+            starChartZoomScrollRect.scrollSensitivity = 35f;
             starChartGraphicRect = CreateAnchoredRect(starChartContent.transform,
                 "ChartGraphic", Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            starChartGraphicRect.pivot = new Vector2(.5f, .5f);
+            starChartGraphicRect.sizeDelta = Vector2.zero;
             starChartGraphicRect.gameObject.AddComponent<CanvasRenderer>();
             starChartGraphic = starChartGraphicRect.gameObject
                 .AddComponent<MainProgressChartGraphic>();
             starChartGraphic.color = Color.white;
             starChartGraphic.StarClicked += SelectStarChartNode;
+            starChartZoomScrollRect.content = starChartGraphicRect;
+            SetStarChartZoom(1f);
             RefreshSelectedRealmStars();
             CreateStarChartArtwork();
+            CreateStarChartZoomControls(starChartUIGroup.transform);
+            CreateStarNodePopup();
+            CreateTotalBuffPopup();
 
             skillsPlaceholder = CreateAnchoredRect(artwork, "SkillsPlaceholder",
                 new Vector2(.08f, .25f), new Vector2(.92f, .66f),
@@ -848,44 +874,36 @@ namespace Match3RPG.Campaign
                 new Vector2(.105f, .68f), new Vector2(.895f, .775f),
                 Vector2.zero, Vector2.zero);
 
+            const int gemCount = 7;
+            float slotWidth = 1f / gemCount;
             for (int index = 0; index < StarChartGemTypes.Length; index++)
             {
-                int rowIndex = index < 4 ? 0 : 1;
-                int cellIndex = rowIndex == 0 ? index : index - 4;
-                const int cellsInRow = 4;
-                float slotWidth = 1f / cellsInRow;
-                float rowOffset = rowIndex == 0 ? 0f : slotWidth * .5f;
-                float slotCenter = rowOffset + (cellIndex + .5f) * slotWidth;
-                float rowBottom = rowIndex == 0 ? .5f : 0f;
-                float rowTop = rowIndex == 0 ? 1f : .5f;
+                float slotCenter = (index + .5f) * slotWidth;
                 Sprite sprite = GetSpriteAt(starChartBaseGemSprites, index);
                 if (sprite == null)
-                    Debug.LogError($"Tinh đồ thiếu sprite base gem {StarChartGemTypes[index]}.", this);
-                else
                 {
-                    const float iconWidth = .075f;
-                    RectTransform iconRect = CreateAnchoredRect(row,
-                        $"GemIcon_{StarChartGemTypes[index]}",
-                        new Vector2(slotCenter - iconWidth * .5f,
-                            rowBottom + .39f * (rowTop - rowBottom)),
-                        new Vector2(slotCenter + iconWidth * .5f,
-                            rowBottom + .96f * (rowTop - rowBottom)),
-                        Vector2.zero, Vector2.zero);
-                    Image icon = iconRect.gameObject.AddComponent<Image>();
-                    icon.sprite = sprite;
-                    icon.preserveAspect = true;
-                    icon.raycastTarget = false;
+                    Debug.LogError($"Tinh đồ thiếu sprite base gem {StarChartGemTypes[index]}.", this);
+                    continue;
                 }
 
-                int gemCount = index < baseGemDisplayInventory.Length
+                const float iconWidth = .075f;
+                RectTransform iconRect = CreateAnchoredRect(row,
+                    $"GemIcon_{StarChartGemTypes[index]}",
+                    new Vector2(slotCenter - iconWidth * .5f, .34f),
+                    new Vector2(slotCenter + iconWidth * .5f, .96f),
+                    Vector2.zero, Vector2.zero);
+                Image icon = iconRect.gameObject.AddComponent<Image>();
+                icon.sprite = sprite;
+                icon.preserveAspect = true;
+                icon.raycastTarget = false;
+
+                int gemValue = index < baseGemDisplayInventory.Length
                     ? baseGemDisplayInventory[index] : 0;
                 baseGemInventoryCountLabels[index] = AddLabel(row,
                     $"GemCount_{StarChartGemTypes[index]}",
-                    gemCount.ToString(CultureInfo.InvariantCulture), 25, Color.white,
-                    new Vector2(slotCenter - slotWidth * .45f,
-                        rowBottom + .02f * (rowTop - rowBottom)),
-                    new Vector2(slotCenter + slotWidth * .45f,
-                        rowBottom + .41f * (rowTop - rowBottom)));
+                    gemValue.ToString(CultureInfo.InvariantCulture), 25, Color.white,
+                    new Vector2(slotCenter - slotWidth * .45f, .06f),
+                    new Vector2(slotCenter + slotWidth * .45f, .42f));
                 ApplyStarChartTextStyle(baseGemInventoryCountLabels[index], 25);
             }
         }
@@ -1021,6 +1039,151 @@ namespace Match3RPG.Campaign
                 AddChartImage($"BranchEndpoint_{StarChartGemTypes[branch]}",
                     specialSprite, endAnchor, unit * .075f);
             }
+        }
+
+        void CreateStarChartZoomControls(Transform parent)
+        {
+            Button zoomOut = CreateCharacterHitButton(parent, "StarChartZoomOut",
+                .83f, .23f, .89f, .29f, () => SetStarChartZoom(currentStarChartZoom - .2f));
+            AddLabel(parent, "ZoomOutText", "−", 32, Color.white,
+                new Vector2(.83f, .23f), new Vector2(.89f, .29f), TextAlignmentOptions.Center);
+
+            Button zoomIn = CreateCharacterHitButton(parent, "StarChartZoomIn",
+                .90f, .23f, .96f, .29f, () => SetStarChartZoom(currentStarChartZoom + .2f));
+            AddLabel(parent, "ZoomInText", "+", 32, Color.white,
+                new Vector2(.90f, .23f), new Vector2(.96f, .29f), TextAlignmentOptions.Center);
+
+            totalBuffButton = CreateCharacterHitButton(parent, "TotalBuffButton",
+                .58f, .20f, .92f, .27f, OpenTotalBuffPopup);
+            AddLabel(parent, "TotalBuffButtonLabel", "Tổng chỉ số", 18, Gold,
+                new Vector2(.58f, .20f), new Vector2(.92f, .27f), TextAlignmentOptions.Center);
+        }
+
+        void CreateStarNodePopup()
+        {
+            starNodePopup = CreateAnchoredRect(starChartGraphicRect,
+                "StarNodePopup", new Vector2(.5f, .5f), new Vector2(.5f, .5f),
+                Vector2.zero, Vector2.zero);
+            starNodePopup.sizeDelta = new Vector2(220f, 110f);
+            starNodePopup.anchoredPosition = Vector2.zero;
+            Image popupBackground = starNodePopup.gameObject.AddComponent<Image>();
+            popupBackground.color = new Color32(18, 22, 28, 220);
+            Outline outline = starNodePopup.gameObject.AddComponent<Outline>();
+            outline.effectColor = new Color32(255, 214, 100, 255);
+            outline.effectDistance = new Vector2(2f, -2f);
+
+            starNodePopupText = CreateAnchoredLabel(starNodePopup, "StarNodePopupText",
+                string.Empty, 20, Color.white, new Vector2(.08f, .18f), new Vector2(.92f, .90f),
+                out TMP_Text popupText, TextAlignmentOptions.TopLeft);
+            starNodePopupText = popupText;
+            starNodePopupCloseButton = CreateCharacterHitButton(starNodePopup, "StarNodePopupClose",
+                .72f, .04f, .94f, .20f, HideStarNodePopup);
+            AddLabel(starNodePopup, "StarNodePopupCloseText", "ĐÓNG", 18, Gold,
+                new Vector2(.72f, .04f), new Vector2(.94f, .20f), TextAlignmentOptions.Center);
+            starNodePopup.gameObject.SetActive(false);
+        }
+
+        void CreateTotalBuffPopup()
+        {
+            totalBuffPopup = CreateAnchoredRect(starChartUIGroup.transform, "TotalBuffPopup",
+                new Vector2(.18f, .18f), new Vector2(.82f, .82f),
+                Vector2.zero, Vector2.zero).gameObject;
+            Image popupBackground = totalBuffPopup.AddComponent<Image>();
+            popupBackground.color = new Color32(16, 20, 28, 230);
+            Outline popupOutline = totalBuffPopup.AddComponent<Outline>();
+            popupOutline.effectColor = Gold;
+            popupOutline.effectDistance = new Vector2(3f, -3f);
+            totalBuffPopupText = AddLabel(totalBuffPopup.transform, "TotalBuffPopupText",
+                string.Empty, 20, Color.white,
+                new Vector2(.06f, .08f), new Vector2(.94f, .88f),
+                TextAlignmentOptions.TopLeft);
+            ApplyStarChartTextStyle(totalBuffPopupText, 20);
+            Button closeButton = CreatePanelButton(totalBuffPopup.transform, "TotalBuffCloseButton",
+                "ĐÓNG", new Vector2(180f, 52f), new Vector2(.5f, .06f), new Color32(74, 54, 44, 255));
+            closeButton.onClick.AddListener(CloseTotalBuffPopup);
+            totalBuffPopup.SetActive(false);
+        }
+
+        void SetStarChartZoom(float targetZoom)
+        {
+            if (starChartGraphicRect == null)
+                return;
+            currentStarChartZoom = Mathf.Clamp(targetZoom, .6f, 2f);
+            starChartGraphicRect.localScale = new Vector3(currentStarChartZoom,
+                currentStarChartZoom, 1f);
+            if (starChartZoomScrollRect != null)
+                starChartZoomScrollRect.normalizedPosition = Vector2.zero;
+        }
+
+        void OpenTotalBuffPopup()
+        {
+            if (totalBuffPopup == null || totalBuffPopupText == null)
+                return;
+
+            StarChartStatBonuses totals = starChartGemInventory.GetTotalStatBonuses();
+            string summary = BuildTotalBuffSummary(totals);
+            totalBuffPopupText.text = summary;
+            totalBuffPopup.SetActive(true);
+            totalBuffPopup.transform.SetAsLastSibling();
+        }
+
+        void CloseTotalBuffPopup()
+        {
+            if (totalBuffPopup != null)
+                totalBuffPopup.SetActive(false);
+        }
+
+        string BuildTotalBuffSummary(StarChartStatBonuses totals)
+        {
+            if (totals.AttackStars == 0 && totals.ManaStars == 0
+                && totals.ExperienceStars == 0 && totals.RageStars == 0
+                && totals.HealthStars == 0 && totals.ShieldStars == 0
+                && totals.SoulStars == 0)
+            {
+                return "Chưa thắp sao nào\n\nLửa Đỏ: 0\nGiọt Nước: 0\nSen Tím: 0\nMặt Trời: 0\nLá Xanh: 0\nHộ Thuẫn: 0\nLửa Trắng: 0";
+            }
+
+            return string.Join("\n",
+                new[]
+                {
+                    $"Lửa Đỏ: +{totals.AttackStars} ATK",
+                    $"Giọt Nước: +{totals.ManaStars} Né · +{(totals.ManaStars * 0.5f).ToString("0.##", CultureInfo.InvariantCulture)} Chính xác · +{totals.ManaStars} Speed",
+                    $"Sen Tím: +{totals.ExperienceStars} EXP / viên Sen Tím",
+                    $"Mặt Trời: +{totals.RageStars}% Dame crit · +{totals.RageStars}% DEF",
+                    $"Lá Xanh: +{totals.HealthStars * 50} HP",
+                    $"Hộ Thuẫn: +{totals.ShieldStars * 10} giá trị gem Hộ Thuẫn",
+                    $"Lửa Trắng: +{totals.SoulStars} ATK soul"
+                });
+        }
+
+        void HideStarNodePopup()
+        {
+            if (starNodePopup != null)
+                starNodePopup.gameObject.SetActive(false);
+        }
+
+        void ShowStarNodePopup(int branchIndex, int starIndex)
+        {
+            if (starNodePopup == null || starNodePopupText == null)
+                return;
+            if (branchIndex < 0 || branchIndex >= StarChartGemNames.Length)
+            {
+                HideStarNodePopup();
+                return;
+            }
+
+            int litCount = litStarsPerBranch[branchIndex];
+            bool lit = starIndex < litCount;
+            string status = lit ? "Đã thắp" : (starIndex == litCount ? "Sẵn sàng" : "Chưa thắp");
+            string costLine = starIndex == litCount && litCount < MainProgressChartGraphic.StarsPerBranch
+                ? $"Chi phí: {starChartGemInventory.GetStarCost(selectedStarChartRealmIndex, litCount)} gem · Có {starChartGemInventory.GetBaseGemCount(StarChartGemTypes[branchIndex])}"
+                : "";
+            starNodePopupText.text = $"{StarChartGemNames[branchIndex]} · Sao {starIndex + 1}\n{status}\n{StarChartStatDescriptions[branchIndex]}\n{costLine}".Trim();
+            Vector2 starPosition = MainProgressChartGraphic.GetStarPosition(
+                starChartGraphicRect.rect, branchIndex, starIndex);
+            starNodePopup.anchoredPosition = starPosition + new Vector2(40f, 42f);
+            starNodePopup.gameObject.SetActive(true);
+            starNodePopup.SetAsLastSibling();
         }
 
         void AddChartImage(string objectName, Sprite sprite, Vector2 anchor, float size)
@@ -1248,6 +1411,12 @@ namespace Match3RPG.Campaign
 
         void SelectStarChartNode(int branchIndex, int starIndex)
         {
+            if (branchIndex < 0)
+            {
+                HideStarNodePopup();
+                return;
+            }
+
             selectedStarChartBranchIndex = branchIndex;
             int nextStar = litStarsPerBranch[branchIndex];
             bool clickedLitStar = starIndex < nextStar;
@@ -1258,6 +1427,8 @@ namespace Match3RPG.Campaign
                 UpdateStarActionDetails();
                 SetStarChartStatus($"Nhánh này đã thắp đủ 10 sao · "
                     + StarChartStatDescriptions[branchIndex] + ".");
+                ShowStarNodePopup(branchIndex,
+                    clickedLitStar ? starIndex : MainProgressChartGraphic.StarsPerBranch - 1);
                 return;
             }
 
@@ -1272,6 +1443,7 @@ namespace Match3RPG.Campaign
                     : starIndex != nextStar
                         ? $"Thắp theo thứ tự · sao kế tiếp là nốt {nextStar + 1}."
                         : "Sẵn sàng thắp sao này.");
+            ShowStarNodePopup(branchIndex, displayedStar);
         }
 
         void RefreshSelectedRealmStars()
