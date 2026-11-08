@@ -671,18 +671,48 @@ namespace Match3RPG.Campaign
 
             if (fitToScreen)
             {
-                Canvas.ForceUpdateCanvases();
                 Canvas parentCanvas = parent.GetComponentInParent<Canvas>();
-                float scaleFactor = parentCanvas != null && parentCanvas.scaleFactor > 0f
-                    ? parentCanvas.scaleFactor
-                    : 1f;
+                CanvasScaler scaler = parentCanvas != null
+                    ? parentCanvas.GetComponent<CanvasScaler>()
+                    : null;
+                float scaleFactor = 0f;
+                if (scaler != null
+                    && scaler.uiScaleMode == CanvasScaler.ScaleMode.ScaleWithScreenSize
+                    && scaler.referenceResolution.x > 0f
+                    && scaler.referenceResolution.y > 0f)
+                {
+                    float widthScale = Screen.width / scaler.referenceResolution.x;
+                    float heightScale = Screen.height / scaler.referenceResolution.y;
+                    float match = Mathf.Clamp01(scaler.matchWidthOrHeight);
+                    scaleFactor = Mathf.Pow(widthScale, 1f - match)
+                        * Mathf.Pow(heightScale, match);
+                }
+
+                if (float.IsNaN(scaleFactor) || float.IsInfinity(scaleFactor)
+                    || scaleFactor <= 0f)
+                {
+                    scaleFactor = parentCanvas != null
+                        && parentCanvas.scaleFactor > 0f
+                        && !float.IsNaN(parentCanvas.scaleFactor)
+                        && !float.IsInfinity(parentCanvas.scaleFactor)
+                        ? parentCanvas.scaleFactor
+                        : 1f;
+                }
+
                 float screenW = Screen.width / scaleFactor;
                 float screenH = Screen.height / scaleFactor;
-                artwork.anchorMin = new Vector2(.5f, .5f);
-                artwork.anchorMax = new Vector2(.5f, .5f);
-                artwork.sizeDelta = new Vector2(screenW, screenH);
-                artwork.anchoredPosition = Vector2.zero;
-                return artwork;
+                bool validScreenSize = screenW > 0f && screenH > 0f
+                    && screenW <= 10000f && screenH <= 10000f
+                    && !float.IsNaN(screenW) && !float.IsNaN(screenH)
+                    && !float.IsInfinity(screenW) && !float.IsInfinity(screenH);
+                if (validScreenSize)
+                {
+                    artwork.anchorMin = new Vector2(.5f, .5f);
+                    artwork.anchorMax = new Vector2(.5f, .5f);
+                    artwork.sizeDelta = new Vector2(screenW, screenH);
+                    artwork.anchoredPosition = Vector2.zero;
+                    return artwork;
+                }
             }
 
             if (sprite == null)
