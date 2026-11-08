@@ -453,7 +453,7 @@ namespace Match3RPG.Campaign
                 new Color32(4, 28, 22, 255));
             RectTransform artwork = CreateFullScreenArtwork(overlay,
                 GetSpriteAt(inventoryScreenBackgrounds, 0), "InventoryArtwork",
-                out inventoryBackgroundImage);
+                out inventoryBackgroundImage, fitToScreen: true);
             CreateCharacterHitButton(artwork, "InventoryCloseButton",
                 .875f, .90f, .985f, .99f,
                 () => ClosePanel(overlay.gameObject));
@@ -659,7 +659,7 @@ namespace Match3RPG.Campaign
         }
 
         static RectTransform CreateFullScreenArtwork(Transform parent, Sprite sprite,
-            string name, out Image artworkImage)
+            string name, out Image artworkImage, bool fitToScreen = false)
         {
             RectTransform artwork = CreateAnchoredRect(parent, name,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
@@ -668,6 +668,23 @@ namespace Match3RPG.Campaign
             artworkImage.color = Color.white;
             artworkImage.preserveAspect = true;
             artworkImage.raycastTarget = false;
+
+            if (fitToScreen)
+            {
+                Canvas.ForceUpdateCanvases();
+                Canvas parentCanvas = parent.GetComponentInParent<Canvas>();
+                float scaleFactor = parentCanvas != null && parentCanvas.scaleFactor > 0f
+                    ? parentCanvas.scaleFactor
+                    : 1f;
+                float screenW = Screen.width / scaleFactor;
+                float screenH = Screen.height / scaleFactor;
+                artwork.anchorMin = new Vector2(.5f, .5f);
+                artwork.anchorMax = new Vector2(.5f, .5f);
+                artwork.sizeDelta = new Vector2(screenW, screenH);
+                artwork.anchoredPosition = Vector2.zero;
+                return artwork;
+            }
+
             if (sprite == null)
                 return artwork;
 
