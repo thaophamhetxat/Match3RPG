@@ -762,39 +762,41 @@ namespace Match3RPG.Campaign
             SelectStarChartRealm(FindRealmIndex(heroLevel), heroLevel);
 
             previousRealmButton = CreateCharacterHitButton(starChartUIGroup.transform, "PreviousRealm",
-                .11f, .642f, .21f, .674f, SelectPreviousStarChartRealm);
+                .11f, .672f, .21f, .704f, SelectPreviousStarChartRealm);
             CreateAnchoredLabel(starChartUIGroup.transform, "PreviousRealmArrow", "‹", 24, Color.white,
-                new Vector2(.11f, .642f), new Vector2(.21f, .674f), out TMP_Text previousRealmArrow);
+                new Vector2(.11f, .672f), new Vector2(.21f, .704f), out TMP_Text previousRealmArrow);
             CreateAnchoredLabel(starChartUIGroup.transform, "RealmSelector", GetRealmButtonLabel(),
-                24, Color.white, new Vector2(.22f, .642f),
-                new Vector2(.78f, .674f), out realmButtonLabel);
+                24, Color.white, new Vector2(.22f, .672f),
+                new Vector2(.78f, .704f), out realmButtonLabel);
             nextRealmButton = CreateCharacterHitButton(starChartUIGroup.transform, "NextRealm",
-                .79f, .642f, .89f, .674f, SelectNextStarChartRealm);
+                .79f, .672f, .89f, .704f, SelectNextStarChartRealm);
             CreateAnchoredLabel(starChartUIGroup.transform, "NextRealmArrow", "›", 24, Color.white,
-                new Vector2(.79f, .642f), new Vector2(.89f, .674f), out TMP_Text nextRealmArrow);
+                new Vector2(.79f, .672f), new Vector2(.89f, .704f), out TMP_Text nextRealmArrow);
             ApplyStarChartTextStyle(previousRealmArrow, 28);
             ApplyStarChartTextStyle(realmButtonLabel, 24);
             ApplyStarChartTextStyle(nextRealmArrow, 28);
             RefreshRealmNavigationButtons();
 
             starChartContent = CreateAnchoredRect(starChartUIGroup.transform, "StarChartContent",
-                new Vector2(.09f, .265f), new Vector2(.91f, .632f),
+                new Vector2(.09f, .31f), new Vector2(.91f, .632f),
                 Vector2.zero, Vector2.zero).gameObject;
+            Image chartViewportImage = starChartContent.AddComponent<Image>();
+            chartViewportImage.color = Color.white;
+            chartViewportImage.raycastTarget = false;
             Mask chartMask = starChartContent.AddComponent<Mask>();
             chartMask.showMaskGraphic = false;
-            Image chartViewportImage = starChartContent.AddComponent<Image>();
-            chartViewportImage.color = new Color(1f, 1f, 1f, 0f);
-            chartViewportImage.raycastTarget = false;
             starChartZoomScrollRect = starChartContent.AddComponent<ScrollRect>();
             starChartZoomScrollRect.viewport = starChartContent.GetComponent<RectTransform>();
-            starChartZoomScrollRect.horizontal = false;
+            starChartZoomScrollRect.horizontal = true;
             starChartZoomScrollRect.vertical = true;
             starChartZoomScrollRect.movementType = ScrollRect.MovementType.Clamped;
             starChartZoomScrollRect.scrollSensitivity = 35f;
             starChartGraphicRect = CreateAnchoredRect(starChartContent.transform,
-                "ChartGraphic", Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+                "ChartGraphic", new Vector2(.5f, .5f), new Vector2(.5f, .5f),
+                Vector2.zero, Vector2.zero);
             starChartGraphicRect.pivot = new Vector2(.5f, .5f);
-            starChartGraphicRect.sizeDelta = Vector2.zero;
+            Canvas.ForceUpdateCanvases();
+            starChartGraphicRect.sizeDelta = starChartContent.GetComponent<RectTransform>().rect.size;
             starChartGraphicRect.gameObject.AddComponent<CanvasRenderer>();
             starChartGraphic = starChartGraphicRect.gameObject
                 .AddComponent<MainProgressChartGraphic>();
@@ -871,7 +873,7 @@ namespace Match3RPG.Campaign
         void CreateGemInventoryRow(Transform parent)
         {
             RectTransform row = CreateAnchoredRect(parent, "BaseGemInventory",
-                new Vector2(.105f, .68f), new Vector2(.895f, .775f),
+                new Vector2(.105f, .71f), new Vector2(.895f, .805f),
                 Vector2.zero, Vector2.zero);
 
             const int gemCount = 7;
@@ -1043,20 +1045,34 @@ namespace Match3RPG.Campaign
 
         void CreateStarChartZoomControls(Transform parent)
         {
-            Button zoomOut = CreateCharacterHitButton(parent, "StarChartZoomOut",
-                .83f, .23f, .89f, .29f, () => SetStarChartZoom(currentStarChartZoom - .2f));
-            AddLabel(parent, "ZoomOutText", "−", 32, Color.white,
-                new Vector2(.83f, .23f), new Vector2(.89f, .29f), TextAlignmentOptions.Center);
+            totalBuffButton = CreateStarChartControlButton(parent, "TotalBuffButton",
+                new Vector2(.29f, .25f), new Vector2(.55f, .305f), "Tổng chỉ số",
+                20, OpenTotalBuffPopup);
+            CreateStarChartControlButton(parent, "StarChartZoomOut",
+                new Vector2(.57f, .25f), new Vector2(.66f, .305f), "−",
+                32, () => SetStarChartZoom(currentStarChartZoom - .2f));
+            CreateStarChartControlButton(parent, "StarChartZoomIn",
+                new Vector2(.68f, .25f), new Vector2(.77f, .305f), "+",
+                32, () => SetStarChartZoom(currentStarChartZoom + .2f));
+        }
 
-            Button zoomIn = CreateCharacterHitButton(parent, "StarChartZoomIn",
-                .90f, .23f, .96f, .29f, () => SetStarChartZoom(currentStarChartZoom + .2f));
-            AddLabel(parent, "ZoomInText", "+", 32, Color.white,
-                new Vector2(.90f, .23f), new Vector2(.96f, .29f), TextAlignmentOptions.Center);
-
-            totalBuffButton = CreateCharacterHitButton(parent, "TotalBuffButton",
-                .58f, .20f, .92f, .27f, OpenTotalBuffPopup);
-            AddLabel(parent, "TotalBuffButtonLabel", "Tổng chỉ số", 18, Gold,
-                new Vector2(.58f, .20f), new Vector2(.92f, .27f), TextAlignmentOptions.Center);
+        Button CreateStarChartControlButton(Transform parent, string name,
+            Vector2 anchorMin, Vector2 anchorMax, string label, int fontSize,
+            UnityEngine.Events.UnityAction onClick)
+        {
+            Button button = CreateCharacterHitButton(parent, name,
+                anchorMin.x, anchorMin.y, anchorMax.x, anchorMax.y, onClick);
+            Image image = button.GetComponent<Image>();
+            image.color = new Color32(28, 35, 44, 245);
+            image.raycastTarget = true;
+            button.transition = Selectable.Transition.None;
+            Outline outline = button.gameObject.AddComponent<Outline>();
+            outline.effectColor = Gold;
+            outline.effectDistance = new Vector2(2f, -2f);
+            TMP_Text labelText = AddLabel(parent, $"{name}Label", label, fontSize,
+                Color.white, anchorMin, anchorMax, TextAlignmentOptions.Center);
+            labelText.raycastTarget = false;
+            return button;
         }
 
         void CreateStarNodePopup()
@@ -1106,13 +1122,16 @@ namespace Match3RPG.Campaign
 
         void SetStarChartZoom(float targetZoom)
         {
-            if (starChartGraphicRect == null)
+            if (starChartGraphicRect == null || starChartContent == null)
                 return;
             currentStarChartZoom = Mathf.Clamp(targetZoom, .6f, 2f);
-            starChartGraphicRect.localScale = new Vector3(currentStarChartZoom,
-                currentStarChartZoom, 1f);
+            RectTransform viewport = starChartContent.GetComponent<RectTransform>();
+            starChartGraphicRect.sizeDelta = viewport.rect.size * currentStarChartZoom;
             if (starChartZoomScrollRect != null)
+            {
+                starChartZoomScrollRect.StopMovement();
                 starChartZoomScrollRect.normalizedPosition = Vector2.zero;
+            }
         }
 
         void OpenTotalBuffPopup()
