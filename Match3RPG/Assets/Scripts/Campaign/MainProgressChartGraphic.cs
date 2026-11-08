@@ -31,54 +31,56 @@ namespace Match3RPG.Campaign
         {
             new[]
             {
-                new Vector2(.085f, .74f), new Vector2(.085f, .66f), new Vector2(.085f, .58f),
-                new Vector2(.085f, .49f), new Vector2(.12f, .41f), new Vector2(.12f, .32f),
-                new Vector2(.085f, .23f), new Vector2(.14f, .15f), new Vector2(.10f, .09f),
-                new Vector2(.12f, .05f)
+                new Vector2(.085f, .74f), new Vector2(.085f, .66f), new Vector2(.065f, .56f),
+                new Vector2(.045f, .43f), new Vector2(.025f, .30f), new Vector2(.105f, .56f),
+                new Vector2(.125f, .45f), new Vector2(.145f, .34f), new Vector2(.155f, .23f),
+                new Vector2(.165f, .12f)
             },
             new[]
             {
-                new Vector2(.22f, .74f), new Vector2(.22f, .66f), new Vector2(.18f, .58f),
-                new Vector2(.22f, .49f), new Vector2(.28f, .40f), new Vector2(.28f, .31f),
-                new Vector2(.22f, .23f), new Vector2(.30f, .15f), new Vector2(.25f, .09f),
-                new Vector2(.28f, .05f)
+                new Vector2(.22f, .74f), new Vector2(.22f, .66f), new Vector2(.22f, .57f),
+                new Vector2(.22f, .49f), new Vector2(.19f, .40f), new Vector2(.17f, .31f),
+                new Vector2(.25f, .40f), new Vector2(.27f, .31f), new Vector2(.29f, .22f),
+                new Vector2(.31f, .13f)
             },
             new[]
             {
                 new Vector2(.35f, .74f), new Vector2(.35f, .66f), new Vector2(.35f, .57f),
-                new Vector2(.35f, .48f), new Vector2(.41f, .40f), new Vector2(.41f, .31f),
-                new Vector2(.35f, .23f), new Vector2(.43f, .15f), new Vector2(.38f, .09f),
-                new Vector2(.41f, .05f)
+                new Vector2(.32f, .48f), new Vector2(.30f, .39f), new Vector2(.28f, .30f),
+                new Vector2(.38f, .48f), new Vector2(.40f, .37f), new Vector2(.42f, .26f),
+                new Vector2(.44f, .15f)
             },
             new[]
             {
-                new Vector2(.49f, .74f), new Vector2(.49f, .66f), new Vector2(.45f, .58f),
-                new Vector2(.49f, .49f), new Vector2(.56f, .40f), new Vector2(.56f, .31f),
-                new Vector2(.49f, .22f), new Vector2(.58f, .15f), new Vector2(.52f, .09f),
-                new Vector2(.56f, .05f)
+                new Vector2(.49f, .74f), new Vector2(.49f, .66f), new Vector2(.49f, .57f),
+                new Vector2(.49f, .49f), new Vector2(.49f, .40f), new Vector2(.46f, .31f),
+                new Vector2(.43f, .22f), new Vector2(.53f, .31f), new Vector2(.56f, .20f),
+                new Vector2(.59f, .09f)
             },
             new[]
             {
-                new Vector2(.63f, .74f), new Vector2(.63f, .66f), new Vector2(.68f, .58f),
-                new Vector2(.63f, .49f), new Vector2(.60f, .40f), new Vector2(.60f, .31f),
-                new Vector2(.72f, .22f), new Vector2(.63f, .15f), new Vector2(.74f, .09f),
-                new Vector2(.66f, .05f)
+                new Vector2(.63f, .74f), new Vector2(.61f, .65f), new Vector2(.59f, .55f),
+                new Vector2(.57f, .45f), new Vector2(.66f, .65f), new Vector2(.69f, .56f),
+                new Vector2(.72f, .47f), new Vector2(.75f, .38f), new Vector2(.78f, .29f),
+                new Vector2(.81f, .20f)
             },
             new[]
             {
-                new Vector2(.77f, .74f), new Vector2(.77f, .66f), new Vector2(.82f, .58f),
-                new Vector2(.77f, .49f), new Vector2(.74f, .40f), new Vector2(.74f, .31f),
-                new Vector2(.84f, .22f), new Vector2(.77f, .15f), new Vector2(.86f, .09f),
-                new Vector2(.79f, .05f)
+                new Vector2(.77f, .74f), new Vector2(.77f, .66f), new Vector2(.77f, .57f),
+                new Vector2(.74f, .48f), new Vector2(.72f, .38f), new Vector2(.81f, .48f),
+                new Vector2(.84f, .38f), new Vector2(.87f, .29f), new Vector2(.90f, .20f),
+                new Vector2(.93f, .11f)
             },
             new[]
             {
-                new Vector2(.91f, .74f), new Vector2(.91f, .66f), new Vector2(.94f, .58f),
-                new Vector2(.91f, .49f), new Vector2(.87f, .40f), new Vector2(.87f, .31f),
-                new Vector2(.98f, .22f), new Vector2(.91f, .15f), new Vector2(.99f, .09f),
-                new Vector2(.93f, .05f)
+                new Vector2(.91f, .74f), new Vector2(.91f, .66f), new Vector2(.87f, .56f),
+                new Vector2(.85f, .45f), new Vector2(.91f, .56f), new Vector2(.91f, .45f),
+                new Vector2(.94f, .56f), new Vector2(.95f, .45f), new Vector2(.96f, .34f),
+                new Vector2(.96f, .23f)
             }
         };
+        static readonly int[] BranchForkStarIndices = { 1, 3, 2, 4, 0, 2, 1 };
+        static readonly int[] BranchSecondArmStartIndices = { 5, 6, 6, 7, 4, 5, 6 };
         static readonly bool[][] TrigramPatterns =
         {
             new[] { true, true, true },
@@ -164,13 +166,13 @@ namespace Match3RPG.Campaign
             Vector2 relative = BranchStarLayouts[branchIndex][starIndex];
             return new Vector2(
                 rect.xMin + rect.width * relative.x,
-                rect.yMin + rect.height * relative.y);
+                rect.yMin + rect.height * (relative.y + .05f));
         }
 
         static Vector2 GetBranchRootPosition(Rect rect, int branchIndex)
         {
             float rootX = rect.xMin + rect.width * BranchRootXs[branchIndex];
-            float rootY = rect.yMin + rect.height * .78f;
+            float rootY = rect.yMin + rect.height * .83f;
             return new Vector2(rootX, rootY);
         }
 
@@ -201,8 +203,19 @@ namespace Match3RPG.Campaign
                         bool segmentLit = star < litCount;
                         Color lineColor = segmentLit ? BranchColors[branch] : LockedColor;
                         lineColor.a *= segmentLit ? .82f : .62f;
-                        AddLine(vertexHelper, previous, position, unit * .008f,
-                            lineColor);
+                        int secondArmStart = BranchSecondArmStartIndices[branch];
+                        if (star == secondArmStart)
+                        {
+                            Vector2 fork = GetStarPosition(rect, branch,
+                                BranchForkStarIndices[branch]);
+                            AddLine(vertexHelper, fork, position, unit * .008f,
+                                lineColor);
+                        }
+                        else
+                        {
+                            AddLine(vertexHelper, previous, position, unit * .008f,
+                                lineColor);
+                        }
                     }
 
                     bool lit = star < litCount;
@@ -246,9 +259,9 @@ namespace Match3RPG.Campaign
         static void DrawBagua(VertexHelper vertexHelper, Rect rect)
         {
             float unit = Mathf.Min(rect.width, rect.height);
-            Vector2 center = new Vector2(rect.center.x, rect.yMin + rect.height * .88f);
-            float outerRadius = unit * .065f;
-            float innerRadius = unit * .055f;
+            Vector2 center = new Vector2(rect.center.x, rect.yMin + rect.height * .93f);
+            float outerRadius = unit * .048f;
+            float innerRadius = unit * .040f;
             AddDisc(vertexHelper, center, outerRadius, new Color32(225, 190, 111, 255));
             AddDisc(vertexHelper, center, innerRadius, new Color32(16, 20, 28, 255));
 
@@ -258,28 +271,28 @@ namespace Match3RPG.Campaign
                     / TrigramPatterns.Length;
                 Vector2 direction = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
                 Vector2 tangent = new Vector2(-direction.y, direction.x);
-                Vector2 trigramCenter = center + direction * unit * .043f;
+                Vector2 trigramCenter = center + direction * unit * .032f;
                 for (int bar = 0; bar < TrigramPatterns[trigram].Length; bar++)
                 {
                     Vector2 barCenter = trigramCenter
-                        + direction * ((bar - 1) * unit * .009f);
+                        + direction * ((bar - 1) * unit * .0065f);
                     if (TrigramPatterns[trigram][bar])
-                        AddLine(vertexHelper, barCenter - tangent * unit * .014f,
-                            barCenter + tangent * unit * .014f, unit * .0055f,
+                        AddLine(vertexHelper, barCenter - tangent * unit * .010f,
+                            barCenter + tangent * unit * .010f, unit * .004f,
                             new Color32(235, 219, 174, 255));
                     else
                     {
-                        AddLine(vertexHelper, barCenter - tangent * unit * .014f,
-                            barCenter - tangent * unit * .003f, unit * .0055f,
+                        AddLine(vertexHelper, barCenter - tangent * unit * .010f,
+                            barCenter - tangent * unit * .002f, unit * .004f,
                             new Color32(235, 219, 174, 255));
-                        AddLine(vertexHelper, barCenter + tangent * unit * .003f,
-                            barCenter + tangent * unit * .014f, unit * .0055f,
+                        AddLine(vertexHelper, barCenter + tangent * unit * .002f,
+                            barCenter + tangent * unit * .010f, unit * .004f,
                             new Color32(235, 219, 174, 255));
                     }
                 }
             }
 
-            float yinYangRadius = unit * .025f;
+            float yinYangRadius = unit * .018f;
             AddDisc(vertexHelper, center, yinYangRadius, new Color32(232, 226, 205, 255));
             DrawHalfDisc(vertexHelper, center, yinYangRadius, true,
                 new Color32(24, 29, 38, 255));
@@ -290,7 +303,7 @@ namespace Match3RPG.Campaign
             AddDisc(vertexHelper, center + Vector2.down * yinYangRadius * .48f,
                 yinYangRadius * .16f, new Color32(24, 29, 38, 255));
 
-            float barY = rect.yMin + rect.height * .78f;
+            float barY = rect.yMin + rect.height * .83f;
             float leftX = rect.xMin + rect.width * .08f;
             float rightX = rect.xMin + rect.width * .92f;
             float centerX = rect.center.x;

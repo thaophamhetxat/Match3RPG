@@ -69,6 +69,10 @@ namespace Match3RPG.Campaign
         RectTransform starNodePopup;
         TMP_Text starNodePopupText;
         Button starNodePopupCloseButton;
+        Button starNodePopupUpgradeButton;
+        TMP_Text starNodePopupUpgradeLabel;
+        int popupStarBranchIndex = -1;
+        int popupStarIndex = -1;
         Button totalBuffButton;
         GameObject totalBuffPopup;
         TMP_Text totalBuffPopupText;
@@ -1046,13 +1050,13 @@ namespace Match3RPG.Campaign
         void CreateStarChartZoomControls(Transform parent)
         {
             totalBuffButton = CreateStarChartControlButton(parent, "TotalBuffButton",
-                new Vector2(.29f, .25f), new Vector2(.55f, .305f), "Tổng chỉ số",
+                new Vector2(.313f, .25f), new Vector2(.517f, .292f), "Tổng chỉ số",
                 20, OpenTotalBuffPopup);
             CreateStarChartControlButton(parent, "StarChartZoomOut",
-                new Vector2(.57f, .25f), new Vector2(.66f, .305f), "−",
+                new Vector2(.528f, .25f), new Vector2(.602f, .292f), "−",
                 32, () => SetStarChartZoom(currentStarChartZoom - .2f));
             CreateStarChartControlButton(parent, "StarChartZoomIn",
-                new Vector2(.68f, .25f), new Vector2(.77f, .305f), "+",
+                new Vector2(.613f, .25f), new Vector2(.687f, .292f), "+",
                 32, () => SetStarChartZoom(currentStarChartZoom + .2f));
         }
 
@@ -1080,22 +1084,44 @@ namespace Match3RPG.Campaign
             starNodePopup = CreateAnchoredRect(starChartGraphicRect,
                 "StarNodePopup", new Vector2(.5f, .5f), new Vector2(.5f, .5f),
                 Vector2.zero, Vector2.zero);
-            starNodePopup.sizeDelta = new Vector2(220f, 110f);
+            starNodePopup.sizeDelta = new Vector2(440f, 300f);
             starNodePopup.anchoredPosition = Vector2.zero;
             Image popupBackground = starNodePopup.gameObject.AddComponent<Image>();
-            popupBackground.color = new Color32(18, 22, 28, 220);
+            popupBackground.color = new Color32(18, 22, 28, 245);
+            popupBackground.raycastTarget = true;
             Outline outline = starNodePopup.gameObject.AddComponent<Outline>();
             outline.effectColor = new Color32(255, 214, 100, 255);
-            outline.effectDistance = new Vector2(2f, -2f);
+            outline.effectDistance = new Vector2(3f, -3f);
 
             starNodePopupText = CreateAnchoredLabel(starNodePopup, "StarNodePopupText",
-                string.Empty, 20, Color.white, new Vector2(.08f, .18f), new Vector2(.92f, .90f),
+                string.Empty, 28, Color.white, new Vector2(.08f, .34f), new Vector2(.84f, .92f),
                 out TMP_Text popupText, TextAlignmentOptions.TopLeft);
             starNodePopupText = popupText;
+            ApplyStarChartTextStyle(starNodePopupText, 28);
             starNodePopupCloseButton = CreateCharacterHitButton(starNodePopup, "StarNodePopupClose",
-                .72f, .04f, .94f, .20f, HideStarNodePopup);
-            AddLabel(starNodePopup, "StarNodePopupCloseText", "ĐÓNG", 18, Gold,
-                new Vector2(.72f, .04f), new Vector2(.94f, .20f), TextAlignmentOptions.Center);
+                .86f, .82f, .98f, .98f, HideStarNodePopup);
+            Image closeImage = starNodePopupCloseButton.GetComponent<Image>();
+            closeImage.color = new Color32(62, 45, 37, 255);
+            Outline closeOutline = starNodePopupCloseButton.gameObject.AddComponent<Outline>();
+            closeOutline.effectColor = Gold;
+            closeOutline.effectDistance = new Vector2(2f, -2f);
+            TMP_Text closeLabel = AddLabel(starNodePopup, "StarNodePopupCloseText", "X", 26, Gold,
+                new Vector2(.86f, .82f), new Vector2(.98f, .98f), TextAlignmentOptions.Center);
+            closeLabel.raycastTarget = false;
+
+            starNodePopupUpgradeButton = CreateCharacterHitButton(starNodePopup,
+                "StarNodePopupUpgrade", .30f, .06f, .70f, .27f,
+                UpgradePopupStar);
+            Image upgradeImage = starNodePopupUpgradeButton.GetComponent<Image>();
+            upgradeImage.color = new Color32(142, 106, 45, 255);
+            Outline upgradeOutline = starNodePopupUpgradeButton.gameObject.AddComponent<Outline>();
+            upgradeOutline.effectColor = Gold;
+            upgradeOutline.effectDistance = new Vector2(2f, -2f);
+            starNodePopupUpgradeLabel = AddLabel(starNodePopup,
+                "StarNodePopupUpgradeLabel", "Nâng cấp", 24, Color.white,
+                new Vector2(.30f, .06f), new Vector2(.70f, .27f),
+                TextAlignmentOptions.Center);
+            starNodePopupUpgradeLabel.raycastTarget = false;
             starNodePopup.gameObject.SetActive(false);
         }
 
@@ -1191,18 +1217,65 @@ namespace Match3RPG.Campaign
                 return;
             }
 
+            popupStarBranchIndex = branchIndex;
+            popupStarIndex = starIndex;
             int litCount = litStarsPerBranch[branchIndex];
             bool lit = starIndex < litCount;
-            string status = lit ? "Đã thắp" : (starIndex == litCount ? "Sẵn sàng" : "Chưa thắp");
-            string costLine = starIndex == litCount && litCount < MainProgressChartGraphic.StarsPerBranch
-                ? $"Chi phí: {starChartGemInventory.GetStarCost(selectedStarChartRealmIndex, litCount)} gem · Có {starChartGemInventory.GetBaseGemCount(StarChartGemTypes[branchIndex])}"
-                : "";
-            starNodePopupText.text = $"{StarChartGemNames[branchIndex]} · Sao {starIndex + 1}\n{status}\n{StarChartStatDescriptions[branchIndex]}\n{costLine}".Trim();
-            Vector2 starPosition = MainProgressChartGraphic.GetStarPosition(
-                starChartGraphicRect.rect, branchIndex, starIndex);
-            starNodePopup.anchoredPosition = starPosition + new Vector2(40f, 42f);
+            bool isNextStar = starIndex == litCount
+                && litCount < MainProgressChartGraphic.StarsPerBranch;
+            int available = starChartGemInventory.GetBaseGemCount(StarChartGemTypes[branchIndex]);
+            int cost = isNextStar
+                ? starChartGemInventory.GetStarCost(selectedStarChartRealmIndex, litCount)
+                : 0;
+            string status = lit ? "Đã thắp"
+                : isNextStar ? "Sẵn sàng" : "Chưa tới lượt";
+            string costLine = isNextStar
+                ? $"\nChi phí: {cost} gem · Có {available}"
+                : string.Empty;
+            if (isNextStar && available < cost)
+                status = "Chưa đủ gem";
+            starNodePopupText.text =
+                $"{StarChartGemNames[branchIndex]} · Sao {starIndex + 1}\n"
+                + $"{status}\n{StarChartStatDescriptions[branchIndex]}{costLine}";
+            starNodePopup.anchoredPosition = Vector2.zero;
+            UpdateStarNodePopupUpgradeState(lit, isNextStar && available >= cost);
             starNodePopup.gameObject.SetActive(true);
             starNodePopup.SetAsLastSibling();
+        }
+
+        void UpdateStarNodePopupUpgradeState(bool isLit, bool canUpgrade)
+        {
+            if (starNodePopupUpgradeButton == null || starNodePopupUpgradeLabel == null)
+                return;
+
+            starNodePopupUpgradeButton.interactable = !isLit && canUpgrade;
+            starNodePopupUpgradeLabel.text = isLit ? "Đã thắp" : "Nâng cấp";
+            Color buttonColor = isLit || !canUpgrade
+                ? new Color32(75, 79, 84, 235)
+                : new Color32(142, 106, 45, 255);
+            starNodePopupUpgradeButton.GetComponent<Image>().color = buttonColor;
+            starNodePopupUpgradeLabel.color = isLit || !canUpgrade
+                ? new Color32(170, 170, 170, 255)
+                : Color.white;
+        }
+
+        void UpgradePopupStar()
+        {
+            int branchIndex = popupStarBranchIndex;
+            int starIndex = popupStarIndex;
+            if (branchIndex < 0 || branchIndex >= StarChartGemTypes.Length)
+                return;
+
+            if (starIndex != litStarsPerBranch[branchIndex]
+                || litStarsPerBranch[branchIndex] >= MainProgressChartGraphic.StarsPerBranch)
+            {
+                ShowStarNodePopup(branchIndex, starIndex);
+                return;
+            }
+
+            selectedStarChartBranchIndex = branchIndex;
+            LightSelectedStar();
+            ShowStarNodePopup(branchIndex, starIndex);
         }
 
         void AddChartImage(string objectName, Sprite sprite, Vector2 anchor, float size)
