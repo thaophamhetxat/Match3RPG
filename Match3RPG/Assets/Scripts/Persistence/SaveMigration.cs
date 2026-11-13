@@ -23,6 +23,7 @@ namespace Match3RPG.Persistence
             GameSaveData data = new GameSaveData
             {
                 saveVersion = CurrentSaveVersion,
+                playerName = GameSaveData.DefaultPlayerName,
                 selectedHeroId = StartingHeroId,
                 loadout = new PlayerLoadoutSaveData { heroId = StartingHeroId },
                 campaign = CreateDefaultCampaign(catalog)
@@ -190,6 +191,8 @@ namespace Match3RPG.Persistence
 
         static void Normalize(GameSaveData data)
         {
+            if (string.IsNullOrWhiteSpace(data.playerName))
+                data.playerName = GameSaveData.DefaultPlayerName;
             data.heroes = data.heroes ?? new List<HeroProgressSaveData>();
             data.pets = data.pets ?? new List<PetProgressSaveData>();
             data.companions = data.companions ?? new List<CompanionProgressSaveData>();

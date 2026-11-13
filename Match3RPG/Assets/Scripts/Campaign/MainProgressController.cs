@@ -1,3 +1,4 @@
+using System;
 using System.Globalization;
 using System.Collections.Generic;
 using Match3RPG.Battle;
@@ -38,6 +39,10 @@ namespace Match3RPG.Campaign
         GameObject inventoryPanel;
         GameObject inventoryItemPopup;
         GameObject cultivationPanel;
+        TMP_Text bannerPlayerNameLabel;
+        TMP_Text bannerLevelExpRealmLabel;
+        GameObject renamePopup;
+        TMP_InputField renameInputField;
         GameObject skillsPlaceholder;
         GameObject starChartUIGroup;
         GameObject starChartContent;
@@ -162,6 +167,12 @@ namespace Match3RPG.Campaign
             RefreshBaseGemInventory();
             BuildUI();
             ApplyStaticCharacterPresentation();
+            RefreshBannerInfo();
+        }
+
+        void OnEnable()
+        {
+            RefreshBannerInfo();
         }
 
         void BuildUI()
@@ -176,8 +187,9 @@ namespace Match3RPG.Campaign
             contentRoot = CampaignUIFactory.CreateRect("MainProgressContent", safeAreaRect,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
 
-            RectTransform backgroundLayer = CampaignUIFactory.CreateRect("BackgroundLayer", contentRoot,
-                Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            RectTransform backgroundLayer = CampaignUIFactory.CreateRect("BackgroundLayer", canvas.transform,
+    Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+backgroundLayer.SetAsFirstSibling();
             backgroundImage = backgroundLayer.gameObject.AddComponent<Image>();
             backgroundImage.raycastTarget = false;
             backgroundImage.preserveAspect = true;
@@ -193,8 +205,8 @@ namespace Match3RPG.Campaign
             RectTransform heroBanner = CampaignUIFactory.CreateRect("HeroBanner", contentRoot,
                 new Vector2(0f, 1f), new Vector2(1f, 1f), Vector2.zero, Vector2.zero);
             heroBanner.pivot = new Vector2(0.5f, 1f);
-            heroBanner.anchoredPosition = Vector2.zero;
-            heroBanner.sizeDelta = new Vector2(screenW, screenW * 960f / 1440f);
+            heroBanner.offsetMin = new Vector2(21.33f, -102.80f);
+            heroBanner.offsetMax = new Vector2(-443.33f, 75f);      
             Image heroBannerImage = heroBanner.gameObject.AddComponent<Image>();
             heroBannerImage.raycastTarget = false;
             heroBannerImage.preserveAspect = true;
@@ -210,6 +222,20 @@ namespace Match3RPG.Campaign
             {
                 heroBannerImage.sprite = heroBannerSprite;
             }
+
+            CreateNavigationHitArea(heroBanner, "AvatarHitArea",
+                new Vector2(0.01f, 0.05f), new Vector2(0.33f, 0.95f), Color.magenta,
+                OpenRenamePopup);
+
+            bannerPlayerNameLabel = AddLabel(heroBanner, "BannerPlayerName", string.Empty, 26, Gold,
+                new Vector2(0.34f, 0.42f), new Vector2(0.95f, 0.61f), TextAlignmentOptions.MidlineLeft);
+            if (starChartFont != null)
+                bannerPlayerNameLabel.font = starChartFont;
+
+            bannerLevelExpRealmLabel = AddLabel(heroBanner, "BannerLevelExpRealm", string.Empty, 18, Gold,
+                new Vector2(0.34f, 0.20f), new Vector2(0.95f, 0.33f), TextAlignmentOptions.MidlineLeft);
+            if (starChartFont != null)
+                bannerLevelExpRealmLabel.font = starChartFont;
 
             characterLayer = CampaignUIFactory.CreateRect("CharacterLayer", contentRoot,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
@@ -286,7 +312,7 @@ namespace Match3RPG.Campaign
         {
             RectTransform rect = CampaignUIFactory.CreateRect(name, parent, new Vector2(.5f, .5f),
                 new Vector2(.5f, .5f), Vector2.zero, Vector2.zero);
-            rect.sizeDelta = new Vector2(420f, 420f);
+            rect.sizeDelta = new Vector2(519.36f, 498.66f);
             Image image = rect.gameObject.AddComponent<Image>();
             image.sprite = sprite;
             image.raycastTarget = false;
@@ -302,8 +328,8 @@ namespace Match3RPG.Campaign
                 new Vector2(0f, 0f), new Vector2(1f, 0f), Vector2.zero, Vector2.zero);
             navButtonsStrip.SetAsLastSibling();
             navButtonsStrip.pivot = new Vector2(0.5f, 0f);
-            navButtonsStrip.anchoredPosition = Vector2.zero;
-            navButtonsStrip.sizeDelta = new Vector2(screenW, screenW * 500f / 2048f);
+            navButtonsStrip.offsetMin = new Vector2(40.33f, 46.13f);
+            navButtonsStrip.offsetMax = new Vector2(-46.13f, 349.76f);
 
             Image navButtonsImage = navButtonsStrip.gameObject.AddComponent<Image>();
             navButtonsImage.raycastTarget = false;
@@ -322,17 +348,18 @@ namespace Match3RPG.Campaign
             }
 
             mainNavigationButtons.Add(CreateNavigationHitArea(navButtonsStrip, "StatusHitArea",
-                new Vector2(.02f, 0f), new Vector2(.31f, 1f), Color.red,
+                new Vector2(.02f, 0f), new Vector2(.2378f, .7334f), Color.red,
                 OpenCharacterPanel));
 
             mainNavigationButtons.Add(CreateNavigationHitArea(navButtonsStrip, "CultivationHitArea",
-                new Vector2(.34f, 0f), new Vector2(.66f, 1f), Color.green,
+                new Vector2(.2636f, 0f), new Vector2(.7265f, .4077f), Color.green,
                 OpenCultivationPanel));
 
             mainNavigationButtons.Add(CreateNavigationHitArea(navButtonsStrip, "AdventureHitArea",
-                new Vector2(.69f, 0f), new Vector2(.98f, 1f), Color.blue,
+                new Vector2(.762f, 0f), new Vector2(.98f, .7334f), Color.blue,
                 () =>
                 {
+                    CloseRenamePopup();
                     Debug.Log("[MainProgress] Clicked=Adventure");
                     SceneManager.LoadScene(CampaignManager.WorldMapSceneName);
                 }));
@@ -387,6 +414,7 @@ namespace Match3RPG.Campaign
 
         void SetPanelOpen(GameObject panel)
         {
+            CloseRenamePopup();
             foreach (Button button in mainNavigationButtons)
                 if (button != null)
                     button.interactable = false;
@@ -401,6 +429,7 @@ namespace Match3RPG.Campaign
             foreach (Button button in mainNavigationButtons)
                 if (button != null)
                     button.interactable = true;
+            RefreshBannerInfo();
         }
 
         RectTransform BuildCharacterPanel()
@@ -1917,6 +1946,175 @@ namespace Match3RPG.Campaign
             rect.anchorMin = rect.anchorMax = anchorPosition;
             rect.anchoredPosition = Vector2.zero;
             return button;
+        }
+
+        string GetPlayerName()
+        {
+            SaveManager saveManager = SaveManager.Instance;
+            GameSaveData save = saveManager.CurrentSave ?? saveManager.LoadOrCreate();
+            if (save != null && !string.IsNullOrWhiteSpace(save.playerName))
+                return save.playerName;
+            return GameSaveData.DefaultPlayerName;
+        }
+
+        void RefreshBannerInfo()
+        {
+            if (bannerPlayerNameLabel != null)
+                bannerPlayerNameLabel.text = GetPlayerName();
+
+            if (bannerLevelExpRealmLabel != null)
+            {
+                HeroProgressSaveData progress = LoadSelectedHeroProgress();
+                int level = progress != null ? Math.Max(1, progress.level) : 1;
+                int exp = progress != null ? Math.Max(0, progress.experience) : 0;
+                int threshold = HeroLevelProgression.GetExperienceToNextLevel(level);
+                int expPercent = threshold > 0
+                    ? Mathf.Clamp((int)Math.Round((double)exp / threshold * 100.0), 0, 100)
+                    : 100;
+                int realmIndex = FindRealmIndex(level);
+                string realmName = Realms[realmIndex].Name;
+                bannerLevelExpRealmLabel.text = $"Lv.{level} · {expPercent}% · Cảnh Giới: {realmName}";
+            }
+        }
+
+        void OpenRenamePopup()
+        {
+            if (renamePopup == null)
+                renamePopup = BuildRenamePopup(canvas.transform).gameObject;
+
+            string currentName = GetPlayerName();
+            if (renameInputField != null)
+            {
+                renameInputField.text = currentName;
+                renameInputField.ActivateInputField();
+            }
+
+            renamePopup.SetActive(true);
+            renamePopup.transform.SetAsLastSibling();
+        }
+
+        void CloseRenamePopup()
+        {
+            if (renamePopup != null)
+                renamePopup.SetActive(false);
+        }
+
+        void ConfirmRename()
+        {
+            if (renameInputField == null)
+                return;
+
+            string entered = renameInputField.text != null ? renameInputField.text.Trim() : string.Empty;
+            if (string.IsNullOrEmpty(entered))
+                return;
+
+            SaveManager saveManager = SaveManager.Instance;
+            GameSaveData save = saveManager.CurrentSave ?? saveManager.LoadOrCreate();
+            save.playerName = entered;
+            saveManager.SaveNow();
+
+            if (bannerPlayerNameLabel != null)
+                bannerPlayerNameLabel.text = entered;
+
+            CloseRenamePopup();
+        }
+
+        RectTransform BuildRenamePopup(Transform parent)
+        {
+            RectTransform popup = CreateAnchoredRect(parent, "RenamePopup",
+                Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            Image backdrop = popup.gameObject.AddComponent<Image>();
+            backdrop.color = new Color(0f, 0f, 0f, .82f);
+            backdrop.raycastTarget = true;
+
+            RectTransform card = CreateAnchoredRect(popup, "RenameCard",
+                new Vector2(.10f, .36f), new Vector2(.90f, .64f),
+                Vector2.zero, Vector2.zero);
+            SetImage(card.gameObject, new Color32(24, 30, 40, 255), false);
+            Outline outline = card.gameObject.AddComponent<Outline>();
+            outline.effectColor = Gold;
+            outline.effectDistance = new Vector2(3f, -3f);
+
+            AddLabel(card, "RenameTitle", "Đổi Tên", 32, Gold,
+                new Vector2(.08f, .74f), new Vector2(.92f, .94f));
+
+            Button closeX = CreatePanelButton(card, "RenameCloseX", "X",
+                new Vector2(44f, 44f), new Vector2(.92f, .85f), new Color32(74, 54, 44, 255));
+            closeX.onClick.AddListener(CloseRenamePopup);
+
+            renameInputField = CreateRenameInputField(card, "RenameInputField",
+                new Vector2(.10f, .44f), new Vector2(.90f, .66f));
+
+            Button cancel = CreatePanelButton(card, "RenameCancel", "HỦY",
+                new Vector2(170f, 54f), new Vector2(.28f, .18f), new Color32(74, 54, 44, 255));
+            cancel.onClick.AddListener(CloseRenamePopup);
+
+            Button confirm = CreatePanelButton(card, "RenameConfirm", "XÁC NHẬN",
+                new Vector2(190f, 54f), new Vector2(.72f, .18f), Gold);
+            confirm.onClick.AddListener(ConfirmRename);
+
+            popup.gameObject.SetActive(false);
+            return popup;
+        }
+
+        TMP_InputField CreateRenameInputField(Transform parent, string name,
+            Vector2 anchorMin, Vector2 anchorMax)
+        {
+            RectTransform inputRoot = CreateAnchoredRect(parent, name,
+                anchorMin, anchorMax, Vector2.zero, Vector2.zero);
+            Image bg = inputRoot.gameObject.AddComponent<Image>();
+            bg.color = new Color32(14, 18, 24, 255);
+            Outline outline = inputRoot.gameObject.AddComponent<Outline>();
+            outline.effectColor = MutedGold;
+            outline.effectDistance = new Vector2(1.5f, -1.5f);
+
+            RectTransform textArea = CreateAnchoredRect(inputRoot, "Text Area",
+                Vector2.zero, Vector2.one, new Vector2(12f, 4f), new Vector2(-12f, -4f));
+            textArea.gameObject.AddComponent<RectMask2D>();
+
+            RectTransform placeholderRect = CreateAnchoredRect(textArea, "Placeholder",
+                Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            TextMeshProUGUI placeholder = placeholderRect.gameObject.AddComponent<TextMeshProUGUI>();
+            placeholder.text = "Nhập tên người chơi...";
+            placeholder.fontSize = 24;
+            placeholder.fontStyle = FontStyles.Italic;
+            placeholder.color = new Color(0.6f, 0.6f, 0.6f, 0.5f);
+            placeholder.alignment = TextAlignmentOptions.MidlineLeft;
+            placeholder.textWrappingMode = TextWrappingModes.NoWrap;
+            placeholder.raycastTarget = false;
+            if (starChartFont != null)
+                placeholder.font = starChartFont;
+            else if (TMP_Settings.defaultFontAsset != null)
+                placeholder.font = TMP_Settings.defaultFontAsset;
+
+            RectTransform textRect = CreateAnchoredRect(textArea, "Text",
+                Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            TextMeshProUGUI textComponent = textRect.gameObject.AddComponent<TextMeshProUGUI>();
+            textComponent.fontSize = 24;
+            textComponent.color = Color.white;
+            textComponent.alignment = TextAlignmentOptions.MidlineLeft;
+            textComponent.textWrappingMode = TextWrappingModes.NoWrap;
+            textComponent.raycastTarget = false;
+            if (starChartFont != null)
+                textComponent.font = starChartFont;
+            else if (TMP_Settings.defaultFontAsset != null)
+                textComponent.font = TMP_Settings.defaultFontAsset;
+
+            TMP_InputField inputField = inputRoot.gameObject.AddComponent<TMP_InputField>();
+            inputField.textViewport = textArea;
+            inputField.textComponent = textComponent;
+            inputField.placeholder = placeholder;
+            inputField.fontAsset = textComponent.font;
+            inputField.pointSize = 24;
+            inputField.characterLimit = 20;
+            inputField.lineType = TMP_InputField.LineType.SingleLine;
+            inputField.interactable = true;
+            inputField.targetGraphic = bg;
+            inputField.caretColor = Gold;
+            inputField.selectionColor = new Color32(231, 190, 110, 80);
+            inputField.onSubmit.AddListener(_ => ConfirmRename());
+
+            return inputField;
         }
 
         static RectTransform CreateAnchoredRect(Transform parent, string name,

@@ -6,7 +6,10 @@ namespace Match3RPG.Persistence
     [Serializable]
     public sealed class GameSaveData
     {
+        public const string DefaultPlayerName = "Mặc Tử Vân";
+
         public int saveVersion;
+        public string playerName = DefaultPlayerName;
         public string selectedHeroId = SaveMigration.StartingHeroId;
         public int playerExperience;
         public int gold;
