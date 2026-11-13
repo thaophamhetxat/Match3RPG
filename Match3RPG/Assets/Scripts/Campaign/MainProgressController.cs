@@ -64,6 +64,9 @@ namespace Match3RPG.Campaign
         Button previousRealmButton;
         Button nextRealmButton;
         GameObject breakthroughPopup;
+        Button breakthroughButton;
+        TMP_Text breakthroughButtonLabel;
+        Button breakthroughConfirmButton;
         RectTransform starChartGraphicRect;
         ScrollRect starChartZoomScrollRect;
         RectTransform starNodePopup;
@@ -870,10 +873,6 @@ namespace Match3RPG.Campaign
                 "Chưa thay đổi dữ liệu sao.", 19, out starActionStatusRect);
             UpdateStarActionDetails();
             RefreshStarChartDetailsLayout();
-            CreateCharacterHitButton(starChartUIGroup.transform, "LightStarButton",
-                .10f, .085f, .47f, .155f, LightSelectedStar);
-            CreateCharacterHitButton(starChartUIGroup.transform, "BreakthroughButton",
-                .53f, .085f, .90f, .155f, TryOpenBreakthroughPopup);
             breakthroughPopup = BuildBreakthroughPopup(overlay).gameObject;
             breakthroughPopup.SetActive(false);
             overlay.gameObject.SetActive(false);
@@ -908,6 +907,7 @@ namespace Match3RPG.Campaign
                 "ĐỘT PHÁ", new Vector2(220f, 64f),
                 new Vector2(.72f, .16f), Gold);
             confirm.onClick.AddListener(ConfirmBreakthrough);
+            breakthroughConfirmButton = confirm;
             return popup;
         }
 
@@ -1095,6 +1095,11 @@ namespace Match3RPG.Campaign
             CreateStarChartControlButton(parent, "StarChartZoomIn",
                 new Vector2(.613f, .25f), new Vector2(.687f, .292f), "+",
                 32, () => SetStarChartZoom(currentStarChartZoom + .2f));
+            breakthroughButton = CreateStarChartControlButton(parent, "BreakthroughButton", new Vector2(.698f, .25f), new Vector2(.90f, .292f), "ĐỘT PHÁ", 20, TryOpenBreakthroughPopup);
+            Transform breakthroughLabelTransform = parent != null ? parent.Find("BreakthroughButtonLabel") : null;
+            breakthroughButtonLabel = breakthroughLabelTransform != null
+                ? breakthroughLabelTransform.GetComponent<TMP_Text>()
+                : null;
         }
 
         Button CreateStarChartControlButton(Transform parent, string name,
@@ -1420,21 +1425,32 @@ namespace Match3RPG.Campaign
 
             StarChartBreakthroughStatus status =
                 starChartGemInventory.GetBreakthroughStatus(currentRealmIndex, progress);
-            if (!status.CanBreakthrough)
-            {
-                SetBreakthroughStatus(DescribeBreakthroughShortages(status, progress.level));
-                return;
-            }
-
             StarChartBreakthroughRequirement requirement = status.Requirement;
+            int currentStandard = requirement.StandardDiamonds - status.MissingStandardDiamonds;
+            int currentSpecial = requirement.SpecialDiamonds - status.MissingSpecialDiamonds;
+            string standardLine = status.MissingStandardDiamonds > 0
+                ? $"Kim cương Thường: {requirement.StandardDiamonds.ToString("N0", CultureInfo.InvariantCulture)} (có {currentStandard.ToString("N0", CultureInfo.InvariantCulture)}, thiếu {status.MissingStandardDiamonds.ToString("N0", CultureInfo.InvariantCulture)})"
+                : $"Kim cương Thường: {requirement.StandardDiamonds.ToString("N0", CultureInfo.InvariantCulture)} (có {currentStandard.ToString("N0", CultureInfo.InvariantCulture)})";
+            string specialLine = status.MissingSpecialDiamonds > 0
+                ? $"Kim cương Đặc Biệt: {requirement.SpecialDiamonds.ToString("N0", CultureInfo.InvariantCulture)} (có {currentSpecial.ToString("N0", CultureInfo.InvariantCulture)}, thiếu {status.MissingSpecialDiamonds.ToString("N0", CultureInfo.InvariantCulture)})"
+                : $"Kim cương Đặc Biệt: {requirement.SpecialDiamonds.ToString("N0", CultureInfo.InvariantCulture)} (có {currentSpecial.ToString("N0", CultureInfo.InvariantCulture)})";
             breakthroughRequirementLabel.text =
                 $"{requirement.CurrentRealmName} Lv{requirement.RequiredLevel} → "
-                + $"{requirement.NextRealmName} Lv{requirement.TargetLevel}\n\n"
-                + $"Kim cương Thường: {requirement.StandardDiamonds.ToString("N0", CultureInfo.InvariantCulture)}\n"
-                + $"Kim cương Đặc Biệt: {requirement.SpecialDiamonds.ToString("N0", CultureInfo.InvariantCulture)}\n"
-                + "Tiến độ sao cảnh giới hiện tại: 70/70";
+                + $"{requirement.NextRealmName} Lv{requirement.TargetLevel}\n"
+                + $"{standardLine}\n"
+                + $"{specialLine}\n"
+                + $"Cấp độ: Lv{progress.level} / cần Lv{requirement.RequiredLevel} · Sao: {status.LitStarCount}/70";
             breakthroughPopup.SetActive(true);
             breakthroughPopup.transform.SetAsLastSibling();
+            if (breakthroughConfirmButton != null)
+            {
+                breakthroughConfirmButton.interactable = status.CanBreakthrough;
+                Image confirmImage = breakthroughConfirmButton.GetComponent<Image>();
+                if (confirmImage != null)
+                    confirmImage.color = status.CanBreakthrough
+                        ? Gold
+                        : new Color32(74, 74, 78, 255);
+            }
         }
 
         void ConfirmBreakthrough()
@@ -1466,6 +1482,43 @@ namespace Match3RPG.Campaign
             SetBreakthroughStatus(
                 $"Đột phá thành công · {status.Requirement.NextRealmName} "
                 + $"Lv{status.Requirement.TargetLevel}.");
+            UpdateBreakthroughButtonState();
+        }
+
+        void UpdateBreakthroughButtonState()
+        {
+            if (breakthroughButton == null)
+                return;
+
+            HeroProgressSaveData progress = LoadSelectedHeroProgress();
+            if (progress == null)
+            {
+                breakthroughButton.interactable = false;
+                ConfigureOutlinedButton(breakthroughButton, new Color32(45, 48, 54, 245),
+                    new Color32(110, 115, 125, 255), 2.5f);
+                if (breakthroughButtonLabel != null)
+                    breakthroughButtonLabel.color = new Color32(150, 150, 150, 255);
+                return;
+            }
+
+            int currentRealmIndex = FindRealmIndex(progress.level);
+            bool enabled = selectedStarChartRealmIndex == currentRealmIndex
+                && currentRealmIndex < Realms.Length - 1
+                && starChartGemInventory.GetBreakthroughStatus(currentRealmIndex, progress).StarsReady;
+            breakthroughButton.interactable = enabled;
+            if (enabled)
+            {
+                ConfigureOutlinedButton(breakthroughButton, new Color32(28, 35, 44, 245), Gold, 2.5f);
+                if (breakthroughButtonLabel != null)
+                    breakthroughButtonLabel.color = Color.white;
+            }
+            else
+            {
+                ConfigureOutlinedButton(breakthroughButton, new Color32(45, 48, 54, 245),
+                    new Color32(110, 115, 125, 255), 2.5f);
+                if (breakthroughButtonLabel != null)
+                    breakthroughButtonLabel.color = new Color32(150, 150, 150, 255);
+            }
         }
 
         string DescribeBreakthroughShortages(StarChartBreakthroughStatus status,
@@ -1613,6 +1666,7 @@ namespace Match3RPG.Campaign
             UpdateStarActionDetails();
             SetStarChartStatus(
                 "Mốc 1 sáng hiển thị trên cả 7 nhánh; tiến độ thật không đổi.");
+            UpdateBreakthroughButtonState();
         }
 
         void UpdateStarActionDetails()
@@ -1680,6 +1734,7 @@ namespace Match3RPG.Campaign
                 skillsTabButton.interactable = !showSkills;
             if (starChartTabButton != null)
                 starChartTabButton.interactable = showSkills;
+            UpdateBreakthroughButtonState();
         }
 
         RectTransform CreateOverlay(string name)
