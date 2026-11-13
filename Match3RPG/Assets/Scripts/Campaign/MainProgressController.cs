@@ -182,11 +182,34 @@ namespace Match3RPG.Campaign
             backgroundImage.raycastTarget = false;
             backgroundImage.preserveAspect = true;
             backgroundImage.type = Image.Type.Simple;
-            backgroundImage.sprite = presentation != null ? presentation.ProgressBackground : null;
+            backgroundImage.sprite = Resources.Load<Sprite>("MainProgress/Progress/MoonlitLakeBackground") ?? (presentation != null ? presentation.ProgressBackground : null);
             backgroundImage.color = Color.white;
 
             if (backgroundImage.sprite == null)
                 backgroundImage.color = new Color32(14, 19, 20, 255);
+
+            float screenW = GetCanvasScreenWidth();
+
+            RectTransform heroBanner = CampaignUIFactory.CreateRect("HeroBanner", contentRoot,
+                new Vector2(0f, 1f), new Vector2(1f, 1f), Vector2.zero, Vector2.zero);
+            heroBanner.pivot = new Vector2(0.5f, 1f);
+            heroBanner.anchoredPosition = Vector2.zero;
+            heroBanner.sizeDelta = new Vector2(screenW, screenW * 960f / 1440f);
+            Image heroBannerImage = heroBanner.gameObject.AddComponent<Image>();
+            heroBannerImage.raycastTarget = false;
+            heroBannerImage.preserveAspect = true;
+            heroBannerImage.type = Image.Type.Simple;
+            heroBannerImage.color = Color.white;
+            Sprite heroBannerSprite = Resources.Load<Sprite>("MainProgress/UI/HeroBanner");
+            if (heroBannerSprite == null)
+            {
+                Debug.LogError("MainProgress failed to load sprite Resources/MainProgress/UI/HeroBanner.", this);
+                heroBanner.gameObject.SetActive(false);
+            }
+            else
+            {
+                heroBannerImage.sprite = heroBannerSprite;
+            }
 
             characterLayer = CampaignUIFactory.CreateRect("CharacterLayer", contentRoot,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
@@ -205,7 +228,40 @@ namespace Match3RPG.Campaign
             meditationVisual.preserveAspect = true;
             meditationVisual.color = Color.white;
 
-            CreateNavigationButtons();
+            CreateNavigationButtons(screenW);
+        }
+
+        float GetCanvasScreenWidth()
+        {
+            Canvas targetCanvas = contentRoot != null ? contentRoot.GetComponentInParent<Canvas>() ?? canvas : canvas;
+            CanvasScaler scaler = targetCanvas != null
+                ? targetCanvas.GetComponent<CanvasScaler>()
+                : null;
+            float scaleFactor = 0f;
+            if (scaler != null
+                && scaler.uiScaleMode == CanvasScaler.ScaleMode.ScaleWithScreenSize
+                && scaler.referenceResolution.x > 0f
+                && scaler.referenceResolution.y > 0f)
+            {
+                float widthScale = Screen.width / scaler.referenceResolution.x;
+                float heightScale = Screen.height / scaler.referenceResolution.y;
+                float match = Mathf.Clamp01(scaler.matchWidthOrHeight);
+                scaleFactor = Mathf.Pow(widthScale, 1f - match)
+                    * Mathf.Pow(heightScale, match);
+            }
+
+            if (float.IsNaN(scaleFactor) || float.IsInfinity(scaleFactor)
+                || scaleFactor <= 0f)
+            {
+                scaleFactor = targetCanvas != null
+                    && targetCanvas.scaleFactor > 0f
+                    && !float.IsNaN(targetCanvas.scaleFactor)
+                    && !float.IsInfinity(targetCanvas.scaleFactor)
+                    ? targetCanvas.scaleFactor
+                    : 1f;
+            }
+
+            return Screen.width / scaleFactor;
         }
 
         void ApplyStaticCharacterPresentation()
@@ -240,21 +296,41 @@ namespace Match3RPG.Campaign
             return image;
         }
 
-        void CreateNavigationButtons()
+        void CreateNavigationButtons(float screenW)
         {
-            RectTransform navLayer = CampaignUIFactory.CreateRect("NavigationHitAreas", contentRoot,
-                Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
-            navLayer.SetAsLastSibling();
+            RectTransform navButtonsStrip = CampaignUIFactory.CreateRect("NavButtonsStrip", contentRoot,
+                new Vector2(0f, 0f), new Vector2(1f, 0f), Vector2.zero, Vector2.zero);
+            navButtonsStrip.SetAsLastSibling();
+            navButtonsStrip.pivot = new Vector2(0.5f, 0f);
+            navButtonsStrip.anchoredPosition = Vector2.zero;
+            navButtonsStrip.sizeDelta = new Vector2(screenW, screenW * 500f / 2048f);
 
-            mainNavigationButtons.Add(CreateNavigationHitArea(navLayer, "StatusHitArea",
-                new Vector2(.08f, .12f), new Vector2(.30f, .28f), Color.red,
+            Image navButtonsImage = navButtonsStrip.gameObject.AddComponent<Image>();
+            navButtonsImage.raycastTarget = false;
+            navButtonsImage.preserveAspect = true;
+            navButtonsImage.type = Image.Type.Simple;
+            navButtonsImage.color = Color.white;
+            Sprite navButtonsSprite = Resources.Load<Sprite>("MainProgress/UI/NavButtons");
+            if (navButtonsSprite == null)
+            {
+                Debug.LogError("MainProgress failed to load sprite Resources/MainProgress/UI/NavButtons.", this);
+                navButtonsStrip.gameObject.SetActive(false);
+            }
+            else
+            {
+                navButtonsImage.sprite = navButtonsSprite;
+            }
+
+            mainNavigationButtons.Add(CreateNavigationHitArea(navButtonsStrip, "StatusHitArea",
+                new Vector2(.02f, 0f), new Vector2(.31f, 1f), Color.red,
                 OpenCharacterPanel));
 
-            mainNavigationButtons.Add(CreateNavigationHitArea(navLayer, "CultivationHitArea",
-                new Vector2(.35f, .12f), new Vector2(.65f, .28f), Color.green,
+            mainNavigationButtons.Add(CreateNavigationHitArea(navButtonsStrip, "CultivationHitArea",
+                new Vector2(.34f, 0f), new Vector2(.66f, 1f), Color.green,
                 OpenCultivationPanel));
 
-            mainNavigationButtons.Add(CreateNavigationHitArea(navLayer, "AdventureHitArea", new Vector2(.68f, .12f), new Vector2(.92f, .28f), Color.blue,
+            mainNavigationButtons.Add(CreateNavigationHitArea(navButtonsStrip, "AdventureHitArea",
+                new Vector2(.69f, 0f), new Vector2(.98f, 1f), Color.blue,
                 () =>
                 {
                     Debug.Log("[MainProgress] Clicked=Adventure");
