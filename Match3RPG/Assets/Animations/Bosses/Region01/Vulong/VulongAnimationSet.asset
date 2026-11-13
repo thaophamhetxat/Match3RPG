@@ -22,10 +22,10 @@ MonoBehaviour:
   dodgeClip: {fileID: 0}
   risingClip: {fileID: 0}
   deathClip: {fileID: 0}
-  attackImpactNormalizedTime: 0.41322318
-  attackNormalizationScaleMultiplier: 0.54
+  attackImpactNormalizedTime: 0.448
+  attackNormalizationScaleMultiplier: 1
   attackInPlace: 0
-  idleFacesForward: 1
+  idleFacesForward: 0
   idleFrames:
   - {fileID: 1441716358, guid: ec8f3f4edb302f148873e4fbe523357f, type: 3}
   - {fileID: -41424805, guid: ec8f3f4edb302f148873e4fbe523357f, type: 3}

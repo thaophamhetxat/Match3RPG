@@ -25,7 +25,7 @@ MonoBehaviour:
   attackImpactNormalizedTime: 0.57
   attackNormalizationScaleMultiplier: 1.06
   attackInPlace: 0
-  idleFacesForward: 1
+  idleFacesForward: 0
   idleFrames:
   - {fileID: 719725248, guid: 8eb86c411717c12439e92265c923ee3b, type: 3}
   - {fileID: 866436260, guid: 8eb86c411717c12439e92265c923ee3b, type: 3}
