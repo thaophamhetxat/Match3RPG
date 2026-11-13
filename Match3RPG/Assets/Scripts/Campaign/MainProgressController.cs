@@ -1214,6 +1214,7 @@ namespace Match3RPG.Campaign
 
         void OpenTotalBuffPopup()
         {
+            HideStarNodePopup();
             if (totalBuffPopup == null || totalBuffPopupText == null)
                 return;
 
@@ -1259,8 +1260,15 @@ namespace Match3RPG.Campaign
                 starNodePopup.gameObject.SetActive(false);
         }
 
+        void HideStarChartPopups()
+        {
+            HideStarNodePopup();
+            CloseTotalBuffPopup();
+        }
+
         void ShowStarNodePopup(int branchIndex, int starIndex)
         {
+            CloseTotalBuffPopup();
             if (starNodePopup == null || starNodePopupText == null)
                 return;
             if (branchIndex < 0 || branchIndex >= StarChartGemNames.Length)
@@ -1660,6 +1668,7 @@ namespace Match3RPG.Campaign
 
         void SelectCultivationTab(bool showSkills)
         {
+            HideStarChartPopups();
             if (skillsPlaceholder != null)
                 skillsPlaceholder.SetActive(showSkills);
             if (starChartUIGroup != null)
