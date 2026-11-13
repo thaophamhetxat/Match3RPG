@@ -74,13 +74,13 @@ namespace Match3RPG.Campaign
             new[]
             {
                 new Vector2(.91f, .74f), new Vector2(.91f, .66f), new Vector2(.89f, .57f),
-                new Vector2(.87f, .48f), new Vector2(.91f, .56f), new Vector2(.91f, .47f),
+                new Vector2(.87f, .48f), new Vector2(.87f, .39f), new Vector2(.88f, .30f),
                 new Vector2(.93f, .57f), new Vector2(.94f, .47f), new Vector2(.95f, .35f),
                 new Vector2(.96f, .23f)
             }
         };
         static readonly int[] BranchForkStarIndices = { 1, 3, 2, 4, 0, 2, 1 };
-        static readonly int[] BranchSecondArmStartIndices = { 5, 6, 6, 7, 4, 5, 6 };
+        static readonly int[] BranchSecondArmStartIndices = { 5, 6, 6, 7, 5, 5, 6 };
         static readonly bool[][] TrigramPatterns =
         {
             new[] { true, true, true },
