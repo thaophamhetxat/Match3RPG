@@ -483,32 +483,87 @@ namespace Match3RPG.Campaign
                 "InventoryTab_Materials", .66f, .81f, .93f, .87f,
                 () => SelectInventoryTab(2));
 
+            RectTransform viewportRect = CreateAnchoredRect(artwork, "InventoryGridViewport",
+                new Vector2(.085f, .21f), new Vector2(.915f, .79f), Vector2.zero, Vector2.zero);
+            viewportRect.gameObject.AddComponent<RectMask2D>();
+            ScrollRect scrollRect = viewportRect.gameObject.AddComponent<ScrollRect>();
+            scrollRect.vertical = true;
+            scrollRect.horizontal = false;
+            scrollRect.movementType = ScrollRect.MovementType.Clamped;
+            scrollRect.inertia = true;
+            scrollRect.scrollSensitivity = 1f;
+
+            Canvas targetCanvas = artwork.GetComponentInParent<Canvas>() ?? canvas;
+            CanvasScaler scaler = targetCanvas != null
+                ? targetCanvas.GetComponent<CanvasScaler>()
+                : null;
+            float scaleFactor = 0f;
+            if (scaler != null
+                && scaler.uiScaleMode == CanvasScaler.ScaleMode.ScaleWithScreenSize
+                && scaler.referenceResolution.x > 0f
+                && scaler.referenceResolution.y > 0f)
+            {
+                float widthScale = Screen.width / scaler.referenceResolution.x;
+                float heightScale = Screen.height / scaler.referenceResolution.y;
+                float match = Mathf.Clamp01(scaler.matchWidthOrHeight);
+                scaleFactor = Mathf.Pow(widthScale, 1f - match)
+                    * Mathf.Pow(heightScale, match);
+            }
+
+            if (float.IsNaN(scaleFactor) || float.IsInfinity(scaleFactor)
+                || scaleFactor <= 0f)
+            {
+                scaleFactor = targetCanvas != null
+                    && targetCanvas.scaleFactor > 0f
+                    && !float.IsNaN(targetCanvas.scaleFactor)
+                    && !float.IsInfinity(targetCanvas.scaleFactor)
+                    ? targetCanvas.scaleFactor
+                    : 1f;
+            }
+
+            float screenW = Screen.width / scaleFactor;
             const int columns = 5;
             const int rows = 7;
-            const float gridLeft = .10f;
-            const float gridWidth = .80f;
-            const float columnStep = gridWidth / columns;
-            const float firstRowY = .755f;
-            const float rowStep = .079f;
-            for (int index = 0; index < columns * rows; index++)
+            int totalSlots = columns * rows;
+            float cellSize = (0.915f - 0.085f) * screenW / columns;
+            float slotSize = cellSize * 0.725f;
+            float contentHeight = rows * cellSize;
+
+            RectTransform contentRect = CreateAnchoredRect(viewportRect, "InventoryGridContent",
+                new Vector2(0f, 1f), new Vector2(1f, 1f), Vector2.zero, Vector2.zero);
+            contentRect.pivot = new Vector2(0.5f, 1f);
+            contentRect.anchoredPosition = Vector2.zero;
+            contentRect.sizeDelta = new Vector2(0f, contentHeight);
+
+            scrollRect.viewport = viewportRect;
+            scrollRect.content = contentRect;
+
+            for (int index = 0; index < totalSlots; index++)
             {
                 int capturedIndex = index;
                 int row = index / columns;
                 int column = index % columns;
-                float centerX = gridLeft + (column + .5f) * columnStep;
-                float centerY = firstRowY - row * rowStep;
-                RectTransform slotRect = CreateAnchoredRect(artwork,
+                RectTransform slotRect = CreateAnchoredRect(contentRect,
                     $"InventorySlot_{index}",
-                    new Vector2(centerX - .058f, centerY - .03f),
-                    new Vector2(centerX + .058f, centerY + .03f),
+                    new Vector2(0f, 1f), new Vector2(0f, 1f),
                     Vector2.zero, Vector2.zero);
+                slotRect.pivot = new Vector2(0.5f, 0.5f);
+                slotRect.sizeDelta = new Vector2(slotSize, slotSize);
+                slotRect.anchoredPosition = new Vector2(
+                    (column + 0.5f) * cellSize,
+                    -(row + 0.5f) * cellSize);
+
                 Image slotImage = slotRect.gameObject.AddComponent<Image>();
-                slotImage.sprite = inventoryItemSlot;
-                slotImage.preserveAspect = true;
+                slotImage.color = new Color32(12, 27, 36, 255);
                 slotImage.raycastTarget = true;
+                Outline slotOutline = slotRect.gameObject.AddComponent<Outline>();
+                slotOutline.effectColor = Gold;
+                slotOutline.effectDistance = new Vector2(2f, -2f);
+
                 Button slotButton = slotRect.gameObject.AddComponent<Button>();
                 slotButton.targetGraphic = slotImage;
                 slotButton.transition = Selectable.Transition.None;
+
                 if (index < inventoryItemSprites.Length
                     && GetSpriteAt(inventoryItemSprites, index) != null)
                 {
@@ -520,10 +575,20 @@ namespace Match3RPG.Campaign
                     itemImage.sprite = itemSprite;
                     itemImage.preserveAspect = true;
                     itemImage.raycastTarget = false;
-                    TMP_Text itemName = AddLabel(artwork, $"InventoryItemName_{index}",
-                        GetInventoryItemName(index), 12, Color.white,
-                        new Vector2(centerX - columnStep * .48f, centerY - .052f),
-                        new Vector2(centerX + columnStep * .48f, centerY - .032f));
+
+                    RectTransform nameRect = CreateAnchoredRect(contentRect,
+                        $"InventoryItemName_{index}",
+                        new Vector2(0f, 1f), new Vector2(0f, 1f),
+                        Vector2.zero, Vector2.zero);
+                    nameRect.pivot = new Vector2(0.5f, 1f);
+                    nameRect.sizeDelta = new Vector2(cellSize * 0.96f, 26f);
+                    nameRect.anchoredPosition = new Vector2(
+                        (column + 0.5f) * cellSize,
+                        -((row + 0.5f) * cellSize + slotSize * 0.5f + 4f));
+                    TextMeshProUGUI itemName = CampaignUIFactory.CreateText(
+                        nameRect, "Text", GetInventoryItemName(index), 12,
+                        Color.white, TextAlignmentOptions.Center);
+
                     slotButton.onClick.AddListener(
                         () => OpenInventoryItemPopup(capturedIndex));
                     inventoryItemButtons[index] = slotButton;
