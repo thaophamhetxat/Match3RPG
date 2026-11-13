@@ -484,8 +484,15 @@ namespace Match3RPG.Campaign
                 () => SelectInventoryTab(2));
 
             RectTransform viewportRect = CreateAnchoredRect(artwork, "InventoryGridViewport",
-                new Vector2(.085f, .21f), new Vector2(.915f, .79f), Vector2.zero, Vector2.zero);
-            viewportRect.gameObject.AddComponent<RectMask2D>();
+                new Vector2(.085f, .207f), new Vector2(.915f, .810f),
+                new Vector2(0f, 2f), new Vector2(0f, -2f));
+            viewportRect.offsetMin = new Vector2(0f, 2f);
+            viewportRect.offsetMax = new Vector2(0f, -2f);
+            Image viewportImage = viewportRect.gameObject.AddComponent<Image>();
+            viewportImage.color = Color.white;
+            viewportImage.raycastTarget = true;
+            Mask viewportMask = viewportRect.gameObject.AddComponent<Mask>();
+            viewportMask.showMaskGraphic = false;
             ScrollRect scrollRect = viewportRect.gameObject.AddComponent<ScrollRect>();
             scrollRect.vertical = true;
             scrollRect.horizontal = false;
