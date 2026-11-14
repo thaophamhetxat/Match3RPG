@@ -58,6 +58,21 @@ namespace Match3RPG.Campaign
             (new Vector2(.742f, .818f), new Vector2(.962f, .864f))
         };
 
+        static readonly (Vector2 min, Vector2 max)[] InventoryTabFocusAnchors =
+        {
+            (new Vector2(.069f, .828f), new Vector2(.324f, .861f)),
+            (new Vector2(.375f, .828f), new Vector2(.628f, .861f)),
+            (new Vector2(.678f, .828f), new Vector2(.933f, .861f))
+        };
+
+        static readonly (Vector2 min, Vector2 max)[] CharacterTabFocusAnchors =
+        {
+            (new Vector2(.051f, .824f), new Vector2(.247f, .858f)),
+            (new Vector2(.286f, .824f), new Vector2(.480f, .858f)),
+            (new Vector2(.520f, .824f), new Vector2(.715f, .858f)),
+            (new Vector2(.755f, .824f), new Vector2(.949f, .858f))
+        };
+
         Canvas canvas;
         RectTransform safeAreaRect;
         RectTransform contentRoot;
@@ -813,7 +828,7 @@ backgroundLayer.SetAsFirstSibling();
 
             inventoryTabFocusRect = CreateTabFocusOverlay(artwork,
                 "InventoryTabFocusOverlay",
-                InventoryTabAnchors[0].min, InventoryTabAnchors[0].max);
+                InventoryTabFocusAnchors[0].min, InventoryTabFocusAnchors[0].max);
 
             CreateCharacterHitButton(artwork, "InventoryCloseButton",
                 .882f, .895f, .996f, .947f,
@@ -989,8 +1004,8 @@ backgroundLayer.SetAsFirstSibling();
             selectedInventoryTab = Mathf.Clamp(tabIndex, 0, 2);
             if (inventoryTabFocusRect != null)
             {
-                inventoryTabFocusRect.anchorMin = InventoryTabAnchors[selectedInventoryTab].min;
-                inventoryTabFocusRect.anchorMax = InventoryTabAnchors[selectedInventoryTab].max;
+                inventoryTabFocusRect.anchorMin = InventoryTabFocusAnchors[selectedInventoryTab].min;
+                inventoryTabFocusRect.anchorMax = InventoryTabFocusAnchors[selectedInventoryTab].max;
                 inventoryTabFocusRect.offsetMin = Vector2.zero;
                 inventoryTabFocusRect.offsetMax = Vector2.zero;
             }
@@ -1684,7 +1699,7 @@ backgroundLayer.SetAsFirstSibling();
 
             characterTabFocusRect = CreateTabFocusOverlay(artwork,
                 "CharacterTabFocusOverlay",
-                CharacterTabAnchors[1].min, CharacterTabAnchors[1].max);
+                CharacterTabFocusAnchors[1].min, CharacterTabFocusAnchors[1].max);
 
             CreateCharacterHitButton(artwork, "CultivationCloseButton",
                 .890f, .893f, 1.000f, .946f,
@@ -2671,8 +2686,8 @@ backgroundLayer.SetAsFirstSibling();
             HideStarChartPopups();
             if (characterTabFocusRect != null)
             {
-                characterTabFocusRect.anchorMin = CharacterTabAnchors[selectedCharacterTab].min;
-                characterTabFocusRect.anchorMax = CharacterTabAnchors[selectedCharacterTab].max;
+                characterTabFocusRect.anchorMin = CharacterTabFocusAnchors[selectedCharacterTab].min;
+                characterTabFocusRect.anchorMax = CharacterTabFocusAnchors[selectedCharacterTab].max;
                 characterTabFocusRect.offsetMin = Vector2.zero;
                 characterTabFocusRect.offsetMax = Vector2.zero;
             }
