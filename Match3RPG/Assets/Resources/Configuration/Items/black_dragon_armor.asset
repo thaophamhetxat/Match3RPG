@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b370f5c26d9d4fcaacc569e85a70de62, type: 3}
+  m_Name: black_dragon_armor
+  m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Configuration.ItemConfig
+  stableId: black_dragon_armor
+  displayName: "Giáp Hắc Long"
+  rewardIcon: {fileID: 21300000, guid: 7e27e630b63631848adfba0f7e5f90ac, type: 3}
+  itemType: 1
+  rarity: 2
+  equipmentSlot: 3
+  attackBonus: 0
+  maxHealthBonus: 0
+  grade: 1
+  description: "Dùng linh lực để điều khiển, uy lực hơn phàm khí nhiều lần, là trang bị cơ bản nhất của tu sĩ. Giáp trụ vảy Hắc Long, phòng ngự kiên cố, giảm sát thương nhận vào."
+  attackPercentBonus: 0
+  maxHealthPercentBonus: 0
+  defensePercentBonus: 10
+  critRatePercentBonus: 0
+  speedBonus: 0
+  critDamagePercentBonus: 0
+  ragePerGemBonus: 0

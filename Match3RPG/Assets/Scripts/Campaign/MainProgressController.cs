@@ -16,6 +16,19 @@ namespace Match3RPG.Campaign
     public sealed class MainProgressController : MonoBehaviour
     {
         const bool DebugHitboxVisualizationEnabled = false;
+        const int LegacyInventoryItemCount = 4;
+        const int TotalInventoryItemCount = 10;
+        const string BlackDragonSetDetailText = "Bộ Hắc Long (hệ ATK) — 6 món: Kiếm, Mũ, Giáp, Găng, Giầy, Nhẫn.";
+
+        static readonly string[] BlackDragonItemIds =
+        {
+            "black_dragon_sword",
+            "black_dragon_helmet",
+            "black_dragon_armor",
+            "black_dragon_gauntlet",
+            "black_dragon_boots",
+            "black_dragon_ring"
+        };
 
         [SerializeField] MainProgressCharacterPresentation presentation;
         [SerializeField] TMP_FontAsset starChartFont;
@@ -55,9 +68,10 @@ namespace Match3RPG.Campaign
         Button skillsTabButton;
         Button starChartTabButton;
         Button[] inventoryTabButtons = new Button[3];
-        readonly Button[] inventoryItemButtons = new Button[4];
-        readonly GameObject[] inventoryItemContents = new GameObject[4];
-        readonly GameObject[] inventoryItemNameLabels = new GameObject[4];
+        readonly Button[] inventoryItemButtons = new Button[TotalInventoryItemCount];
+        readonly GameObject[] inventoryItemContents = new GameObject[TotalInventoryItemCount];
+        readonly GameObject[] inventoryItemNameLabels = new GameObject[TotalInventoryItemCount];
+        Sprite[] resolvedInventoryItemSprites;
         TMP_Text realmButtonLabel;
         TMP_Text starActionStatus;
         TMP_Text starActionHint;
@@ -651,6 +665,8 @@ backgroundLayer.SetAsFirstSibling();
             scrollRect.viewport = viewportRect;
             scrollRect.content = contentRect;
 
+            Sprite[] allItemSprites = GetResolvedInventoryItemSprites();
+
             for (int index = 0; index < totalSlots; index++)
             {
                 int capturedIndex = index;
@@ -677,10 +693,10 @@ backgroundLayer.SetAsFirstSibling();
                 slotButton.targetGraphic = slotImage;
                 slotButton.transition = Selectable.Transition.None;
 
-                if (index < inventoryItemSprites.Length
-                    && GetSpriteAt(inventoryItemSprites, index) != null)
+                if (index < allItemSprites.Length
+                    && GetSpriteAt(allItemSprites, index) != null)
                 {
-                    Sprite itemSprite = inventoryItemSprites[index];
+                    Sprite itemSprite = allItemSprites[index];
                     RectTransform itemRect = CreateAnchoredRect(slotRect,
                         "ItemArtwork", new Vector2(.12f, .12f),
                         new Vector2(.88f, .88f), Vector2.zero, Vector2.zero);
@@ -734,6 +750,45 @@ backgroundLayer.SetAsFirstSibling();
             }
         }
 
+        Sprite[] GetResolvedInventoryItemSprites()
+        {
+            if (resolvedInventoryItemSprites != null
+                && resolvedInventoryItemSprites.Length == TotalInventoryItemCount)
+                return resolvedInventoryItemSprites;
+
+            resolvedInventoryItemSprites = new Sprite[TotalInventoryItemCount];
+            for (int index = 0; index < LegacyInventoryItemCount; index++)
+                resolvedInventoryItemSprites[index] = GetSpriteAt(inventoryItemSprites, index);
+
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            for (int offset = 0; offset < BlackDragonItemIds.Length; offset++)
+            {
+                string stableId = BlackDragonItemIds[offset];
+                ItemConfig itemConfig = config != null ? config.GetItem(stableId) : null;
+                if (itemConfig == null)
+                {
+                    Debug.LogError($"[MainProgress] Missing ItemConfig for stableId '{stableId}' in GameConfigService.", this);
+                    continue;
+                }
+
+                resolvedInventoryItemSprites[LegacyInventoryItemCount + offset] = itemConfig.RewardIcon;
+            }
+
+            return resolvedInventoryItemSprites;
+        }
+
+        ItemConfig GetBlackDragonItemConfig(int itemIndex)
+        {
+            int offset = itemIndex - LegacyInventoryItemCount;
+            if (offset < 0 || offset >= BlackDragonItemIds.Length)
+                return null;
+
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            return config != null ? config.GetItem(BlackDragonItemIds[offset]) : null;
+        }
+
         string GetInventoryItemName(int itemIndex)
         {
             string[] itemNames =
@@ -743,15 +798,21 @@ backgroundLayer.SetAsFirstSibling();
                 "03_immortal_peach",
                 "06_sun_spirit_orb"
             };
-            return itemIndex >= 0 && itemIndex < itemNames.Length
-                ? itemNames[itemIndex] : string.Empty;
+            if (itemIndex >= 0 && itemIndex < itemNames.Length)
+                return itemNames[itemIndex];
+
+            ItemConfig itemConfig = GetBlackDragonItemConfig(itemIndex);
+            return itemConfig != null && !string.IsNullOrEmpty(itemConfig.DisplayName)
+                ? itemConfig.DisplayName
+                : string.Empty;
         }
 
         void OpenInventoryItemPopup(int itemIndex)
         {
+            Sprite[] allItemSprites = GetResolvedInventoryItemSprites();
             if (selectedInventoryTab != 0 || itemIndex < 0
-                || itemIndex >= inventoryItemSprites.Length
-                || GetSpriteAt(inventoryItemSprites, itemIndex) == null)
+                || itemIndex >= allItemSprites.Length
+                || GetSpriteAt(allItemSprites, itemIndex) == null)
                 return;
 
             if (inventoryItemPopup != null)
@@ -770,17 +831,45 @@ backgroundLayer.SetAsFirstSibling();
                 "PopupItemArtwork", new Vector2(.105f, .665f),
                 new Vector2(.365f, .845f), Vector2.zero, Vector2.zero);
             inventoryPopupItemImage = itemImageRect.gameObject.AddComponent<Image>();
-            inventoryPopupItemImage.sprite = inventoryItemSprites[itemIndex];
+            inventoryPopupItemImage.sprite = allItemSprites[itemIndex];
             inventoryPopupItemImage.preserveAspect = true;
             inventoryPopupItemImage.raycastTarget = false;
-            inventoryPopupItemName = AddLabel(artwork, "PopupItemName",
-                GetInventoryItemName(itemIndex), 24, Color.white,
-                new Vector2(.39f, .77f), new Vector2(.91f, .85f),
-                TextAlignmentOptions.MidlineLeft);
-            inventoryPopupItemEffect = AddLabel(artwork, "PopupItemEffect",
-                "Tác dụng / chỉ số: NULL", 20, Color.white,
-                new Vector2(.12f, .34f), new Vector2(.88f, .58f),
-                TextAlignmentOptions.TopLeft);
+
+            ItemConfig itemConfig = GetBlackDragonItemConfig(itemIndex);
+            if (itemConfig != null)
+            {
+                inventoryPopupItemName = AddLabel(artwork, "PopupItemName",
+                    GetInventoryItemName(itemIndex), 24, Color.white,
+                    new Vector2(.39f, .775f), new Vector2(.91f, .822f),
+                    TextAlignmentOptions.MidlineLeft);
+                AddLabel(artwork, "PopupItemGradeRequirement",
+                    FormatItemGradeAndRequirementLine(itemConfig), 20, Color.white,
+                    new Vector2(.39f, .722f), new Vector2(.91f, .766f),
+                    TextAlignmentOptions.MidlineLeft);
+                AddLabel(artwork, "PopupItemStats",
+                    FormatItemStatsLine(itemConfig), 20, Color.white,
+                    new Vector2(.39f, .670f), new Vector2(.91f, .714f),
+                    TextAlignmentOptions.MidlineLeft);
+                inventoryPopupItemEffect = AddLabel(artwork, "PopupItemEffect",
+                    itemConfig.Description, 20, Color.white,
+                    new Vector2(.12f, .48f), new Vector2(.88f, .615f),
+                    TextAlignmentOptions.TopLeft);
+                AddLabel(artwork, "PopupItemDetail2",
+                    BlackDragonSetDetailText, 20, Color.white,
+                    new Vector2(.12f, .285f), new Vector2(.88f, .42f),
+                    TextAlignmentOptions.TopLeft);
+            }
+            else
+            {
+                inventoryPopupItemName = AddLabel(artwork, "PopupItemName",
+                    GetInventoryItemName(itemIndex), 24, Color.white,
+                    new Vector2(.39f, .77f), new Vector2(.91f, .85f),
+                    TextAlignmentOptions.MidlineLeft);
+                inventoryPopupItemEffect = AddLabel(artwork, "PopupItemEffect",
+                    "Tác dụng / chỉ số: NULL", 20, Color.white,
+                    new Vector2(.12f, .34f), new Vector2(.88f, .58f),
+                    TextAlignmentOptions.TopLeft);
+            }
 
             CreateCharacterHitButton(artwork, "PopupCloseButton",
                 .865f, .875f, .985f, .99f,
@@ -802,12 +891,79 @@ backgroundLayer.SetAsFirstSibling();
             }
             else
             {
-                CreateCharacterHitButton(artwork, "PopupEnhanceButton",
+                Button enhanceButton = CreateCharacterHitButton(artwork, "PopupEnhanceButton",
                     .12f, .09f, .49f, .18f,
                     () => LogInventoryPopupAction("Cường hóa", itemIndex));
-                CreateCharacterHitButton(artwork, "PopupUnequipButton",
+                Button equipOrUnequipButton = CreateCharacterHitButton(artwork,
+                    itemConfig != null ? "PopupEquipButton" : "PopupUnequipButton",
                     .51f, .09f, .88f, .18f,
-                    () => LogInventoryPopupAction("Gỡ", itemIndex));
+                    () => LogInventoryPopupAction(itemConfig != null ? "Trang bị" : "Gỡ", itemIndex));
+                if (itemConfig != null)
+                {
+                    HeroProgressSaveData progress = LoadSelectedHeroProgress();
+                    int playerLevel = progress != null ? Math.Max(1, progress.level) : 1;
+                    ApplyInventoryEquipRequirementState(artwork, equipOrUnequipButton,
+                        enhanceButton, itemConfig, playerLevel);
+                }
+            }
+        }
+
+        static string FormatItemGradeAndRequirementLine(ItemConfig itemConfig)
+        {
+            string gradeName = ItemConfig.GetGradeDisplayName(itemConfig.Grade);
+            int minLevel = ItemConfig.GetMinLevelForGrade(itemConfig.Grade);
+            if (minLevel <= 0)
+                return $"{gradeName} · Không yêu cầu cảnh giới";
+
+            string realmName = Realms[FindRealmIndex(minLevel)].Name;
+            return $"{gradeName} · Yêu cầu: {realmName} (Lv.{minLevel})";
+        }
+
+        static string FormatItemStatsLine(ItemConfig itemConfig)
+        {
+            List<string> parts = new List<string>();
+            if (itemConfig.AttackPercentBonus > 0f)
+                parts.Add($"ATK +{itemConfig.AttackPercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%");
+            if (itemConfig.RagePerGemBonus > 0)
+                parts.Add($"+{itemConfig.RagePerGemBonus.ToString(CultureInfo.InvariantCulture)} Nộ / viên Mặt Trời");
+            if (itemConfig.MaxHealthPercentBonus > 0f)
+                parts.Add($"HP tối đa +{itemConfig.MaxHealthPercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%");
+            if (itemConfig.DefensePercentBonus > 0f)
+                parts.Add($"Giáp +{itemConfig.DefensePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%");
+            if (itemConfig.CritRatePercentBonus > 0f)
+                parts.Add($"Tỷ lệ chí mạng +{itemConfig.CritRatePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%");
+            if (itemConfig.SpeedBonus > 0)
+                parts.Add($"Tốc độ +{itemConfig.SpeedBonus.ToString(CultureInfo.InvariantCulture)}");
+            if (itemConfig.CritDamagePercentBonus > 0f)
+                parts.Add($"Sát thương chí mạng +{itemConfig.CritDamagePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%");
+            return parts.Count > 0 ? string.Join(" · ", parts) : "Không có chỉ số";
+        }
+
+        void ApplyInventoryEquipRequirementState(Transform artwork, Button equipButton,
+            Button enhanceButton, ItemConfig itemConfig, int playerLevel)
+        {
+            if (itemConfig == null || equipButton == null)
+                return;
+
+            bool meetsRequirement = itemConfig.MeetsRequirement(playerLevel);
+            equipButton.interactable = meetsRequirement;
+            if (!meetsRequirement)
+            {
+                ConfigureOutlinedButton(equipButton, new Color32(45, 48, 54, 245),
+                    new Color32(110, 115, 125, 255), 2.5f);
+                TMP_Text equipLabel = AddLabel(artwork, "PopupEquipButtonLabel", "Trang bị", 22,
+                    new Color32(150, 150, 150, 255), new Vector2(.51f, .09f), new Vector2(.88f, .18f),
+                    TextAlignmentOptions.Center);
+                equipLabel.raycastTarget = false;
+
+                int minLevel = ItemConfig.GetMinLevelForGrade(itemConfig.Grade);
+                string realmName = minLevel > 0 ? Realms[FindRealmIndex(minLevel)].Name : string.Empty;
+                string reqLine = minLevel > 0
+                    ? $"Chưa đủ điều kiện · Yêu cầu: {realmName} (Lv.{minLevel})"
+                    : "Chưa đủ điều kiện trang bị";
+                AddLabel(artwork, "PopupRequirementStatus", reqLine, 18,
+                    new Color32(190, 190, 190, 255), new Vector2(.12f, .216f),
+                    new Vector2(.88f, .259f), TextAlignmentOptions.Center);
             }
         }
 
@@ -820,6 +976,12 @@ backgroundLayer.SetAsFirstSibling();
                     return 0;
                 case 0:
                 case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
                     return 2;
                 default:
                     return 2;

@@ -23,7 +23,21 @@ namespace Match3RPG.Configuration
         Weapon = 1,
         Head = 2,
         Body = 3,
-        Accessory = 4
+        Accessory = 4,
+        Gloves = 5,
+        Feet = 6
+    }
+
+    public enum EquipmentGrade
+    {
+        PhamKhi = 0,
+        PhapKhi = 1,
+        LinhKhi = 2,
+        PhapBao = 3,
+        LinhBao = 4,
+        ThongThienLinhBao = 5,
+        TienKhi = 6,
+        ThanKhi = 7
     }
 
     public enum SkillType
