@@ -36,7 +36,6 @@ namespace Match3RPG.Campaign
 
         [SerializeField] MainProgressCharacterPresentation presentation;
         [SerializeField] TMP_FontAsset starChartFont;
-        [SerializeField] Sprite characterStatusBackground;
         [SerializeField] Sprite inventoryItemSlot;
         [SerializeField] Sprite[] inventoryItemSprites = new Sprite[4];
         [SerializeField] Sprite[] starChartBaseGemSprites = new Sprite[7];
@@ -578,18 +577,16 @@ backgroundLayer.SetAsFirstSibling();
             Image backdrop = overlay.gameObject.AddComponent<Image>();
             backdrop.color = new Color(0f, 0f, 0f, .78f);
             backdrop.raycastTarget = true;
-            RectTransform artworkRect = CreateAnchoredRect(overlay, "CharacterArtwork",
-                Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
-            Image artworkImage = artworkRect.gameObject.AddComponent<Image>();
-            if (characterStatusBackground == null)
-                Debug.LogError("CharacterStatus_BG sprite is not assigned on MainProgressController.", this);
-            artworkImage.sprite = characterStatusBackground;
-            artworkImage.preserveAspect = false;
-            artworkImage.raycastTarget = false;
+            Sprite statusSprite = Resources.Load<Sprite>("MainProgress/UI/statusInfo");
+            if (statusSprite == null)
+                Debug.LogError("MainProgress failed to load sprite Resources/MainProgress/UI/statusInfo.", this);
+            RectTransform artworkRect = CreateFullScreenArtwork(overlay,
+                statusSprite, "CharacterArtwork",
+                out Image artworkImage, fitToScreen: true);
             overlay.SetAsLastSibling();
 
             RectTransform heroRect = CreateAnchoredRect(artworkRect, "CharacterPortrait",
-                new Vector2(.29f, .65f), new Vector2(.71f, .87f),
+                new Vector2(.300f, .680f), new Vector2(.700f, .880f),
                 Vector2.zero, Vector2.zero);
             Image heroImage = heroRect.gameObject.AddComponent<Image>();
             heroImage.sprite = presentation != null ? presentation.MainProgressCharacterSprite : null;
@@ -598,30 +595,27 @@ backgroundLayer.SetAsFirstSibling();
                 ? Color.white : new Color(1f, 1f, 1f, .15f);
             heroImage.raycastTarget = false;
 
-            AddEquipmentSlot(artworkRect, "Mũ", .105f, .81f, .28f, .877f);
-            AddEquipmentSlot(artworkRect, "Giáp", .105f, .716f, .28f, .783f);
-            AddEquipmentSlot(artworkRect, "Giày", .105f, .619f, .28f, .687f);
-            AddEquipmentSlot(artworkRect, "Vũ khí", .718f, .81f, .893f, .877f);
-            AddEquipmentSlot(artworkRect, "Pháp bảo", .718f, .716f, .893f, .783f);
-            AddEquipmentSlot(artworkRect, "Nhẫn", .718f, .619f, .893f, .687f);
+            AddEquipmentSlot(artworkRect, "Mũ", .101f, .800f, .280f, .875f);
+            AddEquipmentSlot(artworkRect, "Giáp", .101f, .702f, .280f, .777f);
+            AddEquipmentSlot(artworkRect, "Giày", .101f, .603f, .280f, .678f);
+            AddEquipmentSlot(artworkRect, "Vũ khí", .719f, .800f, .898f, .875f);
+            AddEquipmentSlot(artworkRect, "Pháp bảo", .719f, .702f, .898f, .777f);
+            AddEquipmentSlot(artworkRect, "Găng", .719f, .603f, .898f, .678f);
 
-            const float closeMinX = .865f;
-            const float closeMaxX = .982f;
-            const float closeMinY = .895f;
-            const float closeMaxY = .955f;
+            const float closeMinX = .870f;
+            const float closeMaxX = .977f;
+            const float closeMinY = .891f;
+            const float closeMaxY = .948f;
             CreateCharacterHitButton(artworkRect, "CloseButton",
                 closeMinX, closeMinY, closeMaxX, closeMaxY,
                 () => ClosePanel(overlay.gameObject));
 
-            const float firstStatRowCenter = .519f;
-            const float statRowSpacing = .0275f;
-            const float statRowHeight = .0275f;
-            const float lowerStatRowsOffset = 6f / 1920f;
+            const float firstStatRowCenter = .5025f;
+            const float statRowSpacing = .0291f;
+            const float statRowHeight = .0291f;
             for (int index = 0; index < characterStatValueLabels.Length; index++)
             {
                 float centerY = firstStatRowCenter - index * statRowSpacing;
-                if (index >= 4)
-                    centerY -= lowerStatRowsOffset;
                 characterStatValueLabels[index] = AddLabel(artworkRect,
                     $"CharacterStatValue_{index}", "—", 24, Color.white,
                     new Vector2(.70f, centerY - statRowHeight * .5f),
@@ -630,7 +624,7 @@ backgroundLayer.SetAsFirstSibling();
             }
 
             CreateCharacterHitButton(artworkRect, "InventoryButton",
-                .31f, .10f, .69f, .15f,
+                .31f, .077f, .69f, .139f,
                 () => OpenInventoryPanel(overlay.gameObject));
             overlay.gameObject.SetActive(false);
             return overlay;
