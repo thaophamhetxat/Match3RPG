@@ -124,6 +124,18 @@ namespace Match3RPG.Campaign
         StarChartGemInventoryService starChartGemInventory;
         readonly TMP_Text[] baseGemInventoryCountLabels = new TMP_Text[7];
         readonly TMP_Text[] characterStatValueLabels = new TMP_Text[12];
+        readonly Image[] equippedSlotIcons = new Image[6];
+        // Thứ tự đúng bằng thứ tự 6 dòng AddEquipmentSlot trong
+        // BuildCharacterPanel: 0 Mũ, 1 Giáp, 2 Giày, 3 Vũ khí, 4 Pháp bảo, 5 Găng.
+        static readonly EquipmentSlot[] StatusSlotEquipmentSlots =
+        {
+            EquipmentSlot.Head,      // 0 Mũ
+            EquipmentSlot.Body,      // 1 Giáp
+            EquipmentSlot.Feet,      // 2 Giày
+            EquipmentSlot.Weapon,    // 3 Vũ khí
+            EquipmentSlot.Accessory, // 4 Pháp bảo (Nhẫn Hắc Long là Accessory)
+            EquipmentSlot.Gloves     // 5 Găng
+        };
         int selectedStarChartRealmIndex;
         int selectedStarChartLevel;
         int selectedInventoryTab;
@@ -527,6 +539,7 @@ backgroundLayer.SetAsFirstSibling();
             if (characterPanel == null)
                 characterPanel = BuildCharacterPanel().gameObject;
             RefreshCharacterStats();
+            RefreshEquippedSlotIcons();
             SetPanelOpen(characterPanel);
         }
 
@@ -595,12 +608,12 @@ backgroundLayer.SetAsFirstSibling();
                 ? Color.white : new Color(1f, 1f, 1f, .15f);
             heroImage.raycastTarget = false;
 
-            AddEquipmentSlot(artworkRect, "Mũ", .101f, .800f, .280f, .875f);
-            AddEquipmentSlot(artworkRect, "Giáp", .101f, .702f, .280f, .777f);
-            AddEquipmentSlot(artworkRect, "Giày", .101f, .603f, .280f, .678f);
-            AddEquipmentSlot(artworkRect, "Vũ khí", .719f, .800f, .898f, .875f);
-            AddEquipmentSlot(artworkRect, "Pháp bảo", .719f, .702f, .898f, .777f);
-            AddEquipmentSlot(artworkRect, "Găng", .719f, .603f, .898f, .678f);
+            AddEquipmentSlot(artworkRect, 0, "Mũ", .101f, .800f, .280f, .875f);
+            AddEquipmentSlot(artworkRect, 1, "Giáp", .101f, .702f, .280f, .777f);
+            AddEquipmentSlot(artworkRect, 2, "Giày", .101f, .603f, .280f, .678f);
+            AddEquipmentSlot(artworkRect, 3, "Vũ khí", .719f, .800f, .898f, .875f);
+            AddEquipmentSlot(artworkRect, 4, "Pháp bảo", .719f, .702f, .898f, .777f);
+            AddEquipmentSlot(artworkRect, 5, "Găng", .719f, .603f, .898f, .678f);
 
             const float closeMinX = .870f;
             const float closeMaxX = .977f;
@@ -630,12 +643,23 @@ backgroundLayer.SetAsFirstSibling();
             return overlay;
         }
 
-        void AddEquipmentSlot(Transform parent, string slotName,
+        void AddEquipmentSlot(Transform parent, int slotIndex, string slotName,
             float minX, float minY, float maxX, float maxY)
         {
-            CreateCharacterHitButton(parent, $"Equipment_{slotName}",
+            Button button = CreateCharacterHitButton(parent, $"Equipment_{slotName}",
                 minX, minY, maxX, maxY,
                 () => Debug.Log($"[MainProgress] Clicked=EquipmentSlot:{slotName}"));
+            RectTransform buttonRect = button.GetComponent<RectTransform>();
+            RectTransform iconRect = CreateAnchoredRect(buttonRect, "EquippedIcon",
+                new Vector2(.08f, .08f), new Vector2(.92f, .92f),
+                Vector2.zero, Vector2.zero);
+            Image iconImage = iconRect.gameObject.AddComponent<Image>();
+            iconImage.color = Color.white;
+            iconImage.preserveAspect = true;
+            iconImage.raycastTarget = false;
+            iconImage.gameObject.SetActive(false);
+            if (slotIndex >= 0 && slotIndex < equippedSlotIcons.Length)
+                equippedSlotIcons[slotIndex] = iconImage;
         }
 
         static Button CreateCharacterHitButton(Transform parent, string name,
@@ -684,6 +708,46 @@ backgroundLayer.SetAsFirstSibling();
             for (int index = 0; index < characterStatValueLabels.Length; index++)
                 if (characterStatValueLabels[index] != null)
                     characterStatValueLabels[index].text = values[index];
+        }
+
+        void RefreshEquippedSlotIcons()
+        {
+            // Ẩn hết trước, rồi chỉ hiện ô nào có đồ đang mặc.
+            for (int i = 0; i < equippedSlotIcons.Length; i++)
+                if (equippedSlotIcons[i] != null)
+                    equippedSlotIcons[i].gameObject.SetActive(false);
+
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            if (config == null)
+                return;
+
+            SaveManager saveManager = SaveManager.Instance;
+            EquipmentService equipmentService = new EquipmentService(saveManager, config);
+            InventoryService inventoryService = new InventoryService(saveManager, config);
+            foreach (EquipmentLoadoutSaveData entry in equipmentService.GetEquipmentLoadout())
+            {
+                if (entry == null || string.IsNullOrEmpty(entry.itemInstanceId))
+                    continue;
+                ItemInstanceSaveData instance = inventoryService.GetEquipmentInstance(
+                    entry.itemInstanceId);
+                if (instance == null)
+                    continue;
+                ItemConfig itemConfig = config.GetItem(instance.itemId);
+                if (itemConfig == null)
+                {
+                    Debug.LogError($"[MainProgress] Missing ItemConfig for stableId '{instance.itemId}' in GameConfigService.", this);
+                    continue;
+                }
+                int slotIndex = Array.IndexOf(StatusSlotEquipmentSlots, itemConfig.EquipmentSlot);
+                if (slotIndex < 0 || slotIndex >= equippedSlotIcons.Length)
+                    continue;
+                Image iconImage = equippedSlotIcons[slotIndex];
+                if (iconImage == null || itemConfig.RewardIcon == null)
+                    continue;
+                iconImage.sprite = itemConfig.RewardIcon;
+                iconImage.gameObject.SetActive(true);
+            }
         }
 
         static string FormatStat(int value)
@@ -1359,6 +1423,7 @@ backgroundLayer.SetAsFirstSibling();
             CloseInventoryItemPopup();
             RefreshInventoryGridEquippedVisuals();
             RefreshCharacterStats();
+            RefreshEquippedSlotIcons();
         }
 
         void UnequipInventoryPopupItem(ItemConfig itemConfig)
@@ -1378,6 +1443,7 @@ backgroundLayer.SetAsFirstSibling();
             CloseInventoryItemPopup();
             RefreshInventoryGridEquippedVisuals();
             RefreshCharacterStats();
+            RefreshEquippedSlotIcons();
         }
 
         void UpgradeInventoryPopupItem(int itemIndex, ItemConfig itemConfig)
