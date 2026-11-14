@@ -14,7 +14,8 @@ namespace Match3RPG.Battle
     {
         const float AnimationSeconds = .15f;
         const float PopupWidth = 1000f;
-        const float PopupHeight = 1040f;
+        const float PopupHeight = 1500f;
+        static readonly Color Gold = new Color32(231, 190, 110, 255);
 
         enum Tab
         {
@@ -26,15 +27,13 @@ namespace Match3RPG.Battle
         static Sprite whiteSprite;
         RectTransform popupRect;
         RectTransform popupImageRect;
+        RectTransform tabFocusRect;
         RectTransform settingsHits;
         CanvasGroup canvasGroup;
         Image popupImage;
         GameObject confirmationRoot;
         Image[] settingOffOverlays = new Image[3];
         TMP_Text[] settingOffLabels = new TMP_Text[3];
-        Sprite bagSprite;
-        Sprite skillsSprite;
-        Sprite settingsSprite;
         TurnManager turnManager;
         BoardManager board;
         BoardSelectionOverlay selectionOverlay;
@@ -51,15 +50,12 @@ namespace Match3RPG.Battle
         [SerializeField] bool tintHitAreas;
 #endif
 
-        public void Configure(RectTransform parent, Sprite bag, Sprite skills, Sprite settings,
+        public void Configure(RectTransform parent,
             TurnManager turns, BoardManager boardManager, BoardSelectionOverlay selection,
             GemSpecialVFXManager gemVfx, BoardRageFireVFX rageVfx,
             CombatVFXManager combat, FloatingTextManager floatingTextManager,
             CampaignManager campaignManager)
         {
-            bagSprite = bag;
-            skillsSprite = skills;
-            settingsSprite = settings;
             turnManager = turns;
             board = boardManager;
             selectionOverlay = selection;
@@ -97,22 +93,40 @@ namespace Match3RPG.Battle
             popupImage.type = Image.Type.Simple;
             popupImage.preserveAspect = true;
             popupImage.raycastTarget = false;
+            Sprite popupSprite = Resources.Load<Sprite>("Battle/UI/PauseMenu_Single");
+            if (popupSprite == null)
+                Debug.LogError("BattleStatusPopup failed to load sprite Resources/Battle/UI/PauseMenu_Single.", this);
+            else
+                popupImage.sprite = popupSprite;
 
-            CreateButtonHit("TabBagHit", popupRect, new Rect(.078f, .7055f, .304f, .081f),
+            tabFocusRect = CreateRect("TabFocusOverlay", popupRect,
+                new Vector2(.073f, .764f), new Vector2(.361f, .822f),
+                Vector2.zero, Vector2.zero);
+            Image focusImage = AddImage(tabFocusRect.gameObject, Color.clear);
+            focusImage.type = Image.Type.Sliced;
+            focusImage.fillCenter = false;
+            focusImage.raycastTarget = false;
+            Outline focusOutline = tabFocusRect.gameObject.AddComponent<Outline>();
+            focusOutline.effectColor = Gold;
+            focusOutline.effectDistance = new Vector2(3f, -3f);
+            focusOutline.useGraphicAlpha = false;
+
+            CreateButtonHit("TabBagHit", popupRect, new Rect(.073f, .764f, .288f, .058f),
                 () => SetTab(Tab.Bag));
-            CreateButtonHit("TabSkillsHit", popupRect, new Rect(.377f, .7055f, .26f, .081f),
+            CreateButtonHit("TabSkillsHit", popupRect, new Rect(.376f, .764f, .257f, .058f),
                 () => SetTab(Tab.Skills));
-            CreateButtonHit("TabSettingsHit", popupRect, new Rect(.632f, .7055f, .285f, .081f),
+            CreateButtonHit("TabSettingsHit", popupRect, new Rect(.647f, .764f, .279f, .058f),
                 () => SetTab(Tab.Settings));
-            CreateButtonHit("CloseHit", popupRect, new Rect(.87f, .808f, .108f, .112f), Close);
+            CreateButtonHit("CloseHit", popupRect, new Rect(.871f, .855f, .101f, .068f), Close);
 
             settingsHits = CreateRect("SettingsContentHits", popupRect,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
-            CreateSettingButton("SoundHit", 0, new Rect(.16f, .405f, .32f, .30f));
-            CreateSettingButton("MusicHit", 1, new Rect(.52f, .405f, .32f, .30f));
-            CreateSettingButton("VibrationHit", 2, new Rect(.16f, .125f, .32f, .28f));
-            CreateButtonHit("ExitGameHit", settingsHits,
-                new Rect(.52f, .125f, .32f, .28f), ShowExitConfirmation);
+            CreateSettingButton("SoundHit", 0, new Rect(.105f, .445f, .38f, .26f));
+            CreateSettingButton("MusicHit", 1, new Rect(.515f, .445f, .38f, .26f));
+            CreateSettingButton("VibrationHit", 2, new Rect(.105f, .165f, .38f, .26f));
+            Button exitButton = CreateButtonHit("ExitGameHit", settingsHits,
+                new Rect(.515f, .165f, .38f, .26f), ShowExitConfirmation);
+            StyleSettingButton(exitButton);
             settingsHits.gameObject.SetActive(false);
 
             BuildExitConfirmation(root);
@@ -128,6 +142,7 @@ namespace Match3RPG.Battle
         {
             Button button = CreateButtonHit(name, settingsHits, normalizedRect,
                 () => ToggleSetting(settingIndex));
+            StyleSettingButton(button);
             RectTransform overlayRect = CreateRect("OffOverlay", button.transform,
                 new Vector2(.08f, .08f), new Vector2(.92f, .92f), Vector2.zero, Vector2.zero);
             Image overlay = AddImage(overlayRect.gameObject, new Color(0f, 0f, 0f, .62f));
@@ -140,6 +155,15 @@ namespace Match3RPG.Battle
             badge.fontSizeMax = 24f;
             settingOffOverlays[settingIndex] = overlay;
             settingOffLabels[settingIndex] = badge;
+        }
+
+        static void StyleSettingButton(Button button)
+        {
+            Image image = button.GetComponent<Image>();
+            image.color = new Color32(12, 27, 36, 255);
+            Outline outline = button.gameObject.AddComponent<Outline>();
+            outline.effectColor = Gold;
+            outline.effectDistance = new Vector2(2f, -2f);
         }
 
         Button CreateButtonHit(string name, RectTransform parent, Rect normalizedRect,
@@ -219,8 +243,26 @@ namespace Match3RPG.Battle
         void SetTab(Tab tab)
         {
             activeTab = tab;
-            popupImage.sprite = tab == Tab.Bag ? bagSprite
-                : tab == Tab.Skills ? skillsSprite : settingsSprite;
+            if (tabFocusRect != null)
+            {
+                if (tab == Tab.Bag)
+                {
+                    tabFocusRect.anchorMin = new Vector2(.073f, .764f);
+                    tabFocusRect.anchorMax = new Vector2(.361f, .822f);
+                }
+                else if (tab == Tab.Skills)
+                {
+                    tabFocusRect.anchorMin = new Vector2(.376f, .764f);
+                    tabFocusRect.anchorMax = new Vector2(.633f, .822f);
+                }
+                else
+                {
+                    tabFocusRect.anchorMin = new Vector2(.647f, .764f);
+                    tabFocusRect.anchorMax = new Vector2(.926f, .822f);
+                }
+                tabFocusRect.offsetMin = Vector2.zero;
+                tabFocusRect.offsetMax = Vector2.zero;
+            }
             settingsHits.gameObject.SetActive(tab == Tab.Settings);
             UpdateSettingsIndicators();
         }
@@ -409,7 +451,9 @@ namespace Match3RPG.Battle
         {
             if (whiteSprite == null)
                 whiteSprite = Sprite.Create(Texture2D.whiteTexture,
-                    new Rect(0f, 0f, 1f, 1f), new Vector2(.5f, .5f));
+                    new Rect(0f, 0f, 4f, 4f), new Vector2(.5f, .5f),
+                    100f / 6f, 0u, SpriteMeshType.FullRect,
+                    new Vector4(1f, 1f, 1f, 1f));
         }
     }
 }

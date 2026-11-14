@@ -63,9 +63,6 @@ namespace Match3RPG.Core
         [SerializeField] Sprite buttonPressedSprite;
         [SerializeField] Sprite battleBackgroundSprite;
         [SerializeField] Sprite battleLayoutV2Sprite;
-        [SerializeField] Sprite tabBagSprite;
-        [SerializeField] Sprite tabSkillsSprite;
-        [SerializeField] Sprite tabSettingsSprite;
         [SerializeField] Sprite victorySprite;
         [SerializeField] Sprite defeatSprite;
         [SerializeField] Sprite heroHpBarSprite;
@@ -613,8 +610,7 @@ namespace Match3RPG.Core
 
             GameObject statusPopupObject = new GameObject("BattleStatusPopup", typeof(RectTransform));
             BattleStatusPopup statusPopup = statusPopupObject.AddComponent<BattleStatusPopup>();
-            statusPopup.Configure(canvasRect, tabBagSprite,
-                tabSkillsSprite, tabSettingsSprite, turnManager, board,
+            statusPopup.Configure(canvasRect, turnManager, board,
                 boardSelectionOverlay, specialVfx, boardRageFireVfx, combatVfx,
                 floatingTexts, campaign);
             menuHitAreaRect = CreateMenuHitArea(battleLayoutReferenceRoot, statusPopup);
