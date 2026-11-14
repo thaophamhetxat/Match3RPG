@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Globalization;
 using System.Collections.Generic;
 using Match3RPG.Battle;
@@ -16,6 +17,8 @@ namespace Match3RPG.Campaign
     public sealed class MainProgressController : MonoBehaviour
     {
         const bool DebugHitboxVisualizationEnabled = false;
+        const float LoadingDurationSeconds = 2f;
+        const float LoadingFadeSeconds = 0.3f;
         const int LegacyInventoryItemCount = 4;
         const int TotalInventoryItemCount = 10;
         const int MaxEquipmentUpgradeLevel = 15;
@@ -199,9 +202,110 @@ namespace Match3RPG.Campaign
             presentation ??= MainProgressCharacterPresentation.LoadDefault();
             starChartGemInventory = new StarChartGemInventoryService(SaveManager.Instance);
             RefreshBaseGemInventory();
+            BuildLoadingScreen();
             BuildUI();
             ApplyStaticCharacterPresentation();
             RefreshBannerInfo();
+        }
+
+        void BuildLoadingScreen()
+        {
+            Sprite loadingSprite = Resources.Load<Sprite>("MainProgress/UI/loadingScreen");
+            if (loadingSprite == null)
+            {
+                Debug.LogError("MainProgress failed to load sprite Resources/MainProgress/UI/loadingScreen.", this);
+                return;
+            }
+
+            Canvas loadingCanvas = CampaignUIFactory.CreateCanvas("LoadingScreenCanvas");
+            loadingCanvas.sortingOrder = 100;
+
+            CanvasGroup loadingCanvasGroup = loadingCanvas.gameObject.AddComponent<CanvasGroup>();
+            loadingCanvasGroup.alpha = 1f;
+            loadingCanvasGroup.blocksRaycasts = true;
+            loadingCanvasGroup.interactable = false;
+
+            RectTransform backdropRect = CampaignUIFactory.CreateRect("LoadingBackdrop",
+                loadingCanvas.transform, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            Image backdropImage = backdropRect.gameObject.AddComponent<Image>();
+            backdropImage.color = new Color32(12, 27, 36, 255);
+            backdropImage.raycastTarget = true;
+
+            RectTransform loadingImageRect = CampaignUIFactory.CreateRect("LoadingArtwork",
+                loadingCanvas.transform, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            Image loadingImage = loadingImageRect.gameObject.AddComponent<Image>();
+            loadingImage.sprite = loadingSprite;
+            loadingImage.color = Color.white;
+            loadingImage.type = Image.Type.Simple;
+            loadingImage.preserveAspect = true;
+            loadingImage.raycastTarget = false;
+
+            RectTransform trackRect = CampaignUIFactory.CreateRect("LoadingProgressTrack",
+                loadingCanvas.transform, new Vector2(0.15f, 0.08f), new Vector2(0.85f, 0.12f),
+                Vector2.zero, Vector2.zero);
+            Image trackImage = trackRect.gameObject.AddComponent<Image>();
+            trackImage.color = new Color32(12, 27, 36, 255);
+            trackImage.raycastTarget = false;
+            Outline trackOutline = trackRect.gameObject.AddComponent<Outline>();
+            trackOutline.effectColor = Gold;
+            trackOutline.effectDistance = new Vector2(2f, -2f);
+
+            EnsureTabFocusWhiteSprite();
+            RectTransform fillRect = CampaignUIFactory.CreateRect("LoadingProgressFill",
+                trackRect, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            Image fillImage = fillRect.gameObject.AddComponent<Image>();
+            fillImage.sprite = tabFocusWhiteSprite;
+            fillImage.color = Gold;
+            fillImage.type = Image.Type.Filled;
+            fillImage.fillMethod = Image.FillMethod.Horizontal;
+            fillImage.fillOrigin = (int)Image.OriginHorizontal.Left;
+            fillImage.fillAmount = 0f;
+            fillImage.raycastTarget = false;
+
+            TMP_Text loadingLabel = AddLabel(loadingCanvas.transform, "LoadingProgressLabel",
+                "Đang tải... 0%", 24, Gold, new Vector2(0.15f, 0.125f), new Vector2(0.85f, 0.155f),
+                TextAlignmentOptions.Center);
+            if (starChartFont != null)
+                loadingLabel.font = starChartFont;
+
+            StartCoroutine(RunLoadingScreenRoutine(loadingCanvas.gameObject,
+                loadingCanvasGroup, fillImage, loadingLabel));
+        }
+
+        IEnumerator RunLoadingScreenRoutine(GameObject loadingRoot,
+            CanvasGroup loadingCanvasGroup, Image fillImage, TMP_Text loadingLabel)
+        {
+            float progress = 0f;
+            while (progress < 1f)
+            {
+                yield return null;
+                if (loadingRoot == null)
+                    yield break;
+
+                progress = Mathf.Clamp01(progress + Time.unscaledDeltaTime / LoadingDurationSeconds);
+                if (fillImage != null)
+                    fillImage.fillAmount = progress;
+                if (loadingLabel != null)
+                {
+                    int percent = Mathf.RoundToInt(progress * 100f);
+                    loadingLabel.text = $"Đang tải... {percent}%";
+                }
+            }
+
+            float fadeElapsed = 0f;
+            while (fadeElapsed < LoadingFadeSeconds)
+            {
+                yield return null;
+                if (loadingRoot == null)
+                    yield break;
+
+                fadeElapsed += Time.unscaledDeltaTime;
+                if (loadingCanvasGroup != null)
+                    loadingCanvasGroup.alpha = 1f - Mathf.Clamp01(fadeElapsed / LoadingFadeSeconds);
+            }
+
+            if (loadingRoot != null)
+                Destroy(loadingRoot);
         }
 
         void OnEnable()
