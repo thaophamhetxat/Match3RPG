@@ -16,6 +16,12 @@ namespace Match3RPG.Battle
         const float PopupWidth = 1000f;
         const float PopupHeight = 1500f;
         static readonly Color Gold = new Color32(231, 190, 110, 255);
+        static readonly string[] SettingIconResourceNames =
+        {
+            "MainProgress/Settings/settings_sound_256",     // index 0 = Âm Thanh
+            "MainProgress/Settings/settings_music_256",     // index 1 = Nhạc Nền
+            "MainProgress/Settings/settings_vibration_256"  // index 2 = Rung
+        };
 
         enum Tab
         {
@@ -127,6 +133,18 @@ namespace Match3RPG.Battle
             Button exitButton = CreateButtonHit("ExitGameHit", settingsHits,
                 new Rect(.515f, .165f, .38f, .26f), ShowExitConfirmation);
             StyleSettingButton(exitButton);
+            Sprite exitSprite = Resources.Load<Sprite>("MainProgress/Settings/settings_exit_256");
+            if (exitSprite == null)
+                Debug.LogError("BattleStatusPopup failed to load sprite MainProgress/Settings/settings_exit_256.", this);
+            else
+            {
+                RectTransform iconRect = CreateRect("Icon", exitButton.transform,
+                    new Vector2(.15f, .15f), new Vector2(.85f, .85f), Vector2.zero, Vector2.zero);
+                Image iconImage = AddImage(iconRect.gameObject, Color.white);
+                iconImage.sprite = exitSprite;
+                iconImage.preserveAspect = true;
+                iconImage.raycastTarget = false;
+            }
             settingsHits.gameObject.SetActive(false);
 
             BuildExitConfirmation(root);
@@ -143,6 +161,18 @@ namespace Match3RPG.Battle
             Button button = CreateButtonHit(name, settingsHits, normalizedRect,
                 () => ToggleSetting(settingIndex));
             StyleSettingButton(button);
+            Sprite iconSprite = Resources.Load<Sprite>(SettingIconResourceNames[settingIndex]);
+            if (iconSprite == null)
+                Debug.LogError("BattleStatusPopup failed to load sprite " + SettingIconResourceNames[settingIndex] + ".", this);
+            else
+            {
+                RectTransform iconRect = CreateRect("Icon", button.transform,
+                    new Vector2(.15f, .15f), new Vector2(.85f, .85f), Vector2.zero, Vector2.zero);
+                Image iconImage = AddImage(iconRect.gameObject, Color.white);
+                iconImage.sprite = iconSprite;
+                iconImage.preserveAspect = true;
+                iconImage.raycastTarget = false;
+            }
             RectTransform overlayRect = CreateRect("OffOverlay", button.transform,
                 new Vector2(.08f, .08f), new Vector2(.92f, .92f), Vector2.zero, Vector2.zero);
             Image overlay = AddImage(overlayRect.gameObject, new Color(0f, 0f, 0f, .62f));
