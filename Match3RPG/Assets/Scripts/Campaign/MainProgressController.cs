@@ -228,12 +228,12 @@ backgroundLayer.SetAsFirstSibling();
                 OpenRenamePopup);
 
             bannerPlayerNameLabel = AddLabel(heroBanner, "BannerPlayerName", string.Empty, 26, Gold,
-                new Vector2(0.34f, 0.42f), new Vector2(0.95f, 0.61f), TextAlignmentOptions.MidlineLeft);
+                   new Vector2(0.34f, 0.40f), new Vector2(0.95f, 0.63f), TextAlignmentOptions.MidlineLeft);
             if (starChartFont != null)
                 bannerPlayerNameLabel.font = starChartFont;
 
             bannerLevelExpRealmLabel = AddLabel(heroBanner, "BannerLevelExpRealm", string.Empty, 18, Gold,
-                new Vector2(0.34f, 0.20f), new Vector2(0.95f, 0.33f), TextAlignmentOptions.MidlineLeft);
+                 new Vector2(0.34f, 0.18f), new Vector2(0.95f, 0.35f), TextAlignmentOptions.MidlineLeft);
             if (starChartFont != null)
                 bannerLevelExpRealmLabel.font = starChartFont;
 
@@ -589,7 +589,7 @@ backgroundLayer.SetAsFirstSibling();
                 () => SelectInventoryTab(2));
 
             RectTransform viewportRect = CreateAnchoredRect(artwork, "InventoryGridViewport",
-                new Vector2(.085f, .207f), new Vector2(.915f, .810f),
+                new Vector2(.085f, .225f), new Vector2(.915f, .810f),
                 new Vector2(0f, 2f), new Vector2(0f, -2f));
             viewportRect.offsetMin = new Vector2(0f, 2f);
             viewportRect.offsetMax = new Vector2(0f, -2f);
@@ -639,7 +639,8 @@ backgroundLayer.SetAsFirstSibling();
             int totalSlots = columns * rows;
             float cellSize = (0.915f - 0.085f) * screenW / columns;
             float slotSize = cellSize * 0.725f;
-            float contentHeight = rows * cellSize;
+            float rowPitch = cellSize * 0.97f;
+            float contentHeight = rows * rowPitch;
 
             RectTransform contentRect = CreateAnchoredRect(viewportRect, "InventoryGridContent",
                 new Vector2(0f, 1f), new Vector2(1f, 1f), Vector2.zero, Vector2.zero);
@@ -663,7 +664,7 @@ backgroundLayer.SetAsFirstSibling();
                 slotRect.sizeDelta = new Vector2(slotSize, slotSize);
                 slotRect.anchoredPosition = new Vector2(
                     (column + 0.5f) * cellSize,
-                    -(row + 0.5f) * cellSize);
+                    -(row + 0.5f) * rowPitch);
 
                 Image slotImage = slotRect.gameObject.AddComponent<Image>();
                 slotImage.color = new Color32(12, 27, 36, 255);
@@ -696,7 +697,7 @@ backgroundLayer.SetAsFirstSibling();
                     nameRect.sizeDelta = new Vector2(cellSize * 0.96f, 26f);
                     nameRect.anchoredPosition = new Vector2(
                         (column + 0.5f) * cellSize,
-                        -((row + 0.5f) * cellSize + slotSize * 0.5f + 4f));
+                        -((row + 0.5f) * rowPitch + slotSize * 0.5f + 4f));
                     TextMeshProUGUI itemName = CampaignUIFactory.CreateText(
                         nameRect, "Text", GetInventoryItemName(index), 12,
                         Color.white, TextAlignmentOptions.Center);
