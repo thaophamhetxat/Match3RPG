@@ -34,11 +34,27 @@ namespace Match3RPG.Campaign
         [SerializeField] MainProgressCharacterPresentation presentation;
         [SerializeField] TMP_FontAsset starChartFont;
         [SerializeField] Sprite characterStatusBackground;
-        [SerializeField] Sprite[] inventoryScreenBackgrounds = new Sprite[5];
         [SerializeField] Sprite inventoryItemSlot;
         [SerializeField] Sprite[] inventoryItemSprites = new Sprite[4];
         [SerializeField] Sprite[] starChartBaseGemSprites = new Sprite[7];
         [SerializeField] Sprite[] starChartSpecialGemSprites = new Sprite[7];
+
+        static Sprite tabFocusWhiteSprite;
+
+        static readonly (Vector2 min, Vector2 max)[] InventoryTabAnchors =
+        {
+            (new Vector2(.052f, .822f), new Vector2(.341f, .867f)),
+            (new Vector2(.358f, .822f), new Vector2(.645f, .867f)),
+            (new Vector2(.661f, .822f), new Vector2(.950f, .867f))
+        };
+
+        static readonly (Vector2 min, Vector2 max)[] CharacterTabAnchors =
+        {
+            (new Vector2(.038f, .818f), new Vector2(.260f, .864f)),
+            (new Vector2(.273f, .818f), new Vector2(.493f, .864f)),
+            (new Vector2(.507f, .818f), new Vector2(.728f, .864f)),
+            (new Vector2(.742f, .818f), new Vector2(.962f, .864f))
+        };
 
         Canvas canvas;
         RectTransform safeAreaRect;
@@ -65,8 +81,9 @@ namespace Match3RPG.Campaign
         Image inventoryPopupItemImage;
         TMP_Text inventoryPopupItemName;
         TMP_Text inventoryPopupItemEffect;
-        Button skillsTabButton;
-        Button starChartTabButton;
+        RectTransform inventoryTabFocusRect;
+        RectTransform characterTabFocusRect;
+        readonly Button[] characterTabButtons = new Button[4];
         Button[] inventoryTabButtons = new Button[3];
         readonly Button[] inventoryItemButtons = new Button[TotalInventoryItemCount];
         readonly GameObject[] inventoryItemContents = new GameObject[TotalInventoryItemCount];
@@ -108,6 +125,7 @@ namespace Match3RPG.Campaign
         int selectedStarChartRealmIndex;
         int selectedStarChartLevel;
         int selectedInventoryTab;
+        int selectedCharacterTab = 1;
 
         readonly int[] baseGemDisplayInventory = new int[7];
         readonly int[] litStarsPerBranch = new int[7];
@@ -369,7 +387,7 @@ backgroundLayer.SetAsFirstSibling();
 
             mainNavigationButtons.Add(CreateNavigationHitArea(navButtonsStrip, "CultivationHitArea",
                 new Vector2(.2636f, 0f), new Vector2(.7265f, .4077f), Color.green,
-                OpenCultivationPanel));
+                OpenCharacterScreen));
 
             mainNavigationButtons.Add(CreateNavigationHitArea(navButtonsStrip, "AdventureHitArea",
                 new Vector2(.762f, 0f), new Vector2(.98f, .7334f), Color.blue,
@@ -409,13 +427,13 @@ backgroundLayer.SetAsFirstSibling();
             SetPanelOpen(characterPanel);
         }
 
-        void OpenCultivationPanel()
+        void OpenCharacterScreen()
         {
             if (cultivationPanel == null)
                 cultivationPanel = BuildCultivationPanel().gameObject;
             RefreshBaseGemInventory();
             SetPanelOpen(cultivationPanel);
-            SelectCultivationTab(false);
+            SelectCharacterTab(1);
         }
 
         void OpenInventoryPanel(GameObject characterOverlay)
@@ -584,25 +602,33 @@ backgroundLayer.SetAsFirstSibling();
         {
             RectTransform overlay = CreateFullScreenOverlay("InventoryPanelOverlay",
                 new Color32(4, 28, 22, 255));
+            Sprite tuidoSprite = Resources.Load<Sprite>("MainProgress/UI/TuidoSingle");
+            if (tuidoSprite == null)
+                Debug.LogError("MainProgress failed to load sprite Resources/MainProgress/UI/TuidoSingle.", this);
             RectTransform artwork = CreateFullScreenArtwork(overlay,
-                GetSpriteAt(inventoryScreenBackgrounds, 0), "InventoryArtwork",
+                tuidoSprite, "InventoryArtwork",
                 out inventoryBackgroundImage, fitToScreen: true);
+
+            inventoryTabFocusRect = CreateTabFocusOverlay(artwork,
+                "InventoryTabFocusOverlay",
+                InventoryTabAnchors[0].min, InventoryTabAnchors[0].max);
+
             CreateCharacterHitButton(artwork, "InventoryCloseButton",
-                .875f, .90f, .985f, .99f,
+                .882f, .895f, .996f, .947f,
                 () => ClosePanel(overlay.gameObject));
 
             inventoryTabButtons[0] = CreateCharacterHitButton(artwork,
-                "InventoryTab_Items", .08f, .81f, .36f, .87f,
+                "InventoryTab_Items", .052f, .822f, .341f, .867f,
                 () => SelectInventoryTab(0));
             inventoryTabButtons[1] = CreateCharacterHitButton(artwork,
-                "InventoryTab_Fragment", .38f, .81f, .64f, .87f,
+                "InventoryTab_Fragment", .358f, .822f, .645f, .867f,
                 () => SelectInventoryTab(1));
             inventoryTabButtons[2] = CreateCharacterHitButton(artwork,
-                "InventoryTab_Materials", .66f, .81f, .93f, .87f,
+                "InventoryTab_Materials", .661f, .822f, .950f, .867f,
                 () => SelectInventoryTab(2));
 
             RectTransform viewportRect = CreateAnchoredRect(artwork, "InventoryGridViewport",
-                new Vector2(.085f, .225f), new Vector2(.915f, .810f),
+                new Vector2(.043f, .259f), new Vector2(.956f, .805f),
                 new Vector2(0f, 2f), new Vector2(0f, -2f));
             viewportRect.offsetMin = new Vector2(0f, 2f);
             viewportRect.offsetMax = new Vector2(0f, -2f);
@@ -650,7 +676,7 @@ backgroundLayer.SetAsFirstSibling();
             const int columns = 5;
             const int rows = 7;
             int totalSlots = columns * rows;
-            float cellSize = (0.915f - 0.085f) * screenW / columns;
+            float cellSize = (0.956f - 0.043f) * screenW / columns;
             float slotSize = cellSize * 0.725f;
             float rowPitch = cellSize * 0.97f;
             float contentHeight = rows * rowPitch;
@@ -748,9 +774,13 @@ backgroundLayer.SetAsFirstSibling();
         void SelectInventoryTab(int tabIndex)
         {
             selectedInventoryTab = Mathf.Clamp(tabIndex, 0, 2);
-            if (inventoryBackgroundImage != null)
-                inventoryBackgroundImage.sprite = GetSpriteAt(inventoryScreenBackgrounds,
-                    selectedInventoryTab);
+            if (inventoryTabFocusRect != null)
+            {
+                inventoryTabFocusRect.anchorMin = InventoryTabAnchors[selectedInventoryTab].min;
+                inventoryTabFocusRect.anchorMax = InventoryTabAnchors[selectedInventoryTab].max;
+                inventoryTabFocusRect.offsetMin = Vector2.zero;
+                inventoryTabFocusRect.offsetMax = Vector2.zero;
+            }
             for (int index = 0; index < inventoryTabButtons.Length; index++)
                 if (inventoryTabButtons[index] != null)
                     inventoryTabButtons[index].interactable = index != selectedInventoryTab;
@@ -1317,7 +1347,8 @@ backgroundLayer.SetAsFirstSibling();
             RectTransform artwork = CreateAnchoredRect(parent, name,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
             artworkImage = artwork.gameObject.AddComponent<Image>();
-            artworkImage.sprite = sprite;
+            if (sprite != null)
+                artworkImage.sprite = sprite;
             artworkImage.color = Color.white;
             artworkImage.preserveAspect = true;
             artworkImage.raycastTarget = false;
@@ -1378,22 +1409,64 @@ backgroundLayer.SetAsFirstSibling();
             return artwork;
         }
 
+        static void EnsureTabFocusWhiteSprite()
+        {
+            if (tabFocusWhiteSprite == null)
+                tabFocusWhiteSprite = Sprite.Create(Texture2D.whiteTexture,
+                    new Rect(0f, 0f, 4f, 4f), new Vector2(.5f, .5f),
+                    100f / 6f, 0u, SpriteMeshType.FullRect,
+                    new Vector4(1f, 1f, 1f, 1f));
+        }
+
+        static RectTransform CreateTabFocusOverlay(Transform parent, string name,
+            Vector2 anchorMin, Vector2 anchorMax)
+        {
+            EnsureTabFocusWhiteSprite();
+            RectTransform focusRect = CreateAnchoredRect(parent, name,
+                anchorMin, anchorMax, Vector2.zero, Vector2.zero);
+            Image focusImage = focusRect.gameObject.AddComponent<Image>();
+            focusImage.sprite = tabFocusWhiteSprite;
+            focusImage.color = Color.clear;
+            focusImage.type = Image.Type.Sliced;
+            focusImage.fillCenter = false;
+            focusImage.raycastTarget = false;
+            Outline focusOutline = focusRect.gameObject.AddComponent<Outline>();
+            focusOutline.effectColor = Gold;
+            focusOutline.effectDistance = new Vector2(3f, -3f);
+            focusOutline.useGraphicAlpha = false;
+            return focusRect;
+        }
+
         RectTransform BuildCultivationPanel()
         {
             RectTransform overlay = CreateFullScreenOverlay("CultivationPanelOverlay",
                 new Color32(4, 28, 22, 255));
+            Sprite characterSprite = Resources.Load<Sprite>("MainProgress/UI/CharacterSingle");
+            if (characterSprite == null)
+                Debug.LogError("MainProgress failed to load sprite Resources/MainProgress/UI/CharacterSingle.", this);
             RectTransform artwork = CreateFullScreenArtwork(overlay,
-                GetSpriteAt(inventoryScreenBackgrounds, 4), "CultivationArtwork",
-                out cultivationBackgroundImage);
+                characterSprite, "CultivationArtwork",
+                out cultivationBackgroundImage, fitToScreen: true);
+
+            characterTabFocusRect = CreateTabFocusOverlay(artwork,
+                "CharacterTabFocusOverlay",
+                CharacterTabAnchors[1].min, CharacterTabAnchors[1].max);
+
             CreateCharacterHitButton(artwork, "CultivationCloseButton",
-                .875f, .90f, .985f, .99f,
+                .890f, .893f, 1.000f, .946f,
                 () => ClosePanel(overlay.gameObject));
-            skillsTabButton = CreateCharacterHitButton(artwork, "SkillsTab",
-                .105f, .82f, .49f, .88f,
-                () => SelectCultivationTab(true));
-            starChartTabButton = CreateCharacterHitButton(artwork, "StarChartTab",
-                .51f, .82f, .90f, .88f,
-                () => SelectCultivationTab(false));
+            characterTabButtons[0] = CreateCharacterHitButton(artwork, "CharacterTab_Skills",
+                .038f, .818f, .260f, .864f,
+                () => SelectCharacterTab(0));
+            characterTabButtons[1] = CreateCharacterHitButton(artwork, "CharacterTab_Cultivation",
+                .273f, .818f, .493f, .864f,
+                () => SelectCharacterTab(1));
+            characterTabButtons[2] = CreateCharacterHitButton(artwork, "CharacterTab_Companion",
+                .507f, .818f, .728f, .864f,
+                () => SelectCharacterTab(2));
+            characterTabButtons[3] = CreateCharacterHitButton(artwork, "CharacterTab_Pet",
+                .742f, .818f, .962f, .864f,
+                () => SelectCharacterTab(3));
 
             starChartUIGroup = CreateAnchoredRect(artwork, "StarChartUI",
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero).gameObject;
@@ -2358,21 +2431,29 @@ backgroundLayer.SetAsFirstSibling();
                 + $"{StarChartGemNames[selectedStarChartBranchIndex]}.");
         }
 
-        void SelectCultivationTab(bool showSkills)
+        void SelectCharacterTab(int tabIndex)
         {
+            selectedCharacterTab = Mathf.Clamp(tabIndex, 0, 3);
             HideStarChartPopups();
+            if (characterTabFocusRect != null)
+            {
+                characterTabFocusRect.anchorMin = CharacterTabAnchors[selectedCharacterTab].min;
+                characterTabFocusRect.anchorMax = CharacterTabAnchors[selectedCharacterTab].max;
+                characterTabFocusRect.offsetMin = Vector2.zero;
+                characterTabFocusRect.offsetMax = Vector2.zero;
+            }
+            for (int index = 0; index < characterTabButtons.Length; index++)
+                if (characterTabButtons[index] != null)
+                    characterTabButtons[index].interactable = index != selectedCharacterTab;
             if (skillsPlaceholder != null)
-                skillsPlaceholder.SetActive(showSkills);
+                skillsPlaceholder.SetActive(selectedCharacterTab == 0);
             if (starChartUIGroup != null)
-                starChartUIGroup.SetActive(!showSkills);
-            if (cultivationBackgroundImage != null)
-                cultivationBackgroundImage.sprite = GetSpriteAt(
-                    inventoryScreenBackgrounds, showSkills ? 3 : 4);
-            if (skillsTabButton != null)
-                skillsTabButton.interactable = !showSkills;
-            if (starChartTabButton != null)
-                starChartTabButton.interactable = showSkills;
-            UpdateBreakthroughButtonState();
+                starChartUIGroup.SetActive(selectedCharacterTab == 1);
+            if (selectedCharacterTab == 1)
+            {
+                RefreshBaseGemInventory();
+                UpdateBreakthroughButtonState();
+            }
         }
 
         RectTransform CreateOverlay(string name)
