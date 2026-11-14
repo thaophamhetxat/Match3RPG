@@ -19,7 +19,6 @@ namespace Match3RPG.Editor
         const string GameScenePath = "Assets/Scenes/Game.unity";
         const string Hero2AnimationRoot = "Assets/Art/Characters/Hero2/Animations/";
         const string BossAnimationRoot = "Assets/Art/Bosses/Region01/";
-        const string BossSpritePath = "Assets/Art/Bosses/Boss01/boss1_Idle.png";
         const string ReimportPreferencePrefix = "Match3RPG.CharacterSpriteImporter.Reimported.";
         static readonly string[] Hero2BattleFolders =
         {
@@ -164,10 +163,8 @@ namespace Match3RPG.Editor
                     AssetDatabase.ImportAsset(assetPath, ImportAssetOptions.ForceUpdate);
                 }
             }
-            ImportCharacterSprite(BossSpritePath);
             CharacterContentBuilder.Build();
             ReimportExistingGemV2Sprites();
-            AssignSceneBossSprite();
         }
 
         [MenuItem("Tools/Match3RPG/Reimport Gem V2 Sprites")]
@@ -225,38 +222,6 @@ namespace Match3RPG.Editor
             if (maxTextureSize > 0)
                 settings.maxTextureSize = maxTextureSize;
             importer.SetPlatformTextureSettings(settings);
-        }
-
-        static void AssignSceneBossSprite()
-        {
-            Sprite boss = AssetDatabase.LoadAssetAtPath<Sprite>(BossSpritePath);
-            if (boss == null) Debug.LogWarning($"Boss sprite did not load as a Sprite: {BossSpritePath}");
-            if (boss == null) return;
-
-            Scene scene = SceneManager.GetSceneByPath(GameScenePath);
-            bool openedHere = !scene.IsValid() || !scene.isLoaded;
-            if (openedHere)
-                scene = EditorSceneManager.OpenScene(GameScenePath, OpenSceneMode.Additive);
-
-            bool changed = false;
-            foreach (GameObject root in scene.GetRootGameObjects())
-            foreach (GameBootstrap bootstrap in root.GetComponentsInChildren<GameBootstrap>(true))
-            {
-                SerializedObject serialized = new SerializedObject(bootstrap);
-                changed |= Assign(serialized.FindProperty("bossIdleSprite"), boss);
-                if (!changed) continue;
-                serialized.ApplyModifiedPropertiesWithoutUndo();
-                EditorUtility.SetDirty(bootstrap);
-            }
-
-            if (changed)
-            {
-                EditorSceneManager.MarkSceneDirty(scene);
-                EditorSceneManager.SaveScene(scene);
-                Debug.Log("Character sprites assigned to GameBootstrap in Game.unity.");
-            }
-
-            if (openedHere) EditorSceneManager.CloseScene(scene, true);
         }
 
         static void AssignSceneGemV2Sprites()

@@ -552,6 +552,7 @@ namespace Match3RPG.Campaign
                     Vector2.zero, Vector2.zero);
                 Image icon = iconRect.gameObject.AddComponent<Image>();
                 icon.sprite = entry.Icon;
+                icon.enabled = entry.Icon != null;
                 icon.color = Color.white;
                 icon.preserveAspect = true;
                 icon.raycastTarget = false;

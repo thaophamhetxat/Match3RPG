@@ -63,7 +63,6 @@ namespace Match3RPG.Core
         [SerializeField] Sprite buttonPressedSprite;
         [SerializeField] Sprite battleBackgroundSprite;
         [SerializeField] Sprite battleLayoutV2Sprite;
-        [SerializeField] Sprite bossIdleSprite;
         [SerializeField] Sprite tabBagSprite;
         [SerializeField] Sprite tabSkillsSprite;
         [SerializeField] Sprite tabSettingsSprite;
@@ -338,11 +337,9 @@ namespace Match3RPG.Core
                     + $"Dodge={(heroAnimationSet.DodgeClip != null ? "Available" : "Unavailable")}; "
                     + $"Rising={(heroAnimationSet.RisingClip != null ? "Available" : "Unavailable")}; "
                     + $"DeathFrames={heroAnimationSet.GetFrameCount(BattleCharacterAnimState.Death)}");
-            Sprite battleBossSprite = battleBossData != null && battleBossData.Portrait != null
-                ? battleBossData.Portrait
-                : bossIdleSprite;
+            Sprite battleBossSprite = battleBossData != null ? battleBossData.Portrait : null;
             if (battleBossData != null && battleBossData.Portrait == null)
-                Debug.LogWarning($"BossData '{battleBossData.BossId}' has no portrait; using the development Boss sprite.", this);
+                Debug.LogWarning($"BossData '{battleBossData.BossId}' has no portrait.", this);
             CharacterAnimationSet bossAnimationSet = battleBossData != null
                 ? battleBossData.AnimationSet
                 : null;

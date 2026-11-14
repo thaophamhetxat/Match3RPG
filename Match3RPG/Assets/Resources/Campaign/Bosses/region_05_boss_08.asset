@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
   bossId: region_05_boss_08
   displayName: Spirit Forest Warden
-  portrait: {fileID: 21300000, guid: 69430c249d5139b478ffc6efb5615dfe, type: 3}
+  portrait: {fileID: 0}
   maxHP: 2125
   attack: 35
   maxRage: 100
