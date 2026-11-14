@@ -777,13 +777,24 @@ backgroundLayer.SetAsFirstSibling();
             }
 
             float screenW = Screen.width / scaleFactor;
+            float screenH = Screen.height / scaleFactor;
             const int columns = 5;
             const int rows = 7;
             int totalSlots = columns * rows;
-            float cellSize = (0.956f - 0.043f) * screenW / columns;
+            float viewportWidth = (0.956f - 0.043f) * screenW;
+            float viewportHeight = (0.805f - 0.259f) * screenH - 4f;
+            float widthCellSize = (0.956f - 0.043f) * screenW / columns;
+            const float gridTopMargin = 40f;
+            const float gridBottomMargin = 40f;
+            float heightCellSize = (viewportHeight - gridTopMargin - gridBottomMargin - 30f)
+                / (6f * 0.97f + 0.725f);
+            float cellSize = Mathf.Min(widthCellSize, heightCellSize);
             float slotSize = cellSize * 0.725f;
             float rowPitch = cellSize * 0.97f;
-            float contentHeight = rows * rowPitch;
+            float gridSpan = 6f * rowPitch + slotSize + 30f;
+            float gridTopOffset = (viewportHeight - gridSpan) * 0.5f;
+            float gridXOffset = (viewportWidth - columns * cellSize) * 0.5f;
+            float contentHeight = viewportHeight;
 
             RectTransform contentRect = CreateAnchoredRect(viewportRect, "InventoryGridContent",
                 new Vector2(0f, 1f), new Vector2(1f, 1f), Vector2.zero, Vector2.zero);
@@ -808,8 +819,8 @@ backgroundLayer.SetAsFirstSibling();
                 slotRect.pivot = new Vector2(0.5f, 0.5f);
                 slotRect.sizeDelta = new Vector2(slotSize, slotSize);
                 slotRect.anchoredPosition = new Vector2(
-                    (column + 0.5f) * cellSize,
-                    -(row + 0.5f) * rowPitch);
+                    gridXOffset + (column + 0.5f) * cellSize,
+                    -(gridTopOffset + (row + 0.5f) * rowPitch));
 
                 Image slotImage = slotRect.gameObject.AddComponent<Image>();
                 slotImage.color = new Color32(12, 27, 36, 255);
@@ -841,8 +852,8 @@ backgroundLayer.SetAsFirstSibling();
                     nameRect.pivot = new Vector2(0.5f, 1f);
                     nameRect.sizeDelta = new Vector2(cellSize * 0.96f, 26f);
                     nameRect.anchoredPosition = new Vector2(
-                        (column + 0.5f) * cellSize,
-                        -((row + 0.5f) * rowPitch + slotSize * 0.5f + 4f));
+                        gridXOffset + (column + 0.5f) * cellSize,
+                        -(gridTopOffset + (row + 0.5f) * rowPitch + slotSize * 0.5f + 4f));
                     TextMeshProUGUI itemName = CampaignUIFactory.CreateText(
                         nameRect, "Text", GetInventoryItemName(index), 12,
                         Color.white, TextAlignmentOptions.Center);
@@ -854,8 +865,8 @@ backgroundLayer.SetAsFirstSibling();
                     equippedRect.pivot = new Vector2(0.5f, 1f);
                     equippedRect.sizeDelta = new Vector2(cellSize * 0.96f, 20f);
                     equippedRect.anchoredPosition = new Vector2(
-                        (column + 0.5f) * cellSize,
-                        -((row + 0.5f) * rowPitch + slotSize * 0.5f + 22f));
+                        gridXOffset + (column + 0.5f) * cellSize,
+                        -(gridTopOffset + (row + 0.5f) * rowPitch + slotSize * 0.5f + 22f));
                     TextMeshProUGUI equippedText = CampaignUIFactory.CreateText(
                         equippedRect, "Text", "Đang mặc", 12,
                         Gold, TextAlignmentOptions.Center);
