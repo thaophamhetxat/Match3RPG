@@ -18,6 +18,7 @@ namespace Match3RPG.Campaign
         const bool DebugHitboxVisualizationEnabled = false;
         const int LegacyInventoryItemCount = 4;
         const int TotalInventoryItemCount = 10;
+        const int MaxEquipmentUpgradeLevel = 15;
         const string BlackDragonSetDetailText = "Bộ Hắc Long (hệ ATK) — 6 món: Kiếm, Mũ, Giáp, Găng, Giầy, Nhẫn.";
 
         static readonly string[] BlackDragonItemIds =
@@ -36,7 +37,6 @@ namespace Match3RPG.Campaign
         [SerializeField] Sprite[] inventoryScreenBackgrounds = new Sprite[5];
         [SerializeField] Sprite inventoryItemSlot;
         [SerializeField] Sprite[] inventoryItemSprites = new Sprite[4];
-        [SerializeField] Sprite[] inventoryItemPopupBackgrounds = new Sprite[3];
         [SerializeField] Sprite[] starChartBaseGemSprites = new Sprite[7];
         [SerializeField] Sprite[] starChartSpecialGemSprites = new Sprite[7];
 
@@ -71,6 +71,8 @@ namespace Match3RPG.Campaign
         readonly Button[] inventoryItemButtons = new Button[TotalInventoryItemCount];
         readonly GameObject[] inventoryItemContents = new GameObject[TotalInventoryItemCount];
         readonly GameObject[] inventoryItemNameLabels = new GameObject[TotalInventoryItemCount];
+        readonly Outline[] inventorySlotOutlines = new Outline[TotalInventoryItemCount];
+        readonly GameObject[] inventoryItemEquippedLabels = new GameObject[TotalInventoryItemCount];
         Sprite[] resolvedInventoryItemSprites;
         TMP_Text realmButtonLabel;
         TMP_Text starActionStatus;
@@ -548,14 +550,11 @@ backgroundLayer.SetAsFirstSibling();
             }
 
             RuntimeHeroStats heroStats = stats.Value;
-            int rageStars = starChartGemInventory.GetTotalStatBonuses().RageStars;
-            float baseDefense = 20f + (heroStats.Level - 1);
-            int defense = Mathf.CeilToInt(baseDefense * (1f + .01f * rageStars));
             string[] values =
             {
                 FormatStat(heroStats.Attack),
                 FormatStat(heroStats.SoulAttack),
-                FormatStat(defense),
+                FormatStat(heroStats.Defense),
                 FormatStat(heroStats.MaxHP),
                 FormatStat(heroStats.MaxSoulHP),
                 FormatPercent(heroStats.CriticalChancePercent),
@@ -718,11 +717,27 @@ backgroundLayer.SetAsFirstSibling();
                         nameRect, "Text", GetInventoryItemName(index), 12,
                         Color.white, TextAlignmentOptions.Center);
 
+                    RectTransform equippedRect = CreateAnchoredRect(contentRect,
+                        $"InventoryItemEquipped_{index}",
+                        new Vector2(0f, 1f), new Vector2(0f, 1f),
+                        Vector2.zero, Vector2.zero);
+                    equippedRect.pivot = new Vector2(0.5f, 1f);
+                    equippedRect.sizeDelta = new Vector2(cellSize * 0.96f, 20f);
+                    equippedRect.anchoredPosition = new Vector2(
+                        (column + 0.5f) * cellSize,
+                        -((row + 0.5f) * rowPitch + slotSize * 0.5f + 22f));
+                    TextMeshProUGUI equippedText = CampaignUIFactory.CreateText(
+                        equippedRect, "Text", "Đang mặc", 12,
+                        Gold, TextAlignmentOptions.Center);
+                    equippedRect.gameObject.SetActive(false);
+
                     slotButton.onClick.AddListener(
                         () => OpenInventoryItemPopup(capturedIndex));
                     inventoryItemButtons[index] = slotButton;
                     inventoryItemContents[index] = itemRect.gameObject;
                     inventoryItemNameLabels[index] = itemName.gameObject;
+                    inventorySlotOutlines[index] = slotOutline;
+                    inventoryItemEquippedLabels[index] = equippedRect.gameObject;
                 }
             }
 
@@ -747,6 +762,28 @@ backgroundLayer.SetAsFirstSibling();
                     inventoryItemContents[index].SetActive(selectedInventoryTab == 0);
                 if (inventoryItemNameLabels[index] != null)
                     inventoryItemNameLabels[index].SetActive(selectedInventoryTab == 0);
+            }
+            RefreshInventoryGridEquippedVisuals();
+        }
+
+        void RefreshInventoryGridEquippedVisuals()
+        {
+            for (int index = 0; index < TotalInventoryItemCount; index++)
+            {
+                ItemConfig itemConfig = GetBlackDragonItemConfig(index);
+                bool isEquipped = selectedInventoryTab == 0
+                    && itemConfig != null
+                    && IsItemEquipped(itemConfig, out _);
+
+                if (inventorySlotOutlines[index] != null)
+                {
+                    inventorySlotOutlines[index].effectDistance = isEquipped
+                        ? new Vector2(3f, -3f)
+                        : new Vector2(2f, -2f);
+                }
+
+                if (inventoryItemEquippedLabels[index] != null)
+                    inventoryItemEquippedLabels[index].SetActive(isEquipped);
             }
         }
 
@@ -819,152 +856,413 @@ backgroundLayer.SetAsFirstSibling();
                 Destroy(inventoryItemPopup);
 
             int popupType = GetInventoryItemPopupType(itemIndex);
-            Sprite popupSprite = GetSpriteAt(inventoryItemPopupBackgrounds, popupType);
             RectTransform popup = CreateFullScreenOverlay(
                 $"InventoryItemPopup_{GetInventoryItemName(itemIndex)}",
                 new Color32(3, 19, 16, 230), inventoryPanel.transform);
             inventoryItemPopup = popup.gameObject;
-            RectTransform artwork = CreateFullScreenArtwork(popup, popupSprite,
-                "PopupArtwork", out inventoryPopupBackgroundImage);
 
-            RectTransform itemImageRect = CreateAnchoredRect(artwork,
-                "PopupItemArtwork", new Vector2(.105f, .665f),
-                new Vector2(.365f, .845f), Vector2.zero, Vector2.zero);
+            RectTransform panel = CreateAnchoredRect(popup, "PopupPanel",
+                new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f),
+                Vector2.zero, Vector2.zero);
+            panel.pivot = new Vector2(0.5f, 0.5f);
+            panel.sizeDelta = new Vector2(900f, 1050f);
+            panel.anchoredPosition = Vector2.zero;
+            inventoryPopupBackgroundImage = panel.gameObject.AddComponent<Image>();
+            inventoryPopupBackgroundImage.color = new Color32(12, 27, 36, 255);
+            inventoryPopupBackgroundImage.raycastTarget = true;
+            Outline panelOutline = panel.gameObject.AddComponent<Outline>();
+            panelOutline.effectColor = Gold;
+            panelOutline.effectDistance = new Vector2(3f, -3f);
+
+            RectTransform iconFrameRect = CreateAnchoredRect(panel,
+                "PopupItemIconFrame", new Vector2(0.06f, 0.80f),
+                new Vector2(0.26f, 0.94f), Vector2.zero, Vector2.zero);
+            Image iconFrameImage = iconFrameRect.gameObject.AddComponent<Image>();
+            iconFrameImage.color = new Color32(12, 27, 36, 255);
+            iconFrameImage.raycastTarget = false;
+            Outline iconOutline = iconFrameRect.gameObject.AddComponent<Outline>();
+            iconOutline.effectColor = Gold;
+            iconOutline.effectDistance = new Vector2(2f, -2f);
+
+            RectTransform itemImageRect = CreateAnchoredRect(iconFrameRect,
+                "PopupItemArtwork", new Vector2(0.08f, 0.08f),
+                new Vector2(0.92f, 0.92f), Vector2.zero, Vector2.zero);
             inventoryPopupItemImage = itemImageRect.gameObject.AddComponent<Image>();
             inventoryPopupItemImage.sprite = allItemSprites[itemIndex];
             inventoryPopupItemImage.preserveAspect = true;
             inventoryPopupItemImage.raycastTarget = false;
 
+            Button closeButton = CreateCharacterHitButton(panel, "PopupCloseButton",
+                0.90f, 0.91f, 0.975f, 0.975f, CloseInventoryItemPopup);
+            ConfigureOutlinedButton(closeButton, new Color32(62, 45, 37, 255), Gold, 2f);
+            TMP_Text closeLabel = AddLabel(panel, "PopupCloseButtonText", "X", 26, Gold,
+                new Vector2(0.90f, 0.91f), new Vector2(0.975f, 0.975f), TextAlignmentOptions.Center);
+            closeLabel.raycastTarget = false;
+
             ItemConfig itemConfig = GetBlackDragonItemConfig(itemIndex);
             if (itemConfig != null)
             {
-                inventoryPopupItemName = AddLabel(artwork, "PopupItemName",
-                    GetInventoryItemName(itemIndex), 24, Color.white,
-                    new Vector2(.39f, .775f), new Vector2(.91f, .822f),
-                    TextAlignmentOptions.MidlineLeft);
-                AddLabel(artwork, "PopupItemGradeRequirement",
-                    FormatItemGradeAndRequirementLine(itemConfig), 20, Color.white,
-                    new Vector2(.39f, .722f), new Vector2(.91f, .766f),
-                    TextAlignmentOptions.MidlineLeft);
-                AddLabel(artwork, "PopupItemStats",
-                    FormatItemStatsLine(itemConfig), 20, Color.white,
-                    new Vector2(.39f, .670f), new Vector2(.91f, .714f),
-                    TextAlignmentOptions.MidlineLeft);
-                inventoryPopupItemEffect = AddLabel(artwork, "PopupItemEffect",
-                    itemConfig.Description, 20, Color.white,
-                    new Vector2(.12f, .48f), new Vector2(.88f, .615f),
-                    TextAlignmentOptions.TopLeft);
-                AddLabel(artwork, "PopupItemDetail2",
-                    BlackDragonSetDetailText, 20, Color.white,
-                    new Vector2(.12f, .285f), new Vector2(.88f, .42f),
-                    TextAlignmentOptions.TopLeft);
-            }
-            else
-            {
-                inventoryPopupItemName = AddLabel(artwork, "PopupItemName",
-                    GetInventoryItemName(itemIndex), 24, Color.white,
-                    new Vector2(.39f, .77f), new Vector2(.91f, .85f),
-                    TextAlignmentOptions.MidlineLeft);
-                inventoryPopupItemEffect = AddLabel(artwork, "PopupItemEffect",
-                    "Tác dụng / chỉ số: NULL", 20, Color.white,
-                    new Vector2(.12f, .34f), new Vector2(.88f, .58f),
-                    TextAlignmentOptions.TopLeft);
-            }
+                ItemInstanceSaveData existingInstance = FindInventoryItemInstance(
+                    itemConfig, out bool isEquipped);
+                int upgradeLevel = existingInstance != null
+                    ? Mathf.Max(0, existingInstance.upgradeLevel)
+                    : 0;
+                string displayTitle = upgradeLevel > 0
+                    ? $"{GetInventoryItemName(itemIndex)} +{upgradeLevel}"
+                    : GetInventoryItemName(itemIndex);
 
-            CreateCharacterHitButton(artwork, "PopupCloseButton",
-                .865f, .875f, .985f, .99f,
-                () => CloseInventoryItemPopup());
-            if (popupType == 0)
-            {
-                CreateCharacterHitButton(artwork, "PopupUseButton",
-                    .29f, .095f, .72f, .185f,
-                    () => LogInventoryPopupAction("Sử dụng", itemIndex));
-            }
-            else if (popupType == 1)
-            {
-                CreateCharacterHitButton(artwork, "PopupEquipButton",
-                    .12f, .09f, .49f, .18f,
-                    () => LogInventoryPopupAction("Trang bị", itemIndex));
-                CreateCharacterHitButton(artwork, "PopupEnhanceButton",
-                    .51f, .09f, .88f, .18f,
-                    () => LogInventoryPopupAction("Cường hóa", itemIndex));
+                inventoryPopupItemName = AddLabel(panel, "PopupItemName",
+                    displayTitle, 30, Gold,
+                    new Vector2(0.30f, 0.85f), new Vector2(0.94f, 0.94f),
+                    TextAlignmentOptions.MidlineLeft);
+                inventoryPopupItemName.textWrappingMode = TextWrappingModes.NoWrap;
+                inventoryPopupItemName.enableAutoSizing = true;
+                inventoryPopupItemName.fontSizeMin = 18f;
+                inventoryPopupItemName.fontSizeMax = 30f;
+
+                TMP_Text gradeSlotLabel = AddLabel(panel, "PopupItemGradeSlot",
+                    FormatItemGradeAndSlotLine(itemConfig), 20, Color.white,
+                    new Vector2(0.30f, 0.79f), new Vector2(0.94f, 0.84f),
+                    TextAlignmentOptions.MidlineLeft);
+                gradeSlotLabel.enableAutoSizing = false;
+
+                BuildPopupStatsBlock(panel, itemConfig, upgradeLevel);
+
+                inventoryPopupItemEffect = AddLabel(panel, "PopupItemEffect",
+                    itemConfig.Description, 20, Color.white,
+                    new Vector2(0.06f, 0.38f), new Vector2(0.94f, 0.53f),
+                    TextAlignmentOptions.TopLeft);
+                inventoryPopupItemEffect.textWrappingMode = TextWrappingModes.Normal;
+                inventoryPopupItemEffect.enableAutoSizing = false;
+
+                HeroProgressSaveData progress = LoadSelectedHeroProgress();
+                int playerLevel = progress != null ? Math.Max(1, progress.level) : 1;
+                bool meetsRequirement = itemConfig.MeetsRequirement(playerLevel);
+                int minLevel = ItemConfig.GetMinLevelForGrade(itemConfig.Grade);
+                string realmName = minLevel > 0 ? Realms[FindRealmIndex(minLevel)].Name : string.Empty;
+                string requirementText = minLevel <= 0
+                    ? "Không yêu cầu cảnh giới"
+                    : meetsRequirement
+                        ? $"Yêu cầu: {realmName} (Lv.{minLevel})"
+                        : $"Chưa đủ điều kiện · Yêu cầu: {realmName} (Lv.{minLevel})";
+                Color requirementColor = meetsRequirement
+                    ? Color.white
+                    : new Color32(220, 110, 110, 255);
+                TMP_Text requirementLabel = AddLabel(panel, "PopupItemRequirement",
+                    requirementText, 20, requirementColor,
+                    new Vector2(0.06f, 0.30f), new Vector2(0.94f, 0.36f),
+                    TextAlignmentOptions.MidlineLeft);
+                requirementLabel.enableAutoSizing = false;
+
+                TMP_Text setDetailLabel = AddLabel(panel, "PopupItemSetDetail",
+                    BlackDragonSetDetailText, 18, new Color32(190, 195, 205, 255),
+                    new Vector2(0.06f, 0.22f), new Vector2(0.94f, 0.27f),
+                    TextAlignmentOptions.MidlineLeft);
+                setDetailLabel.enableAutoSizing = false;
+
+                RectTransform buttonsContainer = CreateAnchoredRect(panel,
+                    "PopupActionButtons", new Vector2(0.06f, 0.06f),
+                    new Vector2(0.94f, 0.15f), Vector2.zero, Vector2.zero);
+
+                CreatePopupActionButton(buttonsContainer, "PopupEquipButton", "Trang bị",
+                    new Vector2(0f, 0f), new Vector2(1f / 3f, 1f),
+                    new Vector2(0f, 0f), new Vector2(-8f, 0f),
+                    !isEquipped && meetsRequirement,
+                    () => EquipInventoryPopupItem(itemIndex, itemConfig));
+
+                CreatePopupActionButton(buttonsContainer, "PopupUpgradeButton", "Nâng cấp",
+                    new Vector2(1f / 3f, 0f), new Vector2(2f / 3f, 1f),
+                    new Vector2(4f, 0f), new Vector2(-4f, 0f),
+                    upgradeLevel < MaxEquipmentUpgradeLevel,
+                    () => UpgradeInventoryPopupItem(itemIndex, itemConfig));
+
+                CreatePopupActionButton(buttonsContainer, "PopupUnequipButton", "Tháo",
+                    new Vector2(2f / 3f, 0f), new Vector2(1f, 1f),
+                    new Vector2(8f, 0f), new Vector2(0f, 0f),
+                    isEquipped,
+                    () => UnequipInventoryPopupItem(itemConfig));
             }
             else
             {
-                Button enhanceButton = CreateCharacterHitButton(artwork, "PopupEnhanceButton",
-                    .12f, .09f, .49f, .18f,
-                    () => LogInventoryPopupAction("Cường hóa", itemIndex));
-                Button equipOrUnequipButton = CreateCharacterHitButton(artwork,
-                    itemConfig != null ? "PopupEquipButton" : "PopupUnequipButton",
-                    .51f, .09f, .88f, .18f,
-                    () => LogInventoryPopupAction(itemConfig != null ? "Trang bị" : "Gỡ", itemIndex));
-                if (itemConfig != null)
+                inventoryPopupItemName = AddLabel(panel, "PopupItemName",
+                    GetInventoryItemName(itemIndex), 30, Gold,
+                    new Vector2(0.30f, 0.85f), new Vector2(0.94f, 0.94f),
+                    TextAlignmentOptions.MidlineLeft);
+                inventoryPopupItemName.textWrappingMode = TextWrappingModes.NoWrap;
+                inventoryPopupItemName.enableAutoSizing = true;
+                inventoryPopupItemName.fontSizeMin = 18f;
+                inventoryPopupItemName.fontSizeMax = 30f;
+
+                inventoryPopupItemEffect = AddLabel(panel, "PopupItemEffect",
+                    "Chưa có dữ liệu — chờ bổ sung", 20, Color.white,
+                    new Vector2(0.06f, 0.38f), new Vector2(0.77f, 0.77f),
+                    TextAlignmentOptions.TopLeft);
+                inventoryPopupItemEffect.enableAutoSizing = false;
+
+                if (popupType == 0)
                 {
-                    HeroProgressSaveData progress = LoadSelectedHeroProgress();
-                    int playerLevel = progress != null ? Math.Max(1, progress.level) : 1;
-                    ApplyInventoryEquipRequirementState(artwork, equipOrUnequipButton,
-                        enhanceButton, itemConfig, playerLevel);
+                    RectTransform buttonsContainer = CreateAnchoredRect(panel,
+                        "PopupActionButtons", new Vector2(0.06f, 0.06f),
+                        new Vector2(0.94f, 0.15f), Vector2.zero, Vector2.zero);
+                    CreatePopupActionButton(buttonsContainer, "PopupUseButton", "Sử dụng",
+                        new Vector2(1f / 3f, 0f), new Vector2(2f / 3f, 1f),
+                        Vector2.zero, Vector2.zero,
+                        true,
+                        () => LogInventoryPopupAction("Sử dụng", itemIndex));
                 }
             }
         }
 
-        static string FormatItemGradeAndRequirementLine(ItemConfig itemConfig)
+        static void BuildPopupStatsBlock(Transform panel, ItemConfig itemConfig, int upgradeLevel)
+        {
+            RectTransform statsBlock = CreateAnchoredRect(panel, "PopupStatsBlock",
+                new Vector2(0.06f, 0.55f), new Vector2(0.94f, 0.77f),
+                Vector2.zero, Vector2.zero);
+
+            ItemStatValues stats = ItemStatCalculator.Calculate(itemConfig, upgradeLevel);
+            List<(string label, string value)> rows = new List<(string label, string value)>();
+            if (stats.AttackPercentBonus > 0f)
+                rows.Add(("ATK", $"+{stats.AttackPercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
+            if (stats.RagePerGemBonus > 0)
+                rows.Add(("Nộ", $"+{stats.RagePerGemBonus.ToString(CultureInfo.InvariantCulture)} Nộ / viên Mặt Trời"));
+            if (stats.MaxHealthPercentBonus > 0f)
+                rows.Add(("HP tối đa", $"+{stats.MaxHealthPercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
+            if (stats.DefensePercentBonus > 0f)
+                rows.Add(("Giáp", $"+{stats.DefensePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
+            if (stats.CritRatePercentBonus > 0f)
+                rows.Add(("Tỷ lệ chí mạng", $"+{stats.CritRatePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
+            if (stats.SpeedBonus > 0)
+                rows.Add(("Tốc độ", $"+{stats.SpeedBonus.ToString(CultureInfo.InvariantCulture)}"));
+            if (stats.CritDamagePercentBonus > 0f)
+                rows.Add(("Sát thương chí mạng", $"+{stats.CritDamagePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
+
+            const float rowHeight = 90f;
+            const float rowSpacing = 6f;
+            for (int index = 0; index < rows.Count; index++)
+            {
+                RectTransform rowRect = CreateAnchoredRect(statsBlock,
+                    $"PopupStatRow_{index}", new Vector2(0f, 1f), new Vector2(1f, 1f),
+                    Vector2.zero, Vector2.zero);
+                rowRect.pivot = new Vector2(0.5f, 1f);
+                rowRect.sizeDelta = new Vector2(0f, rowHeight);
+                rowRect.anchoredPosition = new Vector2(0f, -index * (rowHeight + rowSpacing));
+
+                TMP_Text leftLabel = AddLabel(rowRect, "StatLabel", rows[index].label,
+                    22, Color.white, new Vector2(0f, 0f), new Vector2(0.55f, 1f),
+                    TextAlignmentOptions.MidlineLeft);
+                leftLabel.enableAutoSizing = false;
+
+                TMP_Text rightValue = AddLabel(rowRect, "StatValue", rows[index].value,
+                    22, Gold, new Vector2(0.35f, 0f), new Vector2(1f, 1f),
+                    TextAlignmentOptions.MidlineRight);
+                rightValue.enableAutoSizing = false;
+            }
+        }
+
+        static Button CreatePopupActionButton(Transform parent, string name, string label,
+            Vector2 anchorMin, Vector2 anchorMax, Vector2 offsetMin, Vector2 offsetMax,
+            bool enabled, UnityEngine.Events.UnityAction onClick)
+        {
+            RectTransform rect = CreateAnchoredRect(parent, name,
+                anchorMin, anchorMax, offsetMin, offsetMax);
+            Image image = rect.gameObject.AddComponent<Image>();
+            image.raycastTarget = true;
+            Button button = rect.gameObject.AddComponent<Button>();
+            button.targetGraphic = image;
+            button.transition = Selectable.Transition.None;
+            button.interactable = enabled;
+            if (enabled && onClick != null)
+                button.onClick.AddListener(onClick);
+
+            Color32 fillColor = enabled
+                ? new Color32(12, 27, 36, 255)
+                : new Color32(45, 48, 54, 245);
+            Color32 borderColor = enabled
+                ? (Color32)Gold
+                : new Color32(110, 115, 125, 255);
+            Color textColor = enabled
+                ? Color.white
+                : new Color32(150, 150, 150, 255);
+
+            ConfigureOutlinedButton(button, fillColor, borderColor, 2f);
+            TMP_Text buttonLabel = AddLabel(rect, "Label", label, 24, textColor,
+                Vector2.zero, Vector2.one, TextAlignmentOptions.Center);
+            buttonLabel.enableAutoSizing = false;
+            buttonLabel.raycastTarget = false;
+            return button;
+        }
+
+        static string GetEquipmentSlotDisplayName(EquipmentSlot slot)
+        {
+            switch (slot)
+            {
+                case EquipmentSlot.Weapon:
+                    return "Vũ khí";
+                case EquipmentSlot.Head:
+                    return "Mũ";
+                case EquipmentSlot.Body:
+                    return "Giáp";
+                case EquipmentSlot.Gloves:
+                    return "Găng";
+                case EquipmentSlot.Feet:
+                    return "Giầy";
+                case EquipmentSlot.Accessory:
+                    return "Nhẫn";
+                default:
+                    return string.Empty;
+            }
+        }
+
+        static string FormatItemGradeAndSlotLine(ItemConfig itemConfig)
         {
             string gradeName = ItemConfig.GetGradeDisplayName(itemConfig.Grade);
-            int minLevel = ItemConfig.GetMinLevelForGrade(itemConfig.Grade);
-            if (minLevel <= 0)
-                return $"{gradeName} · Không yêu cầu cảnh giới";
-
-            string realmName = Realms[FindRealmIndex(minLevel)].Name;
-            return $"{gradeName} · Yêu cầu: {realmName} (Lv.{minLevel})";
+            string slotName = GetEquipmentSlotDisplayName(itemConfig.EquipmentSlot);
+            return string.IsNullOrEmpty(slotName) ? gradeName : $"{gradeName} · {slotName}";
         }
 
-        static string FormatItemStatsLine(ItemConfig itemConfig)
+        ItemInstanceSaveData FindInventoryItemInstance(ItemConfig itemConfig, out bool isEquipped)
         {
-            List<string> parts = new List<string>();
-            if (itemConfig.AttackPercentBonus > 0f)
-                parts.Add($"ATK +{itemConfig.AttackPercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%");
-            if (itemConfig.RagePerGemBonus > 0)
-                parts.Add($"+{itemConfig.RagePerGemBonus.ToString(CultureInfo.InvariantCulture)} Nộ / viên Mặt Trời");
-            if (itemConfig.MaxHealthPercentBonus > 0f)
-                parts.Add($"HP tối đa +{itemConfig.MaxHealthPercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%");
-            if (itemConfig.DefensePercentBonus > 0f)
-                parts.Add($"Giáp +{itemConfig.DefensePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%");
-            if (itemConfig.CritRatePercentBonus > 0f)
-                parts.Add($"Tỷ lệ chí mạng +{itemConfig.CritRatePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%");
-            if (itemConfig.SpeedBonus > 0)
-                parts.Add($"Tốc độ +{itemConfig.SpeedBonus.ToString(CultureInfo.InvariantCulture)}");
-            if (itemConfig.CritDamagePercentBonus > 0f)
-                parts.Add($"Sát thương chí mạng +{itemConfig.CritDamagePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%");
-            return parts.Count > 0 ? string.Join(" · ", parts) : "Không có chỉ số";
+            isEquipped = false;
+            if (itemConfig == null)
+                return null;
+
+            if (IsItemEquipped(itemConfig, out ItemInstanceSaveData equippedInstance))
+            {
+                isEquipped = true;
+                return equippedInstance;
+            }
+
+            SaveManager saveManager = SaveManager.Instance;
+            GameSaveData save = saveManager.CurrentSave ?? saveManager.LoadOrCreate();
+            if (save?.inventory?.itemInstances == null)
+                return null;
+
+            foreach (ItemInstanceSaveData instance in save.inventory.itemInstances)
+            {
+                if (instance != null && string.Equals(instance.itemId, itemConfig.StableId,
+                    StringComparison.Ordinal))
+                    return instance;
+            }
+
+            return null;
         }
 
-        void ApplyInventoryEquipRequirementState(Transform artwork, Button equipButton,
-            Button enhanceButton, ItemConfig itemConfig, int playerLevel)
+        bool IsItemEquipped(ItemConfig itemConfig, out ItemInstanceSaveData equippedInstance)
         {
-            if (itemConfig == null || equipButton == null)
+            equippedInstance = null;
+            if (itemConfig == null || !InventoryService.IsEquippable(itemConfig))
+                return false;
+
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            if (config == null)
+                return false;
+
+            SaveManager saveManager = SaveManager.Instance;
+            EquipmentService equipmentService = new EquipmentService(saveManager, config);
+            InventoryService inventoryService = new InventoryService(saveManager, config);
+            foreach (EquipmentLoadoutSaveData entry in equipmentService.GetEquipmentLoadout())
+            {
+                if (entry == null || string.IsNullOrEmpty(entry.itemInstanceId))
+                    continue;
+
+                ItemInstanceSaveData instance = inventoryService.GetEquipmentInstance(
+                    entry.itemInstanceId);
+                if (instance != null
+                    && string.Equals(instance.itemId, itemConfig.StableId, StringComparison.Ordinal))
+                {
+                    equippedInstance = instance;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        ItemInstanceSaveData GetOrCreateEquipmentInstance(ItemConfig itemConfig,
+            InventoryService inventoryService)
+        {
+            ItemInstanceSaveData existing = FindInventoryItemInstance(itemConfig, out _);
+            if (existing != null)
+                return existing;
+            return inventoryService.AddEquipmentInstance(itemConfig.StableId);
+        }
+
+        void EquipInventoryPopupItem(int itemIndex, ItemConfig itemConfig)
+        {
+            if (itemConfig == null)
                 return;
 
-            bool meetsRequirement = itemConfig.MeetsRequirement(playerLevel);
-            equipButton.interactable = meetsRequirement;
-            if (!meetsRequirement)
-            {
-                ConfigureOutlinedButton(equipButton, new Color32(45, 48, 54, 245),
-                    new Color32(110, 115, 125, 255), 2.5f);
-                TMP_Text equipLabel = AddLabel(artwork, "PopupEquipButtonLabel", "Trang bị", 22,
-                    new Color32(150, 150, 150, 255), new Vector2(.51f, .09f), new Vector2(.88f, .18f),
-                    TextAlignmentOptions.Center);
-                equipLabel.raycastTarget = false;
+            HeroProgressSaveData progress = LoadSelectedHeroProgress();
+            int playerLevel = progress != null ? Math.Max(1, progress.level) : 1;
+            if (!itemConfig.MeetsRequirement(playerLevel))
+                return;
 
-                int minLevel = ItemConfig.GetMinLevelForGrade(itemConfig.Grade);
-                string realmName = minLevel > 0 ? Realms[FindRealmIndex(minLevel)].Name : string.Empty;
-                string reqLine = minLevel > 0
-                    ? $"Chưa đủ điều kiện · Yêu cầu: {realmName} (Lv.{minLevel})"
-                    : "Chưa đủ điều kiện trang bị";
-                AddLabel(artwork, "PopupRequirementStatus", reqLine, 18,
-                    new Color32(190, 190, 190, 255), new Vector2(.12f, .216f),
-                    new Vector2(.88f, .259f), TextAlignmentOptions.Center);
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            if (config == null)
+                return;
+
+            SaveManager saveManager = SaveManager.Instance;
+            InventoryService inventoryService = new InventoryService(saveManager, config);
+            EquipmentService equipmentService = new EquipmentService(saveManager, config);
+            ItemInstanceSaveData instance = GetOrCreateEquipmentInstance(itemConfig, inventoryService);
+            if (instance == null)
+                return;
+
+            if (!equipmentService.Equip(instance.instanceId, itemConfig.EquipmentSlot))
+            {
+                equipmentService.Unequip(itemConfig.EquipmentSlot);
+                equipmentService.Equip(instance.instanceId, itemConfig.EquipmentSlot);
             }
+
+            saveManager.SaveNow();
+            CloseInventoryItemPopup();
+            RefreshInventoryGridEquippedVisuals();
+            RefreshCharacterStats();
+        }
+
+        void UnequipInventoryPopupItem(ItemConfig itemConfig)
+        {
+            if (itemConfig == null || !IsItemEquipped(itemConfig, out _))
+                return;
+
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            if (config == null)
+                return;
+
+            SaveManager saveManager = SaveManager.Instance;
+            EquipmentService equipmentService = new EquipmentService(saveManager, config);
+            equipmentService.Unequip(itemConfig.EquipmentSlot);
+            saveManager.SaveNow();
+            CloseInventoryItemPopup();
+            RefreshInventoryGridEquippedVisuals();
+            RefreshCharacterStats();
+        }
+
+        void UpgradeInventoryPopupItem(int itemIndex, ItemConfig itemConfig)
+        {
+            if (itemConfig == null)
+                return;
+
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            if (config == null)
+                return;
+
+            SaveManager saveManager = SaveManager.Instance;
+            InventoryService inventoryService = new InventoryService(saveManager, config);
+            ItemInstanceSaveData instance = GetOrCreateEquipmentInstance(itemConfig, inventoryService);
+            if (instance == null || instance.upgradeLevel >= MaxEquipmentUpgradeLevel)
+                return;
+
+            instance.upgradeLevel = Mathf.Min(MaxEquipmentUpgradeLevel,
+                Mathf.Max(0, instance.upgradeLevel) + 1);
+            saveManager.SaveNow();
+            RefreshInventoryGridEquippedVisuals();
+            RefreshCharacterStats();
+            OpenInventoryItemPopup(itemIndex);
         }
 
         static int GetInventoryItemPopupType(int itemIndex)
@@ -2346,7 +2644,13 @@ backgroundLayer.SetAsFirstSibling();
                     save.inventory, config.GetItem);
             return new RuntimeHeroStats(hero, progress, equipmentStats.AttackBonus,
                 equipmentStats.MaxHealthBonus,
-                starChartGemInventory.GetTotalStatBonuses());
+                starChartGemInventory.GetTotalStatBonuses(),
+                equipmentStats.AttackPercentBonus,
+                equipmentStats.MaxHealthPercentBonus,
+                equipmentStats.DefensePercentBonus,
+                equipmentStats.CritRatePercentBonus,
+                equipmentStats.SpeedBonus,
+                equipmentStats.CritDamagePercentBonus);
         }
 
         HeroProgressSaveData LoadSelectedHeroProgress()

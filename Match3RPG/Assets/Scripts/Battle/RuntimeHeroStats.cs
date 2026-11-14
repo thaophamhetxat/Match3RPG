@@ -54,6 +54,7 @@ namespace Match3RPG.Battle
         public int MaxSoulHP { get; }
         public int Attack { get; }
         public int SoulAttack { get; }
+        public int Defense { get; }
         public float CriticalChancePercent { get; }
         public float CriticalDamageMultiplier { get; }
         public float DodgePercent { get; }
@@ -67,7 +68,13 @@ namespace Match3RPG.Battle
 
         public RuntimeHeroStats(HeroData config, HeroProgressSaveData progress,
             int equipmentAttackBonus = 0, int equipmentHealthBonus = 0,
-            StarChartStatBonuses starBonuses = default)
+            StarChartStatBonuses starBonuses = default,
+            float equipmentAttackPercentBonus = 0f,
+            float equipmentMaxHealthPercentBonus = 0f,
+            float equipmentDefensePercentBonus = 0f,
+            float equipmentCritRatePercentBonus = 0f,
+            int equipmentSpeedBonus = 0,
+            float equipmentCritDamagePercentBonus = 0f)
         {
             if (config == null)
                 throw new ArgumentNullException(nameof(config));
@@ -78,18 +85,30 @@ namespace Match3RPG.Battle
                 : 1;
             Experience = progress != null ? Math.Max(0, progress.experience) : 0;
             int levelsGained = Level - 1;
-            MaxHP = ClampToPositiveInt(500L + levelsGained * 100L
-                + starBonuses.HealthStars * 50L + equipmentHealthBonus);
+            long baseMaxHp = 500L + levelsGained * 100L
+                + starBonuses.HealthStars * 50L + equipmentHealthBonus;
+            MaxHP = ClampToPositiveInt((long)Math.Round(
+                baseMaxHp * (1.0 + equipmentMaxHealthPercentBonus / 100.0),
+                MidpointRounding.AwayFromZero));
             MaxSoulHP = SoulHealthCalculator.CalculateMaxHealth(MaxHP, Level);
-            Attack = ClampToPositiveInt(50L + levelsGained * 5L
-                + starBonuses.AttackStars + equipmentAttackBonus);
+            long baseAttack = 50L + levelsGained * 5L
+                + starBonuses.AttackStars + equipmentAttackBonus;
+            Attack = ClampToPositiveInt((long)Math.Round(
+                baseAttack * (1.0 + equipmentAttackPercentBonus / 100.0),
+                MidpointRounding.AwayFromZero));
             SoulAttack = ClampToPositiveInt(50L + levelsGained * 5L
                 + starBonuses.SoulStars + equipmentAttackBonus);
-            CriticalChancePercent = 10f + levelsGained * .5f;
-            CriticalDamageMultiplier = 2f + starBonuses.RageStars * .01f;
+            double baseDefense = 20.0 + levelsGained;
+            Defense = ClampToPositiveInt((long)Math.Ceiling(
+                baseDefense * (1.0 + 0.01 * starBonuses.RageStars)
+                * (1.0 + equipmentDefensePercentBonus / 100.0) - 1e-9));
+            CriticalChancePercent = 10f + levelsGained * .5f + equipmentCritRatePercentBonus;
+            CriticalDamageMultiplier = 2f + starBonuses.RageStars * .01f
+                + equipmentCritDamagePercentBonus / 100f;
             DodgePercent = levelsGained * .5f + starBonuses.ManaStars;
             AccuracyPercent = 100f + levelsGained * .5f + starBonuses.ManaStars * .5f;
-            Speed = ClampToPositiveInt(10L + levelsGained + starBonuses.ManaStars);
+            Speed = ClampToPositiveInt(10L + levelsGained + starBonuses.ManaStars
+                + equipmentSpeedBonus);
             ExperienceStars = starBonuses.ExperienceStars;
             HealthStars = starBonuses.HealthStars;
             ShieldStars = starBonuses.ShieldStars;

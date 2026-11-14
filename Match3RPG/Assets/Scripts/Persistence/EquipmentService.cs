@@ -187,6 +187,8 @@ namespace Match3RPG.Persistence
                 case "head": slot = EquipmentSlot.Head; return true;
                 case "body": slot = EquipmentSlot.Body; return true;
                 case "accessory": slot = EquipmentSlot.Accessory; return true;
+                case "gloves": slot = EquipmentSlot.Gloves; return true;
+                case "feet": slot = EquipmentSlot.Feet; return true;
                 default: slot = EquipmentSlot.None; return false;
             }
         }
@@ -199,6 +201,8 @@ namespace Match3RPG.Persistence
                 case EquipmentSlot.Head: return "head";
                 case EquipmentSlot.Body: return "body";
                 case EquipmentSlot.Accessory: return "accessory";
+                case EquipmentSlot.Gloves: return "gloves";
+                case EquipmentSlot.Feet: return "feet";
                 default: return null;
             }
         }

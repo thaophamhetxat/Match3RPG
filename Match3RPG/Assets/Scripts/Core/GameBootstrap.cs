@@ -303,7 +303,13 @@ namespace Match3RPG.Core
             RuntimeHeroStats? runtimeHeroStats = selectedHeroData != null
                 ? new RuntimeHeroStats(selectedHeroData, heroProgress,
                     equipmentStats.AttackBonus, equipmentStats.MaxHealthBonus,
-                    new StarChartGemInventoryService(saveManager).GetTotalStatBonuses())
+                    new StarChartGemInventoryService(saveManager).GetTotalStatBonuses(),
+                    equipmentStats.AttackPercentBonus,
+                    equipmentStats.MaxHealthPercentBonus,
+                    equipmentStats.DefensePercentBonus,
+                    equipmentStats.CritRatePercentBonus,
+                    equipmentStats.SpeedBonus,
+                    equipmentStats.CritDamagePercentBonus)
                 : (RuntimeHeroStats?)null;
             RuntimeBossStats? runtimeBossStats = battleBossData != null
                 ? new RuntimeBossStats(battleBossData, bossLevel)
@@ -600,7 +606,7 @@ namespace Match3RPG.Core
             floatingTexts.Configure();
             controller.Configure(heroCharacterView, bossCharacterView, hud, floatingTexts,
                 battleBossData, combatVfx, boardRageFireVfx, selectedHeroData,
-                runtimeHeroStats, runtimeBossStats);
+                runtimeHeroStats, runtimeBossStats, equipmentStats.RagePerGemBonus);
 
             GameObject bossAIObject = new GameObject("BossAI");
             BossAI bossAI = bossAIObject.AddComponent<BossAI>();
