@@ -24,6 +24,7 @@ namespace Match3RPG.Battle
         RectTransform vfxAnchor;
         RectTransform persistentVfxAnchor;
         RectTransform headVfxAnchor;
+        RectTransform healAnchor;
         HeroAnimationDriver heroAnimation;
         Vector2 homePosition;
         Vector2 configuredVisualOffset;
@@ -32,10 +33,13 @@ namespace Match3RPG.Battle
         bool baseVisualScaleInitialized;
         bool configuredVisualOffsetInitialized;
         float idleNormalizationScaleMultiplier = 1f;
+        float attackNormalizationScaleMultiplier = 1f;
         float specAttackNormalizationScaleMultiplier = 1f;
         float skillNormalizationScaleMultiplier = 1f;
         float idleFeetPaddingFraction;
         float visualScaleTransitionDuration = HeroPresentationConfig.DefaultVisualScaleTransitionDuration;
+        bool attackInPlace;
+        bool idleFacesForward;
         Color portraitColor = Color.white;
         int animationVersion;
 
@@ -45,6 +49,7 @@ namespace Match3RPG.Battle
         public RectTransform VFXAnchor => vfxAnchor;
         public RectTransform PersistentVFXAnchor => persistentVfxAnchor;
         public RectTransform HeadVFXAnchor => headVfxAnchor;
+        public RectTransform HealAnchor => healAnchor;
         public bool HasSpriteAttackAnimation => heroAnimation != null && heroAnimation.HasAttackFrames;
 
         void Awake()
@@ -63,7 +68,10 @@ namespace Match3RPG.Battle
             float scaleTransitionDuration = HeroPresentationConfig.DefaultVisualScaleTransitionDuration,
             float specAttackNormalizationMultiplier = 1f,
             float skillNormalizationMultiplier = 1f,
-            float idleFeetPadding = 0f)
+            float idleFeetPadding = 0f,
+            float attackNormalizationMultiplier = 1f,
+            bool keepAttackInPlace = false,
+            bool keepIdleFacingForward = false)
         {
             portrait = characterPortrait;
             rectTransform = characterVisual;
@@ -74,12 +82,15 @@ namespace Match3RPG.Battle
             spriteFacingDirection = spriteFacing;
             heroAnimation = animationDriver;
             idleNormalizationScaleMultiplier = Mathf.Max(.1f, idleNormalizationMultiplier);
+            attackNormalizationScaleMultiplier = Mathf.Max(.1f, attackNormalizationMultiplier);
             specAttackNormalizationScaleMultiplier = Mathf.Max(.1f, specAttackNormalizationMultiplier);
             skillNormalizationScaleMultiplier = Mathf.Max(.1f, skillNormalizationMultiplier);
             idleFeetPaddingFraction = Mathf.Clamp01(idleFeetPadding);
             visualScaleTransitionDuration = Mathf.Max(0f, scaleTransitionDuration);
+            attackInPlace = keepAttackInPlace;
+            idleFacesForward = keepIdleFacingForward;
             if (portrait != null) portraitColor = portrait.color;
-            ApplyFacingDirection();
+            ApplyIdleFacingDirection();
         }
 
         public void CaptureHomePosition()
@@ -108,7 +119,7 @@ namespace Match3RPG.Battle
                     * Mathf.Abs(rectTransform.localScale.y);
                 rectTransform.anchoredPosition = homePosition;
                 homePositionInitialized = true;
-                ApplyFacingDirection();
+                ApplyIdleFacingDirection();
                 Debug.Log($"[{name}] Home position captured: {homePosition}", this);
                 Debug.Log($"[{name}] Facing={facingDirection}, BaseScale={homeVisualScale}", this);
             }
@@ -120,11 +131,12 @@ namespace Match3RPG.Battle
         }
 
         public void SetCombatVFXAnchors(RectTransform torsoAnchor, RectTransform persistentAnchor,
-            RectTransform headAnchor)
+            RectTransform headAnchor, RectTransform healAnchor)
         {
             vfxAnchor = torsoAnchor;
             persistentVfxAnchor = persistentAnchor;
             headVfxAnchor = headAnchor;
+            this.healAnchor = healAnchor;
         }
 
         public IEnumerator Attack()
@@ -221,7 +233,11 @@ namespace Match3RPG.Battle
             int version = ++animationVersion;
             State = animationState;
             if (animationState == CharacterState.Attack)
+            {
+                if (attackInPlace)
+                    ApplyAttackFacingDirection();
                 heroAnimation?.PlayAttack();
+            }
             if (animationState == CharacterState.Attack)
                 Debug.Log($"[{name}] Attack start. Home={homePosition}, Current={rectTransform.anchoredPosition}", this);
             BattleCharacterAnimState skillAnimationState = BattleCharacterAnimState.Idle;
@@ -253,6 +269,8 @@ namespace Match3RPG.Battle
                 CancelActiveAnimation();
                 EnsureHomePosition();
                 RestoreHomeVisual();
+                if (attackInPlace)
+                    ApplyAttackFacingDirection();
             }
             else
             {
@@ -273,9 +291,21 @@ namespace Match3RPG.Battle
             {
                 if (!approach && heroAnimation != null)
                     yield return heroAnimation.WaitForAttackComplete();
-                Vector2 target = approach ? homePosition + AttackOffset(1f) : homePosition;
-                float scaleTarget = idleNormalizationScaleMultiplier;
-                yield return MoveTo(target, approach ? .10f : .14f, version, scaleTarget);
+                if (!approach)
+                {
+                    RestoreIdleScaleAndFacing();
+                    if (attackInPlace)
+                        heroAnimation?.PlayIdle();
+                }
+                Vector2 target = approach && !attackInPlace
+                    ? homePosition + AttackOffset(1f)
+                    : homePosition;
+                if (approach)
+                    yield return MoveTo(target, .10f, version,
+                        idleNormalizationScaleMultiplier * attackNormalizationScaleMultiplier,
+                        useAttackFacing: true);
+                else if (!attackInPlace)
+                    yield return MoveTo(target, .14f, version);
             }
             finally
             {
@@ -304,12 +334,21 @@ namespace Match3RPG.Battle
             {
                 if (animationState == CharacterState.Attack)
                 {
-                    yield return MoveTo(homePosition + AttackOffset(1f), .10f, version,
-                        idleNormalizationScaleMultiplier);
+                    Vector2 attackTarget = attackInPlace
+                        ? homePosition
+                        : homePosition + AttackOffset(1f);
+                    yield return MoveTo(attackTarget, .10f, version,
+                        idleNormalizationScaleMultiplier * attackNormalizationScaleMultiplier,
+                        useAttackFacing: true);
                     if (version != animationVersion) yield break;
                     if (heroAnimation != null)
                         yield return heroAnimation.WaitForAttackComplete();
-                    yield return MoveTo(homePosition, .14f, version, idleNormalizationScaleMultiplier);
+                    if (version != animationVersion) yield break;
+                    RestoreIdleScaleAndFacing();
+                    if (attackInPlace)
+                        heroAnimation?.PlayIdle();
+                    else
+                        yield return MoveTo(homePosition, .14f, version);
                 }
                 else if (animationState == CharacterState.Hit)
                 {
@@ -343,11 +382,28 @@ namespace Match3RPG.Battle
                         : skillAnimationState == BattleCharacterAnimState.SpecAttack
                             ? specAttackNormalizationScaleMultiplier
                             : skillAnimationState == BattleCharacterAnimState.Attack
-                                ? 1f
+                                ? idleNormalizationScaleMultiplier * attackNormalizationScaleMultiplier
                                 : idleNormalizationScaleMultiplier;
-                    yield return MoveTo(homePosition + AttackOffset(1.25f), .14f, version, skillScale);
+                    bool attackFallbackInPlace = attackInPlace
+                        && skillAnimationState == BattleCharacterAnimState.Attack;
+                    if (attackFallbackInPlace)
+                        ApplyAttackFacingDirection();
+                    Vector2 skillTarget = attackFallbackInPlace
+                        ? homePosition
+                        : homePosition + AttackOffset(1.25f);
+                    yield return MoveTo(skillTarget, .14f, version, skillScale,
+                        useAttackFacing: attackFallbackInPlace);
                     if (version != animationVersion) yield break;
-                    yield return MoveTo(homePosition, .18f, version, idleNormalizationScaleMultiplier);
+                    if (attackFallbackInPlace)
+                    {
+                        if (heroAnimation != null)
+                            yield return heroAnimation.WaitForAttackComplete();
+                        if (version != animationVersion) yield break;
+                        RestoreIdleScaleAndFacing();
+                        heroAnimation?.PlayIdle();
+                    }
+                    else
+                        yield return MoveTo(homePosition, .18f, version, idleNormalizationScaleMultiplier);
                     if (animationState == CharacterState.Skill
                         && skillAnimationState == BattleCharacterAnimState.Skill
                         && heroAnimation != null)
@@ -375,12 +431,15 @@ namespace Match3RPG.Battle
             }
         }
 
-        IEnumerator MoveTo(Vector2 target, float duration, int version, float? scaleMultiplier = null)
+        IEnumerator MoveTo(Vector2 target, float duration, int version, float? scaleMultiplier = null,
+            bool useAttackFacing = false)
         {
             Vector2 start = rectTransform.anchoredPosition;
             Vector3 startScale = rectTransform.localScale;
             Vector3 targetScale = scaleMultiplier.HasValue
-                ? GetVisualScale(scaleMultiplier.Value)
+                ? (useAttackFacing
+                    ? GetVisualScale(scaleMultiplier.Value)
+                    : GetIdleVisualScale(scaleMultiplier.Value))
                 : startScale;
             float scaleDuration = Mathf.Min(duration, visualScaleTransitionDuration);
             float elapsed = 0f;
@@ -436,14 +495,39 @@ namespace Match3RPG.Battle
             if (rectTransform == null) return;
 
             Vector3 currentScale = rectTransform.localScale;
-            float scaleSign = facingDirection == spriteFacingDirection ? 1f : -1f;
+            currentScale.x = Mathf.Abs(currentScale.x) * GetFacingScaleSign();
+            rectTransform.localScale = currentScale;
+        }
+
+        void ApplyIdleFacingDirection()
+        {
+            if (rectTransform == null) return;
+
+            Vector3 currentScale = rectTransform.localScale;
+            float scaleSign = idleFacesForward ? 1f : GetFacingScaleSign();
             currentScale.x = Mathf.Abs(currentScale.x) * scaleSign;
             rectTransform.localScale = currentScale;
         }
 
+        void ApplyAttackFacingDirection()
+        {
+            ApplyFacingDirection();
+        }
+
+        float GetFacingScaleSign()
+        {
+            return facingDirection == spriteFacingDirection ? 1f : -1f;
+        }
+
         Vector3 GetVisualScale(float multiplier)
         {
-            float scaleSign = facingDirection == spriteFacingDirection ? 1f : -1f;
+            return new Vector3(Mathf.Abs(homeVisualScale.x) * multiplier * GetFacingScaleSign(),
+                homeVisualScale.y * multiplier, homeVisualScale.z);
+        }
+
+        Vector3 GetIdleVisualScale(float multiplier)
+        {
+            float scaleSign = idleFacesForward ? 1f : GetFacingScaleSign();
             return new Vector3(Mathf.Abs(homeVisualScale.x) * multiplier * scaleSign,
                 homeVisualScale.y * multiplier, homeVisualScale.z);
         }
@@ -451,15 +535,21 @@ namespace Match3RPG.Battle
         void SetVisualScale(float multiplier)
         {
             if (rectTransform != null && baseVisualScaleInitialized)
-                rectTransform.localScale = GetVisualScale(multiplier);
+                rectTransform.localScale = GetIdleVisualScale(multiplier);
+        }
+
+        void RestoreIdleScaleAndFacing()
+        {
+            SetVisualScale(idleNormalizationScaleMultiplier);
+            ApplyIdleFacingDirection();
         }
 
         void RestoreHomeVisual()
         {
             if (rectTransform == null) return;
             rectTransform.anchoredPosition = homePosition;
-            rectTransform.localScale = GetVisualScale(idleNormalizationScaleMultiplier);
-            ApplyFacingDirection();
+            rectTransform.localScale = GetIdleVisualScale(idleNormalizationScaleMultiplier);
+            ApplyIdleFacingDirection();
         }
     }
 }

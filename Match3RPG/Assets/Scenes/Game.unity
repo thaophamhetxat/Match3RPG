@@ -2704,7 +2704,7 @@ MonoBehaviour:
   buttonPressedSprite: {fileID: -9152226264453509441, guid: 7e5fbe3c07865d84198e47c7179ec954, type: 3}
   battleBackgroundSprite: {fileID: 0}
   battleLayoutV2Sprite: {fileID: 21300000, guid: 80b3264a18ff2fb47b44296456ccca1d, type: 3}
-  bossIdleSprite: {fileID: 21300000, guid: 69430c249d5139b478ffc6efb5615dfe, type: 3}
+  bossIdleSprite: {fileID: 0}
   tabBagSprite: {fileID: 21300000, guid: 5c3609e955249e44f84096736283fd4e, type: 3}
   tabSkillsSprite: {fileID: 21300000, guid: b0e17cfea7baf25488510e1b33331cca, type: 3}
   tabSettingsSprite: {fileID: 21300000, guid: fb75f959eba1eaa488190098882800f9, type: 3}

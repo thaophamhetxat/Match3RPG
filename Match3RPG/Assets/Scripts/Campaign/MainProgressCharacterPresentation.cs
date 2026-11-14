@@ -35,8 +35,8 @@ namespace Match3RPG.Campaign
             fallback.staticCharacterSprite = ResolveStaticCharacterSprite();
             fallback.baseMeditationScale = 1.1f;
             fallback.meditationScaleMultiplier = 1.28f;
-            fallback.mainProgressCharacterOffset = new Vector2(0f, -18f);
-            fallback.lotusAnchor = new Vector2(.5f, .38f);
+            fallback.mainProgressCharacterOffset = new Vector2(0f, -140f);
+            fallback.lotusAnchor = new Vector2(0.60f, 0.31f);
 
             if (fallback.staticCharacterSprite == null)
                 Debug.LogWarning("MainProgress static character sprite was not resolved from Assets/Art/MainProgress/Image. Ensure the source asset exists at the required path.");

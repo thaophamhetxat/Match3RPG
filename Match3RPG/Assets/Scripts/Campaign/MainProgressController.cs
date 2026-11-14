@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Globalization;
 using System.Collections.Generic;
 using Match3RPG.Battle;
@@ -15,16 +17,47 @@ namespace Match3RPG.Campaign
     public sealed class MainProgressController : MonoBehaviour
     {
         const bool DebugHitboxVisualizationEnabled = false;
+        const float LoadingDurationSeconds = 2f;
+        const float LoadingFadeSeconds = 0.3f;
+        const int LegacyInventoryItemCount = 4;
+        const int TotalInventoryItemCount = 10;
+        const int MaxEquipmentUpgradeLevel = 15;
+        const string BlackDragonSetDetailText = "Bộ Hắc Long (hệ ATK) — 6 món: Kiếm, Mũ, Giáp, Găng, Giầy, Nhẫn.";
+
+        static readonly string[] BlackDragonItemIds =
+        {
+            "black_dragon_sword",
+            "black_dragon_helmet",
+            "black_dragon_armor",
+            "black_dragon_gauntlet",
+            "black_dragon_boots",
+            "black_dragon_ring"
+        };
 
         [SerializeField] MainProgressCharacterPresentation presentation;
         [SerializeField] TMP_FontAsset starChartFont;
         [SerializeField] Sprite characterStatusBackground;
-        [SerializeField] Sprite[] inventoryScreenBackgrounds = new Sprite[5];
         [SerializeField] Sprite inventoryItemSlot;
         [SerializeField] Sprite[] inventoryItemSprites = new Sprite[4];
-        [SerializeField] Sprite[] inventoryItemPopupBackgrounds = new Sprite[3];
         [SerializeField] Sprite[] starChartBaseGemSprites = new Sprite[7];
         [SerializeField] Sprite[] starChartSpecialGemSprites = new Sprite[7];
+
+        static Sprite tabFocusWhiteSprite;
+
+        static readonly (Vector2 min, Vector2 max)[] InventoryTabAnchors =
+        {
+            (new Vector2(.052f, .822f), new Vector2(.341f, .867f)),
+            (new Vector2(.358f, .822f), new Vector2(.645f, .867f)),
+            (new Vector2(.661f, .822f), new Vector2(.950f, .867f))
+        };
+
+        static readonly (Vector2 min, Vector2 max)[] CharacterTabAnchors =
+        {
+            (new Vector2(.038f, .818f), new Vector2(.260f, .864f)),
+            (new Vector2(.273f, .818f), new Vector2(.493f, .864f)),
+            (new Vector2(.507f, .818f), new Vector2(.728f, .864f)),
+            (new Vector2(.742f, .818f), new Vector2(.962f, .864f))
+        };
 
         Canvas canvas;
         RectTransform safeAreaRect;
@@ -38,6 +71,10 @@ namespace Match3RPG.Campaign
         GameObject inventoryPanel;
         GameObject inventoryItemPopup;
         GameObject cultivationPanel;
+        TMP_Text bannerPlayerNameLabel;
+        TMP_Text bannerLevelExpRealmLabel;
+        GameObject renamePopup;
+        TMP_InputField renameInputField;
         GameObject skillsPlaceholder;
         GameObject starChartUIGroup;
         GameObject starChartContent;
@@ -47,12 +84,16 @@ namespace Match3RPG.Campaign
         Image inventoryPopupItemImage;
         TMP_Text inventoryPopupItemName;
         TMP_Text inventoryPopupItemEffect;
-        Button skillsTabButton;
-        Button starChartTabButton;
+        RectTransform inventoryTabFocusRect;
+        RectTransform characterTabFocusRect;
+        readonly Button[] characterTabButtons = new Button[4];
         Button[] inventoryTabButtons = new Button[3];
-        readonly Button[] inventoryItemButtons = new Button[4];
-        readonly GameObject[] inventoryItemContents = new GameObject[4];
-        readonly GameObject[] inventoryItemNameLabels = new GameObject[4];
+        readonly Button[] inventoryItemButtons = new Button[TotalInventoryItemCount];
+        readonly GameObject[] inventoryItemContents = new GameObject[TotalInventoryItemCount];
+        readonly GameObject[] inventoryItemNameLabels = new GameObject[TotalInventoryItemCount];
+        readonly Outline[] inventorySlotOutlines = new Outline[TotalInventoryItemCount];
+        readonly GameObject[] inventoryItemEquippedLabels = new GameObject[TotalInventoryItemCount];
+        Sprite[] resolvedInventoryItemSprites;
         TMP_Text realmButtonLabel;
         TMP_Text starActionStatus;
         TMP_Text starActionHint;
@@ -64,7 +105,22 @@ namespace Match3RPG.Campaign
         Button previousRealmButton;
         Button nextRealmButton;
         GameObject breakthroughPopup;
+        Button breakthroughButton;
+        TMP_Text breakthroughButtonLabel;
+        Button breakthroughConfirmButton;
         RectTransform starChartGraphicRect;
+        ScrollRect starChartZoomScrollRect;
+        RectTransform starNodePopup;
+        TMP_Text starNodePopupText;
+        Button starNodePopupCloseButton;
+        Button starNodePopupUpgradeButton;
+        TMP_Text starNodePopupUpgradeLabel;
+        int popupStarBranchIndex = -1;
+        int popupStarIndex = -1;
+        Button totalBuffButton;
+        GameObject totalBuffPopup;
+        TMP_Text totalBuffPopupText;
+        float currentStarChartZoom = 1f;
         MainProgressChartGraphic starChartGraphic;
         StarChartGemInventoryService starChartGemInventory;
         readonly TMP_Text[] baseGemInventoryCountLabels = new TMP_Text[7];
@@ -72,6 +128,7 @@ namespace Match3RPG.Campaign
         int selectedStarChartRealmIndex;
         int selectedStarChartLevel;
         int selectedInventoryTab;
+        int selectedCharacterTab = 1;
 
         readonly int[] baseGemDisplayInventory = new int[7];
         readonly int[] litStarsPerBranch = new int[7];
@@ -145,8 +202,115 @@ namespace Match3RPG.Campaign
             presentation ??= MainProgressCharacterPresentation.LoadDefault();
             starChartGemInventory = new StarChartGemInventoryService(SaveManager.Instance);
             RefreshBaseGemInventory();
+            BuildLoadingScreen();
             BuildUI();
             ApplyStaticCharacterPresentation();
+            RefreshBannerInfo();
+        }
+
+        void BuildLoadingScreen()
+        {
+            Sprite loadingSprite = Resources.Load<Sprite>("MainProgress/UI/loadingScreen");
+            if (loadingSprite == null)
+            {
+                Debug.LogError("MainProgress failed to load sprite Resources/MainProgress/UI/loadingScreen.", this);
+                return;
+            }
+
+            Canvas loadingCanvas = CampaignUIFactory.CreateCanvas("LoadingScreenCanvas");
+            loadingCanvas.sortingOrder = 100;
+
+            CanvasGroup loadingCanvasGroup = loadingCanvas.gameObject.AddComponent<CanvasGroup>();
+            loadingCanvasGroup.alpha = 1f;
+            loadingCanvasGroup.blocksRaycasts = true;
+            loadingCanvasGroup.interactable = false;
+
+            RectTransform backdropRect = CampaignUIFactory.CreateRect("LoadingBackdrop",
+                loadingCanvas.transform, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            Image backdropImage = backdropRect.gameObject.AddComponent<Image>();
+            backdropImage.color = new Color32(12, 27, 36, 255);
+            backdropImage.raycastTarget = true;
+
+            RectTransform loadingImageRect = CampaignUIFactory.CreateRect("LoadingArtwork",
+                loadingCanvas.transform, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            Image loadingImage = loadingImageRect.gameObject.AddComponent<Image>();
+            loadingImage.sprite = loadingSprite;
+            loadingImage.color = Color.white;
+            loadingImage.type = Image.Type.Simple;
+            loadingImage.preserveAspect = true;
+            loadingImage.raycastTarget = false;
+
+            RectTransform trackRect = CampaignUIFactory.CreateRect("LoadingProgressTrack",
+                loadingCanvas.transform, new Vector2(0.15f, 0.08f), new Vector2(0.85f, 0.12f),
+                Vector2.zero, Vector2.zero);
+            Image trackImage = trackRect.gameObject.AddComponent<Image>();
+            trackImage.color = new Color32(12, 27, 36, 255);
+            trackImage.raycastTarget = false;
+            Outline trackOutline = trackRect.gameObject.AddComponent<Outline>();
+            trackOutline.effectColor = Gold;
+            trackOutline.effectDistance = new Vector2(2f, -2f);
+
+            EnsureTabFocusWhiteSprite();
+            RectTransform fillRect = CampaignUIFactory.CreateRect("LoadingProgressFill",
+                trackRect, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            Image fillImage = fillRect.gameObject.AddComponent<Image>();
+            fillImage.sprite = tabFocusWhiteSprite;
+            fillImage.color = Gold;
+            fillImage.type = Image.Type.Filled;
+            fillImage.fillMethod = Image.FillMethod.Horizontal;
+            fillImage.fillOrigin = (int)Image.OriginHorizontal.Left;
+            fillImage.fillAmount = 0f;
+            fillImage.raycastTarget = false;
+
+            TMP_Text loadingLabel = AddLabel(loadingCanvas.transform, "LoadingProgressLabel",
+                "Đang tải... 0%", 24, Gold, new Vector2(0.15f, 0.125f), new Vector2(0.85f, 0.155f),
+                TextAlignmentOptions.Center);
+            if (starChartFont != null)
+                loadingLabel.font = starChartFont;
+
+            StartCoroutine(RunLoadingScreenRoutine(loadingCanvas.gameObject,
+                loadingCanvasGroup, fillImage, loadingLabel));
+        }
+
+        IEnumerator RunLoadingScreenRoutine(GameObject loadingRoot,
+            CanvasGroup loadingCanvasGroup, Image fillImage, TMP_Text loadingLabel)
+        {
+            float progress = 0f;
+            while (progress < 1f)
+            {
+                yield return null;
+                if (loadingRoot == null)
+                    yield break;
+
+                progress = Mathf.Clamp01(progress + Time.unscaledDeltaTime / LoadingDurationSeconds);
+                if (fillImage != null)
+                    fillImage.fillAmount = progress;
+                if (loadingLabel != null)
+                {
+                    int percent = Mathf.RoundToInt(progress * 100f);
+                    loadingLabel.text = $"Đang tải... {percent}%";
+                }
+            }
+
+            float fadeElapsed = 0f;
+            while (fadeElapsed < LoadingFadeSeconds)
+            {
+                yield return null;
+                if (loadingRoot == null)
+                    yield break;
+
+                fadeElapsed += Time.unscaledDeltaTime;
+                if (loadingCanvasGroup != null)
+                    loadingCanvasGroup.alpha = 1f - Mathf.Clamp01(fadeElapsed / LoadingFadeSeconds);
+            }
+
+            if (loadingRoot != null)
+                Destroy(loadingRoot);
+        }
+
+        void OnEnable()
+        {
+            RefreshBannerInfo();
         }
 
         void BuildUI()
@@ -161,17 +325,55 @@ namespace Match3RPG.Campaign
             contentRoot = CampaignUIFactory.CreateRect("MainProgressContent", safeAreaRect,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
 
-            RectTransform backgroundLayer = CampaignUIFactory.CreateRect("BackgroundLayer", contentRoot,
-                Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            RectTransform backgroundLayer = CampaignUIFactory.CreateRect("BackgroundLayer", canvas.transform,
+    Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+backgroundLayer.SetAsFirstSibling();
             backgroundImage = backgroundLayer.gameObject.AddComponent<Image>();
             backgroundImage.raycastTarget = false;
             backgroundImage.preserveAspect = true;
             backgroundImage.type = Image.Type.Simple;
-            backgroundImage.sprite = presentation != null ? presentation.ProgressBackground : null;
+            backgroundImage.sprite = Resources.Load<Sprite>("MainProgress/Progress/MoonlitLakeBackground") ?? (presentation != null ? presentation.ProgressBackground : null);
             backgroundImage.color = Color.white;
 
             if (backgroundImage.sprite == null)
                 backgroundImage.color = new Color32(14, 19, 20, 255);
+
+            float screenW = GetCanvasScreenWidth();
+
+            RectTransform heroBanner = CampaignUIFactory.CreateRect("HeroBanner", contentRoot,
+                new Vector2(0f, 1f), new Vector2(1f, 1f), Vector2.zero, Vector2.zero);
+            heroBanner.pivot = new Vector2(0.5f, 1f);
+            heroBanner.offsetMin = new Vector2(21.33f, -102.80f);
+            heroBanner.offsetMax = new Vector2(-443.33f, 75f);      
+            Image heroBannerImage = heroBanner.gameObject.AddComponent<Image>();
+            heroBannerImage.raycastTarget = false;
+            heroBannerImage.preserveAspect = true;
+            heroBannerImage.type = Image.Type.Simple;
+            heroBannerImage.color = Color.white;
+            Sprite heroBannerSprite = Resources.Load<Sprite>("MainProgress/UI/HeroBanner");
+            if (heroBannerSprite == null)
+            {
+                Debug.LogError("MainProgress failed to load sprite Resources/MainProgress/UI/HeroBanner.", this);
+                heroBanner.gameObject.SetActive(false);
+            }
+            else
+            {
+                heroBannerImage.sprite = heroBannerSprite;
+            }
+
+            CreateNavigationHitArea(heroBanner, "AvatarHitArea",
+                new Vector2(0.01f, 0.05f), new Vector2(0.33f, 0.95f), Color.magenta,
+                OpenRenamePopup);
+
+            bannerPlayerNameLabel = AddLabel(heroBanner, "BannerPlayerName", string.Empty, 26, Gold,
+                   new Vector2(0.34f, 0.40f), new Vector2(0.95f, 0.63f), TextAlignmentOptions.MidlineLeft);
+            if (starChartFont != null)
+                bannerPlayerNameLabel.font = starChartFont;
+
+            bannerLevelExpRealmLabel = AddLabel(heroBanner, "BannerLevelExpRealm", string.Empty, 18, Gold,
+                 new Vector2(0.34f, 0.18f), new Vector2(0.95f, 0.35f), TextAlignmentOptions.MidlineLeft);
+            if (starChartFont != null)
+                bannerLevelExpRealmLabel.font = starChartFont;
 
             characterLayer = CampaignUIFactory.CreateRect("CharacterLayer", contentRoot,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
@@ -190,7 +392,40 @@ namespace Match3RPG.Campaign
             meditationVisual.preserveAspect = true;
             meditationVisual.color = Color.white;
 
-            CreateNavigationButtons();
+            CreateNavigationButtons(screenW);
+        }
+
+        float GetCanvasScreenWidth()
+        {
+            Canvas targetCanvas = contentRoot != null ? contentRoot.GetComponentInParent<Canvas>() ?? canvas : canvas;
+            CanvasScaler scaler = targetCanvas != null
+                ? targetCanvas.GetComponent<CanvasScaler>()
+                : null;
+            float scaleFactor = 0f;
+            if (scaler != null
+                && scaler.uiScaleMode == CanvasScaler.ScaleMode.ScaleWithScreenSize
+                && scaler.referenceResolution.x > 0f
+                && scaler.referenceResolution.y > 0f)
+            {
+                float widthScale = Screen.width / scaler.referenceResolution.x;
+                float heightScale = Screen.height / scaler.referenceResolution.y;
+                float match = Mathf.Clamp01(scaler.matchWidthOrHeight);
+                scaleFactor = Mathf.Pow(widthScale, 1f - match)
+                    * Mathf.Pow(heightScale, match);
+            }
+
+            if (float.IsNaN(scaleFactor) || float.IsInfinity(scaleFactor)
+                || scaleFactor <= 0f)
+            {
+                scaleFactor = targetCanvas != null
+                    && targetCanvas.scaleFactor > 0f
+                    && !float.IsNaN(targetCanvas.scaleFactor)
+                    && !float.IsInfinity(targetCanvas.scaleFactor)
+                    ? targetCanvas.scaleFactor
+                    : 1f;
+            }
+
+            return Screen.width / scaleFactor;
         }
 
         void ApplyStaticCharacterPresentation()
@@ -215,7 +450,7 @@ namespace Match3RPG.Campaign
         {
             RectTransform rect = CampaignUIFactory.CreateRect(name, parent, new Vector2(.5f, .5f),
                 new Vector2(.5f, .5f), Vector2.zero, Vector2.zero);
-            rect.sizeDelta = new Vector2(420f, 420f);
+            rect.sizeDelta = new Vector2(519.36f, 498.66f);
             Image image = rect.gameObject.AddComponent<Image>();
             image.sprite = sprite;
             image.raycastTarget = false;
@@ -225,23 +460,44 @@ namespace Match3RPG.Campaign
             return image;
         }
 
-        void CreateNavigationButtons()
+        void CreateNavigationButtons(float screenW)
         {
-            RectTransform navLayer = CampaignUIFactory.CreateRect("NavigationHitAreas", contentRoot,
-                Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
-            navLayer.SetAsLastSibling();
+            RectTransform navButtonsStrip = CampaignUIFactory.CreateRect("NavButtonsStrip", contentRoot,
+                new Vector2(0f, 0f), new Vector2(1f, 0f), Vector2.zero, Vector2.zero);
+            navButtonsStrip.SetAsLastSibling();
+            navButtonsStrip.pivot = new Vector2(0.5f, 0f);
+            navButtonsStrip.offsetMin = new Vector2(40.33f, 46.13f);
+            navButtonsStrip.offsetMax = new Vector2(-46.13f, 349.76f);
 
-            mainNavigationButtons.Add(CreateNavigationHitArea(navLayer, "StatusHitArea",
-                new Vector2(.08f, .12f), new Vector2(.30f, .28f), Color.red,
+            Image navButtonsImage = navButtonsStrip.gameObject.AddComponent<Image>();
+            navButtonsImage.raycastTarget = false;
+            navButtonsImage.preserveAspect = true;
+            navButtonsImage.type = Image.Type.Simple;
+            navButtonsImage.color = Color.white;
+            Sprite navButtonsSprite = Resources.Load<Sprite>("MainProgress/UI/NavButtons");
+            if (navButtonsSprite == null)
+            {
+                Debug.LogError("MainProgress failed to load sprite Resources/MainProgress/UI/NavButtons.", this);
+                navButtonsStrip.gameObject.SetActive(false);
+            }
+            else
+            {
+                navButtonsImage.sprite = navButtonsSprite;
+            }
+
+            mainNavigationButtons.Add(CreateNavigationHitArea(navButtonsStrip, "StatusHitArea",
+                new Vector2(.02f, 0f), new Vector2(.2378f, .7334f), Color.red,
                 OpenCharacterPanel));
 
-            mainNavigationButtons.Add(CreateNavigationHitArea(navLayer, "CultivationHitArea",
-                new Vector2(.35f, .12f), new Vector2(.65f, .28f), Color.green,
-                OpenCultivationPanel));
+            mainNavigationButtons.Add(CreateNavigationHitArea(navButtonsStrip, "CultivationHitArea",
+                new Vector2(.2636f, 0f), new Vector2(.7265f, .4077f), Color.green,
+                OpenCharacterScreen));
 
-            mainNavigationButtons.Add(CreateNavigationHitArea(navLayer, "AdventureHitArea", new Vector2(.68f, .12f), new Vector2(.92f, .28f), Color.blue,
+            mainNavigationButtons.Add(CreateNavigationHitArea(navButtonsStrip, "AdventureHitArea",
+                new Vector2(.762f, 0f), new Vector2(.98f, .7334f), Color.blue,
                 () =>
                 {
+                    CloseRenamePopup();
                     Debug.Log("[MainProgress] Clicked=Adventure");
                     SceneManager.LoadScene(CampaignManager.WorldMapSceneName);
                 }));
@@ -275,13 +531,13 @@ namespace Match3RPG.Campaign
             SetPanelOpen(characterPanel);
         }
 
-        void OpenCultivationPanel()
+        void OpenCharacterScreen()
         {
             if (cultivationPanel == null)
                 cultivationPanel = BuildCultivationPanel().gameObject;
             RefreshBaseGemInventory();
             SetPanelOpen(cultivationPanel);
-            SelectCultivationTab(false);
+            SelectCharacterTab(1);
         }
 
         void OpenInventoryPanel(GameObject characterOverlay)
@@ -296,6 +552,7 @@ namespace Match3RPG.Campaign
 
         void SetPanelOpen(GameObject panel)
         {
+            CloseRenamePopup();
             foreach (Button button in mainNavigationButtons)
                 if (button != null)
                     button.interactable = false;
@@ -310,6 +567,7 @@ namespace Match3RPG.Campaign
             foreach (Button button in mainNavigationButtons)
                 if (button != null)
                     button.interactable = true;
+            RefreshBannerInfo();
         }
 
         RectTransform BuildCharacterPanel()
@@ -414,14 +672,11 @@ namespace Match3RPG.Campaign
             }
 
             RuntimeHeroStats heroStats = stats.Value;
-            int rageStars = starChartGemInventory.GetTotalStatBonuses().RageStars;
-            float baseDefense = 20f + (heroStats.Level - 1);
-            int defense = Mathf.CeilToInt(baseDefense * (1f + .01f * rageStars));
             string[] values =
             {
                 FormatStat(heroStats.Attack),
                 FormatStat(heroStats.SoulAttack),
-                FormatStat(defense),
+                FormatStat(heroStats.Defense),
                 FormatStat(heroStats.MaxHP),
                 FormatStat(heroStats.MaxSoulHP),
                 FormatPercent(heroStats.CriticalChancePercent),
@@ -451,53 +706,137 @@ namespace Match3RPG.Campaign
         {
             RectTransform overlay = CreateFullScreenOverlay("InventoryPanelOverlay",
                 new Color32(4, 28, 22, 255));
+            Sprite tuidoSprite = Resources.Load<Sprite>("MainProgress/UI/TuidoSingle");
+            if (tuidoSprite == null)
+                Debug.LogError("MainProgress failed to load sprite Resources/MainProgress/UI/TuidoSingle.", this);
             RectTransform artwork = CreateFullScreenArtwork(overlay,
-                GetSpriteAt(inventoryScreenBackgrounds, 0), "InventoryArtwork",
-                out inventoryBackgroundImage);
+                tuidoSprite, "InventoryArtwork",
+                out inventoryBackgroundImage, fitToScreen: true);
+
+            inventoryTabFocusRect = CreateTabFocusOverlay(artwork,
+                "InventoryTabFocusOverlay",
+                InventoryTabAnchors[0].min, InventoryTabAnchors[0].max);
+
             CreateCharacterHitButton(artwork, "InventoryCloseButton",
-                .875f, .90f, .985f, .99f,
+                .882f, .895f, .996f, .947f,
                 () => ClosePanel(overlay.gameObject));
 
             inventoryTabButtons[0] = CreateCharacterHitButton(artwork,
-                "InventoryTab_Items", .08f, .81f, .36f, .87f,
+                "InventoryTab_Items", .052f, .822f, .341f, .867f,
                 () => SelectInventoryTab(0));
             inventoryTabButtons[1] = CreateCharacterHitButton(artwork,
-                "InventoryTab_Fragment", .38f, .81f, .64f, .87f,
+                "InventoryTab_Fragment", .358f, .822f, .645f, .867f,
                 () => SelectInventoryTab(1));
             inventoryTabButtons[2] = CreateCharacterHitButton(artwork,
-                "InventoryTab_Materials", .66f, .81f, .93f, .87f,
+                "InventoryTab_Materials", .661f, .822f, .950f, .867f,
                 () => SelectInventoryTab(2));
 
+            RectTransform viewportRect = CreateAnchoredRect(artwork, "InventoryGridViewport",
+                new Vector2(.043f, .259f), new Vector2(.956f, .805f),
+                new Vector2(0f, 2f), new Vector2(0f, -2f));
+            viewportRect.offsetMin = new Vector2(0f, 2f);
+            viewportRect.offsetMax = new Vector2(0f, -2f);
+            Image viewportImage = viewportRect.gameObject.AddComponent<Image>();
+            viewportImage.color = Color.white;
+            viewportImage.raycastTarget = true;
+            Mask viewportMask = viewportRect.gameObject.AddComponent<Mask>();
+            viewportMask.showMaskGraphic = false;
+            ScrollRect scrollRect = viewportRect.gameObject.AddComponent<ScrollRect>();
+            scrollRect.vertical = true;
+            scrollRect.horizontal = false;
+            scrollRect.movementType = ScrollRect.MovementType.Clamped;
+            scrollRect.inertia = true;
+            scrollRect.scrollSensitivity = 1f;
+
+            Canvas targetCanvas = artwork.GetComponentInParent<Canvas>() ?? canvas;
+            CanvasScaler scaler = targetCanvas != null
+                ? targetCanvas.GetComponent<CanvasScaler>()
+                : null;
+            float scaleFactor = 0f;
+            if (scaler != null
+                && scaler.uiScaleMode == CanvasScaler.ScaleMode.ScaleWithScreenSize
+                && scaler.referenceResolution.x > 0f
+                && scaler.referenceResolution.y > 0f)
+            {
+                float widthScale = Screen.width / scaler.referenceResolution.x;
+                float heightScale = Screen.height / scaler.referenceResolution.y;
+                float match = Mathf.Clamp01(scaler.matchWidthOrHeight);
+                scaleFactor = Mathf.Pow(widthScale, 1f - match)
+                    * Mathf.Pow(heightScale, match);
+            }
+
+            if (float.IsNaN(scaleFactor) || float.IsInfinity(scaleFactor)
+                || scaleFactor <= 0f)
+            {
+                scaleFactor = targetCanvas != null
+                    && targetCanvas.scaleFactor > 0f
+                    && !float.IsNaN(targetCanvas.scaleFactor)
+                    && !float.IsInfinity(targetCanvas.scaleFactor)
+                    ? targetCanvas.scaleFactor
+                    : 1f;
+            }
+
+            float screenW = Screen.width / scaleFactor;
+            float screenH = Screen.height / scaleFactor;
             const int columns = 5;
             const int rows = 7;
-            const float gridLeft = .10f;
-            const float gridWidth = .80f;
-            const float columnStep = gridWidth / columns;
-            const float firstRowY = .755f;
-            const float rowStep = .079f;
-            for (int index = 0; index < columns * rows; index++)
+            int totalSlots = columns * rows;
+            float viewportWidth = (0.956f - 0.043f) * screenW;
+            float viewportHeight = (0.805f - 0.259f) * screenH - 4f;
+            float widthCellSize = (0.956f - 0.043f) * screenW / columns;
+            const float gridTopMargin = 40f;
+            const float gridBottomMargin = 40f;
+            float heightCellSize = (viewportHeight - gridTopMargin - gridBottomMargin - 30f)
+                / (6f * 0.97f + 0.725f);
+            float cellSize = Mathf.Min(widthCellSize, heightCellSize);
+            float slotSize = cellSize * 0.725f;
+            float rowPitch = cellSize * 0.97f;
+            float gridSpan = 6f * rowPitch + slotSize + 30f;
+            float gridTopOffset = (viewportHeight - gridSpan) * 0.5f;
+            float gridXOffset = (viewportWidth - columns * cellSize) * 0.5f;
+            float contentHeight = viewportHeight;
+
+            RectTransform contentRect = CreateAnchoredRect(viewportRect, "InventoryGridContent",
+                new Vector2(0f, 1f), new Vector2(1f, 1f), Vector2.zero, Vector2.zero);
+            contentRect.pivot = new Vector2(0.5f, 1f);
+            contentRect.anchoredPosition = Vector2.zero;
+            contentRect.sizeDelta = new Vector2(0f, contentHeight);
+
+            scrollRect.viewport = viewportRect;
+            scrollRect.content = contentRect;
+
+            Sprite[] allItemSprites = GetResolvedInventoryItemSprites();
+
+            for (int index = 0; index < totalSlots; index++)
             {
                 int capturedIndex = index;
                 int row = index / columns;
                 int column = index % columns;
-                float centerX = gridLeft + (column + .5f) * columnStep;
-                float centerY = firstRowY - row * rowStep;
-                RectTransform slotRect = CreateAnchoredRect(artwork,
+                RectTransform slotRect = CreateAnchoredRect(contentRect,
                     $"InventorySlot_{index}",
-                    new Vector2(centerX - .058f, centerY - .03f),
-                    new Vector2(centerX + .058f, centerY + .03f),
+                    new Vector2(0f, 1f), new Vector2(0f, 1f),
                     Vector2.zero, Vector2.zero);
+                slotRect.pivot = new Vector2(0.5f, 0.5f);
+                slotRect.sizeDelta = new Vector2(slotSize, slotSize);
+                slotRect.anchoredPosition = new Vector2(
+                    gridXOffset + (column + 0.5f) * cellSize,
+                    -(gridTopOffset + (row + 0.5f) * rowPitch));
+
                 Image slotImage = slotRect.gameObject.AddComponent<Image>();
-                slotImage.sprite = inventoryItemSlot;
-                slotImage.preserveAspect = true;
+                slotImage.color = new Color32(12, 27, 36, 255);
                 slotImage.raycastTarget = true;
+                Outline slotOutline = slotRect.gameObject.AddComponent<Outline>();
+                slotOutline.effectColor = Gold;
+                slotOutline.effectDistance = new Vector2(2f, -2f);
+
                 Button slotButton = slotRect.gameObject.AddComponent<Button>();
                 slotButton.targetGraphic = slotImage;
                 slotButton.transition = Selectable.Transition.None;
-                if (index < inventoryItemSprites.Length
-                    && GetSpriteAt(inventoryItemSprites, index) != null)
+
+                if (index < allItemSprites.Length
+                    && GetSpriteAt(allItemSprites, index) != null)
                 {
-                    Sprite itemSprite = inventoryItemSprites[index];
+                    Sprite itemSprite = allItemSprites[index];
                     RectTransform itemRect = CreateAnchoredRect(slotRect,
                         "ItemArtwork", new Vector2(.12f, .12f),
                         new Vector2(.88f, .88f), Vector2.zero, Vector2.zero);
@@ -505,15 +844,41 @@ namespace Match3RPG.Campaign
                     itemImage.sprite = itemSprite;
                     itemImage.preserveAspect = true;
                     itemImage.raycastTarget = false;
-                    TMP_Text itemName = AddLabel(artwork, $"InventoryItemName_{index}",
-                        GetInventoryItemName(index), 12, Color.white,
-                        new Vector2(centerX - columnStep * .48f, centerY - .052f),
-                        new Vector2(centerX + columnStep * .48f, centerY - .032f));
+
+                    RectTransform nameRect = CreateAnchoredRect(contentRect,
+                        $"InventoryItemName_{index}",
+                        new Vector2(0f, 1f), new Vector2(0f, 1f),
+                        Vector2.zero, Vector2.zero);
+                    nameRect.pivot = new Vector2(0.5f, 1f);
+                    nameRect.sizeDelta = new Vector2(cellSize * 0.96f, 26f);
+                    nameRect.anchoredPosition = new Vector2(
+                        gridXOffset + (column + 0.5f) * cellSize,
+                        -(gridTopOffset + (row + 0.5f) * rowPitch + slotSize * 0.5f + 4f));
+                    TextMeshProUGUI itemName = CampaignUIFactory.CreateText(
+                        nameRect, "Text", GetInventoryItemName(index), 12,
+                        Color.white, TextAlignmentOptions.Center);
+
+                    RectTransform equippedRect = CreateAnchoredRect(contentRect,
+                        $"InventoryItemEquipped_{index}",
+                        new Vector2(0f, 1f), new Vector2(0f, 1f),
+                        Vector2.zero, Vector2.zero);
+                    equippedRect.pivot = new Vector2(0.5f, 1f);
+                    equippedRect.sizeDelta = new Vector2(cellSize * 0.96f, 20f);
+                    equippedRect.anchoredPosition = new Vector2(
+                        gridXOffset + (column + 0.5f) * cellSize,
+                        -(gridTopOffset + (row + 0.5f) * rowPitch + slotSize * 0.5f + 22f));
+                    TextMeshProUGUI equippedText = CampaignUIFactory.CreateText(
+                        equippedRect, "Text", "Đang mặc", 12,
+                        Gold, TextAlignmentOptions.Center);
+                    equippedRect.gameObject.SetActive(false);
+
                     slotButton.onClick.AddListener(
                         () => OpenInventoryItemPopup(capturedIndex));
                     inventoryItemButtons[index] = slotButton;
                     inventoryItemContents[index] = itemRect.gameObject;
                     inventoryItemNameLabels[index] = itemName.gameObject;
+                    inventorySlotOutlines[index] = slotOutline;
+                    inventoryItemEquippedLabels[index] = equippedRect.gameObject;
                 }
             }
 
@@ -524,9 +889,13 @@ namespace Match3RPG.Campaign
         void SelectInventoryTab(int tabIndex)
         {
             selectedInventoryTab = Mathf.Clamp(tabIndex, 0, 2);
-            if (inventoryBackgroundImage != null)
-                inventoryBackgroundImage.sprite = GetSpriteAt(inventoryScreenBackgrounds,
-                    selectedInventoryTab);
+            if (inventoryTabFocusRect != null)
+            {
+                inventoryTabFocusRect.anchorMin = InventoryTabAnchors[selectedInventoryTab].min;
+                inventoryTabFocusRect.anchorMax = InventoryTabAnchors[selectedInventoryTab].max;
+                inventoryTabFocusRect.offsetMin = Vector2.zero;
+                inventoryTabFocusRect.offsetMax = Vector2.zero;
+            }
             for (int index = 0; index < inventoryTabButtons.Length; index++)
                 if (inventoryTabButtons[index] != null)
                     inventoryTabButtons[index].interactable = index != selectedInventoryTab;
@@ -539,6 +908,67 @@ namespace Match3RPG.Campaign
                 if (inventoryItemNameLabels[index] != null)
                     inventoryItemNameLabels[index].SetActive(selectedInventoryTab == 0);
             }
+            RefreshInventoryGridEquippedVisuals();
+        }
+
+        void RefreshInventoryGridEquippedVisuals()
+        {
+            for (int index = 0; index < TotalInventoryItemCount; index++)
+            {
+                ItemConfig itemConfig = GetBlackDragonItemConfig(index);
+                bool isEquipped = selectedInventoryTab == 0
+                    && itemConfig != null
+                    && IsItemEquipped(itemConfig, out _);
+
+                if (inventorySlotOutlines[index] != null)
+                {
+                    inventorySlotOutlines[index].effectDistance = isEquipped
+                        ? new Vector2(3f, -3f)
+                        : new Vector2(2f, -2f);
+                }
+
+                if (inventoryItemEquippedLabels[index] != null)
+                    inventoryItemEquippedLabels[index].SetActive(isEquipped);
+            }
+        }
+
+        Sprite[] GetResolvedInventoryItemSprites()
+        {
+            if (resolvedInventoryItemSprites != null
+                && resolvedInventoryItemSprites.Length == TotalInventoryItemCount)
+                return resolvedInventoryItemSprites;
+
+            resolvedInventoryItemSprites = new Sprite[TotalInventoryItemCount];
+            for (int index = 0; index < LegacyInventoryItemCount; index++)
+                resolvedInventoryItemSprites[index] = GetSpriteAt(inventoryItemSprites, index);
+
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            for (int offset = 0; offset < BlackDragonItemIds.Length; offset++)
+            {
+                string stableId = BlackDragonItemIds[offset];
+                ItemConfig itemConfig = config != null ? config.GetItem(stableId) : null;
+                if (itemConfig == null)
+                {
+                    Debug.LogError($"[MainProgress] Missing ItemConfig for stableId '{stableId}' in GameConfigService.", this);
+                    continue;
+                }
+
+                resolvedInventoryItemSprites[LegacyInventoryItemCount + offset] = itemConfig.RewardIcon;
+            }
+
+            return resolvedInventoryItemSprites;
+        }
+
+        ItemConfig GetBlackDragonItemConfig(int itemIndex)
+        {
+            int offset = itemIndex - LegacyInventoryItemCount;
+            if (offset < 0 || offset >= BlackDragonItemIds.Length)
+                return null;
+
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            return config != null ? config.GetItem(BlackDragonItemIds[offset]) : null;
         }
 
         string GetInventoryItemName(int itemIndex)
@@ -550,72 +980,434 @@ namespace Match3RPG.Campaign
                 "03_immortal_peach",
                 "06_sun_spirit_orb"
             };
-            return itemIndex >= 0 && itemIndex < itemNames.Length
-                ? itemNames[itemIndex] : string.Empty;
+            if (itemIndex >= 0 && itemIndex < itemNames.Length)
+                return itemNames[itemIndex];
+
+            ItemConfig itemConfig = GetBlackDragonItemConfig(itemIndex);
+            return itemConfig != null && !string.IsNullOrEmpty(itemConfig.DisplayName)
+                ? itemConfig.DisplayName
+                : string.Empty;
         }
 
         void OpenInventoryItemPopup(int itemIndex)
         {
+            Sprite[] allItemSprites = GetResolvedInventoryItemSprites();
             if (selectedInventoryTab != 0 || itemIndex < 0
-                || itemIndex >= inventoryItemSprites.Length
-                || GetSpriteAt(inventoryItemSprites, itemIndex) == null)
+                || itemIndex >= allItemSprites.Length
+                || GetSpriteAt(allItemSprites, itemIndex) == null)
                 return;
 
             if (inventoryItemPopup != null)
                 Destroy(inventoryItemPopup);
 
             int popupType = GetInventoryItemPopupType(itemIndex);
-            Sprite popupSprite = GetSpriteAt(inventoryItemPopupBackgrounds, popupType);
             RectTransform popup = CreateFullScreenOverlay(
                 $"InventoryItemPopup_{GetInventoryItemName(itemIndex)}",
                 new Color32(3, 19, 16, 230), inventoryPanel.transform);
             inventoryItemPopup = popup.gameObject;
-            RectTransform artwork = CreateFullScreenArtwork(popup, popupSprite,
-                "PopupArtwork", out inventoryPopupBackgroundImage);
 
-            RectTransform itemImageRect = CreateAnchoredRect(artwork,
-                "PopupItemArtwork", new Vector2(.105f, .665f),
-                new Vector2(.365f, .845f), Vector2.zero, Vector2.zero);
+            RectTransform panel = CreateAnchoredRect(popup, "PopupPanel",
+                new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f),
+                Vector2.zero, Vector2.zero);
+            panel.pivot = new Vector2(0.5f, 0.5f);
+            panel.sizeDelta = new Vector2(900f, 1050f);
+            panel.anchoredPosition = Vector2.zero;
+            inventoryPopupBackgroundImage = panel.gameObject.AddComponent<Image>();
+            inventoryPopupBackgroundImage.color = new Color32(12, 27, 36, 255);
+            inventoryPopupBackgroundImage.raycastTarget = true;
+            Outline panelOutline = panel.gameObject.AddComponent<Outline>();
+            panelOutline.effectColor = Gold;
+            panelOutline.effectDistance = new Vector2(3f, -3f);
+
+            RectTransform iconFrameRect = CreateAnchoredRect(panel,
+                "PopupItemIconFrame", new Vector2(0.06f, 0.80f),
+                new Vector2(0.26f, 0.94f), Vector2.zero, Vector2.zero);
+            Image iconFrameImage = iconFrameRect.gameObject.AddComponent<Image>();
+            iconFrameImage.color = new Color32(12, 27, 36, 255);
+            iconFrameImage.raycastTarget = false;
+            Outline iconOutline = iconFrameRect.gameObject.AddComponent<Outline>();
+            iconOutline.effectColor = Gold;
+            iconOutline.effectDistance = new Vector2(2f, -2f);
+
+            RectTransform itemImageRect = CreateAnchoredRect(iconFrameRect,
+                "PopupItemArtwork", new Vector2(0.08f, 0.08f),
+                new Vector2(0.92f, 0.92f), Vector2.zero, Vector2.zero);
             inventoryPopupItemImage = itemImageRect.gameObject.AddComponent<Image>();
-            inventoryPopupItemImage.sprite = inventoryItemSprites[itemIndex];
+            inventoryPopupItemImage.sprite = allItemSprites[itemIndex];
             inventoryPopupItemImage.preserveAspect = true;
             inventoryPopupItemImage.raycastTarget = false;
-            inventoryPopupItemName = AddLabel(artwork, "PopupItemName",
-                GetInventoryItemName(itemIndex), 24, Color.white,
-                new Vector2(.39f, .77f), new Vector2(.91f, .85f),
-                TextAlignmentOptions.MidlineLeft);
-            inventoryPopupItemEffect = AddLabel(artwork, "PopupItemEffect",
-                "Tác dụng / chỉ số: NULL", 20, Color.white,
-                new Vector2(.12f, .34f), new Vector2(.88f, .58f),
-                TextAlignmentOptions.TopLeft);
 
-            CreateCharacterHitButton(artwork, "PopupCloseButton",
-                .865f, .875f, .985f, .99f,
-                () => CloseInventoryItemPopup());
-            if (popupType == 0)
+            Button closeButton = CreateCharacterHitButton(panel, "PopupCloseButton",
+                0.90f, 0.91f, 0.975f, 0.975f, CloseInventoryItemPopup);
+            ConfigureOutlinedButton(closeButton, new Color32(62, 45, 37, 255), Gold, 2f);
+            TMP_Text closeLabel = AddLabel(panel, "PopupCloseButtonText", "X", 26, Gold,
+                new Vector2(0.90f, 0.91f), new Vector2(0.975f, 0.975f), TextAlignmentOptions.Center);
+            closeLabel.raycastTarget = false;
+
+            ItemConfig itemConfig = GetBlackDragonItemConfig(itemIndex);
+            if (itemConfig != null)
             {
-                CreateCharacterHitButton(artwork, "PopupUseButton",
-                    .29f, .095f, .72f, .185f,
-                    () => LogInventoryPopupAction("Sử dụng", itemIndex));
-            }
-            else if (popupType == 1)
-            {
-                CreateCharacterHitButton(artwork, "PopupEquipButton",
-                    .12f, .09f, .49f, .18f,
-                    () => LogInventoryPopupAction("Trang bị", itemIndex));
-                CreateCharacterHitButton(artwork, "PopupEnhanceButton",
-                    .51f, .09f, .88f, .18f,
-                    () => LogInventoryPopupAction("Cường hóa", itemIndex));
+                ItemInstanceSaveData existingInstance = FindInventoryItemInstance(
+                    itemConfig, out bool isEquipped);
+                int upgradeLevel = existingInstance != null
+                    ? Mathf.Max(0, existingInstance.upgradeLevel)
+                    : 0;
+                string displayTitle = upgradeLevel > 0
+                    ? $"{GetInventoryItemName(itemIndex)} +{upgradeLevel}"
+                    : GetInventoryItemName(itemIndex);
+
+                inventoryPopupItemName = AddLabel(panel, "PopupItemName",
+                    displayTitle, 30, Gold,
+                    new Vector2(0.30f, 0.85f), new Vector2(0.94f, 0.94f),
+                    TextAlignmentOptions.MidlineLeft);
+                inventoryPopupItemName.textWrappingMode = TextWrappingModes.NoWrap;
+                inventoryPopupItemName.enableAutoSizing = true;
+                inventoryPopupItemName.fontSizeMin = 18f;
+                inventoryPopupItemName.fontSizeMax = 30f;
+
+                TMP_Text gradeSlotLabel = AddLabel(panel, "PopupItemGradeSlot",
+                    FormatItemGradeAndSlotLine(itemConfig), 20, Color.white,
+                    new Vector2(0.30f, 0.79f), new Vector2(0.94f, 0.84f),
+                    TextAlignmentOptions.MidlineLeft);
+                gradeSlotLabel.enableAutoSizing = false;
+
+                BuildPopupStatsBlock(panel, itemConfig, upgradeLevel);
+
+                inventoryPopupItemEffect = AddLabel(panel, "PopupItemEffect",
+                    itemConfig.Description, 20, Color.white,
+                    new Vector2(0.06f, 0.38f), new Vector2(0.94f, 0.53f),
+                    TextAlignmentOptions.TopLeft);
+                inventoryPopupItemEffect.textWrappingMode = TextWrappingModes.Normal;
+                inventoryPopupItemEffect.enableAutoSizing = false;
+
+                HeroProgressSaveData progress = LoadSelectedHeroProgress();
+                int playerLevel = progress != null ? Math.Max(1, progress.level) : 1;
+                bool meetsRequirement = itemConfig.MeetsRequirement(playerLevel);
+                int minLevel = ItemConfig.GetMinLevelForGrade(itemConfig.Grade);
+                string realmName = minLevel > 0 ? Realms[FindRealmIndex(minLevel)].Name : string.Empty;
+                string requirementText = minLevel <= 0
+                    ? "Không yêu cầu cảnh giới"
+                    : meetsRequirement
+                        ? $"Yêu cầu: {realmName} (Lv.{minLevel})"
+                        : $"Chưa đủ điều kiện · Yêu cầu: {realmName} (Lv.{minLevel})";
+                Color requirementColor = meetsRequirement
+                    ? Color.white
+                    : new Color32(220, 110, 110, 255);
+                TMP_Text requirementLabel = AddLabel(panel, "PopupItemRequirement",
+                    requirementText, 20, requirementColor,
+                    new Vector2(0.06f, 0.30f), new Vector2(0.94f, 0.36f),
+                    TextAlignmentOptions.MidlineLeft);
+                requirementLabel.enableAutoSizing = false;
+
+                TMP_Text setDetailLabel = AddLabel(panel, "PopupItemSetDetail",
+                    BlackDragonSetDetailText, 18, new Color32(190, 195, 205, 255),
+                    new Vector2(0.06f, 0.22f), new Vector2(0.94f, 0.27f),
+                    TextAlignmentOptions.MidlineLeft);
+                setDetailLabel.enableAutoSizing = false;
+
+                RectTransform buttonsContainer = CreateAnchoredRect(panel,
+                    "PopupActionButtons", new Vector2(0.06f, 0.06f),
+                    new Vector2(0.94f, 0.15f), Vector2.zero, Vector2.zero);
+
+                CreatePopupActionButton(buttonsContainer, "PopupEquipButton", "Trang bị",
+                    new Vector2(0f, 0f), new Vector2(1f / 3f, 1f),
+                    new Vector2(0f, 0f), new Vector2(-8f, 0f),
+                    !isEquipped && meetsRequirement,
+                    () => EquipInventoryPopupItem(itemIndex, itemConfig));
+
+                CreatePopupActionButton(buttonsContainer, "PopupUpgradeButton", "Nâng cấp",
+                    new Vector2(1f / 3f, 0f), new Vector2(2f / 3f, 1f),
+                    new Vector2(4f, 0f), new Vector2(-4f, 0f),
+                    upgradeLevel < MaxEquipmentUpgradeLevel,
+                    () => UpgradeInventoryPopupItem(itemIndex, itemConfig));
+
+                CreatePopupActionButton(buttonsContainer, "PopupUnequipButton", "Tháo",
+                    new Vector2(2f / 3f, 0f), new Vector2(1f, 1f),
+                    new Vector2(8f, 0f), new Vector2(0f, 0f),
+                    isEquipped,
+                    () => UnequipInventoryPopupItem(itemConfig));
             }
             else
             {
-                CreateCharacterHitButton(artwork, "PopupEnhanceButton",
-                    .12f, .09f, .49f, .18f,
-                    () => LogInventoryPopupAction("Cường hóa", itemIndex));
-                CreateCharacterHitButton(artwork, "PopupUnequipButton",
-                    .51f, .09f, .88f, .18f,
-                    () => LogInventoryPopupAction("Gỡ", itemIndex));
+                inventoryPopupItemName = AddLabel(panel, "PopupItemName",
+                    GetInventoryItemName(itemIndex), 30, Gold,
+                    new Vector2(0.30f, 0.85f), new Vector2(0.94f, 0.94f),
+                    TextAlignmentOptions.MidlineLeft);
+                inventoryPopupItemName.textWrappingMode = TextWrappingModes.NoWrap;
+                inventoryPopupItemName.enableAutoSizing = true;
+                inventoryPopupItemName.fontSizeMin = 18f;
+                inventoryPopupItemName.fontSizeMax = 30f;
+
+                inventoryPopupItemEffect = AddLabel(panel, "PopupItemEffect",
+                    "Chưa có dữ liệu — chờ bổ sung", 20, Color.white,
+                    new Vector2(0.06f, 0.38f), new Vector2(0.77f, 0.77f),
+                    TextAlignmentOptions.TopLeft);
+                inventoryPopupItemEffect.enableAutoSizing = false;
+
+                if (popupType == 0)
+                {
+                    RectTransform buttonsContainer = CreateAnchoredRect(panel,
+                        "PopupActionButtons", new Vector2(0.06f, 0.06f),
+                        new Vector2(0.94f, 0.15f), Vector2.zero, Vector2.zero);
+                    CreatePopupActionButton(buttonsContainer, "PopupUseButton", "Sử dụng",
+                        new Vector2(1f / 3f, 0f), new Vector2(2f / 3f, 1f),
+                        Vector2.zero, Vector2.zero,
+                        true,
+                        () => LogInventoryPopupAction("Sử dụng", itemIndex));
+                }
             }
+        }
+
+        static void BuildPopupStatsBlock(Transform panel, ItemConfig itemConfig, int upgradeLevel)
+        {
+            RectTransform statsBlock = CreateAnchoredRect(panel, "PopupStatsBlock",
+                new Vector2(0.06f, 0.55f), new Vector2(0.94f, 0.77f),
+                Vector2.zero, Vector2.zero);
+
+            ItemStatValues stats = ItemStatCalculator.Calculate(itemConfig, upgradeLevel);
+            List<(string label, string value)> rows = new List<(string label, string value)>();
+            if (stats.AttackPercentBonus > 0f)
+                rows.Add(("ATK", $"+{stats.AttackPercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
+            if (stats.RagePerGemBonus > 0)
+                rows.Add(("Nộ", $"+{stats.RagePerGemBonus.ToString(CultureInfo.InvariantCulture)} Nộ / viên Mặt Trời"));
+            if (stats.MaxHealthPercentBonus > 0f)
+                rows.Add(("HP tối đa", $"+{stats.MaxHealthPercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
+            if (stats.DefensePercentBonus > 0f)
+                rows.Add(("Giáp", $"+{stats.DefensePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
+            if (stats.CritRatePercentBonus > 0f)
+                rows.Add(("Tỷ lệ chí mạng", $"+{stats.CritRatePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
+            if (stats.SpeedBonus > 0)
+                rows.Add(("Tốc độ", $"+{stats.SpeedBonus.ToString(CultureInfo.InvariantCulture)}"));
+            if (stats.CritDamagePercentBonus > 0f)
+                rows.Add(("Sát thương chí mạng", $"+{stats.CritDamagePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
+
+            const float rowHeight = 90f;
+            const float rowSpacing = 6f;
+            for (int index = 0; index < rows.Count; index++)
+            {
+                RectTransform rowRect = CreateAnchoredRect(statsBlock,
+                    $"PopupStatRow_{index}", new Vector2(0f, 1f), new Vector2(1f, 1f),
+                    Vector2.zero, Vector2.zero);
+                rowRect.pivot = new Vector2(0.5f, 1f);
+                rowRect.sizeDelta = new Vector2(0f, rowHeight);
+                rowRect.anchoredPosition = new Vector2(0f, -index * (rowHeight + rowSpacing));
+
+                TMP_Text leftLabel = AddLabel(rowRect, "StatLabel", rows[index].label,
+                    22, Color.white, new Vector2(0f, 0f), new Vector2(0.55f, 1f),
+                    TextAlignmentOptions.MidlineLeft);
+                leftLabel.enableAutoSizing = false;
+
+                TMP_Text rightValue = AddLabel(rowRect, "StatValue", rows[index].value,
+                    22, Gold, new Vector2(0.35f, 0f), new Vector2(1f, 1f),
+                    TextAlignmentOptions.MidlineRight);
+                rightValue.enableAutoSizing = false;
+            }
+        }
+
+        static Button CreatePopupActionButton(Transform parent, string name, string label,
+            Vector2 anchorMin, Vector2 anchorMax, Vector2 offsetMin, Vector2 offsetMax,
+            bool enabled, UnityEngine.Events.UnityAction onClick)
+        {
+            RectTransform rect = CreateAnchoredRect(parent, name,
+                anchorMin, anchorMax, offsetMin, offsetMax);
+            Image image = rect.gameObject.AddComponent<Image>();
+            image.raycastTarget = true;
+            Button button = rect.gameObject.AddComponent<Button>();
+            button.targetGraphic = image;
+            button.transition = Selectable.Transition.None;
+            button.interactable = enabled;
+            if (enabled && onClick != null)
+                button.onClick.AddListener(onClick);
+
+            Color32 fillColor = enabled
+                ? new Color32(12, 27, 36, 255)
+                : new Color32(45, 48, 54, 245);
+            Color32 borderColor = enabled
+                ? (Color32)Gold
+                : new Color32(110, 115, 125, 255);
+            Color textColor = enabled
+                ? Color.white
+                : new Color32(150, 150, 150, 255);
+
+            ConfigureOutlinedButton(button, fillColor, borderColor, 2f);
+            TMP_Text buttonLabel = AddLabel(rect, "Label", label, 24, textColor,
+                Vector2.zero, Vector2.one, TextAlignmentOptions.Center);
+            buttonLabel.enableAutoSizing = false;
+            buttonLabel.raycastTarget = false;
+            return button;
+        }
+
+        static string GetEquipmentSlotDisplayName(EquipmentSlot slot)
+        {
+            switch (slot)
+            {
+                case EquipmentSlot.Weapon:
+                    return "Vũ khí";
+                case EquipmentSlot.Head:
+                    return "Mũ";
+                case EquipmentSlot.Body:
+                    return "Giáp";
+                case EquipmentSlot.Gloves:
+                    return "Găng";
+                case EquipmentSlot.Feet:
+                    return "Giầy";
+                case EquipmentSlot.Accessory:
+                    return "Nhẫn";
+                default:
+                    return string.Empty;
+            }
+        }
+
+        static string FormatItemGradeAndSlotLine(ItemConfig itemConfig)
+        {
+            string gradeName = ItemConfig.GetGradeDisplayName(itemConfig.Grade);
+            string slotName = GetEquipmentSlotDisplayName(itemConfig.EquipmentSlot);
+            return string.IsNullOrEmpty(slotName) ? gradeName : $"{gradeName} · {slotName}";
+        }
+
+        ItemInstanceSaveData FindInventoryItemInstance(ItemConfig itemConfig, out bool isEquipped)
+        {
+            isEquipped = false;
+            if (itemConfig == null)
+                return null;
+
+            if (IsItemEquipped(itemConfig, out ItemInstanceSaveData equippedInstance))
+            {
+                isEquipped = true;
+                return equippedInstance;
+            }
+
+            SaveManager saveManager = SaveManager.Instance;
+            GameSaveData save = saveManager.CurrentSave ?? saveManager.LoadOrCreate();
+            if (save?.inventory?.itemInstances == null)
+                return null;
+
+            foreach (ItemInstanceSaveData instance in save.inventory.itemInstances)
+            {
+                if (instance != null && string.Equals(instance.itemId, itemConfig.StableId,
+                    StringComparison.Ordinal))
+                    return instance;
+            }
+
+            return null;
+        }
+
+        bool IsItemEquipped(ItemConfig itemConfig, out ItemInstanceSaveData equippedInstance)
+        {
+            equippedInstance = null;
+            if (itemConfig == null || !InventoryService.IsEquippable(itemConfig))
+                return false;
+
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            if (config == null)
+                return false;
+
+            SaveManager saveManager = SaveManager.Instance;
+            EquipmentService equipmentService = new EquipmentService(saveManager, config);
+            InventoryService inventoryService = new InventoryService(saveManager, config);
+            foreach (EquipmentLoadoutSaveData entry in equipmentService.GetEquipmentLoadout())
+            {
+                if (entry == null || string.IsNullOrEmpty(entry.itemInstanceId))
+                    continue;
+
+                ItemInstanceSaveData instance = inventoryService.GetEquipmentInstance(
+                    entry.itemInstanceId);
+                if (instance != null
+                    && string.Equals(instance.itemId, itemConfig.StableId, StringComparison.Ordinal))
+                {
+                    equippedInstance = instance;
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        ItemInstanceSaveData GetOrCreateEquipmentInstance(ItemConfig itemConfig,
+            InventoryService inventoryService)
+        {
+            ItemInstanceSaveData existing = FindInventoryItemInstance(itemConfig, out _);
+            if (existing != null)
+                return existing;
+            return inventoryService.AddEquipmentInstance(itemConfig.StableId);
+        }
+
+        void EquipInventoryPopupItem(int itemIndex, ItemConfig itemConfig)
+        {
+            if (itemConfig == null)
+                return;
+
+            HeroProgressSaveData progress = LoadSelectedHeroProgress();
+            int playerLevel = progress != null ? Math.Max(1, progress.level) : 1;
+            if (!itemConfig.MeetsRequirement(playerLevel))
+                return;
+
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            if (config == null)
+                return;
+
+            SaveManager saveManager = SaveManager.Instance;
+            InventoryService inventoryService = new InventoryService(saveManager, config);
+            EquipmentService equipmentService = new EquipmentService(saveManager, config);
+            ItemInstanceSaveData instance = GetOrCreateEquipmentInstance(itemConfig, inventoryService);
+            if (instance == null)
+                return;
+
+            if (!equipmentService.Equip(instance.instanceId, itemConfig.EquipmentSlot))
+            {
+                equipmentService.Unequip(itemConfig.EquipmentSlot);
+                equipmentService.Equip(instance.instanceId, itemConfig.EquipmentSlot);
+            }
+
+            saveManager.SaveNow();
+            CloseInventoryItemPopup();
+            RefreshInventoryGridEquippedVisuals();
+            RefreshCharacterStats();
+        }
+
+        void UnequipInventoryPopupItem(ItemConfig itemConfig)
+        {
+            if (itemConfig == null || !IsItemEquipped(itemConfig, out _))
+                return;
+
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            if (config == null)
+                return;
+
+            SaveManager saveManager = SaveManager.Instance;
+            EquipmentService equipmentService = new EquipmentService(saveManager, config);
+            equipmentService.Unequip(itemConfig.EquipmentSlot);
+            saveManager.SaveNow();
+            CloseInventoryItemPopup();
+            RefreshInventoryGridEquippedVisuals();
+            RefreshCharacterStats();
+        }
+
+        void UpgradeInventoryPopupItem(int itemIndex, ItemConfig itemConfig)
+        {
+            if (itemConfig == null)
+                return;
+
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            if (config == null)
+                return;
+
+            SaveManager saveManager = SaveManager.Instance;
+            InventoryService inventoryService = new InventoryService(saveManager, config);
+            ItemInstanceSaveData instance = GetOrCreateEquipmentInstance(itemConfig, inventoryService);
+            if (instance == null || instance.upgradeLevel >= MaxEquipmentUpgradeLevel)
+                return;
+
+            instance.upgradeLevel = Mathf.Min(MaxEquipmentUpgradeLevel,
+                Mathf.Max(0, instance.upgradeLevel) + 1);
+            saveManager.SaveNow();
+            RefreshInventoryGridEquippedVisuals();
+            RefreshCharacterStats();
+            OpenInventoryItemPopup(itemIndex);
         }
 
         static int GetInventoryItemPopupType(int itemIndex)
@@ -627,6 +1419,12 @@ namespace Match3RPG.Campaign
                     return 0;
                 case 0:
                 case 3:
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
                     return 2;
                 default:
                     return 2;
@@ -659,15 +1457,63 @@ namespace Match3RPG.Campaign
         }
 
         static RectTransform CreateFullScreenArtwork(Transform parent, Sprite sprite,
-            string name, out Image artworkImage)
+            string name, out Image artworkImage, bool fitToScreen = false)
         {
             RectTransform artwork = CreateAnchoredRect(parent, name,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
             artworkImage = artwork.gameObject.AddComponent<Image>();
-            artworkImage.sprite = sprite;
+            if (sprite != null)
+                artworkImage.sprite = sprite;
             artworkImage.color = Color.white;
             artworkImage.preserveAspect = true;
             artworkImage.raycastTarget = false;
+
+            if (fitToScreen)
+            {
+                Canvas parentCanvas = parent.GetComponentInParent<Canvas>();
+                CanvasScaler scaler = parentCanvas != null
+                    ? parentCanvas.GetComponent<CanvasScaler>()
+                    : null;
+                float scaleFactor = 0f;
+                if (scaler != null
+                    && scaler.uiScaleMode == CanvasScaler.ScaleMode.ScaleWithScreenSize
+                    && scaler.referenceResolution.x > 0f
+                    && scaler.referenceResolution.y > 0f)
+                {
+                    float widthScale = Screen.width / scaler.referenceResolution.x;
+                    float heightScale = Screen.height / scaler.referenceResolution.y;
+                    float match = Mathf.Clamp01(scaler.matchWidthOrHeight);
+                    scaleFactor = Mathf.Pow(widthScale, 1f - match)
+                        * Mathf.Pow(heightScale, match);
+                }
+
+                if (float.IsNaN(scaleFactor) || float.IsInfinity(scaleFactor)
+                    || scaleFactor <= 0f)
+                {
+                    scaleFactor = parentCanvas != null
+                        && parentCanvas.scaleFactor > 0f
+                        && !float.IsNaN(parentCanvas.scaleFactor)
+                        && !float.IsInfinity(parentCanvas.scaleFactor)
+                        ? parentCanvas.scaleFactor
+                        : 1f;
+                }
+
+                float screenW = Screen.width / scaleFactor;
+                float screenH = Screen.height / scaleFactor;
+                bool validScreenSize = screenW > 0f && screenH > 0f
+                    && screenW <= 10000f && screenH <= 10000f
+                    && !float.IsNaN(screenW) && !float.IsNaN(screenH)
+                    && !float.IsInfinity(screenW) && !float.IsInfinity(screenH);
+                if (validScreenSize)
+                {
+                    artwork.anchorMin = new Vector2(.5f, .5f);
+                    artwork.anchorMax = new Vector2(.5f, .5f);
+                    artwork.sizeDelta = new Vector2(screenW, screenH);
+                    artwork.anchoredPosition = Vector2.zero;
+                    return artwork;
+                }
+            }
+
             if (sprite == null)
                 return artwork;
 
@@ -678,22 +1524,64 @@ namespace Match3RPG.Campaign
             return artwork;
         }
 
+        static void EnsureTabFocusWhiteSprite()
+        {
+            if (tabFocusWhiteSprite == null)
+                tabFocusWhiteSprite = Sprite.Create(Texture2D.whiteTexture,
+                    new Rect(0f, 0f, 4f, 4f), new Vector2(.5f, .5f),
+                    100f / 6f, 0u, SpriteMeshType.FullRect,
+                    new Vector4(1f, 1f, 1f, 1f));
+        }
+
+        static RectTransform CreateTabFocusOverlay(Transform parent, string name,
+            Vector2 anchorMin, Vector2 anchorMax)
+        {
+            EnsureTabFocusWhiteSprite();
+            RectTransform focusRect = CreateAnchoredRect(parent, name,
+                anchorMin, anchorMax, Vector2.zero, Vector2.zero);
+            Image focusImage = focusRect.gameObject.AddComponent<Image>();
+            focusImage.sprite = tabFocusWhiteSprite;
+            focusImage.color = Color.clear;
+            focusImage.type = Image.Type.Sliced;
+            focusImage.fillCenter = false;
+            focusImage.raycastTarget = false;
+            Outline focusOutline = focusRect.gameObject.AddComponent<Outline>();
+            focusOutline.effectColor = Gold;
+            focusOutline.effectDistance = new Vector2(3f, -3f);
+            focusOutline.useGraphicAlpha = false;
+            return focusRect;
+        }
+
         RectTransform BuildCultivationPanel()
         {
             RectTransform overlay = CreateFullScreenOverlay("CultivationPanelOverlay",
                 new Color32(4, 28, 22, 255));
+            Sprite characterSprite = Resources.Load<Sprite>("MainProgress/UI/CharacterSingle");
+            if (characterSprite == null)
+                Debug.LogError("MainProgress failed to load sprite Resources/MainProgress/UI/CharacterSingle.", this);
             RectTransform artwork = CreateFullScreenArtwork(overlay,
-                GetSpriteAt(inventoryScreenBackgrounds, 4), "CultivationArtwork",
-                out cultivationBackgroundImage);
+                characterSprite, "CultivationArtwork",
+                out cultivationBackgroundImage, fitToScreen: true);
+
+            characterTabFocusRect = CreateTabFocusOverlay(artwork,
+                "CharacterTabFocusOverlay",
+                CharacterTabAnchors[1].min, CharacterTabAnchors[1].max);
+
             CreateCharacterHitButton(artwork, "CultivationCloseButton",
-                .875f, .90f, .985f, .99f,
+                .890f, .893f, 1.000f, .946f,
                 () => ClosePanel(overlay.gameObject));
-            skillsTabButton = CreateCharacterHitButton(artwork, "SkillsTab",
-                .105f, .82f, .49f, .88f,
-                () => SelectCultivationTab(true));
-            starChartTabButton = CreateCharacterHitButton(artwork, "StarChartTab",
-                .51f, .82f, .90f, .88f,
-                () => SelectCultivationTab(false));
+            characterTabButtons[0] = CreateCharacterHitButton(artwork, "CharacterTab_Skills",
+                .038f, .818f, .260f, .864f,
+                () => SelectCharacterTab(0));
+            characterTabButtons[1] = CreateCharacterHitButton(artwork, "CharacterTab_Cultivation",
+                .273f, .818f, .493f, .864f,
+                () => SelectCharacterTab(1));
+            characterTabButtons[2] = CreateCharacterHitButton(artwork, "CharacterTab_Companion",
+                .507f, .818f, .728f, .864f,
+                () => SelectCharacterTab(2));
+            characterTabButtons[3] = CreateCharacterHitButton(artwork, "CharacterTab_Pet",
+                .742f, .818f, .962f, .864f,
+                () => SelectCharacterTab(3));
 
             starChartUIGroup = CreateAnchoredRect(artwork, "StarChartUI",
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero).gameObject;
@@ -706,34 +1594,91 @@ namespace Match3RPG.Campaign
                 : 0;
             SelectStarChartRealm(FindRealmIndex(heroLevel), heroLevel);
 
+            float realmSelectorMinY = .66f;
+            float realmSelectorMaxY = .71f;
+            float realmSelectorWidth = .54f;
+            float realmSelectorLeft = .5f - realmSelectorWidth * .5f;
+            float realmSelectorRight = .5f + realmSelectorWidth * .5f;
+
             previousRealmButton = CreateCharacterHitButton(starChartUIGroup.transform, "PreviousRealm",
-                .11f, .642f, .21f, .674f, SelectPreviousStarChartRealm);
-            CreateAnchoredLabel(starChartUIGroup.transform, "PreviousRealmArrow", "‹", 24, Color.white,
-                new Vector2(.11f, .642f), new Vector2(.21f, .674f), out TMP_Text previousRealmArrow);
-            CreateAnchoredLabel(starChartUIGroup.transform, "RealmSelector", GetRealmButtonLabel(),
-                24, Color.white, new Vector2(.22f, .642f),
-                new Vector2(.78f, .674f), out realmButtonLabel);
+                .10f, realmSelectorMinY, .21f, realmSelectorMaxY, SelectPreviousStarChartRealm);
+            ConfigureOutlinedButton(previousRealmButton, new Color32(18, 25, 31, 255), Gold, 2f);
+            TMP_Text previousRealmArrow = AddLabel(starChartUIGroup.transform, "PreviousRealmArrow",
+                "◁", 42, Gold, new Vector2(.10f, realmSelectorMinY),
+                new Vector2(.21f, realmSelectorMaxY), TextAlignmentOptions.Center);
+            ApplyStarChartTextStyle(previousRealmArrow, 42);
+
+            RectTransform realmSelectorFrame = CreateAnchoredRect(starChartUIGroup.transform,
+                "RealmSelectorFrame", new Vector2(realmSelectorLeft, realmSelectorMinY),
+                new Vector2(realmSelectorRight, realmSelectorMaxY), Vector2.zero, Vector2.zero);
+            Image realmSelectorBackground = realmSelectorFrame.gameObject.AddComponent<Image>();
+            realmSelectorBackground.color = new Color32(12, 27, 36, 255);
+            realmSelectorBackground.raycastTarget = false;
+            Outline realmSelectorOutline = realmSelectorFrame.gameObject.AddComponent<Outline>();
+            realmSelectorOutline.effectColor = Gold;
+            realmSelectorOutline.effectDistance = new Vector2(3f, -3f);
+
+            RectTransform realmSelectorInnerBorder = CreateAnchoredRect(realmSelectorFrame,
+                "RealmSelectorInnerBorder", new Vector2(.035f, .10f), new Vector2(.965f, .90f),
+                Vector2.zero, Vector2.zero);
+            Image realmSelectorInnerImage = realmSelectorInnerBorder.gameObject.AddComponent<Image>();
+            realmSelectorInnerImage.color = new Color32(22, 38, 48, 255);
+            realmSelectorInnerImage.raycastTarget = false;
+            Outline realmSelectorInnerOutline = realmSelectorInnerBorder.gameObject.AddComponent<Outline>();
+            realmSelectorInnerOutline.effectColor = MutedGold;
+            realmSelectorInnerOutline.effectDistance = new Vector2(1.5f, -1.5f);
+
+            realmButtonLabel = AddLabel(realmSelectorFrame, "RealmSelector",
+                GetRealmButtonLabel(), 30, Gold, new Vector2(.04f, .12f),
+                new Vector2(.96f, .88f), TextAlignmentOptions.Center);
+            realmButtonLabel.enableAutoSizing = true;
+            realmButtonLabel.fontSizeMin = 20;
+            realmButtonLabel.fontSizeMax = 32;
+            realmButtonLabel.overflowMode = TextOverflowModes.Overflow;
+            realmButtonLabel.enableWordWrapping = false;
+            ApplyStarChartTextStyle(realmButtonLabel, 30);
+
             nextRealmButton = CreateCharacterHitButton(starChartUIGroup.transform, "NextRealm",
-                .79f, .642f, .89f, .674f, SelectNextStarChartRealm);
-            CreateAnchoredLabel(starChartUIGroup.transform, "NextRealmArrow", "›", 24, Color.white,
-                new Vector2(.79f, .642f), new Vector2(.89f, .674f), out TMP_Text nextRealmArrow);
-            ApplyStarChartTextStyle(previousRealmArrow, 28);
-            ApplyStarChartTextStyle(realmButtonLabel, 24);
-            ApplyStarChartTextStyle(nextRealmArrow, 28);
+                .79f, realmSelectorMinY, .90f, realmSelectorMaxY, SelectNextStarChartRealm);
+            ConfigureOutlinedButton(nextRealmButton, new Color32(18, 25, 31, 255), Gold, 2f);
+            TMP_Text nextRealmArrow = AddLabel(starChartUIGroup.transform, "NextRealmArrow",
+                "▷", 42, Gold, new Vector2(.79f, realmSelectorMinY),
+                new Vector2(.90f, realmSelectorMaxY), TextAlignmentOptions.Center);
+            ApplyStarChartTextStyle(nextRealmArrow, 42);
             RefreshRealmNavigationButtons();
 
             starChartContent = CreateAnchoredRect(starChartUIGroup.transform, "StarChartContent",
-                new Vector2(.09f, .265f), new Vector2(.91f, .632f),
+                new Vector2(.09f, .31f), new Vector2(.91f, .632f),
                 Vector2.zero, Vector2.zero).gameObject;
+            Image chartViewportImage = starChartContent.AddComponent<Image>();
+            chartViewportImage.color = Color.white;
+            chartViewportImage.raycastTarget = false;
+            Mask chartMask = starChartContent.AddComponent<Mask>();
+            chartMask.showMaskGraphic = false;
+            starChartZoomScrollRect = starChartContent.AddComponent<ScrollRect>();
+            starChartZoomScrollRect.viewport = starChartContent.GetComponent<RectTransform>();
+            starChartZoomScrollRect.horizontal = true;
+            starChartZoomScrollRect.vertical = true;
+            starChartZoomScrollRect.movementType = ScrollRect.MovementType.Clamped;
+            starChartZoomScrollRect.scrollSensitivity = 35f;
             starChartGraphicRect = CreateAnchoredRect(starChartContent.transform,
-                "ChartGraphic", Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+                "ChartGraphic", new Vector2(.5f, .5f), new Vector2(.5f, .5f),
+                Vector2.zero, Vector2.zero);
+            starChartGraphicRect.pivot = new Vector2(.5f, .5f);
+            Canvas.ForceUpdateCanvases();
+            starChartGraphicRect.sizeDelta = starChartContent.GetComponent<RectTransform>().rect.size;
             starChartGraphicRect.gameObject.AddComponent<CanvasRenderer>();
             starChartGraphic = starChartGraphicRect.gameObject
                 .AddComponent<MainProgressChartGraphic>();
             starChartGraphic.color = Color.white;
             starChartGraphic.StarClicked += SelectStarChartNode;
+            starChartZoomScrollRect.content = starChartGraphicRect;
+            SetStarChartZoom(1f);
             RefreshSelectedRealmStars();
             CreateStarChartArtwork();
+            CreateStarChartZoomControls(starChartUIGroup.transform);
+            CreateStarNodePopup();
+            CreateTotalBuffPopup();
 
             skillsPlaceholder = CreateAnchoredRect(artwork, "SkillsPlaceholder",
                 new Vector2(.08f, .25f), new Vector2(.92f, .66f),
@@ -754,10 +1699,6 @@ namespace Match3RPG.Campaign
                 "Chưa thay đổi dữ liệu sao.", 19, out starActionStatusRect);
             UpdateStarActionDetails();
             RefreshStarChartDetailsLayout();
-            CreateCharacterHitButton(starChartUIGroup.transform, "LightStarButton",
-                .10f, .085f, .47f, .155f, LightSelectedStar);
-            CreateCharacterHitButton(starChartUIGroup.transform, "BreakthroughButton",
-                .53f, .085f, .90f, .155f, TryOpenBreakthroughPopup);
             breakthroughPopup = BuildBreakthroughPopup(overlay).gameObject;
             breakthroughPopup.SetActive(false);
             overlay.gameObject.SetActive(false);
@@ -792,53 +1733,46 @@ namespace Match3RPG.Campaign
                 "ĐỘT PHÁ", new Vector2(220f, 64f),
                 new Vector2(.72f, .16f), Gold);
             confirm.onClick.AddListener(ConfirmBreakthrough);
+            breakthroughConfirmButton = confirm;
             return popup;
         }
 
         void CreateGemInventoryRow(Transform parent)
         {
             RectTransform row = CreateAnchoredRect(parent, "BaseGemInventory",
-                new Vector2(.105f, .68f), new Vector2(.895f, .775f),
+                new Vector2(.105f, .71f), new Vector2(.895f, .805f),
                 Vector2.zero, Vector2.zero);
 
+            const int gemCount = 7;
+            float slotWidth = 1f / gemCount;
             for (int index = 0; index < StarChartGemTypes.Length; index++)
             {
-                int rowIndex = index < 4 ? 0 : 1;
-                int cellIndex = rowIndex == 0 ? index : index - 4;
-                const int cellsInRow = 4;
-                float slotWidth = 1f / cellsInRow;
-                float rowOffset = rowIndex == 0 ? 0f : slotWidth * .5f;
-                float slotCenter = rowOffset + (cellIndex + .5f) * slotWidth;
-                float rowBottom = rowIndex == 0 ? .5f : 0f;
-                float rowTop = rowIndex == 0 ? 1f : .5f;
+                float slotCenter = (index + .5f) * slotWidth;
                 Sprite sprite = GetSpriteAt(starChartBaseGemSprites, index);
                 if (sprite == null)
-                    Debug.LogError($"Tinh đồ thiếu sprite base gem {StarChartGemTypes[index]}.", this);
-                else
                 {
-                    const float iconWidth = .075f;
-                    RectTransform iconRect = CreateAnchoredRect(row,
-                        $"GemIcon_{StarChartGemTypes[index]}",
-                        new Vector2(slotCenter - iconWidth * .5f,
-                            rowBottom + .39f * (rowTop - rowBottom)),
-                        new Vector2(slotCenter + iconWidth * .5f,
-                            rowBottom + .96f * (rowTop - rowBottom)),
-                        Vector2.zero, Vector2.zero);
-                    Image icon = iconRect.gameObject.AddComponent<Image>();
-                    icon.sprite = sprite;
-                    icon.preserveAspect = true;
-                    icon.raycastTarget = false;
+                    Debug.LogError($"Tinh đồ thiếu sprite base gem {StarChartGemTypes[index]}.", this);
+                    continue;
                 }
 
-                int gemCount = index < baseGemDisplayInventory.Length
+                const float iconWidth = .075f;
+                RectTransform iconRect = CreateAnchoredRect(row,
+                    $"GemIcon_{StarChartGemTypes[index]}",
+                    new Vector2(slotCenter - iconWidth * .5f, .34f),
+                    new Vector2(slotCenter + iconWidth * .5f, .96f),
+                    Vector2.zero, Vector2.zero);
+                Image icon = iconRect.gameObject.AddComponent<Image>();
+                icon.sprite = sprite;
+                icon.preserveAspect = true;
+                icon.raycastTarget = false;
+
+                int gemValue = index < baseGemDisplayInventory.Length
                     ? baseGemDisplayInventory[index] : 0;
                 baseGemInventoryCountLabels[index] = AddLabel(row,
                     $"GemCount_{StarChartGemTypes[index]}",
-                    gemCount.ToString(CultureInfo.InvariantCulture), 25, Color.white,
-                    new Vector2(slotCenter - slotWidth * .45f,
-                        rowBottom + .02f * (rowTop - rowBottom)),
-                    new Vector2(slotCenter + slotWidth * .45f,
-                        rowBottom + .41f * (rowTop - rowBottom)));
+                    gemValue.ToString(CultureInfo.InvariantCulture), 25, Color.white,
+                    new Vector2(slotCenter - slotWidth * .45f, .06f),
+                    new Vector2(slotCenter + slotWidth * .45f, .42f));
                 ApplyStarChartTextStyle(baseGemInventoryCountLabels[index], 25);
             }
         }
@@ -976,6 +1910,265 @@ namespace Match3RPG.Campaign
             }
         }
 
+        void CreateStarChartZoomControls(Transform parent)
+        {
+            totalBuffButton = CreateStarChartControlButton(parent, "TotalBuffButton",
+                new Vector2(.313f, .25f), new Vector2(.517f, .292f), "Tổng chỉ số",
+                20, OpenTotalBuffPopup);
+            CreateStarChartControlButton(parent, "StarChartZoomOut",
+                new Vector2(.528f, .25f), new Vector2(.602f, .292f), "−",
+                32, () => SetStarChartZoom(currentStarChartZoom - .2f));
+            CreateStarChartControlButton(parent, "StarChartZoomIn",
+                new Vector2(.613f, .25f), new Vector2(.687f, .292f), "+",
+                32, () => SetStarChartZoom(currentStarChartZoom + .2f));
+            breakthroughButton = CreateStarChartControlButton(parent, "BreakthroughButton", new Vector2(.698f, .25f), new Vector2(.90f, .292f), "ĐỘT PHÁ", 20, TryOpenBreakthroughPopup);
+            Transform breakthroughLabelTransform = parent != null ? parent.Find("BreakthroughButtonLabel") : null;
+            breakthroughButtonLabel = breakthroughLabelTransform != null
+                ? breakthroughLabelTransform.GetComponent<TMP_Text>()
+                : null;
+        }
+
+        Button CreateStarChartControlButton(Transform parent, string name,
+            Vector2 anchorMin, Vector2 anchorMax, string label, int fontSize,
+            UnityEngine.Events.UnityAction onClick)
+        {
+            Button button = CreateCharacterHitButton(parent, name,
+                anchorMin.x, anchorMin.y, anchorMax.x, anchorMax.y, onClick);
+            ConfigureOutlinedButton(button, new Color32(28, 35, 44, 245), Gold, 2.5f);
+            TMP_Text labelText = AddLabel(parent, $"{name}Label", label, fontSize,
+                Color.white, anchorMin, anchorMax, TextAlignmentOptions.Center);
+            labelText.raycastTarget = false;
+            return button;
+        }
+
+        static void ConfigureOutlinedButton(Button button, Color32 backgroundColor,
+            Color32 borderColor, float borderThickness)
+        {
+            if (button == null)
+                return;
+
+            Image image = button.GetComponent<Image>();
+            if (image != null)
+            {
+                image.color = backgroundColor;
+                image.raycastTarget = true;
+            }
+
+            button.transition = Selectable.Transition.None;
+            Outline outline = button.gameObject.GetComponent<Outline>();
+            if (outline == null)
+                outline = button.gameObject.AddComponent<Outline>();
+            outline.effectColor = borderColor;
+            outline.effectDistance = new Vector2(borderThickness, -borderThickness);
+        }
+
+        void CreateStarNodePopup()
+        {
+            starNodePopup = CreateAnchoredRect(starChartGraphicRect,
+                "StarNodePopup", new Vector2(.5f, .5f), new Vector2(.5f, .5f),
+                Vector2.zero, Vector2.zero);
+            starNodePopup.sizeDelta = new Vector2(440f, 300f);
+            starNodePopup.anchoredPosition = Vector2.zero;
+            Image popupBackground = starNodePopup.gameObject.AddComponent<Image>();
+            popupBackground.color = new Color32(18, 22, 28, 245);
+            popupBackground.raycastTarget = true;
+            Outline outline = starNodePopup.gameObject.AddComponent<Outline>();
+            outline.effectColor = new Color32(255, 214, 100, 255);
+            outline.effectDistance = new Vector2(3f, -3f);
+
+            starNodePopupText = CreateAnchoredLabel(starNodePopup, "StarNodePopupText",
+                string.Empty, 28, Color.white, new Vector2(.08f, .34f), new Vector2(.84f, .92f),
+                out TMP_Text popupText, TextAlignmentOptions.TopLeft);
+            starNodePopupText = popupText;
+            ApplyStarChartTextStyle(starNodePopupText, 28);
+            starNodePopupCloseButton = CreateCharacterHitButton(starNodePopup, "StarNodePopupClose",
+                .86f, .82f, .98f, .98f, HideStarNodePopup);
+            Image closeImage = starNodePopupCloseButton.GetComponent<Image>();
+            closeImage.color = new Color32(62, 45, 37, 255);
+            Outline closeOutline = starNodePopupCloseButton.gameObject.AddComponent<Outline>();
+            closeOutline.effectColor = Gold;
+            closeOutline.effectDistance = new Vector2(2f, -2f);
+            TMP_Text closeLabel = AddLabel(starNodePopup, "StarNodePopupCloseText", "X", 26, Gold,
+                new Vector2(.86f, .82f), new Vector2(.98f, .98f), TextAlignmentOptions.Center);
+            closeLabel.raycastTarget = false;
+
+            starNodePopupUpgradeButton = CreateCharacterHitButton(starNodePopup,
+                "StarNodePopupUpgrade", .30f, .06f, .70f, .27f,
+                UpgradePopupStar);
+            Image upgradeImage = starNodePopupUpgradeButton.GetComponent<Image>();
+            upgradeImage.color = new Color32(142, 106, 45, 255);
+            Outline upgradeOutline = starNodePopupUpgradeButton.gameObject.AddComponent<Outline>();
+            upgradeOutline.effectColor = Gold;
+            upgradeOutline.effectDistance = new Vector2(2f, -2f);
+            starNodePopupUpgradeLabel = AddLabel(starNodePopup,
+                "StarNodePopupUpgradeLabel", "Nâng cấp", 24, Color.white,
+                new Vector2(.30f, .06f), new Vector2(.70f, .27f),
+                TextAlignmentOptions.Center);
+            starNodePopupUpgradeLabel.raycastTarget = false;
+            starNodePopup.gameObject.SetActive(false);
+        }
+
+        void CreateTotalBuffPopup()
+        {
+            totalBuffPopup = CreateAnchoredRect(starChartUIGroup.transform, "TotalBuffPopup",
+                new Vector2(.25f, .28f), new Vector2(.75f, .58f),
+                Vector2.zero, Vector2.zero).gameObject;
+            Image popupBackground = totalBuffPopup.AddComponent<Image>();
+            popupBackground.color = new Color32(16, 20, 28, 230);
+            Outline popupOutline = totalBuffPopup.AddComponent<Outline>();
+            popupOutline.effectColor = Gold;
+            popupOutline.effectDistance = new Vector2(3f, -3f);
+            totalBuffPopupText = AddLabel(totalBuffPopup.transform, "TotalBuffPopupText",
+                string.Empty, 22, Color.white,
+                new Vector2(.06f, .15f), new Vector2(.94f, .82f),
+                TextAlignmentOptions.TopLeft);
+            ApplyStarChartTextStyle(totalBuffPopupText, 22);
+            Button closeButton = CreatePanelButton(totalBuffPopup.transform, "TotalBuffCloseButton",
+                "ĐÓNG", new Vector2(180f, 52f), new Vector2(.5f, .08f), new Color32(74, 54, 44, 255));
+            closeButton.onClick.AddListener(CloseTotalBuffPopup);
+            totalBuffPopup.SetActive(false);
+        }
+
+        void SetStarChartZoom(float targetZoom)
+        {
+            if (starChartGraphicRect == null || starChartContent == null)
+                return;
+            currentStarChartZoom = Mathf.Clamp(targetZoom, .6f, 2f);
+            RectTransform viewport = starChartContent.GetComponent<RectTransform>();
+            starChartGraphicRect.sizeDelta = viewport.rect.size * currentStarChartZoom;
+            if (starChartZoomScrollRect != null)
+            {
+                starChartZoomScrollRect.StopMovement();
+                starChartZoomScrollRect.normalizedPosition = Vector2.zero;
+            }
+        }
+
+        void OpenTotalBuffPopup()
+        {
+            HideStarNodePopup();
+            if (totalBuffPopup == null || totalBuffPopupText == null)
+                return;
+
+            StarChartStatBonuses totals = starChartGemInventory.GetTotalStatBonuses();
+            string summary = BuildTotalBuffSummary(totals);
+            totalBuffPopupText.text = summary;
+            totalBuffPopup.SetActive(true);
+            totalBuffPopup.transform.SetAsLastSibling();
+        }
+
+        void CloseTotalBuffPopup()
+        {
+            if (totalBuffPopup != null)
+                totalBuffPopup.SetActive(false);
+        }
+
+        string BuildTotalBuffSummary(StarChartStatBonuses totals)
+        {
+            if (totals.AttackStars == 0 && totals.ManaStars == 0
+                && totals.ExperienceStars == 0 && totals.RageStars == 0
+                && totals.HealthStars == 0 && totals.ShieldStars == 0
+                && totals.SoulStars == 0)
+            {
+                return "Chưa thắp sao nào\n\nLửa Đỏ: 0\nGiọt Nước: 0\nSen Tím: 0\nMặt Trời: 0\nLá Xanh: 0\nHộ Thuẫn: 0\nLửa Trắng: 0";
+            }
+
+            return string.Join("\n",
+                new[]
+                {
+                    $"Lửa Đỏ: +{totals.AttackStars} ATK",
+                    $"Giọt Nước: +{totals.ManaStars} Né · +{(totals.ManaStars * 0.5f).ToString("0.##", CultureInfo.InvariantCulture)} Chính xác · +{totals.ManaStars} Speed",
+                    $"Sen Tím: +{totals.ExperienceStars} EXP / viên Sen Tím",
+                    $"Mặt Trời: +{totals.RageStars}% Dame crit · +{totals.RageStars}% DEF",
+                    $"Lá Xanh: +{totals.HealthStars * 50} HP",
+                    $"Hộ Thuẫn: +{totals.ShieldStars * 10} giá trị gem Hộ Thuẫn",
+                    $"Lửa Trắng: +{totals.SoulStars} ATK soul"
+                });
+        }
+
+        void HideStarNodePopup()
+        {
+            if (starNodePopup != null)
+                starNodePopup.gameObject.SetActive(false);
+        }
+
+        void HideStarChartPopups()
+        {
+            HideStarNodePopup();
+            CloseTotalBuffPopup();
+        }
+
+        void ShowStarNodePopup(int branchIndex, int starIndex)
+        {
+            CloseTotalBuffPopup();
+            if (starNodePopup == null || starNodePopupText == null)
+                return;
+            if (branchIndex < 0 || branchIndex >= StarChartGemNames.Length)
+            {
+                HideStarNodePopup();
+                return;
+            }
+
+            popupStarBranchIndex = branchIndex;
+            popupStarIndex = starIndex;
+            int litCount = litStarsPerBranch[branchIndex];
+            bool lit = starIndex < litCount;
+            bool isNextStar = starIndex == litCount
+                && litCount < MainProgressChartGraphic.StarsPerBranch;
+            int available = starChartGemInventory.GetBaseGemCount(StarChartGemTypes[branchIndex]);
+            int cost = isNextStar
+                ? starChartGemInventory.GetStarCost(selectedStarChartRealmIndex, litCount)
+                : 0;
+            string status = lit ? "Đã thắp"
+                : isNextStar ? "Sẵn sàng" : "Chưa tới lượt";
+            string costLine = isNextStar
+                ? $"\nChi phí: {cost} gem · Có {available}"
+                : string.Empty;
+            if (isNextStar && available < cost)
+                status = "Chưa đủ gem";
+            starNodePopupText.text =
+                $"{StarChartGemNames[branchIndex]} · Sao {starIndex + 1}\n"
+                + $"{status}\n{StarChartStatDescriptions[branchIndex]}{costLine}";
+            starNodePopup.anchoredPosition = Vector2.zero;
+            UpdateStarNodePopupUpgradeState(lit, isNextStar && available >= cost);
+            starNodePopup.gameObject.SetActive(true);
+            starNodePopup.SetAsLastSibling();
+        }
+
+        void UpdateStarNodePopupUpgradeState(bool isLit, bool canUpgrade)
+        {
+            if (starNodePopupUpgradeButton == null || starNodePopupUpgradeLabel == null)
+                return;
+
+            starNodePopupUpgradeButton.interactable = !isLit && canUpgrade;
+            starNodePopupUpgradeLabel.text = isLit ? "Đã thắp" : "Nâng cấp";
+            Color buttonColor = isLit || !canUpgrade
+                ? new Color32(75, 79, 84, 235)
+                : new Color32(142, 106, 45, 255);
+            starNodePopupUpgradeButton.GetComponent<Image>().color = buttonColor;
+            starNodePopupUpgradeLabel.color = isLit || !canUpgrade
+                ? new Color32(170, 170, 170, 255)
+                : Color.white;
+        }
+
+        void UpgradePopupStar()
+        {
+            int branchIndex = popupStarBranchIndex;
+            int starIndex = popupStarIndex;
+            if (branchIndex < 0 || branchIndex >= StarChartGemTypes.Length)
+                return;
+
+            if (starIndex != litStarsPerBranch[branchIndex]
+                || litStarsPerBranch[branchIndex] >= MainProgressChartGraphic.StarsPerBranch)
+            {
+                ShowStarNodePopup(branchIndex, starIndex);
+                return;
+            }
+
+            selectedStarChartBranchIndex = branchIndex;
+            LightSelectedStar();
+            ShowStarNodePopup(branchIndex, starIndex);
+        }
+
         void AddChartImage(string objectName, Sprite sprite, Vector2 anchor, float size)
         {
             if (sprite == null)
@@ -1058,21 +2251,32 @@ namespace Match3RPG.Campaign
 
             StarChartBreakthroughStatus status =
                 starChartGemInventory.GetBreakthroughStatus(currentRealmIndex, progress);
-            if (!status.CanBreakthrough)
-            {
-                SetBreakthroughStatus(DescribeBreakthroughShortages(status, progress.level));
-                return;
-            }
-
             StarChartBreakthroughRequirement requirement = status.Requirement;
+            int currentStandard = requirement.StandardDiamonds - status.MissingStandardDiamonds;
+            int currentSpecial = requirement.SpecialDiamonds - status.MissingSpecialDiamonds;
+            string standardLine = status.MissingStandardDiamonds > 0
+                ? $"Kim cương Thường: {requirement.StandardDiamonds.ToString("N0", CultureInfo.InvariantCulture)} (có {currentStandard.ToString("N0", CultureInfo.InvariantCulture)}, thiếu {status.MissingStandardDiamonds.ToString("N0", CultureInfo.InvariantCulture)})"
+                : $"Kim cương Thường: {requirement.StandardDiamonds.ToString("N0", CultureInfo.InvariantCulture)} (có {currentStandard.ToString("N0", CultureInfo.InvariantCulture)})";
+            string specialLine = status.MissingSpecialDiamonds > 0
+                ? $"Kim cương Đặc Biệt: {requirement.SpecialDiamonds.ToString("N0", CultureInfo.InvariantCulture)} (có {currentSpecial.ToString("N0", CultureInfo.InvariantCulture)}, thiếu {status.MissingSpecialDiamonds.ToString("N0", CultureInfo.InvariantCulture)})"
+                : $"Kim cương Đặc Biệt: {requirement.SpecialDiamonds.ToString("N0", CultureInfo.InvariantCulture)} (có {currentSpecial.ToString("N0", CultureInfo.InvariantCulture)})";
             breakthroughRequirementLabel.text =
                 $"{requirement.CurrentRealmName} Lv{requirement.RequiredLevel} → "
-                + $"{requirement.NextRealmName} Lv{requirement.TargetLevel}\n\n"
-                + $"Kim cương Thường: {requirement.StandardDiamonds.ToString("N0", CultureInfo.InvariantCulture)}\n"
-                + $"Kim cương Đặc Biệt: {requirement.SpecialDiamonds.ToString("N0", CultureInfo.InvariantCulture)}\n"
-                + "Tiến độ sao cảnh giới hiện tại: 70/70";
+                + $"{requirement.NextRealmName} Lv{requirement.TargetLevel}\n"
+                + $"{standardLine}\n"
+                + $"{specialLine}\n"
+                + $"Cấp độ: Lv{progress.level} / cần Lv{requirement.RequiredLevel} · Sao: {status.LitStarCount}/70";
             breakthroughPopup.SetActive(true);
             breakthroughPopup.transform.SetAsLastSibling();
+            if (breakthroughConfirmButton != null)
+            {
+                breakthroughConfirmButton.interactable = status.CanBreakthrough;
+                Image confirmImage = breakthroughConfirmButton.GetComponent<Image>();
+                if (confirmImage != null)
+                    confirmImage.color = status.CanBreakthrough
+                        ? Gold
+                        : new Color32(74, 74, 78, 255);
+            }
         }
 
         void ConfirmBreakthrough()
@@ -1104,6 +2308,43 @@ namespace Match3RPG.Campaign
             SetBreakthroughStatus(
                 $"Đột phá thành công · {status.Requirement.NextRealmName} "
                 + $"Lv{status.Requirement.TargetLevel}.");
+            UpdateBreakthroughButtonState();
+        }
+
+        void UpdateBreakthroughButtonState()
+        {
+            if (breakthroughButton == null)
+                return;
+
+            HeroProgressSaveData progress = LoadSelectedHeroProgress();
+            if (progress == null)
+            {
+                breakthroughButton.interactable = false;
+                ConfigureOutlinedButton(breakthroughButton, new Color32(45, 48, 54, 245),
+                    new Color32(110, 115, 125, 255), 2.5f);
+                if (breakthroughButtonLabel != null)
+                    breakthroughButtonLabel.color = new Color32(150, 150, 150, 255);
+                return;
+            }
+
+            int currentRealmIndex = FindRealmIndex(progress.level);
+            bool enabled = selectedStarChartRealmIndex == currentRealmIndex
+                && currentRealmIndex < Realms.Length - 1
+                && starChartGemInventory.GetBreakthroughStatus(currentRealmIndex, progress).StarsReady;
+            breakthroughButton.interactable = enabled;
+            if (enabled)
+            {
+                ConfigureOutlinedButton(breakthroughButton, new Color32(28, 35, 44, 245), Gold, 2.5f);
+                if (breakthroughButtonLabel != null)
+                    breakthroughButtonLabel.color = Color.white;
+            }
+            else
+            {
+                ConfigureOutlinedButton(breakthroughButton, new Color32(45, 48, 54, 245),
+                    new Color32(110, 115, 125, 255), 2.5f);
+                if (breakthroughButtonLabel != null)
+                    breakthroughButtonLabel.color = new Color32(150, 150, 150, 255);
+            }
         }
 
         string DescribeBreakthroughShortages(StarChartBreakthroughStatus status,
@@ -1201,6 +2442,12 @@ namespace Match3RPG.Campaign
 
         void SelectStarChartNode(int branchIndex, int starIndex)
         {
+            if (branchIndex < 0)
+            {
+                HideStarNodePopup();
+                return;
+            }
+
             selectedStarChartBranchIndex = branchIndex;
             int nextStar = litStarsPerBranch[branchIndex];
             bool clickedLitStar = starIndex < nextStar;
@@ -1211,6 +2458,8 @@ namespace Match3RPG.Campaign
                 UpdateStarActionDetails();
                 SetStarChartStatus($"Nhánh này đã thắp đủ 10 sao · "
                     + StarChartStatDescriptions[branchIndex] + ".");
+                ShowStarNodePopup(branchIndex,
+                    clickedLitStar ? starIndex : MainProgressChartGraphic.StarsPerBranch - 1);
                 return;
             }
 
@@ -1225,6 +2474,7 @@ namespace Match3RPG.Campaign
                     : starIndex != nextStar
                         ? $"Thắp theo thứ tự · sao kế tiếp là nốt {nextStar + 1}."
                         : "Sẵn sàng thắp sao này.");
+            ShowStarNodePopup(branchIndex, displayedStar);
         }
 
         void RefreshSelectedRealmStars()
@@ -1242,6 +2492,7 @@ namespace Match3RPG.Campaign
             UpdateStarActionDetails();
             SetStarChartStatus(
                 "Mốc 1 sáng hiển thị trên cả 7 nhánh; tiến độ thật không đổi.");
+            UpdateBreakthroughButtonState();
         }
 
         void UpdateStarActionDetails()
@@ -1295,19 +2546,29 @@ namespace Match3RPG.Campaign
                 + $"{StarChartGemNames[selectedStarChartBranchIndex]}.");
         }
 
-        void SelectCultivationTab(bool showSkills)
+        void SelectCharacterTab(int tabIndex)
         {
+            selectedCharacterTab = Mathf.Clamp(tabIndex, 0, 3);
+            HideStarChartPopups();
+            if (characterTabFocusRect != null)
+            {
+                characterTabFocusRect.anchorMin = CharacterTabAnchors[selectedCharacterTab].min;
+                characterTabFocusRect.anchorMax = CharacterTabAnchors[selectedCharacterTab].max;
+                characterTabFocusRect.offsetMin = Vector2.zero;
+                characterTabFocusRect.offsetMax = Vector2.zero;
+            }
+            for (int index = 0; index < characterTabButtons.Length; index++)
+                if (characterTabButtons[index] != null)
+                    characterTabButtons[index].interactable = index != selectedCharacterTab;
             if (skillsPlaceholder != null)
-                skillsPlaceholder.SetActive(showSkills);
+                skillsPlaceholder.SetActive(selectedCharacterTab == 0);
             if (starChartUIGroup != null)
-                starChartUIGroup.SetActive(!showSkills);
-            if (cultivationBackgroundImage != null)
-                cultivationBackgroundImage.sprite = GetSpriteAt(
-                    inventoryScreenBackgrounds, showSkills ? 3 : 4);
-            if (skillsTabButton != null)
-                skillsTabButton.interactable = !showSkills;
-            if (starChartTabButton != null)
-                starChartTabButton.interactable = showSkills;
+                starChartUIGroup.SetActive(selectedCharacterTab == 1);
+            if (selectedCharacterTab == 1)
+            {
+                RefreshBaseGemInventory();
+                UpdateBreakthroughButtonState();
+            }
         }
 
         RectTransform CreateOverlay(string name)
@@ -1342,6 +2603,175 @@ namespace Match3RPG.Campaign
             rect.anchorMin = rect.anchorMax = anchorPosition;
             rect.anchoredPosition = Vector2.zero;
             return button;
+        }
+
+        string GetPlayerName()
+        {
+            SaveManager saveManager = SaveManager.Instance;
+            GameSaveData save = saveManager.CurrentSave ?? saveManager.LoadOrCreate();
+            if (save != null && !string.IsNullOrWhiteSpace(save.playerName))
+                return save.playerName;
+            return GameSaveData.DefaultPlayerName;
+        }
+
+        void RefreshBannerInfo()
+        {
+            if (bannerPlayerNameLabel != null)
+                bannerPlayerNameLabel.text = GetPlayerName();
+
+            if (bannerLevelExpRealmLabel != null)
+            {
+                HeroProgressSaveData progress = LoadSelectedHeroProgress();
+                int level = progress != null ? Math.Max(1, progress.level) : 1;
+                int exp = progress != null ? Math.Max(0, progress.experience) : 0;
+                int threshold = HeroLevelProgression.GetExperienceToNextLevel(level);
+                int expPercent = threshold > 0
+                    ? Mathf.Clamp((int)Math.Round((double)exp / threshold * 100.0), 0, 100)
+                    : 100;
+                int realmIndex = FindRealmIndex(level);
+                string realmName = Realms[realmIndex].Name;
+                bannerLevelExpRealmLabel.text = $"Lv.{level} · {expPercent}% · Cảnh Giới: {realmName}";
+            }
+        }
+
+        void OpenRenamePopup()
+        {
+            if (renamePopup == null)
+                renamePopup = BuildRenamePopup(canvas.transform).gameObject;
+
+            string currentName = GetPlayerName();
+            if (renameInputField != null)
+            {
+                renameInputField.text = currentName;
+                renameInputField.ActivateInputField();
+            }
+
+            renamePopup.SetActive(true);
+            renamePopup.transform.SetAsLastSibling();
+        }
+
+        void CloseRenamePopup()
+        {
+            if (renamePopup != null)
+                renamePopup.SetActive(false);
+        }
+
+        void ConfirmRename()
+        {
+            if (renameInputField == null)
+                return;
+
+            string entered = renameInputField.text != null ? renameInputField.text.Trim() : string.Empty;
+            if (string.IsNullOrEmpty(entered))
+                return;
+
+            SaveManager saveManager = SaveManager.Instance;
+            GameSaveData save = saveManager.CurrentSave ?? saveManager.LoadOrCreate();
+            save.playerName = entered;
+            saveManager.SaveNow();
+
+            if (bannerPlayerNameLabel != null)
+                bannerPlayerNameLabel.text = entered;
+
+            CloseRenamePopup();
+        }
+
+        RectTransform BuildRenamePopup(Transform parent)
+        {
+            RectTransform popup = CreateAnchoredRect(parent, "RenamePopup",
+                Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            Image backdrop = popup.gameObject.AddComponent<Image>();
+            backdrop.color = new Color(0f, 0f, 0f, .82f);
+            backdrop.raycastTarget = true;
+
+            RectTransform card = CreateAnchoredRect(popup, "RenameCard",
+                new Vector2(.10f, .36f), new Vector2(.90f, .64f),
+                Vector2.zero, Vector2.zero);
+            SetImage(card.gameObject, new Color32(24, 30, 40, 255), false);
+            Outline outline = card.gameObject.AddComponent<Outline>();
+            outline.effectColor = Gold;
+            outline.effectDistance = new Vector2(3f, -3f);
+
+            AddLabel(card, "RenameTitle", "Đổi Tên", 32, Gold,
+                new Vector2(.08f, .74f), new Vector2(.92f, .94f));
+
+            Button closeX = CreatePanelButton(card, "RenameCloseX", "X",
+                new Vector2(44f, 44f), new Vector2(.92f, .85f), new Color32(74, 54, 44, 255));
+            closeX.onClick.AddListener(CloseRenamePopup);
+
+            renameInputField = CreateRenameInputField(card, "RenameInputField",
+                new Vector2(.10f, .44f), new Vector2(.90f, .66f));
+
+            Button cancel = CreatePanelButton(card, "RenameCancel", "HỦY",
+                new Vector2(170f, 54f), new Vector2(.28f, .18f), new Color32(74, 54, 44, 255));
+            cancel.onClick.AddListener(CloseRenamePopup);
+
+            Button confirm = CreatePanelButton(card, "RenameConfirm", "XÁC NHẬN",
+                new Vector2(190f, 54f), new Vector2(.72f, .18f), Gold);
+            confirm.onClick.AddListener(ConfirmRename);
+
+            popup.gameObject.SetActive(false);
+            return popup;
+        }
+
+        TMP_InputField CreateRenameInputField(Transform parent, string name,
+            Vector2 anchorMin, Vector2 anchorMax)
+        {
+            RectTransform inputRoot = CreateAnchoredRect(parent, name,
+                anchorMin, anchorMax, Vector2.zero, Vector2.zero);
+            Image bg = inputRoot.gameObject.AddComponent<Image>();
+            bg.color = new Color32(14, 18, 24, 255);
+            Outline outline = inputRoot.gameObject.AddComponent<Outline>();
+            outline.effectColor = MutedGold;
+            outline.effectDistance = new Vector2(1.5f, -1.5f);
+
+            RectTransform textArea = CreateAnchoredRect(inputRoot, "Text Area",
+                Vector2.zero, Vector2.one, new Vector2(12f, 4f), new Vector2(-12f, -4f));
+            textArea.gameObject.AddComponent<RectMask2D>();
+
+            RectTransform placeholderRect = CreateAnchoredRect(textArea, "Placeholder",
+                Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            TextMeshProUGUI placeholder = placeholderRect.gameObject.AddComponent<TextMeshProUGUI>();
+            placeholder.text = "Nhập tên người chơi...";
+            placeholder.fontSize = 24;
+            placeholder.fontStyle = FontStyles.Italic;
+            placeholder.color = new Color(0.6f, 0.6f, 0.6f, 0.5f);
+            placeholder.alignment = TextAlignmentOptions.MidlineLeft;
+            placeholder.textWrappingMode = TextWrappingModes.NoWrap;
+            placeholder.raycastTarget = false;
+            if (starChartFont != null)
+                placeholder.font = starChartFont;
+            else if (TMP_Settings.defaultFontAsset != null)
+                placeholder.font = TMP_Settings.defaultFontAsset;
+
+            RectTransform textRect = CreateAnchoredRect(textArea, "Text",
+                Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            TextMeshProUGUI textComponent = textRect.gameObject.AddComponent<TextMeshProUGUI>();
+            textComponent.fontSize = 24;
+            textComponent.color = Color.white;
+            textComponent.alignment = TextAlignmentOptions.MidlineLeft;
+            textComponent.textWrappingMode = TextWrappingModes.NoWrap;
+            textComponent.raycastTarget = false;
+            if (starChartFont != null)
+                textComponent.font = starChartFont;
+            else if (TMP_Settings.defaultFontAsset != null)
+                textComponent.font = TMP_Settings.defaultFontAsset;
+
+            TMP_InputField inputField = inputRoot.gameObject.AddComponent<TMP_InputField>();
+            inputField.textViewport = textArea;
+            inputField.textComponent = textComponent;
+            inputField.placeholder = placeholder;
+            inputField.fontAsset = textComponent.font;
+            inputField.pointSize = 24;
+            inputField.characterLimit = 20;
+            inputField.lineType = TMP_InputField.LineType.SingleLine;
+            inputField.interactable = true;
+            inputField.targetGraphic = bg;
+            inputField.caretColor = Gold;
+            inputField.selectionColor = new Color32(231, 190, 110, 80);
+            inputField.onSubmit.AddListener(_ => ConfirmRename());
+
+            return inputField;
         }
 
         static RectTransform CreateAnchoredRect(Transform parent, string name,
@@ -1410,7 +2840,13 @@ namespace Match3RPG.Campaign
                     save.inventory, config.GetItem);
             return new RuntimeHeroStats(hero, progress, equipmentStats.AttackBonus,
                 equipmentStats.MaxHealthBonus,
-                starChartGemInventory.GetTotalStatBonuses());
+                starChartGemInventory.GetTotalStatBonuses(),
+                equipmentStats.AttackPercentBonus,
+                equipmentStats.MaxHealthPercentBonus,
+                equipmentStats.DefensePercentBonus,
+                equipmentStats.CritRatePercentBonus,
+                equipmentStats.SpeedBonus,
+                equipmentStats.CritDamagePercentBonus);
         }
 
         HeroProgressSaveData LoadSelectedHeroProgress()

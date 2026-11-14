@@ -16,5 +16,5 @@ MonoBehaviour:
   staticCharacterSprite: {fileID: 3397870785606655110, guid: 245f3c434ea87c84c9d67e22d7248d56, type: 3}
   baseMeditationScale: 1.1
   meditationScaleMultiplier: 1.28
-  mainProgressCharacterOffset: {x: 0, y: -18}
-  lotusAnchor: {x: 0.5, y: 0.38}
+  mainProgressCharacterOffset: {x: 0, y: -140}
+  lotusAnchor: {x: 0.60, y: 0.31}

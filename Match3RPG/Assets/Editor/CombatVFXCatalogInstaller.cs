@@ -64,7 +64,7 @@ namespace Match3RPG.Editor
                 if (VfxTypes[index] == CombatVFXType.Heal)
                     frames[index] = LoadFrameSprites(HealingAuraPath, "HealingAura", 72);
                 else if (VfxTypes[index] == CombatVFXType.LifeSteal)
-                    frames[index] = LoadFrameSprites(LifeStealPath, "LifeSteal", 60);
+                    frames[index] = LoadFrameSprites(LifeStealPath, "LifeSteal", 40);
                 else if (VfxTypes[index] == CombatVFXType.RageReady)
                     frames[index] = LoadFrameSprites(RageAuraPath, "RageAura", 30);
 
@@ -110,9 +110,9 @@ namespace Match3RPG.Editor
                 }
                 if (string.Equals(assetPath, LifeStealPath, StringComparison.OrdinalIgnoreCase))
                 {
-                    EnsureFrameSheetImportSettings(assetPath, "LifeSteal", 8, 8, 60,
-                        SpriteAlignment.Center, new Vector2(.5f, .5f));
-                    spriteCount += 60;
+                    EnsureFrameSheetImportSettings(assetPath, "LifeSteal", 8, 5, 40,
+                        SpriteAlignment.Center, new Vector2(.5f, .5f), 294);
+                    spriteCount += 40;
                     continue;
                 }
                 if (string.Equals(assetPath, RageAuraPath, StringComparison.OrdinalIgnoreCase))
@@ -166,7 +166,8 @@ namespace Match3RPG.Editor
         }
 
         static void EnsureFrameSheetImportSettings(string assetPath, string namePrefix,
-            int columns, int rows, int frameCount, SpriteAlignment alignment, Vector2 pivot)
+            int columns, int rows, int frameCount, SpriteAlignment alignment, Vector2 pivot,
+            int cellHeightOverride = 0)
         {
             TextureImporter importer = AssetImporter.GetAtPath(assetPath) as TextureImporter;
             if (importer == null)
@@ -183,9 +184,14 @@ namespace Match3RPG.Editor
             importer.SaveAndReimport();
 
             importer.GetSourceTextureWidthAndHeight(out int width, out int height);
-            if (width % columns != 0 || height % rows != 0)
+            int cellWidth = width / columns;
+            int cellHeight = cellHeightOverride > 0 ? cellHeightOverride : height / rows;
+            int verticalPadding = height - rows * cellHeight;
+            if (width % columns != 0 || cellHeight <= 0 || verticalPadding < 0
+                || verticalPadding >= cellHeight
+                || (cellHeightOverride == 0 && verticalPadding != 0))
                 throw new InvalidOperationException(
-                    $"Sprite sheet dimensions {width}x{height} do not divide evenly into {columns}x{rows}: {assetPath}");
+                    $"Sprite sheet dimensions {width}x{height} do not fit {columns}x{rows} cells: {assetPath}");
 
             SpriteDataProviderFactories factories = new SpriteDataProviderFactories();
             factories.Init();
@@ -194,8 +200,6 @@ namespace Match3RPG.Editor
             Dictionary<string, SpriteRect> existing = provider.GetSpriteRects()
                 .ToDictionary(sprite => sprite.name, sprite => sprite);
             SpriteRect[] rectangles = new SpriteRect[frameCount];
-            int cellWidth = width / columns;
-            int cellHeight = height / rows;
             for (int index = 0; index < frameCount; index++)
             {
                 int column = index % columns;

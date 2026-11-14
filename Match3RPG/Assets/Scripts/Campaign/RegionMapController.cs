@@ -470,7 +470,13 @@ namespace Match3RPG.Campaign
                 RuntimeHeroStats stats = new RuntimeHeroStats(heroData, progress,
                     equipmentStats.AttackBonus, equipmentStats.MaxHealthBonus,
                     new StarChartGemInventoryService(SaveManager.Instance)
-                        .GetTotalStatBonuses());
+                        .GetTotalStatBonuses(),
+                    equipmentStats.AttackPercentBonus,
+                    equipmentStats.MaxHealthPercentBonus,
+                    equipmentStats.DefensePercentBonus,
+                    equipmentStats.CritRatePercentBonus,
+                    equipmentStats.SpeedBonus,
+                    equipmentStats.CritDamagePercentBonus);
                 powerText.text = CombatPowerCalculator.Calculate(stats, GetLayout())
                     .ToString("N0", CultureInfo.InvariantCulture);
 
@@ -552,6 +558,7 @@ namespace Match3RPG.Campaign
                     Vector2.zero, Vector2.zero);
                 Image icon = iconRect.gameObject.AddComponent<Image>();
                 icon.sprite = entry.Icon;
+                icon.enabled = entry.Icon != null;
                 icon.color = Color.white;
                 icon.preserveAspect = true;
                 icon.raycastTarget = false;

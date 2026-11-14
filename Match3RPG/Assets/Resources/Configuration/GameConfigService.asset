@@ -17,7 +17,7 @@ MonoBehaviour:
   regionDatabase: {fileID: 11400000, guid: 46af6a115e6c92c4c9dffc6a9775d59a, type: 2}
   regionBossRosterDatabase: {fileID: 11400000, guid: a5ee84e30d53d734e8b580ba27bc62d7, type: 2}
   stageDatabase: {fileID: 11400000, guid: 8475061f07fdef64fa8ccd02e10c3cff, type: 2}
-  itemDatabase: {fileID: 0}
+  itemDatabase: {fileID: 11400000, guid: 92a00002c38e4940b7323fb24d14e801, type: 2}
   skillDatabase: {fileID: 0}
   petDatabase: {fileID: 0}
   companionDatabase: {fileID: 0}

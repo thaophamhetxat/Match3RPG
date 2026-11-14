@@ -22,7 +22,7 @@ namespace Match3RPG.Battle
         [SerializeField, Min(0)] private int heroAttack = 50;
         [SerializeField, Min(0)] private int heroSoulAttack = 50;
         [SerializeField, Min(0)] private int manaPerGem = 10;
-        [SerializeField, Min(0)] private int ragePerGem = 40;
+        [SerializeField, Min(0)] private int ragePerGem = 5;
         [SerializeField, Min(0)] private int shieldPerGem = 50;
         [SerializeField, Min(0)] private int drainHpPerGem = 50;
         [SerializeField, Min(0)] private int drainRagePerGem = 5;
@@ -106,11 +106,12 @@ namespace Match3RPG.Battle
             FloatingTextManager textManager = null, BossData bossData = null,
             CombatVFXManager vfxManager = null, BoardRageFireVFX boardRageFire = null,
             HeroData heroData = null, RuntimeHeroStats? runtimeHeroStats = null,
-            RuntimeBossStats? runtimeBossStats = null)
+            RuntimeBossStats? runtimeBossStats = null, int equipmentRagePerGemBonus = 0)
         {
             heroProgressionConfigured = false;
             heroBattleEntryLevel = 1;
             soulDamageEnabled = false;
+            ragePerGem = AddNonNegative(5, equipmentRagePerGemBonus);
             if (runtimeHeroStats.HasValue)
             {
                 RuntimeHeroStats stats = runtimeHeroStats.Value;

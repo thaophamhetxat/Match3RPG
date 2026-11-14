@@ -19,7 +19,6 @@ namespace Match3RPG.Editor
         const string RegionDataFolder = CampaignFolder + "/Regions";
         const string BossDataFolder = CampaignFolder + "/Bosses";
         const string CatalogPath = CampaignFolder + "/CampaignCatalog.asset";
-        const string DevelopmentBossSpritePath = "Assets/Art/Bosses/Boss01/boss1_Idle.png";
         const string DevelopmentBossDataPath = BossDataFolder + "/DevelopmentBoss.asset";
         const string WorldScenePath = "Assets/Scenes/WorldMap.unity";
         const string RegionScenePath = "Assets/Scenes/RegionMap.unity";
@@ -226,7 +225,7 @@ namespace Match3RPG.Editor
             Sprite campaignBackButton = LoadOptionalMarker(CampaignBackButtonPath);
             Sprite campaignRegionHeader = LoadOptionalMarker(CampaignRegionHeaderPath);
             Sprite campaignTooltipFrame = LoadOptionalMarker(CampaignTooltipFramePath);
-            Sprite developmentBossPortrait = LoadBossSprite(DevelopmentBossSpritePath);
+            Sprite developmentBossPortrait = null;
             EnsureDevelopmentBossData(developmentBossPortrait);
 
             RegionData[] regions = new RegionData[RegionIds.Length];

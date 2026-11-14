@@ -63,10 +63,6 @@ namespace Match3RPG.Core
         [SerializeField] Sprite buttonPressedSprite;
         [SerializeField] Sprite battleBackgroundSprite;
         [SerializeField] Sprite battleLayoutV2Sprite;
-        [SerializeField] Sprite bossIdleSprite;
-        [SerializeField] Sprite tabBagSprite;
-        [SerializeField] Sprite tabSkillsSprite;
-        [SerializeField] Sprite tabSettingsSprite;
         [SerializeField] Sprite victorySprite;
         [SerializeField] Sprite defeatSprite;
         [SerializeField] Sprite heroHpBarSprite;
@@ -307,7 +303,13 @@ namespace Match3RPG.Core
             RuntimeHeroStats? runtimeHeroStats = selectedHeroData != null
                 ? new RuntimeHeroStats(selectedHeroData, heroProgress,
                     equipmentStats.AttackBonus, equipmentStats.MaxHealthBonus,
-                    new StarChartGemInventoryService(saveManager).GetTotalStatBonuses())
+                    new StarChartGemInventoryService(saveManager).GetTotalStatBonuses(),
+                    equipmentStats.AttackPercentBonus,
+                    equipmentStats.MaxHealthPercentBonus,
+                    equipmentStats.DefensePercentBonus,
+                    equipmentStats.CritRatePercentBonus,
+                    equipmentStats.SpeedBonus,
+                    equipmentStats.CritDamagePercentBonus)
                 : (RuntimeHeroStats?)null;
             RuntimeBossStats? runtimeBossStats = battleBossData != null
                 ? new RuntimeBossStats(battleBossData, bossLevel)
@@ -338,11 +340,9 @@ namespace Match3RPG.Core
                     + $"Dodge={(heroAnimationSet.DodgeClip != null ? "Available" : "Unavailable")}; "
                     + $"Rising={(heroAnimationSet.RisingClip != null ? "Available" : "Unavailable")}; "
                     + $"DeathFrames={heroAnimationSet.GetFrameCount(BattleCharacterAnimState.Death)}");
-            Sprite battleBossSprite = battleBossData != null && battleBossData.Portrait != null
-                ? battleBossData.Portrait
-                : bossIdleSprite;
+            Sprite battleBossSprite = battleBossData != null ? battleBossData.Portrait : null;
             if (battleBossData != null && battleBossData.Portrait == null)
-                Debug.LogWarning($"BossData '{battleBossData.BossId}' has no portrait; using the development Boss sprite.", this);
+                Debug.LogWarning($"BossData '{battleBossData.BossId}' has no portrait.", this);
             CharacterAnimationSet bossAnimationSet = battleBossData != null
                 ? battleBossData.AnimationSet
                 : null;
@@ -430,7 +430,12 @@ namespace Match3RPG.Core
                     ? battleBossData.HeadVfxAnchor : new Vector2(.5f, .82f),
                 floatingAnchorPosition: battleBossData != null
                     ? battleBossData.FloatingTextAnchor : new Vector2(.5f, .88f),
-                idleFeetPaddingFraction: GetIdleFeetPaddingFraction(bossAnimationSet));
+                idleFeetPaddingFraction: GetIdleFeetPaddingFraction(bossAnimationSet),
+                attackNormalizationMultiplier: bossAnimationSet != null
+                    ? bossAnimationSet.AttackNormalizationScaleMultiplier
+                    : 1f,
+                attackInPlace: bossAnimationSet != null && bossAnimationSet.AttackInPlace,
+                idleFacesForward: bossAnimationSet != null && bossAnimationSet.IdleFacesForward);
             combatVfx.Configure(Resources.Load<CombatVFXCatalog>("CombatVFX/CombatVFXCatalog"),
                 effectLayer, heroCharacterView, bossCharacterView);
 
@@ -601,7 +606,7 @@ namespace Match3RPG.Core
             floatingTexts.Configure();
             controller.Configure(heroCharacterView, bossCharacterView, hud, floatingTexts,
                 battleBossData, combatVfx, boardRageFireVfx, selectedHeroData,
-                runtimeHeroStats, runtimeBossStats);
+                runtimeHeroStats, runtimeBossStats, equipmentStats.RagePerGemBonus);
 
             GameObject bossAIObject = new GameObject("BossAI");
             BossAI bossAI = bossAIObject.AddComponent<BossAI>();
@@ -611,8 +616,7 @@ namespace Match3RPG.Core
 
             GameObject statusPopupObject = new GameObject("BattleStatusPopup", typeof(RectTransform));
             BattleStatusPopup statusPopup = statusPopupObject.AddComponent<BattleStatusPopup>();
-            statusPopup.Configure(canvasRect, tabBagSprite,
-                tabSkillsSprite, tabSettingsSprite, turnManager, board,
+            statusPopup.Configure(canvasRect, turnManager, board,
                 boardSelectionOverlay, specialVfx, boardRageFireVfx, combatVfx,
                 floatingTexts, campaign);
             menuHitAreaRect = CreateMenuHitArea(battleLayoutReferenceRoot, statusPopup);
@@ -751,7 +755,7 @@ namespace Match3RPG.Core
                 float sourceAspect = sourceWidth > 0f && sourceHeight > 0f ? sourceWidth / sourceHeight : 0f;
                 Debug.Log("[BattleLayoutRuntime] "
                     + $"viewportWidth={canvasWidth:F1} viewportHeight={canvasHeight:F1} "
-                    + "referenceWidth=1080 referenceHeight=1920 "
+                    + "referenceWidth=1080 referenceHeight=2400 "
                     + $"uniformFitScale={uniformFitScale:F4} "
                     + $"BattleLayoutReferenceRootFinalSize=({battleLayoutReferenceRoot.rect.width:F1}, {battleLayoutReferenceRoot.rect.height:F1}) "
                     + $"BattleLayoutV2BackgroundFinalSize=({(battleLayoutV2BackgroundImage != null ? battleLayoutV2BackgroundImage.rectTransform.rect.width : 0f):F1}, {(battleLayoutV2BackgroundImage != null ? battleLayoutV2BackgroundImage.rectTransform.rect.height : 0f):F1}) "
@@ -801,7 +805,7 @@ namespace Match3RPG.Core
             float cellHeight = (gridRect.rect.height
                 - boardGrid.spacing.y * (RuntimeBoardSize - 1)) / RuntimeBoardSize;
             float cellSize = Mathf.Min(cellWidth, cellHeight);
-            boardGrid.cellSize = Vector2.one * cellSize;
+            boardGrid.cellSize = new Vector2(cellWidth, cellHeight);
             cellBackgroundGrid.cellSize = boardGrid.cellSize;
             boardRootRect.localScale = Vector3.one;
             cellBackgroundGridRect.localScale = Vector3.one;
@@ -889,7 +893,9 @@ namespace Match3RPG.Core
             float scaleTransitionDuration = HeroPresentationConfig.DefaultVisualScaleTransitionDuration,
             float specAttackNormalizationMultiplier = 1f, float skillNormalizationMultiplier = 1f,
             Vector2? vfxAnchorPosition = null, Vector2? headVfxAnchorPosition = null,
-            Vector2? floatingAnchorPosition = null, float idleFeetPaddingFraction = 0f)
+            Vector2? floatingAnchorPosition = null, float idleFeetPaddingFraction = 0f,
+            float attackNormalizationMultiplier = 1f,
+            bool attackInPlace = false, bool idleFacesForward = false)
         {
             RectTransform characterRoot = CreateRect(objectName, parent, min, max, Vector2.zero, Vector2.zero);
             RectTransform visualRect = CreateRect("CharacterVisual", characterRoot, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
@@ -917,7 +923,8 @@ namespace Match3RPG.Core
                 facingDirection, spriteFacingDirection, animationDriver,
                 idleNormalizationMultiplier, scaleTransitionDuration,
                 specAttackNormalizationMultiplier, skillNormalizationMultiplier,
-                idleFeetPaddingFraction);
+                idleFeetPaddingFraction, attackNormalizationMultiplier,
+                attackInPlace, idleFacesForward);
             RectTransform floatingTextAnchor = CreateRect("FloatingTextAnchor", characterRoot,
                 floatingAnchorPosition ?? new Vector2(.5f, .88f),
                 floatingAnchorPosition ?? new Vector2(.5f, .88f), Vector2.zero, Vector2.zero);
@@ -935,10 +942,15 @@ namespace Match3RPG.Core
             RectTransform headVfxAnchor = CreateRect("HeadVFXAnchor", characterRoot,
                 headVfxAnchorPosition ?? new Vector2(.5f, .82f),
                 headVfxAnchorPosition ?? new Vector2(.5f, .82f), Vector2.zero, Vector2.zero);
+            const float healAnchorY = 0.41f;
+            RectTransform healAnchor = CreateRect("HealAnchor", characterRoot,
+                new Vector2(.5f, healAnchorY),
+                new Vector2(.5f, healAnchorY), Vector2.zero, Vector2.zero);
             vfxAnchor.SetAsLastSibling();
             persistentVfxAnchor.SetAsLastSibling();
             headVfxAnchor.SetAsLastSibling();
-            view.SetCombatVFXAnchors(vfxAnchor, persistentVfxAnchor, headVfxAnchor);
+            healAnchor.SetAsLastSibling();
+            view.SetCombatVFXAnchors(vfxAnchor, persistentVfxAnchor, headVfxAnchor, healAnchor);
             if (characterSprite == null)
                 Debug.LogWarning($"Character sprite missing for {objectName}; using the existing placeholder.", this);
             return view;

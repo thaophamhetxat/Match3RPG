@@ -106,7 +106,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -132,7 +132,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -145,7 +145,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -158,7 +158,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -171,7 +171,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: WebGL
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -189,19 +189,19 @@ TextureImporter:
       name: Armor_idle_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 780
-        width: 206
-        height: 223
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 0
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1e9f6c510161126d0800000000000000
+      spriteID: f94dd89d4cac07e4baa155b818453d9f
       internalID: -3017106017020872223
       vertices: []
       indices: 
@@ -211,19 +211,19 @@ TextureImporter:
       name: Armor_idle_1
       rect:
         serializedVersion: 2
-        x: 260
-        y: 780
-        width: 206
-        height: 223
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 256
+        y: 0
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 38dbd833114eb2480800000000000000
+      spriteID: 66a1b5db40b9ed245af39efac9430112
       internalID: -8922787474174001789
       vertices: []
       indices: 
@@ -233,19 +233,19 @@ TextureImporter:
       name: Armor_idle_2
       rect:
         serializedVersion: 2
-        x: 518
-        y: 781
-        width: 203
-        height: 222
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 512
+        y: 0
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0aef216785f59cb40800000000000000
+      spriteID: e949bca20285c824f90748b77272ed42
       internalID: 5461000856706154144
       vertices: []
       indices: 
@@ -255,19 +255,19 @@ TextureImporter:
       name: Armor_idle_3
       rect:
         serializedVersion: 2
-        x: 774
-        y: 780
-        width: 202
-        height: 223
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 768
+        y: 0
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 37bb6daddb386ce30800000000000000
+      spriteID: ad8c20d836bca8c4c9a5ba24f26aec9c
       internalID: 4523447727183805299
       vertices: []
       indices: 
@@ -277,19 +277,19 @@ TextureImporter:
       name: Armor_idle_4
       rect:
         serializedVersion: 2
-        x: 1031
-        y: 780
-        width: 200
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 0
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f7db4ddf68b809260800000000000000
+      spriteID: c16a8e72912b165439c96b5848c9dace
       internalID: 7102330024263728511
       vertices: []
       indices: 
@@ -299,19 +299,19 @@ TextureImporter:
       name: Armor_idle_5
       rect:
         serializedVersion: 2
-        x: 8
-        y: 524
-        width: 199
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 256
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 2ac4495381966e120800000000000000
+      spriteID: 332815995286a744a8374b2404de87b5
       internalID: 2442755400594115746
       vertices: []
       indices: 
@@ -321,19 +321,19 @@ TextureImporter:
       name: Armor_idle_6
       rect:
         serializedVersion: 2
-        x: 264
-        y: 524
-        width: 199
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 256
+        y: 256
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6f6dc2fb3720d20e0800000000000000
+      spriteID: 6afd2fff6b7391641a3a32fd18fa4502
       internalID: -2293173939109832970
       vertices: []
       indices: 
@@ -343,19 +343,19 @@ TextureImporter:
       name: Armor_idle_7
       rect:
         serializedVersion: 2
-        x: 520
-        y: 524
-        width: 199
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 512
+        y: 256
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 21d84d8063aafa640800000000000000
+      spriteID: 8681f883983db724b95418b383d4b238
       internalID: 5093476852632423698
       vertices: []
       indices: 
@@ -365,19 +365,19 @@ TextureImporter:
       name: Armor_idle_8
       rect:
         serializedVersion: 2
-        x: 775
-        y: 524
-        width: 200
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 768
+        y: 256
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: de0257566e14f4650800000000000000
+      spriteID: 134e024037215aa42af66153d2dbf040
       internalID: 6219262068222402797
       vertices: []
       indices: 
@@ -387,19 +387,19 @@ TextureImporter:
       name: Armor_idle_9
       rect:
         serializedVersion: 2
-        x: 1031
-        y: 524
-        width: 201
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 256
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 97adf88c70c1e8fb0800000000000000
+      spriteID: 9d2ba0b7054a5b344a0ec7d351f90049
       internalID: -4643743346017183111
       vertices: []
       indices: 
@@ -409,19 +409,19 @@ TextureImporter:
       name: Armor_idle_10
       rect:
         serializedVersion: 2
-        x: 6
-        y: 268
-        width: 203
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: eacc57d81820b06a0800000000000000
+      spriteID: f8e4e772fa6e0a64483b1b2f60f7b637
       internalID: -6482084483222352722
       vertices: []
       indices: 
@@ -431,19 +431,19 @@ TextureImporter:
       name: Armor_idle_11
       rect:
         serializedVersion: 2
-        x: 261
-        y: 268
-        width: 204
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3a21ec3d84bb43f60800000000000000
+      spriteID: d128d84a8b15c03488009a222ec8465f
       internalID: 8013235558464492195
       vertices: []
       indices: 
@@ -453,19 +453,19 @@ TextureImporter:
       name: Armor_idle_12
       rect:
         serializedVersion: 2
-        x: 515
-        y: 268
-        width: 207
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: fbd3806b434b491c0800000000000000
+      spriteID: e945c1646db099744ab94028c5870a71
       internalID: -4497771989350990401
       vertices: []
       indices: 
@@ -475,19 +475,19 @@ TextureImporter:
       name: Armor_idle_13
       rect:
         serializedVersion: 2
-        x: 767
-        y: 268
-        width: 212
-        height: 224
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 48207bd776a69b290800000000000000
+      spriteID: 7c084a37e71c0924e983f11e93dd4196
       internalID: -7874145480757280124
       vertices: []
       indices: 
@@ -497,19 +497,19 @@ TextureImporter:
       name: Armor_idle_14
       rect:
         serializedVersion: 2
-        x: 1026
-        y: 268
-        width: 209
-        height: 223
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 942bd2f66f0e3bf20800000000000000
+      spriteID: 21d4540ae8d7e6b45b85788cd25bbfa5
       internalID: 3437338289645662793
       vertices: []
       indices: 
@@ -519,19 +519,19 @@ TextureImporter:
       name: Armor_idle_15
       rect:
         serializedVersion: 2
-        x: 1230
-        y: 388
-        width: 6
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1093f224deb1e3bd0800000000000000
+      spriteID: dc7afbdc947f9f54a8f526527d93e233
       internalID: -2648648825015682815
       vertices: []
       indices: 
@@ -541,19 +541,19 @@ TextureImporter:
       name: Armor_idle_16
       rect:
         serializedVersion: 2
-        x: 2
-        y: 13
-        width: 210
-        height: 222
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: f67d20136db71d1e0800000000000000
+      spriteID: 9f20725369714e640909a66f1d0e9634
       internalID: -2174820985167751313
       vertices: []
       indices: 
@@ -563,19 +563,19 @@ TextureImporter:
       name: Armor_idle_17
       rect:
         serializedVersion: 2
-        x: 258
-        y: 12
-        width: 210
-        height: 223
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 3260c4a6bdca057f0800000000000000
+      spriteID: a6728e7538e80364e90566eeb8390226
       internalID: -625810289823316445
       vertices: []
       indices: 
@@ -585,19 +585,19 @@ TextureImporter:
       name: Armor_idle_18
       rect:
         serializedVersion: 2
-        x: 514
-        y: 12
-        width: 210
-        height: 223
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7d24cb08d30f09a00800000000000000
+      spriteID: a3eff6f3d898b2049af3b124bba317b3
       internalID: 761372483969106647
       vertices: []
       indices: 
@@ -607,42 +607,20 @@ TextureImporter:
       name: Armor_idle_19
       rect:
         serializedVersion: 2
-        x: 770
-        y: 12
-        width: 209
-        height: 223
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1024
+        y: 768
+        width: 256
+        height: 256
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: dfefcb61ce9baa6d0800000000000000
+      spriteID: 5367e67b5bc04f346a59fe1a54ec3613
       internalID: -2978363779907256579
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Armor_idle_20
-      rect:
-        serializedVersion: 2
-        x: 1027
-        y: 12
-        width: 208
-        height: 223
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1459b1b829edc9720800000000000000
-      internalID: 2854400984826484033
       vertices: []
       indices: 
       edges: []
@@ -660,7 +638,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Armor_idle_0: -3017106017020872223
+      Armor_idle_1: -8922787474174001789
+      Armor_idle_10: -6482084483222352722
+      Armor_idle_11: 8013235558464492195
+      Armor_idle_12: -4497771989350990401
+      Armor_idle_13: -7874145480757280124
+      Armor_idle_14: 3437338289645662793
+      Armor_idle_15: -2648648825015682815
+      Armor_idle_16: -2174820985167751313
+      Armor_idle_17: -625810289823316445
+      Armor_idle_18: 761372483969106647
+      Armor_idle_19: -2978363779907256579
+      Armor_idle_2: 5461000856706154144
+      Armor_idle_3: 4523447727183805299
+      Armor_idle_4: 7102330024263728511
+      Armor_idle_5: 2442755400594115746
+      Armor_idle_6: -2293173939109832970
+      Armor_idle_7: 5093476852632423698
+      Armor_idle_8: 6219262068222402797
+      Armor_idle_9: -4643743346017183111
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -20,8 +20,6 @@ namespace Match3RPG.Editor
             "Assets/Resources/Configuration/StageChallengePopupLayout.asset";
         const string GameConfigPath =
             "Assets/Resources/Configuration/GameConfigService.asset";
-        const string GoldIconPath = "Assets/Art/UI/Campaign/Icons/Icon_Coin.png";
-        const string ExperienceIconPath = "Assets/Art/UI/Campaign/Icons/Icon_EXP.png";
 
         [InitializeOnLoadMethod]
         static void ScheduleMissingSceneSetup()
@@ -41,14 +39,11 @@ namespace Match3RPG.Editor
         {
             ConfigureSpriteImporter(PopupSpritePath);
             Sprite popupSprite = AssetDatabase.LoadAssetAtPath<Sprite>(PopupSpritePath);
-            Sprite goldIcon = AssetDatabase.LoadAssetAtPath<Sprite>(GoldIconPath);
-            Sprite experienceIcon = AssetDatabase.LoadAssetAtPath<Sprite>(ExperienceIconPath);
             StageChallengePopupLayoutConfig layout =
                 AssetDatabase.LoadAssetAtPath<StageChallengePopupLayoutConfig>(LayoutPath);
             GameConfigService gameConfig =
                 AssetDatabase.LoadAssetAtPath<GameConfigService>(GameConfigPath);
-            if (popupSprite == null || goldIcon == null || experienceIcon == null
-                || layout == null || gameConfig == null)
+            if (popupSprite == null || layout == null || gameConfig == null)
                 throw new System.InvalidOperationException(
                     "Stage challenge popup art, reward icons, or layout config could not be loaded.");
 
@@ -64,8 +59,7 @@ namespace Match3RPG.Editor
                 throw new System.InvalidOperationException(
                     "RegionMapController was not found in the RegionMap scene.");
 
-            ApplySceneSetup(controller, scene, popupSprite, layout, gameConfig,
-                goldIcon, experienceIcon);
+            ApplySceneSetup(controller, scene, popupSprite, layout, gameConfig);
             EditorSceneManager.SaveScene(scene);
             AssetDatabase.SaveAssets();
         }
@@ -77,14 +71,11 @@ namespace Match3RPG.Editor
                 return;
 
             Sprite popupSprite = AssetDatabase.LoadAssetAtPath<Sprite>(PopupSpritePath);
-            Sprite goldIcon = AssetDatabase.LoadAssetAtPath<Sprite>(GoldIconPath);
-            Sprite experienceIcon = AssetDatabase.LoadAssetAtPath<Sprite>(ExperienceIconPath);
             StageChallengePopupLayoutConfig layout =
                 AssetDatabase.LoadAssetAtPath<StageChallengePopupLayoutConfig>(LayoutPath);
             GameConfigService gameConfig =
                 AssetDatabase.LoadAssetAtPath<GameConfigService>(GameConfigPath);
-            if (popupSprite == null || goldIcon == null || experienceIcon == null
-                || layout == null || gameConfig == null)
+            if (popupSprite == null || layout == null || gameConfig == null)
             {
                 Debug.LogError("Stage challenge popup scene setup could not load its art, layout, or configuration assets.");
                 return;
@@ -108,8 +99,7 @@ namespace Match3RPG.Editor
                 if (existing.FindProperty("regionMapCanvas").objectReferenceValue != null)
                     return;
 
-                ApplySceneSetup(controller, scene, popupSprite, layout, gameConfig,
-                    goldIcon, experienceIcon);
+                ApplySceneSetup(controller, scene, popupSprite, layout, gameConfig);
                 EditorSceneManager.SaveScene(scene);
                 AssetDatabase.SaveAssets();
             }
@@ -121,14 +111,8 @@ namespace Match3RPG.Editor
 
         static void ApplySceneSetup(RegionMapController controller, Scene scene,
             Sprite popupSprite, StageChallengePopupLayoutConfig layout,
-            GameConfigService gameConfig, Sprite goldIcon, Sprite experienceIcon)
+            GameConfigService gameConfig)
         {
-            var layoutObject = new SerializedObject(layout);
-            layoutObject.FindProperty("goldIcon").objectReferenceValue = goldIcon;
-            layoutObject.FindProperty("experienceIcon").objectReferenceValue = experienceIcon;
-            layoutObject.ApplyModifiedPropertiesWithoutUndo();
-            EditorUtility.SetDirty(layout);
-
             var controllerObject = new SerializedObject(controller);
             controllerObject.FindProperty("stageChallengePopupSprite").objectReferenceValue = popupSprite;
             controllerObject.FindProperty("stageChallengeLayout").objectReferenceValue = layout;

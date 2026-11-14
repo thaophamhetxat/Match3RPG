@@ -83,8 +83,8 @@ MonoBehaviour:
   outlineWidth: 0.16
   idleFrameSeconds: 0.12
   maxRewardEntries: 6
-  goldIcon: {fileID: 21300000, guid: bcd5f2eabe89fdd4596af2774adbbe23, type: 3}
-  experienceIcon: {fileID: 21300000, guid: 647c25be21b3a514db4256edcddf96a2, type: 3}
+  goldIcon: {fileID: 0}
+  experienceIcon: {fileID: 0}
   combatPowerHpWeight: 1
   combatPowerAttackWeight: 10
   combatPowerLevelWeight: 100
