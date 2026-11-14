@@ -648,7 +648,7 @@ backgroundLayer.SetAsFirstSibling();
         {
             Button button = CreateCharacterHitButton(parent, $"Equipment_{slotName}",
                 minX, minY, maxX, maxY,
-                () => Debug.Log($"[MainProgress] Clicked=EquipmentSlot:{slotName}"));
+                () => OpenStatusItemPopup(slotIndex));
             RectTransform buttonRect = button.GetComponent<RectTransform>();
             RectTransform iconRect = CreateAnchoredRect(buttonRect, "EquippedIcon",
                 new Vector2(.08f, .08f), new Vector2(.92f, .92f),
@@ -748,6 +748,46 @@ backgroundLayer.SetAsFirstSibling();
                 iconImage.sprite = itemConfig.RewardIcon;
                 iconImage.gameObject.SetActive(true);
             }
+        }
+
+        void OpenStatusItemPopup(int slotIndex)
+        {
+            if (slotIndex < 0 || slotIndex >= StatusSlotEquipmentSlots.Length)
+                return;
+            // Tìm ItemConfig đang mặc ở ô này (đi đúng luồng
+            // RefreshEquippedSlotIcons: loadout → instance → GetItem).
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            if (config == null)
+                return;
+            SaveManager saveManager = SaveManager.Instance;
+            EquipmentService equipmentService = new EquipmentService(saveManager, config);
+            InventoryService inventoryService = new InventoryService(saveManager, config);
+            EquipmentSlot wantedSlot = StatusSlotEquipmentSlots[slotIndex];
+            ItemConfig equippedConfig = null;
+            foreach (EquipmentLoadoutSaveData entry in equipmentService.GetEquipmentLoadout())
+            {
+                if (entry == null || string.IsNullOrEmpty(entry.itemInstanceId))
+                    continue;
+                ItemInstanceSaveData instance = inventoryService.GetEquipmentInstance(
+                    entry.itemInstanceId);
+                if (instance == null)
+                    continue;
+                ItemConfig itemConfig = config.GetItem(instance.itemId);
+                if (itemConfig != null && itemConfig.EquipmentSlot == wantedSlot)
+                {
+                    equippedConfig = itemConfig;
+                    break;
+                }
+            }
+            if (equippedConfig == null)
+                return; // Ô trống: không mở popup.
+            int itemIndex = LegacyInventoryItemCount
+                + Array.IndexOf(BlackDragonItemIds, equippedConfig.StableId);
+            if (itemIndex < LegacyInventoryItemCount
+                || itemIndex >= TotalInventoryItemCount)
+                return;
+            OpenInventoryItemPopup(itemIndex, fromStatus: true);
         }
 
         static string FormatStat(int value)
@@ -1047,11 +1087,12 @@ backgroundLayer.SetAsFirstSibling();
                 : string.Empty;
         }
 
-        void OpenInventoryItemPopup(int itemIndex)
+        void OpenInventoryItemPopup(int itemIndex, bool fromStatus = false)
         {
             Sprite[] allItemSprites = GetResolvedInventoryItemSprites();
-            if (selectedInventoryTab != 0 || itemIndex < 0
-                || itemIndex >= allItemSprites.Length
+            if (!fromStatus && selectedInventoryTab != 0)
+                return;
+            if (itemIndex < 0 || itemIndex >= allItemSprites.Length
                 || GetSpriteAt(allItemSprites, itemIndex) == null)
                 return;
 
@@ -1059,9 +1100,10 @@ backgroundLayer.SetAsFirstSibling();
                 Destroy(inventoryItemPopup);
 
             int popupType = GetInventoryItemPopupType(itemIndex);
+            Transform popupParent = fromStatus ? characterPanel.transform : inventoryPanel.transform;
             RectTransform popup = CreateFullScreenOverlay(
                 $"InventoryItemPopup_{GetInventoryItemName(itemIndex)}",
-                new Color32(3, 19, 16, 230), inventoryPanel.transform);
+                new Color32(3, 19, 16, 230), popupParent);
             inventoryItemPopup = popup.gameObject;
 
             RectTransform panel = CreateAnchoredRect(popup, "PopupPanel",
@@ -1167,23 +1209,40 @@ backgroundLayer.SetAsFirstSibling();
                     "PopupActionButtons", new Vector2(0.06f, 0.06f),
                     new Vector2(0.94f, 0.15f), Vector2.zero, Vector2.zero);
 
-                CreatePopupActionButton(buttonsContainer, "PopupEquipButton", "Trang bị",
-                    new Vector2(0f, 0f), new Vector2(1f / 3f, 1f),
-                    new Vector2(0f, 0f), new Vector2(-8f, 0f),
-                    !isEquipped && meetsRequirement,
-                    () => EquipInventoryPopupItem(itemIndex, itemConfig));
+                if (fromStatus)
+                {
+                    CreatePopupActionButton(buttonsContainer, "PopupUpgradeButton", "Nâng cấp",
+                        new Vector2(0f, 0f), new Vector2(0.5f, 1f),
+                        new Vector2(0f, 0f), new Vector2(-8f, 0f),
+                        upgradeLevel < MaxEquipmentUpgradeLevel,
+                        () => UpgradeInventoryPopupItem(itemIndex, itemConfig, fromStatus: true));
 
-                CreatePopupActionButton(buttonsContainer, "PopupUpgradeButton", "Nâng cấp",
-                    new Vector2(1f / 3f, 0f), new Vector2(2f / 3f, 1f),
-                    new Vector2(4f, 0f), new Vector2(-4f, 0f),
-                    upgradeLevel < MaxEquipmentUpgradeLevel,
-                    () => UpgradeInventoryPopupItem(itemIndex, itemConfig));
+                    CreatePopupActionButton(buttonsContainer, "PopupUnequipButton", "Tháo",
+                        new Vector2(0.5f, 0f), new Vector2(1f, 1f),
+                        new Vector2(8f, 0f), new Vector2(0f, 0f),
+                        isEquipped,
+                        () => UnequipInventoryPopupItem(itemConfig));
+                }
+                else
+                {
+                    CreatePopupActionButton(buttonsContainer, "PopupEquipButton", "Trang bị",
+                        new Vector2(0f, 0f), new Vector2(1f / 3f, 1f),
+                        new Vector2(0f, 0f), new Vector2(-8f, 0f),
+                        !isEquipped && meetsRequirement,
+                        () => EquipInventoryPopupItem(itemIndex, itemConfig));
 
-                CreatePopupActionButton(buttonsContainer, "PopupUnequipButton", "Tháo",
-                    new Vector2(2f / 3f, 0f), new Vector2(1f, 1f),
-                    new Vector2(8f, 0f), new Vector2(0f, 0f),
-                    isEquipped,
-                    () => UnequipInventoryPopupItem(itemConfig));
+                    CreatePopupActionButton(buttonsContainer, "PopupUpgradeButton", "Nâng cấp",
+                        new Vector2(1f / 3f, 0f), new Vector2(2f / 3f, 1f),
+                        new Vector2(4f, 0f), new Vector2(-4f, 0f),
+                        upgradeLevel < MaxEquipmentUpgradeLevel,
+                        () => UpgradeInventoryPopupItem(itemIndex, itemConfig));
+
+                    CreatePopupActionButton(buttonsContainer, "PopupUnequipButton", "Tháo",
+                        new Vector2(2f / 3f, 0f), new Vector2(1f, 1f),
+                        new Vector2(8f, 0f), new Vector2(0f, 0f),
+                        isEquipped,
+                        () => UnequipInventoryPopupItem(itemConfig));
+                }
             }
             else
             {
@@ -1446,7 +1505,7 @@ backgroundLayer.SetAsFirstSibling();
             RefreshEquippedSlotIcons();
         }
 
-        void UpgradeInventoryPopupItem(int itemIndex, ItemConfig itemConfig)
+        void UpgradeInventoryPopupItem(int itemIndex, ItemConfig itemConfig, bool fromStatus = false)
         {
             if (itemConfig == null)
                 return;
@@ -1467,7 +1526,7 @@ backgroundLayer.SetAsFirstSibling();
             saveManager.SaveNow();
             RefreshInventoryGridEquippedVisuals();
             RefreshCharacterStats();
-            OpenInventoryItemPopup(itemIndex);
+            OpenInventoryItemPopup(itemIndex, fromStatus);
         }
 
         static int GetInventoryItemPopupType(int itemIndex)
