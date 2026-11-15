@@ -536,11 +536,6 @@ namespace Match3RPG.Campaign
                 throw new MissingComponentException("RewardContent requires a HorizontalLayoutGroup.");
 
             List<RewardPreviewEntry> entries = GetRewardEntries(stage, boss);
-            if (entries.Count == 0)
-            {
-                entries.Add(new RewardPreviewEntry(GetLayout().GoldIcon, "GOLD", "+0", string.Empty));
-                entries.Add(new RewardPreviewEntry(GetLayout().ExperienceIcon, "EXP", "+0", string.Empty));
-            }
 
             int visibleCount = Mathf.Min(entries.Count, GetLayout().MaxRewardEntries);
             for (int i = 0; i < visibleCount; i++)
@@ -587,7 +582,27 @@ namespace Match3RPG.Campaign
         List<RewardPreviewEntry> GetRewardEntries(StageData stage, BossData boss)
         {
             var entries = new List<RewardPreviewEntry>();
-            if (gameConfigService == null || stage == null)
+            if (stage == null)
+                return entries;
+
+            bool firstClear = !GameProgressService.IsStageCompleted(stage.StageId);
+            StageRewardCalculator.GetStageRewards(stage.StageNumber, firstClear,
+                out int spiritStoneQuantity, out int experience);
+
+            ItemConfig spiritStone = gameConfigService != null
+                ? gameConfigService.GetItem(StageRewardCalculator.SpiritStoneItemId) : null;
+            if (spiritStone != null)
+                entries.Add(new RewardPreviewEntry(spiritStone.RewardIcon,
+                    spiritStone.DisplayName, $"×{spiritStoneQuantity}", string.Empty));
+            else
+                Debug.LogError($"Spirit stone item '{StageRewardCalculator.SpiritStoneItemId}' not found; reward preview skips it.", this);
+
+            Sprite experienceIcon = GetLayout().ExperienceIcon;
+            if (experienceIcon == null)
+                Debug.LogError("StageChallengePopupLayout.experienceIcon is not assigned.", this);
+            entries.Add(new RewardPreviewEntry(experienceIcon, "EXP", $"+{experience}", string.Empty));
+
+            if (gameConfigService == null)
                 return entries;
 
             string lootTableId = !string.IsNullOrEmpty(stage.LootTableId)
@@ -597,7 +612,6 @@ namespace Match3RPG.Campaign
             if (table == null)
                 return entries;
 
-            bool firstClear = !GameProgressService.IsStageCompleted(stage.StageId);
             foreach (LootTableEntryConfig entry in table.Entries)
             {
                 if (entry == null)

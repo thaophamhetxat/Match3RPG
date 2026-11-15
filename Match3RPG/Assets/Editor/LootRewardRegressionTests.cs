@@ -151,13 +151,13 @@ namespace Match3RPG.Editor
                 true, firstClearLoot.Drops);
             Require(rewards.Apply(firstClearPackage), "First-clear reward was not applied.");
             int quantityAfterFirst = saveManager.CurrentSave.inventory.stacks[0].quantity;
-            Require(!rewards.Apply(firstClearPackage),
-                "Repeated victory applied the same Stage reward twice.");
-            Require(saveManager.CurrentSave.gold == 13
-                && saveManager.CurrentSave.playerExperience == 17
-                && saveManager.CurrentSave.inventory.stacks[0].quantity == quantityAfterFirst
+            Require(rewards.Apply(firstClearPackage),
+                "Repeated victory was not applied.");
+            Require(saveManager.CurrentSave.gold == 26
+                && saveManager.CurrentSave.playerExperience == 34
+                && saveManager.CurrentSave.inventory.stacks[0].quantity > quantityAfterFirst
                 && saveManager.CurrentSave.rewardedStageIds.Count == 1,
-                "Repeated victory duplicated currencies, items, or reward tracking.");
+                "Repeated victory did not grant rewards again or duplicated reward tracking.");
 
             SaveManager nonFirstClearSave = NewManager(root, "non-first-clear");
             RewardService nonFirstClearRewards = new RewardService(nonFirstClearSave, _ => stackItem);

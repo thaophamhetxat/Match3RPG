@@ -36,8 +36,6 @@ namespace Match3RPG.Persistence
                     "Gold and Experience rewards cannot be negative.");
 
             GameSaveData save = saveManager.CurrentSave;
-            if (save.rewardedStageIds.Contains(package.StageId))
-                return false;
 
             int updatedGold = checked(save.gold + package.Gold);
             int updatedExperience = checked(save.playerExperience + package.Experience);
@@ -160,7 +158,8 @@ namespace Match3RPG.Persistence
                 }
             }
             updatedSave.inventory.itemInstances.AddRange(equipmentInstances);
-            updatedSave.rewardedStageIds.Add(package.StageId);
+            if (!updatedSave.rewardedStageIds.Contains(package.StageId))
+                updatedSave.rewardedStageIds.Add(package.StageId);
             saveManager.Save(updatedSave);
             return true;
         }

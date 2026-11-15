@@ -84,7 +84,7 @@ MonoBehaviour:
   idleFrameSeconds: 0.12
   maxRewardEntries: 6
   goldIcon: {fileID: 0}
-  experienceIcon: {fileID: 0}
+  experienceIcon: {fileID: 3892281536378661841, guid: b0da5ee9927ecc748b09bfcec5af0cff, type: 3}
   combatPowerHpWeight: 1
   combatPowerAttackWeight: 10
   combatPowerLevelWeight: 100

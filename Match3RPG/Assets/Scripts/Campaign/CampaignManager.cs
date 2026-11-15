@@ -190,8 +190,15 @@ namespace Match3RPG.Campaign
             bool isFirstClear = !GameProgressService.IsStageCompleted(stage.StageId);
             GameConfigService config = GetGameConfigService();
             RuntimeLootResult loot = new LootService(config).Roll(stage, SelectedBossData, isFirstClear);
+            StageRewardCalculator.GetStageRewards(stage.StageNumber, isFirstClear,
+                out int spiritStoneQuantity, out int experience);
+            var drops = new System.Collections.Generic.List<RuntimeLootDrop>(loot.Drops)
+            {
+                new RuntimeLootDrop(StageRewardCalculator.SpiritStoneItemId,
+                    spiritStoneQuantity, firstClearOnly: false)
+            };
             RewardPackage rewards = new RewardPackage(stage.StableId,
-                gold: 0, experience: 0, isFirstClear: isFirstClear, drops: loot.Drops);
+                gold: 0, experience: experience, isFirstClear: isFirstClear, drops: drops);
             bool applied = new RewardService(SaveManager.Instance, config).Apply(rewards);
             GameProgressService.CompleteStage(catalog, region, stage);
 

@@ -42,6 +42,7 @@ namespace Match3RPG.Battle
         Coroutine animation;
         bool resultShown;
         bool isVictory;
+        Sprite experienceIcon;
 
         struct RewardDisplay
         {
@@ -158,6 +159,12 @@ namespace Match3RPG.Battle
         {
             if (rewardContainer == null)
                 return;
+            if (experienceIcon == null)
+            {
+                StageChallengePopupLayoutConfig layout =
+                    Resources.Load<StageChallengePopupLayoutConfig>("Configuration/StageChallengePopupLayout");
+                experienceIcon = layout != null ? layout.ExperienceIcon : null;
+            }
             for (int child = rewardContainer.childCount - 1; child >= 0; child--)
                 Destroy(rewardContainer.GetChild(child).gameObject);
 
@@ -190,6 +197,7 @@ namespace Match3RPG.Battle
                     displays.Add(new RewardDisplay
                     {
                         Label = $"EXP  {rewards.Experience}",
+                        Icon = experienceIcon,
                         IconColor = new Color32(121, 205, 132, 255),
                         FallbackMark = "E"
                     });
