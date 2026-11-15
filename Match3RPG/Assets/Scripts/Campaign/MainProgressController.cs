@@ -107,6 +107,11 @@ namespace Match3RPG.Campaign
         readonly GameObject[] inventoryItemNameLabels = new GameObject[TotalInventoryItemCount];
         readonly Outline[] inventorySlotOutlines = new Outline[TotalInventoryItemCount];
         readonly GameObject[] inventoryItemEquippedLabels = new GameObject[TotalInventoryItemCount];
+        float inventoryGridCellSize;
+        float inventoryGridSlotSize;
+        float inventoryGridRowPitch;
+        float inventoryGridXOffset;
+        float inventoryGridTopOffset;
         Sprite[] resolvedInventoryItemSprites;
         TMP_Text realmButtonLabel;
         TMP_Text starActionStatus;
@@ -907,6 +912,11 @@ backgroundLayer.SetAsFirstSibling();
             float gridSpan = 6f * rowPitch + slotSize + 30f;
             float gridTopOffset = (viewportHeight - gridSpan) * 0.5f;
             float gridXOffset = (viewportWidth - columns * cellSize) * 0.5f;
+            inventoryGridCellSize = cellSize;
+            inventoryGridSlotSize = slotSize;
+            inventoryGridRowPitch = rowPitch;
+            inventoryGridXOffset = gridXOffset;
+            inventoryGridTopOffset = gridTopOffset;
             float contentHeight = viewportHeight;
 
             RectTransform contentRect = CreateAnchoredRect(viewportRect, "InventoryGridContent",
@@ -1024,7 +1034,56 @@ backgroundLayer.SetAsFirstSibling();
                     inventoryItemNameLabels[index].SetActive(
                         IsItemVisibleOnTab(index, selectedInventoryTab));
             }
+            RepackInventoryGrid();
             RefreshInventoryGridEquippedVisuals();
+        }
+
+        void RepackInventoryGrid()
+        {
+            // Xếp 10 ô item (index 0-9) theo thứ tự hiển thị: item hiện ở
+            // tab này xếp trước (từ ô 0), item ẩn ở tab này xếp sau.
+            int displayPosition = 0;
+            for (int pass = 0; pass < 2; pass++)
+            {
+                for (int index = 0; index < TotalInventoryItemCount; index++)
+                {
+                    bool visible = IsItemVisibleOnTab(index, selectedInventoryTab);
+                    if ((pass == 0) != visible)
+                        continue;
+                    if (inventoryItemButtons[index] == null)
+                        continue;
+                    int row = displayPosition / 5;
+                    int column = displayPosition % 5;
+                    float x = inventoryGridXOffset
+                        + (column + 0.5f) * inventoryGridCellSize;
+                    float y = -(inventoryGridTopOffset
+                        + (row + 0.5f) * inventoryGridRowPitch);
+                    // Dời cả ô (khung + icon + nút bấm đi cùng nhau).
+                    RectTransform slotRect = inventoryItemButtons[index]
+                        .GetComponent<RectTransform>();
+                    if (slotRect != null)
+                        slotRect.anchoredPosition = new Vector2(x, y);
+                    // Dời tên item theo.
+                    if (inventoryItemNameLabels[index] != null)
+                    {
+                        RectTransform nameRect = inventoryItemNameLabels[index]
+                            .GetComponent<RectTransform>();
+                        if (nameRect != null)
+                            nameRect.anchoredPosition = new Vector2(x,
+                                y - inventoryGridSlotSize * 0.5f - 4f);
+                    }
+                    // Dời nhãn "Đang mặc" theo.
+                    if (inventoryItemEquippedLabels[index] != null)
+                    {
+                        RectTransform equippedRect = inventoryItemEquippedLabels[index]
+                            .GetComponent<RectTransform>();
+                        if (equippedRect != null)
+                            equippedRect.anchoredPosition = new Vector2(x,
+                                y - inventoryGridSlotSize * 0.5f - 22f);
+                    }
+                    displayPosition++;
+                }
+            }
         }
 
         void RefreshInventoryGridEquippedVisuals()
