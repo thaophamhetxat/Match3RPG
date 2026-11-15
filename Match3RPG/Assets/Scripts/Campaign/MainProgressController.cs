@@ -34,6 +34,11 @@ namespace Match3RPG.Campaign
             "black_dragon_ring"
         };
 
+        static readonly string[] LegacyItemIds =
+        {
+            "azure_dragon", "blue_potion", "immortal_peach", "sun_spirit_orb"
+        };
+
         [SerializeField] MainProgressCharacterPresentation presentation;
         [SerializeField] TMP_FontAsset starChartFont;
         [SerializeField] Sprite inventoryItemSlot;
@@ -1146,17 +1151,24 @@ backgroundLayer.SetAsFirstSibling();
             return config != null ? config.GetItem(BlackDragonItemIds[offset]) : null;
         }
 
+        ItemConfig GetLegacyItemConfig(int itemIndex)
+        {
+            if (itemIndex < 0 || itemIndex >= LegacyInventoryItemCount)
+                return null;
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            return config != null ? config.GetItem(LegacyItemIds[itemIndex]) : null;
+        }
+
         int GetInventoryItemFlag(int itemIndex)
         {
             if (itemIndex < 0 || itemIndex >= TotalInventoryItemCount)
                 return 0;
-            // 4 đồ cũ (index 0-3) không có ItemConfig nên ghi cứng flag:
-            //   index 0 (08_azure_dragon = long hồn) → 2
-            //   index 1 (02_blue_potion = viên ngọc mầu xanh) → 1
-            //   index 2 (03_immortal_peach = bình hồ lô) → 1
-            //   index 3 (06_sun_spirit_orb = đá mặt trời) → 2
             if (itemIndex < LegacyInventoryItemCount)
             {
+                ItemConfig legacyConfig = GetLegacyItemConfig(itemIndex);
+                if (legacyConfig != null)
+                    return legacyConfig.InventoryFlag;
                 switch (itemIndex)
                 {
                     case 0: return 2;
@@ -1191,7 +1203,13 @@ backgroundLayer.SetAsFirstSibling();
                 "06_sun_spirit_orb"
             };
             if (itemIndex >= 0 && itemIndex < itemNames.Length)
+            {
+                ItemConfig legacyConfig = GetLegacyItemConfig(itemIndex);
+                if (legacyConfig != null
+                    && !string.IsNullOrEmpty(legacyConfig.DisplayName))
+                    return legacyConfig.DisplayName;
                 return itemNames[itemIndex];
+            }
 
             ItemConfig itemConfig = GetBlackDragonItemConfig(itemIndex);
             return itemConfig != null && !string.IsNullOrEmpty(itemConfig.DisplayName)
