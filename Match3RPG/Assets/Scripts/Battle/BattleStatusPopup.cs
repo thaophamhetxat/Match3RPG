@@ -95,7 +95,7 @@ namespace Match3RPG.Battle
             root.offsetMax = Vector2.zero;
             RectTransform dim = CreateRect("DimOverlay", root,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
-            Image dimImage = AddImage(dim.gameObject, new Color(0f, 0f, 0f, .6f));
+            Image dimImage = AddImage(dim.gameObject, new Color(0f, 0f, 0f, .8f));
             dimImage.raycastTarget = true;
             dim.SetAsFirstSibling();
 
@@ -503,7 +503,7 @@ namespace Match3RPG.Battle
                     consumables.Add(item);
             }
 
-            const int columns = 5;
+            const int columns = 6;
             float contentWidth = (0.931f - 0.068f) * PopupWidth;
             float contentHeight = (0.749f - 0.124f) * PopupHeight;
             const float gridTopMargin = 40f;

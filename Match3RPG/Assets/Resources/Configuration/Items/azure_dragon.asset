@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Configuration.ItemConfig
   stableId: azure_dragon
   displayName: "Long hồn"
-  rewardIcon: {fileID: 21300000, guid: 2815d371c63b73442b95e9931dcca000, type: 3}
+  rewardIcon: {fileID: -3225394765379087701, guid: 2815d371c63b73442b95e9931dcca000, type: 3}
   itemType: 2
   rarity: 0
   equipmentSlot: 0

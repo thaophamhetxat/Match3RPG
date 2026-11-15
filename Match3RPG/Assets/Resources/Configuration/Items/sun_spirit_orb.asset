@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Configuration.ItemConfig
   stableId: sun_spirit_orb
   displayName: "Đá mặt trời"
-  rewardIcon: {fileID: 21300000, guid: 2f95f2f5d1f8a324daa6cb8249ba004d, type: 3}
+  rewardIcon: {fileID: -5702116091706209478, guid: 2f95f2f5d1f8a324daa6cb8249ba004d, type: 3}
   itemType: 2
   rarity: 0
   equipmentSlot: 0

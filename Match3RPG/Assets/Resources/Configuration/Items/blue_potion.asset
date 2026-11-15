@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Configuration.ItemConfig
   stableId: blue_potion
   displayName: "Viên ngọc màu xanh"
-  rewardIcon: {fileID: 21300000, guid: e7598caf582d7224d97a5fc9cc8ea1cf, type: 3}
+  rewardIcon: {fileID: -2292485059370607928, guid: e7598caf582d7224d97a5fc9cc8ea1cf, type: 3}
   itemType: 0
   rarity: 0
   equipmentSlot: 0

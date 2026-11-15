@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Configuration.ItemConfig
   stableId: immortal_peach
   displayName: "Bình hồ lô"
-  rewardIcon: {fileID: 21300000, guid: e17b832c58b4b6c4c8bc50dc46213147, type: 3}
+  rewardIcon: {fileID: 1664311342941835901, guid: e17b832c58b4b6c4c8bc50dc46213147, type: 3}
   itemType: 0
   rarity: 0
   equipmentSlot: 0
