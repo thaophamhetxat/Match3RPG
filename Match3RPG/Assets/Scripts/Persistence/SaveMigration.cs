@@ -7,7 +7,7 @@ namespace Match3RPG.Persistence
 {
     public static class SaveMigration
     {
-        public const int CurrentSaveVersion = 4;
+        public const int CurrentSaveVersion = 5;
         public const string StartingHeroId = "hero_02";
 
         const string LegacyCampaignPrefix = "match3rpg.campaign.v1.";
@@ -30,6 +30,7 @@ namespace Match3RPG.Persistence
             };
             data.heroes.Add(new HeroProgressSaveData { heroId = StartingHeroId, level = 1 });
             CaptureLegacyCampaignProgress(data.campaign, catalog);
+            SeedDefaultSpiritStones(data);
             Normalize(data);
             return data;
         }
@@ -59,6 +60,9 @@ namespace Match3RPG.Persistence
                         break;
                     case 3:
                         MigrateVersionThree(data);
+                        break;
+                    case 4:
+                        MigrateVersionFour(data);
                         break;
                     default:
                         throw new InvalidOperationException(
@@ -92,6 +96,47 @@ namespace Match3RPG.Persistence
         {
             Normalize(data);
             data.saveVersion = 4;
+        }
+
+        const int DefaultSpiritStoneQuantity = 1000;
+
+        static void SeedDefaultSpiritStones(GameSaveData data)
+        {
+            if (data == null || data.inventory == null)
+                return;
+            data.inventory.stacks = data.inventory.stacks
+                ?? new List<InventoryStackSaveData>();
+            string[] spiritStoneIds =
+            {
+                "linh_thach_ha_pham", "linh_thach_trung_pham",
+                "linh_thach_thuong_pham", "linh_thach_cuc_pham"
+            };
+            foreach (string stableId in spiritStoneIds)
+            {
+                bool exists = false;
+                foreach (InventoryStackSaveData stack in data.inventory.stacks)
+                {
+                    if (string.Equals(stack.itemId, stableId,
+                        StringComparison.Ordinal))
+                    {
+                        exists = true;
+                        break;
+                    }
+                }
+                if (!exists)
+                    data.inventory.stacks.Add(new InventoryStackSaveData
+                    {
+                        itemId = stableId,
+                        quantity = DefaultSpiritStoneQuantity
+                    });
+            }
+        }
+
+        static void MigrateVersionFour(GameSaveData data)
+        {
+            SeedDefaultSpiritStones(data);
+            Normalize(data);
+            data.saveVersion = 5;
         }
 
         static CampaignSaveData CreateDefaultCampaign(CampaignCatalog catalog)

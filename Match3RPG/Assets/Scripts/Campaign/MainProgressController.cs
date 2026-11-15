@@ -20,7 +20,7 @@ namespace Match3RPG.Campaign
         const float LoadingDurationSeconds = 2f;
         const float LoadingFadeSeconds = 0.3f;
         const int LegacyInventoryItemCount = 4;
-        const int TotalInventoryItemCount = 10;
+        const int TotalInventoryItemCount = 14;
         const int MaxEquipmentUpgradeLevel = 15;
         const string BlackDragonSetDetailText = "Bộ Hắc Long (hệ ATK) — 6 món: Kiếm, Mũ, Giáp, Găng, Giầy, Nhẫn.";
 
@@ -37,6 +37,12 @@ namespace Match3RPG.Campaign
         static readonly string[] LegacyItemIds =
         {
             "azure_dragon", "blue_potion", "immortal_peach", "sun_spirit_orb"
+        };
+
+        static readonly string[] SpiritStoneItemIds =
+        {
+            "linh_thach_ha_pham", "linh_thach_trung_pham",
+            "linh_thach_thuong_pham", "linh_thach_cuc_pham"
         };
 
         [SerializeField] MainProgressCharacterPresentation presentation;
@@ -1137,6 +1143,19 @@ backgroundLayer.SetAsFirstSibling();
                 resolvedInventoryItemSprites[LegacyInventoryItemCount + offset] = itemConfig.RewardIcon;
             }
 
+            for (int offset = 0; offset < SpiritStoneItemIds.Length; offset++)
+            {
+                string stableId = SpiritStoneItemIds[offset];
+                ItemConfig itemConfig = config != null ? config.GetItem(stableId) : null;
+                if (itemConfig == null)
+                {
+                    Debug.LogError($"[MainProgress] Missing ItemConfig for stableId '{stableId}' in GameConfigService.", this);
+                    continue;
+                }
+
+                resolvedInventoryItemSprites[LegacyInventoryItemCount + BlackDragonItemIds.Length + offset] = itemConfig.RewardIcon;
+            }
+
             return resolvedInventoryItemSprites;
         }
 
@@ -1160,6 +1179,27 @@ backgroundLayer.SetAsFirstSibling();
             return config != null ? config.GetItem(LegacyItemIds[itemIndex]) : null;
         }
 
+        ItemConfig GetSpiritStoneItemConfig(int itemIndex)
+        {
+            int offset = itemIndex - LegacyInventoryItemCount - BlackDragonItemIds.Length;
+            if (offset < 0 || offset >= SpiritStoneItemIds.Length)
+                return null;
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            return config != null ? config.GetItem(SpiritStoneItemIds[offset]) : null;
+        }
+
+        ItemConfig GetInventoryItemConfig(int itemIndex)
+        {
+            ItemConfig config = GetBlackDragonItemConfig(itemIndex);
+            if (config != null)
+                return config;
+            config = GetLegacyItemConfig(itemIndex);
+            if (config != null)
+                return config;
+            return GetSpiritStoneItemConfig(itemIndex);
+        }
+
         int GetInventoryItemFlag(int itemIndex)
         {
             if (itemIndex < 0 || itemIndex >= TotalInventoryItemCount)
@@ -1177,7 +1217,7 @@ backgroundLayer.SetAsFirstSibling();
                     default: return 2;
                 }
             }
-            ItemConfig itemConfig = GetBlackDragonItemConfig(itemIndex);
+            ItemConfig itemConfig = GetInventoryItemConfig(itemIndex);
             return itemConfig != null ? itemConfig.InventoryFlag : 0;
         }
 
@@ -1211,7 +1251,7 @@ backgroundLayer.SetAsFirstSibling();
                 return itemNames[itemIndex];
             }
 
-            ItemConfig itemConfig = GetBlackDragonItemConfig(itemIndex);
+            ItemConfig itemConfig = GetInventoryItemConfig(itemIndex);
             return itemConfig != null && !string.IsNullOrEmpty(itemConfig.DisplayName)
                 ? itemConfig.DisplayName
                 : string.Empty;
@@ -1384,8 +1424,14 @@ backgroundLayer.SetAsFirstSibling();
                 inventoryPopupItemName.fontSizeMin = 18f;
                 inventoryPopupItemName.fontSizeMax = 30f;
 
+                ItemConfig displayConfig = GetInventoryItemConfig(itemIndex);
+                string effectText = displayConfig != null
+                    && !string.IsNullOrEmpty(displayConfig.Description)
+                    ? displayConfig.Description
+                    : "Chưa có dữ liệu — chờ bổ sung";
+
                 inventoryPopupItemEffect = AddLabel(panel, "PopupItemEffect",
-                    "Chưa có dữ liệu — chờ bổ sung", 20, Color.white,
+                    effectText, 20, Color.white,
                     new Vector2(0.06f, 0.38f), new Vector2(0.77f, 0.77f),
                     TextAlignmentOptions.TopLeft);
                 inventoryPopupItemEffect.enableAutoSizing = false;
