@@ -145,6 +145,11 @@ namespace Match3RPG.Editor
                 CreateStagePopup(safeArea, canvas.transform, popupSprite, layout, out stagePopup, out overlay);
 
             Transform artwork = stagePopup.Find("PopupArtwork");
+            RectTransform rewardContent = artwork.Find("RewardContent").GetComponent<RectTransform>();
+            rewardContent.anchorMin = new Vector2(layout.RewardAreaRect.xMin, layout.RewardAreaRect.yMin);
+            rewardContent.anchorMax = new Vector2(layout.RewardAreaRect.xMax, layout.RewardAreaRect.yMax);
+            rewardContent.offsetMin = Vector2.zero;
+            rewardContent.offsetMax = Vector2.zero;
             Transform heroSlot = artwork.Find("HeroPreviewSlot");
             Transform bossSlot = artwork.Find("BossPreviewSlot");
             Button exit = stagePopup.Find("PopupArtwork/ExitHit").GetComponent<Button>();

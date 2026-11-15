@@ -95,7 +95,7 @@ namespace Match3RPG.Battle
             victoryImageRect = CreateCenteredImage("VictoryImage", victoryRoot,
                 victorySprite, .8f);
             rewardContainer = CreateRect("RewardContainer", victoryImageRect,
-                new Vector2(.14f, .235f), new Vector2(.86f, .435f),
+                new Vector2(.14f, .24f), new Vector2(.86f, .38f),
                 Vector2.zero, Vector2.zero);
             CreateRewardRows(new RewardPackage(string.Empty, 0, 0, false,
                 System.Array.Empty<RuntimeLootDrop>()));
@@ -237,10 +237,11 @@ namespace Match3RPG.Battle
             }
 
             float containerHeight = Mathf.Max(1f, rewardContainer.rect.height);
-            float rowHeight = Mathf.Min(46f, containerHeight / displays.Count);
+            float rowHeight = Mathf.Min(72f, containerHeight / displays.Count);
             for (int index = 0; index < displays.Count; index++)
             {
-                float centerY = containerHeight * .5f - rowHeight * (index + .5f);
+                float centerY = containerHeight * .5f
+                    + (displays.Count * .5f - index - .5f) * rowHeight;
                 CreateRewardRow(displays[index], centerY, rowHeight);
             }
         }

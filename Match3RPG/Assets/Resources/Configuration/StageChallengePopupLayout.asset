@@ -40,22 +40,22 @@ MonoBehaviour:
     height: 0
   rewardAreaRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
+    x: 0.08
+    y: 0.26
+    width: 0.84
+    height: 0.13
   rewardIconRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
+    x: 0.02
+    y: 0.12
+    width: 0.28
+    height: 0.76
   rewardTextRect:
     serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
+    x: 0.31
+    y: 0.04
+    width: 0.68
+    height: 0.92
   stageLabelRect:
     serializedVersion: 2
     x: 0
