@@ -1015,11 +1015,14 @@ backgroundLayer.SetAsFirstSibling();
             for (int index = 0; index < inventoryItemButtons.Length; index++)
             {
                 if (inventoryItemButtons[index] != null)
-                    inventoryItemButtons[index].interactable = selectedInventoryTab == 0;
+                    inventoryItemButtons[index].interactable =
+                        IsItemVisibleOnTab(index, selectedInventoryTab);
                 if (inventoryItemContents[index] != null)
-                    inventoryItemContents[index].SetActive(selectedInventoryTab == 0);
+                    inventoryItemContents[index].SetActive(
+                        IsItemVisibleOnTab(index, selectedInventoryTab));
                 if (inventoryItemNameLabels[index] != null)
-                    inventoryItemNameLabels[index].SetActive(selectedInventoryTab == 0);
+                    inventoryItemNameLabels[index].SetActive(
+                        IsItemVisibleOnTab(index, selectedInventoryTab));
             }
             RefreshInventoryGridEquippedVisuals();
         }
@@ -1084,6 +1087,41 @@ backgroundLayer.SetAsFirstSibling();
             return config != null ? config.GetItem(BlackDragonItemIds[offset]) : null;
         }
 
+        int GetInventoryItemFlag(int itemIndex)
+        {
+            if (itemIndex < 0 || itemIndex >= TotalInventoryItemCount)
+                return 0;
+            // 4 đồ cũ (index 0-3) không có ItemConfig nên ghi cứng flag:
+            //   index 0 (08_azure_dragon = long hồn) → 2
+            //   index 1 (02_blue_potion = viên ngọc mầu xanh) → 1
+            //   index 2 (03_immortal_peach = bình hồ lô) → 1
+            //   index 3 (06_sun_spirit_orb = đá mặt trời) → 2
+            if (itemIndex < LegacyInventoryItemCount)
+            {
+                switch (itemIndex)
+                {
+                    case 0: return 2;
+                    case 1: return 1;
+                    case 2: return 1;
+                    default: return 2;
+                }
+            }
+            ItemConfig itemConfig = GetBlackDragonItemConfig(itemIndex);
+            return itemConfig != null ? itemConfig.InventoryFlag : 0;
+        }
+
+        bool IsItemVisibleOnTab(int itemIndex, int tabIndex)
+        {
+            int flag = GetInventoryItemFlag(itemIndex);
+            switch (tabIndex)
+            {
+                case 0: return flag == 0;            // Túi đồ: chỉ trang bị
+                case 1: return flag == 3;            // Mảnh: chỉ mảnh
+                case 2: return flag == 1 || flag == 2; // Nguyên liệu: cả 2 loại
+                default: return false;
+            }
+        }
+
         string GetInventoryItemName(int itemIndex)
         {
             string[] itemNames =
@@ -1105,9 +1143,8 @@ backgroundLayer.SetAsFirstSibling();
         void OpenInventoryItemPopup(int itemIndex, bool fromStatus = false)
         {
             Sprite[] allItemSprites = GetResolvedInventoryItemSprites();
-            if (!fromStatus && selectedInventoryTab != 0)
-                return;
-            if (itemIndex < 0 || itemIndex >= allItemSprites.Length
+            if ((!fromStatus && !IsItemVisibleOnTab(itemIndex, selectedInventoryTab))
+                || itemIndex < 0 || itemIndex >= allItemSprites.Length
                 || GetSpriteAt(allItemSprites, itemIndex) == null)
                 return;
 

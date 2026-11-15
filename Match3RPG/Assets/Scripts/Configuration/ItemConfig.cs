@@ -21,6 +21,11 @@ namespace Match3RPG.Configuration
         [SerializeField, Min(0)] int speedBonus;
         [SerializeField, Min(0f)] float critDamagePercentBonus;
         [SerializeField, Min(0)] int ragePerGemBonus;
+        // 0 = trang bị (tab Túi đồ, có thể trang bị); 1 = nguyên liệu
+        // (tab Nguyên liệu, CÓ hiện trong Túi đồ trận đấu); 2 = nguyên liệu
+        // (tab Nguyên liệu, KHÔNG hiện trong Túi đồ trận đấu); 3 = mảnh
+        // (tab Mảnh).
+        [SerializeField, Min(0)] int inventoryFlag;
 
         public string DisplayName => displayName;
         public Sprite RewardIcon => rewardIcon;
@@ -38,6 +43,7 @@ namespace Match3RPG.Configuration
         public int SpeedBonus => speedBonus;
         public float CritDamagePercentBonus => critDamagePercentBonus;
         public int RagePerGemBonus => ragePerGemBonus;
+        public int InventoryFlag => inventoryFlag;
 
         public bool MeetsRequirement(int playerLevel) => playerLevel >= GetMinLevelForGrade(grade);
 
