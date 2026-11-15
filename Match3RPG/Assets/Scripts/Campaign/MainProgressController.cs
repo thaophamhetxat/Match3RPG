@@ -109,6 +109,22 @@ namespace Match3RPG.Campaign
         Image inventoryPopupItemImage;
         TMP_Text inventoryPopupItemName;
         TMP_Text inventoryPopupItemEffect;
+        GameObject spiritStoneCombinePopup;
+        int spiritStoneCombineMode;
+        int spiritStoneCombineGrade;
+        int spiritStoneCombineQuantity;
+        Button spiritStoneCombineTabButton, spiritStoneDismantleTabButton;
+        TMP_Text spiritStoneCombineTabLabel, spiritStoneDismantleTabLabel;
+        Button[] spiritStoneCombineGradeButtons = new Button[4];
+        TMP_Text[] spiritStoneCombineGradeQuantityLabels = new TMP_Text[4];
+        Image spiritStoneCombineSourceIcon, spiritStoneCombineTargetIcon;
+        TMP_Text spiritStoneCombineSourceName, spiritStoneCombineTargetName;
+        TMP_Text spiritStoneCombineSourceQuantity, spiritStoneCombineTargetResult;
+        TMP_Text spiritStoneCombineQuantityLabel;
+        Slider spiritStoneCombineSlider;
+        Button spiritStoneCombineConfirmButton;
+        TMP_Text spiritStoneCombineConfirmLabel;
+        Button spiritStoneCombineMinusButton, spiritStoneCombinePlusButton;
         RectTransform inventoryTabFocusRect;
         RectTransform characterTabFocusRect;
         readonly Button[] characterTabButtons = new Button[4];
@@ -1447,7 +1463,567 @@ backgroundLayer.SetAsFirstSibling();
                         true,
                         () => LogInventoryPopupAction("Sử dụng", itemIndex));
                 }
+
+                if (GetSpiritStoneItemConfig(itemIndex) != null)
+                {
+                    RectTransform buttonsContainer = CreateAnchoredRect(panel,
+                        "PopupCombineButtons", new Vector2(0.06f, 0.06f),
+                        new Vector2(0.94f, 0.15f), Vector2.zero, Vector2.zero);
+                    CreatePopupActionButton(buttonsContainer, "PopupCombineButton",
+                        "Hợp thành", new Vector2(0f, 0f), new Vector2(1f, 1f),
+                        Vector2.zero, Vector2.zero, true,
+                        () => OpenSpiritStoneCombinePopup(itemIndex));
+                }
             }
+        }
+
+        void OpenSpiritStoneCombinePopup(int itemIndex)
+        {
+            if (spiritStoneCombinePopup != null)
+                Destroy(spiritStoneCombinePopup);
+            spiritStoneCombinePopup = null;
+
+            CloseInventoryItemPopup();
+
+            RectTransform popup = CreateFullScreenOverlay(
+                "SpiritStoneCombinePopup",
+                new Color32(3, 19, 16, 230), inventoryPanel.transform);
+            spiritStoneCombinePopup = popup.gameObject;
+
+            RectTransform panel = CreateAnchoredRect(popup, "CombinePanel",
+                new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f),
+                Vector2.zero, Vector2.zero);
+            panel.pivot = new Vector2(0.5f, 0.5f);
+            panel.sizeDelta = new Vector2(900f, 1350f);
+            panel.anchoredPosition = Vector2.zero;
+            Image panelBg = panel.gameObject.AddComponent<Image>();
+            panelBg.color = new Color32(12, 27, 36, 255);
+            panelBg.raycastTarget = true;
+            Outline panelOutline = panel.gameObject.AddComponent<Outline>();
+            panelOutline.effectColor = Gold;
+            panelOutline.effectDistance = new Vector2(3f, -3f);
+
+            Button closeButton = CreateCharacterHitButton(panel, "CombineCloseButton",
+                0.90f, 0.93f, 0.975f, 0.985f, CloseSpiritStoneCombinePopup);
+            ConfigureOutlinedButton(closeButton, new Color32(62, 45, 37, 255), Gold, 2f);
+            TMP_Text closeLabel = AddLabel(panel, "CombineCloseButtonText", "X", 26, Gold,
+                new Vector2(0.90f, 0.93f), new Vector2(0.975f, 0.985f), TextAlignmentOptions.Center);
+            closeLabel.raycastTarget = false;
+
+            AddLabel(panel, "CombineTitle", "Hợp thành linh thạch",
+                28, Gold, new Vector2(0.06f, 0.925f), new Vector2(0.88f, 0.985f),
+                TextAlignmentOptions.Center);
+
+            RectTransform tabContainer = CreateAnchoredRect(panel, "CombineTabContainer",
+                new Vector2(0.06f, 0.845f), new Vector2(0.94f, 0.905f),
+                Vector2.zero, Vector2.zero);
+            spiritStoneCombineTabButton = CreatePopupActionButton(tabContainer, "CombineTabButton", "Hợp thành",
+                new Vector2(0f, 0f), new Vector2(0.5f, 1f),
+                new Vector2(0f, 0f), new Vector2(-4f, 0f), true,
+                () => SetSpiritStoneCombineMode(0));
+            spiritStoneDismantleTabButton = CreatePopupActionButton(tabContainer, "DismantleTabButton", "Phân giải",
+                new Vector2(0.5f, 0f), new Vector2(1f, 1f),
+                new Vector2(4f, 0f), new Vector2(0f, 0f), true,
+                () => SetSpiritStoneCombineMode(1));
+            spiritStoneCombineTabLabel = spiritStoneCombineTabButton.transform.Find("Label")?.GetComponent<TMP_Text>();
+            spiritStoneDismantleTabLabel = spiritStoneDismantleTabButton.transform.Find("Label")?.GetComponent<TMP_Text>();
+
+            RectTransform gradeContainer = CreateAnchoredRect(panel, "CombineGradeContainer",
+                new Vector2(0.06f, 0.71f), new Vector2(0.94f, 0.83f),
+                Vector2.zero, Vector2.zero);
+
+            for (int g = 0; g < 4; g++)
+            {
+                float xMin = g * 0.25f;
+                float xMax = (g + 1) * 0.25f;
+                Vector2 offsetMin = new Vector2(g == 0 ? 0f : 4f, 0f);
+                Vector2 offsetMax = new Vector2(g == 3 ? 0f : -4f, 0f);
+
+                RectTransform btnRect = CreateAnchoredRect(gradeContainer, $"GradeButton_{g}",
+                    new Vector2(xMin, 0f), new Vector2(xMax, 1f), offsetMin, offsetMax);
+                Image btnImg = btnRect.gameObject.AddComponent<Image>();
+                btnImg.color = new Color32(12, 27, 36, 255);
+                btnImg.raycastTarget = true;
+
+                Button btn = btnRect.gameObject.AddComponent<Button>();
+                btn.targetGraphic = btnImg;
+                btn.transition = Selectable.Transition.None;
+                int capturedGrade = g;
+                btn.onClick.AddListener(() => SelectSpiritStoneCombineGrade(capturedGrade));
+
+                RectTransform iconRect = CreateAnchoredRect(btnRect, "Icon",
+                    new Vector2(0.12f, 0.30f), new Vector2(0.88f, 0.92f),
+                    Vector2.zero, Vector2.zero);
+                Image iconImg = iconRect.gameObject.AddComponent<Image>();
+                iconImg.preserveAspect = true;
+                iconImg.raycastTarget = false;
+                ItemConfig stoneConfig = GetSpiritStoneItemConfig(LegacyInventoryItemCount + BlackDragonItemIds.Length + g);
+                if (stoneConfig != null)
+                    iconImg.sprite = stoneConfig.RewardIcon;
+
+                TMP_Text qtyLabel = AddLabel(btnRect, "QuantityLabel", "0",
+                    18, Color.white, new Vector2(0f, 0.02f), new Vector2(1f, 0.28f),
+                    TextAlignmentOptions.Center);
+                qtyLabel.raycastTarget = false;
+                qtyLabel.enableAutoSizing = false;
+
+                spiritStoneCombineGradeButtons[g] = btn;
+                spiritStoneCombineGradeQuantityLabels[g] = qtyLabel;
+            }
+
+            RectTransform exchangeContainer = CreateAnchoredRect(panel, "CombineExchangeContainer",
+                new Vector2(0.06f, 0.42f), new Vector2(0.94f, 0.68f),
+                Vector2.zero, Vector2.zero);
+
+            RectTransform sourceFrame = CreateAnchoredRect(exchangeContainer, "SourceIconFrame",
+                new Vector2(0.02f, 0.45f), new Vector2(0.36f, 0.98f),
+                Vector2.zero, Vector2.zero);
+            Image sourceFrameImg = sourceFrame.gameObject.AddComponent<Image>();
+            sourceFrameImg.color = new Color32(12, 27, 36, 255);
+            sourceFrameImg.raycastTarget = false;
+            Outline sourceOutline = sourceFrame.gameObject.AddComponent<Outline>();
+            sourceOutline.effectColor = Gold;
+            sourceOutline.effectDistance = new Vector2(2f, -2f);
+
+            RectTransform sourceIconRect = CreateAnchoredRect(sourceFrame, "SourceIcon",
+                new Vector2(0.08f, 0.08f), new Vector2(0.92f, 0.92f),
+                Vector2.zero, Vector2.zero);
+            spiritStoneCombineSourceIcon = sourceIconRect.gameObject.AddComponent<Image>();
+            spiritStoneCombineSourceIcon.preserveAspect = true;
+            spiritStoneCombineSourceIcon.raycastTarget = false;
+
+            RectTransform targetFrame = CreateAnchoredRect(exchangeContainer, "TargetIconFrame",
+                new Vector2(0.64f, 0.45f), new Vector2(0.98f, 0.98f),
+                Vector2.zero, Vector2.zero);
+            Image targetFrameImg = targetFrame.gameObject.AddComponent<Image>();
+            targetFrameImg.color = new Color32(12, 27, 36, 255);
+            targetFrameImg.raycastTarget = false;
+            Outline targetOutline = targetFrame.gameObject.AddComponent<Outline>();
+            targetOutline.effectColor = Gold;
+            targetOutline.effectDistance = new Vector2(2f, -2f);
+
+            RectTransform targetIconRect = CreateAnchoredRect(targetFrame, "TargetIcon",
+                new Vector2(0.08f, 0.08f), new Vector2(0.92f, 0.92f),
+                Vector2.zero, Vector2.zero);
+            spiritStoneCombineTargetIcon = targetIconRect.gameObject.AddComponent<Image>();
+            spiritStoneCombineTargetIcon.preserveAspect = true;
+            spiritStoneCombineTargetIcon.raycastTarget = false;
+
+            TMP_Text arrowLabel = AddLabel(exchangeContainer, "ExchangeArrow", "→",
+                48, Gold, new Vector2(0.38f, 0.55f), new Vector2(0.62f, 0.85f),
+                TextAlignmentOptions.Center);
+            arrowLabel.raycastTarget = false;
+
+            spiritStoneCombineSourceName = AddLabel(exchangeContainer, "SourceName", "",
+                20, Color.white, new Vector2(0.02f, 0.28f), new Vector2(0.36f, 0.42f),
+                TextAlignmentOptions.Center);
+            spiritStoneCombineSourceName.raycastTarget = false;
+
+            spiritStoneCombineTargetName = AddLabel(exchangeContainer, "TargetName", "",
+                20, Color.white, new Vector2(0.64f, 0.28f), new Vector2(0.98f, 0.42f),
+                TextAlignmentOptions.Center);
+            spiritStoneCombineTargetName.raycastTarget = false;
+
+            spiritStoneCombineSourceQuantity = AddLabel(exchangeContainer, "SourceQuantity", "",
+                20, Color.white, new Vector2(0.02f, 0.08f), new Vector2(0.36f, 0.26f),
+                TextAlignmentOptions.Center);
+            spiritStoneCombineSourceQuantity.raycastTarget = false;
+
+            spiritStoneCombineTargetResult = AddLabel(exchangeContainer, "TargetResult", "",
+                20, Color.white, new Vector2(0.64f, 0.08f), new Vector2(0.98f, 0.26f),
+                TextAlignmentOptions.Center);
+            spiritStoneCombineTargetResult.raycastTarget = false;
+            spiritStoneCombineTargetResult.enableAutoSizing = true;
+            spiritStoneCombineTargetResult.fontSizeMin = 12f;
+            spiritStoneCombineTargetResult.fontSizeMax = 20f;
+
+            RectTransform sliderContainer = CreateAnchoredRect(panel, "CombineSliderContainer",
+                new Vector2(0.06f, 0.28f), new Vector2(0.94f, 0.40f),
+                Vector2.zero, Vector2.zero);
+
+            spiritStoneCombineQuantityLabel = AddLabel(sliderContainer, "CombineQuantityLabel", "1",
+                28, Color.white, new Vector2(0.35f, 0.55f), new Vector2(0.65f, 1f),
+                TextAlignmentOptions.Center);
+            spiritStoneCombineQuantityLabel.raycastTarget = false;
+
+            spiritStoneCombineMinusButton = CreatePopupActionButton(sliderContainer, "CombineMinusButton",
+                "−", new Vector2(0f, 0f), new Vector2(0.12f, 0.50f),
+                Vector2.zero, Vector2.zero, true,
+                () => ChangeSpiritStoneCombineQuantity(-1));
+
+            spiritStoneCombinePlusButton = CreatePopupActionButton(sliderContainer, "CombinePlusButton",
+                "+", new Vector2(0.88f, 0f), new Vector2(1f, 0.50f),
+                Vector2.zero, Vector2.zero, true,
+                () => ChangeSpiritStoneCombineQuantity(1));
+
+            RectTransform sliderRect = CreateAnchoredRect(sliderContainer, "CombineSlider",
+                new Vector2(0.14f, 0.05f), new Vector2(0.86f, 0.45f),
+                Vector2.zero, Vector2.zero);
+            Slider slider = sliderRect.gameObject.AddComponent<Slider>();
+            slider.wholeNumbers = true;
+            slider.direction = Slider.Direction.LeftToRight;
+
+            RectTransform bgRect = CreateAnchoredRect(sliderRect, "Background",
+                new Vector2(0f, 0.25f), new Vector2(1f, 0.75f),
+                Vector2.zero, Vector2.zero);
+            Image bgImg = bgRect.gameObject.AddComponent<Image>();
+            bgImg.color = new Color32(45, 48, 54, 255);
+            bgImg.raycastTarget = false;
+
+            RectTransform fillAreaRect = CreateAnchoredRect(sliderRect, "Fill Area",
+                new Vector2(0f, 0.25f), new Vector2(1f, 0.75f),
+                new Vector2(5f, 0f), new Vector2(-5f, 0f));
+            RectTransform fillRect = CreateAnchoredRect(fillAreaRect, "Fill",
+                new Vector2(0f, 0f), new Vector2(0f, 1f),
+                Vector2.zero, Vector2.zero);
+            Image fillImg = fillRect.gameObject.AddComponent<Image>();
+            fillImg.color = Gold;
+            fillImg.raycastTarget = false;
+            slider.fillRect = fillRect;
+
+            RectTransform handleAreaRect = CreateAnchoredRect(sliderRect, "Handle Slide Area",
+                Vector2.zero, Vector2.one,
+                new Vector2(10f, 0f), new Vector2(-10f, 0f));
+            RectTransform handleRect = CreateAnchoredRect(handleAreaRect, "Handle",
+                new Vector2(0f, 0f), new Vector2(0f, 1f),
+                new Vector2(-10f, 0f), new Vector2(10f, 0f));
+            Image handleImg = handleRect.gameObject.AddComponent<Image>();
+            handleImg.color = Color.white;
+            handleImg.raycastTarget = true;
+            slider.handleRect = handleRect;
+            slider.targetGraphic = handleImg;
+
+            slider.onValueChanged.AddListener(value => OnSpiritStoneCombineSliderChanged(value));
+            spiritStoneCombineSlider = slider;
+
+            TMP_Text freeNote = AddLabel(panel, "CombineFreeNote", "Không tốn phí",
+                18, new Color32(150, 150, 150, 255),
+                new Vector2(0.06f, 0.21f), new Vector2(0.94f, 0.26f),
+                TextAlignmentOptions.Center);
+            freeNote.raycastTarget = false;
+
+            RectTransform bottomButtonsContainer = CreateAnchoredRect(panel, "CombineBottomButtons",
+                new Vector2(0.06f, 0.06f), new Vector2(0.94f, 0.18f),
+                Vector2.zero, Vector2.zero);
+
+            CreatePopupActionButton(bottomButtonsContainer, "CombineCancelButton", "Hủy",
+                new Vector2(0f, 0f), new Vector2(0.5f, 1f),
+                new Vector2(0f, 0f), new Vector2(-4f, 0f), true,
+                CloseSpiritStoneCombinePopup);
+
+            spiritStoneCombineConfirmButton = CreatePopupActionButton(bottomButtonsContainer, "CombineConfirmButton", "Hợp thành",
+                new Vector2(0.5f, 0f), new Vector2(1f, 1f),
+                new Vector2(4f, 0f), new Vector2(0f, 0f), true,
+                ConfirmSpiritStoneCombine);
+            spiritStoneCombineConfirmLabel = spiritStoneCombineConfirmButton.transform.Find("Label")?.GetComponent<TMP_Text>();
+
+            spiritStoneCombineMode = 0;
+            spiritStoneCombineGrade = Mathf.Clamp(
+                itemIndex - LegacyInventoryItemCount - BlackDragonItemIds.Length,
+                0, 3);
+            spiritStoneCombineQuantity = 1;
+
+            RefreshSpiritStoneCombinePopup();
+        }
+
+        void CloseSpiritStoneCombinePopup()
+        {
+            if (spiritStoneCombinePopup != null)
+                Destroy(spiritStoneCombinePopup);
+            spiritStoneCombinePopup = null;
+        }
+
+        void SetSpiritStoneCombineMode(int mode)
+        {
+            if (mode == spiritStoneCombineMode)
+                return;
+            spiritStoneCombineMode = mode;
+            if (spiritStoneCombineMode == 0 && spiritStoneCombineGrade == 3)
+                spiritStoneCombineGrade = 2;
+            else if (spiritStoneCombineMode == 1 && spiritStoneCombineGrade == 0)
+                spiritStoneCombineGrade = 1;
+
+            spiritStoneCombineQuantity = 1;
+            RefreshSpiritStoneCombinePopup();
+        }
+
+        void SelectSpiritStoneCombineGrade(int grade)
+        {
+            if (spiritStoneCombineMode == 0 && grade == 3)
+                return;
+            if (spiritStoneCombineMode == 1 && grade == 0)
+                return;
+
+            spiritStoneCombineGrade = grade;
+            spiritStoneCombineQuantity = 1;
+            RefreshSpiritStoneCombinePopup();
+        }
+
+        void ChangeSpiritStoneCombineQuantity(int delta)
+        {
+            SaveManager saveManager = SaveManager.Instance;
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            InventoryService inventoryService = new InventoryService(
+                saveManager, config);
+            int owned = inventoryService.GetQuantity(SpiritStoneItemIds[spiritStoneCombineGrade]);
+            int maxOperations = (spiritStoneCombineMode == 0) ? owned / 100 : owned;
+            if (maxOperations <= 0)
+                return;
+
+            spiritStoneCombineQuantity = Mathf.Clamp(
+                spiritStoneCombineQuantity + delta, 1, maxOperations);
+            RefreshSpiritStoneCombinePopup();
+        }
+
+        void OnSpiritStoneCombineSliderChanged(float value)
+        {
+            spiritStoneCombineQuantity = Mathf.Max(0, (int)value);
+            RefreshSpiritStoneCombinePopup();
+        }
+
+        void RefreshSpiritStoneCombinePopup()
+        {
+            if (spiritStoneCombinePopup == null)
+                return;
+
+            SaveManager saveManager = SaveManager.Instance;
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            InventoryService inventoryService = new InventoryService(
+                saveManager, config);
+
+            int[] owned = new int[4];
+            for (int g = 0; g < 4; g++)
+                owned[g] = inventoryService.GetQuantity(SpiritStoneItemIds[g]);
+
+            int mode = spiritStoneCombineMode;
+            int grade = spiritStoneCombineGrade;
+            int targetGrade = (mode == 0) ? grade + 1 : grade - 1;
+            bool canExchange = (mode == 0) ? (grade >= 0 && grade <= 2) : (grade >= 1 && grade <= 3);
+
+            int maxOperations = 0;
+            if (canExchange)
+                maxOperations = (mode == 0) ? owned[grade] / 100 : owned[grade];
+
+            if (maxOperations <= 0)
+                spiritStoneCombineQuantity = 0;
+            else
+                spiritStoneCombineQuantity = Mathf.Clamp(spiritStoneCombineQuantity, 1, maxOperations);
+
+            int required = (mode == 0) ? 100 * spiritStoneCombineQuantity : spiritStoneCombineQuantity;
+            int result = (mode == 0) ? spiritStoneCombineQuantity : 100 * spiritStoneCombineQuantity;
+
+            Color32 activeTabFill = new Color32(12, 27, 36, 255);
+            Color32 inactiveTabFill = new Color32(45, 48, 54, 245);
+            Color32 inactiveTabBorder = new Color32(110, 115, 125, 255);
+            Color inactiveTabText = new Color32(150, 150, 150, 255);
+
+            if (mode == 0)
+            {
+                ConfigureOutlinedButton(spiritStoneCombineTabButton, activeTabFill, Gold, 2f);
+                if (spiritStoneCombineTabLabel != null) spiritStoneCombineTabLabel.color = Color.white;
+                ConfigureOutlinedButton(spiritStoneDismantleTabButton, inactiveTabFill, inactiveTabBorder, 2f);
+                if (spiritStoneDismantleTabLabel != null) spiritStoneDismantleTabLabel.color = inactiveTabText;
+            }
+            else
+            {
+                ConfigureOutlinedButton(spiritStoneCombineTabButton, inactiveTabFill, inactiveTabBorder, 2f);
+                if (spiritStoneCombineTabLabel != null) spiritStoneCombineTabLabel.color = inactiveTabText;
+                ConfigureOutlinedButton(spiritStoneDismantleTabButton, activeTabFill, Gold, 2f);
+                if (spiritStoneDismantleTabLabel != null) spiritStoneDismantleTabLabel.color = Color.white;
+            }
+
+            for (int g = 0; g < 4; g++)
+            {
+                Button btn = spiritStoneCombineGradeButtons[g];
+                if (btn == null)
+                    continue;
+
+                TMP_Text lbl = spiritStoneCombineGradeQuantityLabels[g];
+                if (lbl != null)
+                    lbl.text = owned[g].ToString();
+
+                Outline outline = btn.GetComponent<Outline>();
+                if (outline == null)
+                    outline = btn.gameObject.AddComponent<Outline>();
+
+                bool disabledInMode = (mode == 0 && g == 3) || (mode == 1 && g == 0);
+                Image btnImg = btn.GetComponent<Image>();
+
+                if (disabledInMode)
+                {
+                    btn.interactable = false;
+                    if (btnImg != null) btnImg.color = new Color32(45, 48, 54, 255);
+                    if (lbl != null) lbl.color = new Color32(150, 150, 150, 255);
+                    outline.effectColor = new Color32(110, 115, 125, 255);
+                    outline.effectDistance = new Vector2(2f, -2f);
+                }
+                else
+                {
+                    btn.interactable = true;
+                    if (btnImg != null) btnImg.color = new Color32(12, 27, 36, 255);
+                    if (lbl != null) lbl.color = Color.white;
+
+                    if (g == grade)
+                    {
+                        outline.effectColor = Gold;
+                        outline.effectDistance = new Vector2(3f, -3f);
+                    }
+                    else
+                    {
+                        outline.effectColor = Gold;
+                        outline.effectDistance = new Vector2(2f, -2f);
+                    }
+                }
+            }
+
+            int sourceIndex = LegacyInventoryItemCount + BlackDragonItemIds.Length + grade;
+            ItemConfig sourceConfig = GetSpiritStoneItemConfig(sourceIndex);
+
+            if (canExchange)
+            {
+                int targetIndex = LegacyInventoryItemCount + BlackDragonItemIds.Length + targetGrade;
+                ItemConfig targetConfig = GetSpiritStoneItemConfig(targetIndex);
+                if (sourceConfig == null || targetConfig == null)
+                {
+                    Debug.LogError($"[MainProgress] Missing SpiritStoneItemConfig for grade {grade} or {targetGrade}.", this);
+                    return;
+                }
+
+                if (spiritStoneCombineSourceIcon != null)
+                    spiritStoneCombineSourceIcon.sprite = sourceConfig.RewardIcon;
+                if (spiritStoneCombineTargetIcon != null)
+                    spiritStoneCombineTargetIcon.sprite = targetConfig.RewardIcon;
+                if (spiritStoneCombineSourceName != null)
+                    spiritStoneCombineSourceName.text = sourceConfig.DisplayName;
+                if (spiritStoneCombineTargetName != null)
+                    spiritStoneCombineTargetName.text = targetConfig.DisplayName;
+
+                int displayRequired = (spiritStoneCombineQuantity == 0) ? ((mode == 0) ? 100 : 1) : required;
+                if (spiritStoneCombineSourceQuantity != null)
+                {
+                    spiritStoneCombineSourceQuantity.text = $"{owned[grade]} / {displayRequired}";
+                    spiritStoneCombineSourceQuantity.color = (owned[grade] >= displayRequired && spiritStoneCombineQuantity > 0)
+                        ? new Color32(0, 200, 0, 255)
+                        : new Color32(255, 60, 60, 255);
+                }
+
+                if (spiritStoneCombineTargetResult != null)
+                {
+                    spiritStoneCombineTargetResult.text = $"nhận {result}";
+                    spiritStoneCombineTargetResult.color = Color.white;
+                }
+            }
+            else
+            {
+                if (spiritStoneCombineSourceIcon != null && sourceConfig != null)
+                    spiritStoneCombineSourceIcon.sprite = sourceConfig.RewardIcon;
+                if (spiritStoneCombineTargetIcon != null)
+                    spiritStoneCombineTargetIcon.sprite = null;
+                if (spiritStoneCombineSourceName != null && sourceConfig != null)
+                    spiritStoneCombineSourceName.text = sourceConfig.DisplayName;
+                if (spiritStoneCombineTargetName != null)
+                    spiritStoneCombineTargetName.text = string.Empty;
+
+                if (spiritStoneCombineSourceQuantity != null)
+                {
+                    spiritStoneCombineSourceQuantity.text = $"{owned[grade]} / —";
+                    spiritStoneCombineSourceQuantity.color = new Color32(150, 150, 150, 255);
+                }
+
+                if (spiritStoneCombineTargetResult != null)
+                {
+                    spiritStoneCombineTargetResult.text = (mode == 0)
+                        ? "Cực phẩm là cấp cao nhất — không thể hợp thành thêm"
+                        : "Hạ phẩm là cấp thấp nhất — không thể phân giải";
+                    spiritStoneCombineTargetResult.color = new Color32(255, 60, 60, 255);
+                }
+            }
+
+            if (spiritStoneCombineQuantityLabel != null)
+                spiritStoneCombineQuantityLabel.text = spiritStoneCombineQuantity.ToString();
+
+            if (spiritStoneCombineSlider != null)
+            {
+                spiritStoneCombineSlider.minValue = maxOperations > 0 ? 1 : 0;
+                spiritStoneCombineSlider.maxValue = maxOperations;
+                spiritStoneCombineSlider.SetValueWithoutNotify(spiritStoneCombineQuantity);
+                spiritStoneCombineSlider.interactable = maxOperations > 0;
+            }
+
+            if (spiritStoneCombineMinusButton != null)
+                spiritStoneCombineMinusButton.interactable = spiritStoneCombineQuantity > 1;
+            if (spiritStoneCombinePlusButton != null)
+                spiritStoneCombinePlusButton.interactable = spiritStoneCombineQuantity < maxOperations;
+
+            if (spiritStoneCombineConfirmLabel != null)
+                spiritStoneCombineConfirmLabel.text = (mode == 0) ? "Hợp thành" : "Phân giải";
+
+            bool canConfirm = canExchange && maxOperations >= 1 && spiritStoneCombineQuantity >= 1
+                && owned[grade] >= required;
+            if (spiritStoneCombineConfirmButton != null)
+            {
+                spiritStoneCombineConfirmButton.interactable = canConfirm;
+                Color32 confirmFill = canConfirm
+                    ? new Color32(12, 27, 36, 255)
+                    : new Color32(45, 48, 54, 245);
+                Color32 confirmBorder = canConfirm
+                    ? (Color32)Gold
+                    : new Color32(110, 115, 125, 255);
+                ConfigureOutlinedButton(spiritStoneCombineConfirmButton, confirmFill, confirmBorder, 2f);
+                if (spiritStoneCombineConfirmLabel != null)
+                    spiritStoneCombineConfirmLabel.color = canConfirm ? Color.white : new Color32(150, 150, 150, 255);
+            }
+        }
+
+        void ConfirmSpiritStoneCombine()
+        {
+            int mode = spiritStoneCombineMode;
+            int grade = spiritStoneCombineGrade;
+            int targetGrade = (mode == 0) ? grade + 1 : grade - 1;
+            bool canExchange = (mode == 0) ? (grade >= 0 && grade <= 2) : (grade >= 1 && grade <= 3);
+            if (!canExchange || targetGrade < 0 || targetGrade > 3)
+            {
+                Debug.LogError($"[MainProgress] Invalid combine/dismantle target grade: mode={mode}, grade={grade}, targetGrade={targetGrade}.", this);
+                return;
+            }
+
+            SaveManager saveManager = SaveManager.Instance;
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            InventoryService inventoryService = new InventoryService(
+                saveManager, config);
+
+            int owned = inventoryService.GetQuantity(SpiritStoneItemIds[grade]);
+            int maxOperations = (mode == 0) ? owned / 100 : owned;
+            int quantity = spiritStoneCombineQuantity;
+            int required = (mode == 0) ? 100 * quantity : quantity;
+            int result = (mode == 0) ? quantity : 100 * quantity;
+
+            if (quantity < 1 || maxOperations < 1 || owned < required)
+            {
+                Debug.LogError($"[MainProgress] Cannot combine: quantity={quantity}, maxOperations={maxOperations}, owned={owned}, required={required}.", this);
+                return;
+            }
+
+            string sourceId = SpiritStoneItemIds[grade];
+            string targetId = SpiritStoneItemIds[targetGrade];
+
+            bool removed = inventoryService.RemoveStackItem(sourceId, required);
+            if (!removed)
+            {
+                Debug.LogError($"[MainProgress] RemoveStackItem failed for sourceId '{sourceId}' with quantity {required}.", this);
+                return;
+            }
+
+            bool added = inventoryService.AddStackItem(targetId, result);
+            if (!added)
+            {
+                Debug.LogError($"[MainProgress] AddStackItem failed for targetId '{targetId}' with quantity {result}. Source items were already removed!", this);
+            }
+
+            RefreshSpiritStoneCombinePopup();
         }
 
         static void BuildPopupStatsBlock(Transform panel, ItemConfig itemConfig, int upgradeLevel)
