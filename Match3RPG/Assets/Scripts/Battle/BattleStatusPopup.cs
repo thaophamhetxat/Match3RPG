@@ -1,6 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using Match3RPG.Board;
 using Match3RPG.Campaign;
+using Match3RPG.Configuration;
 using Match3RPG.Core;
 using Match3RPG.Persistence;
 using TMPro;
@@ -22,6 +24,13 @@ namespace Match3RPG.Battle
             "MainProgress/Settings/settings_music_256",     // index 1 = Nhạc Nền
             "MainProgress/Settings/settings_vibration_256"  // index 2 = Rung
         };
+        static readonly string[] LegacyItemIds =
+        {
+            "azure_dragon",
+            "blue_potion",
+            "immortal_peach",
+            "sun_spirit_orb"
+        };
 
         enum Tab
         {
@@ -34,7 +43,9 @@ namespace Match3RPG.Battle
         RectTransform popupRect;
         RectTransform popupImageRect;
         RectTransform tabFocusRect;
+        RectTransform bagContentRoot;
         RectTransform settingsHits;
+        GameObject itemPopupRoot;
         CanvasGroup canvasGroup;
         Image popupImage;
         GameObject confirmationRoot;
@@ -147,6 +158,7 @@ namespace Match3RPG.Battle
             }
             settingsHits.gameObject.SetActive(false);
 
+            BuildBagTabContent();
             BuildExitConfirmation(root);
             popupRect.SetSiblingIndex(1);
             SetTab(Tab.Bag);
@@ -293,8 +305,11 @@ namespace Match3RPG.Battle
                 tabFocusRect.offsetMin = Vector2.zero;
                 tabFocusRect.offsetMax = Vector2.zero;
             }
+            if (bagContentRoot != null)
+                bagContentRoot.gameObject.SetActive(tab == Tab.Bag);
             settingsHits.gameObject.SetActive(tab == Tab.Settings);
             UpdateSettingsIndicators();
+            CloseItemPopup();
         }
 
         void ToggleSetting(int index)
@@ -344,6 +359,7 @@ namespace Match3RPG.Battle
 
         void ExitBattleWithoutRewards()
         {
+            CloseItemPopup();
             if (confirmationRoot != null)
                 confirmationRoot.SetActive(false);
             if (canvasGroup != null)
@@ -389,6 +405,7 @@ namespace Match3RPG.Battle
             if (isOpen || closing || turnManager == null || !turnManager.PauseForStatusPopup())
                 return;
             isOpen = true;
+            CloseItemPopup();
             SetTab(Tab.Bag);
             canvasGroup.interactable = true;
             canvasGroup.blocksRaycasts = true;
@@ -401,6 +418,7 @@ namespace Match3RPG.Battle
         {
             if (!isOpen || closing)
                 return;
+            CloseItemPopup();
             if (confirmationRoot != null)
                 confirmationRoot.SetActive(false);
             closing = true;
@@ -446,13 +464,201 @@ namespace Match3RPG.Battle
                 return;
             if (isOpen)
             {
-                if (confirmationRoot != null && confirmationRoot.activeSelf)
+                if (itemPopupRoot != null)
+                    CloseItemPopup();
+                else if (confirmationRoot != null && confirmationRoot.activeSelf)
                     CancelExitConfirmation();
                 else
                     Close();
             }
             else
                 Open();
+        }
+
+        void BuildBagTabContent()
+        {
+            bagContentRoot = CreateRect("BagContent", popupRect,
+                new Vector2(0.068f, 0.124f), new Vector2(0.931f, 0.749f),
+                Vector2.zero, Vector2.zero);
+
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            if (config == null)
+            {
+                Debug.LogError("BattleStatusPopup failed to load Configuration/GameConfigService.", this);
+                return;
+            }
+
+            List<ItemConfig> consumables = new List<ItemConfig>();
+            for (int i = 0; i < LegacyItemIds.Length; i++)
+            {
+                string stableId = LegacyItemIds[i];
+                ItemConfig item = config.GetItem(stableId);
+                if (item == null)
+                {
+                    Debug.LogError($"BattleStatusPopup failed to find ItemConfig for '{stableId}'.", this);
+                    continue;
+                }
+                if (item.InventoryFlag == 1)
+                    consumables.Add(item);
+            }
+
+            const int columns = 5;
+            float contentWidth = (0.931f - 0.068f) * PopupWidth;
+            float contentHeight = (0.749f - 0.124f) * PopupHeight;
+            const float gridTopMargin = 40f;
+            const float gridBottomMargin = 40f;
+            float widthCellSize = contentWidth / columns;
+            float heightCellSize = (contentHeight - gridTopMargin - gridBottomMargin - 30f)
+                / (6f * 0.97f + 0.725f);
+            float cellSize = Mathf.Min(widthCellSize, heightCellSize);
+            float slotSize = cellSize * 0.725f;
+            float rowPitch = cellSize * 0.97f;
+            float gridSpan = 6f * rowPitch + slotSize + 30f;
+            float gridTopOffset = (contentHeight - gridSpan) * 0.5f;
+            float gridXOffset = (contentWidth - columns * cellSize) * 0.5f;
+
+            for (int displayIndex = 0; displayIndex < consumables.Count; displayIndex++)
+            {
+                ItemConfig itemConfig = consumables[displayIndex];
+                int row = displayIndex / columns;
+                int column = displayIndex % columns;
+
+                RectTransform slotRect = CreateRect($"BagSlot_{displayIndex}", bagContentRoot,
+                    new Vector2(0f, 1f), new Vector2(0f, 1f), Vector2.zero, Vector2.zero);
+                slotRect.pivot = new Vector2(0.5f, 0.5f);
+                slotRect.sizeDelta = new Vector2(slotSize, slotSize);
+                slotRect.anchoredPosition = new Vector2(
+                    gridXOffset + (column + 0.5f) * cellSize,
+                    -(gridTopOffset + (row + 0.5f) * rowPitch));
+
+                Image slotImage = AddImage(slotRect.gameObject, new Color32(12, 27, 36, 255));
+                slotImage.raycastTarget = true;
+                Outline slotOutline = slotRect.gameObject.AddComponent<Outline>();
+                slotOutline.effectColor = Gold;
+                slotOutline.effectDistance = new Vector2(2f, -2f);
+
+                Button slotButton = slotRect.gameObject.AddComponent<Button>();
+                slotButton.targetGraphic = slotImage;
+                slotButton.transition = Selectable.Transition.None;
+                slotButton.onClick.AddListener(() => OpenItemPopup(itemConfig));
+
+                RectTransform itemRect = CreateRect("ItemArtwork", slotRect,
+                    new Vector2(0.12f, 0.12f), new Vector2(0.88f, 0.88f),
+                    Vector2.zero, Vector2.zero);
+                Image itemImage = itemRect.gameObject.AddComponent<Image>();
+                itemImage.sprite = itemConfig.RewardIcon;
+                itemImage.preserveAspect = true;
+                itemImage.raycastTarget = false;
+
+                RectTransform nameRect = CreateRect($"BagItemName_{displayIndex}", bagContentRoot,
+                    new Vector2(0f, 1f), new Vector2(0f, 1f), Vector2.zero, Vector2.zero);
+                nameRect.pivot = new Vector2(0.5f, 1f);
+                nameRect.sizeDelta = new Vector2(cellSize * 0.96f, 26f);
+                nameRect.anchoredPosition = new Vector2(
+                    gridXOffset + (column + 0.5f) * cellSize,
+                    -(gridTopOffset + (row + 0.5f) * rowPitch + slotSize * 0.5f + 4f));
+                TMP_Text nameText = CreateText(itemConfig.DisplayName, nameRect, 18f,
+                    Vector2.zero, Vector2.one);
+                nameText.enableAutoSizing = true;
+                nameText.fontSizeMin = 12f;
+                nameText.fontSizeMax = 20f;
+            }
+        }
+
+        void OpenItemPopup(ItemConfig item)
+        {
+            if (item == null)
+                return;
+
+            CloseItemPopup();
+
+            RectTransform overlay = CreateRect("ItemPopupOverlay", popupRect,
+                Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            overlay.SetAsLastSibling();
+            Image shade = AddImage(overlay.gameObject, new Color(0f, 0f, 0f, 0.72f));
+            shade.raycastTarget = true;
+            itemPopupRoot = overlay.gameObject;
+
+            RectTransform panel = CreateRect("PopupPanel", overlay,
+                new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f),
+                new Vector2(-360f, -420f), new Vector2(360f, 420f));
+            AddImage(panel.gameObject, new Color32(12, 27, 36, 255));
+            Outline panelOutline = panel.gameObject.AddComponent<Outline>();
+            panelOutline.effectColor = Gold;
+            panelOutline.effectDistance = new Vector2(3f, -3f);
+
+            Button closeButton = CreateButtonHit("PopupCloseButton", panel,
+                new Rect(0.88f, 0.89f, 0.08f, 0.07f), CloseItemPopup);
+            Image closeImage = closeButton.GetComponent<Image>();
+            closeImage.color = new Color32(62, 45, 37, 255);
+            Outline closeOutline = closeButton.gameObject.AddComponent<Outline>();
+            closeOutline.effectColor = Gold;
+            closeOutline.effectDistance = new Vector2(2f, -2f);
+            TMP_Text closeText = CreateText("X", (RectTransform)closeButton.transform, 26f,
+                Vector2.zero, Vector2.one);
+            closeText.color = Gold;
+
+            RectTransform iconFrameRect = CreateRect("PopupItemIconFrame", panel,
+                new Vector2(0.08f, 0.72f), new Vector2(0.32f, 0.92f),
+                Vector2.zero, Vector2.zero);
+            AddImage(iconFrameRect.gameObject, new Color32(12, 27, 36, 255));
+            Outline iconOutline = iconFrameRect.gameObject.AddComponent<Outline>();
+            iconOutline.effectColor = Gold;
+            iconOutline.effectDistance = new Vector2(2f, -2f);
+
+            RectTransform artworkRect = CreateRect("PopupItemArtwork", iconFrameRect,
+                new Vector2(0.08f, 0.08f), new Vector2(0.92f, 0.92f),
+                Vector2.zero, Vector2.zero);
+            Image artworkImage = artworkRect.gameObject.AddComponent<Image>();
+            artworkImage.sprite = item.RewardIcon;
+            artworkImage.preserveAspect = true;
+            artworkImage.raycastTarget = false;
+
+            TMP_Text nameLabel = CreateText(item.DisplayName, panel, 30f,
+                new Vector2(0.36f, 0.80f), new Vector2(0.86f, 0.92f));
+            nameLabel.color = Gold;
+            nameLabel.alignment = TextAlignmentOptions.MidlineLeft;
+            nameLabel.enableAutoSizing = true;
+            nameLabel.fontSizeMin = 18f;
+            nameLabel.fontSizeMax = 30f;
+
+            string descriptionText = string.IsNullOrEmpty(item.Description)
+                ? "Chưa có dữ liệu — chờ bổ sung"
+                : item.Description;
+            TMP_Text effectLabel = CreateText(descriptionText, panel, 22f,
+                new Vector2(0.08f, 0.35f), new Vector2(0.92f, 0.68f));
+            effectLabel.color = Color.white;
+            effectLabel.alignment = TextAlignmentOptions.TopLeft;
+            effectLabel.enableAutoSizing = false;
+
+            Button useButton = CreateButtonHit("PopupUseButton", panel,
+                new Rect(0.28f, 0.08f, 0.44f, 0.12f),
+                () => UseItemFromBattle(item));
+            Image useImage = useButton.GetComponent<Image>();
+            useImage.color = new Color32(62, 45, 37, 255);
+            Outline useOutline = useButton.gameObject.AddComponent<Outline>();
+            useOutline.effectColor = Gold;
+            useOutline.effectDistance = new Vector2(2f, -2f);
+            TMP_Text useText = CreateText("Sử dụng", (RectTransform)useButton.transform, 28f,
+                Vector2.zero, Vector2.one);
+            useText.color = Gold;
+        }
+
+        void UseItemFromBattle(ItemConfig item)
+        {
+            if (item != null)
+                Debug.Log($"[BattleStatusPopup] Sử dụng item: {item.DisplayName} (stableId: {item.StableId})");
+            CloseItemPopup();
+        }
+
+        void CloseItemPopup()
+        {
+            if (itemPopupRoot != null)
+            {
+                Destroy(itemPopupRoot);
+                itemPopupRoot = null;
+            }
         }
 
         static RectTransform CreateRect(string name, Transform parent, Vector2 min,
