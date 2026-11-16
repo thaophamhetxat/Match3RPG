@@ -46,16 +46,16 @@ MonoBehaviour:
     height: 0.13
   rewardIconRect:
     serializedVersion: 2
-    x: 0.02
-    y: 0.12
-    width: 0.28
-    height: 0.76
+    x: 0.37
+    y: 0.36
+    width: 0.26
+    height: 0.56
   rewardTextRect:
     serializedVersion: 2
-    x: 0.31
-    y: 0.04
-    width: 0.68
-    height: 0.92
+    x: 0.02
+    y: 0.02
+    width: 0.96
+    height: 0.28
   stageLabelRect:
     serializedVersion: 2
     x: 0
