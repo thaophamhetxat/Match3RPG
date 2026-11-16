@@ -704,12 +704,27 @@ backgroundLayer.SetAsFirstSibling();
                 ? Color.white : new Color(1f, 1f, 1f, .15f);
             heroImage.raycastTarget = false;
 
-            AddEquipmentSlot(artworkRect, 0, "Mũ", .101f, .800f, .280f, .875f);
-            AddEquipmentSlot(artworkRect, 1, "Giáp", .101f, .702f, .280f, .777f);
-            AddEquipmentSlot(artworkRect, 2, "Giày", .101f, .603f, .280f, .678f);
-            AddEquipmentSlot(artworkRect, 3, "Vũ khí", .719f, .800f, .898f, .875f);
-            AddEquipmentSlot(artworkRect, 4, "Pháp bảo", .719f, .702f, .898f, .777f);
-            AddEquipmentSlot(artworkRect, 5, "Găng", .719f, .603f, .898f, .678f);
+            // 6 ô trang bị 2 bên vòng tròn chân dung + nhãn tên loại bên dưới mỗi ô
+            (int index, string name, float minX, float minY, float maxX, float maxY, float labelMinY, float labelMaxY)[] equipmentSlots =
+            {
+                (0, "Mũ",       .075f, .826f, .182f, .876f, .813f, .824f),
+                (1, "Giáp",     .075f, .756f, .182f, .806f, .743f, .754f),
+                (2, "Giày",     .075f, .686f, .182f, .735f, .672f, .683f),
+                (3, "Vũ khí",   .797f, .826f, .904f, .876f, .813f, .824f),
+                (4, "Pháp bảo", .797f, .756f, .904f, .806f, .743f, .754f),
+                (5, "Găng",     .797f, .686f, .904f, .735f, .672f, .683f),
+            };
+            foreach (var slot in equipmentSlots)
+            {
+                AddEquipmentSlot(artworkRect, slot.index, slot.name,
+                    slot.minX, slot.minY, slot.maxX, slot.maxY);
+                TMP_Text slotLabel = AddLabel(artworkRect, $"EquipmentLabel_{slot.name}",
+                    slot.name, 20, Gold,
+                    new Vector2(slot.minX, slot.labelMinY),
+                    new Vector2(slot.maxX, slot.labelMaxY),
+                    TextAlignmentOptions.Center);
+                slotLabel.raycastTarget = false;
+            }
 
             const float closeMinX = .870f;
             const float closeMaxX = .977f;
@@ -739,6 +754,7 @@ backgroundLayer.SetAsFirstSibling();
             return overlay;
         }
 
+        // Tạo ô trang bị gồm vùng bấm, nền tối viền vàng và icon trang bị bên trên
         void AddEquipmentSlot(Transform parent, int slotIndex, string slotName,
             float minX, float minY, float maxX, float maxY)
         {
@@ -746,6 +762,17 @@ backgroundLayer.SetAsFirstSibling();
                 minX, minY, maxX, maxY,
                 () => OpenStatusItemPopup(slotIndex));
             RectTransform buttonRect = button.GetComponent<RectTransform>();
+
+            // Nền ô trang bị (tạo trước icon để nằm dưới icon)
+            RectTransform bgRect = CreateAnchoredRect(buttonRect, "SlotBackground",
+                Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            Image bgImage = bgRect.gameObject.AddComponent<Image>();
+            bgImage.color = new Color32(12, 27, 36, 255);
+            bgImage.raycastTarget = false;
+            Outline bgOutline = bgRect.gameObject.AddComponent<Outline>();
+            bgOutline.effectColor = Gold;
+            bgOutline.effectDistance = new Vector2(2f, -2f);
+
             RectTransform iconRect = CreateAnchoredRect(buttonRect, "EquippedIcon",
                 new Vector2(.08f, .00f), new Vector2(.92f, .84f),
                 Vector2.zero, Vector2.zero);
@@ -3170,22 +3197,36 @@ backgroundLayer.SetAsFirstSibling();
                     new Vector4(1f, 1f, 1f, 1f));
         }
 
+        // Tạo khung focus tab dùng sprite 9-slice; fallback về Outline vàng nếu thiếu sprite
         static RectTransform CreateTabFocusOverlay(Transform parent, string name,
             Vector2 anchorMin, Vector2 anchorMax)
         {
-            EnsureTabFocusWhiteSprite();
             RectTransform focusRect = CreateAnchoredRect(parent, name,
                 anchorMin, anchorMax, Vector2.zero, Vector2.zero);
             Image focusImage = focusRect.gameObject.AddComponent<Image>();
-            focusImage.sprite = tabFocusWhiteSprite;
-            focusImage.color = Color.clear;
-            focusImage.type = Image.Type.Sliced;
-            focusImage.fillCenter = false;
-            focusImage.raycastTarget = false;
-            Outline focusOutline = focusRect.gameObject.AddComponent<Outline>();
-            focusOutline.effectColor = Gold;
-            focusOutline.effectDistance = new Vector2(3f, -3f);
-            focusOutline.useGraphicAlpha = false;
+            Sprite focusSprite = Resources.Load<Sprite>("MainProgress/UI/focus_frame_9slice");
+            if (focusSprite == null)
+            {
+                Debug.LogError("MainProgress failed to load sprite Resources/MainProgress/UI/focus_frame_9slice.");
+                EnsureTabFocusWhiteSprite();
+                focusImage.sprite = tabFocusWhiteSprite;
+                focusImage.color = Color.clear;
+                focusImage.type = Image.Type.Sliced;
+                focusImage.fillCenter = false;
+                focusImage.raycastTarget = false;
+                Outline focusOutline = focusRect.gameObject.AddComponent<Outline>();
+                focusOutline.effectColor = Gold;
+                focusOutline.effectDistance = new Vector2(3f, -3f);
+                focusOutline.useGraphicAlpha = false;
+            }
+            else
+            {
+                focusImage.sprite = focusSprite;
+                focusImage.color = Color.white;
+                focusImage.type = Image.Type.Sliced;
+                focusImage.fillCenter = false;
+                focusImage.raycastTarget = false;
+            }
             return focusRect;
         }
 

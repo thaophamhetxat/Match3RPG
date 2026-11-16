@@ -116,17 +116,31 @@ namespace Match3RPG.Battle
             else
                 popupImage.sprite = popupSprite;
 
+            // Khung focus tab dùng sprite 9-slice; fallback về Outline vàng nếu thiếu sprite
             tabFocusRect = CreateRect("TabFocusOverlay", popupRect,
                 new Vector2(.073f, .764f), new Vector2(.361f, .822f),
                 Vector2.zero, Vector2.zero);
-            Image focusImage = AddImage(tabFocusRect.gameObject, Color.clear);
-            focusImage.type = Image.Type.Sliced;
-            focusImage.fillCenter = false;
-            focusImage.raycastTarget = false;
-            Outline focusOutline = tabFocusRect.gameObject.AddComponent<Outline>();
-            focusOutline.effectColor = Gold;
-            focusOutline.effectDistance = new Vector2(3f, -3f);
-            focusOutline.useGraphicAlpha = false;
+            Sprite focusSprite = Resources.Load<Sprite>("MainProgress/UI/focus_frame_9slice");
+            if (focusSprite == null)
+            {
+                Debug.LogError("BattleStatusPopup failed to load sprite Resources/MainProgress/UI/focus_frame_9slice.", this);
+                Image focusImage = AddImage(tabFocusRect.gameObject, Color.clear);
+                focusImage.type = Image.Type.Sliced;
+                focusImage.fillCenter = false;
+                focusImage.raycastTarget = false;
+                Outline focusOutline = tabFocusRect.gameObject.AddComponent<Outline>();
+                focusOutline.effectColor = Gold;
+                focusOutline.effectDistance = new Vector2(3f, -3f);
+                focusOutline.useGraphicAlpha = false;
+            }
+            else
+            {
+                Image focusImage = AddImage(tabFocusRect.gameObject, Color.white);
+                focusImage.sprite = focusSprite;
+                focusImage.type = Image.Type.Sliced;
+                focusImage.fillCenter = false;
+                focusImage.raycastTarget = false;
+            }
 
             CreateButtonHit("TabBagHit", popupRect, new Rect(.073f, .764f, .288f, .058f),
                 () => SetTab(Tab.Bag));
