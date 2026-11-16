@@ -22,7 +22,16 @@ namespace Match3RPG.Campaign
         const int LegacyInventoryItemCount = 4;
         const int TotalInventoryItemCount = 32;
         const int MaxEquipmentUpgradeLevel = 15;
+        const int MaxEquipmentQualityTier = 3;
         const string BlackDragonSetDetailText = "Bộ Hắc Long (hệ ATK) — 6 món: Kiếm, Mũ, Giáp, Găng, Giầy, Nhẫn.";
+
+        // Thiên phú chỉ để hiển thị mốc nâng cấp, KHÔNG cộng thêm bonus riêng vào chỉ số.
+        static readonly (int milestoneLevel, string text, Vector2 anchorMin, Vector2 anchorMax)[] EquipmentTalentMilestones =
+        {
+            (1, "+1: Tăng 10% ATK", new Vector2(0.091f, 0.315f), new Vector2(0.909f, 0.35f)),
+            // TODO (Thao): chốt giá trị thật cho mốc +15
+            (15, "+15: Tăng 20% HP", new Vector2(0.091f, 0.278f), new Vector2(0.909f, 0.313f))
+        };
 
         static readonly string[] BlackDragonItemIds =
         {
@@ -75,6 +84,8 @@ namespace Match3RPG.Campaign
         [SerializeField] Sprite[] starChartSpecialGemSprites = new Sprite[7];
 
         static Sprite tabFocusWhiteSprite;
+        static Sprite starPolygonSprite;
+        static readonly Dictionary<int, Sprite> roundedRectSprites = new Dictionary<int, Sprite>();
 
         static readonly (Vector2 min, Vector2 max)[] InventoryTabAnchors =
         {
@@ -131,6 +142,22 @@ namespace Match3RPG.Campaign
         Image inventoryPopupItemImage;
         TMP_Text inventoryPopupItemName;
         TMP_Text inventoryPopupItemEffect;
+        GameObject inventoryUpgradePopup;
+        int inventoryUpgradeItemIndex;
+        ItemConfig inventoryUpgradeItemConfig;
+        bool inventoryUpgradeFromStatus;
+        int inventoryUpgradeTabMode;
+        Button inventoryUpgradeEnhanceTabButton, inventoryUpgradeQualityTabButton;
+        TMP_Text inventoryUpgradeEnhanceTabLabel, inventoryUpgradeQualityTabLabel;
+        GameObject inventoryUpgradeEnhanceContent, inventoryUpgradeQualityContent;
+        TMP_Text inventoryUpgradeLevelLabel;
+        Button inventoryUpgradeEnhanceActionButton;
+        TMP_Text inventoryUpgradeEnhanceActionLabel;
+        TMP_Text inventoryUpgradeQualityLabel;
+        readonly Image[] inventoryUpgradeQualityStarImages = new Image[4];
+        readonly Outline[] inventoryUpgradeQualityStarOutlines = new Outline[4];
+        Button inventoryUpgradeQualityActionButton;
+        TMP_Text inventoryUpgradeQualityActionLabel;
         GameObject spiritStoneCombinePopup;
         int spiritStoneCombineMode;
         int spiritStoneCombineGrade;
@@ -1309,7 +1336,7 @@ backgroundLayer.SetAsFirstSibling();
                 new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f),
                 Vector2.zero, Vector2.zero);
             panel.pivot = new Vector2(0.5f, 0.5f);
-            panel.sizeDelta = new Vector2(900f, 1050f);
+            panel.sizeDelta = new Vector2(900f, 1100f);
             panel.anchoredPosition = Vector2.zero;
             inventoryPopupBackgroundImage = panel.gameObject.AddComponent<Image>();
             inventoryPopupBackgroundImage.color = new Color32(12, 27, 36, 255);
@@ -1317,31 +1344,6 @@ backgroundLayer.SetAsFirstSibling();
             Outline panelOutline = panel.gameObject.AddComponent<Outline>();
             panelOutline.effectColor = Gold;
             panelOutline.effectDistance = new Vector2(3f, -3f);
-
-            RectTransform iconFrameRect = CreateAnchoredRect(panel,
-                "PopupItemIconFrame", new Vector2(0.06f, 0.80f),
-                new Vector2(0.26f, 0.94f), Vector2.zero, Vector2.zero);
-            Image iconFrameImage = iconFrameRect.gameObject.AddComponent<Image>();
-            iconFrameImage.color = new Color32(12, 27, 36, 255);
-            iconFrameImage.raycastTarget = false;
-            Outline iconOutline = iconFrameRect.gameObject.AddComponent<Outline>();
-            iconOutline.effectColor = Gold;
-            iconOutline.effectDistance = new Vector2(2f, -2f);
-
-            RectTransform itemImageRect = CreateAnchoredRect(iconFrameRect,
-                "PopupItemArtwork", new Vector2(0.08f, 0.08f),
-                new Vector2(0.92f, 0.92f), Vector2.zero, Vector2.zero);
-            inventoryPopupItemImage = itemImageRect.gameObject.AddComponent<Image>();
-            inventoryPopupItemImage.sprite = allItemSprites[itemIndex];
-            inventoryPopupItemImage.preserveAspect = true;
-            inventoryPopupItemImage.raycastTarget = false;
-
-            Button closeButton = CreateCharacterHitButton(panel, "PopupCloseButton",
-                0.90f, 0.91f, 0.975f, 0.975f, CloseInventoryItemPopup);
-            ConfigureOutlinedButton(closeButton, new Color32(62, 45, 37, 255), Gold, 2f);
-            TMP_Text closeLabel = AddLabel(panel, "PopupCloseButtonText", "X", 26, Gold,
-                new Vector2(0.90f, 0.91f), new Vector2(0.975f, 0.975f), TextAlignmentOptions.Center);
-            closeLabel.raycastTarget = false;
 
             ItemConfig itemConfig = GetBlackDragonItemConfig(itemIndex) ?? GetWeaponItemConfig(itemIndex);
             if (itemConfig != null)
@@ -1351,33 +1353,155 @@ backgroundLayer.SetAsFirstSibling();
                 int upgradeLevel = existingInstance != null
                     ? Mathf.Max(0, existingInstance.upgradeLevel)
                     : 0;
-                string displayTitle = upgradeLevel > 0
-                    ? $"{GetInventoryItemName(itemIndex)} +{upgradeLevel}"
-                    : GetInventoryItemName(itemIndex);
+                int qualityTier = existingInstance != null
+                    ? Mathf.Clamp(existingInstance.qualityTier, 0, MaxEquipmentQualityTier)
+                    : 0;
+                string displayTitle = GetInventoryItemName(itemIndex);
 
+                Color topGradientColor = new Color32(96, 165, 250, 255);
+                Color bottomGradientColor = new Color32(167, 139, 250, 255);
                 inventoryPopupItemName = AddLabel(panel, "PopupItemName",
-                    displayTitle, 30, Gold,
-                    new Vector2(0.30f, 0.85f), new Vector2(0.94f, 0.94f),
-                    TextAlignmentOptions.MidlineLeft);
+                    displayTitle, 58, Color.white,
+                    new Vector2(0.05f, 0.905f), new Vector2(0.95f, 0.965f),
+                    TextAlignmentOptions.Center);
+                inventoryPopupItemName.fontStyle = FontStyles.Bold;
                 inventoryPopupItemName.textWrappingMode = TextWrappingModes.NoWrap;
                 inventoryPopupItemName.enableAutoSizing = true;
-                inventoryPopupItemName.fontSizeMin = 18f;
-                inventoryPopupItemName.fontSizeMax = 30f;
+                inventoryPopupItemName.fontSizeMin = 30f;
+                inventoryPopupItemName.fontSizeMax = 58f;
+                inventoryPopupItemName.enableVertexGradient = true;
+                inventoryPopupItemName.colorGradient = new VertexGradient(
+                    topGradientColor, topGradientColor, bottomGradientColor, bottomGradientColor);
+                if (!inventoryPopupItemName.enableVertexGradient)
+                    inventoryPopupItemName.color = topGradientColor;
 
                 TMP_Text gradeSlotLabel = AddLabel(panel, "PopupItemGradeSlot",
-                    FormatItemGradeAndSlotLine(itemConfig), 20, Color.white,
-                    new Vector2(0.30f, 0.79f), new Vector2(0.94f, 0.84f),
+                    FormatItemQualityGradeLine(itemConfig, qualityTier), 34,
+                    new Color32(239, 68, 68, 255),
+                    new Vector2(0.08f, 0.85f), new Vector2(0.48f, 0.88f),
                     TextAlignmentOptions.MidlineLeft);
+                gradeSlotLabel.fontStyle = FontStyles.Bold;
+                gradeSlotLabel.textWrappingMode = TextWrappingModes.NoWrap;
                 gradeSlotLabel.enableAutoSizing = false;
 
-                BuildPopupStatsBlock(panel, itemConfig, upgradeLevel);
+                Color32 purpleBorderColor = new Color32(139, 92, 246, 255);
+                RectTransform contentBoxRect = CreateAnchoredRect(panel,
+                    "PopupContentBox", new Vector2(0.056f, 0.236f),
+                    new Vector2(0.944f, 0.825f), Vector2.zero, Vector2.zero);
+                Image contentBoxImage = contentBoxRect.gameObject.AddComponent<Image>();
+                contentBoxImage.sprite = GetRoundedRectSprite(18);
+                contentBoxImage.type = Image.Type.Sliced;
+                contentBoxImage.color = new Color32(19, 28, 46, 255);
+                contentBoxImage.raycastTarget = false;
+                Outline contentBoxOutline = contentBoxRect.gameObject.AddComponent<Outline>();
+                contentBoxOutline.effectColor = purpleBorderColor;
+                contentBoxOutline.effectDistance = new Vector2(3f, -3f);
+
+                RectTransform iconFrameRect = CreateAnchoredRect(panel,
+                    "PopupItemIconFrame", new Vector2(0.091f, 0.644f),
+                    new Vector2(0.28f, 0.798f), Vector2.zero, Vector2.zero);
+                Image iconFrameImage = iconFrameRect.gameObject.AddComponent<Image>();
+                iconFrameImage.sprite = GetRoundedRectSprite(14);
+                iconFrameImage.type = Image.Type.Sliced;
+                iconFrameImage.color = new Color32(10, 16, 30, 255);
+                iconFrameImage.raycastTarget = false;
+                Outline iconOutline = iconFrameRect.gameObject.AddComponent<Outline>();
+                iconOutline.effectColor = purpleBorderColor;
+                iconOutline.effectDistance = new Vector2(3f, -3f);
+
+                RectTransform itemImageRect = CreateAnchoredRect(iconFrameRect,
+                    "PopupItemArtwork", new Vector2(0.08f, 0.08f),
+                    new Vector2(0.92f, 0.92f), Vector2.zero, Vector2.zero);
+                inventoryPopupItemImage = itemImageRect.gameObject.AddComponent<Image>();
+                inventoryPopupItemImage.sprite = allItemSprites[itemIndex];
+                inventoryPopupItemImage.preserveAspect = true;
+                inventoryPopupItemImage.raycastTarget = false;
+
+                if (isEquipped)
+                {
+                    RectTransform equippedBadgeRect = CreateAnchoredRect(iconFrameRect,
+                        "PopupEquippedBadge", new Vector2(0f, 1f), new Vector2(0f, 1f),
+                        new Vector2(-8f, -30f), new Vector2(36f, 8f));
+                    Image equippedBadgeBg = equippedBadgeRect.gameObject.AddComponent<Image>();
+                    equippedBadgeBg.sprite = GetRoundedRectSprite(9);
+                    equippedBadgeBg.type = Image.Type.Sliced;
+                    equippedBadgeBg.color = new Color32(15, 15, 20, 255);
+                    equippedBadgeBg.raycastTarget = false;
+                    Outline equippedBadgeOutline = equippedBadgeRect.gameObject.AddComponent<Outline>();
+                    equippedBadgeOutline.effectColor = Gold;
+                    equippedBadgeOutline.effectDistance = new Vector2(2f, -2f);
+                    TMP_Text equippedBadgeText = AddLabel(equippedBadgeRect, "Label", "E",
+                        26, Color.white, Vector2.zero, Vector2.one, TextAlignmentOptions.Center);
+                    equippedBadgeText.fontStyle = FontStyles.Bold;
+                    equippedBadgeText.enableAutoSizing = false;
+                    equippedBadgeText.raycastTarget = false;
+                }
+
+                if (upgradeLevel > 0)
+                {
+                    RectTransform upgradeBadgeRect = CreateAnchoredRect(iconFrameRect,
+                        "PopupUpgradeBadge", new Vector2(1f, 0f), new Vector2(1f, 0f),
+                        new Vector2(-50f, -8f), new Vector2(8f, 30f));
+                    Image upgradeBadgeBg = upgradeBadgeRect.gameObject.AddComponent<Image>();
+                    upgradeBadgeBg.sprite = GetRoundedRectSprite(9);
+                    upgradeBadgeBg.type = Image.Type.Sliced;
+                    upgradeBadgeBg.color = new Color32(15, 15, 20, 255);
+                    upgradeBadgeBg.raycastTarget = false;
+                    Outline upgradeBadgeOutline = upgradeBadgeRect.gameObject.AddComponent<Outline>();
+                    upgradeBadgeOutline.effectColor = Gold;
+                    upgradeBadgeOutline.effectDistance = new Vector2(2f, -2f);
+                    TMP_Text upgradeBadgeText = AddLabel(upgradeBadgeRect, "Label",
+                        $"+{upgradeLevel}", 26, Gold,
+                        Vector2.zero, Vector2.one, TextAlignmentOptions.Center);
+                    upgradeBadgeText.fontStyle = FontStyles.Bold;
+                    upgradeBadgeText.enableAutoSizing = false;
+                    upgradeBadgeText.raycastTarget = false;
+                }
+
+                CreateEquipmentQualityStarsRow(panel, "PopupQualityStarsRow",
+                    new Vector2(0.091f, 0.596f), new Vector2(0.28f, 0.630f),
+                    qualityTier, null, null);
+
+                BuildPopupStatsBlock(panel, itemConfig, upgradeLevel, qualityTier);
 
                 inventoryPopupItemEffect = AddLabel(panel, "PopupItemEffect",
-                    itemConfig.Description, 20, Color.white,
-                    new Vector2(0.06f, 0.38f), new Vector2(0.94f, 0.53f),
+                    itemConfig.Description, 29, Color.white,
+                    new Vector2(0.091f, 0.436f), new Vector2(0.909f, 0.509f),
                     TextAlignmentOptions.TopLeft);
                 inventoryPopupItemEffect.textWrappingMode = TextWrappingModes.Normal;
                 inventoryPopupItemEffect.enableAutoSizing = false;
+
+                TMP_Text talentHeaderLabel = AddLabel(panel, "PopupTalentHeader",
+                    "Thiên phú", 32, Color.white,
+                    new Vector2(0.091f, 0.36f), new Vector2(0.909f, 0.389f),
+                    TextAlignmentOptions.MidlineLeft);
+                talentHeaderLabel.fontStyle = FontStyles.Bold;
+                talentHeaderLabel.enableAutoSizing = false;
+
+                Color activeMilestoneColor = new Color32(96, 165, 250, 255);
+                Color inactiveMilestoneColor = new Color32(156, 163, 175, 255);
+                for (int i = 0; i < EquipmentTalentMilestones.Length; i++)
+                {
+                    var milestone = EquipmentTalentMilestones[i];
+                    Color milestoneColor = upgradeLevel >= milestone.milestoneLevel
+                        ? activeMilestoneColor
+                        : inactiveMilestoneColor;
+                    TMP_Text milestoneLabel = AddLabel(panel,
+                        $"PopupTalentMilestone_{milestone.milestoneLevel}",
+                        milestone.text, 30, milestoneColor,
+                        milestone.anchorMin, milestone.anchorMax,
+                        TextAlignmentOptions.MidlineLeft);
+                    milestoneLabel.enableAutoSizing = false;
+                }
+
+                if (Array.IndexOf(BlackDragonItemIds, itemConfig.StableId) >= 0)
+                {
+                    TMP_Text setDetailLabel = AddLabel(panel, "PopupItemSetDetail",
+                        BlackDragonSetDetailText, 18, new Color32(190, 195, 205, 255),
+                        new Vector2(0.06f, 0.207f), new Vector2(0.94f, 0.229f),
+                        TextAlignmentOptions.MidlineLeft);
+                    setDetailLabel.enableAutoSizing = false;
+                }
 
                 HeroProgressSaveData progress = LoadSelectedHeroProgress();
                 int playerLevel = progress != null ? Math.Max(1, progress.level) : 1;
@@ -1392,62 +1516,92 @@ backgroundLayer.SetAsFirstSibling();
                 Color requirementColor = meetsRequirement
                     ? Color.white
                     : new Color32(220, 110, 110, 255);
-                TMP_Text requirementLabel = AddLabel(panel, "PopupItemRequirement",
-                    requirementText, 20, requirementColor,
-                    new Vector2(0.06f, 0.30f), new Vector2(0.94f, 0.36f),
-                    TextAlignmentOptions.MidlineLeft);
-                requirementLabel.enableAutoSizing = false;
 
-                if (Array.IndexOf(BlackDragonItemIds, itemConfig.StableId) >= 0)
-                {
-                    TMP_Text setDetailLabel = AddLabel(panel, "PopupItemSetDetail",
-                        BlackDragonSetDetailText, 18, new Color32(190, 195, 205, 255),
-                        new Vector2(0.06f, 0.22f), new Vector2(0.94f, 0.27f),
-                        TextAlignmentOptions.MidlineLeft);
-                    setDetailLabel.enableAutoSizing = false;
-                }
+                RectTransform requirementPillRect = CreateAnchoredRect(panel,
+                    "PopupItemRequirementPill", new Vector2(0.287f, 0.147f),
+                    new Vector2(0.713f, 0.202f), Vector2.zero, Vector2.zero);
+                Image requirementPillImage = requirementPillRect.gameObject.AddComponent<Image>();
+                requirementPillImage.sprite = GetRoundedRectSprite(30);
+                requirementPillImage.type = Image.Type.Sliced;
+                requirementPillImage.color = new Color32(91, 91, 110, 255);
+                requirementPillImage.raycastTarget = false;
+
+                TMP_Text requirementLabel = AddLabel(requirementPillRect, "PopupItemRequirement",
+                    $"* {requirementText}", 30, requirementColor,
+                    new Vector2(0.04f, 0f), new Vector2(0.96f, 1f),
+                    TextAlignmentOptions.Center);
+                requirementLabel.textWrappingMode = TextWrappingModes.NoWrap;
+                requirementLabel.enableAutoSizing = true;
+                requirementLabel.fontSizeMin = 18f;
+                requirementLabel.fontSizeMax = 30f;
 
                 RectTransform buttonsContainer = CreateAnchoredRect(panel,
-                    "PopupActionButtons", new Vector2(0.06f, 0.06f),
-                    new Vector2(0.94f, 0.15f), Vector2.zero, Vector2.zero);
+                    "PopupActionButtons", new Vector2(0.056f, 0.038f),
+                    new Vector2(0.944f, 0.111f), Vector2.zero, Vector2.zero);
 
                 if (fromStatus)
                 {
-                    CreatePopupActionButton(buttonsContainer, "PopupUpgradeButton", "Nâng cấp",
+                    CreateEquipmentPopupActionButton(buttonsContainer, "PopupUpgradeButton", "Nâng cấp",
                         new Vector2(0f, 0f), new Vector2(0.5f, 1f),
-                        new Vector2(0f, 0f), new Vector2(-8f, 0f),
-                        upgradeLevel < MaxEquipmentUpgradeLevel,
-                        () => UpgradeInventoryPopupItem(itemIndex, itemConfig, fromStatus: true));
+                        new Vector2(0f, 0f), new Vector2(-6f, 0f),
+                        upgradeLevel < MaxEquipmentUpgradeLevel, false,
+                        () => OpenInventoryUpgradePopup(itemIndex, itemConfig, fromStatus: true));
 
-                    CreatePopupActionButton(buttonsContainer, "PopupUnequipButton", "Tháo",
+                    CreateEquipmentPopupActionButton(buttonsContainer, "PopupUnequipButton", "Tháo",
                         new Vector2(0.5f, 0f), new Vector2(1f, 1f),
-                        new Vector2(8f, 0f), new Vector2(0f, 0f),
-                        isEquipped,
+                        new Vector2(6f, 0f), new Vector2(0f, 0f),
+                        isEquipped, false,
                         () => UnequipInventoryPopupItem(itemConfig));
                 }
                 else
                 {
-                    CreatePopupActionButton(buttonsContainer, "PopupEquipButton", "Trang bị",
+                    CreateEquipmentPopupActionButton(buttonsContainer, "PopupEquipButton", "Trang bị",
                         new Vector2(0f, 0f), new Vector2(1f / 3f, 1f),
                         new Vector2(0f, 0f), new Vector2(-8f, 0f),
-                        !isEquipped && meetsRequirement,
-                        () => EquipInventoryPopupItem(itemIndex, itemConfig));
+                        !isEquipped && meetsRequirement, true,
+                        () =>
+                        {
+                            EquipInventoryPopupItem(itemIndex, itemConfig);
+                            OpenInventoryItemPopup(itemIndex, fromStatus: false);
+                        });
 
-                    CreatePopupActionButton(buttonsContainer, "PopupUpgradeButton", "Nâng cấp",
+                    CreateEquipmentPopupActionButton(buttonsContainer, "PopupUpgradeButton", "Nâng cấp",
                         new Vector2(1f / 3f, 0f), new Vector2(2f / 3f, 1f),
                         new Vector2(4f, 0f), new Vector2(-4f, 0f),
-                        upgradeLevel < MaxEquipmentUpgradeLevel,
-                        () => UpgradeInventoryPopupItem(itemIndex, itemConfig));
+                        upgradeLevel < MaxEquipmentUpgradeLevel, false,
+                        () => OpenInventoryUpgradePopup(itemIndex, itemConfig, fromStatus: false));
 
-                    CreatePopupActionButton(buttonsContainer, "PopupUnequipButton", "Tháo",
+                    CreateEquipmentPopupActionButton(buttonsContainer, "PopupUnequipButton", "Tháo",
                         new Vector2(2f / 3f, 0f), new Vector2(1f, 1f),
                         new Vector2(8f, 0f), new Vector2(0f, 0f),
-                        isEquipped,
-                        () => UnequipInventoryPopupItem(itemConfig));
+                        isEquipped, false,
+                        () =>
+                        {
+                            UnequipInventoryPopupItem(itemConfig);
+                            OpenInventoryItemPopup(itemIndex, fromStatus: false);
+                        });
                 }
             }
             else
             {
+                RectTransform iconFrameRect = CreateAnchoredRect(panel,
+                    "PopupItemIconFrame", new Vector2(0.06f, 0.80f),
+                    new Vector2(0.26f, 0.94f), Vector2.zero, Vector2.zero);
+                Image iconFrameImage = iconFrameRect.gameObject.AddComponent<Image>();
+                iconFrameImage.color = new Color32(12, 27, 36, 255);
+                iconFrameImage.raycastTarget = false;
+                Outline iconOutline = iconFrameRect.gameObject.AddComponent<Outline>();
+                iconOutline.effectColor = Gold;
+                iconOutline.effectDistance = new Vector2(2f, -2f);
+
+                RectTransform itemImageRect = CreateAnchoredRect(iconFrameRect,
+                    "PopupItemArtwork", new Vector2(0.08f, 0.08f),
+                    new Vector2(0.92f, 0.92f), Vector2.zero, Vector2.zero);
+                inventoryPopupItemImage = itemImageRect.gameObject.AddComponent<Image>();
+                inventoryPopupItemImage.sprite = allItemSprites[itemIndex];
+                inventoryPopupItemImage.preserveAspect = true;
+                inventoryPopupItemImage.raycastTarget = false;
+
                 inventoryPopupItemName = AddLabel(panel, "PopupItemName",
                     GetInventoryItemName(itemIndex), 30, Gold,
                     new Vector2(0.30f, 0.85f), new Vector2(0.94f, 0.94f),
@@ -1492,6 +1646,13 @@ backgroundLayer.SetAsFirstSibling();
                         () => OpenSpiritStoneCombinePopup(itemIndex));
                 }
             }
+
+            Button closeButton = CreateCharacterHitButton(panel, "PopupCloseButton",
+                0.90f, 0.91f, 0.975f, 0.975f, CloseInventoryItemPopup);
+            ConfigureOutlinedButton(closeButton, new Color32(62, 45, 37, 255), Gold, 2f);
+            TMP_Text closeLabel = AddLabel(panel, "PopupCloseButtonText", "X", 26, Gold,
+                new Vector2(0.90f, 0.91f), new Vector2(0.975f, 0.975f), TextAlignmentOptions.Center);
+            closeLabel.raycastTarget = false;
         }
 
         void OpenSpiritStoneCombinePopup(int itemIndex)
@@ -2043,31 +2204,32 @@ backgroundLayer.SetAsFirstSibling();
             RefreshSpiritStoneCombinePopup();
         }
 
-        static void BuildPopupStatsBlock(Transform panel, ItemConfig itemConfig, int upgradeLevel)
+        static void BuildPopupStatsBlock(Transform panel, ItemConfig itemConfig, int upgradeLevel, int qualityTier = 0)
         {
             RectTransform statsBlock = CreateAnchoredRect(panel, "PopupStatsBlock",
-                new Vector2(0.06f, 0.55f), new Vector2(0.94f, 0.77f),
+                new Vector2(0.313f, 0.527f), new Vector2(0.909f, 0.798f),
                 Vector2.zero, Vector2.zero);
 
-            ItemStatValues stats = ItemStatCalculator.Calculate(itemConfig, upgradeLevel);
+            ItemStatValues stats = ItemStatCalculator.Calculate(itemConfig, upgradeLevel, qualityTier);
             List<(string label, string value)> rows = new List<(string label, string value)>();
             if (stats.AttackPercentBonus > 0f)
                 rows.Add(("ATK", $"+{stats.AttackPercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
-            if (stats.RagePerGemBonus > 0)
-                rows.Add(("Nộ", $"+{stats.RagePerGemBonus.ToString(CultureInfo.InvariantCulture)} Nộ / viên Mặt Trời"));
             if (stats.MaxHealthPercentBonus > 0f)
                 rows.Add(("HP tối đa", $"+{stats.MaxHealthPercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
-            if (stats.DefensePercentBonus > 0f)
-                rows.Add(("Giáp", $"+{stats.DefensePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
             if (stats.CritRatePercentBonus > 0f)
-                rows.Add(("Tỷ lệ chí mạng", $"+{stats.CritRatePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
+                rows.Add(("Tỷ lệ Crit", $"+{stats.CritRatePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
+            if (stats.CritDamagePercentBonus > 0f)
+                rows.Add(("ST Bạo", $"+{stats.CritDamagePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
             if (stats.SpeedBonus > 0)
                 rows.Add(("Tốc độ", $"+{stats.SpeedBonus.ToString(CultureInfo.InvariantCulture)}"));
-            if (stats.CritDamagePercentBonus > 0f)
-                rows.Add(("Sát thương chí mạng", $"+{stats.CritDamagePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
+            if (stats.DamagePercentBonus > 0f)
+                rows.Add(("Tăng ST", $"+{stats.DamagePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
+            if (stats.RagePerGemBonus > 0)
+                rows.Add(("Nộ", $"+{stats.RagePerGemBonus.ToString(CultureInfo.InvariantCulture)} Nộ / viên Mặt Trời"));
+            if (stats.DefensePercentBonus > 0f)
+                rows.Add(("Giáp", $"+{stats.DefensePercentBonus.ToString("0.##", CultureInfo.InvariantCulture)}%"));
 
-            const float rowHeight = 90f;
-            const float rowSpacing = 6f;
+            const float rowHeight = 48f;
             for (int index = 0; index < rows.Count; index++)
             {
                 RectTransform rowRect = CreateAnchoredRect(statsBlock,
@@ -2075,15 +2237,15 @@ backgroundLayer.SetAsFirstSibling();
                     Vector2.zero, Vector2.zero);
                 rowRect.pivot = new Vector2(0.5f, 1f);
                 rowRect.sizeDelta = new Vector2(0f, rowHeight);
-                rowRect.anchoredPosition = new Vector2(0f, -index * (rowHeight + rowSpacing));
+                rowRect.anchoredPosition = new Vector2(0f, -index * rowHeight);
 
                 TMP_Text leftLabel = AddLabel(rowRect, "StatLabel", rows[index].label,
-                    22, Color.white, new Vector2(0f, 0f), new Vector2(0.55f, 1f),
+                    30, Color.white, new Vector2(0f, 0f), new Vector2(0.65f, 1f),
                     TextAlignmentOptions.MidlineLeft);
                 leftLabel.enableAutoSizing = false;
 
                 TMP_Text rightValue = AddLabel(rowRect, "StatValue", rows[index].value,
-                    22, Gold, new Vector2(0.35f, 0f), new Vector2(1f, 1f),
+                    30, Gold, new Vector2(0.35f, 0f), new Vector2(1f, 1f),
                     TextAlignmentOptions.MidlineRight);
                 rightValue.enableAutoSizing = false;
             }
@@ -2122,6 +2284,72 @@ backgroundLayer.SetAsFirstSibling();
             return button;
         }
 
+        static Button CreateEquipmentPopupActionButton(Transform parent, string name, string label,
+            Vector2 anchorMin, Vector2 anchorMax, Vector2 offsetMin, Vector2 offsetMax,
+            bool enabled, bool isPrimaryBlue, UnityEngine.Events.UnityAction onClick)
+        {
+            RectTransform rect = CreateAnchoredRect(parent, name,
+                anchorMin, anchorMax, offsetMin, offsetMax);
+            Image image = rect.gameObject.AddComponent<Image>();
+            image.sprite = GetRoundedRectSprite(14);
+            image.type = Image.Type.Sliced;
+            image.raycastTarget = true;
+
+            Button button = rect.gameObject.AddComponent<Button>();
+            button.targetGraphic = image;
+            button.transition = Selectable.Transition.None;
+            button.interactable = enabled;
+            if (enabled && onClick != null)
+                button.onClick.AddListener(onClick);
+
+            Color32 fillColor;
+            Color textColor;
+            if (enabled)
+            {
+                fillColor = isPrimaryBlue
+                    ? new Color32(37, 99, 235, 255)
+                    : new Color32(243, 244, 246, 255);
+                textColor = isPrimaryBlue
+                    ? Color.white
+                    : (Color)new Color32(17, 24, 39, 255);
+            }
+            else
+            {
+                fillColor = new Color32(107, 114, 128, 255);
+                textColor = new Color32(209, 213, 219, 255);
+            }
+
+            image.color = fillColor;
+            TMP_Text buttonLabel = AddLabel(rect, "Label", label, 32, textColor,
+                Vector2.zero, Vector2.one, TextAlignmentOptions.Center);
+            buttonLabel.fontStyle = FontStyles.Bold;
+            buttonLabel.enableAutoSizing = false;
+            buttonLabel.raycastTarget = false;
+            return button;
+        }
+
+        static string GetEquipmentQualityDisplayName(int qualityTier)
+        {
+            switch (Mathf.Clamp(qualityTier, 0, MaxEquipmentQualityTier))
+            {
+                case 1:
+                    return "Trung phẩm";
+                case 2:
+                    return "Thượng phẩm";
+                case 3:
+                    return "Cực phẩm";
+                default:
+                    return "Hạ phẩm";
+            }
+        }
+
+        static string FormatItemQualityGradeLine(ItemConfig itemConfig, int qualityTier)
+        {
+            string qualityName = GetEquipmentQualityDisplayName(qualityTier);
+            string gradeName = ItemConfig.GetGradeDisplayName(itemConfig.Grade);
+            return $"{qualityName} - {gradeName}";
+        }
+
         static string GetEquipmentSlotDisplayName(EquipmentSlot slot)
         {
             switch (slot)
@@ -2145,9 +2373,412 @@ backgroundLayer.SetAsFirstSibling();
 
         static string FormatItemGradeAndSlotLine(ItemConfig itemConfig)
         {
-            string gradeName = ItemConfig.GetGradeDisplayName(itemConfig.Grade);
-            string slotName = GetEquipmentSlotDisplayName(itemConfig.EquipmentSlot);
-            return string.IsNullOrEmpty(slotName) ? gradeName : $"{gradeName} · {slotName}";
+            return FormatItemQualityGradeLine(itemConfig, 0);
+        }
+
+        static RectTransform CreateEquipmentQualityStarsRow(Transform parent, string name,
+            Vector2 anchorMin, Vector2 anchorMax, int qualityTier,
+            Image[] outStarImages, Outline[] outStarOutlines,
+            float starSize = 30f, float starSpacing = 40f)
+        {
+            RectTransform rowRect = CreateAnchoredRect(parent, name,
+                anchorMin, anchorMax, Vector2.zero, Vector2.zero);
+            Sprite starSprite = GetStarPolygonSprite();
+
+            for (int i = 0; i < 4; i++)
+            {
+                RectTransform starRect = CreateAnchoredRect(rowRect,
+                    $"QualityStar_{i}", new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f),
+                    Vector2.zero, Vector2.zero);
+                starRect.pivot = new Vector2(0.5f, 0.5f);
+                starRect.sizeDelta = new Vector2(starSize, starSize);
+                starRect.anchoredPosition = new Vector2((i - 1.5f) * starSpacing, 0f);
+
+                Image starImage = starRect.gameObject.AddComponent<Image>();
+                starImage.sprite = starSprite;
+                starImage.preserveAspect = true;
+                starImage.raycastTarget = false;
+
+                Outline starOutline = starRect.gameObject.AddComponent<Outline>();
+                starOutline.effectColor = new Color32(120, 125, 135, 255);
+                starOutline.effectDistance = new Vector2(2f, -2f);
+
+                if (outStarImages != null && i < outStarImages.Length)
+                    outStarImages[i] = starImage;
+                if (outStarOutlines != null && i < outStarOutlines.Length)
+                    outStarOutlines[i] = starOutline;
+
+                ApplyQualityStarVisual(starImage, starOutline, i < Mathf.Clamp(qualityTier, 0, MaxEquipmentQualityTier) + 1);
+            }
+
+            return rowRect;
+        }
+
+        static void ApplyQualityStarVisual(Image starImage, Outline starOutline, bool isLit)
+        {
+            if (starImage != null)
+            {
+                starImage.color = isLit
+                    ? new Color32(255, 200, 60, 255)
+                    : new Color32(35, 40, 55, 255);
+            }
+
+            if (starOutline != null)
+                starOutline.enabled = !isLit;
+        }
+
+        static Sprite GetRoundedRectSprite(int radius)
+        {
+            int clampedRadius = Mathf.Max(2, radius);
+            if (roundedRectSprites.TryGetValue(clampedRadius, out Sprite cached) && cached != null)
+                return cached;
+
+            int size = clampedRadius * 2 + 8;
+            Texture2D tex = new Texture2D(size, size, TextureFormat.RGBA32, false)
+            {
+                filterMode = FilterMode.Bilinear,
+                wrapMode = TextureWrapMode.Clamp
+            };
+
+            Color32[] pixels = new Color32[size * size];
+            float r = clampedRadius;
+            float minInner = r;
+            float maxInner = size - r;
+            for (int y = 0; y < size; y++)
+            {
+                float py = y + 0.5f;
+                float dy = py < minInner ? (minInner - py) : (py > maxInner ? (py - maxInner) : 0f);
+                for (int x = 0; x < size; x++)
+                {
+                    float px = x + 0.5f;
+                    float dx = px < minInner ? (minInner - px) : (px > maxInner ? (px - maxInner) : 0f);
+                    float dist = Mathf.Sqrt(dx * dx + dy * dy);
+                    float alpha = Mathf.Clamp01(r + 0.5f - dist);
+                    byte a = (byte)Mathf.RoundToInt(alpha * 255f);
+                    pixels[y * size + x] = new Color32(255, 255, 255, a);
+                }
+            }
+
+            tex.SetPixels32(pixels);
+            tex.Apply(false, false);
+
+            float border = clampedRadius + 2f;
+            Sprite sprite = Sprite.Create(
+                tex,
+                new Rect(0f, 0f, size, size),
+                new Vector2(0.5f, 0.5f),
+                100f,
+                0u,
+                SpriteMeshType.FullRect,
+                new Vector4(border, border, border, border));
+            roundedRectSprites[clampedRadius] = sprite;
+            return sprite;
+        }
+
+        static Sprite GetStarPolygonSprite()
+        {
+            if (starPolygonSprite != null)
+                return starPolygonSprite;
+
+            const int size = 64;
+            Texture2D tex = new Texture2D(size, size, TextureFormat.RGBA32, false)
+            {
+                filterMode = FilterMode.Bilinear,
+                wrapMode = TextureWrapMode.Clamp
+            };
+
+            Vector2 center = new Vector2(size * 0.5f, size * 0.5f);
+            const float outerRadius = 28f;
+            const float innerRadius = 11f;
+            Vector2[] vertices = new Vector2[10];
+            for (int k = 0; k < 10; k++)
+            {
+                float angle = Mathf.PI * 0.5f + k * (Mathf.PI / 5f);
+                float radius = (k % 2 == 0) ? outerRadius : innerRadius;
+                vertices[k] = new Vector2(
+                    center.x + Mathf.Cos(angle) * radius,
+                    center.y + Mathf.Sin(angle) * radius);
+            }
+
+            Color32[] pixels = new Color32[size * size];
+            for (int y = 0; y < size; y++)
+            {
+                for (int x = 0; x < size; x++)
+                {
+                    int hits = 0;
+                    for (int oy = 0; oy < 4; oy++)
+                    {
+                        float sy = y + (oy + 0.5f) * 0.25f;
+                        for (int ox = 0; ox < 4; ox++)
+                        {
+                            float sx = x + (ox + 0.5f) * 0.25f;
+                            if (IsPointInPolygon(new Vector2(sx, sy), vertices))
+                                hits++;
+                        }
+                    }
+
+                    byte a = (byte)Mathf.RoundToInt((hits / 16f) * 255f);
+                    pixels[y * size + x] = new Color32(255, 255, 255, a);
+                }
+            }
+
+            tex.SetPixels32(pixels);
+            tex.Apply(false, false);
+
+            starPolygonSprite = Sprite.Create(
+                tex,
+                new Rect(0f, 0f, size, size),
+                new Vector2(0.5f, 0.5f),
+                100f);
+            return starPolygonSprite;
+        }
+
+        static bool IsPointInPolygon(Vector2 point, Vector2[] polygon)
+        {
+            bool inside = false;
+            int count = polygon.Length;
+            for (int i = 0, j = count - 1; i < count; j = i++)
+            {
+                Vector2 pi = polygon[i];
+                Vector2 pj = polygon[j];
+                if (((pi.y > point.y) != (pj.y > point.y))
+                    && (point.x < (pj.x - pi.x) * (point.y - pi.y) / (pj.y - pi.y) + pi.x))
+                {
+                    inside = !inside;
+                }
+            }
+
+            return inside;
+        }
+
+        void OpenInventoryUpgradePopup(int itemIndex, ItemConfig itemConfig, bool fromStatus = false)
+        {
+            if (itemConfig == null)
+                return;
+
+            if (inventoryUpgradePopup != null)
+                Destroy(inventoryUpgradePopup);
+            inventoryUpgradePopup = null;
+
+            inventoryUpgradeItemIndex = itemIndex;
+            inventoryUpgradeItemConfig = itemConfig;
+            inventoryUpgradeFromStatus = fromStatus;
+            inventoryUpgradeTabMode = 0;
+
+            Transform popupParent = fromStatus ? characterPanel.transform : inventoryPanel.transform;
+            RectTransform popup = CreateFullScreenOverlay(
+                "InventoryUpgradePopup",
+                new Color32(3, 19, 16, 230), popupParent);
+            inventoryUpgradePopup = popup.gameObject;
+
+            RectTransform panel = CreateAnchoredRect(popup, "UpgradePanel",
+                new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f),
+                Vector2.zero, Vector2.zero);
+            panel.pivot = new Vector2(0.5f, 0.5f);
+            panel.sizeDelta = new Vector2(900f, 700f);
+            panel.anchoredPosition = Vector2.zero;
+            Image panelBg = panel.gameObject.AddComponent<Image>();
+            panelBg.color = new Color32(12, 27, 36, 255);
+            panelBg.raycastTarget = true;
+            Outline panelOutline = panel.gameObject.AddComponent<Outline>();
+            panelOutline.effectColor = Gold;
+            panelOutline.effectDistance = new Vector2(3f, -3f);
+
+            Button closeButton = CreateCharacterHitButton(panel, "UpgradeCloseButton",
+                0.90f, 0.89f, 0.975f, 0.975f, CloseInventoryUpgradePopup);
+            ConfigureOutlinedButton(closeButton, new Color32(62, 45, 37, 255), Gold, 2f);
+            TMP_Text closeLabel = AddLabel(panel, "UpgradeCloseButtonText", "X", 26, Gold,
+                new Vector2(0.90f, 0.89f), new Vector2(0.975f, 0.975f), TextAlignmentOptions.Center);
+            closeLabel.raycastTarget = false;
+
+            TMP_Text titleLabel = AddLabel(panel, "UpgradeTitle",
+                GetInventoryItemName(itemIndex), 30, Gold,
+                new Vector2(0.06f, 0.88f), new Vector2(0.88f, 0.97f),
+                TextAlignmentOptions.Center);
+            titleLabel.textWrappingMode = TextWrappingModes.NoWrap;
+            titleLabel.enableAutoSizing = true;
+            titleLabel.fontSizeMin = 18f;
+            titleLabel.fontSizeMax = 30f;
+
+            RectTransform tabContainer = CreateAnchoredRect(panel, "UpgradeTabContainer",
+                new Vector2(0.06f, 0.74f), new Vector2(0.94f, 0.84f),
+                Vector2.zero, Vector2.zero);
+            inventoryUpgradeEnhanceTabButton = CreatePopupActionButton(
+                tabContainer, "EnhanceTabButton", "Cường hoá",
+                new Vector2(0f, 0f), new Vector2(0.5f, 1f),
+                new Vector2(0f, 0f), new Vector2(-4f, 0f), true,
+                () => SelectInventoryUpgradeTab(0));
+            inventoryUpgradeQualityTabButton = CreatePopupActionButton(
+                tabContainer, "QualityTabButton", "Nâng phẩm",
+                new Vector2(0.5f, 0f), new Vector2(1f, 1f),
+                new Vector2(4f, 0f), new Vector2(0f, 0f), true,
+                () => SelectInventoryUpgradeTab(1));
+            inventoryUpgradeEnhanceTabLabel = inventoryUpgradeEnhanceTabButton.transform.Find("Label")?.GetComponent<TMP_Text>();
+            inventoryUpgradeQualityTabLabel = inventoryUpgradeQualityTabButton.transform.Find("Label")?.GetComponent<TMP_Text>();
+
+            RectTransform enhanceContentRect = CreateAnchoredRect(panel, "EnhanceTabContent",
+                new Vector2(0.06f, 0.06f), new Vector2(0.94f, 0.70f),
+                Vector2.zero, Vector2.zero);
+            inventoryUpgradeEnhanceContent = enhanceContentRect.gameObject;
+
+            inventoryUpgradeLevelLabel = AddLabel(enhanceContentRect, "EnhanceLevelLabel",
+                "Cấp +0 / +15", 34, Color.white,
+                new Vector2(0.06f, 0.56f), new Vector2(0.94f, 0.78f),
+                TextAlignmentOptions.Center);
+            inventoryUpgradeLevelLabel.fontStyle = FontStyles.Bold;
+            inventoryUpgradeLevelLabel.enableAutoSizing = false;
+
+            TMP_Text enhanceNoteLabel = AddLabel(enhanceContentRect, "EnhanceNoteLabel",
+                "Mỗi cấp cường hoá: tất cả chỉ số +10%", 26, new Color32(190, 195, 205, 255),
+                new Vector2(0.06f, 0.34f), new Vector2(0.94f, 0.50f),
+                TextAlignmentOptions.Center);
+            enhanceNoteLabel.enableAutoSizing = false;
+
+            inventoryUpgradeEnhanceActionButton = CreatePopupActionButton(
+                enhanceContentRect, "EnhanceConfirmButton", "Nâng cấp",
+                new Vector2(0.25f, 0.04f), new Vector2(0.75f, 0.24f),
+                Vector2.zero, Vector2.zero, true,
+                () => UpgradeInventoryPopupItem(
+                    inventoryUpgradeItemIndex,
+                    inventoryUpgradeItemConfig,
+                    inventoryUpgradeFromStatus));
+            inventoryUpgradeEnhanceActionLabel = inventoryUpgradeEnhanceActionButton.transform.Find("Label")?.GetComponent<TMP_Text>();
+
+            RectTransform qualityContentRect = CreateAnchoredRect(panel, "QualityTabContent",
+                new Vector2(0.06f, 0.06f), new Vector2(0.94f, 0.70f),
+                Vector2.zero, Vector2.zero);
+            inventoryUpgradeQualityContent = qualityContentRect.gameObject;
+
+            inventoryUpgradeQualityLabel = AddLabel(qualityContentRect, "QualityCurrentLabel",
+                "Hạ phẩm", 34, new Color32(239, 68, 68, 255),
+                new Vector2(0.06f, 0.72f), new Vector2(0.94f, 0.92f),
+                TextAlignmentOptions.Center);
+            inventoryUpgradeQualityLabel.fontStyle = FontStyles.Bold;
+            inventoryUpgradeQualityLabel.enableAutoSizing = false;
+
+            CreateEquipmentQualityStarsRow(qualityContentRect, "UpgradeQualityStarsRow",
+                new Vector2(0.25f, 0.50f), new Vector2(0.75f, 0.68f),
+                0, inventoryUpgradeQualityStarImages, inventoryUpgradeQualityStarOutlines,
+                36f, 48f);
+
+            TMP_Text qualityNoteLabel = AddLabel(qualityContentRect, "QualityNoteLabel",
+                "Mỗi lần nâng phẩm thành công: tất cả chỉ số +10%", 26,
+                new Color32(190, 195, 205, 255),
+                new Vector2(0.04f, 0.30f), new Vector2(0.96f, 0.46f),
+                TextAlignmentOptions.Center);
+            qualityNoteLabel.enableAutoSizing = false;
+
+            inventoryUpgradeQualityActionButton = CreatePopupActionButton(
+                qualityContentRect, "QualityConfirmButton", "Nâng phẩm",
+                new Vector2(0.25f, 0.04f), new Vector2(0.75f, 0.24f),
+                Vector2.zero, Vector2.zero, true,
+                () => UpgradeQualityInventoryPopupItem(
+                    inventoryUpgradeItemIndex,
+                    inventoryUpgradeItemConfig,
+                    inventoryUpgradeFromStatus));
+            inventoryUpgradeQualityActionLabel = inventoryUpgradeQualityActionButton.transform.Find("Label")?.GetComponent<TMP_Text>();
+
+            RefreshInventoryUpgradePopup();
+        }
+
+        void CloseInventoryUpgradePopup()
+        {
+            if (inventoryUpgradePopup != null)
+                Destroy(inventoryUpgradePopup);
+            inventoryUpgradePopup = null;
+
+            if (inventoryUpgradeItemConfig != null)
+                OpenInventoryItemPopup(inventoryUpgradeItemIndex, inventoryUpgradeFromStatus);
+        }
+
+        void SelectInventoryUpgradeTab(int tabMode)
+        {
+            int clampedMode = Mathf.Clamp(tabMode, 0, 1);
+            if (inventoryUpgradeTabMode == clampedMode)
+                return;
+            inventoryUpgradeTabMode = clampedMode;
+            RefreshInventoryUpgradePopup();
+        }
+
+        void RefreshInventoryUpgradePopup()
+        {
+            if (inventoryUpgradePopup == null || inventoryUpgradeItemConfig == null)
+                return;
+
+            ItemInstanceSaveData existingInstance = FindInventoryItemInstance(
+                inventoryUpgradeItemConfig, out _);
+            int upgradeLevel = existingInstance != null
+                ? Mathf.Clamp(existingInstance.upgradeLevel, 0, MaxEquipmentUpgradeLevel)
+                : 0;
+            int qualityTier = existingInstance != null
+                ? Mathf.Clamp(existingInstance.qualityTier, 0, MaxEquipmentQualityTier)
+                : 0;
+
+            Color32 activeTabFill = new Color32(28, 52, 68, 255);
+            Color32 inactiveTabFill = new Color32(45, 48, 54, 245);
+            Color32 inactiveTabBorder = new Color32(110, 115, 125, 255);
+            Color inactiveTabText = new Color32(150, 150, 150, 255);
+
+            if (inventoryUpgradeTabMode == 0)
+            {
+                ConfigureOutlinedButton(inventoryUpgradeEnhanceTabButton, activeTabFill, Gold, 2.5f);
+                if (inventoryUpgradeEnhanceTabLabel != null)
+                    inventoryUpgradeEnhanceTabLabel.color = Color.white;
+                ConfigureOutlinedButton(inventoryUpgradeQualityTabButton, inactiveTabFill, inactiveTabBorder, 2f);
+                if (inventoryUpgradeQualityTabLabel != null)
+                    inventoryUpgradeQualityTabLabel.color = inactiveTabText;
+            }
+            else
+            {
+                ConfigureOutlinedButton(inventoryUpgradeEnhanceTabButton, inactiveTabFill, inactiveTabBorder, 2f);
+                if (inventoryUpgradeEnhanceTabLabel != null)
+                    inventoryUpgradeEnhanceTabLabel.color = inactiveTabText;
+                ConfigureOutlinedButton(inventoryUpgradeQualityTabButton, activeTabFill, Gold, 2.5f);
+                if (inventoryUpgradeQualityTabLabel != null)
+                    inventoryUpgradeQualityTabLabel.color = Color.white;
+            }
+
+            if (inventoryUpgradeEnhanceContent != null)
+                inventoryUpgradeEnhanceContent.SetActive(inventoryUpgradeTabMode == 0);
+            if (inventoryUpgradeQualityContent != null)
+                inventoryUpgradeQualityContent.SetActive(inventoryUpgradeTabMode == 1);
+
+            if (inventoryUpgradeLevelLabel != null)
+                inventoryUpgradeLevelLabel.text = $"Cấp +{upgradeLevel} / +{MaxEquipmentUpgradeLevel}";
+
+            bool canEnhance = upgradeLevel < MaxEquipmentUpgradeLevel;
+            if (inventoryUpgradeEnhanceActionButton != null)
+            {
+                inventoryUpgradeEnhanceActionButton.interactable = canEnhance;
+                Color32 fill = canEnhance ? new Color32(12, 27, 36, 255) : inactiveTabFill;
+                Color32 border = canEnhance ? (Color32)Gold : inactiveTabBorder;
+                ConfigureOutlinedButton(inventoryUpgradeEnhanceActionButton, fill, border, 2f);
+                if (inventoryUpgradeEnhanceActionLabel != null)
+                    inventoryUpgradeEnhanceActionLabel.color = canEnhance ? Color.white : inactiveTabText;
+            }
+
+            if (inventoryUpgradeQualityLabel != null)
+                inventoryUpgradeQualityLabel.text = GetEquipmentQualityDisplayName(qualityTier);
+
+            int litStars = qualityTier + 1;
+            for (int i = 0; i < 4; i++)
+            {
+                ApplyQualityStarVisual(
+                    inventoryUpgradeQualityStarImages[i],
+                    inventoryUpgradeQualityStarOutlines[i],
+                    i < litStars);
+            }
+
+            bool canUpgradeQuality = qualityTier < MaxEquipmentQualityTier;
+            if (inventoryUpgradeQualityActionButton != null)
+            {
+                inventoryUpgradeQualityActionButton.interactable = canUpgradeQuality;
+                Color32 fill = canUpgradeQuality ? new Color32(12, 27, 36, 255) : inactiveTabFill;
+                Color32 border = canUpgradeQuality ? (Color32)Gold : inactiveTabBorder;
+                ConfigureOutlinedButton(inventoryUpgradeQualityActionButton, fill, border, 2f);
+                if (inventoryUpgradeQualityActionLabel != null)
+                    inventoryUpgradeQualityActionLabel.color = canUpgradeQuality ? Color.white : inactiveTabText;
+            }
         }
 
         ItemInstanceSaveData FindInventoryItemInstance(ItemConfig itemConfig, out bool isEquipped)
@@ -2294,7 +2925,43 @@ backgroundLayer.SetAsFirstSibling();
             saveManager.SaveNow();
             RefreshInventoryGridEquippedVisuals();
             RefreshCharacterStats();
+            RefreshEquippedSlotIcons();
             OpenInventoryItemPopup(itemIndex, fromStatus);
+            if (inventoryUpgradePopup != null)
+            {
+                inventoryUpgradePopup.transform.SetAsLastSibling();
+                RefreshInventoryUpgradePopup();
+            }
+        }
+
+        void UpgradeQualityInventoryPopupItem(int itemIndex, ItemConfig itemConfig, bool fromStatus = false)
+        {
+            if (itemConfig == null)
+                return;
+
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            if (config == null)
+                return;
+
+            SaveManager saveManager = SaveManager.Instance;
+            InventoryService inventoryService = new InventoryService(saveManager, config);
+            ItemInstanceSaveData instance = GetOrCreateEquipmentInstance(itemConfig, inventoryService);
+            if (instance == null || instance.qualityTier >= MaxEquipmentQualityTier)
+                return;
+
+            instance.qualityTier = Mathf.Min(MaxEquipmentQualityTier,
+                Mathf.Max(0, instance.qualityTier) + 1);
+            saveManager.SaveNow();
+            RefreshInventoryGridEquippedVisuals();
+            RefreshCharacterStats();
+            RefreshEquippedSlotIcons();
+            OpenInventoryItemPopup(itemIndex, fromStatus);
+            if (inventoryUpgradePopup != null)
+            {
+                inventoryUpgradePopup.transform.SetAsLastSibling();
+                RefreshInventoryUpgradePopup();
+            }
         }
 
         static int GetInventoryItemPopupType(int itemIndex)

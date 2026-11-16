@@ -98,6 +98,9 @@ namespace Match3RPG.Persistence
         public int upgradeLevel;
         public bool locked;
         public int experience;
+        // Bậc phẩm của món này: 0=Hạ phẩm, 1=Trung phẩm, 2=Thượng phẩm, 3=Cực phẩm;
+        // số sao hiển thị = qualityTier + 1 (tối đa 4 sao = Cực phẩm).
+        public int qualityTier;
     }
 
     [Serializable]

@@ -20,6 +20,8 @@ namespace Match3RPG.Configuration
         [SerializeField, Min(0f)] float critRatePercentBonus;
         [SerializeField, Min(0)] int speedBonus;
         [SerializeField, Min(0f)] float critDamagePercentBonus;
+        // Tăng ST (%), hiện chỉ hiển thị trong popup, chưa nối vào công thức sát thương trận đấu.
+        [SerializeField, Min(0f)] float damagePercentBonus;
         [SerializeField, Min(0)] int ragePerGemBonus;
         // 0 = trang bị (tab Túi đồ, có thể trang bị); 1 = nguyên liệu
         // (tab Nguyên liệu, CÓ hiện trong Túi đồ trận đấu); 2 = nguyên liệu
@@ -42,6 +44,7 @@ namespace Match3RPG.Configuration
         public float CritRatePercentBonus => critRatePercentBonus;
         public int SpeedBonus => speedBonus;
         public float CritDamagePercentBonus => critDamagePercentBonus;
+        public float DamagePercentBonus => damagePercentBonus;
         public int RagePerGemBonus => ragePerGemBonus;
         public int InventoryFlag => inventoryFlag;
 
