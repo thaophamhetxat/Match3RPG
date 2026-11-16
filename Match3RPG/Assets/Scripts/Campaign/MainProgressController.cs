@@ -131,7 +131,6 @@ namespace Match3RPG.Campaign
         Button[] inventoryTabButtons = new Button[3];
         readonly Button[] inventoryItemButtons = new Button[TotalInventoryItemCount];
         readonly GameObject[] inventoryItemContents = new GameObject[TotalInventoryItemCount];
-        readonly GameObject[] inventoryItemNameLabels = new GameObject[TotalInventoryItemCount];
         readonly Outline[] inventorySlotOutlines = new Outline[TotalInventoryItemCount];
         readonly GameObject[] inventoryItemEquippedLabels = new GameObject[TotalInventoryItemCount];
         float inventoryGridCellSize;
@@ -698,7 +697,7 @@ backgroundLayer.SetAsFirstSibling();
                 () => OpenStatusItemPopup(slotIndex));
             RectTransform buttonRect = button.GetComponent<RectTransform>();
             RectTransform iconRect = CreateAnchoredRect(buttonRect, "EquippedIcon",
-                new Vector2(.08f, .08f), new Vector2(.92f, .92f),
+                new Vector2(.08f, .00f), new Vector2(.92f, .84f),
                 Vector2.zero, Vector2.zero);
             Image iconImage = iconRect.gameObject.AddComponent<Image>();
             iconImage.color = Color.white;
@@ -995,40 +994,28 @@ backgroundLayer.SetAsFirstSibling();
                     itemImage.preserveAspect = true;
                     itemImage.raycastTarget = false;
 
-                    RectTransform nameRect = CreateAnchoredRect(contentRect,
-                        $"InventoryItemName_{index}",
-                        new Vector2(0f, 1f), new Vector2(0f, 1f),
-                        Vector2.zero, Vector2.zero);
-                    nameRect.pivot = new Vector2(0.5f, 1f);
-                    nameRect.sizeDelta = new Vector2(cellSize * 0.96f, 26f);
-                    nameRect.anchoredPosition = new Vector2(
-                        gridXOffset + (column + 0.5f) * cellSize,
-                        -(gridTopOffset + (row + 0.5f) * rowPitch + slotSize * 0.5f + 4f));
-                    TextMeshProUGUI itemName = CampaignUIFactory.CreateText(
-                        nameRect, "Text", GetInventoryItemName(index), 12,
-                        Color.white, TextAlignmentOptions.Center);
-
-                    RectTransform equippedRect = CreateAnchoredRect(contentRect,
+                    RectTransform markRect = CreateAnchoredRect(slotRect,
                         $"InventoryItemEquipped_{index}",
                         new Vector2(0f, 1f), new Vector2(0f, 1f),
-                        Vector2.zero, Vector2.zero);
-                    equippedRect.pivot = new Vector2(0.5f, 1f);
-                    equippedRect.sizeDelta = new Vector2(cellSize * 0.96f, 20f);
-                    equippedRect.anchoredPosition = new Vector2(
-                        gridXOffset + (column + 0.5f) * cellSize,
-                        -(gridTopOffset + (row + 0.5f) * rowPitch + slotSize * 0.5f + 22f));
-                    TextMeshProUGUI equippedText = CampaignUIFactory.CreateText(
-                        equippedRect, "Text", "Đang mặc", 12,
-                        Gold, TextAlignmentOptions.Center);
-                    equippedRect.gameObject.SetActive(false);
+                        new Vector2(2f, -28f), new Vector2(28f, -2f));
+                    Image markBg = markRect.gameObject.AddComponent<Image>();
+                    markBg.color = new Color32(15, 15, 20, 230);
+                    markBg.raycastTarget = false;
+                    Outline markOutline = markRect.gameObject.AddComponent<Outline>();
+                    markOutline.effectColor = Gold;
+                    markOutline.effectDistance = new Vector2(1f, -1f);
+                    TextMeshProUGUI markText = CampaignUIFactory.CreateText(
+                        markRect, "Text", "E", 18, Color.white, TextAlignmentOptions.Center);
+                    markText.fontStyle = FontStyles.Bold;
+                    markText.raycastTarget = false;
+                    markRect.gameObject.SetActive(false);
 
                     slotButton.onClick.AddListener(
                         () => OpenInventoryItemPopup(capturedIndex));
                     inventoryItemButtons[index] = slotButton;
                     inventoryItemContents[index] = itemRect.gameObject;
-                    inventoryItemNameLabels[index] = itemName.gameObject;
                     inventorySlotOutlines[index] = slotOutline;
-                    inventoryItemEquippedLabels[index] = equippedRect.gameObject;
+                    inventoryItemEquippedLabels[index] = markRect.gameObject;
                 }
             }
 
@@ -1056,9 +1043,6 @@ backgroundLayer.SetAsFirstSibling();
                         IsItemVisibleOnTab(index, selectedInventoryTab);
                 if (inventoryItemContents[index] != null)
                     inventoryItemContents[index].SetActive(
-                        IsItemVisibleOnTab(index, selectedInventoryTab));
-                if (inventoryItemNameLabels[index] != null)
-                    inventoryItemNameLabels[index].SetActive(
                         IsItemVisibleOnTab(index, selectedInventoryTab));
             }
             RepackInventoryGrid();
@@ -1090,24 +1074,6 @@ backgroundLayer.SetAsFirstSibling();
                         .GetComponent<RectTransform>();
                     if (slotRect != null)
                         slotRect.anchoredPosition = new Vector2(x, y);
-                    // Dời tên item theo.
-                    if (inventoryItemNameLabels[index] != null)
-                    {
-                        RectTransform nameRect = inventoryItemNameLabels[index]
-                            .GetComponent<RectTransform>();
-                        if (nameRect != null)
-                            nameRect.anchoredPosition = new Vector2(x,
-                                y - inventoryGridSlotSize * 0.5f - 4f);
-                    }
-                    // Dời nhãn "Đang mặc" theo.
-                    if (inventoryItemEquippedLabels[index] != null)
-                    {
-                        RectTransform equippedRect = inventoryItemEquippedLabels[index]
-                            .GetComponent<RectTransform>();
-                        if (equippedRect != null)
-                            equippedRect.anchoredPosition = new Vector2(x,
-                                y - inventoryGridSlotSize * 0.5f - 22f);
-                    }
                     displayPosition++;
                 }
             }
