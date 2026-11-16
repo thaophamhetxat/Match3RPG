@@ -543,14 +543,14 @@ namespace Match3RPG.Campaign
 
             int visibleCount = Mathf.Min(entries.Count, GetLayout().MaxRewardEntries);
             group.childAlignment = TextAnchor.MiddleCenter;
-            group.spacing = 3f;
+            group.spacing = 6f;
             group.childForceExpandWidth = false;
 
             Canvas.ForceUpdateCanvases();
             float boxW = rewardArea.rect.width;
             float boxH = rewardArea.rect.height;
             float cellSize = visibleCount > 0
-                ? Mathf.Min(boxH - 4f, (boxW - 3f * (visibleCount - 1)) / visibleCount)
+                ? Mathf.Min(boxH * 0.55f, (boxW - 6f * (visibleCount - 1)) / visibleCount)
                 : boxH;
 
             for (int i = 0; i < visibleCount; i++)
@@ -564,7 +564,7 @@ namespace Match3RPG.Campaign
                 layoutElement.minWidth = 80f;
 
                 RectTransform tileRect = CampaignUIFactory.CreateRect("Tile", itemRoot,
-                    new Vector2(0.00f, 0.01f), new Vector2(1.00f, 0.99f),
+                    new Vector2(0.00f, 0.12f), new Vector2(1.00f, 0.67f),
                     Vector2.zero, Vector2.zero);
                 Image tile = tileRect.gameObject.AddComponent<Image>();
                 tile.color = new Color32(12, 27, 36, 255);
@@ -587,7 +587,7 @@ namespace Match3RPG.Campaign
                 if (firstClear)
                 {
                     RectTransform tagRect = CampaignUIFactory.CreateRect("FirstTag", itemRoot,
-                        new Vector2(0.00f, 0.82f), new Vector2(0.36f, 1.00f),
+                        new Vector2(0.00f, 0.49f), new Vector2(0.48f, 0.67f),
                         Vector2.zero, Vector2.zero);
                     Image tagBg = tagRect.gameObject.AddComponent<Image>();
                     tagBg.color = new Color32(255, 201, 60, 255);

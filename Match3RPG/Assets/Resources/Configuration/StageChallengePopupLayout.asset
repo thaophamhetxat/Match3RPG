@@ -46,10 +46,10 @@ MonoBehaviour:
     height: 0.13
   rewardIconRect:
     serializedVersion: 2
-    x: 0.08
-    y: 0.08
-    width: 0.84
-    height: 0.84
+    x: 0.05
+    y: 0.16
+    width: 0.9
+    height: 0.47
   rewardTextRect:
     serializedVersion: 2
     x: 0.02
