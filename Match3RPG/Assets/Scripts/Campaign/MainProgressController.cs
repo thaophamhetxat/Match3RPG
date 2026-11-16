@@ -85,6 +85,7 @@ namespace Match3RPG.Campaign
 
         static Sprite tabFocusWhiteSprite;
         static Sprite starPolygonSprite;
+        static Sprite rainbowBorderSprite;
         static readonly Dictionary<int, Sprite> roundedRectSprites = new Dictionary<int, Sprite>();
 
         static readonly (Vector2 min, Vector2 max)[] InventoryTabAnchors =
@@ -1032,6 +1033,10 @@ backgroundLayer.SetAsFirstSibling();
                 if (index < allItemSprites.Length
                     && GetSpriteAt(allItemSprites, index) != null)
                 {
+                    ItemConfig slotItemConfig = GetBlackDragonItemConfig(index) ?? GetWeaponItemConfig(index);
+                    if (slotItemConfig != null)
+                        ApplyGradeSlotStyle(slotRect, slotImage, slotOutline, slotItemConfig.Grade);
+
                     Sprite itemSprite = allItemSprites[index];
                     RectTransform itemRect = CreateAnchoredRect(slotRect,
                         "ItemArtwork", new Vector2(.12f, .12f),
@@ -1420,6 +1425,7 @@ backgroundLayer.SetAsFirstSibling();
                 Outline iconOutline = iconFrameRect.gameObject.AddComponent<Outline>();
                 iconOutline.effectColor = purpleBorderColor;
                 iconOutline.effectDistance = new Vector2(3f, -3f);
+                ApplyGradeSlotStyle(iconFrameRect, iconFrameImage, iconOutline, itemConfig.Grade);
 
                 RectTransform itemImageRect = CreateAnchoredRect(iconFrameRect,
                     "PopupItemArtwork", new Vector2(0.08f, 0.08f),
@@ -2437,6 +2443,71 @@ backgroundLayer.SetAsFirstSibling();
 
             if (starOutline != null)
                 starOutline.enabled = !isLit;
+        }
+
+        static void ApplyGradeSlotStyle(
+            RectTransform frameRect,
+            Image frameImage,
+            Outline frameOutline,
+            EquipmentGrade grade)
+        {
+            if (frameRect == null || frameImage == null)
+                return;
+
+            if (!ItemConfig.IsRainbowGrade(grade))
+            {
+                frameImage.color = ItemConfig.GetGradeSlotBackgroundColor(grade);
+                if (frameOutline != null)
+                {
+                    frameOutline.enabled = true;
+                    frameOutline.effectColor = ItemConfig.GetGradeSlotBorderColor(grade);
+                }
+                return;
+            }
+
+            frameImage.sprite = GetRainbowBorderSprite();
+            frameImage.type = Image.Type.Simple;
+            frameImage.color = Color.white;
+            if (frameOutline != null)
+                frameOutline.enabled = false;
+
+            RectTransform bgRect = CreateAnchoredRect(frameRect, "SlotBackground",
+                Vector2.zero, Vector2.one, new Vector2(6f, 6f), new Vector2(-6f, -6f));
+            bgRect.SetSiblingIndex(0);
+            Image bgImage = bgRect.gameObject.AddComponent<Image>();
+            bgImage.color = ItemConfig.GetGradeSlotBackgroundColor(grade);
+            bgImage.raycastTarget = false;
+        }
+
+        static Sprite GetRainbowBorderSprite()
+        {
+            if (rainbowBorderSprite != null)
+                return rainbowBorderSprite;
+
+            const int size = 256;
+            Texture2D tex = new Texture2D(size, size, TextureFormat.RGBA32, false)
+            {
+                filterMode = FilterMode.Bilinear,
+                wrapMode = TextureWrapMode.Clamp
+            };
+
+            Color32[] pixels = new Color32[size * size];
+            for (int x = 0; x < size; x++)
+            {
+                float hue = x / (float)(size - 1);
+                Color32 col = Color.HSVToRGB(hue, 0.9f, 1.0f);
+                for (int y = 0; y < size; y++)
+                    pixels[y * size + x] = col;
+            }
+
+            tex.SetPixels32(pixels);
+            tex.Apply(false, false);
+
+            rainbowBorderSprite = Sprite.Create(
+                tex,
+                new Rect(0f, 0f, size, size),
+                new Vector2(0.5f, 0.5f));
+            return rainbowBorderSprite;
         }
 
         static Sprite GetRoundedRectSprite(int radius)

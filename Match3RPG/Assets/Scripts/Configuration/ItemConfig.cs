@@ -54,21 +54,21 @@ namespace Match3RPG.Configuration
         {
             switch (grade)
             {
-                case EquipmentGrade.PhamKhi:
-                    return 0;
                 case EquipmentGrade.PhapKhi:
+                    return 0;
+                case EquipmentGrade.BaoKhi:
                     return 1;
                 case EquipmentGrade.LinhKhi:
                     return 10;
-                case EquipmentGrade.PhapBao:
+                case EquipmentGrade.DaoKhi:
                     return 20;
-                case EquipmentGrade.LinhBao:
-                    return 30;
-                case EquipmentGrade.ThongThienLinhBao:
-                    return 40;
                 case EquipmentGrade.TienKhi:
-                    return 90;
+                    return 30;
                 case EquipmentGrade.ThanKhi:
+                    return 40;
+                case EquipmentGrade.ThanhKhi:
+                    return 90;
+                case EquipmentGrade.DeBinh:
                     return 130;
                 default:
                     return 0;
@@ -79,25 +79,80 @@ namespace Match3RPG.Configuration
         {
             switch (grade)
             {
-                case EquipmentGrade.PhamKhi:
-                    return "Phàm khí";
                 case EquipmentGrade.PhapKhi:
                     return "Pháp khí";
+                case EquipmentGrade.BaoKhi:
+                    return "Bảo khí";
                 case EquipmentGrade.LinhKhi:
                     return "Linh khí";
-                case EquipmentGrade.PhapBao:
-                    return "Pháp bảo";
-                case EquipmentGrade.LinhBao:
-                    return "Linh bảo";
-                case EquipmentGrade.ThongThienLinhBao:
-                    return "Thông Thiên Linh Bảo";
+                case EquipmentGrade.DaoKhi:
+                    return "Đạo khí";
                 case EquipmentGrade.TienKhi:
                     return "Tiên khí";
                 case EquipmentGrade.ThanKhi:
-                    return "Thần khí / Đạo khí";
+                    return "Thần khí";
+                case EquipmentGrade.ThanhKhi:
+                    return "Thánh khí";
+                case EquipmentGrade.DeBinh:
+                    return "Đế binh";
                 default:
-                    return "Phàm khí";
+                    return "Pháp khí";
             }
         }
+
+        // Trả về màu viền ô item theo phẩm cấp (Đế binh dùng fallback trắng vì viền thật là gradient cầu vồng).
+        public static Color32 GetGradeSlotBorderColor(EquipmentGrade grade)
+        {
+            switch (grade)
+            {
+                case EquipmentGrade.PhapKhi:
+                    return new Color32(168, 168, 168, 255);
+                case EquipmentGrade.BaoKhi:
+                    return new Color32(74, 222, 128, 255);
+                case EquipmentGrade.LinhKhi:
+                    return new Color32(96, 165, 250, 255);
+                case EquipmentGrade.DaoKhi:
+                    return new Color32(192, 132, 252, 255);
+                case EquipmentGrade.TienKhi:
+                    return new Color32(251, 146, 60, 255);
+                case EquipmentGrade.ThanKhi:
+                    return new Color32(248, 113, 113, 255);
+                case EquipmentGrade.ThanhKhi:
+                    return new Color32(250, 204, 21, 255);
+                case EquipmentGrade.DeBinh:
+                    return new Color32(255, 255, 255, 255);
+                default:
+                    return new Color32(231, 190, 110, 255);
+            }
+        }
+
+        // Trả về màu nền ô item theo phẩm cấp.
+        public static Color32 GetGradeSlotBackgroundColor(EquipmentGrade grade)
+        {
+            switch (grade)
+            {
+                case EquipmentGrade.PhapKhi:
+                    return new Color32(40, 42, 48, 255);
+                case EquipmentGrade.BaoKhi:
+                    return new Color32(20, 46, 32, 255);
+                case EquipmentGrade.LinhKhi:
+                    return new Color32(22, 36, 68, 255);
+                case EquipmentGrade.DaoKhi:
+                    return new Color32(44, 28, 68, 255);
+                case EquipmentGrade.TienKhi:
+                    return new Color32(68, 36, 18, 255);
+                case EquipmentGrade.ThanKhi:
+                    return new Color32(68, 24, 24, 255);
+                case EquipmentGrade.ThanhKhi:
+                    return new Color32(68, 52, 16, 255);
+                case EquipmentGrade.DeBinh:
+                    return new Color32(30, 28, 44, 255);
+                default:
+                    return new Color32(12, 27, 36, 255);
+            }
+        }
+
+        // Chỉ phẩm cấp Đế binh dùng viền cầu vồng gradient.
+        public static bool IsRainbowGrade(EquipmentGrade grade) => grade == EquipmentGrade.DeBinh;
     }
 }

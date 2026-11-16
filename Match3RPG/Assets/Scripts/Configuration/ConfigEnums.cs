@@ -30,14 +30,14 @@ namespace Match3RPG.Configuration
 
     public enum EquipmentGrade
     {
-        PhamKhi = 0,
-        PhapKhi = 1,
+        PhapKhi = 0,
+        BaoKhi = 1,
         LinhKhi = 2,
-        PhapBao = 3,
-        LinhBao = 4,
-        ThongThienLinhBao = 5,
-        TienKhi = 6,
-        ThanKhi = 7
+        DaoKhi = 3,
+        TienKhi = 4,
+        ThanKhi = 5,
+        ThanhKhi = 6,
+        DeBinh = 7
     }
 
     public enum SkillType
