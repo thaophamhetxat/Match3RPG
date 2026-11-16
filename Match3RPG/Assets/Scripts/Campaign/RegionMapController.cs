@@ -532,7 +532,8 @@ namespace Match3RPG.Campaign
         {
             for (int i = rewardArea.childCount - 1; i >= 0; i--)
                 Destroy(rewardArea.GetChild(i).gameObject);
-            if (rewardArea.GetComponent<HorizontalLayoutGroup>() == null)
+            HorizontalLayoutGroup group = rewardArea.GetComponent<HorizontalLayoutGroup>();
+            if (group == null)
                 throw new MissingComponentException("RewardContent requires a HorizontalLayoutGroup.");
 
             bool firstClear = stage != null
@@ -541,17 +542,29 @@ namespace Match3RPG.Campaign
             List<RewardPreviewEntry> entries = GetRewardEntries(stage, boss);
 
             int visibleCount = Mathf.Min(entries.Count, GetLayout().MaxRewardEntries);
+            group.childAlignment = TextAnchor.MiddleCenter;
+            group.spacing = 24f;
+            group.childForceExpandWidth = false;
+
+            Canvas.ForceUpdateCanvases();
+            float boxW = rewardArea.rect.width;
+            float boxH = rewardArea.rect.height;
+            float cellSize = visibleCount > 0
+                ? Mathf.Min(boxH, (boxW - 24f * (visibleCount - 1)) / visibleCount)
+                : boxH;
+
             for (int i = 0; i < visibleCount; i++)
             {
                 RewardPreviewEntry entry = entries[i];
                 RectTransform itemRoot = CampaignUIFactory.CreateRect($"Reward_{i + 1}",
                     rewardArea, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
                 LayoutElement layoutElement = itemRoot.gameObject.AddComponent<LayoutElement>();
-                layoutElement.flexibleWidth = 1f;
+                layoutElement.flexibleWidth = 0f;
+                layoutElement.preferredWidth = cellSize;
                 layoutElement.minWidth = 80f;
 
                 RectTransform tileRect = CampaignUIFactory.CreateRect("Tile", itemRoot,
-                    new Vector2(0.34f, 0.30f), new Vector2(0.66f, 0.98f),
+                    new Vector2(0.22f, 0.22f), new Vector2(0.78f, 0.78f),
                     Vector2.zero, Vector2.zero);
                 Image tile = tileRect.gameObject.AddComponent<Image>();
                 tile.color = new Color32(12, 27, 36, 255);
@@ -574,7 +587,7 @@ namespace Match3RPG.Campaign
                 if (firstClear)
                 {
                     RectTransform tagRect = CampaignUIFactory.CreateRect("FirstTag", itemRoot,
-                        new Vector2(0.30f, 0.86f), new Vector2(0.54f, 1.00f),
+                        new Vector2(0.16f, 0.68f), new Vector2(0.52f, 0.86f),
                         Vector2.zero, Vector2.zero);
                     Image tagBg = tagRect.gameObject.AddComponent<Image>();
                     tagBg.color = new Color32(255, 201, 60, 255);
@@ -586,24 +599,22 @@ namespace Match3RPG.Campaign
                     tagText.raycastTarget = false;
                 }
 
-                RectTransform labelRect = CampaignUIFactory.CreateRect("RewardText", itemRoot,
-                    new Vector2(GetLayout().RewardTextRect.xMin, GetLayout().RewardTextRect.yMin),
-                    new Vector2(GetLayout().RewardTextRect.xMax, GetLayout().RewardTextRect.yMax),
+                RectTransform qtyRect = CampaignUIFactory.CreateRect("QuantityBadge", tileRect,
+                    new Vector2(0.50f, 0.04f), new Vector2(0.96f, 0.32f),
                     Vector2.zero, Vector2.zero);
-                TextMeshProUGUI label = labelRect.gameObject.AddComponent<TextMeshProUGUI>();
-                label.text = string.IsNullOrEmpty(entry.Status)
-                    ? entry.Amount
-                    : $"{entry.Amount}\n{entry.Status}";
-                label.font = TMP_Settings.defaultFontAsset;
-                label.fontSize = GetLayout().RewardFontSize;
-                label.fontSizeMin = 14f;
-                label.fontSizeMax = 40f;
-                label.enableAutoSizing = true;
-                label.alignment = TextAlignmentOptions.Midline;
-                label.color = GetLayout().TextColor;
-                label.outlineColor = GetLayout().OutlineColor;
-                label.outlineWidth = GetLayout().OutlineWidth;
-                label.raycastTarget = false;
+                Image qtyBg = qtyRect.gameObject.AddComponent<Image>();
+                qtyBg.color = new Color32(15, 15, 20, 230);
+                qtyBg.raycastTarget = false;
+                Outline qtyOutline = qtyRect.gameObject.AddComponent<Outline>();
+                qtyOutline.effectColor = new Color32(180, 137, 65, 255);
+                qtyOutline.effectDistance = new Vector2(1f, -1f);
+                TextMeshProUGUI qtyText = CampaignUIFactory.CreateText(
+                    qtyRect, "Text", entry.Amount, 18, Color.white, TextAlignmentOptions.Center);
+                qtyText.fontStyle = FontStyles.Bold;
+                qtyText.fontSizeMin = 12f;
+                qtyText.fontSizeMax = 24f;
+                qtyText.enableAutoSizing = true;
+                qtyText.raycastTarget = false;
             }
         }
 
