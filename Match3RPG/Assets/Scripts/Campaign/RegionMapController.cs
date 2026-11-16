@@ -543,14 +543,14 @@ namespace Match3RPG.Campaign
 
             int visibleCount = Mathf.Min(entries.Count, GetLayout().MaxRewardEntries);
             group.childAlignment = TextAnchor.MiddleCenter;
-            group.spacing = 24f;
+            group.spacing = 3f;
             group.childForceExpandWidth = false;
 
             Canvas.ForceUpdateCanvases();
             float boxW = rewardArea.rect.width;
             float boxH = rewardArea.rect.height;
             float cellSize = visibleCount > 0
-                ? Mathf.Min(boxH, (boxW - 24f * (visibleCount - 1)) / visibleCount)
+                ? Mathf.Min(boxH - 4f, (boxW - 3f * (visibleCount - 1)) / visibleCount)
                 : boxH;
 
             for (int i = 0; i < visibleCount; i++)
@@ -564,7 +564,7 @@ namespace Match3RPG.Campaign
                 layoutElement.minWidth = 80f;
 
                 RectTransform tileRect = CampaignUIFactory.CreateRect("Tile", itemRoot,
-                    new Vector2(0.22f, 0.22f), new Vector2(0.78f, 0.78f),
+                    new Vector2(0.00f, 0.01f), new Vector2(1.00f, 0.99f),
                     Vector2.zero, Vector2.zero);
                 Image tile = tileRect.gameObject.AddComponent<Image>();
                 tile.color = new Color32(12, 27, 36, 255);
@@ -587,7 +587,7 @@ namespace Match3RPG.Campaign
                 if (firstClear)
                 {
                     RectTransform tagRect = CampaignUIFactory.CreateRect("FirstTag", itemRoot,
-                        new Vector2(0.16f, 0.68f), new Vector2(0.52f, 0.86f),
+                        new Vector2(0.00f, 0.82f), new Vector2(0.36f, 1.00f),
                         Vector2.zero, Vector2.zero);
                     Image tagBg = tagRect.gameObject.AddComponent<Image>();
                     tagBg.color = new Color32(255, 201, 60, 255);
@@ -603,7 +603,7 @@ namespace Match3RPG.Campaign
                     new Vector2(0.50f, 0.04f), new Vector2(0.96f, 0.32f),
                     Vector2.zero, Vector2.zero);
                 Image qtyBg = qtyRect.gameObject.AddComponent<Image>();
-                qtyBg.color = new Color32(15, 15, 20, 230);
+                qtyBg.color = new Color32(0, 0, 0, 255);
                 qtyBg.raycastTarget = false;
                 Outline qtyOutline = qtyRect.gameObject.AddComponent<Outline>();
                 qtyOutline.effectColor = new Color32(180, 137, 65, 255);
