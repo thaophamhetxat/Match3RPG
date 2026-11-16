@@ -877,10 +877,8 @@ backgroundLayer.SetAsFirstSibling();
             }
             if (equippedConfig == null)
                 return; // Ô trống: không mở popup.
-            int itemIndex = LegacyInventoryItemCount
-                + Array.IndexOf(BlackDragonItemIds, equippedConfig.StableId);
-            if (itemIndex < LegacyInventoryItemCount
-                || itemIndex >= TotalInventoryItemCount)
+            int itemIndex = GetInventoryItemIndex(equippedConfig.StableId);
+            if (itemIndex < 0 || itemIndex >= TotalInventoryItemCount)
                 return;
             OpenInventoryItemPopup(itemIndex, fromStatus: true);
         }
@@ -1132,7 +1130,7 @@ backgroundLayer.SetAsFirstSibling();
         {
             for (int index = 0; index < TotalInventoryItemCount; index++)
             {
-                ItemConfig itemConfig = GetBlackDragonItemConfig(index);
+                ItemConfig itemConfig = GetInventoryItemConfig(index);
                 bool isEquipped = selectedInventoryTab == 0
                     && itemConfig != null
                     && IsItemEquipped(itemConfig, out _);
@@ -1255,6 +1253,20 @@ backgroundLayer.SetAsFirstSibling();
             if (config != null)
                 return config;
             return GetSpiritStoneItemConfig(itemIndex);
+        }
+
+        int GetInventoryItemIndex(string stableId)
+        {
+            if (string.IsNullOrEmpty(stableId))
+                return -1;
+            for (int index = 0; index < TotalInventoryItemCount; index++)
+            {
+                ItemConfig itemConfig = GetInventoryItemConfig(index);
+                if (itemConfig != null
+                    && string.Equals(itemConfig.StableId, stableId, StringComparison.Ordinal))
+                    return index;
+            }
+            return -1;
         }
 
         int GetInventoryItemFlag(int itemIndex)
