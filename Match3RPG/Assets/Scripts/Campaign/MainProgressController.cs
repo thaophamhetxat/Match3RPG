@@ -20,7 +20,7 @@ namespace Match3RPG.Campaign
         const float LoadingDurationSeconds = 2f;
         const float LoadingFadeSeconds = 0.3f;
         const int LegacyInventoryItemCount = 4;
-        const int TotalInventoryItemCount = 14;
+        const int TotalInventoryItemCount = 32;
         const int MaxEquipmentUpgradeLevel = 15;
         const string BlackDragonSetDetailText = "Bộ Hắc Long (hệ ATK) — 6 món: Kiếm, Mũ, Giáp, Găng, Giầy, Nhẫn.";
 
@@ -43,6 +43,28 @@ namespace Match3RPG.Campaign
         {
             "linh_thach_ha_pham", "linh_thach_trung_pham",
             "linh_thach_thuong_pham", "linh_thach_cuc_pham"
+        };
+
+        static readonly string[] WeaponItemIds =
+        {
+            "quat_xep_ma_thuat",
+            "thanh_kiem",
+            "ma_kiem_hong_ngoc",
+            "quyen_truong_bang_gia",
+            "quyen_truong_hac_am",
+            "thuong_ba_kich_bong_dem",
+            "dao_gam_ma_thuat",
+            "qua_cau_ma_thuat_chiem_tinh",
+            "cap_song_dao_nguyet_anh",
+            "thai_duong_than_kiem",
+            "bao_kiem_bang_pha_le",
+            "ma_kiem_nguyet_bac",
+            "dao_ban_rong_uon_cong",
+            "than_kiem_long_vu",
+            "quat_xep_hoang_gia_hac_kim",
+            "ma_kiem_bang_tinh",
+            "cu_kiem_thiet_giap",
+            "quyen_truong_mat_troi_co"
         };
 
         [SerializeField] MainProgressCharacterPresentation presentation;
@@ -1138,6 +1160,19 @@ backgroundLayer.SetAsFirstSibling();
                 resolvedInventoryItemSprites[LegacyInventoryItemCount + BlackDragonItemIds.Length + offset] = itemConfig.RewardIcon;
             }
 
+            for (int offset = 0; offset < WeaponItemIds.Length; offset++)
+            {
+                string stableId = WeaponItemIds[offset];
+                ItemConfig itemConfig = config != null ? config.GetItem(stableId) : null;
+                if (itemConfig == null)
+                {
+                    Debug.LogError($"[MainProgress] Missing ItemConfig for stableId '{stableId}' in GameConfigService.", this);
+                    continue;
+                }
+
+                resolvedInventoryItemSprites[LegacyInventoryItemCount + BlackDragonItemIds.Length + SpiritStoneItemIds.Length + offset] = itemConfig.RewardIcon;
+            }
+
             return resolvedInventoryItemSprites;
         }
 
@@ -1171,12 +1206,25 @@ backgroundLayer.SetAsFirstSibling();
             return config != null ? config.GetItem(SpiritStoneItemIds[offset]) : null;
         }
 
+        ItemConfig GetWeaponItemConfig(int itemIndex)
+        {
+            int offset = itemIndex - LegacyInventoryItemCount - BlackDragonItemIds.Length - SpiritStoneItemIds.Length;
+            if (offset < 0 || offset >= WeaponItemIds.Length)
+                return null;
+            GameConfigService config = Resources.Load<GameConfigService>(
+                "Configuration/GameConfigService");
+            return config != null ? config.GetItem(WeaponItemIds[offset]) : null;
+        }
+
         ItemConfig GetInventoryItemConfig(int itemIndex)
         {
             ItemConfig config = GetBlackDragonItemConfig(itemIndex);
             if (config != null)
                 return config;
             config = GetLegacyItemConfig(itemIndex);
+            if (config != null)
+                return config;
+            config = GetWeaponItemConfig(itemIndex);
             if (config != null)
                 return config;
             return GetSpiritStoneItemConfig(itemIndex);
@@ -1295,7 +1343,7 @@ backgroundLayer.SetAsFirstSibling();
                 new Vector2(0.90f, 0.91f), new Vector2(0.975f, 0.975f), TextAlignmentOptions.Center);
             closeLabel.raycastTarget = false;
 
-            ItemConfig itemConfig = GetBlackDragonItemConfig(itemIndex);
+            ItemConfig itemConfig = GetBlackDragonItemConfig(itemIndex) ?? GetWeaponItemConfig(itemIndex);
             if (itemConfig != null)
             {
                 ItemInstanceSaveData existingInstance = FindInventoryItemInstance(
@@ -1350,11 +1398,14 @@ backgroundLayer.SetAsFirstSibling();
                     TextAlignmentOptions.MidlineLeft);
                 requirementLabel.enableAutoSizing = false;
 
-                TMP_Text setDetailLabel = AddLabel(panel, "PopupItemSetDetail",
-                    BlackDragonSetDetailText, 18, new Color32(190, 195, 205, 255),
-                    new Vector2(0.06f, 0.22f), new Vector2(0.94f, 0.27f),
-                    TextAlignmentOptions.MidlineLeft);
-                setDetailLabel.enableAutoSizing = false;
+                if (Array.IndexOf(BlackDragonItemIds, itemConfig.StableId) >= 0)
+                {
+                    TMP_Text setDetailLabel = AddLabel(panel, "PopupItemSetDetail",
+                        BlackDragonSetDetailText, 18, new Color32(190, 195, 205, 255),
+                        new Vector2(0.06f, 0.22f), new Vector2(0.94f, 0.27f),
+                        TextAlignmentOptions.MidlineLeft);
+                    setDetailLabel.enableAutoSizing = false;
+                }
 
                 RectTransform buttonsContainer = CreateAnchoredRect(panel,
                     "PopupActionButtons", new Vector2(0.06f, 0.06f),

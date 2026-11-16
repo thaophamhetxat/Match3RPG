@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b370f5c26d9d4fcaacc569e85a70de62, type: 3}
+  m_Name: ma_kiem_hong_ngoc
+  m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Configuration.ItemConfig
+  stableId: ma_kiem_hong_ngoc
+  displayName: "Ma Kiếm Hồng Ngọc"
+  rewardIcon: {fileID: 21300000, guid: 318feed507576a9428c7afc30719f77a, type: 3}
+  itemType: 1
+  rarity: 2
+  equipmentSlot: 1
+  attackBonus: 0
+  maxHealthBonus: 0
+  grade: 1
+  description: "Lưỡi kiếm mảnh mai màu đỏ hồng phát sáng như ngọc máu, hộ vệ vàng kim uốn lượn quý phái. Mỗi nhát chém để lại vệt sáng hồng ma mị."
+  attackPercentBonus: 20
+  maxHealthPercentBonus: 0
+  defensePercentBonus: 0
+  critRatePercentBonus: 0
+  speedBonus: 0
+  critDamagePercentBonus: 0
+  ragePerGemBonus: 0
+  inventoryFlag: 0

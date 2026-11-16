@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b370f5c26d9d4fcaacc569e85a70de62, type: 3}
+  m_Name: cap_song_dao_nguyet_anh
+  m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Configuration.ItemConfig
+  stableId: cap_song_dao_nguyet_anh
+  displayName: "Cặp Song Đao Nguyệt Ánh"
+  rewardIcon: {fileID: 21300000, guid: 96d8a20291a34d24db6436f09621ac79, type: 3}
+  itemType: 1
+  rarity: 2
+  equipmentSlot: 1
+  attackBonus: 0
+  maxHealthBonus: 0
+  grade: 1
+  description: "Hai lưỡi đao hình trăng khuyết đối xứng, kim loại hắc ám với dải năng lượng tím sẫm chảy trong lòng đao. Song đao cùng vung, ánh trăng cũng phải lùi bước."
+  attackPercentBonus: 10
+  maxHealthPercentBonus: 25
+  defensePercentBonus: 0
+  critRatePercentBonus: 0
+  speedBonus: 0
+  critDamagePercentBonus: 0
+  ragePerGemBonus: 0
+  inventoryFlag: 0

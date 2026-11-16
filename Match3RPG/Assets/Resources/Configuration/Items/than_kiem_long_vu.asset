@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b370f5c26d9d4fcaacc569e85a70de62, type: 3}
+  m_Name: than_kiem_long_vu
+  m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Configuration.ItemConfig
+  stableId: than_kiem_long_vu
+  displayName: "Thần Kiếm Lông Vũ"
+  rewardIcon: {fileID: 21300000, guid: 7ffdbcfd56851f44e8a98705528b634c, type: 3}
+  itemType: 1
+  rarity: 2
+  equipmentSlot: 1
+  attackBonus: 0
+  maxHealthBonus: 0
+  grade: 1
+  description: "Lưỡi kiếm gồm nhiều lớp phiến xếp tầng như lông vũ thiên sứ, trắng bạc với viền vàng kim. Viên đá quý xanh biển ở giữa sáng rực như mắt thiên thần."
+  attackPercentBonus: 20
+  maxHealthPercentBonus: 0
+  defensePercentBonus: 0
+  critRatePercentBonus: 0
+  speedBonus: 0
+  critDamagePercentBonus: 0
+  ragePerGemBonus: 0
+  inventoryFlag: 0
