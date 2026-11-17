@@ -704,12 +704,12 @@ backgroundLayer.SetAsFirstSibling();
                 ? Color.white : new Color(1f, 1f, 1f, .15f);
             heroImage.raycastTarget = false;
 
-            // 6 ô trang bị 2 bên vòng tròn chân dung + nhãn tên loại bên dưới mỗi ô
+            // 6 ô trang bị 2 bên vòng tròn chân dung + nhãn tên loại bên dưới mỗi ô (cột trái dịch phải 12px)
             (int index, string name, float minX, float minY, float maxX, float maxY, float labelMinY, float labelMaxY)[] equipmentSlots =
             {
-                (0, "Mũ",       .075f, .826f, .182f, .876f, .813f, .824f),
-                (1, "Giáp",     .075f, .756f, .182f, .806f, .743f, .754f),
-                (2, "Giày",     .075f, .686f, .182f, .735f, .672f, .683f),
+                (0, "Mũ",       .086f, .826f, .193f, .876f, .813f, .824f),
+                (1, "Giáp",     .086f, .756f, .193f, .806f, .743f, .754f),
+                (2, "Giày",     .086f, .686f, .193f, .735f, .672f, .683f),
                 (3, "Vũ khí",   .797f, .826f, .904f, .876f, .813f, .824f),
                 (4, "Pháp bảo", .797f, .756f, .904f, .806f, .743f, .754f),
                 (5, "Găng",     .797f, .686f, .904f, .735f, .672f, .683f),
@@ -773,8 +773,9 @@ backgroundLayer.SetAsFirstSibling();
             bgOutline.effectColor = Gold;
             bgOutline.effectDistance = new Vector2(2f, -2f);
 
+            // Căn giữa icon trang bị đều 4 phía trong ô
             RectTransform iconRect = CreateAnchoredRect(buttonRect, "EquippedIcon",
-                new Vector2(.08f, .00f), new Vector2(.92f, .84f),
+                new Vector2(.08f, .08f), new Vector2(.92f, .92f),
                 Vector2.zero, Vector2.zero);
             Image iconImage = iconRect.gameObject.AddComponent<Image>();
             iconImage.color = Color.white;
