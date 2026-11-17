@@ -1127,8 +1127,45 @@ backgroundLayer.SetAsFirstSibling();
                     inventoryItemContents[index].SetActive(
                         IsItemVisibleOnTab(index, selectedInventoryTab));
             }
+            // Cap nhat lai mau o theo trang thai an/hien cua item tren tab dang chon
+            RefreshInventorySlotStyles();
             RepackInventoryGrid();
             RefreshInventoryGridEquippedVisuals();
+        }
+
+        // Tra mau o ve mac dinh khi item bi an hoac to mau cap bac khi trang bi dang hien
+        void RefreshInventorySlotStyles()
+        {
+            for (int index = 0; index < TotalInventoryItemCount; index++)
+            {
+                Button button = inventoryItemButtons[index];
+                if (button == null)
+                    continue;
+
+                Image slotImage = button.targetGraphic as Image;
+                Outline slotOutline = inventorySlotOutlines[index];
+                RectTransform slotRect = button.GetComponent<RectTransform>();
+                ItemConfig config = GetBlackDragonItemConfig(index) ?? GetWeaponItemConfig(index);
+
+                if (IsItemVisibleOnTab(index, selectedInventoryTab) && config != null)
+                {
+                    ApplyGradeSlotStyle(slotRect, slotImage, slotOutline, config.Grade);
+                }
+                else
+                {
+                    if (slotImage != null)
+                    {
+                        slotImage.color = new Color32(12, 27, 36, 255);
+                        slotImage.sprite = null;
+                        slotImage.type = Image.Type.Simple;
+                    }
+                    if (slotOutline != null)
+                    {
+                        slotOutline.enabled = true;
+                        slotOutline.effectColor = Gold;
+                    }
+                }
+            }
         }
 
         void RepackInventoryGrid()
@@ -2500,6 +2537,16 @@ backgroundLayer.SetAsFirstSibling();
             frameImage.color = Color.white;
             if (frameOutline != null)
                 frameOutline.enabled = false;
+
+            // Dung lai SlotBackground neu da ton tai de tranh tao trung khi doi tab nhieu lan
+            Transform existingBg = frameRect.Find("SlotBackground");
+            if (existingBg != null)
+            {
+                Image existingBgImage = existingBg.GetComponent<Image>();
+                if (existingBgImage != null)
+                    existingBgImage.color = ItemConfig.GetGradeSlotBackgroundColor(grade);
+                return;
+            }
 
             RectTransform bgRect = CreateAnchoredRect(frameRect, "SlotBackground",
                 Vector2.zero, Vector2.one, new Vector2(6f, 6f), new Vector2(-6f, -6f));
