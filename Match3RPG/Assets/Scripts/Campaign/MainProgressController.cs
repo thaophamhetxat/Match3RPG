@@ -103,19 +103,21 @@ namespace Match3RPG.Campaign
             (new Vector2(.742f, .818f), new Vector2(.962f, .864f))
         };
 
+        // Mở rộng khung focus tab Túi đồ bằng đúng hit area để 9-slice hiển thị rõ hình chữ nhật
         static readonly (Vector2 min, Vector2 max)[] InventoryTabFocusAnchors =
         {
-            (new Vector2(.069f, .828f), new Vector2(.324f, .861f)),
-            (new Vector2(.375f, .828f), new Vector2(.628f, .861f)),
-            (new Vector2(.678f, .828f), new Vector2(.933f, .861f))
+            (new Vector2(.052f, .822f), new Vector2(.341f, .867f)),
+            (new Vector2(.358f, .822f), new Vector2(.645f, .867f)),
+            (new Vector2(.661f, .822f), new Vector2(.950f, .867f))
         };
 
+        // Mở rộng khung focus tab Nhân vật bằng đúng hit area để 9-slice hiển thị rõ hình chữ nhật
         static readonly (Vector2 min, Vector2 max)[] CharacterTabFocusAnchors =
         {
-            (new Vector2(.051f, .824f), new Vector2(.247f, .858f)),
-            (new Vector2(.286f, .824f), new Vector2(.480f, .858f)),
-            (new Vector2(.520f, .824f), new Vector2(.715f, .858f)),
-            (new Vector2(.755f, .824f), new Vector2(.949f, .858f))
+            (new Vector2(.038f, .818f), new Vector2(.260f, .864f)),
+            (new Vector2(.273f, .818f), new Vector2(.493f, .864f)),
+            (new Vector2(.507f, .818f), new Vector2(.728f, .864f)),
+            (new Vector2(.742f, .818f), new Vector2(.962f, .864f))
         };
 
         Canvas canvas;
