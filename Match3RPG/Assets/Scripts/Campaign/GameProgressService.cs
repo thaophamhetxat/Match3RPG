@@ -53,6 +53,10 @@ namespace Match3RPG.Campaign
                 PlayerPrefs.Save();
         }
 
+        // TẠM MỞ HẾT ĐỂ TEST (Prompt 115) — sau khi test xong đặt lại false để khôi phục rule
+        // phải qua map cũ mới mở map mới. KHÔNG xóa dữ liệu PlayerPrefs.
+        public static readonly bool UnlockAllForTesting = true;
+
         public static int HighestUnlockedRegion => Mathf.Clamp(PlayerPrefs.GetInt(HighestRegionKey, 1), 1, 5);
 
         public static int HighestUnlockedStage(string regionId)
@@ -73,6 +77,13 @@ namespace Match3RPG.Campaign
         {
             if (catalog == null || region == null)
                 return CampaignNodeState.Locked;
+            if (UnlockAllForTesting)
+            {
+                StageData testFinalStage = region.GetStage(10);
+                return testFinalStage != null && IsStageCompleted(testFinalStage.StageId)
+                    ? CampaignNodeState.Completed
+                    : CampaignNodeState.Available;
+            }
             int regionIndex = catalog.GetRegionIndex(region.RegionId);
             if (regionIndex < 0 || regionIndex + 1 > HighestUnlockedRegion)
                 return CampaignNodeState.Locked;
@@ -86,6 +97,8 @@ namespace Match3RPG.Campaign
         {
             if (region == null || stage == null)
                 return CampaignNodeState.Locked;
+            if (UnlockAllForTesting)
+                return IsStageCompleted(stage.StageId) ? CampaignNodeState.Completed : CampaignNodeState.Available;
             if (IsStageCompleted(stage.StageId))
                 return CampaignNodeState.Completed;
             if (stage.StageNumber <= HighestUnlockedStage(region.RegionId))
