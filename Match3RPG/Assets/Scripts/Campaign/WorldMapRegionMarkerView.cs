@@ -88,8 +88,10 @@ namespace Match3RPG.Campaign
                 : state == CampaignNodeState.Locked ? new Color(0.42f, 0.48f, 0.52f, 0.1f)
                 : state == CampaignNodeState.Completed ? new Color(1f, 0.56f, 0.12f, 0.25f)
                 : new Color(0.46f, 0.82f, 0.48f, 0.2f);
-            pulse.color = current ? new Color(0.25f, 0.9f, 1f, 0.6f) : Color.clear;
-            pulse.gameObject.SetActive(current);
+            pulse.color = current ? new Color(0.25f, 0.9f, 1f, 0.6f)
+                : state == CampaignNodeState.Completed ? new Color(1f, 0.56f, 0.12f, 0.6f)
+                : new Color(0.46f, 0.82f, 0.48f, 0.6f);
+            pulse.gameObject.SetActive(state != CampaignNodeState.Locked);
             lockIcon.color = new Color32(200, 208, 210, 230);
             lockIcon.gameObject.SetActive(state == CampaignNodeState.Locked && !current);
 
@@ -103,26 +105,23 @@ namespace Match3RPG.Campaign
             if (state != CampaignNodeState.Locked)
                 button.onClick.AddListener(() => selected?.Invoke(region));
 
-            if (current || state == CampaignNodeState.Available)
-                animationRoutine = StartCoroutine(AnimateMarker(current));
+            if (state != CampaignNodeState.Locked)
+                animationRoutine = StartCoroutine(AnimateMarker());
         }
 
-        IEnumerator AnimateMarker(bool current)
+        IEnumerator AnimateMarker()
         {
             float startedAt = Time.unscaledTime;
             while (true)
             {
-                float duration = current ? 1f : 2.6f;
+                float duration = 1f;
                 float phase = Mathf.Repeat((Time.unscaledTime - startedAt) / duration, 1f);
                 float wave = .5f - .5f * Mathf.Cos(phase * Mathf.PI * 2f);
 
-                markerVisual.localScale = markerBaseScale * (1f + (current ? .12f : .04f) * wave);
-                if (current)
-                {
-                    SetAlpha(outerGlow, Mathf.Lerp(.45f, .95f, wave));
-                    pulseRect.localScale = pulseBaseScale * Mathf.Lerp(.5f, 1.4f, phase);
-                    SetAlpha(pulse, .6f * (1f - phase));
-                }
+                markerVisual.localScale = markerBaseScale * (1f + .12f * wave);
+                SetAlpha(outerGlow, Mathf.Lerp(.45f, .95f, wave));
+                pulseRect.localScale = pulseBaseScale * Mathf.Lerp(.5f, 1.4f, phase);
+                SetAlpha(pulse, .6f * (1f - phase));
 
                 yield return null;
             }
