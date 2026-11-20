@@ -13,6 +13,7 @@ namespace Match3RPG.Campaign.Data
         [SerializeField] string regionId;
         [SerializeField] bool isBossStage;
         [SerializeField] Vector2 regionMapNodePosition;
+        [SerializeField] Vector2 platformSize;
         [SerializeField] BossData bossData;
         [SerializeField] string lootTableId;
 
@@ -24,6 +25,7 @@ namespace Match3RPG.Campaign.Data
         public string RegionId => regionId;
         public bool IsBossStage => isBossStage;
         public Vector2 RegionMapNodePosition => regionMapNodePosition;
+        public Vector2 PlatformSize => platformSize;
         public BossData BossData => bossData;
         public string BossId => bossData != null ? bossData.StableId : string.Empty;
         public string LootTableId => lootTableId;

@@ -255,8 +255,11 @@ namespace Match3RPG.Campaign
                 };
 
                 float markerScale = stage.IsBossStage ? 1.25f : 1f;
+                Vector2 platformSize = stage.PlatformSize;
+                if (platformSize == Vector2.zero)
+                    platformSize = new Vector2(96f, 56f);
                 CampaignUIFactory.CreateCenteredImage(nodeRect, "Platform",
-                    new Vector2(96f * markerScale, 56f * markerScale),
+                    platformSize,
                     catalog.CampaignStagePlatform, Color.white);
                 RectTransform markerRect = CampaignUIFactory.CreateRect("MarkerImage", nodeRect,
                     new Vector2(.5f, .5f), new Vector2(.5f, .5f), Vector2.zero, Vector2.zero);
