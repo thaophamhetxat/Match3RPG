@@ -1,0 +1,768 @@
+fileFormatVersion: 2
+guid: 31f111040bf652347ba3800d0186ecb0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7062171980401921692
+    second: main_meditate-meditate_0
+  - first:
+      213: -551601133260884597
+    second: main_meditate-meditate_1
+  - first:
+      213: 7839632227484390327
+    second: main_meditate-meditate_2
+  - first:
+      213: 7020413712117623039
+    second: main_meditate-meditate_3
+  - first:
+      213: 7685374033361691678
+    second: main_meditate-meditate_4
+  - first:
+      213: 612487637986403517
+    second: main_meditate-meditate_5
+  - first:
+      213: 846230833063151901
+    second: main_meditate-meditate_6
+  - first:
+      213: 8482471972808618431
+    second: main_meditate-meditate_7
+  - first:
+      213: 4612584547912322113
+    second: main_meditate-meditate_8
+  - first:
+      213: 6509905747692514453
+    second: main_meditate-meditate_9
+  - first:
+      213: -3793542696613353783
+    second: main_meditate-meditate_10
+  - first:
+      213: -9027665058024099230
+    second: main_meditate-meditate_11
+  - first:
+      213: 6115556342608820769
+    second: main_meditate-meditate_12
+  - first:
+      213: 8838124779679912798
+    second: main_meditate-meditate_13
+  - first:
+      213: -4591171676398829444
+    second: main_meditate-meditate_14
+  - first:
+      213: -7419148996657922783
+    second: main_meditate-meditate_15
+  - first:
+      213: 3686742191877686166
+    second: main_meditate-meditate_16
+  - first:
+      213: -8844772351332257151
+    second: main_meditate-meditate_17
+  - first:
+      213: 7947124458310270980
+    second: main_meditate-meditate_18
+  - first:
+      213: -1582803847532471793
+    second: main_meditate-meditate_19
+  - first:
+      213: -6143618487642844117
+    second: main_meditate-meditate_20
+  - first:
+      213: -61766159388150232
+    second: main_meditate-meditate_21
+  - first:
+      213: -8540908436974796386
+    second: main_meditate-meditate_22
+  - first:
+      213: 5151913945367153506
+    second: main_meditate-meditate_23
+  - first:
+      213: 3684552017710009322
+    second: main_meditate-meditate_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: main_meditate-meditate_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 2111
+        width: 421
+        height: 367
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4613d6530002efd90800000000000000
+      internalID: -7062171980401921692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_1
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 2111
+        width: 422
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b85384a11b15858f0800000000000000
+      internalID: -551601133260884597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_2
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 2111
+        width: 424
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b359e889f7fbcc60800000000000000
+      internalID: 7839632227484390327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_3
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 2111
+        width: 424
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff86d0f43158d6160800000000000000
+      internalID: 7020413712117623039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_4
+      rect:
+        serializedVersion: 2
+        x: 2092
+        y: 2111
+        width: 424
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e14e888e6fee7aa60800000000000000
+      internalID: 7685374033361691678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_5
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 1599
+        width: 422
+        height: 367
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db46f7bf24eff7800800000000000000
+      internalID: 612487637986403517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_6
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 1599
+        width: 424
+        height: 366
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1946ba857a6ebb00800000000000000
+      internalID: 846230833063151901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_7
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 1599
+        width: 424
+        height: 367
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb1f674315bc7b570800000000000000
+      internalID: 8482471972808618431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_8
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 1599
+        width: 422
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14c05c23531330040800000000000000
+      internalID: 4612584547912322113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_9
+      rect:
+        serializedVersion: 2
+        x: 2094
+        y: 1599
+        width: 422
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59c6c7c59c4d75a50800000000000000
+      internalID: 6509905747692514453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_10
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 1087
+        width: 424
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c665183401aa5bc0800000000000000
+      internalID: -3793542696613353783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_11
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 1087
+        width: 422
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2627449d57a47b280800000000000000
+      internalID: -9027665058024099230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_12
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 1087
+        width: 424
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12af51d8712ded450800000000000000
+      internalID: 6115556342608820769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_13
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 1087
+        width: 424
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e53166529a357aa70800000000000000
+      internalID: 8838124779679912798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_14
+      rect:
+        serializedVersion: 2
+        x: 2093
+        y: 1087
+        width: 423
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c70c9657fa1e840c0800000000000000
+      internalID: -4591171676398829444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_15
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 575
+        width: 423
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12d328ebb43e90990800000000000000
+      internalID: -7419148996657922783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_16
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 575
+        width: 423
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69380558d70f92330800000000000000
+      internalID: 3686742191877686166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_17
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 575
+        width: 423
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 182f4a7786e014580800000000000000
+      internalID: -8844772351332257151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_18
+      rect:
+        serializedVersion: 2
+        x: 1581
+        y: 575
+        width: 423
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4000763d69bd94e60800000000000000
+      internalID: 7947124458310270980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_19
+      rect:
+        serializedVersion: 2
+        x: 2094
+        y: 575
+        width: 422
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0a94b66940c80ae0800000000000000
+      internalID: -1582803847532471793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_20
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 63
+        width: 423
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b249688298b7dbaa0800000000000000
+      internalID: -6143618487642844117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_21
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 63
+        width: 422
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 826778a5100942ff0800000000000000
+      internalID: -61766159388150232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_22
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 63
+        width: 422
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e910bfa3709987980800000000000000
+      internalID: -8540908436974796386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_23
+      rect:
+        serializedVersion: 2
+        x: 1582
+        y: 63
+        width: 422
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b8df2ff664f7740800000000000000
+      internalID: 5151913945367153506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: main_meditate-meditate_24
+      rect:
+        serializedVersion: 2
+        x: 2094
+        y: 63
+        width: 422
+        height: 368
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aebcd0cd988222330800000000000000
+      internalID: 3684552017710009322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

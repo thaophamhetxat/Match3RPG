@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.HeroData
   heroId: hero_02
   displayName: "T\u1EA1 Di\u1EC7m"
-  portrait: {fileID: 898444423, guid: 06890592888bd004e9d650c8cfaa83b7, type: 3}
-  selectionPreviewSprite: {fileID: 898444423, guid: 06890592888bd004e9d650c8cfaa83b7, type: 3}
-  staticFallbackSprite: {fileID: 898444423, guid: 06890592888bd004e9d650c8cfaa83b7, type: 3}
+  portrait: {fileID: 1511204418, guid: c24da29f0d7c73a4690c747ebdef8ce8, type: 3}
+  selectionPreviewSprite: {fileID: 1511204418, guid: c24da29f0d7c73a4690c747ebdef8ce8, type: 3}
+  staticFallbackSprite: {fileID: 1511204418, guid: c24da29f0d7c73a4690c747ebdef8ce8, type: 3}
   animationSet: {fileID: 11400000, guid: 1980b78ef16255c43a0b1635b9a22212, type: 2}
   baseMaxHP: 500
   baseAttack: 20
@@ -25,7 +25,7 @@ MonoBehaviour:
   visualScale: 1
   visualOffset: {x: 0, y: 0}
   sourceFacing: 1
-  idleNormalizationScaleMultiplier: 1.0172414
-  vfxAnchor: {x: 0.5, y: 0.2}
+  idleNormalizationScaleMultiplier: 1
+  vfxAnchor: {x: 0.5, y: 0.48}
   headVfxAnchor: {x: 0.5, y: 0.82}
-  floatingTextAnchor: {x: 0.5, y: 0.38}
+  floatingTextAnchor: {x: 0.5, y: 0.88}

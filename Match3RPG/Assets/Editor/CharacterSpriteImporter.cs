@@ -18,6 +18,7 @@ namespace Match3RPG.Editor
         const string BossFolder = "Assets/Art/Bosses/";
         const string GameScenePath = "Assets/Scenes/Game.unity";
         const string Hero2AnimationRoot = "Assets/Art/Characters/Hero2/Animations/";
+        const string Character01AnimationRoot = "Assets/Art/Characters/Character01/";
         const string BossAnimationRoot = "Assets/Art/Bosses/Region01/";
         const string ReimportPreferencePrefix = "Match3RPG.CharacterSpriteImporter.Reimported.";
         static readonly string[] Hero2BattleFolders =
@@ -117,13 +118,24 @@ namespace Match3RPG.Editor
             SetUncompressedPlatform(importer, "WebGL", 4096);
         }
 
+        // Hero battle sheets live under Hero2/Animations/ and under Character01/
+        // (Character01 is the new hero source folder). Only the battle folders
+        // in Hero2BattleFolders count as sheets; Meditate and the base image
+        // stay Single because they are not battle animations.
         static bool IsHero2BattleSheet(string path)
         {
-            if (!path.StartsWith(Hero2AnimationRoot, StringComparison.OrdinalIgnoreCase)
-                || !path.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
+            if (!path.EndsWith(".png", StringComparison.OrdinalIgnoreCase))
                 return false;
 
-            string relativePath = path.Substring(Hero2AnimationRoot.Length);
+            string root = null;
+            if (path.StartsWith(Hero2AnimationRoot, StringComparison.OrdinalIgnoreCase))
+                root = Hero2AnimationRoot;
+            else if (path.StartsWith(Character01AnimationRoot, StringComparison.OrdinalIgnoreCase))
+                root = Character01AnimationRoot;
+            else
+                return false;
+
+            string relativePath = path.Substring(root.Length);
             int separator = relativePath.IndexOf('/');
             if (separator <= 0)
                 return false;

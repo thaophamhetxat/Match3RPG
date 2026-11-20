@@ -19,7 +19,7 @@ namespace Match3RPG.Editor
         const string AnimationOutput = "Assets/Animations";
         const string HeroDataFolder = "Assets/Resources/Characters/Heroes";
         const string BossDataFolder = "Assets/Resources/Campaign/Bosses";
-        const string Hero2AnimationRoot = "Assets/Art/Characters/Hero2/Animations";
+        const string Hero2AnimationRoot = "Assets/Art/Characters/Character01";
         const float IdleFps = 8f;
         const float ActionFps = 12f;
         static readonly BattleCharacterAnimState[] HeroBattleStates =
@@ -132,7 +132,7 @@ namespace Match3RPG.Editor
                 states[sheet.State] = frames;
             }
 
-            foreach (string characterId in new[] { "BossLamPhong", "BossThanhVan", "BossTuHa" })
+            foreach (string characterId in new[] { "Hero2" })
             {
                 if (!characterFrames.TryGetValue(characterId,
                     out Dictionary<BattleCharacterAnimState, Sprite[]> states)
