@@ -256,27 +256,26 @@ namespace Match3RPG.Campaign
 
                 float markerScale = stage.IsBossStage ? 1.25f : 1f;
                 CampaignUIFactory.CreateCenteredImage(nodeRect, "Platform",
-                    new Vector2(118f * markerScale, 70f * markerScale),
+                    new Vector2(96f * markerScale, 56f * markerScale),
                     catalog.CampaignStagePlatform, Color.white);
-                CampaignUIFactory.CreateCenteredImage(nodeRect, "Glow",
-                    new Vector2(104f * markerScale, 86f * markerScale),
-                    catalog.CampaignStageGlow, Color.white);
                 RectTransform markerRect = CampaignUIFactory.CreateRect("MarkerImage", nodeRect,
                     new Vector2(.5f, .5f), new Vector2(.5f, .5f), Vector2.zero, Vector2.zero);
                 markerRect.sizeDelta = new Vector2(168f * markerScale, 205f * markerScale);
+                markerRect.anchoredPosition = new Vector2(0f, 45f);
                 Image marker = markerRect.gameObject.AddComponent<Image>();
                 marker.preserveAspect = true;
                 marker.raycastTarget = false;
 
                 RectTransform stateIconRect = CampaignUIFactory.CreateRect("StateIcon", markerRect,
-                    new Vector2(.14f, .72f), new Vector2(.14f, .72f), Vector2.zero, Vector2.zero);
-                stateIconRect.sizeDelta = new Vector2(26f, 26f);
+                    new Vector2(.42f, .60f), new Vector2(.42f, .60f), Vector2.zero, Vector2.zero);
+                stateIconRect.sizeDelta = new Vector2(44f, 44f);
                 TextMeshProUGUI stateIcon = stateIconRect.gameObject.AddComponent<TextMeshProUGUI>();
                 stateIcon.alignment = TextAlignmentOptions.Center;
                 stateIcon.verticalAlignment = VerticalAlignmentOptions.Middle;
                 stateIcon.raycastTarget = false;
 
                 StageMarkerView view = nodeRect.gameObject.AddComponent<StageMarkerView>();
+                view.checkmarkFontSize = 30f;
                 view.SetStageId(stage.StageId);
                 view.Configure(stage, state, catalog.CampaignAvailableStageMarker,
                     catalog.CampaignCompletedStageMarker,

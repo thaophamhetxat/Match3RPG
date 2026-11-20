@@ -15,6 +15,8 @@ namespace Match3RPG.Campaign
         [SerializeField] Image glow;
         [SerializeField] Image marker;
         [SerializeField] TextMeshProUGUI stateIcon;
+        // Mặc định 19 cho Region 01 (dùng prefab); đường legacy set 30 trước khi gọi Configure.
+        public float checkmarkFontSize = 19f;
         Transform markerTransform;
         Vector3 markerBaseScale;
         bool hasMarkerBaseScale;
@@ -80,14 +82,13 @@ namespace Match3RPG.Campaign
             }
             if (glow != null)
             {
-                glow.sprite = glowSprite;
-                glow.gameObject.SetActive(state == CampaignNodeState.Available && glowSprite != null);
-                glow.preserveAspect = true;
+                // Prompt 118: bo vong sang (glow ring) o nut stage — luon tat, ke ca Glow trong prefab Region 01.
+                glow.gameObject.SetActive(false);
                 glow.raycastTarget = false;
             }
 
             stateIcon.text = state == CampaignNodeState.Completed ? "✓" : string.Empty;
-            stateIcon.fontSize = 19f;
+            stateIcon.fontSize = checkmarkFontSize;
             stateIcon.fontStyle = FontStyles.Bold;
             stateIcon.color = new Color32(255, 226, 140, 255);
             stateIcon.alignment = TextAlignmentOptions.Center;
@@ -99,7 +100,7 @@ namespace Match3RPG.Campaign
                 StopCoroutine(pulseRoutine);
             pulseRoutine = null;
             markerTransform.localScale = markerBaseScale;
-            if (state == CampaignNodeState.Available && glow != null && glow.gameObject.activeSelf)
+            if (state == CampaignNodeState.Available)
                 pulseRoutine = StartCoroutine(PulseMarker());
         }
 
