@@ -1,0 +1,834 @@
+fileFormatVersion: 2
+guid: 40d889fdfb0fc5240b59776f61865230
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5222017803504180439
+    second: thanhvan-atk_side_right_0
+  - first:
+      213: -7529136259821446416
+    second: thanhvan-atk_side_right_1
+  - first:
+      213: -4607081475963955302
+    second: thanhvan-atk_side_right_2
+  - first:
+      213: 6515165837355345491
+    second: thanhvan-atk_side_right_3
+  - first:
+      213: -581498727060809639
+    second: thanhvan-atk_side_right_4
+  - first:
+      213: -4521795037957012725
+    second: thanhvan-atk_side_right_5
+  - first:
+      213: 3748378219560528093
+    second: thanhvan-atk_side_right_6
+  - first:
+      213: -8091784053034147343
+    second: thanhvan-atk_side_right_7
+  - first:
+      213: 5552202529722907611
+    second: thanhvan-atk_side_right_8
+  - first:
+      213: -6199921245441704647
+    second: thanhvan-atk_side_right_9
+  - first:
+      213: 5957236832616109843
+    second: thanhvan-atk_side_right_10
+  - first:
+      213: -7098272043076513002
+    second: thanhvan-atk_side_right_11
+  - first:
+      213: 802154276232256496
+    second: thanhvan-atk_side_right_12
+  - first:
+      213: 5898200523083323349
+    second: thanhvan-atk_side_right_13
+  - first:
+      213: 3845471285401756754
+    second: thanhvan-atk_side_right_14
+  - first:
+      213: 5310873173161212689
+    second: thanhvan-atk_side_right_15
+  - first:
+      213: -622598942467776226
+    second: thanhvan-atk_side_right_16
+  - first:
+      213: -4877301707801123055
+    second: thanhvan-atk_side_right_17
+  - first:
+      213: -3314396555184091226
+    second: thanhvan-atk_side_right_18
+  - first:
+      213: -214320865035931428
+    second: thanhvan-atk_side_right_19
+  - first:
+      213: 442276049252415517
+    second: thanhvan-atk_side_right_20
+  - first:
+      213: 2044272560494106969
+    second: thanhvan-atk_side_right_21
+  - first:
+      213: 2688857172217443878
+    second: thanhvan-atk_side_right_22
+  - first:
+      213: -1230263122271491812
+    second: thanhvan-atk_side_right_23
+  - first:
+      213: -6766401826057279203
+    second: thanhvan-atk_side_right_24
+  - first:
+      213: -2002023773468484799
+    second: thanhvan-atk_side_right_25
+  - first:
+      213: 6863306486636884677
+    second: thanhvan-atk_side_right_26
+  - first:
+      213: 3764146678692512590
+    second: thanhvan-atk_side_right_27
+  - first:
+      213: 4644970842418303428
+    second: thanhvan-atk_side_right_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8936a1c6c3d77ea4b86c37f0083df7bc
+      internalID: 1073988915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 168c0aef5014b734e802c5ec4bfc4df0
+      internalID: 1754405050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 053369d065fdb4d4f8ce35bb7e952a27
+      internalID: 1214975082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3560fdd0144e135488f98837ef32883d
+      internalID: -547332480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cd386cb845f1e14bb6b293d7ff6e2ce
+      internalID: -542481722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aec45cec727e12649811439b1d483ae5
+      internalID: -1909224519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1930eb6a09da8b4d89c7add425e97e8
+      internalID: -649995819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 267f2484392cc21498a1c0ec312302ed
+      internalID: -1127320385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d135b6c204c8e4282a59e5fc280271
+      internalID: -1510435241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5354965d8ef06d146bf80728fa2d0230
+      internalID: -875858760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ee77b7edd1b1aa4585775796c7bedab
+      internalID: -935098313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9927c456094dc7448d6dc1d6c5202e6
+      internalID: -973502761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1526d01a2979de94b895073dd037daa3
+      internalID: 1982791461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b64210a26f03fa74d85b11f8c5c39441
+      internalID: 1828895220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f7110ca9de22da44a0b2da8f3ba187d
+      internalID: 457964245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c3353155c955a04b89492d006f39805
+      internalID: -1923852515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de8da36afa45f0247919b254323cb3ed
+      internalID: 303741062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e09753e2fcfd8e44b750b6b762890ad
+      internalID: -1622328092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f08eca3e4e06bcc47af809ba4edabafd
+      internalID: -1205490360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8beb82802d56c3b4089a1baf49e50da4
+      internalID: -582480882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e517e5c2b2ecf4982c4486875a76ec
+      internalID: -455404678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f23ef9eb3c52a04c99890417ca59149
+      internalID: 2011736469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ad2472e569b7dc41b5e1a8ce6622481
+      internalID: 1329588680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d92b6e143633834898b23654f756db9
+      internalID: 1944495272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossThanhVan_Attack_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b67cdf111acf5c04f9583d4e36b49a33
+      internalID: -532552522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2961047d8318805468fc100fd57b68eb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossThanhVan_Attack_00: 1073988915
+      BossThanhVan_Attack_01: 1754405050
+      BossThanhVan_Attack_02: 1214975082
+      BossThanhVan_Attack_03: -547332480
+      BossThanhVan_Attack_04: -542481722
+      BossThanhVan_Attack_05: -1909224519
+      BossThanhVan_Attack_06: -649995819
+      BossThanhVan_Attack_07: -1127320385
+      BossThanhVan_Attack_08: -1510435241
+      BossThanhVan_Attack_09: -875858760
+      BossThanhVan_Attack_10: -935098313
+      BossThanhVan_Attack_11: -973502761
+      BossThanhVan_Attack_12: 1982791461
+      BossThanhVan_Attack_13: 1828895220
+      BossThanhVan_Attack_14: 457964245
+      BossThanhVan_Attack_15: -1923852515
+      BossThanhVan_Attack_16: 303741062
+      BossThanhVan_Attack_17: -1622328092
+      BossThanhVan_Attack_18: -1205490360
+      BossThanhVan_Attack_19: -582480882
+      BossThanhVan_Attack_20: -455404678
+      BossThanhVan_Attack_21: 2011736469
+      BossThanhVan_Attack_22: 1329588680
+      BossThanhVan_Attack_23: 1944495272
+      BossThanhVan_Attack_24: -532552522
+      thanhvan-atk_side_right_0: 5222017803504180439
+      thanhvan-atk_side_right_1: -7529136259821446416
+      thanhvan-atk_side_right_10: 5957236832616109843
+      thanhvan-atk_side_right_11: -7098272043076513002
+      thanhvan-atk_side_right_12: 802154276232256496
+      thanhvan-atk_side_right_13: 5898200523083323349
+      thanhvan-atk_side_right_14: 3845471285401756754
+      thanhvan-atk_side_right_15: 5310873173161212689
+      thanhvan-atk_side_right_16: -622598942467776226
+      thanhvan-atk_side_right_17: -4877301707801123055
+      thanhvan-atk_side_right_18: -3314396555184091226
+      thanhvan-atk_side_right_19: -214320865035931428
+      thanhvan-atk_side_right_2: -4607081475963955302
+      thanhvan-atk_side_right_20: 442276049252415517
+      thanhvan-atk_side_right_21: 2044272560494106969
+      thanhvan-atk_side_right_22: 2688857172217443878
+      thanhvan-atk_side_right_23: -1230263122271491812
+      thanhvan-atk_side_right_24: -6766401826057279203
+      thanhvan-atk_side_right_25: -2002023773468484799
+      thanhvan-atk_side_right_26: 6863306486636884677
+      thanhvan-atk_side_right_27: 3764146678692512590
+      thanhvan-atk_side_right_28: 4644970842418303428
+      thanhvan-atk_side_right_3: 6515165837355345491
+      thanhvan-atk_side_right_4: -581498727060809639
+      thanhvan-atk_side_right_5: -4521795037957012725
+      thanhvan-atk_side_right_6: 3748378219560528093
+      thanhvan-atk_side_right_7: -8091784053034147343
+      thanhvan-atk_side_right_8: 5552202529722907611
+      thanhvan-atk_side_right_9: -6199921245441704647
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

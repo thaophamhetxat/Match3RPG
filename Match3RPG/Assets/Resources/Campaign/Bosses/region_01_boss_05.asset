@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: region_01_boss_05
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
   bossId: region_01_boss_05
-  displayName: Arcane Cultivator
-  portrait: {fileID: 21300000, guid: ac3cae2a704ea9d4d889c70672e19934, type: 3}
+  displayName: "Thanh V\xE2n"
+  portrait: {fileID: -1320635280, guid: 67482c71cb8965749b454307495d0a6a, type: 3}
+  animationSet: {fileID: 11400000, guid: fb0d9c5f18159194ebe30f9db57e0681, type: 2}
   maxHP: 1300
   attack: 24
   maxRage: 100
@@ -24,3 +25,11 @@ MonoBehaviour:
   criticalEnabled: 1
   criticalDamageMultiplier: 2
   statusEffectCapabilities: 1
+  preferredAttackVfx: 0
+  defaultLootTableId: 
+  visualScale: 1
+  visualOffset: {x: 0, y: 0}
+  sourceFacing: 1
+  vfxAnchor: {x: 0.5, y: 0.48}
+  headVfxAnchor: {x: 0.5, y: 0.82}
+  floatingTextAnchor: {x: 0.5, y: 0.88}

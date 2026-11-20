@@ -13,11 +13,9 @@ MonoBehaviour:
   m_Name: region_01_boss_07
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
   bossId: region_01_boss_07
-  displayName: Abyss Dragon
-  portrait: {fileID: 21300000, guid: a866f451cfc471146bf026f53bbf856e, type: 3}
-  visualScale: 2.35
-  visualOffset: {x: 0, y: 0}
-  sourceFacing: 1
+  displayName: "Thanh V\xE2n"
+  portrait: {fileID: -1320635280, guid: 67482c71cb8965749b454307495d0a6a, type: 3}
+  animationSet: {fileID: 11400000, guid: fb0d9c5f18159194ebe30f9db57e0681, type: 2}
   maxHP: 1450
   attack: 26
   maxRage: 100
@@ -27,3 +25,11 @@ MonoBehaviour:
   criticalEnabled: 1
   criticalDamageMultiplier: 2
   statusEffectCapabilities: 1
+  preferredAttackVfx: 0
+  defaultLootTableId: 
+  visualScale: 2.35
+  visualOffset: {x: 0, y: 0}
+  sourceFacing: 1
+  vfxAnchor: {x: 0.5, y: 0.48}
+  headVfxAnchor: {x: 0.5, y: 0.82}
+  floatingTextAnchor: {x: 0.5, y: 0.88}

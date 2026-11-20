@@ -58,7 +58,28 @@ namespace Match3RPG.Editor
             new SheetDefinition("Boss02", BattleCharacterAnimState.SpecAttack,
                 "Assets/Art/Bosses/Region01/boss02/SpecAttack/Violet Dragon Ultimate Attack Animation-3.png", 5, 3, 15, ActionFps),
             new SheetDefinition("Boss02", BattleCharacterAnimState.Death,
-                "Assets/Art/Bosses/Region01/boss02/Death/Feathered Dragon Collapse Animation Sheet-4.png", 5, 3, 15, ActionFps)
+                "Assets/Art/Bosses/Region01/boss02/Death/Feathered Dragon Collapse Animation Sheet-4.png", 5, 3, 15, ActionFps),
+
+            new SheetDefinition("BossLamPhong", BattleCharacterAnimState.Idle,
+                "Assets/Art/Bosses/Region01/boss_lam_phong/Idle/lamphong-idle_side_right.png", 5, 5, 25, IdleFps, true),
+            new SheetDefinition("BossLamPhong", BattleCharacterAnimState.Attack,
+                "Assets/Art/Bosses/Region01/boss_lam_phong/Attack/lamphong-atk_side_right.png", 5, 5, 25, ActionFps),
+            new SheetDefinition("BossLamPhong", BattleCharacterAnimState.Death,
+                "Assets/Art/Bosses/Region01/boss_lam_phong/Death/lamphong-die_side_right.png", 5, 5, 25, ActionFps),
+
+            new SheetDefinition("BossThanhVan", BattleCharacterAnimState.Idle,
+                "Assets/Art/Bosses/Region01/boss_thanh_van/Idle/thanhvan-idle_side_right.png", 5, 5, 25, IdleFps, true),
+            new SheetDefinition("BossThanhVan", BattleCharacterAnimState.Attack,
+                "Assets/Art/Bosses/Region01/boss_thanh_van/Attack/thanhvan-atk_side_right.png", 5, 5, 25, ActionFps),
+            new SheetDefinition("BossThanhVan", BattleCharacterAnimState.Death,
+                "Assets/Art/Bosses/Region01/boss_thanh_van/Death/thanhvan-die_side_right.png", 5, 5, 25, ActionFps),
+
+            new SheetDefinition("BossTuHa", BattleCharacterAnimState.Idle,
+                "Assets/Art/Bosses/Region01/boss_tu_ha/Idle/tuha-idle_side_right.png", 5, 5, 25, IdleFps, true),
+            new SheetDefinition("BossTuHa", BattleCharacterAnimState.Attack,
+                "Assets/Art/Bosses/Region01/boss_tu_ha/Attack/tuha-atk_side_right2.png", 5, 5, 25, ActionFps),
+            new SheetDefinition("BossTuHa", BattleCharacterAnimState.Death,
+                "Assets/Art/Bosses/Region01/boss_tu_ha/Death/tuha-die_side_right.png", 5, 5, 25, ActionFps)
         };
 
         [MenuItem("Tools/Characters/Build Character Content")]
@@ -111,7 +132,7 @@ namespace Match3RPG.Editor
                 states[sheet.State] = frames;
             }
 
-            foreach (string characterId in new[] { "Hero2", "Boss01", "Boss02" })
+            foreach (string characterId in new[] { "BossLamPhong", "BossThanhVan", "BossTuHa" })
             {
                 if (!characterFrames.TryGetValue(characterId,
                     out Dictionary<BattleCharacterAnimState, Sprite[]> states)
@@ -500,17 +521,50 @@ namespace Match3RPG.Editor
         static void BuildBossData(string characterId, CharacterAnimationSet animations,
             Sprite idlePreview)
         {
-            string id = characterId == "Boss01" ? "region_01_boss_01" : "region_01_boss_02";
-            string path = $"{BossDataFolder}/{id}.asset";
-            BossData boss = AssetDatabase.LoadAssetAtPath<BossData>(path);
-            if (boss == null)
-                throw new InvalidOperationException($"Campaign BossData asset is missing: {path}");
-            boss.SetAnimationSet(animations);
-            SerializedObject serialized = new SerializedObject(boss);
-            serialized.FindProperty("portrait").objectReferenceValue = idlePreview;
-            serialized.FindProperty("sourceFacing").enumValueIndex = (int)CharacterFacing.Right;
-            serialized.ApplyModifiedPropertiesWithoutUndo();
-            EditorUtility.SetDirty(boss);
+            // One boss is reused across several stages: Lam Phong = stages 1-4,
+            // Thanh Van = stages 5-8, Tu Ha = stages 9-10. Update every BossData
+            // that uses this boss, and set its in-game display name.
+            string[] ids;
+            string displayName;
+            switch (characterId)
+            {
+                case "BossLamPhong":
+                    ids = new[] { "region_01_boss_01", "region_01_boss_02", "region_01_boss_03", "region_01_boss_04" };
+                    displayName = "Lâm Phong";
+                    break;
+                case "BossThanhVan":
+                    ids = new[] { "region_01_boss_05", "region_01_boss_06", "region_01_boss_07", "region_01_boss_08" };
+                    displayName = "Thanh Vân";
+                    break;
+                case "BossTuHa":
+                    ids = new[] { "region_01_boss_09", "region_01_boss_10" };
+                    displayName = "Tử Hà";
+                    break;
+                case "Boss01":
+                    ids = new[] { "region_01_boss_01" };
+                    displayName = "Abyss Dragon";
+                    break;
+                case "Boss02":
+                    ids = new[] { "region_01_boss_02" };
+                    displayName = "Arcane Cultivator";
+                    break;
+                default:
+                    throw new InvalidOperationException($"Unknown boss characterId: {characterId}");
+            }
+            foreach (string id in ids)
+            {
+                string path = $"{BossDataFolder}/{id}.asset";
+                BossData boss = AssetDatabase.LoadAssetAtPath<BossData>(path);
+                if (boss == null)
+                    throw new InvalidOperationException($"Campaign BossData asset is missing: {path}");
+                boss.SetAnimationSet(animations);
+                SerializedObject serialized = new SerializedObject(boss);
+                serialized.FindProperty("portrait").objectReferenceValue = idlePreview;
+                serialized.FindProperty("sourceFacing").enumValueIndex = (int)CharacterFacing.Right;
+                serialized.FindProperty("displayName").stringValue = displayName;
+                serialized.ApplyModifiedPropertiesWithoutUndo();
+                EditorUtility.SetDirty(boss);
+            }
         }
 
         static AnimationClip CreateClip(string path, string characterId,

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: region_01_boss_09
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
   bossId: region_01_boss_09
-  displayName: Azure River Dragon
-  portrait: {fileID: 21300000, guid: 69f14f36ba5426642bca62f380890cad, type: 3}
+  displayName: "T\u1EED H\xE0"
+  portrait: {fileID: -1177576587, guid: 1b387216f76a16848a7afc254b837fa4, type: 3}
+  animationSet: {fileID: 11400000, guid: eb0d1347834b86644a2ee2194dc53192, type: 2}
   maxHP: 1600
   attack: 28
   maxRage: 100
@@ -24,3 +25,11 @@ MonoBehaviour:
   criticalEnabled: 1
   criticalDamageMultiplier: 2
   statusEffectCapabilities: 1
+  preferredAttackVfx: 0
+  defaultLootTableId: 
+  visualScale: 1
+  visualOffset: {x: 0, y: 0}
+  sourceFacing: 1
+  vfxAnchor: {x: 0.5, y: 0.48}
+  headVfxAnchor: {x: 0.5, y: 0.82}
+  floatingTextAnchor: {x: 0.5, y: 0.88}

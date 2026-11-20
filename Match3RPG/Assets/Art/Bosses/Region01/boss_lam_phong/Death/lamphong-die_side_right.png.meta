@@ -1,0 +1,830 @@
+fileFormatVersion: 2
+guid: 41eccb05c445c5046bdb9d7fd0c41fa4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2428170755137756854
+    second: lamphong-die_side_right_0
+  - first:
+      213: 218699012689000352
+    second: lamphong-die_side_right_1
+  - first:
+      213: -3102395166043162986
+    second: lamphong-die_side_right_2
+  - first:
+      213: 8232415673917080065
+    second: lamphong-die_side_right_3
+  - first:
+      213: 4082979203198295808
+    second: lamphong-die_side_right_4
+  - first:
+      213: -3035551022190007561
+    second: lamphong-die_side_right_5
+  - first:
+      213: -3864234642019817554
+    second: lamphong-die_side_right_6
+  - first:
+      213: 8841367316144147213
+    second: lamphong-die_side_right_7
+  - first:
+      213: 2317748649003642360
+    second: lamphong-die_side_right_8
+  - first:
+      213: 129201645825246811
+    second: lamphong-die_side_right_9
+  - first:
+      213: -7329752158564397279
+    second: lamphong-die_side_right_10
+  - first:
+      213: -3223127412862268555
+    second: lamphong-die_side_right_11
+  - first:
+      213: 2300288072816785813
+    second: lamphong-die_side_right_12
+  - first:
+      213: -6310649715356870150
+    second: lamphong-die_side_right_13
+  - first:
+      213: -1658121282434423399
+    second: lamphong-die_side_right_14
+  - first:
+      213: -8124933099670507912
+    second: lamphong-die_side_right_15
+  - first:
+      213: 7908152618945897882
+    second: lamphong-die_side_right_16
+  - first:
+      213: -6698065284581159976
+    second: lamphong-die_side_right_17
+  - first:
+      213: -7491843504093351660
+    second: lamphong-die_side_right_18
+  - first:
+      213: 3087616625232685327
+    second: lamphong-die_side_right_19
+  - first:
+      213: 5169469122373562212
+    second: lamphong-die_side_right_20
+  - first:
+      213: -1689723466086442283
+    second: lamphong-die_side_right_21
+  - first:
+      213: 8112392105538208903
+    second: lamphong-die_side_right_22
+  - first:
+      213: -1443333341803493600
+    second: lamphong-die_side_right_23
+  - first:
+      213: -5847629154743938115
+    second: lamphong-die_side_right_24
+  - first:
+      213: -821198901965889081
+    second: lamphong-die_side_right_25
+  - first:
+      213: 1139024539683367385
+    second: lamphong-die_side_right_26
+  - first:
+      213: -2952581655797917630
+    second: lamphong-die_side_right_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossLamPhong_Death_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 193ea602dd022f64fa4b68f31b5be836
+      internalID: 2106410962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb521f9c293952046beb790484d2bcf3
+      internalID: -117888968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec749d1e63b7ec240a541fdb68e4a5ad
+      internalID: -1604984090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f652a8782195641b75468c4bb92806
+      internalID: -338761595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 830e98df2f0d19b43b655235abe98e54
+      internalID: 262658919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 738155ea87895e34780ff4528a654e63
+      internalID: 670431736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21994048a6269ad44a38288af32f8d4f
+      internalID: -810136341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4265df74462b35747ac272eb62db1f70
+      internalID: -1147061043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a535ac6e1ad6c64b9ad30b766e2f925
+      internalID: 737883156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acc58d0dd2418444a8e3076ea2f0bdda
+      internalID: -2069365185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 527fc458fe551b845bf87a5e530445c6
+      internalID: 335104274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b51b42154f0b5f43a2b9bfc4dbc03cb
+      internalID: -1815868081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c1574f09c540e24b9c7b0a3c353fcdf
+      internalID: 702572458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f03411c43dbbbcb4abbc932310ad75fe
+      internalID: -348601373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5133e2479116c24e946c83f972e2226
+      internalID: 1178929886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 327231ae630162a4a9f7f19eae9a267c
+      internalID: 140107793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 190db197bebfdf54c8e00e6b92582379
+      internalID: -1174221661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df8c6c050eb87c84a8af6afde9e15b2e
+      internalID: 201685437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c56e20ab27568bd45b7486b645d8ced1
+      internalID: 1374898051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95b02743595156b4d9d6ab78c69d47ba
+      internalID: -534904187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb21cf6aa41aeee4385733fff81ee25c
+      internalID: 37246049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04583532ef368724e8d30451cf5ef8fd
+      internalID: -1720520716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c139ac321cafb4a9fc1125b6ade9de
+      internalID: 1575612698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31ed45c4959afab4c9e5a649959c6374
+      internalID: 1551265051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossLamPhong_Death_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd14d93dcab567740959627e8e54bf71
+      internalID: 1472230835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6cde89da4b3ac284caf88c2b7b886e71
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossLamPhong_Death_00: 2106410962
+      BossLamPhong_Death_01: -117888968
+      BossLamPhong_Death_02: -1604984090
+      BossLamPhong_Death_03: -338761595
+      BossLamPhong_Death_04: 262658919
+      BossLamPhong_Death_05: 670431736
+      BossLamPhong_Death_06: -810136341
+      BossLamPhong_Death_07: -1147061043
+      BossLamPhong_Death_08: 737883156
+      BossLamPhong_Death_09: -2069365185
+      BossLamPhong_Death_10: 335104274
+      BossLamPhong_Death_11: -1815868081
+      BossLamPhong_Death_12: 702572458
+      BossLamPhong_Death_13: -348601373
+      BossLamPhong_Death_14: 1178929886
+      BossLamPhong_Death_15: 140107793
+      BossLamPhong_Death_16: -1174221661
+      BossLamPhong_Death_17: 201685437
+      BossLamPhong_Death_18: 1374898051
+      BossLamPhong_Death_19: -534904187
+      BossLamPhong_Death_20: 37246049
+      BossLamPhong_Death_21: -1720520716
+      BossLamPhong_Death_22: 1575612698
+      BossLamPhong_Death_23: 1551265051
+      BossLamPhong_Death_24: 1472230835
+      lamphong-die_side_right_0: -2428170755137756854
+      lamphong-die_side_right_1: 218699012689000352
+      lamphong-die_side_right_10: -7329752158564397279
+      lamphong-die_side_right_11: -3223127412862268555
+      lamphong-die_side_right_12: 2300288072816785813
+      lamphong-die_side_right_13: -6310649715356870150
+      lamphong-die_side_right_14: -1658121282434423399
+      lamphong-die_side_right_15: -8124933099670507912
+      lamphong-die_side_right_16: 7908152618945897882
+      lamphong-die_side_right_17: -6698065284581159976
+      lamphong-die_side_right_18: -7491843504093351660
+      lamphong-die_side_right_19: 3087616625232685327
+      lamphong-die_side_right_2: -3102395166043162986
+      lamphong-die_side_right_20: 5169469122373562212
+      lamphong-die_side_right_21: -1689723466086442283
+      lamphong-die_side_right_22: 8112392105538208903
+      lamphong-die_side_right_23: -1443333341803493600
+      lamphong-die_side_right_24: -5847629154743938115
+      lamphong-die_side_right_25: -821198901965889081
+      lamphong-die_side_right_26: 1139024539683367385
+      lamphong-die_side_right_27: -2952581655797917630
+      lamphong-die_side_right_3: 8232415673917080065
+      lamphong-die_side_right_4: 4082979203198295808
+      lamphong-die_side_right_5: -3035551022190007561
+      lamphong-die_side_right_6: -3864234642019817554
+      lamphong-die_side_right_7: 8841367316144147213
+      lamphong-die_side_right_8: 2317748649003642360
+      lamphong-die_side_right_9: 129201645825246811
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

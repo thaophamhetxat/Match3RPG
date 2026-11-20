@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: region_01_boss_01
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
   bossId: region_01_boss_01
-  displayName: Abyss Dragon
-  portrait: {fileID: 1437296289, guid: 7d3628863cd020f48855d5bf2710969e, type: 3}
-  animationSet: {fileID: 11400000, guid: 5c0a64926c8e74748b093e4f6984af55, type: 2}
+  displayName: "L\xE2m Phong"
+  portrait: {fileID: 463352791, guid: d2ca9acfd3411704bab903dbe4b42b5d, type: 3}
+  animationSet: {fileID: 11400000, guid: 7501944dbd3b35c42ba4eb3ca12b2914, type: 2}
   maxHP: 1000
   attack: 20
   maxRage: 100

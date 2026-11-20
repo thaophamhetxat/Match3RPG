@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: region_01_boss_02
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
   bossId: region_01_boss_02
-  displayName: Arcane Cultivator
-  portrait: {fileID: -1143876414, guid: e8e56828c5f5e3a4cae3c19e301bfb0d, type: 3}
-  animationSet: {fileID: 11400000, guid: 8a2740fb055ee7a4fbf8c7451ec8caf9, type: 2}
+  displayName: "L\xE2m Phong"
+  portrait: {fileID: 463352791, guid: d2ca9acfd3411704bab903dbe4b42b5d, type: 3}
+  animationSet: {fileID: 11400000, guid: 7501944dbd3b35c42ba4eb3ca12b2914, type: 2}
   maxHP: 1075
   attack: 21
   maxRage: 100
@@ -26,6 +26,7 @@ MonoBehaviour:
   criticalDamageMultiplier: 2
   statusEffectCapabilities: 1
   preferredAttackVfx: 0
+  defaultLootTableId: 
   visualScale: 1
   visualOffset: {x: 0, y: 0}
   sourceFacing: 1
