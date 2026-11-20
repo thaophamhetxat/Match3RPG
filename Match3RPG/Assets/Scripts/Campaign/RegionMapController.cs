@@ -263,7 +263,7 @@ namespace Match3RPG.Campaign
                     catalog.CampaignStageGlow, Color.white);
                 RectTransform markerRect = CampaignUIFactory.CreateRect("MarkerImage", nodeRect,
                     new Vector2(.5f, .5f), new Vector2(.5f, .5f), Vector2.zero, Vector2.zero);
-                markerRect.sizeDelta = new Vector2(72f * markerScale, 88f * markerScale);
+                markerRect.sizeDelta = new Vector2(168f * markerScale, 205f * markerScale);
                 Image marker = markerRect.gameObject.AddComponent<Image>();
                 marker.preserveAspect = true;
                 marker.raycastTarget = false;
@@ -335,6 +335,16 @@ namespace Match3RPG.Campaign
                 image.type = Image.Type.Simple;
                 image.preserveAspect = true;
                 image.raycastTarget = false;
+                if (region.RegionId != "region_01")
+                {
+                    TextMeshProUGUI headerTitle = CampaignUIFactory.CreateText(headerRect, "HeaderTitle",
+                        region.DisplayName, Mathf.RoundToInt(headerHeight * 0.25f),
+                        new Color32(255, 226, 140, 255), TextAlignmentOptions.Center);
+                    headerTitle.rectTransform.offsetMin = Vector2.zero;
+                    headerTitle.rectTransform.offsetMax = Vector2.zero;
+                    headerTitle.fontStyle = FontStyles.Bold;
+                    headerTitle.raycastTarget = false;
+                }
                 headerRect.SetAsLastSibling();
             }
 
