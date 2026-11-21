@@ -18,6 +18,7 @@ namespace Match3RPG.Battle
         static readonly int RisingState = Animator.StringToHash("Base Layer.Rising");
         static readonly int DeathState = Animator.StringToHash("Base Layer.Death");
         const float DefaultAttackImpactNormalizedTime = .52f;
+        const float AttackSpeedMultiplier = 2f;
 
         Animator animator;
         string characterId = "Hero";
@@ -157,8 +158,8 @@ namespace Match3RPG.Battle
             attackVersion++;
             currentState = BattleCharacterAnimState.Attack;
             animator.ResetTrigger(AttackTrigger);
-            // Each call plays one full attack clip at normal speed (one clip per hit).
-            animator.speed = 1f;
+            // Each call plays one full attack clip (one clip per hit) at AttackSpeedMultiplier.
+            animator.speed = AttackSpeedMultiplier;
             animator.SetTrigger(AttackTrigger);
         }
 

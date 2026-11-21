@@ -405,7 +405,7 @@ namespace Match3RPG.Core
                     ? selectedHeroData.VisualScale * HeroVisualScaleMultiplier
                     : HeroVisualScaleMultiplier,
                     visualOffset: new Vector2(0f, 40f),
-                attackDistance: 12f,
+                attackDistance: 380f,
                 characterAnimationSet: heroAnimationReady ? heroAnimationSet : null,
                 idleNormalizationMultiplier: selectedHeroData != null
                     ? selectedHeroData.IdleNormalizationScaleMultiplier
