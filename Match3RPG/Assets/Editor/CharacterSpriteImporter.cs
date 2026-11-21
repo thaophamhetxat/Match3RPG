@@ -19,6 +19,7 @@ namespace Match3RPG.Editor
         const string GameScenePath = "Assets/Scenes/Game.unity";
         const string Hero2AnimationRoot = "Assets/Art/Characters/Hero2/Animations/";
         const string Character01AnimationRoot = "Assets/Art/Characters/Character01/";
+        const string Character01MeditatePath = "Assets/Art/Characters/Character01/Meditate/main_meditate-meditate.png";
         const string BossAnimationRoot = "Assets/Art/Bosses/Region01/";
         const string ReimportPreferencePrefix = "Match3RPG.CharacterSpriteImporter.Reimported.";
         static readonly string[] Hero2BattleFolders =
@@ -56,6 +57,11 @@ namespace Match3RPG.Editor
                 return;
             }
             if (IsBossBattleSheet(path))
+            {
+                ConfigureSpriteSheetImporter((TextureImporter)assetImporter);
+                return;
+            }
+            if (IsMeditateSheet(path))
             {
                 ConfigureSpriteSheetImporter((TextureImporter)assetImporter);
                 return;
@@ -142,6 +148,12 @@ namespace Match3RPG.Editor
 
             string folder = relativePath.Substring(0, separator);
             return Array.IndexOf(Hero2BattleFolders, folder) >= 0;
+        }
+
+        static bool IsMeditateSheet(string path)
+        {
+            return string.Equals(path.Replace('\\', '/'), Character01MeditatePath,
+                StringComparison.OrdinalIgnoreCase);
         }
 
         static bool IsBossBattleSheet(string path)

@@ -24,6 +24,7 @@ namespace Match3RPG.Campaign
         const int MaxEquipmentUpgradeLevel = 15;
         const int MaxEquipmentQualityTier = 3;
         const string BlackDragonSetDetailText = "Bộ Hắc Long (hệ ATK) — 6 món: Kiếm, Mũ, Giáp, Găng, Giầy, Nhẫn.";
+        const string MeditateAnimatorResourcePath = "MainProgress/Hero2_Meditate";
 
         // Thiên phú chỉ để hiển thị mốc nâng cấp, KHÔNG cộng thêm bonus riêng vào chỉ số.
         static readonly (int milestoneLevel, string text, Vector2 anchorMin, Vector2 anchorMax)[] EquipmentTalentMilestones =
@@ -496,10 +497,12 @@ backgroundLayer.SetAsFirstSibling();
             if (presentation != null)
                 meditationAnchor.anchoredPosition = new Vector2((presentation.LotusAnchor.x - .5f) * 560f, (presentation.LotusAnchor.y - .5f) * 150f);
 
-            meditationVisual = CreateVisualImage("MeditationCharacter", meditationAnchor, presentation != null ? presentation.MainProgressCharacterSprite : null);
+            meditationVisual = CreateVisualImage("MeditationCharacter", meditationAnchor, null);
             meditationVisual.raycastTarget = false;
             meditationVisual.preserveAspect = true;
-            meditationVisual.color = Color.white;
+            meditationVisual.color = AttachMeditateAnimator(meditationVisual)
+                ? Color.white
+                : new Color(1f, 1f, 1f, 0f);
 
             CreateNavigationButtons(screenW);
         }
@@ -549,10 +552,32 @@ backgroundLayer.SetAsFirstSibling();
                 return;
 
             float finalScale = Mathf.Max(.1f, presentation.MainProgressCharacterScale);
-            meditationVisual.sprite = presentation.MainProgressCharacterSprite;
-            meditationVisual.color = Color.white;
+            meditationVisual.color = meditationVisual.GetComponent<Animator>() != null
+                ? Color.white
+                : new Color(1f, 1f, 1f, 0f);
             meditationVisual.rectTransform.localScale = Vector3.one * finalScale;
             meditationVisual.rectTransform.anchoredPosition = presentation.MainProgressCharacterOffset;
+        }
+
+        bool AttachMeditateAnimator(Image targetImage)
+        {
+            if (targetImage == null)
+                return false;
+
+            RuntimeAnimatorController meditateController =
+                Resources.Load<RuntimeAnimatorController>(MeditateAnimatorResourcePath);
+            if (meditateController == null)
+            {
+                Debug.LogError(
+                    $"MainProgress failed to load animator controller Resources/{MeditateAnimatorResourcePath}.",
+                    this);
+                return false;
+            }
+
+            Animator animator = targetImage.gameObject.GetComponent<Animator>()
+                ?? targetImage.gameObject.AddComponent<Animator>();
+            animator.runtimeAnimatorController = meditateController;
+            return true;
         }
 
         Image CreateVisualImage(string name, Transform parent, Sprite sprite)
@@ -700,11 +725,11 @@ backgroundLayer.SetAsFirstSibling();
                 new Vector2(.300f, .680f), new Vector2(.700f, .880f),
                 Vector2.zero, Vector2.zero);
             Image heroImage = heroRect.gameObject.AddComponent<Image>();
-            heroImage.sprite = presentation != null ? presentation.MainProgressCharacterSprite : null;
             heroImage.preserveAspect = true;
-            heroImage.color = heroImage.sprite != null
-                ? Color.white : new Color(1f, 1f, 1f, .15f);
             heroImage.raycastTarget = false;
+            heroImage.color = AttachMeditateAnimator(heroImage)
+                ? Color.white
+                : new Color(1f, 1f, 1f, .15f);
 
             // 6 ô trang bị 2 bên vòng tròn chân dung + nhãn tên loại bên dưới mỗi ô (cột trái dịch phải 12px)
             (int index, string name, float minX, float minY, float maxX, float maxY, float labelMinY, float labelMaxY)[] equipmentSlots =
