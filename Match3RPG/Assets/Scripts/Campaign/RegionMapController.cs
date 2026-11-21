@@ -255,16 +255,10 @@ namespace Match3RPG.Campaign
                 };
 
                 float markerScale = stage.IsBossStage ? 1.25f : 1f;
-                Vector2 platformSize = stage.PlatformSize;
-                if (platformSize == Vector2.zero)
-                    platformSize = new Vector2(96f, 56f);
-                CampaignUIFactory.CreateCenteredImage(nodeRect, "Platform",
-                    platformSize,
-                    catalog.CampaignStagePlatform, Color.white);
                 RectTransform markerRect = CampaignUIFactory.CreateRect("MarkerImage", nodeRect,
                     new Vector2(.5f, .5f), new Vector2(.5f, .5f), Vector2.zero, Vector2.zero);
                 markerRect.sizeDelta = new Vector2(218f * markerScale, 267f * markerScale);
-                markerRect.anchoredPosition = new Vector2(0f, 45f);
+                markerRect.anchoredPosition = new Vector2(0f, 0f);
                 Image marker = markerRect.gameObject.AddComponent<Image>();
                 marker.preserveAspect = true;
                 marker.raycastTarget = false;
@@ -282,7 +276,7 @@ namespace Match3RPG.Campaign
                 view.SetStageId(stage.StageId);
                 view.Configure(stage, state, catalog.CampaignAvailableStageMarker,
                     catalog.CampaignCompletedStageMarker,
-                    catalog.CampaignBossStageMarker, catalog.CampaignStagePlatform,
+                    catalog.CampaignBossStageMarker, null,
                     catalog.CampaignStageGlow, OnStageSelected);
             }
         }
@@ -315,7 +309,7 @@ namespace Match3RPG.Campaign
                 markerView.Configure(stage, GameProgressService.GetStageState(region, stage),
                     catalog.CampaignAvailableStageMarker,
                     catalog.CampaignCompletedStageMarker, catalog.CampaignBossStageMarker,
-                    catalog.CampaignStagePlatform, catalog.CampaignStageGlow, OnStageSelected);
+                    null, catalog.CampaignStageGlow, OnStageSelected);
             }
         }
 
