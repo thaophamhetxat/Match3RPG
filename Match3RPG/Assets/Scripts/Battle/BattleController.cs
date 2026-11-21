@@ -402,17 +402,20 @@ namespace Match3RPG.Battle
                 {
                     if (attackVfx == CombatVFXType.Dash)
                         combatVfx?.PlayDash(actor);
-                    float hitReactionDuration = target != null ? CharacterView.HitAnimationDuration : 0f;
-                    yield return attacker.BeginAttackSequence(totalHitCount, multiHitInterval, hitReactionDuration);
+                    // Lunge forward once and start the first hit's full attack clip.
+                    yield return attacker.BeginAttackSequence(1, 0f, 0f);
                 }
 
                 bool firstSuccessfulHit = true;
                 for (int hit = 0; hit < totalHitCount; hit++)
                 {
                     if (IsGameOver) break;
+                    // Follow-up hits replay one full clip in place (already at the lunge position).
+                    if (hit > 0 && attacker != null && !rangedAttack)
+                        attacker.PlayAttackClip();
                     if (actor == BattleActor.Player && attacker != null
                         && attacker.HasSpriteAttackAnimation)
-                        yield return attacker.WaitForAttackImpact(hit, totalHitCount);
+                        yield return attacker.WaitForAttackImpact(hit);
                     if (IsGameOver) break;
                     int shieldBefore = targetActor == BattleActor.Player ? heroShield : 0;
                     bool soulHit = hit >= hitCount;
@@ -437,8 +440,14 @@ namespace Match3RPG.Battle
                         Refresh();
                         if (target != null) yield return target.Hit();
                     }
-                    if (hit + 1 < totalHitCount && !IsGameOver && multiHitInterval > 0f)
-                        yield return new WaitForSecondsRealtime(multiHitInterval);
+                    if (hit + 1 < totalHitCount && !IsGameOver)
+                    {
+                        // Melee: finish the current full clip before the next hit's clip starts.
+                        if (attacker != null && !rangedAttack)
+                            yield return attacker.WaitForAttackClipComplete();
+                        else if (multiHitInterval > 0f)
+                            yield return new WaitForSecondsRealtime(multiHitInterval);
+                    }
                 }
 
                 if (!IsGameOver && bonusDamage > 0)

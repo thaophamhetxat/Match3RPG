@@ -135,7 +135,7 @@ namespace Match3RPG.Battle
             lastObservedStateHash = observedStateHash;
         }
 
-        public void PlayAttack(int hitCount, float hitInterval, float hitReactionDuration)
+        public void PlayAttack()
         {
             if (!IsReady || currentState == BattleCharacterAnimState.Death)
                 return;
@@ -157,19 +157,9 @@ namespace Match3RPG.Battle
             attackVersion++;
             currentState = BattleCharacterAnimState.Attack;
             animator.ResetTrigger(AttackTrigger);
-            float firstImpact = hitCount == 3 ? .28f : hitCount > 3 ? .18f : .52f;
-            float impactsDuration = Mathf.Max(0, hitCount - 1)
-                * (Mathf.Max(0f, hitInterval) + Mathf.Max(0f, hitReactionDuration));
-            float requiredDuration = impactsDuration / (1f - firstImpact);
-            animator.speed = requiredDuration > attackClip.length
-                ? attackClip.length / requiredDuration
-                : 1f;
+            // Each call plays one full attack clip at normal speed (one clip per hit).
+            animator.speed = 1f;
             animator.SetTrigger(AttackTrigger);
-        }
-
-        public void PlayAttack()
-        {
-            PlayAttack(1, 0f, 0f);
         }
 
         public void PlayIdle()
@@ -283,13 +273,13 @@ namespace Match3RPG.Battle
             }
         }
 
-        public IEnumerator WaitForImpact(int hitIndex, int hitCount)
+        public IEnumerator WaitForImpact(int hitIndex)
         {
             if (!IsReady || !attackFramesAvailable)
                 yield break;
 
             int version = attackVersion;
-            float threshold = GetImpactThreshold(hitIndex, hitCount, attackImpactNormalizedTime);
+            float threshold = GetImpactThreshold(attackImpactNormalizedTime);
             float elapsed = 0f;
             while (version == attackVersion && elapsed < attackClip.length)
             {
@@ -376,13 +366,10 @@ namespace Match3RPG.Battle
             }
         }
 
-        static float GetImpactThreshold(int hitIndex, int hitCount, float singleHitImpactNormalizedTime)
+        static float GetImpactThreshold(float singleHitImpactNormalizedTime)
         {
-            if (hitCount <= 1)
-                return Mathf.Clamp01(singleHitImpactNormalizedTime);
-            if (hitCount == 3)
-                return hitIndex == 0 ? .28f : hitIndex == 1 ? .52f : .78f;
-            return Mathf.Lerp(.18f, .84f, hitIndex / (float)(hitCount - 1));
+            // Every hit plays its own full clip, so each wait catches the single impact point.
+            return Mathf.Clamp01(singleHitImpactNormalizedTime);
         }
 
         bool HasAttackTrigger()

@@ -144,20 +144,37 @@ namespace Match3RPG.Battle
             return PlayAnimation(CharacterState.Attack);
         }
 
-        public IEnumerator WaitForAttackImpact(int hitIndex, int hitCount)
+        public IEnumerator WaitForAttackImpact(int hitIndex)
         {
             if (heroAnimation != null)
-                yield return heroAnimation.WaitForImpact(hitIndex, hitCount);
+                yield return heroAnimation.WaitForImpact(hitIndex);
         }
 
+        // Lunges forward once and starts the first full attack clip. The parameters are kept
+        // for call-site compatibility; each hit now plays its own full clip at normal speed.
         public IEnumerator BeginAttackSequence(int hitCount, float hitInterval, float hitReactionDuration)
         {
-            return PlayAttackPhase(true, hitCount, hitInterval, hitReactionDuration);
+            return PlayAttackPhase(true);
+        }
+
+        // Replays one full attack clip in place (no movement) for follow-up hits of a sequence.
+        public void PlayAttackClip()
+        {
+            if (State == CharacterState.Death)
+                return;
+            heroAnimation?.PlayAttack();
+        }
+
+        // Waits until the currently playing attack clip has finished.
+        public IEnumerator WaitForAttackClipComplete()
+        {
+            if (heroAnimation != null)
+                yield return heroAnimation.WaitForAttackComplete();
         }
 
         public IEnumerator EndAttackSequence()
         {
-            return PlayAttackPhase(false, 0, 0f, 0f);
+            return PlayAttackPhase(false);
         }
 
         public void CancelAttackSequence()
@@ -254,7 +271,7 @@ namespace Match3RPG.Battle
             yield return Animate(animationState, version, skillAnimationState);
         }
 
-        IEnumerator PlayAttackPhase(bool approach, int hitCount, float hitInterval, float hitReactionDuration)
+        IEnumerator PlayAttackPhase(bool approach)
         {
             if (State == CharacterState.Death)
                 yield break;
@@ -283,7 +300,7 @@ namespace Match3RPG.Battle
             State = CharacterState.Attack;
             if (approach)
             {
-                heroAnimation?.PlayAttack(hitCount, hitInterval, hitReactionDuration);
+                heroAnimation?.PlayAttack();
                 Debug.Log($"[{name}] Attack start. Home={homePosition}, Current={rectTransform.anchoredPosition}", this);
             }
 
