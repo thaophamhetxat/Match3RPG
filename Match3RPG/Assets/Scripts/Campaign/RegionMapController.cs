@@ -254,11 +254,12 @@ namespace Match3RPG.Campaign
                     fadeDuration = .1f
                 };
 
-                float markerScale = stage.IsBossStage ? 1.25f : 1f;
+                float markerScale = stage.IsBossStage ? 1.5f : 1f;
                 RectTransform markerRect = CampaignUIFactory.CreateRect("MarkerImage", nodeRect,
                     new Vector2(.5f, .5f), new Vector2(.5f, .5f), Vector2.zero, Vector2.zero);
-                markerRect.sizeDelta = new Vector2(160f * markerScale, 196f * markerScale);
-                markerRect.anchoredPosition = new Vector2(0f, 65.625f * markerScale);
+                markerRect.sizeDelta = new Vector2(176f * markerScale, 216f * markerScale);
+                float tipPx = stage.IsBossStage ? 194f : 210f;
+                markerRect.anchoredPosition = new Vector2(0f, tipPx / 512f * markerRect.sizeDelta.x);
                 Image marker = markerRect.gameObject.AddComponent<Image>();
                 marker.preserveAspect = true;
                 marker.raycastTarget = false;
