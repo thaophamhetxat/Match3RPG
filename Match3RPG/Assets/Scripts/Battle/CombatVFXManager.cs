@@ -37,20 +37,13 @@ namespace Match3RPG.Battle
         public bool PlayHeal(BattleActor actor)
         {
             CharacterView character = GetCharacter(actor);
-            RectTransform anchorOverride = actor == BattleActor.Boss && character != null
-                ? character.HealAnchor
-                : null;
-            RectTransform anchor = actor == BattleActor.Boss
-                ? anchorOverride
-                : character != null ? character.VFXAnchor : null;
+            RectTransform anchor = character != null ? character.HealAnchor : null;
             if (anchor == null)
                 return false;
 
             Vector3 position = anchor.position;
-            if (actor == BattleActor.Player)
-                position.y += 100f;
             return PlayFrameSequence(CombatVFXType.Heal, position,
-                HealingAuraDuration, new Vector2(230f, 325f), 1f, anchorOverride);
+                HealingAuraDuration, new Vector2(230f, 325f), 1f, anchor);
         }
 
 
