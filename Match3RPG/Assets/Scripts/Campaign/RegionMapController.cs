@@ -258,7 +258,7 @@ namespace Match3RPG.Campaign
                 RectTransform markerRect = CampaignUIFactory.CreateRect("MarkerImage", nodeRect,
                     new Vector2(.5f, .5f), new Vector2(.5f, .5f), Vector2.zero, Vector2.zero);
                 markerRect.sizeDelta = new Vector2(160f * markerScale, 196f * markerScale);
-                markerRect.anchoredPosition = new Vector2(0f, 0f);
+                markerRect.anchoredPosition = new Vector2(0f, 65.625f * markerScale);
                 Image marker = markerRect.gameObject.AddComponent<Image>();
                 marker.preserveAspect = true;
                 marker.raycastTarget = false;
