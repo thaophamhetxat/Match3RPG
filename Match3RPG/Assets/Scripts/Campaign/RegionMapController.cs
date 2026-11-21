@@ -257,7 +257,7 @@ namespace Match3RPG.Campaign
                 float markerScale = stage.IsBossStage ? 1.25f : 1f;
                 RectTransform markerRect = CampaignUIFactory.CreateRect("MarkerImage", nodeRect,
                     new Vector2(.5f, .5f), new Vector2(.5f, .5f), Vector2.zero, Vector2.zero);
-                markerRect.sizeDelta = new Vector2(218f * markerScale, 267f * markerScale);
+                markerRect.sizeDelta = new Vector2(160f * markerScale, 196f * markerScale);
                 markerRect.anchoredPosition = new Vector2(0f, 0f);
                 Image marker = markerRect.gameObject.AddComponent<Image>();
                 marker.preserveAspect = true;
