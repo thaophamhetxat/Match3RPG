@@ -18,7 +18,7 @@ namespace Match3RPG.Battle
         static readonly int RisingState = Animator.StringToHash("Base Layer.Rising");
         static readonly int DeathState = Animator.StringToHash("Base Layer.Death");
         const float DefaultAttackImpactNormalizedTime = .52f;
-        const float AttackSpeedMultiplier = 2f;
+        const float AttackSpeedMultiplier = 3f;
 
         Animator animator;
         string characterId = "Hero";

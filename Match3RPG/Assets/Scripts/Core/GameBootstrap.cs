@@ -423,6 +423,7 @@ namespace Match3RPG.Core
                 battleBossData != null ? battleBossData.SourceFacing : CharacterFacing.Left,
                 (battleBossData != null ? battleBossData.VisualScale : 1f) * BossVisualScaleMultiplier,
                 battleBossData != null ? battleBossData.VisualOffset : Vector2.zero,
+                attackDistance: 380f,
                 characterAnimationSet: bossAnimationSet,
                 vfxAnchorPosition: battleBossData != null
                     ? battleBossData.VfxAnchor : new Vector2(.5f, .48f),
