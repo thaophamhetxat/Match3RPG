@@ -574,8 +574,16 @@ backgroundLayer.SetAsFirstSibling();
                 return false;
             }
 
-            Animator animator = targetImage.gameObject.GetComponent<Animator>()
-                ?? targetImage.gameObject.AddComponent<Animator>();
+            Animator animator = targetImage.gameObject.GetComponent<Animator>();
+            if (animator == null)
+                animator = targetImage.gameObject.AddComponent<Animator>();
+            if (animator == null)
+            {
+                Debug.LogError(
+                    $"MainProgress failed to attach Animator to {targetImage.gameObject.name}.",
+                    this);
+                return false;
+            }
             animator.runtimeAnimatorController = meditateController;
             return true;
         }
