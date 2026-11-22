@@ -1,0 +1,850 @@
+fileFormatVersion: 2
+guid: 9dcff7cf8b64bbb4ead9833aefbdaff1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5716580413632790482
+    second: atk_side_left_aligned_0
+  - first:
+      213: -4891811316790348119
+    second: atk_side_left_aligned_1
+  - first:
+      213: 4908448682231539957
+    second: atk_side_left_aligned_2
+  - first:
+      213: 8483653409447997399
+    second: atk_side_left_aligned_3
+  - first:
+      213: -3819550666282021071
+    second: atk_side_left_aligned_4
+  - first:
+      213: 2582576152261333832
+    second: atk_side_left_aligned_5
+  - first:
+      213: 2326903931888890520
+    second: atk_side_left_aligned_6
+  - first:
+      213: 6309772440448500496
+    second: atk_side_left_aligned_7
+  - first:
+      213: 5977465732720598442
+    second: atk_side_left_aligned_8
+  - first:
+      213: 6995058486673153226
+    second: atk_side_left_aligned_9
+  - first:
+      213: 1291880795721151635
+    second: atk_side_left_aligned_10
+  - first:
+      213: -107863608659242732
+    second: atk_side_left_aligned_11
+  - first:
+      213: 4182560143195491434
+    second: atk_side_left_aligned_12
+  - first:
+      213: -1309620519522055162
+    second: atk_side_left_aligned_13
+  - first:
+      213: 3961199052501492032
+    second: atk_side_left_aligned_14
+  - first:
+      213: -3197295128911755257
+    second: atk_side_left_aligned_15
+  - first:
+      213: -804538798287344391
+    second: atk_side_left_aligned_16
+  - first:
+      213: -3915440831888069380
+    second: atk_side_left_aligned_17
+  - first:
+      213: -6295289560340145493
+    second: atk_side_left_aligned_18
+  - first:
+      213: -5167867049620938456
+    second: atk_side_left_aligned_19
+  - first:
+      213: 1240792972440762348
+    second: atk_side_left_aligned_20
+  - first:
+      213: 7756693092627362668
+    second: atk_side_left_aligned_21
+  - first:
+      213: 4808223724711240025
+    second: atk_side_left_aligned_22
+  - first:
+      213: 6294032259174563477
+    second: atk_side_left_aligned_23
+  - first:
+      213: 3604569541906490912
+    second: atk_side_left_aligned_24
+  - first:
+      213: -7523468697294238438
+    second: atk_side_left_aligned_25
+  - first:
+      213: -6148881736597627266
+    second: atk_side_left_aligned_26
+  - first:
+      213: -3812733484439003139
+    second: atk_side_left_aligned_27
+  - first:
+      213: 5072027876154446435
+    second: atk_side_left_aligned_28
+  - first:
+      213: -6818597782356013377
+    second: atk_side_left_aligned_29
+  - first:
+      213: 5494171206994405547
+    second: atk_side_left_aligned_30
+  - first:
+      213: 8772145513151588439
+    second: atk_side_left_aligned_31
+  - first:
+      213: 5188032773941555301
+    second: atk_side_left_aligned_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78f9e3818e914564fbff114e2d01bc26
+      internalID: -435975206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 300f11931d7cf1f44b331485f36ebb9b
+      internalID: 1413938941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45db958fccfec10419c2781d42cde61d
+      internalID: 797856129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29a5be34ce74dfc4e98a8ef0466a6516
+      internalID: 1304220788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02c81f66a65ee06449d410a0cf3c75a5
+      internalID: -97410014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4e73d7ce8c61494abc5dc0406dd47c5
+      internalID: 1808428395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f73edd38751241842abc9720a3b6b048
+      internalID: -305772732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f607d48b98bcdb54cad1ced2d8b9c0a4
+      internalID: 1891197755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 603e1e208cdfb2c4ba55e88a158059aa
+      internalID: 762433008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb84cc6c970c664197a136b11ecd8eb
+      internalID: -1768186777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf1663c4dac93364fa460b4ad5f70c87
+      internalID: 91855495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a7441d7b09aa554694d101a99f69b30
+      internalID: -1173645055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 021bbd67b2e175247a597b9d8b5fb416
+      internalID: 1772920240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbe75e4651f77c9499d0bbb9bda8ecb0
+      internalID: -1983455152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23fc0d9877811304e9ad8bc7b084eb65
+      internalID: 838819472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd3043a277784d44f88e2403bd8e8e46
+      internalID: -1397934012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94b11de02a305d449af3b2a01b2bd615
+      internalID: -1780974293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b49847697331a3498e153f9893eac08
+      internalID: 1764407093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5a8a8be29bbc9e4e8ce6c5bc27b1360
+      internalID: -314789606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a474e7b43382083439e9712f9a1ec850
+      internalID: 804032255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10ca32f899a28f74986e7ae7f09fa476
+      internalID: -1849069658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99d3c0e519df79b4880da670ad14284d
+      internalID: -366370554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdd0e8ed2e77fee48b75e256cce98f9f
+      internalID: 1910009761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d09f0261750c0c94fb35b48961073698
+      internalID: -695386221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFrostWolf_Attack_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 398b95c8094b40c44b09ac56509e6e01
+      internalID: -1970763706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossFrostWolf_Attack_00: -435975206
+      BossFrostWolf_Attack_01: 1413938941
+      BossFrostWolf_Attack_02: 797856129
+      BossFrostWolf_Attack_03: 1304220788
+      BossFrostWolf_Attack_04: -97410014
+      BossFrostWolf_Attack_05: 1808428395
+      BossFrostWolf_Attack_06: -305772732
+      BossFrostWolf_Attack_07: 1891197755
+      BossFrostWolf_Attack_08: 762433008
+      BossFrostWolf_Attack_09: -1768186777
+      BossFrostWolf_Attack_10: 91855495
+      BossFrostWolf_Attack_11: -1173645055
+      BossFrostWolf_Attack_12: 1772920240
+      BossFrostWolf_Attack_13: -1983455152
+      BossFrostWolf_Attack_14: 838819472
+      BossFrostWolf_Attack_15: -1397934012
+      BossFrostWolf_Attack_16: -1780974293
+      BossFrostWolf_Attack_17: 1764407093
+      BossFrostWolf_Attack_18: -314789606
+      BossFrostWolf_Attack_19: 804032255
+      BossFrostWolf_Attack_20: -1849069658
+      BossFrostWolf_Attack_21: -366370554
+      BossFrostWolf_Attack_22: 1910009761
+      BossFrostWolf_Attack_23: -695386221
+      BossFrostWolf_Attack_24: -1970763706
+      atk_side_left_aligned_0: 5716580413632790482
+      atk_side_left_aligned_1: -4891811316790348119
+      atk_side_left_aligned_10: 1291880795721151635
+      atk_side_left_aligned_11: -107863608659242732
+      atk_side_left_aligned_12: 4182560143195491434
+      atk_side_left_aligned_13: -1309620519522055162
+      atk_side_left_aligned_14: 3961199052501492032
+      atk_side_left_aligned_15: -3197295128911755257
+      atk_side_left_aligned_16: -804538798287344391
+      atk_side_left_aligned_17: -3915440831888069380
+      atk_side_left_aligned_18: -6295289560340145493
+      atk_side_left_aligned_19: -5167867049620938456
+      atk_side_left_aligned_2: 4908448682231539957
+      atk_side_left_aligned_20: 1240792972440762348
+      atk_side_left_aligned_21: 7756693092627362668
+      atk_side_left_aligned_22: 4808223724711240025
+      atk_side_left_aligned_23: 6294032259174563477
+      atk_side_left_aligned_24: 3604569541906490912
+      atk_side_left_aligned_25: -7523468697294238438
+      atk_side_left_aligned_26: -6148881736597627266
+      atk_side_left_aligned_27: -3812733484439003139
+      atk_side_left_aligned_28: 5072027876154446435
+      atk_side_left_aligned_29: -6818597782356013377
+      atk_side_left_aligned_3: 8483653409447997399
+      atk_side_left_aligned_30: 5494171206994405547
+      atk_side_left_aligned_31: 8772145513151588439
+      atk_side_left_aligned_32: 5188032773941555301
+      atk_side_left_aligned_4: -3819550666282021071
+      atk_side_left_aligned_5: 2582576152261333832
+      atk_side_left_aligned_6: 2326903931888890520
+      atk_side_left_aligned_7: 6309772440448500496
+      atk_side_left_aligned_8: 5977465732720598442
+      atk_side_left_aligned_9: 6995058486673153226
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

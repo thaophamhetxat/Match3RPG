@@ -1,0 +1,946 @@
+fileFormatVersion: 2
+guid: a93d0d31dfcf49541b9ced4391d35a99
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5821911602911551516
+    second: idle_side_left_aligned_0
+  - first:
+      213: 4800618578722971125
+    second: idle_side_left_aligned_1
+  - first:
+      213: -1336299218452330968
+    second: idle_side_left_aligned_2
+  - first:
+      213: -8327978631823958914
+    second: idle_side_left_aligned_3
+  - first:
+      213: -7892154837249265819
+    second: idle_side_left_aligned_4
+  - first:
+      213: 6830500377381421845
+    second: idle_side_left_aligned_5
+  - first:
+      213: -1178805051573269272
+    second: idle_side_left_aligned_6
+  - first:
+      213: -264718814436288788
+    second: idle_side_left_aligned_7
+  - first:
+      213: 6143946966183742687
+    second: idle_side_left_aligned_8
+  - first:
+      213: 8772121466571620000
+    second: idle_side_left_aligned_9
+  - first:
+      213: 4849653908685950756
+    second: idle_side_left_aligned_10
+  - first:
+      213: 1419811908015607103
+    second: idle_side_left_aligned_11
+  - first:
+      213: 2956806323214698140
+    second: idle_side_left_aligned_12
+  - first:
+      213: 6497470574734292274
+    second: idle_side_left_aligned_13
+  - first:
+      213: -3803851399836740792
+    second: idle_side_left_aligned_14
+  - first:
+      213: -4383239973514839029
+    second: idle_side_left_aligned_15
+  - first:
+      213: 641589693106217237
+    second: idle_side_left_aligned_16
+  - first:
+      213: -1801948502418447615
+    second: idle_side_left_aligned_17
+  - first:
+      213: -4035386177892110216
+    second: idle_side_left_aligned_18
+  - first:
+      213: 3615218860636937679
+    second: idle_side_left_aligned_19
+  - first:
+      213: -8979897238570502950
+    second: idle_side_left_aligned_20
+  - first:
+      213: 2479824237530459824
+    second: idle_side_left_aligned_21
+  - first:
+      213: -5209714958770094895
+    second: idle_side_left_aligned_22
+  - first:
+      213: -5236201580588734925
+    second: idle_side_left_aligned_23
+  - first:
+      213: -1415921318013744177
+    second: idle_side_left_aligned_24
+  - first:
+      213: -5190830810701063699
+    second: idle_side_left_aligned_25
+  - first:
+      213: -2074763932998698885
+    second: idle_side_left_aligned_26
+  - first:
+      213: 6192763971554082935
+    second: idle_side_left_aligned_27
+  - first:
+      213: -1479961179150942715
+    second: idle_side_left_aligned_28
+  - first:
+      213: -2729032148878546756
+    second: idle_side_left_aligned_29
+  - first:
+      213: 2429200431014853649
+    second: idle_side_left_aligned_30
+  - first:
+      213: -7360086143174891625
+    second: idle_side_left_aligned_31
+  - first:
+      213: 2840451285078786835
+    second: idle_side_left_aligned_32
+  - first:
+      213: 7864304718858986727
+    second: idle_side_left_aligned_33
+  - first:
+      213: 3748161308014752988
+    second: idle_side_left_aligned_34
+  - first:
+      213: -1137159765586474073
+    second: idle_side_left_aligned_35
+  - first:
+      213: 3672421111773152455
+    second: idle_side_left_aligned_36
+  - first:
+      213: 6562823359986852984
+    second: idle_side_left_aligned_37
+  - first:
+      213: -2043432241436969564
+    second: idle_side_left_aligned_38
+  - first:
+      213: -2510844486606569669
+    second: idle_side_left_aligned_39
+  - first:
+      213: -5314077947229469747
+    second: idle_side_left_aligned_40
+  - first:
+      213: -6857307924720039715
+    second: idle_side_left_aligned_41
+  - first:
+      213: 1505380434394964673
+    second: idle_side_left_aligned_42
+  - first:
+      213: 2346822572173545947
+    second: idle_side_left_aligned_43
+  - first:
+      213: -6290843962593532697
+    second: idle_side_left_aligned_44
+  - first:
+      213: 8166702686284124259
+    second: idle_side_left_aligned_45
+  - first:
+      213: 8386306723411575526
+    second: idle_side_left_aligned_46
+  - first:
+      213: 4321695585580838105
+    second: idle_side_left_aligned_47
+  - first:
+      213: -1280954320354806317
+    second: idle_side_left_aligned_48
+  - first:
+      213: 8992815127015224410
+    second: idle_side_left_aligned_49
+  - first:
+      213: -1106693427975096872
+    second: idle_side_left_aligned_50
+  - first:
+      213: -7809287345285342316
+    second: idle_side_left_aligned_51
+  - first:
+      213: 8744303339176120593
+    second: idle_side_left_aligned_52
+  - first:
+      213: 2292654002591529609
+    second: idle_side_left_aligned_53
+  - first:
+      213: 6452327890976335151
+    second: idle_side_left_aligned_54
+  - first:
+      213: 4423177672800674405
+    second: idle_side_left_aligned_55
+  - first:
+      213: -578224135698643743
+    second: idle_side_left_aligned_56
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc1ca0bd812cf5e48903fcb51a1dc9ba
+      internalID: -192786758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2c0f14289cb25343b5bbb46aca7d8aa
+      internalID: 1142740555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f146f4d694d076a44b520c346a7b694c
+      internalID: 1322773576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489f5a6cac3253b40a62da27056f526d
+      internalID: 542078046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e4e5717ee6d46e42bb19565e61541f2
+      internalID: 1016716496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a097943ff046a7043aec7903ba6d7e84
+      internalID: -1051740887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd9755a8d2d7a4b4682ff6bc31ca1dba
+      internalID: -62292983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b0287f5ea3c0ab42a68bdd1bd6e3397
+      internalID: 1928651515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41317f8d96b2c1c4ba287b783b3f6012
+      internalID: -1882404727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d7c6dad908cab3478e9c4a68809cba7
+      internalID: 983758202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ca926356f94b594c8eae784dc3e0194
+      internalID: 1980351130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48b497b7a87d6f04290bd0c1718a122b
+      internalID: 778378035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10b5e94ca0070184b8fa01a6ccb67ff7
+      internalID: 2145801052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b99a83db8ec0b974196dcdd263f8c09a
+      internalID: 1888097956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de058e1fbaa3cf046bf6ea3f577fbbcd
+      internalID: 2110411753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b99dcc72abb40047997b295e4393c54
+      internalID: 442702880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd1e233d78b228d49bd9dede7f2fd205
+      internalID: 1425822894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d099edb21b128e4ba3fc60a76559dab
+      internalID: -1539087974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06b87f0c24ef3694d843fd2a91ea3fc7
+      internalID: -1260636718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 629061d3944a4ae4da4d4abdd3ae5c0b
+      internalID: 515533923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40611ac728600e048a18c524bd062544
+      internalID: 1437260101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 696bbd617ee7db0448ad7530d3b7d21a
+      internalID: 1336800016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccf7d23cd0bd91646acee5b63f6d6948
+      internalID: 1916031628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15d3bf25dcfe03947ac2a54842b6b3e3
+      internalID: 1456386031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Idle_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ddf895e8ca74c54f922c6e15f09ae97
+      internalID: 93199096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossInfernoQilin_Idle_00: -192786758
+      BossInfernoQilin_Idle_01: 1142740555
+      BossInfernoQilin_Idle_02: 1322773576
+      BossInfernoQilin_Idle_03: 542078046
+      BossInfernoQilin_Idle_04: 1016716496
+      BossInfernoQilin_Idle_05: -1051740887
+      BossInfernoQilin_Idle_06: -62292983
+      BossInfernoQilin_Idle_07: 1928651515
+      BossInfernoQilin_Idle_08: -1882404727
+      BossInfernoQilin_Idle_09: 983758202
+      BossInfernoQilin_Idle_10: 1980351130
+      BossInfernoQilin_Idle_11: 778378035
+      BossInfernoQilin_Idle_12: 2145801052
+      BossInfernoQilin_Idle_13: 1888097956
+      BossInfernoQilin_Idle_14: 2110411753
+      BossInfernoQilin_Idle_15: 442702880
+      BossInfernoQilin_Idle_16: 1425822894
+      BossInfernoQilin_Idle_17: -1539087974
+      BossInfernoQilin_Idle_18: -1260636718
+      BossInfernoQilin_Idle_19: 515533923
+      BossInfernoQilin_Idle_20: 1437260101
+      BossInfernoQilin_Idle_21: 1336800016
+      BossInfernoQilin_Idle_22: 1916031628
+      BossInfernoQilin_Idle_23: 1456386031
+      BossInfernoQilin_Idle_24: 93199096
+      idle_side_left_aligned_0: -5821911602911551516
+      idle_side_left_aligned_1: 4800618578722971125
+      idle_side_left_aligned_10: 4849653908685950756
+      idle_side_left_aligned_11: 1419811908015607103
+      idle_side_left_aligned_12: 2956806323214698140
+      idle_side_left_aligned_13: 6497470574734292274
+      idle_side_left_aligned_14: -3803851399836740792
+      idle_side_left_aligned_15: -4383239973514839029
+      idle_side_left_aligned_16: 641589693106217237
+      idle_side_left_aligned_17: -1801948502418447615
+      idle_side_left_aligned_18: -4035386177892110216
+      idle_side_left_aligned_19: 3615218860636937679
+      idle_side_left_aligned_2: -1336299218452330968
+      idle_side_left_aligned_20: -8979897238570502950
+      idle_side_left_aligned_21: 2479824237530459824
+      idle_side_left_aligned_22: -5209714958770094895
+      idle_side_left_aligned_23: -5236201580588734925
+      idle_side_left_aligned_24: -1415921318013744177
+      idle_side_left_aligned_25: -5190830810701063699
+      idle_side_left_aligned_26: -2074763932998698885
+      idle_side_left_aligned_27: 6192763971554082935
+      idle_side_left_aligned_28: -1479961179150942715
+      idle_side_left_aligned_29: -2729032148878546756
+      idle_side_left_aligned_3: -8327978631823958914
+      idle_side_left_aligned_30: 2429200431014853649
+      idle_side_left_aligned_31: -7360086143174891625
+      idle_side_left_aligned_32: 2840451285078786835
+      idle_side_left_aligned_33: 7864304718858986727
+      idle_side_left_aligned_34: 3748161308014752988
+      idle_side_left_aligned_35: -1137159765586474073
+      idle_side_left_aligned_36: 3672421111773152455
+      idle_side_left_aligned_37: 6562823359986852984
+      idle_side_left_aligned_38: -2043432241436969564
+      idle_side_left_aligned_39: -2510844486606569669
+      idle_side_left_aligned_4: -7892154837249265819
+      idle_side_left_aligned_40: -5314077947229469747
+      idle_side_left_aligned_41: -6857307924720039715
+      idle_side_left_aligned_42: 1505380434394964673
+      idle_side_left_aligned_43: 2346822572173545947
+      idle_side_left_aligned_44: -6290843962593532697
+      idle_side_left_aligned_45: 8166702686284124259
+      idle_side_left_aligned_46: 8386306723411575526
+      idle_side_left_aligned_47: 4321695585580838105
+      idle_side_left_aligned_48: -1280954320354806317
+      idle_side_left_aligned_49: 8992815127015224410
+      idle_side_left_aligned_5: 6830500377381421845
+      idle_side_left_aligned_50: -1106693427975096872
+      idle_side_left_aligned_51: -7809287345285342316
+      idle_side_left_aligned_52: 8744303339176120593
+      idle_side_left_aligned_53: 2292654002591529609
+      idle_side_left_aligned_54: 6452327890976335151
+      idle_side_left_aligned_55: 4423177672800674405
+      idle_side_left_aligned_56: -578224135698643743
+      idle_side_left_aligned_6: -1178805051573269272
+      idle_side_left_aligned_7: -264718814436288788
+      idle_side_left_aligned_8: 6143946966183742687
+      idle_side_left_aligned_9: 8772121466571620000
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

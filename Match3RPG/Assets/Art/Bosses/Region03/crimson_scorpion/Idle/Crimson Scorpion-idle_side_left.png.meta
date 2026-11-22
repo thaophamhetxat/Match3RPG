@@ -1,0 +1,818 @@
+fileFormatVersion: 2
+guid: cf82fd798a072be47941841e15562c7c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5108739962668886920
+    second: Crimson Scorpion-idle_side_left_0
+  - first:
+      213: -3646622231211823865
+    second: Crimson Scorpion-idle_side_left_1
+  - first:
+      213: 4029526196856735641
+    second: Crimson Scorpion-idle_side_left_2
+  - first:
+      213: -6072199370336370219
+    second: Crimson Scorpion-idle_side_left_3
+  - first:
+      213: 2958922232501084905
+    second: Crimson Scorpion-idle_side_left_4
+  - first:
+      213: -5705240951552141633
+    second: Crimson Scorpion-idle_side_left_5
+  - first:
+      213: 8905560332675916697
+    second: Crimson Scorpion-idle_side_left_6
+  - first:
+      213: -2265384775285831462
+    second: Crimson Scorpion-idle_side_left_7
+  - first:
+      213: -7061732968513834880
+    second: Crimson Scorpion-idle_side_left_8
+  - first:
+      213: -4840580124129650275
+    second: Crimson Scorpion-idle_side_left_9
+  - first:
+      213: -4708205581817447656
+    second: Crimson Scorpion-idle_side_left_10
+  - first:
+      213: -3360401042085503684
+    second: Crimson Scorpion-idle_side_left_11
+  - first:
+      213: -679346256816873574
+    second: Crimson Scorpion-idle_side_left_12
+  - first:
+      213: -5371349154430093635
+    second: Crimson Scorpion-idle_side_left_13
+  - first:
+      213: -1251368823520586360
+    second: Crimson Scorpion-idle_side_left_14
+  - first:
+      213: 1767940449531128853
+    second: Crimson Scorpion-idle_side_left_15
+  - first:
+      213: -775478390865585023
+    second: Crimson Scorpion-idle_side_left_16
+  - first:
+      213: 875433428430087974
+    second: Crimson Scorpion-idle_side_left_17
+  - first:
+      213: 5292946741180563519
+    second: Crimson Scorpion-idle_side_left_18
+  - first:
+      213: -1021034547313912425
+    second: Crimson Scorpion-idle_side_left_19
+  - first:
+      213: -4733226119095435081
+    second: Crimson Scorpion-idle_side_left_20
+  - first:
+      213: 3714729735720639507
+    second: Crimson Scorpion-idle_side_left_21
+  - first:
+      213: -8034807633811946380
+    second: Crimson Scorpion-idle_side_left_22
+  - first:
+      213: 870404711898608237
+    second: Crimson Scorpion-idle_side_left_23
+  - first:
+      213: -2113534039762249400
+    second: Crimson Scorpion-idle_side_left_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3631580ea190704dbe251ed85d9abec
+      internalID: -852193242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbc2dc5c66f855e47bdff4724ae76e9e
+      internalID: -993157238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20449b66463c6044a97404a885454a86
+      internalID: 1204351636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d717b0f85f62a554da2d424e53b3cccf
+      internalID: 700501480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e46abd7a9d0c2c54fbfc85addc6fe72d
+      internalID: -1191885471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b3528ef889dab945b02a19033de8a4a
+      internalID: 225521689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 510abcf498fccaf4cb6f5284c88a1a7f
+      internalID: -282723784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a99ef115768354479fe24ead3029457
+      internalID: 150742928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fae6fffd7122d94f8290c1165f0578a
+      internalID: -2061990241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06d6fa9b812d3fc43bf0b15972ab1fde
+      internalID: 1988584584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b4bc207de4cfe43a5d5415bbeab1ee
+      internalID: 773044390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3d2a900698b9784797d8545c7b2d33b
+      internalID: -619341443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 856cd7d5211e4b248af07f8293dcd4b8
+      internalID: -340978565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f76353c328a25f240a96ec83fd514aea
+      internalID: -671765338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a6384654a570147905c6480ada5c15
+      internalID: -2094481392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd6b71f531ca8894588136a3164e6805
+      internalID: 1709550372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2be31b458b599d04bbfcaefe75efedcc
+      internalID: -596274134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e843bac07898c408e1555b03c2b48e
+      internalID: -1532793540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e52fbee560b258340abad0a396a269b2
+      internalID: 212006025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c12fcce520847a4babb5706d0eb7b30
+      internalID: -504097998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5ae09726114e29479af9f99ee428471
+      internalID: -1154827569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fae8d9eda992de44bbdca1a0acfcf3e5
+      internalID: -514407476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 531bb388915e3be44bb7ff49a322abf9
+      internalID: 1608851638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4b3e92fb9b597241acb044e3a3d29ca
+      internalID: 1042622438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Idle_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 343d0ae4712d5e64daa8d9db920fe963
+      internalID: -487459504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossCrimsonScorpion_Idle_00: -852193242
+      BossCrimsonScorpion_Idle_01: -993157238
+      BossCrimsonScorpion_Idle_02: 1204351636
+      BossCrimsonScorpion_Idle_03: 700501480
+      BossCrimsonScorpion_Idle_04: -1191885471
+      BossCrimsonScorpion_Idle_05: 225521689
+      BossCrimsonScorpion_Idle_06: -282723784
+      BossCrimsonScorpion_Idle_07: 150742928
+      BossCrimsonScorpion_Idle_08: -2061990241
+      BossCrimsonScorpion_Idle_09: 1988584584
+      BossCrimsonScorpion_Idle_10: 773044390
+      BossCrimsonScorpion_Idle_11: -619341443
+      BossCrimsonScorpion_Idle_12: -340978565
+      BossCrimsonScorpion_Idle_13: -671765338
+      BossCrimsonScorpion_Idle_14: -2094481392
+      BossCrimsonScorpion_Idle_15: 1709550372
+      BossCrimsonScorpion_Idle_16: -596274134
+      BossCrimsonScorpion_Idle_17: -1532793540
+      BossCrimsonScorpion_Idle_18: 212006025
+      BossCrimsonScorpion_Idle_19: -504097998
+      BossCrimsonScorpion_Idle_20: -1154827569
+      BossCrimsonScorpion_Idle_21: -514407476
+      BossCrimsonScorpion_Idle_22: 1608851638
+      BossCrimsonScorpion_Idle_23: 1042622438
+      BossCrimsonScorpion_Idle_24: -487459504
+      Crimson Scorpion-idle_side_left_0: 5108739962668886920
+      Crimson Scorpion-idle_side_left_1: -3646622231211823865
+      Crimson Scorpion-idle_side_left_10: -4708205581817447656
+      Crimson Scorpion-idle_side_left_11: -3360401042085503684
+      Crimson Scorpion-idle_side_left_12: -679346256816873574
+      Crimson Scorpion-idle_side_left_13: -5371349154430093635
+      Crimson Scorpion-idle_side_left_14: -1251368823520586360
+      Crimson Scorpion-idle_side_left_15: 1767940449531128853
+      Crimson Scorpion-idle_side_left_16: -775478390865585023
+      Crimson Scorpion-idle_side_left_17: 875433428430087974
+      Crimson Scorpion-idle_side_left_18: 5292946741180563519
+      Crimson Scorpion-idle_side_left_19: -1021034547313912425
+      Crimson Scorpion-idle_side_left_2: 4029526196856735641
+      Crimson Scorpion-idle_side_left_20: -4733226119095435081
+      Crimson Scorpion-idle_side_left_21: 3714729735720639507
+      Crimson Scorpion-idle_side_left_22: -8034807633811946380
+      Crimson Scorpion-idle_side_left_23: 870404711898608237
+      Crimson Scorpion-idle_side_left_24: -2113534039762249400
+      Crimson Scorpion-idle_side_left_3: -6072199370336370219
+      Crimson Scorpion-idle_side_left_4: 2958922232501084905
+      Crimson Scorpion-idle_side_left_5: -5705240951552141633
+      Crimson Scorpion-idle_side_left_6: 8905560332675916697
+      Crimson Scorpion-idle_side_left_7: -2265384775285831462
+      Crimson Scorpion-idle_side_left_8: -7061732968513834880
+      Crimson Scorpion-idle_side_left_9: -4840580124129650275
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -79,7 +79,47 @@ namespace Match3RPG.Editor
             new SheetDefinition("BossTuHa", BattleCharacterAnimState.Attack,
                 "Assets/Art/Bosses/Region01/boss_tu_ha/Attack/tuha-atk_side_right2.png", 5, 5, 25, ActionFps),
             new SheetDefinition("BossTuHa", BattleCharacterAnimState.Death,
-                "Assets/Art/Bosses/Region01/boss_tu_ha/Death/tuha-die_side_right.png", 5, 5, 25, ActionFps)
+                "Assets/Art/Bosses/Region01/boss_tu_ha/Death/tuha-die_side_right.png", 5, 5, 25, ActionFps),
+
+            new SheetDefinition("BossFrostWolf", BattleCharacterAnimState.Idle,
+                "Assets/Art/Bosses/Region02/Frost_Wolf/Idle/idle_side_left_aligned.png", 5, 5, 25, IdleFps, true),
+            new SheetDefinition("BossFrostWolf", BattleCharacterAnimState.Attack,
+                "Assets/Art/Bosses/Region02/Frost_Wolf/Attack/atk_side_left_aligned.png", 5, 5, 25, ActionFps),
+
+            new SheetDefinition("BossIceCrystalBeast", BattleCharacterAnimState.Idle,
+                "Assets/Art/Bosses/Region02/ice_crystal_beast/Idle/idle_side_left_aligned.png", 5, 5, 25, IdleFps, true),
+            new SheetDefinition("BossIceCrystalBeast", BattleCharacterAnimState.Attack,
+                "Assets/Art/Bosses/Region02/ice_crystal_beast/Attack/atk_side_left_aligned.png", 5, 5, 25, ActionFps),
+
+            new SheetDefinition("BossAzureRiverDragon", BattleCharacterAnimState.Idle,
+                "Assets/Art/Bosses/Region02/azure_river_dragon/Idle/idle_side_left_aligned).png", 5, 5, 25, IdleFps, true),
+            new SheetDefinition("BossAzureRiverDragon", BattleCharacterAnimState.Attack,
+                "Assets/Art/Bosses/Region02/azure_river_dragon/Attack/atk_aligned.png", 5, 5, 25, ActionFps),
+
+            new SheetDefinition("BossInfernoQilin", BattleCharacterAnimState.Idle,
+                "Assets/Art/Bosses/Region03/inferno_qilin/Idle/idle_side_left_aligned.png", 5, 5, 25, IdleFps, true),
+            new SheetDefinition("BossInfernoQilin", BattleCharacterAnimState.Attack,
+                "Assets/Art/Bosses/Region03/inferno_qilin/Skill/cast_aligned.png", 5, 5, 25, ActionFps),
+
+            new SheetDefinition("BossCrimsonScorpion", BattleCharacterAnimState.Idle,
+                "Assets/Art/Bosses/Region03/crimson_scorpion/Idle/Crimson Scorpion-idle_side_left.png", 5, 5, 25, IdleFps, true),
+            new SheetDefinition("BossCrimsonScorpion", BattleCharacterAnimState.Attack,
+                "Assets/Art/Bosses/Region03/crimson_scorpion/Attack/Crimson Scorpion-atk_side_left.png", 5, 5, 25, ActionFps),
+
+            new SheetDefinition("BossFlameLion", BattleCharacterAnimState.Idle,
+                "Assets/Art/Bosses/Region03/flame_lion/Idle/flame_lion-idle_side_left.png", 5, 5, 25, IdleFps, true),
+            new SheetDefinition("BossFlameLion", BattleCharacterAnimState.Attack,
+                "Assets/Art/Bosses/Region03/flame_lion/Skill/flame_lion-cast.png", 5, 5, 25, ActionFps)
+        };
+
+        static readonly string[] TargetBuildCharacterIds =
+        {
+            "BossFrostWolf",
+            "BossIceCrystalBeast",
+            "BossAzureRiverDragon",
+            "BossInfernoQilin",
+            "BossCrimsonScorpion",
+            "BossFlameLion"
         };
 
         [MenuItem("Tools/Characters/Build Character Content")]
@@ -92,11 +132,15 @@ namespace Match3RPG.Editor
             EnsureFolder("Assets/Resources/Characters", "Heroes");
             EnsureFolder("Assets/Resources/Campaign", "Bosses");
 
+            HashSet<string> targetCharacters = new HashSet<string>(TargetBuildCharacterIds, StringComparer.Ordinal);
             Dictionary<string, Dictionary<BattleCharacterAnimState, Sprite[]>> characterFrames =
                 new Dictionary<string, Dictionary<BattleCharacterAnimState, Sprite[]>>();
             Dictionary<BattleCharacterAnimState, int> heroFrameBodyHeights =
                 new Dictionary<BattleCharacterAnimState, int>();
-            foreach (SheetDefinition sourceSheet in DiscoverHero2Sheets(heroFrameBodyHeights).Concat(BossSheets))
+            IEnumerable<SheetDefinition> sheetsToProcess = targetCharacters.Contains("Hero2")
+                ? DiscoverHero2Sheets(heroFrameBodyHeights).Concat(BossSheets.Where(s => targetCharacters.Contains(s.CharacterId)))
+                : BossSheets.Where(s => targetCharacters.Contains(s.CharacterId));
+            foreach (SheetDefinition sourceSheet in sheetsToProcess)
             {
                 SheetDefinition sheet = sourceSheet.State == BattleCharacterAnimState.Idle
                     ? FilterVisibleIdleFrames(sourceSheet)
@@ -132,7 +176,7 @@ namespace Match3RPG.Editor
                 states[sheet.State] = frames;
             }
 
-            foreach (string characterId in new[] { "Hero2" })
+            foreach (string characterId in TargetBuildCharacterIds)
             {
                 if (!characterFrames.TryGetValue(characterId,
                     out Dictionary<BattleCharacterAnimState, Sprite[]> states)
@@ -380,9 +424,7 @@ namespace Match3RPG.Editor
         static CharacterAnimationSet BuildAnimationSet(string characterId,
             Dictionary<BattleCharacterAnimState, Sprite[]> framesByState)
         {
-            string assetFolder = characterId.StartsWith("Boss", StringComparison.Ordinal)
-                ? $"{AnimationOutput}/Bosses/Region01/{characterId}"
-                : $"{AnimationOutput}/Characters/{characterId}";
+            string assetFolder = GetAnimationAssetFolder(characterId);
             EnsureAssetFolder(assetFolder);
 
             Dictionary<BattleCharacterAnimState, AnimationClip> clips =
@@ -415,6 +457,8 @@ namespace Match3RPG.Editor
                 $"{assetFolder}/{characterId}.controller", clips);
             CharacterAnimationSet set = LoadOrCreate<CharacterAnimationSet>(
                 $"{assetFolder}/{characterId}AnimationSet.asset");
+            float attackScaleMultiplier = GetAttackNormalizationScaleMultiplier(characterId);
+            bool keepAttackInPlace = IsAttackInPlaceBoss(characterId);
             set.Configure(characterId, controller,
                 GetClip(clips, BattleCharacterAnimState.Idle),
                 GetClip(clips, BattleCharacterAnimState.Attack),
@@ -431,9 +475,53 @@ namespace Match3RPG.Editor
                 GetFrameCount(framesByState, BattleCharacterAnimState.Hit),
                 GetFrameCount(framesByState, BattleCharacterAnimState.Dodge),
                 GetFrameCount(framesByState, BattleCharacterAnimState.Rising),
-                GetFrameCount(framesByState, BattleCharacterAnimState.Death));
+                GetFrameCount(framesByState, BattleCharacterAnimState.Death),
+                singleHitImpactNormalizedTime: .52f,
+                attackScaleNormalizationMultiplier: attackScaleMultiplier);
+            SerializedObject serializedSet = new SerializedObject(set);
+            serializedSet.FindProperty("attackInPlace").boolValue = keepAttackInPlace;
+            serializedSet.FindProperty("idleFacesForward").boolValue = false;
+            serializedSet.ApplyModifiedPropertiesWithoutUndo();
             EditorUtility.SetDirty(set);
             return set;
+        }
+
+        static string GetAnimationAssetFolder(string characterId)
+        {
+            switch (characterId)
+            {
+                case "BossFrostWolf":
+                case "BossIceCrystalBeast":
+                case "BossAzureRiverDragon":
+                    return $"{AnimationOutput}/Bosses/Region02/{characterId}";
+                case "BossInfernoQilin":
+                case "BossCrimsonScorpion":
+                case "BossFlameLion":
+                    return $"{AnimationOutput}/Bosses/Region03/{characterId}";
+                default:
+                    return characterId.StartsWith("Boss", StringComparison.Ordinal)
+                        ? $"{AnimationOutput}/Bosses/Region01/{characterId}"
+                        : $"{AnimationOutput}/Characters/{characterId}";
+            }
+        }
+
+        static float GetAttackNormalizationScaleMultiplier(string characterId)
+        {
+            switch (characterId)
+            {
+                case "BossFrostWolf": return 361f / 360f;
+                case "BossIceCrystalBeast": return 260f / 248f;
+                case "BossAzureRiverDragon": return 256f / 259f;
+                case "BossInfernoQilin": return 1f;
+                case "BossCrimsonScorpion": return 241f / 240f;
+                case "BossFlameLion": return 270f / 245f;
+                default: return 1f;
+            }
+        }
+
+        static bool IsAttackInPlaceBoss(string characterId)
+        {
+            return characterId == "BossInfernoQilin" || characterId == "BossFlameLion";
         }
 
         static int GetFrameCount(
@@ -521,11 +609,9 @@ namespace Match3RPG.Editor
         static void BuildBossData(string characterId, CharacterAnimationSet animations,
             Sprite idlePreview)
         {
-            // One boss is reused across several stages: Lam Phong = stages 1-4,
-            // Thanh Van = stages 5-8, Tu Ha = stages 9-10. Update every BossData
-            // that uses this boss, and set its in-game display name.
             string[] ids;
             string displayName;
+            CharacterFacing sourceFacing = CharacterFacing.Right;
             switch (characterId)
             {
                 case "BossLamPhong":
@@ -539,6 +625,36 @@ namespace Match3RPG.Editor
                 case "BossTuHa":
                     ids = new[] { "region_01_boss_09", "region_01_boss_10" };
                     displayName = "Tử Hà";
+                    break;
+                case "BossFrostWolf":
+                    ids = new[] { "region_02_boss_01", "region_02_boss_02", "region_02_boss_03", "region_02_boss_04" };
+                    displayName = "Sói Băng";
+                    sourceFacing = CharacterFacing.Right;
+                    break;
+                case "BossIceCrystalBeast":
+                    ids = new[] { "region_02_boss_05", "region_02_boss_06", "region_02_boss_07", "region_02_boss_08" };
+                    displayName = "Thú Băng Tinh";
+                    sourceFacing = CharacterFacing.Right;
+                    break;
+                case "BossAzureRiverDragon":
+                    ids = new[] { "region_02_boss_09", "region_02_boss_10" };
+                    displayName = "Rồng Sông Xanh";
+                    sourceFacing = CharacterFacing.Left;
+                    break;
+                case "BossInfernoQilin":
+                    ids = new[] { "region_03_boss_01", "region_03_boss_02", "region_03_boss_03", "region_03_boss_04" };
+                    displayName = "Kỳ Lân Lửa";
+                    sourceFacing = CharacterFacing.Right;
+                    break;
+                case "BossCrimsonScorpion":
+                    ids = new[] { "region_03_boss_05", "region_03_boss_06", "region_03_boss_07", "region_03_boss_08" };
+                    displayName = "Bọ Cạp Đỏ Pha Lê";
+                    sourceFacing = CharacterFacing.Right;
+                    break;
+                case "BossFlameLion":
+                    ids = new[] { "region_03_boss_09", "region_03_boss_10" };
+                    displayName = "Sư Tử Lửa";
+                    sourceFacing = CharacterFacing.Right;
                     break;
                 case "Boss01":
                     ids = new[] { "region_01_boss_01" };
@@ -560,8 +676,10 @@ namespace Match3RPG.Editor
                 boss.SetAnimationSet(animations);
                 SerializedObject serialized = new SerializedObject(boss);
                 serialized.FindProperty("portrait").objectReferenceValue = idlePreview;
-                serialized.FindProperty("sourceFacing").enumValueIndex = (int)CharacterFacing.Right;
+                serialized.FindProperty("sourceFacing").enumValueIndex = (int)sourceFacing;
                 serialized.FindProperty("displayName").stringValue = displayName;
+                serialized.FindProperty("visualScale").floatValue = 1f;
+                serialized.FindProperty("visualOffset").vector2Value = Vector2.zero;
                 serialized.ApplyModifiedPropertiesWithoutUndo();
                 EditorUtility.SetDirty(boss);
             }

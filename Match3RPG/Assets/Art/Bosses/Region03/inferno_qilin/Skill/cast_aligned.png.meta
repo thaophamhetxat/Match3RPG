@@ -1,0 +1,910 @@
+fileFormatVersion: 2
+guid: 578310030377b1c4898d7646d4a19d06
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1234031526226768194
+    second: cast_aligned_0
+  - first:
+      213: -2681010327822980069
+    second: cast_aligned_1
+  - first:
+      213: 4096545977240738564
+    second: cast_aligned_2
+  - first:
+      213: -2347530497772197877
+    second: cast_aligned_3
+  - first:
+      213: -2181607909826641247
+    second: cast_aligned_4
+  - first:
+      213: 7912610122821298746
+    second: cast_aligned_5
+  - first:
+      213: 8884016935708124855
+    second: cast_aligned_6
+  - first:
+      213: 7586340110721916388
+    second: cast_aligned_7
+  - first:
+      213: -8696085162767271675
+    second: cast_aligned_8
+  - first:
+      213: 604048515115648176
+    second: cast_aligned_9
+  - first:
+      213: -7351046411926360476
+    second: cast_aligned_10
+  - first:
+      213: -7716197366892894350
+    second: cast_aligned_11
+  - first:
+      213: -5288898699331103266
+    second: cast_aligned_12
+  - first:
+      213: -6864868849166446849
+    second: cast_aligned_13
+  - first:
+      213: 5795885574654366511
+    second: cast_aligned_14
+  - first:
+      213: -1421754363267359663
+    second: cast_aligned_15
+  - first:
+      213: -4584445726235314483
+    second: cast_aligned_16
+  - first:
+      213: -3614810699148586140
+    second: cast_aligned_17
+  - first:
+      213: 5463951476151977341
+    second: cast_aligned_18
+  - first:
+      213: -4629942886328411559
+    second: cast_aligned_19
+  - first:
+      213: -130256808471255467
+    second: cast_aligned_20
+  - first:
+      213: -9214744793482855856
+    second: cast_aligned_21
+  - first:
+      213: 992841434165031333
+    second: cast_aligned_22
+  - first:
+      213: 3037983246476190811
+    second: cast_aligned_23
+  - first:
+      213: 2921963208418121854
+    second: cast_aligned_24
+  - first:
+      213: 2834317180515448997
+    second: cast_aligned_25
+  - first:
+      213: 1210710063132341751
+    second: cast_aligned_26
+  - first:
+      213: -5774974308752624769
+    second: cast_aligned_27
+  - first:
+      213: -5222759570463543163
+    second: cast_aligned_28
+  - first:
+      213: -4982357497692061106
+    second: cast_aligned_29
+  - first:
+      213: -3331717953933226831
+    second: cast_aligned_30
+  - first:
+      213: 7585210943091453227
+    second: cast_aligned_31
+  - first:
+      213: -7153519574628833719
+    second: cast_aligned_32
+  - first:
+      213: 4488027624227482798
+    second: cast_aligned_33
+  - first:
+      213: 8088997984876424369
+    second: cast_aligned_34
+  - first:
+      213: -8221303680181947322
+    second: cast_aligned_35
+  - first:
+      213: -1875806032560055731
+    second: cast_aligned_36
+  - first:
+      213: 4368966124181127517
+    second: cast_aligned_37
+  - first:
+      213: 308936238375619673
+    second: cast_aligned_38
+  - first:
+      213: -5235229630767597436
+    second: cast_aligned_39
+  - first:
+      213: 5118030805719565573
+    second: cast_aligned_40
+  - first:
+      213: -6514178451885952270
+    second: cast_aligned_41
+  - first:
+      213: 9084238830110365917
+    second: cast_aligned_42
+  - first:
+      213: -1211157335503926408
+    second: cast_aligned_43
+  - first:
+      213: 5848236069881326067
+    second: cast_aligned_44
+  - first:
+      213: 990099517952145695
+    second: cast_aligned_45
+  - first:
+      213: 615285921767563348
+    second: cast_aligned_46
+  - first:
+      213: -2581497499667849311
+    second: cast_aligned_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 423d12c2f172136448c85e2c7830c94e
+      internalID: -1134397240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 063ef7d854fae1246a1ecd7d5082faa4
+      internalID: -2093228002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87533b9edc3d6194b8c4ccc09a6243e9
+      internalID: -810365253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 999d9471f9df5d6458459259247fa872
+      internalID: 2115125353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0db8c5ccd707c5f46bda0eb58bb0f379
+      internalID: 565630219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 080dc93bec65b604fb2cb66a6d7aa24a
+      internalID: -31898397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 422bb8d0b5ea9d346b19b2f7c8db6e33
+      internalID: -1531465731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9b17c1bc64353944b801aca78e67640
+      internalID: -852136851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb344448584a7e24dbd48ac9f9c98aab
+      internalID: 1045551415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f71033e184bd8e146b89dddcff01df79
+      internalID: 715808970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d649f4af7a7651e43ad8e9685c62cb4a
+      internalID: 606611892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be2f325ad7ee0ff40bfe5496681c8fb8
+      internalID: 927864340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c5f78060f68df3489fe3749a8709dac
+      internalID: 804246045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4276ebe2cb3c6da489c902a55839baae
+      internalID: -534720747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ac08947b3793643a554ff4bd693016
+      internalID: 1719011924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b06433e4b0d7bd42940d30d7ee483ab
+      internalID: 930211255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6950283faa431cb4d92eb5f30f939ddb
+      internalID: 1286160021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb9e44ed7779504db72527c5e5324d8
+      internalID: -2100292630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: caf73da6f446d6046b02b8168126bb8d
+      internalID: -1752208011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9910282c1e4e9764dae7520c577e64db
+      internalID: -233942192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce4b70640df4d9747868cec827ca4f0b
+      internalID: 1826165133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f28198d699372241896ab28df9d08cf
+      internalID: -1016281685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7f9da8b013e2f043bb4b6177cb98d11
+      internalID: 1555005923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3ded2103c5e4914dad776c8992e50a5
+      internalID: 650575540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossInfernoQilin_Attack_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05ff4b812a3ab234eb1c0fac53174f81
+      internalID: -1867815663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossInfernoQilin_Attack_00: -1134397240
+      BossInfernoQilin_Attack_01: -2093228002
+      BossInfernoQilin_Attack_02: -810365253
+      BossInfernoQilin_Attack_03: 2115125353
+      BossInfernoQilin_Attack_04: 565630219
+      BossInfernoQilin_Attack_05: -31898397
+      BossInfernoQilin_Attack_06: -1531465731
+      BossInfernoQilin_Attack_07: -852136851
+      BossInfernoQilin_Attack_08: 1045551415
+      BossInfernoQilin_Attack_09: 715808970
+      BossInfernoQilin_Attack_10: 606611892
+      BossInfernoQilin_Attack_11: 927864340
+      BossInfernoQilin_Attack_12: 804246045
+      BossInfernoQilin_Attack_13: -534720747
+      BossInfernoQilin_Attack_14: 1719011924
+      BossInfernoQilin_Attack_15: 930211255
+      BossInfernoQilin_Attack_16: 1286160021
+      BossInfernoQilin_Attack_17: -2100292630
+      BossInfernoQilin_Attack_18: -1752208011
+      BossInfernoQilin_Attack_19: -233942192
+      BossInfernoQilin_Attack_20: 1826165133
+      BossInfernoQilin_Attack_21: -1016281685
+      BossInfernoQilin_Attack_22: 1555005923
+      BossInfernoQilin_Attack_23: 650575540
+      BossInfernoQilin_Attack_24: -1867815663
+      cast_aligned_0: 1234031526226768194
+      cast_aligned_1: -2681010327822980069
+      cast_aligned_10: -7351046411926360476
+      cast_aligned_11: -7716197366892894350
+      cast_aligned_12: -5288898699331103266
+      cast_aligned_13: -6864868849166446849
+      cast_aligned_14: 5795885574654366511
+      cast_aligned_15: -1421754363267359663
+      cast_aligned_16: -4584445726235314483
+      cast_aligned_17: -3614810699148586140
+      cast_aligned_18: 5463951476151977341
+      cast_aligned_19: -4629942886328411559
+      cast_aligned_2: 4096545977240738564
+      cast_aligned_20: -130256808471255467
+      cast_aligned_21: -9214744793482855856
+      cast_aligned_22: 992841434165031333
+      cast_aligned_23: 3037983246476190811
+      cast_aligned_24: 2921963208418121854
+      cast_aligned_25: 2834317180515448997
+      cast_aligned_26: 1210710063132341751
+      cast_aligned_27: -5774974308752624769
+      cast_aligned_28: -5222759570463543163
+      cast_aligned_29: -4982357497692061106
+      cast_aligned_3: -2347530497772197877
+      cast_aligned_30: -3331717953933226831
+      cast_aligned_31: 7585210943091453227
+      cast_aligned_32: -7153519574628833719
+      cast_aligned_33: 4488027624227482798
+      cast_aligned_34: 8088997984876424369
+      cast_aligned_35: -8221303680181947322
+      cast_aligned_36: -1875806032560055731
+      cast_aligned_37: 4368966124181127517
+      cast_aligned_38: 308936238375619673
+      cast_aligned_39: -5235229630767597436
+      cast_aligned_4: -2181607909826641247
+      cast_aligned_40: 5118030805719565573
+      cast_aligned_41: -6514178451885952270
+      cast_aligned_42: 9084238830110365917
+      cast_aligned_43: -1211157335503926408
+      cast_aligned_44: 5848236069881326067
+      cast_aligned_45: 990099517952145695
+      cast_aligned_46: 615285921767563348
+      cast_aligned_47: -2581497499667849311
+      cast_aligned_5: 7912610122821298746
+      cast_aligned_6: 8884016935708124855
+      cast_aligned_7: 7586340110721916388
+      cast_aligned_8: -8696085162767271675
+      cast_aligned_9: 604048515115648176
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

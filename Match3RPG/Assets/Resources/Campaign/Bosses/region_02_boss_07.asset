@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: region_02_boss_07
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
   bossId: region_02_boss_07
-  displayName: Cloud Dragon Turtle
-  portrait: {fileID: 21300000, guid: 86442755ecf2b054e84c824d74742e7b, type: 3}
+  displayName: "Th\xFA B\u0103ng Tinh"
+  portrait: {fileID: -1738582905, guid: 8bcd686a0d296b3439bcd6ab1b13cb8c, type: 3}
+  animationSet: {fileID: 11400000, guid: 1e58647a09548b24eaae556ace7e9936, type: 2}
   maxHP: 1600
   attack: 28
   maxRage: 100
@@ -24,3 +25,11 @@ MonoBehaviour:
   criticalEnabled: 1
   criticalDamageMultiplier: 2
   statusEffectCapabilities: 4
+  preferredAttackVfx: 0
+  defaultLootTableId: 
+  visualScale: 1
+  visualOffset: {x: 0, y: 0}
+  sourceFacing: 1
+  vfxAnchor: {x: 0.5, y: 0.48}
+  headVfxAnchor: {x: 0.5, y: 0.82}
+  floatingTextAnchor: {x: 0.5, y: 0.88}

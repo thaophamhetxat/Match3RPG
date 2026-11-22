@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: region_02_boss_02
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
   bossId: region_02_boss_02
-  displayName: Crimson Scorpion
-  portrait: {fileID: 21300000, guid: 2b5ab77b50a774248a18508fef35da36, type: 3}
+  displayName: "S\xF3i B\u0103ng"
+  portrait: {fileID: -1824654262, guid: 6693824dbfc9b1a46b4b8600953de006, type: 3}
+  animationSet: {fileID: 11400000, guid: b10eae3ccc9344647af1be97465b81df, type: 2}
   maxHP: 1225
   attack: 23
   maxRage: 100
@@ -24,3 +25,11 @@ MonoBehaviour:
   criticalEnabled: 1
   criticalDamageMultiplier: 2
   statusEffectCapabilities: 4
+  preferredAttackVfx: 0
+  defaultLootTableId: 
+  visualScale: 1
+  visualOffset: {x: 0, y: 0}
+  sourceFacing: 1
+  vfxAnchor: {x: 0.5, y: 0.48}
+  headVfxAnchor: {x: 0.5, y: 0.82}
+  floatingTextAnchor: {x: 0.5, y: 0.88}

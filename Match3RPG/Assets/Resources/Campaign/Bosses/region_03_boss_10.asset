@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: region_03_boss_10
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
   bossId: region_03_boss_10
-  displayName: Inferno Qilin
-  portrait: {fileID: 21300000, guid: a3ef46b99f2e5a646a2629d9e269fe9e, type: 3}
+  displayName: "S\u01B0 T\u1EED L\u1EEDa"
+  portrait: {fileID: -127094329, guid: 4967bdf09e5708e45b42c048afc79e27, type: 3}
+  animationSet: {fileID: 11400000, guid: 8cf5698b31585b843b7af5eaf3ed787d, type: 2}
   maxHP: 1975
   attack: 33
   maxRage: 100
@@ -24,3 +25,11 @@ MonoBehaviour:
   criticalEnabled: 1
   criticalDamageMultiplier: 2
   statusEffectCapabilities: 2
+  preferredAttackVfx: 0
+  defaultLootTableId: 
+  visualScale: 1
+  visualOffset: {x: 0, y: 0}
+  sourceFacing: 1
+  vfxAnchor: {x: 0.5, y: 0.48}
+  headVfxAnchor: {x: 0.5, y: 0.82}
+  floatingTextAnchor: {x: 0.5, y: 0.88}

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: region_03_boss_01
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
   bossId: region_03_boss_01
-  displayName: Flame Serpent
-  portrait: {fileID: 21300000, guid: 4d704a968970e3f4aa1df7f5fe2e2c77, type: 3}
+  displayName: "K\u1EF3 L\xE2n L\u1EEDa"
+  portrait: {fileID: -192786758, guid: a93d0d31dfcf49541b9ced4391d35a99, type: 3}
+  animationSet: {fileID: 11400000, guid: 07f4a9017133c4943a90423ad7db88a7, type: 2}
   maxHP: 1300
   attack: 24
   maxRage: 100
@@ -24,3 +25,11 @@ MonoBehaviour:
   criticalEnabled: 1
   criticalDamageMultiplier: 2
   statusEffectCapabilities: 2
+  preferredAttackVfx: 0
+  defaultLootTableId: 
+  visualScale: 1
+  visualOffset: {x: 0, y: 0}
+  sourceFacing: 1
+  vfxAnchor: {x: 0.5, y: 0.48}
+  headVfxAnchor: {x: 0.5, y: 0.82}
+  floatingTextAnchor: {x: 0.5, y: 0.88}

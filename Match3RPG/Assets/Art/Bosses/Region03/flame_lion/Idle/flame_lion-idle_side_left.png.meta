@@ -1,0 +1,894 @@
+fileFormatVersion: 2
+guid: 4967bdf09e5708e45b42c048afc79e27
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3026076034851844116
+    second: flame_lion-idle_side_left_0
+  - first:
+      213: -4129104826948888345
+    second: flame_lion-idle_side_left_1
+  - first:
+      213: -2100899099007571303
+    second: flame_lion-idle_side_left_2
+  - first:
+      213: -8336510130964392388
+    second: flame_lion-idle_side_left_3
+  - first:
+      213: -4468652346122611485
+    second: flame_lion-idle_side_left_4
+  - first:
+      213: 2001983899695809570
+    second: flame_lion-idle_side_left_5
+  - first:
+      213: 1322721655571231422
+    second: flame_lion-idle_side_left_6
+  - first:
+      213: 9104214931635864810
+    second: flame_lion-idle_side_left_7
+  - first:
+      213: 6930610408822888575
+    second: flame_lion-idle_side_left_8
+  - first:
+      213: -4790658004927434546
+    second: flame_lion-idle_side_left_9
+  - first:
+      213: 4383440790883452503
+    second: flame_lion-idle_side_left_10
+  - first:
+      213: -9204615558344032631
+    second: flame_lion-idle_side_left_11
+  - first:
+      213: -2263195341920211630
+    second: flame_lion-idle_side_left_12
+  - first:
+      213: -980334291091356320
+    second: flame_lion-idle_side_left_13
+  - first:
+      213: 6284778709390889079
+    second: flame_lion-idle_side_left_14
+  - first:
+      213: -8212991084060835900
+    second: flame_lion-idle_side_left_15
+  - first:
+      213: 4558607376948509842
+    second: flame_lion-idle_side_left_16
+  - first:
+      213: -2143616682180580708
+    second: flame_lion-idle_side_left_17
+  - first:
+      213: 1632718938644345427
+    second: flame_lion-idle_side_left_18
+  - first:
+      213: 23122125263454335
+    second: flame_lion-idle_side_left_19
+  - first:
+      213: 8956545329785208965
+    second: flame_lion-idle_side_left_20
+  - first:
+      213: 4129566570313906820
+    second: flame_lion-idle_side_left_21
+  - first:
+      213: 8104675334823542862
+    second: flame_lion-idle_side_left_22
+  - first:
+      213: -8411955235757241614
+    second: flame_lion-idle_side_left_23
+  - first:
+      213: 9035764250113383074
+    second: flame_lion-idle_side_left_24
+  - first:
+      213: -5380607608260620985
+    second: flame_lion-idle_side_left_25
+  - first:
+      213: -7153426544202344650
+    second: flame_lion-idle_side_left_26
+  - first:
+      213: 1323508987506222070
+    second: flame_lion-idle_side_left_27
+  - first:
+      213: -79724165059764072
+    second: flame_lion-idle_side_left_28
+  - first:
+      213: -5258748460212685492
+    second: flame_lion-idle_side_left_29
+  - first:
+      213: 1917783089863962688
+    second: flame_lion-idle_side_left_30
+  - first:
+      213: -1658533493589115881
+    second: flame_lion-idle_side_left_31
+  - first:
+      213: -3189858323784964699
+    second: flame_lion-idle_side_left_32
+  - first:
+      213: -3640019165426563731
+    second: flame_lion-idle_side_left_33
+  - first:
+      213: -664792857607149994
+    second: flame_lion-idle_side_left_34
+  - first:
+      213: 2573630614130003329
+    second: flame_lion-idle_side_left_35
+  - first:
+      213: -5191634026496735537
+    second: flame_lion-idle_side_left_36
+  - first:
+      213: -6168066400135312796
+    second: flame_lion-idle_side_left_37
+  - first:
+      213: 4623264992999503384
+    second: flame_lion-idle_side_left_38
+  - first:
+      213: 97023493773677328
+    second: flame_lion-idle_side_left_39
+  - first:
+      213: -1318384655069905046
+    second: flame_lion-idle_side_left_40
+  - first:
+      213: -8527845408750254929
+    second: flame_lion-idle_side_left_41
+  - first:
+      213: -851865033307438914
+    second: flame_lion-idle_side_left_42
+  - first:
+      213: -7181602017521755272
+    second: flame_lion-idle_side_left_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ec8ff3c1019a6d45afbf4403e27194c
+      internalID: -127094329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 475b8acb1bae5c74bb3e4d980ec716da
+      internalID: -989771134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07cc2208edc3dd244a6340d667680e88
+      internalID: 1426018556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64eeb138c0de5c345a1b7f947f1150cd
+      internalID: 1079479108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 239b5354d09d1d3488efc15ef5dc4241
+      internalID: 1752244328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc42bff5b5bd584fbd46e2bb86f8546
+      internalID: -1605307907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 942fef1941150944db0c1dd08e180fa4
+      internalID: -2021871176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc10b13256e31b64db1f9829bd314cc4
+      internalID: 1408609059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6e4f214604683b4c9e6dd42d154ebf3
+      internalID: 1078985896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdfaee1042ed3674ab68a5349714c19b
+      internalID: 307282948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa765c22cf3327b4badbbe4cdb9231e4
+      internalID: 1469360564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50a16ef4b2f63d04bbe3e3978c46304a
+      internalID: -735458099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de3e9fc6ba371b744b3aef09323208a9
+      internalID: 1052856469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 641d03d30cb61e145aa2e6717f859806
+      internalID: -1013637056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 705e232dc6bc8b6478b748928a9d4cd2
+      internalID: 231844980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eb444cb864c6ef4ea652228696d8884
+      internalID: 90553141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 225cfc24c9c0f4843957b74b3538d342
+      internalID: 1874567306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c203b869bf80274abac99f9dbe8eef7
+      internalID: -2063733632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6557766897c16b24ab5ad4d3b449f5d9
+      internalID: 664321542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f781d7a53c545e45a1969af668b87e0
+      internalID: 1372348695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa535a9933364a645a4a94dfd370d689
+      internalID: -1731275636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac98f6cfe74d71342900cc15df7a48c1
+      internalID: -836886533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3348fef142df5104096ba410e7e38625
+      internalID: -1303329243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 815dbd66ccc4012408d395edf757aedc
+      internalID: -253129749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossFlameLion_Idle_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 996b61570d605394aa31c9fe0757a137
+      internalID: -344351345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossFlameLion_Idle_00: -127094329
+      BossFlameLion_Idle_01: -989771134
+      BossFlameLion_Idle_02: 1426018556
+      BossFlameLion_Idle_03: 1079479108
+      BossFlameLion_Idle_04: 1752244328
+      BossFlameLion_Idle_05: -1605307907
+      BossFlameLion_Idle_06: -2021871176
+      BossFlameLion_Idle_07: 1408609059
+      BossFlameLion_Idle_08: 1078985896
+      BossFlameLion_Idle_09: 307282948
+      BossFlameLion_Idle_10: 1469360564
+      BossFlameLion_Idle_11: -735458099
+      BossFlameLion_Idle_12: 1052856469
+      BossFlameLion_Idle_13: -1013637056
+      BossFlameLion_Idle_14: 231844980
+      BossFlameLion_Idle_15: 90553141
+      BossFlameLion_Idle_16: 1874567306
+      BossFlameLion_Idle_17: -2063733632
+      BossFlameLion_Idle_18: 664321542
+      BossFlameLion_Idle_19: 1372348695
+      BossFlameLion_Idle_20: -1731275636
+      BossFlameLion_Idle_21: -836886533
+      BossFlameLion_Idle_22: -1303329243
+      BossFlameLion_Idle_23: -253129749
+      BossFlameLion_Idle_24: -344351345
+      flame_lion-idle_side_left_0: -3026076034851844116
+      flame_lion-idle_side_left_1: -4129104826948888345
+      flame_lion-idle_side_left_10: 4383440790883452503
+      flame_lion-idle_side_left_11: -9204615558344032631
+      flame_lion-idle_side_left_12: -2263195341920211630
+      flame_lion-idle_side_left_13: -980334291091356320
+      flame_lion-idle_side_left_14: 6284778709390889079
+      flame_lion-idle_side_left_15: -8212991084060835900
+      flame_lion-idle_side_left_16: 4558607376948509842
+      flame_lion-idle_side_left_17: -2143616682180580708
+      flame_lion-idle_side_left_18: 1632718938644345427
+      flame_lion-idle_side_left_19: 23122125263454335
+      flame_lion-idle_side_left_2: -2100899099007571303
+      flame_lion-idle_side_left_20: 8956545329785208965
+      flame_lion-idle_side_left_21: 4129566570313906820
+      flame_lion-idle_side_left_22: 8104675334823542862
+      flame_lion-idle_side_left_23: -8411955235757241614
+      flame_lion-idle_side_left_24: 9035764250113383074
+      flame_lion-idle_side_left_25: -5380607608260620985
+      flame_lion-idle_side_left_26: -7153426544202344650
+      flame_lion-idle_side_left_27: 1323508987506222070
+      flame_lion-idle_side_left_28: -79724165059764072
+      flame_lion-idle_side_left_29: -5258748460212685492
+      flame_lion-idle_side_left_3: -8336510130964392388
+      flame_lion-idle_side_left_30: 1917783089863962688
+      flame_lion-idle_side_left_31: -1658533493589115881
+      flame_lion-idle_side_left_32: -3189858323784964699
+      flame_lion-idle_side_left_33: -3640019165426563731
+      flame_lion-idle_side_left_34: -664792857607149994
+      flame_lion-idle_side_left_35: 2573630614130003329
+      flame_lion-idle_side_left_36: -5191634026496735537
+      flame_lion-idle_side_left_37: -6168066400135312796
+      flame_lion-idle_side_left_38: 4623264992999503384
+      flame_lion-idle_side_left_39: 97023493773677328
+      flame_lion-idle_side_left_4: -4468652346122611485
+      flame_lion-idle_side_left_40: -1318384655069905046
+      flame_lion-idle_side_left_41: -8527845408750254929
+      flame_lion-idle_side_left_42: -851865033307438914
+      flame_lion-idle_side_left_43: -7181602017521755272
+      flame_lion-idle_side_left_5: 2001983899695809570
+      flame_lion-idle_side_left_6: 1322721655571231422
+      flame_lion-idle_side_left_7: 9104214931635864810
+      flame_lion-idle_side_left_8: 6930610408822888575
+      flame_lion-idle_side_left_9: -4790658004927434546
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

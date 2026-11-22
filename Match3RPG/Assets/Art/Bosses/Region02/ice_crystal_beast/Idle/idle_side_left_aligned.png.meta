@@ -1,0 +1,866 @@
+fileFormatVersion: 2
+guid: 8bcd686a0d296b3439bcd6ab1b13cb8c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5821911602911551516
+    second: idle_side_left_aligned_0
+  - first:
+      213: 4800618578722971125
+    second: idle_side_left_aligned_1
+  - first:
+      213: -1336299218452330968
+    second: idle_side_left_aligned_2
+  - first:
+      213: -8327978631823958914
+    second: idle_side_left_aligned_3
+  - first:
+      213: -7892154837249265819
+    second: idle_side_left_aligned_4
+  - first:
+      213: 6830500377381421845
+    second: idle_side_left_aligned_5
+  - first:
+      213: -1178805051573269272
+    second: idle_side_left_aligned_6
+  - first:
+      213: -264718814436288788
+    second: idle_side_left_aligned_7
+  - first:
+      213: 6143946966183742687
+    second: idle_side_left_aligned_8
+  - first:
+      213: 8772121466571620000
+    second: idle_side_left_aligned_9
+  - first:
+      213: 4849653908685950756
+    second: idle_side_left_aligned_10
+  - first:
+      213: 1419811908015607103
+    second: idle_side_left_aligned_11
+  - first:
+      213: 2956806323214698140
+    second: idle_side_left_aligned_12
+  - first:
+      213: 6497470574734292274
+    second: idle_side_left_aligned_13
+  - first:
+      213: -3803851399836740792
+    second: idle_side_left_aligned_14
+  - first:
+      213: -4383239973514839029
+    second: idle_side_left_aligned_15
+  - first:
+      213: 641589693106217237
+    second: idle_side_left_aligned_16
+  - first:
+      213: -1801948502418447615
+    second: idle_side_left_aligned_17
+  - first:
+      213: -4035386177892110216
+    second: idle_side_left_aligned_18
+  - first:
+      213: 3615218860636937679
+    second: idle_side_left_aligned_19
+  - first:
+      213: -8979897238570502950
+    second: idle_side_left_aligned_20
+  - first:
+      213: 2479824237530459824
+    second: idle_side_left_aligned_21
+  - first:
+      213: -5209714958770094895
+    second: idle_side_left_aligned_22
+  - first:
+      213: -5236201580588734925
+    second: idle_side_left_aligned_23
+  - first:
+      213: -1415921318013744177
+    second: idle_side_left_aligned_24
+  - first:
+      213: -5190830810701063699
+    second: idle_side_left_aligned_25
+  - first:
+      213: -2074763932998698885
+    second: idle_side_left_aligned_26
+  - first:
+      213: 6192763971554082935
+    second: idle_side_left_aligned_27
+  - first:
+      213: -1479961179150942715
+    second: idle_side_left_aligned_28
+  - first:
+      213: -2729032148878546756
+    second: idle_side_left_aligned_29
+  - first:
+      213: 2429200431014853649
+    second: idle_side_left_aligned_30
+  - first:
+      213: -7360086143174891625
+    second: idle_side_left_aligned_31
+  - first:
+      213: 2840451285078786835
+    second: idle_side_left_aligned_32
+  - first:
+      213: 7864304718858986727
+    second: idle_side_left_aligned_33
+  - first:
+      213: 3748161308014752988
+    second: idle_side_left_aligned_34
+  - first:
+      213: -1137159765586474073
+    second: idle_side_left_aligned_35
+  - first:
+      213: 3672421111773152455
+    second: idle_side_left_aligned_36
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 102a54a1e04aae04fad11701f6de32f8
+      internalID: -1738582905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51feb9a961a0f854187006730c412c0e
+      internalID: 871378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02cbb4bde192b8a4082c53b55f064cb6
+      internalID: 553902619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d08b386fabdc7e4391c97b593a4ba94
+      internalID: 721351042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8216465f815acc74eac7046efd84e6be
+      internalID: 2144699833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8eefabbae46225499067358421650a7
+      internalID: 1724314364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6146881a00f09f547a6aa3d7fd3ce1f5
+      internalID: -1487099918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8ab0c436f1307e44951838ed951a76d
+      internalID: -1290312999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 972dc3d0cb406da44a83413991987a8a
+      internalID: 1533561972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e58815ecc6c129b40992435be36b1c8d
+      internalID: 1791945908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80e842317a9c0534aaf8e05ca00d9736
+      internalID: -1372878561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3793ee2c37636284a8f75ced22bf88d5
+      internalID: 1207667684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15669b4ea594fd84fa452c6e5c41d293
+      internalID: -149678495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 534ceba8ef1e734458a69f4ee3d3e998
+      internalID: 795873520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bb5fe47f7b394a42a0f154d175e67fe
+      internalID: -2109247756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab25024c0890b874087e728b5484eff9
+      internalID: 11359751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dbc7c56bbf7a394186600c852ba92a8
+      internalID: 1887426168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e175a9b8cc0a9344d96b9ce6bd2e363c
+      internalID: 1769497224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef5db829f6d669429736d3ef40a2335
+      internalID: -401034029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aa5822de0d36a847b48f19e8e0d3c90
+      internalID: 1968866136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09f04697fd6bdbd4d92c4460e1e87520
+      internalID: 1812977368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f608785d8f03fad45bbc15833fee8bfa
+      internalID: -623850543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c15402a607367143a84ec50cc2034ec
+      internalID: -742185900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3129850031a052e408b1ea38ad6e5557
+      internalID: -383656354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossIceCrystalBeast_Idle_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88902a05d7a594f4cb054c328a33e2a8
+      internalID: -1235071007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossIceCrystalBeast_Idle_00: -1738582905
+      BossIceCrystalBeast_Idle_01: 871378
+      BossIceCrystalBeast_Idle_02: 553902619
+      BossIceCrystalBeast_Idle_03: 721351042
+      BossIceCrystalBeast_Idle_04: 2144699833
+      BossIceCrystalBeast_Idle_05: 1724314364
+      BossIceCrystalBeast_Idle_06: -1487099918
+      BossIceCrystalBeast_Idle_07: -1290312999
+      BossIceCrystalBeast_Idle_08: 1533561972
+      BossIceCrystalBeast_Idle_09: 1791945908
+      BossIceCrystalBeast_Idle_10: -1372878561
+      BossIceCrystalBeast_Idle_11: 1207667684
+      BossIceCrystalBeast_Idle_12: -149678495
+      BossIceCrystalBeast_Idle_13: 795873520
+      BossIceCrystalBeast_Idle_14: -2109247756
+      BossIceCrystalBeast_Idle_15: 11359751
+      BossIceCrystalBeast_Idle_16: 1887426168
+      BossIceCrystalBeast_Idle_17: 1769497224
+      BossIceCrystalBeast_Idle_18: -401034029
+      BossIceCrystalBeast_Idle_19: 1968866136
+      BossIceCrystalBeast_Idle_20: 1812977368
+      BossIceCrystalBeast_Idle_21: -623850543
+      BossIceCrystalBeast_Idle_22: -742185900
+      BossIceCrystalBeast_Idle_23: -383656354
+      BossIceCrystalBeast_Idle_24: -1235071007
+      idle_side_left_aligned_0: -5821911602911551516
+      idle_side_left_aligned_1: 4800618578722971125
+      idle_side_left_aligned_10: 4849653908685950756
+      idle_side_left_aligned_11: 1419811908015607103
+      idle_side_left_aligned_12: 2956806323214698140
+      idle_side_left_aligned_13: 6497470574734292274
+      idle_side_left_aligned_14: -3803851399836740792
+      idle_side_left_aligned_15: -4383239973514839029
+      idle_side_left_aligned_16: 641589693106217237
+      idle_side_left_aligned_17: -1801948502418447615
+      idle_side_left_aligned_18: -4035386177892110216
+      idle_side_left_aligned_19: 3615218860636937679
+      idle_side_left_aligned_2: -1336299218452330968
+      idle_side_left_aligned_20: -8979897238570502950
+      idle_side_left_aligned_21: 2479824237530459824
+      idle_side_left_aligned_22: -5209714958770094895
+      idle_side_left_aligned_23: -5236201580588734925
+      idle_side_left_aligned_24: -1415921318013744177
+      idle_side_left_aligned_25: -5190830810701063699
+      idle_side_left_aligned_26: -2074763932998698885
+      idle_side_left_aligned_27: 6192763971554082935
+      idle_side_left_aligned_28: -1479961179150942715
+      idle_side_left_aligned_29: -2729032148878546756
+      idle_side_left_aligned_3: -8327978631823958914
+      idle_side_left_aligned_30: 2429200431014853649
+      idle_side_left_aligned_31: -7360086143174891625
+      idle_side_left_aligned_32: 2840451285078786835
+      idle_side_left_aligned_33: 7864304718858986727
+      idle_side_left_aligned_34: 3748161308014752988
+      idle_side_left_aligned_35: -1137159765586474073
+      idle_side_left_aligned_36: 3672421111773152455
+      idle_side_left_aligned_4: -7892154837249265819
+      idle_side_left_aligned_5: 6830500377381421845
+      idle_side_left_aligned_6: -1178805051573269272
+      idle_side_left_aligned_7: -264718814436288788
+      idle_side_left_aligned_8: 6143946966183742687
+      idle_side_left_aligned_9: 8772121466571620000
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

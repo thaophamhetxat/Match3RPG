@@ -1,0 +1,842 @@
+fileFormatVersion: 2
+guid: 79ab8884592457d44ba50ca4b503557d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2252951017174238593
+    second: Crimson Scorpion-atk_side_left_0
+  - first:
+      213: -6933530725453078294
+    second: Crimson Scorpion-atk_side_left_1
+  - first:
+      213: -8219320078419866052
+    second: Crimson Scorpion-atk_side_left_2
+  - first:
+      213: -7939589772586569866
+    second: Crimson Scorpion-atk_side_left_3
+  - first:
+      213: 5471811085937584480
+    second: Crimson Scorpion-atk_side_left_4
+  - first:
+      213: -9177240380234708724
+    second: Crimson Scorpion-atk_side_left_5
+  - first:
+      213: 3082063785242589475
+    second: Crimson Scorpion-atk_side_left_6
+  - first:
+      213: -8170319280348602012
+    second: Crimson Scorpion-atk_side_left_7
+  - first:
+      213: 5552355412892374898
+    second: Crimson Scorpion-atk_side_left_8
+  - first:
+      213: 2249053695506834079
+    second: Crimson Scorpion-atk_side_left_9
+  - first:
+      213: -1145777969126190603
+    second: Crimson Scorpion-atk_side_left_10
+  - first:
+      213: -4623491872261145659
+    second: Crimson Scorpion-atk_side_left_11
+  - first:
+      213: 4549192229025347958
+    second: Crimson Scorpion-atk_side_left_12
+  - first:
+      213: -4984344697527933062
+    second: Crimson Scorpion-atk_side_left_13
+  - first:
+      213: 6599318797738842570
+    second: Crimson Scorpion-atk_side_left_14
+  - first:
+      213: 1099170448828454450
+    second: Crimson Scorpion-atk_side_left_15
+  - first:
+      213: -2233814473299388799
+    second: Crimson Scorpion-atk_side_left_16
+  - first:
+      213: 5611264976000311642
+    second: Crimson Scorpion-atk_side_left_17
+  - first:
+      213: -1382342089372445371
+    second: Crimson Scorpion-atk_side_left_18
+  - first:
+      213: -3899921151525287990
+    second: Crimson Scorpion-atk_side_left_19
+  - first:
+      213: 4678283910516286869
+    second: Crimson Scorpion-atk_side_left_20
+  - first:
+      213: 886095714264402886
+    second: Crimson Scorpion-atk_side_left_21
+  - first:
+      213: 7392447837763385336
+    second: Crimson Scorpion-atk_side_left_22
+  - first:
+      213: -4897204515437634942
+    second: Crimson Scorpion-atk_side_left_23
+  - first:
+      213: -473232610481841485
+    second: Crimson Scorpion-atk_side_left_24
+  - first:
+      213: 7448106422868143420
+    second: Crimson Scorpion-atk_side_left_25
+  - first:
+      213: 207668435099003249
+    second: Crimson Scorpion-atk_side_left_26
+  - first:
+      213: -126833607928628687
+    second: Crimson Scorpion-atk_side_left_27
+  - first:
+      213: 6816957721179058329
+    second: Crimson Scorpion-atk_side_left_28
+  - first:
+      213: -1151478372187247700
+    second: Crimson Scorpion-atk_side_left_29
+  - first:
+      213: 1990349353241839919
+    second: Crimson Scorpion-atk_side_left_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 483ef5801dfc2084484f224c35ae7167
+      internalID: 1426190130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00d6ad03ebe82114ea5199f52918f665
+      internalID: -668724742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb3cac881093ba4c8a0d1194792eba3
+      internalID: 100528871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5271594c33390ed4192843b504c8c4a0
+      internalID: -196770369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 458cc744c6570ed4790330185a7dfdbb
+      internalID: 1287713846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef60e2a25850ef64c88c0a5e6a20803e
+      internalID: -1713659223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40a82f03a00b39749b605ef9df3a277a
+      internalID: -1950990482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1699305cb286ed4e86aa75371afd461
+      internalID: 920028049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98523678e5e23f14081359260e74ee39
+      internalID: -1935122685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a92bed556045f2843865fd65248fc372
+      internalID: -1903861671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a969397f478af04a8c7dad98291705b
+      internalID: -2124452592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31aa37bd58504964dacc05976f73cc83
+      internalID: 1386082509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e404ddfb52a225445800f6f837a9659e
+      internalID: 302451577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 282d54a7e682b9b47b7442faf58536d5
+      internalID: -1237527192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10228b7879331ea42b64c3d287900eea
+      internalID: 1325838360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2861fde1b0f864d40abdd8e7b7a75b64
+      internalID: -1205280094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 624eed943360e514e84ff4e17a238d7b
+      internalID: 1637180908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f2a2257f7e63054e80172fac8090304
+      internalID: 1379846894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48f20f974a4ab684dbe6007295bfd3ea
+      internalID: -1232263856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6274df1bd0b0767469db59b8b90dea65
+      internalID: -1770918074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d37d7dfd6974af49bf014e901b03e0d
+      internalID: -273166934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89acc821180331a44bfdda23b29ae8b0
+      internalID: -930426058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fcd5a9e912ac2844aa0b5c2267d75be
+      internalID: -1156317102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55d9925ca2eb00e4f8c71cb76d477acb
+      internalID: -627793114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossCrimsonScorpion_Attack_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bde500f7f7223f4bb3e9794704e232d
+      internalID: 187970358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossCrimsonScorpion_Attack_00: 1426190130
+      BossCrimsonScorpion_Attack_01: -668724742
+      BossCrimsonScorpion_Attack_02: 100528871
+      BossCrimsonScorpion_Attack_03: -196770369
+      BossCrimsonScorpion_Attack_04: 1287713846
+      BossCrimsonScorpion_Attack_05: -1713659223
+      BossCrimsonScorpion_Attack_06: -1950990482
+      BossCrimsonScorpion_Attack_07: 920028049
+      BossCrimsonScorpion_Attack_08: -1935122685
+      BossCrimsonScorpion_Attack_09: -1903861671
+      BossCrimsonScorpion_Attack_10: -2124452592
+      BossCrimsonScorpion_Attack_11: 1386082509
+      BossCrimsonScorpion_Attack_12: 302451577
+      BossCrimsonScorpion_Attack_13: -1237527192
+      BossCrimsonScorpion_Attack_14: 1325838360
+      BossCrimsonScorpion_Attack_15: -1205280094
+      BossCrimsonScorpion_Attack_16: 1637180908
+      BossCrimsonScorpion_Attack_17: 1379846894
+      BossCrimsonScorpion_Attack_18: -1232263856
+      BossCrimsonScorpion_Attack_19: -1770918074
+      BossCrimsonScorpion_Attack_20: -273166934
+      BossCrimsonScorpion_Attack_21: -930426058
+      BossCrimsonScorpion_Attack_22: -1156317102
+      BossCrimsonScorpion_Attack_23: -627793114
+      BossCrimsonScorpion_Attack_24: 187970358
+      Crimson Scorpion-atk_side_left_0: 2252951017174238593
+      Crimson Scorpion-atk_side_left_1: -6933530725453078294
+      Crimson Scorpion-atk_side_left_10: -1145777969126190603
+      Crimson Scorpion-atk_side_left_11: -4623491872261145659
+      Crimson Scorpion-atk_side_left_12: 4549192229025347958
+      Crimson Scorpion-atk_side_left_13: -4984344697527933062
+      Crimson Scorpion-atk_side_left_14: 6599318797738842570
+      Crimson Scorpion-atk_side_left_15: 1099170448828454450
+      Crimson Scorpion-atk_side_left_16: -2233814473299388799
+      Crimson Scorpion-atk_side_left_17: 5611264976000311642
+      Crimson Scorpion-atk_side_left_18: -1382342089372445371
+      Crimson Scorpion-atk_side_left_19: -3899921151525287990
+      Crimson Scorpion-atk_side_left_2: -8219320078419866052
+      Crimson Scorpion-atk_side_left_20: 4678283910516286869
+      Crimson Scorpion-atk_side_left_21: 886095714264402886
+      Crimson Scorpion-atk_side_left_22: 7392447837763385336
+      Crimson Scorpion-atk_side_left_23: -4897204515437634942
+      Crimson Scorpion-atk_side_left_24: -473232610481841485
+      Crimson Scorpion-atk_side_left_25: 7448106422868143420
+      Crimson Scorpion-atk_side_left_26: 207668435099003249
+      Crimson Scorpion-atk_side_left_27: -126833607928628687
+      Crimson Scorpion-atk_side_left_28: 6816957721179058329
+      Crimson Scorpion-atk_side_left_29: -1151478372187247700
+      Crimson Scorpion-atk_side_left_3: -7939589772586569866
+      Crimson Scorpion-atk_side_left_30: 1990349353241839919
+      Crimson Scorpion-atk_side_left_4: 5471811085937584480
+      Crimson Scorpion-atk_side_left_5: -9177240380234708724
+      Crimson Scorpion-atk_side_left_6: 3082063785242589475
+      Crimson Scorpion-atk_side_left_7: -8170319280348602012
+      Crimson Scorpion-atk_side_left_8: 5552355412892374898
+      Crimson Scorpion-atk_side_left_9: 2249053695506834079
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

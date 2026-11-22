@@ -42,6 +42,7 @@ namespace Match3RPG.Battle
             && attackClip != null && animator.HasState(0, IdleState)
             && animator.HasState(0, AttackState);
         public bool HasAttackFrames => IsReady && attackFramesAvailable;
+        public bool HasDeathClip => deathClip != null;
         public bool IsAttackPlaying => IsReady
             && animator.GetCurrentAnimatorStateInfo(0).fullPathHash == AttackState;
         public int ImpactCallbackCount { get; private set; }
@@ -245,9 +246,9 @@ namespace Match3RPG.Battle
             attackVersion++;
             currentState = BattleCharacterAnimState.Death;
             animator.ResetTrigger(AttackTrigger);
-            animator.ResetTrigger(DeathTrigger);
             if (deathClip != null && animator.HasState(0, DeathState))
             {
+                animator.ResetTrigger(DeathTrigger);
                 animator.speed = 1f;
                 animator.SetTrigger(DeathTrigger);
                 animator.Play(DeathState, 0, 0f);

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: region_02_boss_10
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
   bossId: region_02_boss_10
-  displayName: Flame Lion
-  portrait: {fileID: 21300000, guid: c541e6ad2a0fe474d92d45dbe7ad9c38, type: 3}
+  displayName: "R\u1ED3ng S\xF4ng Xanh"
+  portrait: {fileID: 1357692475, guid: 09bb8e7423e639641861434bd501320b, type: 3}
+  animationSet: {fileID: 11400000, guid: 3e324e927b5b3f149bb7e64f16ed82eb, type: 2}
   maxHP: 1825
   attack: 31
   maxRage: 100
@@ -24,3 +25,11 @@ MonoBehaviour:
   criticalEnabled: 1
   criticalDamageMultiplier: 2
   statusEffectCapabilities: 4
+  preferredAttackVfx: 0
+  defaultLootTableId: 
+  visualScale: 1
+  visualOffset: {x: 0, y: 0}
+  sourceFacing: 0
+  vfxAnchor: {x: 0.5, y: 0.48}
+  headVfxAnchor: {x: 0.5, y: 0.82}
+  floatingTextAnchor: {x: 0.5, y: 0.88}

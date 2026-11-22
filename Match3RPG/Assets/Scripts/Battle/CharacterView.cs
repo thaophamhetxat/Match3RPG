@@ -14,6 +14,7 @@ namespace Match3RPG.Battle
     {
         public enum CharacterState { Idle, Attack, SpecAttack, Hit, Dodge, Rising, Skill, Death }
         public const float HitAnimationDuration = .14f;
+        public const float DeathFadeOutDuration = .6f;
 
         [SerializeField] Image portrait;
         [SerializeField] float attackDistance = 80f;
@@ -226,6 +227,30 @@ namespace Match3RPG.Battle
             RestoreHomeVisual();
             State = CharacterState.Death;
             heroAnimation?.PlayDeath();
+            if (heroAnimation != null && !heroAnimation.HasDeathClip)
+            {
+                if (portrait != null)
+                {
+                    Color startColor = portrait.color;
+                    float startAlpha = startColor.a;
+                    float elapsed = 0f;
+                    while (elapsed < DeathFadeOutDuration)
+                    {
+                        float step = Time.deltaTime > 0f ? Time.deltaTime : (1f / 60f);
+                        elapsed += step;
+                        float t = Mathf.Clamp01(elapsed / DeathFadeOutDuration);
+                        Color fadeColor = startColor;
+                        fadeColor.a = Mathf.Lerp(startAlpha, 0f, t);
+                        portrait.color = fadeColor;
+                        yield return null;
+                    }
+                    startColor.a = 0f;
+                    portrait.color = startColor;
+                }
+                rectTransform.gameObject.SetActive(false);
+                gameObject.SetActive(false);
+                yield break;
+            }
             if (portrait != null)
             {
                 Color color = portrait.color;
@@ -500,7 +525,7 @@ namespace Match3RPG.Battle
 
             if (homePositionInitialized && rectTransform != null)
                 RestoreHomeVisual();
-            if (portrait != null) portrait.color = portraitColor;
+            if (portrait != null && State != CharacterState.Death) portrait.color = portraitColor;
             if (State != CharacterState.Death) State = CharacterState.Idle;
             SetVisualScale(idleNormalizationScaleMultiplier);
             if (State != CharacterState.Death)

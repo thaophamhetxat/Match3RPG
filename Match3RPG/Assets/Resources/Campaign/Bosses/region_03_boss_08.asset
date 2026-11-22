@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: region_03_boss_08
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
   bossId: region_03_boss_08
-  displayName: Golden Stone Guardian
-  portrait: {fileID: 21300000, guid: 4b4a01ef6b3c6cf41aca1c6426fe0517, type: 3}
+  displayName: "B\u1ECD C\u1EA1p \u0110\u1ECF Pha L\xEA"
+  portrait: {fileID: -852193242, guid: cf82fd798a072be47941841e15562c7c, type: 3}
+  animationSet: {fileID: 11400000, guid: 531727dcead76254a93556a150630126, type: 2}
   maxHP: 1825
   attack: 31
   maxRage: 100
@@ -24,3 +25,11 @@ MonoBehaviour:
   criticalEnabled: 1
   criticalDamageMultiplier: 2
   statusEffectCapabilities: 2
+  preferredAttackVfx: 0
+  defaultLootTableId: 
+  visualScale: 1
+  visualOffset: {x: 0, y: 0}
+  sourceFacing: 1
+  vfxAnchor: {x: 0.5, y: 0.48}
+  headVfxAnchor: {x: 0.5, y: 0.82}
+  floatingTextAnchor: {x: 0.5, y: 0.88}
