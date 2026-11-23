@@ -313,7 +313,7 @@ namespace Match3RPG.Battle
             }
             if (type == CombatVFXType.RageReady)
             {
-                position.y += 277f;
+                position.y += size.y * 0.5f;
             }
 
             RectTransform rect;
@@ -469,7 +469,7 @@ namespace Match3RPG.Battle
                 case CombatVFXType.Burn: return new Vector2(210f, 225f);
                 case CombatVFXType.Freeze: return new Vector2(215f, 235f);
                 case CombatVFXType.Poison: return new Vector2(205f, 220f);
-                case CombatVFXType.RageReady: return new Vector2(1150f, 550f);
+                case CombatVFXType.RageReady: return new Vector2(320f, 360f);
                 default: return new Vector2(170f, 170f);
             }
         }
