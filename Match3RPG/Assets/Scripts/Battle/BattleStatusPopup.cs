@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Match3RPG.Board;
 using Match3RPG.Campaign;
+using Match3RPG.Campaign.Data;
 using Match3RPG.Configuration;
 using Match3RPG.Core;
 using Match3RPG.Persistence;
@@ -9,6 +10,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Match3RPG.Battle
 {
@@ -17,9 +21,18 @@ namespace Match3RPG.Battle
         const float AnimationSeconds = .15f;
         const float PopupWidth = 1000f;
         const float PopupHeight = 1500f;
+        const float SkillTooltipDurationSeconds = 2.5f;
+        const string SkillInsufficientSpiritMessage = "Không đủ tinh lực để sử dụng kỹ năng";
         static readonly Color Gold = new Color32(231, 190, 110, 255);
         static readonly Color SkillConditionReadyColor = new Color32(74, 222, 128, 255);
         static readonly Color SkillConditionUnavailableColor = new Color32(156, 163, 175, 255);
+        static readonly GemType[] SkillCounterGemTypes =
+        {
+            GemType.Mana,
+            GemType.Attack,
+            GemType.Soul,
+            GemType.Rage
+        };
         static readonly string[] SettingIconResourceNames =
         {
             "MainProgress/Settings/settings_sound_256",     // index 0 = Âm Thanh
@@ -54,12 +67,25 @@ namespace Match3RPG.Battle
         GameObject confirmationRoot;
         Image[] settingOffOverlays = new Image[3];
         TMP_Text[] settingOffLabels = new TMP_Text[3];
+        readonly Image[] skillGemCounterIconImages = new Image[4];
+        readonly TMP_Text[] skillGemCounterTextLabels = new TMP_Text[4];
+        ScrollRect skillsScrollRect;
         Button flyingSwordRowButton;
         Image flyingSwordRowBackground;
         Image flyingSwordIconImage;
         Image flyingSwordCooldownPizzaOverlay;
+        TMP_Text flyingSwordLevelBadgeText;
         TMP_Text flyingSwordDescriptionText;
+        Image flyingSwordManaCostIcon;
+        TMP_Text flyingSwordManaCostText;
+        RectTransform flyingSwordRageCostIconRect;
+        Image flyingSwordRageCostIcon;
+        RectTransform flyingSwordConditionTextRect;
         TMP_Text flyingSwordConditionText;
+        float skillRowRightTextWidth = 575f;
+        RectTransform skillTooltipRoot;
+        TMP_Text skillTooltipText;
+        Coroutine skillTooltipRoutine;
         TurnManager turnManager;
         BoardManager board;
         BoardSelectionOverlay selectionOverlay;
@@ -335,7 +361,13 @@ namespace Match3RPG.Battle
                 skillsContentRoot.gameObject.SetActive(tab == Tab.Skills);
             settingsHits.gameObject.SetActive(tab == Tab.Settings);
             if (tab == Tab.Skills)
+            {
+                if (skillsScrollRect != null)
+                    skillsScrollRect.verticalNormalizedPosition = 1f;
                 RefreshSkillsTab();
+            }
+            else
+                HideSkillTooltip();
             UpdateSettingsIndicators();
             CloseItemPopup();
         }
@@ -446,6 +478,7 @@ namespace Match3RPG.Battle
         {
             if (!isOpen || closing)
                 return;
+            HideSkillTooltip();
             CloseItemPopup();
             if (confirmationRoot != null)
                 confirmationRoot.SetActive(false);
@@ -512,44 +545,134 @@ namespace Match3RPG.Battle
                 new Vector2(0.068f, 0.124f), new Vector2(0.931f, 0.749f),
                 Vector2.zero, Vector2.zero);
 
-            const int totalRows = 3;
+            // (1) Ô đếm gem cố định ở góc phải trên của tab Skills (không cuộn theo danh sách)
+            RectTransform gemCounterBox = CreateRect("SkillGemCounterBox", skillsContentRoot,
+                new Vector2(1f, 1f), new Vector2(1f, 1f), Vector2.zero, Vector2.zero);
+            gemCounterBox.pivot = new Vector2(1f, 1f);
+            gemCounterBox.sizeDelta = new Vector2(440f, 54f);
+            gemCounterBox.anchoredPosition = new Vector2(-24f, -10f);
+            Image counterBg = AddImage(gemCounterBox.gameObject, new Color32(12, 27, 36, 255));
+            counterBg.raycastTarget = false;
+            Outline counterOutline = gemCounterBox.gameObject.AddComponent<Outline>();
+            counterOutline.effectColor = Gold;
+            counterOutline.effectDistance = new Vector2(2f, -2f);
+
+            const float counterSlotWidth = 104f;
+            const float counterLeftPadding = 14f;
+            for (int i = 0; i < SkillCounterGemTypes.Length; i++)
+            {
+                GemType gemType = SkillCounterGemTypes[i];
+                float slotX = counterLeftPadding + i * counterSlotWidth;
+
+                RectTransform gemIconRect = CreateRect($"GemCounterIcon_{gemType}", gemCounterBox,
+                    new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
+                gemIconRect.pivot = new Vector2(0f, 0.5f);
+                gemIconRect.sizeDelta = new Vector2(36f, 36f);
+                gemIconRect.anchoredPosition = new Vector2(slotX, 0f);
+                Image gemIconImage = gemIconRect.gameObject.AddComponent<Image>();
+                gemIconImage.sprite = ResolveGemSprite(gemType);
+                gemIconImage.color = Color.white;
+                gemIconImage.preserveAspect = true;
+                gemIconImage.raycastTarget = false;
+                skillGemCounterIconImages[i] = gemIconImage;
+
+                RectTransform gemCountRect = CreateRect($"GemCounterValue_{gemType}", gemCounterBox,
+                    new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
+                gemCountRect.pivot = new Vector2(0f, 0.5f);
+                gemCountRect.sizeDelta = new Vector2(58f, 44f);
+                gemCountRect.anchoredPosition = new Vector2(slotX + 40f, 0f);
+                TMP_Text gemCountText = CreateText("0", gemCountRect, 22f, Vector2.zero, Vector2.one);
+                gemCountText.fontStyle = FontStyles.Bold;
+                gemCountText.alignment = TextAlignmentOptions.MidlineLeft;
+                gemCountText.enableAutoSizing = true;
+                gemCountText.fontSizeMin = 14f;
+                gemCountText.fontSizeMax = 22f;
+                gemCountText.color = Color.white;
+                skillGemCounterTextLabels[i] = gemCountText;
+            }
+
+            // (2) Danh sách skill cuộn dọc (ScrollRect) bên dưới ô đếm gem cố định
+            RectTransform viewportRect = CreateRect("SkillsScrollViewport", skillsContentRoot,
+                Vector2.zero, Vector2.one, new Vector2(0f, 10f), new Vector2(0f, -74f));
+            Image viewportImage = AddImage(viewportRect.gameObject, new Color(1f, 1f, 1f, 0.001f));
+            viewportImage.raycastTarget = true;
+            viewportRect.gameObject.AddComponent<RectMask2D>();
+
+            skillsScrollRect = viewportRect.gameObject.AddComponent<ScrollRect>();
+            skillsScrollRect.horizontal = false;
+            skillsScrollRect.vertical = true;
+            skillsScrollRect.movementType = ScrollRect.MovementType.Clamped;
+            skillsScrollRect.inertia = true;
+            skillsScrollRect.decelerationRate = 0.135f;
+            skillsScrollRect.scrollSensitivity = 36f;
+            skillsScrollRect.viewport = viewportRect;
+
+            const int totalRows = 4; // 1 skill thật + 3 ô kỹ năng trống
             const float rowWidth = 815f;
-            const float rowHeight = 258f;
-            const float rowSpacing = 40f;
-            float contentHeight = (0.749f - 0.124f) * PopupHeight;
-            float totalHeight = totalRows * rowHeight + (totalRows - 1) * rowSpacing;
-            float topMargin = (contentHeight - totalHeight) * 0.5f;
+            const float rowHeight = 220f; // Thu nhỏ ~15% từ 258f xuống 220f
+            const float rowSpacing = 26f;
+            const float topMargin = 8f;
+            const float bottomMargin = 16f;
+            const float iconSize = 170f;
+            const float iconLeftMargin = 24f;
+            float totalContentHeight = topMargin + totalRows * rowHeight
+                + (totalRows - 1) * rowSpacing + bottomMargin;
+
+            RectTransform contentRect = CreateRect("SkillsScrollContent", viewportRect,
+                new Vector2(0f, 1f), new Vector2(1f, 1f), Vector2.zero, Vector2.zero);
+            contentRect.pivot = new Vector2(0.5f, 1f);
+            contentRect.anchoredPosition = Vector2.zero;
+            contentRect.sizeDelta = new Vector2(0f, totalContentHeight);
+            skillsScrollRect.content = contentRect;
 
             for (int rowIndex = 0; rowIndex < totalRows; rowIndex++)
             {
-                RectTransform rowRect = CreateRect($"SkillRow_{rowIndex}", skillsContentRoot,
+                RectTransform rowRect = CreateRect($"SkillRow_{rowIndex}", contentRect,
                     new Vector2(0.5f, 1f), new Vector2(0.5f, 1f), Vector2.zero, Vector2.zero);
                 rowRect.pivot = new Vector2(0.5f, 1f);
                 rowRect.sizeDelta = new Vector2(rowWidth, rowHeight);
                 rowRect.anchoredPosition = new Vector2(0f,
                     -(topMargin + rowIndex * (rowHeight + rowSpacing)));
 
+                if (rowIndex != 0)
+                {
+                    Image emptyRowBg = AddImage(rowRect.gameObject, new Color32(12, 27, 36, 165));
+                    emptyRowBg.raycastTarget = true;
+                    Outline emptyRowOutline = rowRect.gameObject.AddComponent<Outline>();
+                    emptyRowOutline.effectColor = new Color32(231, 190, 110, 110);
+                    emptyRowOutline.effectDistance = new Vector2(2f, -2f);
+
+                    RectTransform emptyIconFrame = CreateRect("EmptySkillIconFrame", rowRect,
+                        new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
+                    emptyIconFrame.pivot = new Vector2(0f, 0.5f);
+                    emptyIconFrame.sizeDelta = new Vector2(iconSize, iconSize);
+                    emptyIconFrame.anchoredPosition = new Vector2(iconLeftMargin, 0f);
+                    Image emptyIconBg = AddImage(emptyIconFrame.gameObject, new Color32(16, 35, 46, 165));
+                    emptyIconBg.raycastTarget = false;
+                    Outline emptyIconOutline = emptyIconFrame.gameObject.AddComponent<Outline>();
+                    emptyIconOutline.effectColor = new Color32(231, 190, 110, 110);
+                    emptyIconOutline.effectDistance = new Vector2(2f, -2f);
+
+                    TMP_Text emptyQuestionText = CreateText("?", emptyIconFrame, 56f,
+                        Vector2.zero, Vector2.one);
+                    emptyQuestionText.fontStyle = FontStyles.Bold;
+                    emptyQuestionText.color = new Color32(156, 163, 175, 150);
+                    continue;
+                }
+
                 Image rowBg = AddImage(rowRect.gameObject, new Color32(12, 27, 36, 255));
+                rowBg.raycastTarget = true;
                 Outline rowOutline = rowRect.gameObject.AddComponent<Outline>();
                 rowOutline.effectColor = Gold;
                 rowOutline.effectDistance = new Vector2(2f, -2f);
 
-                if (rowIndex != 0)
-                {
-                    rowBg.raycastTarget = false;
-                    continue;
-                }
-
-                rowBg.raycastTarget = true;
                 flyingSwordRowBackground = rowBg;
                 flyingSwordRowButton = rowRect.gameObject.AddComponent<Button>();
                 flyingSwordRowButton.targetGraphic = rowBg;
                 flyingSwordRowButton.transition = Selectable.Transition.None;
                 flyingSwordRowButton.onClick.AddListener(OnFlyingSwordSkillClicked);
 
-                // Phần (1): 1 ảnh kỹ năng bên trái (ô vuông 200x200, dùng ảnh kiếm Sword.png làm demo tạm)
-                const float iconSize = 200f;
-                const float iconLeftMargin = 28f;
+                // Phần (1): 1 ảnh kỹ năng bên trái (ô vuông 170x170, dùng ảnh kiếm Sword.png)
                 RectTransform iconFrameRect = CreateRect("SkillIconFrame", rowRect,
                     new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
                 iconFrameRect.pivot = new Vector2(0f, 0.5f);
@@ -585,41 +708,181 @@ namespace Match3RPG.Battle
                 flyingSwordCooldownPizzaOverlay.raycastTarget = false;
                 flyingSwordCooldownPizzaOverlay.gameObject.SetActive(false);
 
+                // Badge "Lv.1" ở góc dưới cùng bên phải trên ảnh kỹ năng, cùng kiểu badge "E" trên item
+                RectTransform levelBadgeRect = CreateRect("SkillLevelBadge", iconFrameRect,
+                    new Vector2(1f, 0f), new Vector2(1f, 0f),
+                    new Vector2(-54f, 2f), new Vector2(-2f, 28f));
+                Image levelBadgeBg = AddImage(levelBadgeRect.gameObject, new Color32(15, 15, 20, 230));
+                levelBadgeBg.raycastTarget = false;
+                Outline levelBadgeOutline = levelBadgeRect.gameObject.AddComponent<Outline>();
+                levelBadgeOutline.effectColor = Gold;
+                levelBadgeOutline.effectDistance = new Vector2(1f, -1f);
+                flyingSwordLevelBadgeText = CreateText("Lv.1", levelBadgeRect, 18f,
+                    Vector2.zero, Vector2.one);
+                flyingSwordLevelBadgeText.fontStyle = FontStyles.Bold;
+                flyingSwordLevelBadgeText.enableAutoSizing = true;
+                flyingSwordLevelBadgeText.fontSizeMin = 12f;
+                flyingSwordLevelBadgeText.fontSizeMax = 18f;
+
                 // Phần (2): 1 mô tả kỹ năng bên phải
-                const float rightTextLeft = iconLeftMargin + iconSize + 24f;
+                const float rightTextLeft = iconLeftMargin + iconSize + 22f;
                 const float rightTextWidth = rowWidth - rightTextLeft - 24f;
+                skillRowRightTextWidth = rightTextWidth;
                 RectTransform descRect = CreateRect("SkillDescription", rowRect,
                     new Vector2(0f, 1f), new Vector2(0f, 1f), Vector2.zero, Vector2.zero);
                 descRect.pivot = new Vector2(0f, 1f);
-                descRect.sizeDelta = new Vector2(rightTextWidth, 138f);
-                descRect.anchoredPosition = new Vector2(rightTextLeft, -24f);
+                descRect.sizeDelta = new Vector2(rightTextWidth, 124f);
+                descRect.anchoredPosition = new Vector2(rightTextLeft, -18f);
                 flyingSwordDescriptionText = CreateText(
                     "Tạo 1 lớp kiếm khí quanh nhân vật, sau đó triệt tiêu 1 hàng kim cương bất kỳ.",
-                    descRect, 24f, Vector2.zero, Vector2.one);
+                    descRect, 23f, Vector2.zero, Vector2.one);
                 flyingSwordDescriptionText.alignment = TextAlignmentOptions.TopLeft;
                 flyingSwordDescriptionText.enableAutoSizing = true;
                 flyingSwordDescriptionText.fontSizeMin = 18f;
-                flyingSwordDescriptionText.fontSizeMax = 25f;
+                flyingSwordDescriptionText.fontSizeMax = 24f;
                 flyingSwordDescriptionText.color = Color.white;
 
-                // Phần (3): 1 chỗ mô tả điều kiện kỹ năng (cost + hồi chiêu + level)
+                // Phần (3): dòng điều kiện kỹ năng: "[icon mana] 3   [icon nộ] 0 • Hồi chiêu: 3 turn"
                 RectTransform condRect = CreateRect("SkillConditions", rowRect,
                     new Vector2(0f, 0f), new Vector2(0f, 0f), Vector2.zero, Vector2.zero);
                 condRect.pivot = new Vector2(0f, 0f);
-                condRect.sizeDelta = new Vector2(rightTextWidth, 68f);
-                condRect.anchoredPosition = new Vector2(rightTextLeft, 24f);
+                condRect.sizeDelta = new Vector2(rightTextWidth, 44f);
+                condRect.anchoredPosition = new Vector2(rightTextLeft, 18f);
+
+                RectTransform manaIconRect = CreateRect("ManaCostIcon", condRect,
+                    new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
+                manaIconRect.pivot = new Vector2(0f, 0.5f);
+                manaIconRect.sizeDelta = new Vector2(32f, 32f);
+                manaIconRect.anchoredPosition = new Vector2(0f, 0f);
+                flyingSwordManaCostIcon = manaIconRect.gameObject.AddComponent<Image>();
+                flyingSwordManaCostIcon.sprite = ResolveGemSprite(GemType.Mana);
+                flyingSwordManaCostIcon.color = Color.white;
+                flyingSwordManaCostIcon.preserveAspect = true;
+                flyingSwordManaCostIcon.raycastTarget = false;
+
+                RectTransform manaCostTextRect = CreateRect("ManaCostText", condRect,
+                    new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
+                manaCostTextRect.pivot = new Vector2(0f, 0.5f);
+                manaCostTextRect.sizeDelta = new Vector2(44f, 44f);
+                manaCostTextRect.anchoredPosition = new Vector2(38f, 0f);
+                flyingSwordManaCostText = CreateText("3", manaCostTextRect, 22f,
+                    Vector2.zero, Vector2.one);
+                flyingSwordManaCostText.alignment = TextAlignmentOptions.MidlineLeft;
+                flyingSwordManaCostText.enableAutoSizing = false;
+                flyingSwordManaCostText.color = SkillConditionUnavailableColor;
+
+                flyingSwordRageCostIconRect = CreateRect("RageCostIcon", condRect,
+                    new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
+                flyingSwordRageCostIconRect.pivot = new Vector2(0f, 0.5f);
+                flyingSwordRageCostIconRect.sizeDelta = new Vector2(32f, 32f);
+                flyingSwordRageCostIconRect.anchoredPosition = new Vector2(74f, 0f);
+                flyingSwordRageCostIcon = flyingSwordRageCostIconRect.gameObject.AddComponent<Image>();
+                flyingSwordRageCostIcon.sprite = ResolveGemSprite(GemType.Rage);
+                flyingSwordRageCostIcon.color = Color.white;
+                flyingSwordRageCostIcon.preserveAspect = true;
+                flyingSwordRageCostIcon.raycastTarget = false;
+
+                flyingSwordConditionTextRect = CreateRect("RageAndCooldownText", condRect,
+                    new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
+                flyingSwordConditionTextRect.pivot = new Vector2(0f, 0.5f);
+                flyingSwordConditionTextRect.sizeDelta = new Vector2(rightTextWidth - 112f, 44f);
+                flyingSwordConditionTextRect.anchoredPosition = new Vector2(112f, 0f);
                 flyingSwordConditionText = CreateText(
-                    "Lv.1 • 50 Mana + 20 Nộ • Hồi chiêu: 3 turn",
-                    condRect, 22f, Vector2.zero, Vector2.one);
-                flyingSwordConditionText.alignment = TextAlignmentOptions.BottomLeft;
+                    "0 • Hồi chiêu: 3 turn",
+                    flyingSwordConditionTextRect, 22f, Vector2.zero, Vector2.one);
+                flyingSwordConditionText.alignment = TextAlignmentOptions.MidlineLeft;
                 flyingSwordConditionText.enableAutoSizing = true;
                 flyingSwordConditionText.fontSizeMin = 16f;
                 flyingSwordConditionText.fontSizeMax = 22f;
                 flyingSwordConditionText.color = SkillConditionUnavailableColor;
             }
 
+            CreateSkillTooltip();
             skillsContentRoot.gameObject.SetActive(false);
             RefreshSkillsTab();
+        }
+
+        void CreateSkillTooltip()
+        {
+            skillTooltipRoot = CreateRect("CampaignTooltip", popupRect,
+                new Vector2(0.5f, 0.5f), new Vector2(0.5f, 0.5f), Vector2.zero, Vector2.zero);
+            skillTooltipRoot.sizeDelta = new Vector2(650f, 160f);
+            skillTooltipRoot.anchoredPosition = Vector2.zero;
+            Sprite tooltipFrameSprite = ResolveTooltipFrameSprite();
+            Image frame = skillTooltipRoot.gameObject.AddComponent<Image>();
+            frame.sprite = tooltipFrameSprite != null ? tooltipFrameSprite : whiteSprite;
+            frame.color = tooltipFrameSprite != null
+                ? Color.white
+                : (Color)new Color32(12, 27, 36, 242);
+            frame.preserveAspect = tooltipFrameSprite != null;
+            frame.raycastTarget = false;
+            Outline outline = skillTooltipRoot.gameObject.AddComponent<Outline>();
+            outline.effectColor = new Color32(180, 137, 65, 255);
+            outline.effectDistance = new Vector2(2f, -2f);
+            skillTooltipText = CreateText(SkillInsufficientSpiritMessage, skillTooltipRoot,
+                24f, new Vector2(0.10f, 0.20f), new Vector2(0.90f, 0.80f));
+            skillTooltipText.color = new Color32(238, 230, 207, 255);
+            skillTooltipText.enableAutoSizing = true;
+            skillTooltipText.fontSizeMin = 18f;
+            skillTooltipText.fontSizeMax = 24f;
+            skillTooltipRoot.gameObject.SetActive(false);
+        }
+
+        Sprite ResolveTooltipFrameSprite()
+        {
+            if (campaign != null && campaign.Catalog != null
+                && campaign.Catalog.CampaignTooltipFrame != null)
+                return campaign.Catalog.CampaignTooltipFrame;
+            CampaignCatalog catalog = Resources.Load<CampaignCatalog>("Campaign/CampaignCatalog");
+            return catalog != null ? catalog.CampaignTooltipFrame : null;
+        }
+
+        void ShowSkillUnavailableNotification()
+        {
+            if (skillTooltipRoot == null || skillTooltipText == null)
+                return;
+            skillTooltipText.text = SkillInsufficientSpiritMessage;
+            skillTooltipRoot.gameObject.SetActive(true);
+            skillTooltipRoot.SetAsLastSibling();
+            if (skillTooltipRoutine != null)
+                StopCoroutine(skillTooltipRoutine);
+            skillTooltipRoutine = StartCoroutine(HideSkillTooltipRoutine());
+        }
+
+        IEnumerator HideSkillTooltipRoutine()
+        {
+            yield return new WaitForSecondsRealtime(SkillTooltipDurationSeconds);
+            if (skillTooltipRoot != null)
+                skillTooltipRoot.gameObject.SetActive(false);
+            skillTooltipRoutine = null;
+        }
+
+        void HideSkillTooltip()
+        {
+            if (skillTooltipRoutine != null)
+            {
+                StopCoroutine(skillTooltipRoutine);
+                skillTooltipRoutine = null;
+            }
+            if (skillTooltipRoot != null)
+                skillTooltipRoot.gameObject.SetActive(false);
+        }
+
+        Sprite ResolveGemSprite(GemType type)
+        {
+            if (board != null)
+            {
+                Sprite boardSprite = board.GetGemSprite(type);
+                if (boardSprite != null)
+                    return boardSprite;
+            }
+#if UNITY_EDITOR
+            string assetPath = GemVisualDatabase.ExpectedBaseMapping(type);
+            Sprite editorSprite = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
+            if (editorSprite != null)
+                return editorSprite;
+#endif
+            return null;
         }
 
         void RefreshSkillsTab()
@@ -628,6 +891,21 @@ namespace Match3RPG.Battle
                 return;
 
             BattleController battle = turnManager != null ? turnManager.Battle : null;
+            int[] gemCounts =
+            {
+                battle != null ? battle.PlayerManaGemCount : 0,
+                battle != null ? battle.PlayerAttackGemCount : 0,
+                battle != null ? battle.PlayerSoulGemCount : 0,
+                battle != null ? battle.PlayerRageGemCount : 0
+            };
+            for (int i = 0; i < SkillCounterGemTypes.Length; i++)
+            {
+                if (skillGemCounterIconImages[i] != null && skillGemCounterIconImages[i].sprite == null)
+                    skillGemCounterIconImages[i].sprite = ResolveGemSprite(SkillCounterGemTypes[i]);
+                if (skillGemCounterTextLabels[i] != null)
+                    skillGemCounterTextLabels[i].text = gemCounts[i].ToString();
+            }
+
             SkillConfig skill = battle != null ? battle.FlyingSwordSkill : null;
             int level = battle != null ? battle.FlyingSwordSkillLevel : SkillConfig.DefaultLevel;
             int manaCost = skill != null ? skill.ManaCost : SkillConfig.DefaultManaCost;
@@ -637,6 +915,12 @@ namespace Match3RPG.Battle
 
             if (flyingSwordIconImage != null && flyingSwordIconImage.sprite == null)
                 flyingSwordIconImage.sprite = skill != null ? skill.Icon : SkillConfig.ResolveSwordSprite();
+            if (flyingSwordManaCostIcon != null && flyingSwordManaCostIcon.sprite == null)
+                flyingSwordManaCostIcon.sprite = ResolveGemSprite(GemType.Mana);
+            if (flyingSwordRageCostIcon != null && flyingSwordRageCostIcon.sprite == null)
+                flyingSwordRageCostIcon.sprite = ResolveGemSprite(GemType.Rage);
+            if (flyingSwordLevelBadgeText != null)
+                flyingSwordLevelBadgeText.text = $"Lv.{level}";
 
             string description = skill != null
                 ? skill.GetDescriptionForLevel(level)
@@ -645,16 +929,34 @@ namespace Match3RPG.Battle
 
             bool canActivate = turnManager != null && turnManager.CanActivateManualSkill;
             if (flyingSwordRowButton != null)
-                flyingSwordRowButton.interactable = canActivate;
+                flyingSwordRowButton.interactable = true;
+
+            Color conditionColor = canActivate
+                ? SkillConditionReadyColor
+                : SkillConditionUnavailableColor;
+            string manaCostStr = manaCost.ToString();
+            if (flyingSwordManaCostText != null)
+            {
+                flyingSwordManaCostText.text = manaCostStr;
+                flyingSwordManaCostText.color = conditionColor;
+            }
+            float manaTextWidth = Mathf.Max(16f, manaCostStr.Length * 14f);
+            float rageIconX = 38f + manaTextWidth + 18f;
+            if (flyingSwordRageCostIconRect != null)
+                flyingSwordRageCostIconRect.anchoredPosition = new Vector2(rageIconX, 0f);
+            float condTextX = rageIconX + 38f;
+            if (flyingSwordConditionTextRect != null)
+            {
+                flyingSwordConditionTextRect.anchoredPosition = new Vector2(condTextX, 0f);
+                flyingSwordConditionTextRect.sizeDelta = new Vector2(
+                    Mathf.Max(100f, skillRowRightTextWidth - condTextX), 44f);
+            }
 
             string cooldownLabel = cooldownRemaining > 0
                 ? $"Hồi chiêu: còn {cooldownRemaining}/{cooldownTurns} turn"
                 : $"Hồi chiêu: {cooldownTurns} turn";
-            flyingSwordConditionText.text =
-                $"Lv.{level} • {manaCost} Mana + {rageCost} Nộ • {cooldownLabel}";
-            flyingSwordConditionText.color = canActivate
-                ? SkillConditionReadyColor
-                : SkillConditionUnavailableColor;
+            flyingSwordConditionText.text = $"{rageCost} • {cooldownLabel}";
+            flyingSwordConditionText.color = conditionColor;
             flyingSwordDescriptionText.color = canActivate
                 ? Color.white
                 : new Color32(180, 186, 196, 255);
@@ -681,12 +983,14 @@ namespace Match3RPG.Battle
         {
             if (turnManager == null || !turnManager.CanActivateManualSkill)
             {
+                ShowSkillUnavailableNotification();
                 RefreshSkillsTab();
                 return;
             }
 
             if (!turnManager.TryActivateFlyingSwordSkill())
             {
+                ShowSkillUnavailableNotification();
                 RefreshSkillsTab();
                 return;
             }
@@ -696,6 +1000,7 @@ namespace Match3RPG.Battle
 
         void CloseImmediateForSkill()
         {
+            HideSkillTooltip();
             CloseItemPopup();
             if (confirmationRoot != null)
                 confirmationRoot.SetActive(false);

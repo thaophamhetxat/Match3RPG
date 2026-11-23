@@ -30,8 +30,8 @@ namespace Match3RPG.Configuration
         public const string FlyingSwordSkillId = "flying_sword";
         public const string FlyingSwordDisplayName = "Kiếm Bay Quanh";
         public const string FlyingSwordAssetPath = "Assets/Art/VFX/Skills/FlyingSword/Sword.png";
-        public const int DefaultManaCost = 50;
-        public const int DefaultRageCost = 20;
+        public const int DefaultManaCost = 3;
+        public const int DefaultRageCost = 0;
         public const int DefaultCooldownTurns = 3;
         public const int DefaultLevel = 1;
         public const int MaxLevel = 5;

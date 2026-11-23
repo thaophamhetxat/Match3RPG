@@ -231,6 +231,8 @@ namespace Match3RPG.Board
             GemType[] spawnableTypes = ActiveSpawnableGemTypes;
             return spawnableTypes[UnityEngine.Random.Range(0, spawnableTypes.Length)];
         }
+        public Sprite GetGemSprite(GemType type) => SpriteFor(type);
+
         Sprite SpriteFor(GemType type)
         {
             if (visualDatabase != null)

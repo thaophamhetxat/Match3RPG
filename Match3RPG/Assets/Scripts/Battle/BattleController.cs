@@ -62,6 +62,7 @@ namespace Match3RPG.Battle
         int heroMaxSoulHp, bossMaxSoulHp;
         int heroShield, heroShieldTurns;
         int heroRage, bossRage;
+        int playerManaGemCount, playerAttackGemCount, playerSoulGemCount, playerRageGemCount;
         int flyingSwordCooldownRemaining;
         int lastSyncedFlyingSwordLevel = SkillConfig.DefaultLevel;
         SkillConfig flyingSwordSkillConfig;
@@ -77,6 +78,10 @@ namespace Match3RPG.Battle
         StarChartGemInventoryService starChartGemInventory;
 
         public int InvalidMovePenaltyCount { get; private set; }
+        public int PlayerManaGemCount => playerManaGemCount;
+        public int PlayerAttackGemCount => playerAttackGemCount;
+        public int PlayerSoulGemCount => playerSoulGemCount;
+        public int PlayerRageGemCount => playerRageGemCount;
         public int FlyingSwordCooldownRemaining => flyingSwordCooldownRemaining;
         public SkillConfig FlyingSwordSkill => ResolveFlyingSwordSkill();
         public int FlyingSwordSkillLevel => ResolveActiveFlyingSwordLevel();
@@ -239,6 +244,10 @@ namespace Match3RPG.Battle
             bossMana = 0;
             heroRage = 0;
             bossRage = Mathf.Clamp(bossStartingRage, 0, BossMaxRage);
+            playerManaGemCount = 0;
+            playerAttackGemCount = 0;
+            playerSoulGemCount = 0;
+            playerRageGemCount = 0;
             flyingSwordCooldownRemaining = 0;
             if (layoutTestMode)
                 ApplyLayoutTestState();
@@ -285,6 +294,13 @@ namespace Match3RPG.Battle
 
             if (actor == BattleActor.Player)
             {
+                if (!isSkillGemResolution)
+                {
+                    playerManaGemCount = AddNonNegative(playerManaGemCount, manaGems);
+                    playerAttackGemCount = AddNonNegative(playerAttackGemCount, attackGems);
+                    playerSoulGemCount = AddNonNegative(playerSoulGemCount, Count(move, GemType.Soul));
+                    playerRageGemCount = AddNonNegative(playerRageGemCount, rageGems);
+                }
                 int previousHealth = heroHp;
                 heroHp = Mathf.Min(heroMaxHp, heroHp
                     + healthGems * AddNonNegative(BaseHealthPerGem, healthStars));
@@ -688,7 +704,7 @@ namespace Match3RPG.Battle
             SkillConfig skill = ResolveFlyingSwordSkill();
             int requiredMana = skill != null ? skill.ManaCost : SkillConfig.DefaultManaCost;
             int requiredRage = skill != null ? skill.RageCost : SkillConfig.DefaultRageCost;
-            return mana >= requiredMana && heroRage >= requiredRage;
+            return playerManaGemCount >= requiredMana && playerRageGemCount >= requiredRage;
         }
 
         public bool TryConsumeFlyingSwordSkillCost()
@@ -701,6 +717,8 @@ namespace Match3RPG.Battle
             int requiredRage = skill != null ? skill.RageCost : SkillConfig.DefaultRageCost;
             int cooldown = skill != null ? skill.CooldownTurns : SkillConfig.DefaultCooldownTurns;
 
+            playerManaGemCount = Mathf.Max(0, playerManaGemCount - requiredMana);
+            playerRageGemCount = Mathf.Max(0, playerRageGemCount - requiredRage);
             mana = Mathf.Clamp(mana - requiredMana, 0, GetMaxMana(BattleActor.Player));
             heroRage = Mathf.Clamp(heroRage - requiredRage, 0, MaxRage);
             flyingSwordCooldownRemaining = Mathf.Max(0, cooldown);

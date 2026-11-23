@@ -19,8 +19,8 @@ MonoBehaviour:
   skillType: 0
   targetType: 5
   triggerType: 0
-  manaCost: 50
-  rageCost: 20
+  manaCost: 3
+  rageCost: 0
   cooldownTurns: 3
   level: 1
   levelTable:
