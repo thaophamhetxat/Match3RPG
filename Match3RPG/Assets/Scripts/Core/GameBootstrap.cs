@@ -383,9 +383,9 @@ namespace Match3RPG.Core
             battleAreaRect = CreateRect("CharacterLayer", battleLayoutReferenceRoot,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
             heroAnchorRect = CreateRect("HeroAnchor", battleAreaRect,
-                new Vector2(.25f, .74f), new Vector2(.25f, .74f), Vector2.zero, Vector2.zero);
+                new Vector2(.25f, .74f), new Vector2(.25f, .74f), new Vector2(0f, -44f), new Vector2(0f, -44f));
             bossAnchorRect = CreateRect("BossAnchor", battleAreaRect,
-                new Vector2(.75f, .74f), new Vector2(.75f, .74f), Vector2.zero, Vector2.zero);
+                new Vector2(.75f, .74f), new Vector2(.75f, .74f), new Vector2(0f, -44f), new Vector2(0f, -44f));
             RectTransform effectLayer = CreateRect("VFXLayer", battleLayoutReferenceRoot,
                 Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
             CombatVFXManager combatVfx = effectLayer.gameObject.AddComponent<CombatVFXManager>();
