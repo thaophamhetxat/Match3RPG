@@ -18,6 +18,7 @@ namespace Match3RPG.Editor
         const string HealingAuraPath = VfxRoot + "Other/healing_aura.png";
         const string LifeStealPath = VfxRoot + "Other/life_steal.png";
         const string RageAuraPath = VfxRoot + "Other/rage_aura_blue.png";
+        const string BloodHitPath = VfxRoot + "Impact/BloodHit.png";
 
         static readonly CombatVFXType[] VfxTypes =
         {
@@ -38,7 +39,7 @@ namespace Match3RPG.Editor
             HealingAuraPath,
             VfxRoot + "Shield/shield_ring.png",
             VfxRoot + "Defense/VFX_ShieldHit.png",
-            VfxRoot + "Impact/VFX_HitImpact.png",
+            BloodHitPath,
             VfxRoot + "Impact/VFX_HitPhysical.png",
             VfxRoot + "Impact/VFX_CriticalHit.png",
             VfxRoot + "Ultimate/VFX_Ultimate.png",
@@ -67,6 +68,8 @@ namespace Match3RPG.Editor
                     frames[index] = LoadFrameSprites(LifeStealPath, "LifeSteal", 40);
                 else if (VfxTypes[index] == CombatVFXType.RageReady)
                     frames[index] = LoadFrameSprites(RageAuraPath, "RageAura", 30);
+                else if (VfxTypes[index] == CombatVFXType.HitImpact)
+                    frames[index] = LoadFrameSprites(BloodHitPath, "BloodHit", 6);
 
                 sprites[index] = VfxTypes[index] != CombatVFXType.RageReady
                     && frames[index] != null && frames[index].Length > 0
@@ -120,6 +123,13 @@ namespace Match3RPG.Editor
                     EnsureFrameSheetImportSettings(assetPath, "RageAura", 6, 5, 30,
                         SpriteAlignment.BottomCenter, new Vector2(.5f, 0f));
                     spriteCount += 30;
+                    continue;
+                }
+                if (string.Equals(assetPath, BloodHitPath, StringComparison.OrdinalIgnoreCase))
+                {
+                    EnsureFrameSheetImportSettings(assetPath, "BloodHit", 3, 2, 6,
+                        SpriteAlignment.Center, new Vector2(.5f, .5f));
+                    spriteCount += 6;
                     continue;
                 }
 

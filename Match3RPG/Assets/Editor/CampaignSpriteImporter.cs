@@ -15,6 +15,7 @@ namespace Match3RPG.Editor
         const string HealingAuraPath = CampaignVfxPath + "Other/healing_aura.png";
         const string LifeStealPath = CampaignVfxPath + "Other/life_steal.png";
         const string RageAuraPath = CampaignVfxPath + "Other/rage_aura_blue.png";
+        const string BloodHitPath = CampaignVfxPath + "Impact/BloodHit.png";
 
         void OnPreprocessTexture()
         {
@@ -32,7 +33,7 @@ namespace Match3RPG.Editor
             importer.textureType = TextureImporterType.Sprite;
             importer.spriteImportMode = !isSkillsVfx
                 && (assetPath == HealingAuraPath || assetPath == LifeStealPath
-                    || assetPath == RageAuraPath)
+                    || assetPath == RageAuraPath || assetPath == BloodHitPath)
                 ? SpriteImportMode.Multiple
                 : SpriteImportMode.Single;
             if (isSkillsVfx)

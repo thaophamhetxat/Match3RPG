@@ -7,6 +7,9 @@ namespace Match3RPG.Battle
     public sealed class CombatVFXManager : MonoBehaviour
     {
         const float TransientLifetime = .24f;
+        const float HitImpactDuration = .5f;
+        const float HitImpactFrameRate = 12f;
+        static readonly Vector2 HitImpactSize = new Vector2(220f, 220f);
         public const float HealingAuraDuration = 2.4f;
         public const float LifeStealDuration = 1.333f;
         static Sprite radialFlashSprite;
@@ -72,7 +75,8 @@ namespace Match3RPG.Battle
         }
 
         bool PlayFrameSequence(CombatVFXType type, Vector3 worldPosition,
-            float duration, Vector2 size, float direction, RectTransform anchorOverride = null)
+            float duration, Vector2 size, float direction, RectTransform anchorOverride = null,
+            float frameRate = 30f)
         {
             if (transientRoot == null || !TryGetFrames(type, out Sprite[] frames))
                 return false;
@@ -87,8 +91,14 @@ namespace Match3RPG.Battle
             Image image;
             CombatVFXView view = CreateView(transientRoot, frames[0], type, size,
                 position, direction, out rect, out image);
-            view.BeginFrameTransient(type, frames, 30f, duration, null);
+            view.BeginFrameTransient(type, frames, frameRate, duration, null);
             return true;
+        }
+
+        bool PlayHitImpact(Vector3 worldPosition, float direction, RectTransform anchorOverride = null)
+        {
+            return PlayFrameSequence(CombatVFXType.HitImpact, worldPosition,
+                HitImpactDuration, HitImpactSize, direction, anchorOverride, HitImpactFrameRate);
         }
 
         public void PlayUltimate(BattleActor actor)
@@ -202,8 +212,12 @@ namespace Match3RPG.Battle
 
             if (firstHit && actor != BattleActor.Player)
                 PlayAt(CombatVFXType.Slash, targetAnchor, .23f, FacingSign(attacker));
-            PlayAt(critical ? CombatVFXType.CriticalHit : CombatVFXType.HitImpact,
-                targetAnchor, TransientLifetime, FacingSign(attacker));
+            if (critical)
+                PlayAt(CombatVFXType.CriticalHit, targetAnchor, TransientLifetime, FacingSign(attacker));
+            else if (targetAnchor != null)
+                PlayHitImpact(targetAnchor.position, FacingSign(attacker), targetAnchor);
+            else if (target.VisualRect != null)
+                PlayHitImpact(target.VisualRect.TransformPoint(target.VisualRect.rect.center), FacingSign(attacker));
         }
 
         public bool IsPersistentEffectActive(BattleActor actor, CombatVFXType type)
@@ -334,6 +348,9 @@ namespace Match3RPG.Battle
 
         void PlayAt(CombatVFXType type, RectTransform anchor, float duration, float direction)
         {
+            if (type == CombatVFXType.HitImpact && anchor != null
+                && PlayHitImpact(anchor.position, direction, anchor))
+                return;
             if (anchor == null || transientRoot == null || !TryGetSprite(type, out Sprite sprite))
                 return;
 
@@ -357,6 +374,9 @@ namespace Match3RPG.Battle
 
         void PlayAtPosition(CombatVFXType type, Vector2 position, float duration, float direction)
         {
+            if (type == CombatVFXType.HitImpact && transientRoot != null
+                && PlayHitImpact(transientRoot.TransformPoint(position), direction))
+                return;
             if (transientRoot == null || !TryGetSprite(type, out Sprite sprite))
                 return;
 

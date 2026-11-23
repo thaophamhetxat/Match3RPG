@@ -107,8 +107,14 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: 4a7b287870a933743a2dcd5c13f9a571, type: 3}
     frames: []
   - type: 7
-    sprite: {fileID: 21300000, guid: 8add969a8e1a0014797e0da95584c9f1, type: 3}
-    frames: []
+    sprite: {fileID: -1428732436, guid: edfed213773732d4fb89e10ec1703452, type: 3}
+    frames:
+    - {fileID: -1428732436, guid: edfed213773732d4fb89e10ec1703452, type: 3}
+    - {fileID: -869820244, guid: edfed213773732d4fb89e10ec1703452, type: 3}
+    - {fileID: -1261193532, guid: edfed213773732d4fb89e10ec1703452, type: 3}
+    - {fileID: 945819267, guid: edfed213773732d4fb89e10ec1703452, type: 3}
+    - {fileID: 2113967219, guid: edfed213773732d4fb89e10ec1703452, type: 3}
+    - {fileID: -461428091, guid: edfed213773732d4fb89e10ec1703452, type: 3}
   - type: 8
     sprite: {fileID: 21300000, guid: 25ceb40680b0dae43bcb31ee5127817b, type: 3}
     frames: []
