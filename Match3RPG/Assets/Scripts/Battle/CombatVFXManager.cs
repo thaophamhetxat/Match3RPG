@@ -9,6 +9,7 @@ namespace Match3RPG.Battle
         const float TransientLifetime = .24f;
         public const float HealingAuraDuration = 2.4f;
         public const float LifeStealDuration = 1.333f;
+        static Sprite radialFlashSprite;
         readonly bool[] missingSpritesLogged = new bool[17];
         CombatVFXView[,] persistentEffects;
         CombatVFXCatalog catalog;
@@ -98,6 +99,87 @@ namespace Match3RPG.Battle
         public void PlayDash(BattleActor actor)
         {
             PlayAt(CombatVFXType.Dash, GetCharacter(actor)?.VFXAnchor, .24f, FacingSign(GetCharacter(actor)));
+        }
+
+        public void PlaySwordQiImpact(BattleActor actor)
+        {
+            CharacterView target = GetCharacter(actor);
+            RectTransform targetAnchor = target != null ? target.VFXAnchor : null;
+            if (targetAnchor == null || transientRoot == null)
+                return;
+
+            PlayAt(CombatVFXType.HitImpact, targetAnchor, TransientLifetime, FacingSign(target));
+
+            Vector2 position = ToTransientPosition(targetAnchor.position);
+            GameObject flashObj = new GameObject("SwordQiImpactFlash", typeof(RectTransform),
+                typeof(CanvasRenderer), typeof(Image));
+            RectTransform flashRect = flashObj.GetComponent<RectTransform>();
+            flashRect.SetParent(transientRoot, false);
+            flashRect.anchorMin = flashRect.anchorMax = new Vector2(0.5f, 0.5f);
+            flashRect.pivot = new Vector2(0.5f, 0.5f);
+            flashRect.sizeDelta = new Vector2(280f, 280f);
+            flashRect.anchoredPosition = position;
+            flashRect.localScale = Vector3.one * 0.6f;
+
+            Image flashImage = flashObj.GetComponent<Image>();
+            flashImage.sprite = GetOrCreateRadialFlashSprite();
+            flashImage.color = Color.white;
+            flashImage.raycastTarget = false;
+
+            StartCoroutine(AnimateImpactFlash(flashRect, flashImage, 0.24f));
+        }
+
+        static IEnumerator AnimateImpactFlash(RectTransform flashRect, Image flashImage, float duration)
+        {
+            float elapsed = 0f;
+            float safeDuration = Mathf.Max(0.05f, duration);
+            while (elapsed < safeDuration && flashRect != null && flashImage != null)
+            {
+                float dt = Time.deltaTime > 0f ? Time.deltaTime : (1f / 60f);
+                elapsed += dt;
+                float t = Mathf.Clamp01(elapsed / safeDuration);
+                float scale = Mathf.Lerp(0.6f, 1.45f, 1f - (1f - t) * (1f - t));
+                flashRect.localScale = new Vector3(scale, scale, 1f);
+                Color c = flashImage.color;
+                c.a = 1f - t * t;
+                flashImage.color = c;
+                yield return null;
+            }
+            if (flashRect != null)
+                Destroy(flashRect.gameObject);
+        }
+
+        static Sprite GetOrCreateRadialFlashSprite()
+        {
+            if (radialFlashSprite != null)
+                return radialFlashSprite;
+
+            const int size = 64;
+            Texture2D tex = new Texture2D(size, size, TextureFormat.RGBA32, false)
+            {
+                wrapMode = TextureWrapMode.Clamp,
+                filterMode = FilterMode.Bilinear
+            };
+            float half = (size - 1) * 0.5f;
+            for (int y = 0; y < size; y++)
+            {
+                for (int x = 0; x < size; x++)
+                {
+                    float dx = (x - half) / half;
+                    float dy = (y - half) / half;
+                    float dist = Mathf.Sqrt(dx * dx + dy * dy);
+                    float falloff = Mathf.Clamp01(1f - dist);
+                    float alpha = falloff * falloff;
+                    // Pure white core blending into bright cyan-blue halo.
+                    Color pixel = Color.Lerp(new Color(0.55f, 0.90f, 1f, alpha),
+                        new Color(1f, 1f, 1f, alpha), falloff);
+                    tex.SetPixel(x, y, pixel);
+                }
+            }
+            tex.Apply(false, true);
+            radialFlashSprite = Sprite.Create(tex, new Rect(0, 0, size, size),
+                new Vector2(0.5f, 0.5f), 100f);
+            return radialFlashSprite;
         }
 
         public void PlayAttack(BattleActor actor, bool critical, CombatVFXType preferredAttack,

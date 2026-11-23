@@ -67,21 +67,27 @@ namespace Match3RPG.Battle
         GameObject confirmationRoot;
         Image[] settingOffOverlays = new Image[3];
         TMP_Text[] settingOffLabels = new TMP_Text[3];
+        sealed class SkillRowWidgets
+        {
+            public Button RowButton;
+            public Image RowBackground;
+            public Image IconImage;
+            public Image CooldownPizzaOverlay;
+            public TMP_Text LevelBadgeText;
+            public TMP_Text DescriptionText;
+            public Image ManaCostIcon;
+            public TMP_Text ManaCostText;
+            public RectTransform RageCostIconRect;
+            public Image RageCostIcon;
+            public RectTransform ConditionTextRect;
+            public TMP_Text ConditionText;
+        }
+
         readonly Image[] skillGemCounterIconImages = new Image[4];
         readonly TMP_Text[] skillGemCounterTextLabels = new TMP_Text[4];
         ScrollRect skillsScrollRect;
-        Button flyingSwordRowButton;
-        Image flyingSwordRowBackground;
-        Image flyingSwordIconImage;
-        Image flyingSwordCooldownPizzaOverlay;
-        TMP_Text flyingSwordLevelBadgeText;
-        TMP_Text flyingSwordDescriptionText;
-        Image flyingSwordManaCostIcon;
-        TMP_Text flyingSwordManaCostText;
-        RectTransform flyingSwordRageCostIconRect;
-        Image flyingSwordRageCostIcon;
-        RectTransform flyingSwordConditionTextRect;
-        TMP_Text flyingSwordConditionText;
+        SkillRowWidgets flyingSwordRow;
+        SkillRowWidgets swordQiRow;
         float skillRowRightTextWidth = 575f;
         RectTransform skillTooltipRoot;
         TMP_Text skillTooltipText;
@@ -607,7 +613,7 @@ namespace Match3RPG.Battle
             skillsScrollRect.scrollSensitivity = 36f;
             skillsScrollRect.viewport = viewportRect;
 
-            const int totalRows = 4; // 1 skill thật + 3 ô kỹ năng trống
+            const int totalRows = 4; // 2 skill thật + 2 ô kỹ năng trống
             const float rowWidth = 815f;
             const float rowHeight = 220f; // Thu nhỏ ~15% từ 258f xuống 220f
             const float rowSpacing = 26f;
@@ -634,172 +640,208 @@ namespace Match3RPG.Battle
                 rowRect.anchoredPosition = new Vector2(0f,
                     -(topMargin + rowIndex * (rowHeight + rowSpacing)));
 
-                if (rowIndex != 0)
+                if (rowIndex == 0)
                 {
-                    Image emptyRowBg = AddImage(rowRect.gameObject, new Color32(12, 27, 36, 165));
-                    emptyRowBg.raycastTarget = true;
-                    Outline emptyRowOutline = rowRect.gameObject.AddComponent<Outline>();
-                    emptyRowOutline.effectColor = new Color32(231, 190, 110, 110);
-                    emptyRowOutline.effectDistance = new Vector2(2f, -2f);
-
-                    RectTransform emptyIconFrame = CreateRect("EmptySkillIconFrame", rowRect,
-                        new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
-                    emptyIconFrame.pivot = new Vector2(0f, 0.5f);
-                    emptyIconFrame.sizeDelta = new Vector2(iconSize, iconSize);
-                    emptyIconFrame.anchoredPosition = new Vector2(iconLeftMargin, 0f);
-                    Image emptyIconBg = AddImage(emptyIconFrame.gameObject, new Color32(16, 35, 46, 165));
-                    emptyIconBg.raycastTarget = false;
-                    Outline emptyIconOutline = emptyIconFrame.gameObject.AddComponent<Outline>();
-                    emptyIconOutline.effectColor = new Color32(231, 190, 110, 110);
-                    emptyIconOutline.effectDistance = new Vector2(2f, -2f);
-
-                    TMP_Text emptyQuestionText = CreateText("?", emptyIconFrame, 56f,
-                        Vector2.zero, Vector2.one);
-                    emptyQuestionText.fontStyle = FontStyles.Bold;
-                    emptyQuestionText.color = new Color32(156, 163, 175, 150);
+                    flyingSwordRow = BuildSkillRow(
+                        rowRect,
+                        rowWidth,
+                        iconSize,
+                        iconLeftMargin,
+                        SkillConfig.ResolveSwordSprite(),
+                        "Tạo 1 lớp kiếm khí quanh nhân vật, sau đó triệt tiêu 1 hàng kim cương bất kỳ.",
+                        OnFlyingSwordSkillClicked);
                     continue;
                 }
 
-                Image rowBg = AddImage(rowRect.gameObject, new Color32(12, 27, 36, 255));
-                rowBg.raycastTarget = true;
-                Outline rowOutline = rowRect.gameObject.AddComponent<Outline>();
-                rowOutline.effectColor = Gold;
-                rowOutline.effectDistance = new Vector2(2f, -2f);
+                if (rowIndex == 1)
+                {
+                    swordQiRow = BuildSkillRow(
+                        rowRect,
+                        rowWidth,
+                        iconSize,
+                        iconLeftMargin,
+                        SkillConfig.ResolveSwordQiSprite(),
+                        SkillConfig.SwordQiDescription,
+                        OnSwordQiSkillClicked);
+                    continue;
+                }
 
-                flyingSwordRowBackground = rowBg;
-                flyingSwordRowButton = rowRect.gameObject.AddComponent<Button>();
-                flyingSwordRowButton.targetGraphic = rowBg;
-                flyingSwordRowButton.transition = Selectable.Transition.None;
-                flyingSwordRowButton.onClick.AddListener(OnFlyingSwordSkillClicked);
+                Image emptyRowBg = AddImage(rowRect.gameObject, new Color32(12, 27, 36, 165));
+                emptyRowBg.raycastTarget = true;
+                Outline emptyRowOutline = rowRect.gameObject.AddComponent<Outline>();
+                emptyRowOutline.effectColor = new Color32(231, 190, 110, 110);
+                emptyRowOutline.effectDistance = new Vector2(2f, -2f);
 
-                // Phần (1): 1 ảnh kỹ năng bên trái (ô vuông 170x170, dùng ảnh kiếm Sword.png)
-                RectTransform iconFrameRect = CreateRect("SkillIconFrame", rowRect,
+                RectTransform emptyIconFrame = CreateRect("EmptySkillIconFrame", rowRect,
                     new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
-                iconFrameRect.pivot = new Vector2(0f, 0.5f);
-                iconFrameRect.sizeDelta = new Vector2(iconSize, iconSize);
-                iconFrameRect.anchoredPosition = new Vector2(iconLeftMargin, 0f);
-                Image iconFrameBg = AddImage(iconFrameRect.gameObject, new Color32(16, 35, 46, 255));
-                iconFrameBg.raycastTarget = false;
-                Outline iconOutline = iconFrameRect.gameObject.AddComponent<Outline>();
-                iconOutline.effectColor = Gold;
-                iconOutline.effectDistance = new Vector2(2f, -2f);
-                iconFrameRect.gameObject.AddComponent<RectMask2D>();
+                emptyIconFrame.pivot = new Vector2(0f, 0.5f);
+                emptyIconFrame.sizeDelta = new Vector2(iconSize, iconSize);
+                emptyIconFrame.anchoredPosition = new Vector2(iconLeftMargin, 0f);
+                Image emptyIconBg = AddImage(emptyIconFrame.gameObject, new Color32(16, 35, 46, 165));
+                emptyIconBg.raycastTarget = false;
+                Outline emptyIconOutline = emptyIconFrame.gameObject.AddComponent<Outline>();
+                emptyIconOutline.effectColor = new Color32(231, 190, 110, 110);
+                emptyIconOutline.effectDistance = new Vector2(2f, -2f);
 
-                RectTransform artworkRect = CreateRect("SkillArtwork", iconFrameRect,
-                    new Vector2(0.06f, 0.06f), new Vector2(0.94f, 0.94f),
-                    Vector2.zero, Vector2.zero);
-                flyingSwordIconImage = artworkRect.gameObject.AddComponent<Image>();
-                flyingSwordIconImage.sprite = SkillConfig.ResolveSwordSprite();
-                flyingSwordIconImage.color = Color.white;
-                flyingSwordIconImage.preserveAspect = true;
-                flyingSwordIconImage.raycastTarget = false;
-
-                // Lớp phủ xám HÌNH TRÒN kiểu bánh pizza từ tâm ô ảnh (12 giờ, chiều kim đồng hồ, mỗi turn +120 độ)
-                RectTransform pizzaRect = CreateRect("CooldownPizzaOverlay", iconFrameRect,
-                    Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
-                pizzaRect.pivot = new Vector2(0.5f, 0.5f);
-                flyingSwordCooldownPizzaOverlay = AddImage(pizzaRect.gameObject,
-                    new Color(0.05f, 0.07f, 0.09f, 0.72f));
-                flyingSwordCooldownPizzaOverlay.type = Image.Type.Filled;
-                flyingSwordCooldownPizzaOverlay.fillMethod = Image.FillMethod.Radial360;
-                flyingSwordCooldownPizzaOverlay.fillOrigin = (int)Image.Origin360.Top;
-                flyingSwordCooldownPizzaOverlay.fillClockwise = false;
-                flyingSwordCooldownPizzaOverlay.fillAmount = 0f;
-                flyingSwordCooldownPizzaOverlay.raycastTarget = false;
-                flyingSwordCooldownPizzaOverlay.gameObject.SetActive(false);
-
-                // Badge "Lv.1" ở góc dưới cùng bên phải trên ảnh kỹ năng, cùng kiểu badge "E" trên item
-                RectTransform levelBadgeRect = CreateRect("SkillLevelBadge", iconFrameRect,
-                    new Vector2(1f, 0f), new Vector2(1f, 0f),
-                    new Vector2(-54f, 2f), new Vector2(-2f, 28f));
-                Image levelBadgeBg = AddImage(levelBadgeRect.gameObject, new Color32(15, 15, 20, 230));
-                levelBadgeBg.raycastTarget = false;
-                Outline levelBadgeOutline = levelBadgeRect.gameObject.AddComponent<Outline>();
-                levelBadgeOutline.effectColor = Gold;
-                levelBadgeOutline.effectDistance = new Vector2(1f, -1f);
-                flyingSwordLevelBadgeText = CreateText("Lv.1", levelBadgeRect, 18f,
+                TMP_Text emptyQuestionText = CreateText("?", emptyIconFrame, 56f,
                     Vector2.zero, Vector2.one);
-                flyingSwordLevelBadgeText.fontStyle = FontStyles.Bold;
-                flyingSwordLevelBadgeText.enableAutoSizing = true;
-                flyingSwordLevelBadgeText.fontSizeMin = 12f;
-                flyingSwordLevelBadgeText.fontSizeMax = 18f;
-
-                // Phần (2): 1 mô tả kỹ năng bên phải
-                const float rightTextLeft = iconLeftMargin + iconSize + 22f;
-                const float rightTextWidth = rowWidth - rightTextLeft - 24f;
-                skillRowRightTextWidth = rightTextWidth;
-                RectTransform descRect = CreateRect("SkillDescription", rowRect,
-                    new Vector2(0f, 1f), new Vector2(0f, 1f), Vector2.zero, Vector2.zero);
-                descRect.pivot = new Vector2(0f, 1f);
-                descRect.sizeDelta = new Vector2(rightTextWidth, 124f);
-                descRect.anchoredPosition = new Vector2(rightTextLeft, -18f);
-                flyingSwordDescriptionText = CreateText(
-                    "Tạo 1 lớp kiếm khí quanh nhân vật, sau đó triệt tiêu 1 hàng kim cương bất kỳ.",
-                    descRect, 23f, Vector2.zero, Vector2.one);
-                flyingSwordDescriptionText.alignment = TextAlignmentOptions.TopLeft;
-                flyingSwordDescriptionText.enableAutoSizing = true;
-                flyingSwordDescriptionText.fontSizeMin = 18f;
-                flyingSwordDescriptionText.fontSizeMax = 24f;
-                flyingSwordDescriptionText.color = Color.white;
-
-                // Phần (3): dòng điều kiện kỹ năng: "[icon mana] 3   [icon nộ] 0 • Hồi chiêu: 3 turn"
-                RectTransform condRect = CreateRect("SkillConditions", rowRect,
-                    new Vector2(0f, 0f), new Vector2(0f, 0f), Vector2.zero, Vector2.zero);
-                condRect.pivot = new Vector2(0f, 0f);
-                condRect.sizeDelta = new Vector2(rightTextWidth, 44f);
-                condRect.anchoredPosition = new Vector2(rightTextLeft, 18f);
-
-                RectTransform manaIconRect = CreateRect("ManaCostIcon", condRect,
-                    new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
-                manaIconRect.pivot = new Vector2(0f, 0.5f);
-                manaIconRect.sizeDelta = new Vector2(32f, 32f);
-                manaIconRect.anchoredPosition = new Vector2(0f, 0f);
-                flyingSwordManaCostIcon = manaIconRect.gameObject.AddComponent<Image>();
-                flyingSwordManaCostIcon.sprite = ResolveGemSprite(GemType.Mana);
-                flyingSwordManaCostIcon.color = Color.white;
-                flyingSwordManaCostIcon.preserveAspect = true;
-                flyingSwordManaCostIcon.raycastTarget = false;
-
-                RectTransform manaCostTextRect = CreateRect("ManaCostText", condRect,
-                    new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
-                manaCostTextRect.pivot = new Vector2(0f, 0.5f);
-                manaCostTextRect.sizeDelta = new Vector2(44f, 44f);
-                manaCostTextRect.anchoredPosition = new Vector2(38f, 0f);
-                flyingSwordManaCostText = CreateText("3", manaCostTextRect, 22f,
-                    Vector2.zero, Vector2.one);
-                flyingSwordManaCostText.alignment = TextAlignmentOptions.MidlineLeft;
-                flyingSwordManaCostText.enableAutoSizing = false;
-                flyingSwordManaCostText.color = SkillConditionUnavailableColor;
-
-                flyingSwordRageCostIconRect = CreateRect("RageCostIcon", condRect,
-                    new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
-                flyingSwordRageCostIconRect.pivot = new Vector2(0f, 0.5f);
-                flyingSwordRageCostIconRect.sizeDelta = new Vector2(32f, 32f);
-                flyingSwordRageCostIconRect.anchoredPosition = new Vector2(74f, 0f);
-                flyingSwordRageCostIcon = flyingSwordRageCostIconRect.gameObject.AddComponent<Image>();
-                flyingSwordRageCostIcon.sprite = ResolveGemSprite(GemType.Rage);
-                flyingSwordRageCostIcon.color = Color.white;
-                flyingSwordRageCostIcon.preserveAspect = true;
-                flyingSwordRageCostIcon.raycastTarget = false;
-
-                flyingSwordConditionTextRect = CreateRect("RageAndCooldownText", condRect,
-                    new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
-                flyingSwordConditionTextRect.pivot = new Vector2(0f, 0.5f);
-                flyingSwordConditionTextRect.sizeDelta = new Vector2(rightTextWidth - 112f, 44f);
-                flyingSwordConditionTextRect.anchoredPosition = new Vector2(112f, 0f);
-                flyingSwordConditionText = CreateText(
-                    "0 • Hồi chiêu: 3 turn",
-                    flyingSwordConditionTextRect, 22f, Vector2.zero, Vector2.one);
-                flyingSwordConditionText.alignment = TextAlignmentOptions.MidlineLeft;
-                flyingSwordConditionText.enableAutoSizing = true;
-                flyingSwordConditionText.fontSizeMin = 16f;
-                flyingSwordConditionText.fontSizeMax = 22f;
-                flyingSwordConditionText.color = SkillConditionUnavailableColor;
+                emptyQuestionText.fontStyle = FontStyles.Bold;
+                emptyQuestionText.color = new Color32(156, 163, 175, 150);
             }
 
             CreateSkillTooltip();
             skillsContentRoot.gameObject.SetActive(false);
             RefreshSkillsTab();
+        }
+
+        SkillRowWidgets BuildSkillRow(
+            RectTransform rowRect,
+            float rowWidth,
+            float iconSize,
+            float iconLeftMargin,
+            Sprite defaultIcon,
+            string defaultDescription,
+            UnityEngine.Events.UnityAction onClick)
+        {
+            SkillRowWidgets widgets = new SkillRowWidgets();
+
+            Image rowBg = AddImage(rowRect.gameObject, new Color32(12, 27, 36, 255));
+            rowBg.raycastTarget = true;
+            Outline rowOutline = rowRect.gameObject.AddComponent<Outline>();
+            rowOutline.effectColor = Gold;
+            rowOutline.effectDistance = new Vector2(2f, -2f);
+
+            widgets.RowBackground = rowBg;
+            widgets.RowButton = rowRect.gameObject.AddComponent<Button>();
+            widgets.RowButton.targetGraphic = rowBg;
+            widgets.RowButton.transition = Selectable.Transition.None;
+            widgets.RowButton.onClick.AddListener(onClick);
+
+            // Phần (1): 1 ảnh kỹ năng bên trái (ô vuông 170x170)
+            RectTransform iconFrameRect = CreateRect("SkillIconFrame", rowRect,
+                new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
+            iconFrameRect.pivot = new Vector2(0f, 0.5f);
+            iconFrameRect.sizeDelta = new Vector2(iconSize, iconSize);
+            iconFrameRect.anchoredPosition = new Vector2(iconLeftMargin, 0f);
+            Image iconFrameBg = AddImage(iconFrameRect.gameObject, new Color32(16, 35, 46, 255));
+            iconFrameBg.raycastTarget = false;
+            Outline iconOutline = iconFrameRect.gameObject.AddComponent<Outline>();
+            iconOutline.effectColor = Gold;
+            iconOutline.effectDistance = new Vector2(2f, -2f);
+            iconFrameRect.gameObject.AddComponent<RectMask2D>();
+
+            RectTransform artworkRect = CreateRect("SkillArtwork", iconFrameRect,
+                new Vector2(0.06f, 0.06f), new Vector2(0.94f, 0.94f),
+                Vector2.zero, Vector2.zero);
+            widgets.IconImage = artworkRect.gameObject.AddComponent<Image>();
+            widgets.IconImage.sprite = defaultIcon;
+            widgets.IconImage.color = Color.white;
+            widgets.IconImage.preserveAspect = true;
+            widgets.IconImage.raycastTarget = false;
+
+            // Lớp phủ xám HÌNH TRÒN kiểu bánh pizza từ tâm ô ảnh (12 giờ, chiều kim đồng hồ)
+            RectTransform pizzaRect = CreateRect("CooldownPizzaOverlay", iconFrameRect,
+                Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
+            pizzaRect.pivot = new Vector2(0.5f, 0.5f);
+            widgets.CooldownPizzaOverlay = AddImage(pizzaRect.gameObject,
+                new Color(0.05f, 0.07f, 0.09f, 0.72f));
+            widgets.CooldownPizzaOverlay.type = Image.Type.Filled;
+            widgets.CooldownPizzaOverlay.fillMethod = Image.FillMethod.Radial360;
+            widgets.CooldownPizzaOverlay.fillOrigin = (int)Image.Origin360.Top;
+            widgets.CooldownPizzaOverlay.fillClockwise = false;
+            widgets.CooldownPizzaOverlay.fillAmount = 0f;
+            widgets.CooldownPizzaOverlay.raycastTarget = false;
+            widgets.CooldownPizzaOverlay.gameObject.SetActive(false);
+
+            // Badge "Lv.1" ở góc dưới cùng bên phải trên ảnh kỹ năng, cùng kiểu badge "E" trên item
+            RectTransform levelBadgeRect = CreateRect("SkillLevelBadge", iconFrameRect,
+                new Vector2(1f, 0f), new Vector2(1f, 0f),
+                new Vector2(-54f, 2f), new Vector2(-2f, 28f));
+            Image levelBadgeBg = AddImage(levelBadgeRect.gameObject, new Color32(15, 15, 20, 230));
+            levelBadgeBg.raycastTarget = false;
+            Outline levelBadgeOutline = levelBadgeRect.gameObject.AddComponent<Outline>();
+            levelBadgeOutline.effectColor = Gold;
+            levelBadgeOutline.effectDistance = new Vector2(1f, -1f);
+            widgets.LevelBadgeText = CreateText("Lv.1", levelBadgeRect, 18f,
+                Vector2.zero, Vector2.one);
+            widgets.LevelBadgeText.fontStyle = FontStyles.Bold;
+            widgets.LevelBadgeText.enableAutoSizing = true;
+            widgets.LevelBadgeText.fontSizeMin = 12f;
+            widgets.LevelBadgeText.fontSizeMax = 18f;
+
+            // Phần (2): 1 mô tả kỹ năng bên phải
+            float rightTextLeft = iconLeftMargin + iconSize + 22f;
+            float rightTextWidth = rowWidth - rightTextLeft - 24f;
+            skillRowRightTextWidth = rightTextWidth;
+            RectTransform descRect = CreateRect("SkillDescription", rowRect,
+                new Vector2(0f, 1f), new Vector2(0f, 1f), Vector2.zero, Vector2.zero);
+            descRect.pivot = new Vector2(0f, 1f);
+            descRect.sizeDelta = new Vector2(rightTextWidth, 124f);
+            descRect.anchoredPosition = new Vector2(rightTextLeft, -18f);
+            widgets.DescriptionText = CreateText(
+                defaultDescription,
+                descRect, 23f, Vector2.zero, Vector2.one);
+            widgets.DescriptionText.alignment = TextAlignmentOptions.TopLeft;
+            widgets.DescriptionText.enableAutoSizing = true;
+            widgets.DescriptionText.fontSizeMin = 18f;
+            widgets.DescriptionText.fontSizeMax = 24f;
+            widgets.DescriptionText.color = Color.white;
+
+            // Phần (3): dòng điều kiện kỹ năng: "[icon mana] 3   [icon nộ] 0 • Hồi chiêu: 3 turn"
+            RectTransform condRect = CreateRect("SkillConditions", rowRect,
+                new Vector2(0f, 0f), new Vector2(0f, 0f), Vector2.zero, Vector2.zero);
+            condRect.pivot = new Vector2(0f, 0f);
+            condRect.sizeDelta = new Vector2(rightTextWidth, 44f);
+            condRect.anchoredPosition = new Vector2(rightTextLeft, 18f);
+
+            RectTransform manaIconRect = CreateRect("ManaCostIcon", condRect,
+                new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
+            manaIconRect.pivot = new Vector2(0f, 0.5f);
+            manaIconRect.sizeDelta = new Vector2(32f, 32f);
+            manaIconRect.anchoredPosition = new Vector2(0f, 0f);
+            widgets.ManaCostIcon = manaIconRect.gameObject.AddComponent<Image>();
+            widgets.ManaCostIcon.sprite = ResolveGemSprite(GemType.Mana);
+            widgets.ManaCostIcon.color = Color.white;
+            widgets.ManaCostIcon.preserveAspect = true;
+            widgets.ManaCostIcon.raycastTarget = false;
+
+            RectTransform manaCostTextRect = CreateRect("ManaCostText", condRect,
+                new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
+            manaCostTextRect.pivot = new Vector2(0f, 0.5f);
+            manaCostTextRect.sizeDelta = new Vector2(44f, 44f);
+            manaCostTextRect.anchoredPosition = new Vector2(38f, 0f);
+            widgets.ManaCostText = CreateText("3", manaCostTextRect, 22f,
+                Vector2.zero, Vector2.one);
+            widgets.ManaCostText.alignment = TextAlignmentOptions.MidlineLeft;
+            widgets.ManaCostText.enableAutoSizing = false;
+            widgets.ManaCostText.color = SkillConditionUnavailableColor;
+
+            widgets.RageCostIconRect = CreateRect("RageCostIcon", condRect,
+                new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
+            widgets.RageCostIconRect.pivot = new Vector2(0f, 0.5f);
+            widgets.RageCostIconRect.sizeDelta = new Vector2(32f, 32f);
+            widgets.RageCostIconRect.anchoredPosition = new Vector2(74f, 0f);
+            widgets.RageCostIcon = widgets.RageCostIconRect.gameObject.AddComponent<Image>();
+            widgets.RageCostIcon.sprite = ResolveGemSprite(GemType.Rage);
+            widgets.RageCostIcon.color = Color.white;
+            widgets.RageCostIcon.preserveAspect = true;
+            widgets.RageCostIcon.raycastTarget = false;
+
+            widgets.ConditionTextRect = CreateRect("RageAndCooldownText", condRect,
+                new Vector2(0f, 0.5f), new Vector2(0f, 0.5f), Vector2.zero, Vector2.zero);
+            widgets.ConditionTextRect.pivot = new Vector2(0f, 0.5f);
+            widgets.ConditionTextRect.sizeDelta = new Vector2(rightTextWidth - 112f, 44f);
+            widgets.ConditionTextRect.anchoredPosition = new Vector2(112f, 0f);
+            widgets.ConditionText = CreateText(
+                "0 • Hồi chiêu: 3 turn",
+                widgets.ConditionTextRect, 22f, Vector2.zero, Vector2.one);
+            widgets.ConditionText.alignment = TextAlignmentOptions.MidlineLeft;
+            widgets.ConditionText.enableAutoSizing = true;
+            widgets.ConditionText.fontSizeMin = 16f;
+            widgets.ConditionText.fontSizeMax = 22f;
+            widgets.ConditionText.color = SkillConditionUnavailableColor;
+
+            return widgets;
         }
 
         void CreateSkillTooltip()
@@ -887,9 +929,6 @@ namespace Match3RPG.Battle
 
         void RefreshSkillsTab()
         {
-            if (flyingSwordDescriptionText == null || flyingSwordConditionText == null)
-                return;
-
             BattleController battle = turnManager != null ? turnManager.Battle : null;
             int[] gemCounts =
             {
@@ -906,89 +945,144 @@ namespace Match3RPG.Battle
                     skillGemCounterTextLabels[i].text = gemCounts[i].ToString();
             }
 
-            SkillConfig skill = battle != null ? battle.FlyingSwordSkill : null;
-            int level = battle != null ? battle.FlyingSwordSkillLevel : SkillConfig.DefaultLevel;
-            int manaCost = skill != null ? skill.ManaCost : SkillConfig.DefaultManaCost;
-            int rageCost = skill != null ? skill.RageCost : SkillConfig.DefaultRageCost;
-            int cooldownTurns = skill != null ? skill.CooldownTurns : SkillConfig.DefaultCooldownTurns;
-            int cooldownRemaining = battle != null ? battle.FlyingSwordCooldownRemaining : 0;
+            if (flyingSwordRow != null)
+            {
+                SkillConfig flyingSwordSkill = battle != null ? battle.FlyingSwordSkill : null;
+                int level = battle != null ? battle.FlyingSwordSkillLevel : SkillConfig.DefaultLevel;
+                string fallbackDescription =
+                    $"Tạo 1 lớp kiếm khí quanh nhân vật, sau đó triệt tiêu {(level <= 2 ? 1 : level <= 4 ? 2 : 3)} hàng kim cương bất kỳ.";
+                RefreshSkillRow(
+                    flyingSwordRow,
+                    flyingSwordSkill,
+                    SkillConfig.ResolveSwordSprite(),
+                    level,
+                    SkillConfig.DefaultManaCost,
+                    SkillConfig.DefaultRageCost,
+                    SkillConfig.DefaultCooldownTurns,
+                    battle != null ? battle.FlyingSwordCooldownRemaining : 0,
+                    fallbackDescription,
+                    turnManager != null && turnManager.CanActivateManualSkill);
+            }
 
-            if (flyingSwordIconImage != null && flyingSwordIconImage.sprite == null)
-                flyingSwordIconImage.sprite = skill != null ? skill.Icon : SkillConfig.ResolveSwordSprite();
-            if (flyingSwordManaCostIcon != null && flyingSwordManaCostIcon.sprite == null)
-                flyingSwordManaCostIcon.sprite = ResolveGemSprite(GemType.Mana);
-            if (flyingSwordRageCostIcon != null && flyingSwordRageCostIcon.sprite == null)
-                flyingSwordRageCostIcon.sprite = ResolveGemSprite(GemType.Rage);
-            if (flyingSwordLevelBadgeText != null)
-                flyingSwordLevelBadgeText.text = $"Lv.{level}";
+            if (swordQiRow != null)
+            {
+                SkillConfig swordQiSkill = battle != null ? battle.SwordQiSkill : null;
+                int level = battle != null ? battle.SwordQiSkillLevel : SkillConfig.DefaultLevel;
+                RefreshSkillRow(
+                    swordQiRow,
+                    swordQiSkill,
+                    SkillConfig.ResolveSwordQiSprite(),
+                    level,
+                    SkillConfig.SwordQiDefaultManaCost,
+                    SkillConfig.SwordQiDefaultRageCost,
+                    SkillConfig.SwordQiDefaultCooldownTurns,
+                    battle != null ? battle.SwordQiCooldownRemaining : 0,
+                    SkillConfig.SwordQiDescription,
+                    turnManager != null && turnManager.CanActivateSwordQiSkill);
+            }
+        }
+
+        void RefreshSkillRow(
+            SkillRowWidgets widgets,
+            SkillConfig skill,
+            Sprite fallbackIcon,
+            int level,
+            int defaultManaCost,
+            int defaultRageCost,
+            int defaultCooldownTurns,
+            int cooldownRemaining,
+            string fallbackDescription,
+            bool canActivate)
+        {
+            if (widgets == null || widgets.DescriptionText == null || widgets.ConditionText == null)
+                return;
+
+            int manaCost = skill != null ? skill.ManaCost : defaultManaCost;
+            int rageCost = skill != null ? skill.RageCost : defaultRageCost;
+            int cooldownTurns = skill != null ? skill.CooldownTurns : defaultCooldownTurns;
+
+            if (widgets.IconImage != null && widgets.IconImage.sprite == null)
+                widgets.IconImage.sprite = skill != null && skill.Icon != null ? skill.Icon : fallbackIcon;
+            if (widgets.ManaCostIcon != null && widgets.ManaCostIcon.sprite == null)
+                widgets.ManaCostIcon.sprite = ResolveGemSprite(GemType.Mana);
+            if (widgets.RageCostIcon != null && widgets.RageCostIcon.sprite == null)
+                widgets.RageCostIcon.sprite = ResolveGemSprite(GemType.Rage);
+            if (widgets.LevelBadgeText != null)
+                widgets.LevelBadgeText.text = $"Lv.{level}";
 
             string description = skill != null
                 ? skill.GetDescriptionForLevel(level)
-                : $"Tạo 1 lớp kiếm khí quanh nhân vật, sau đó triệt tiêu {(level <= 2 ? 1 : level <= 4 ? 2 : 3)} hàng kim cương bất kỳ.";
-            flyingSwordDescriptionText.text = description;
+                : fallbackDescription;
+            widgets.DescriptionText.text = description;
 
-            bool canActivate = turnManager != null && turnManager.CanActivateManualSkill;
-            if (flyingSwordRowButton != null)
-                flyingSwordRowButton.interactable = true;
+            if (widgets.RowButton != null)
+                widgets.RowButton.interactable = true;
 
             Color conditionColor = canActivate
                 ? SkillConditionReadyColor
                 : SkillConditionUnavailableColor;
             string manaCostStr = manaCost.ToString();
-            if (flyingSwordManaCostText != null)
+            if (widgets.ManaCostText != null)
             {
-                flyingSwordManaCostText.text = manaCostStr;
-                flyingSwordManaCostText.color = conditionColor;
+                widgets.ManaCostText.text = manaCostStr;
+                widgets.ManaCostText.color = conditionColor;
             }
             float manaTextWidth = Mathf.Max(16f, manaCostStr.Length * 14f);
             float rageIconX = 38f + manaTextWidth + 18f;
-            if (flyingSwordRageCostIconRect != null)
-                flyingSwordRageCostIconRect.anchoredPosition = new Vector2(rageIconX, 0f);
+            if (widgets.RageCostIconRect != null)
+                widgets.RageCostIconRect.anchoredPosition = new Vector2(rageIconX, 0f);
             float condTextX = rageIconX + 38f;
-            if (flyingSwordConditionTextRect != null)
+            if (widgets.ConditionTextRect != null)
             {
-                flyingSwordConditionTextRect.anchoredPosition = new Vector2(condTextX, 0f);
-                flyingSwordConditionTextRect.sizeDelta = new Vector2(
+                widgets.ConditionTextRect.anchoredPosition = new Vector2(condTextX, 0f);
+                widgets.ConditionTextRect.sizeDelta = new Vector2(
                     Mathf.Max(100f, skillRowRightTextWidth - condTextX), 44f);
             }
 
             string cooldownLabel = cooldownRemaining > 0
                 ? $"Hồi chiêu: còn {cooldownRemaining}/{cooldownTurns} turn"
                 : $"Hồi chiêu: {cooldownTurns} turn";
-            flyingSwordConditionText.text = $"{rageCost} • {cooldownLabel}";
-            flyingSwordConditionText.color = conditionColor;
-            flyingSwordDescriptionText.color = canActivate
+            widgets.ConditionText.text = $"{rageCost} • {cooldownLabel}";
+            widgets.ConditionText.color = conditionColor;
+            widgets.DescriptionText.color = canActivate
                 ? Color.white
                 : new Color32(180, 186, 196, 255);
 
-            if (flyingSwordCooldownPizzaOverlay != null)
+            if (widgets.CooldownPizzaOverlay != null)
             {
                 if (cooldownRemaining > 0 && cooldownTurns > 0)
                 {
                     float fill = Mathf.Clamp01(cooldownRemaining / (float)cooldownTurns);
-                    flyingSwordCooldownPizzaOverlay.fillAmount = fill;
-                    if (!flyingSwordCooldownPizzaOverlay.gameObject.activeSelf)
-                        flyingSwordCooldownPizzaOverlay.gameObject.SetActive(true);
+                    widgets.CooldownPizzaOverlay.fillAmount = fill;
+                    if (!widgets.CooldownPizzaOverlay.gameObject.activeSelf)
+                        widgets.CooldownPizzaOverlay.gameObject.SetActive(true);
                 }
                 else
                 {
-                    flyingSwordCooldownPizzaOverlay.fillAmount = 0f;
-                    if (flyingSwordCooldownPizzaOverlay.gameObject.activeSelf)
-                        flyingSwordCooldownPizzaOverlay.gameObject.SetActive(false);
+                    widgets.CooldownPizzaOverlay.fillAmount = 0f;
+                    if (widgets.CooldownPizzaOverlay.gameObject.activeSelf)
+                        widgets.CooldownPizzaOverlay.gameObject.SetActive(false);
                 }
             }
         }
 
         void OnFlyingSwordSkillClicked()
         {
-            if (turnManager == null || !turnManager.CanActivateManualSkill)
-            {
-                ShowSkillUnavailableNotification();
-                RefreshSkillsTab();
-                return;
-            }
+            HandleSkillClicked(
+                turnManager != null && turnManager.CanActivateManualSkill,
+                () => turnManager.TryActivateFlyingSwordSkill());
+        }
 
-            if (!turnManager.TryActivateFlyingSwordSkill())
+        void OnSwordQiSkillClicked()
+        {
+            HandleSkillClicked(
+                turnManager != null && turnManager.CanActivateSwordQiSkill,
+                () => turnManager.TryActivateSwordQiSkill());
+        }
+
+        void HandleSkillClicked(bool canActivate, System.Func<bool> tryActivate)
+        {
+            if (turnManager == null || !canActivate || tryActivate == null || !tryActivate())
             {
                 ShowSkillUnavailableNotification();
                 RefreshSkillsTab();

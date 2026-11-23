@@ -36,14 +36,19 @@ namespace Match3RPG.Battle
         public TurnTimer Timer => turnTimer;
         public bool IsPausedForStatusPopup => pausedForStatusPopup;
         public bool IsManualSkillRunning => manualSkillRunning;
-        public bool CanActivateManualSkill =>
+        bool CanActivateAnyManualSkill =>
             State == BattleTurnState.PlayerTurn
             && activeTurn == null
             && !manualSkillRunning
             && board != null
             && !board.IsResolving
-            && battle != null
+            && battle != null;
+        public bool CanActivateManualSkill =>
+            CanActivateAnyManualSkill
             && battle.CanActivateFlyingSwordSkill();
+        public bool CanActivateSwordQiSkill =>
+            CanActivateAnyManualSkill
+            && battle.CanActivateSwordQiSkill();
         int StoredTurnLimit => Mathf.Clamp(maximumStoredTurns, 1, 5);
 
         public static BattleActor? GetFasterActor(float heroSpeed, float bossSpeed)
@@ -87,21 +92,36 @@ namespace Match3RPG.Battle
             if (!battle.TryConsumeFlyingSwordSkillCost())
                 return false;
 
+            return StartManualSkillExecution(battle.ExecuteFlyingSwordSkill(board));
+        }
+
+        public bool TryActivateSwordQiSkill()
+        {
+            if (!CanActivateSwordQiSkill)
+                return false;
+            if (!battle.TryConsumeSwordQiSkillCost())
+                return false;
+
+            return StartManualSkillExecution(battle.ExecuteSwordQiSkill());
+        }
+
+        bool StartManualSkillExecution(IEnumerator skillExecution)
+        {
             pausedForStatusPopup = false;
             turnTimer?.Pause();
             board?.SetInputEnabled(false);
-            activeTurn = StartCoroutine(ExecuteFlyingSwordSkillRoutine());
+            activeTurn = StartCoroutine(ExecuteManualSkillRoutine(skillExecution));
             return true;
         }
 
-        IEnumerator ExecuteFlyingSwordSkillRoutine()
+        IEnumerator ExecuteManualSkillRoutine(IEnumerator skillExecution)
         {
             manualSkillRunning = true;
             turnTimer?.Pause();
             board?.SetInputEnabled(false);
             try
             {
-                yield return battle.ExecuteFlyingSwordSkill(board);
+                yield return skillExecution;
                 yield return WaitWhileStatusPopupClosed();
                 if (CheckBattleEnd())
                     yield break;

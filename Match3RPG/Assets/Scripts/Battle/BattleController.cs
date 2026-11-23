@@ -64,9 +64,12 @@ namespace Match3RPG.Battle
         int heroRage, bossRage;
         int playerManaGemCount, playerAttackGemCount, playerSoulGemCount, playerRageGemCount;
         int flyingSwordCooldownRemaining;
+        int swordQiCooldownRemaining;
         int lastSyncedFlyingSwordLevel = SkillConfig.DefaultLevel;
         SkillConfig flyingSwordSkillConfig;
+        SkillConfig swordQiSkillConfig;
         FlyingSwordSkillController flyingSwordSkillController;
+        SwordQiSkillController swordQiSkillController;
         int loggedHeroRage = int.MinValue;
         int loggedHeroMaxRage = int.MinValue;
         bool statsInitialized;
@@ -87,6 +90,11 @@ namespace Match3RPG.Battle
         public int FlyingSwordSkillLevel => ResolveActiveFlyingSwordLevel();
         public bool IsFlyingSwordSkillRunning =>
             flyingSwordSkillController != null && flyingSwordSkillController.IsRunning;
+        public int SwordQiCooldownRemaining => swordQiCooldownRemaining;
+        public SkillConfig SwordQiSkill => ResolveSwordQiSkill();
+        public int SwordQiSkillLevel => SkillConfig.DefaultLevel; // TẠM: chỉ có Lv1
+        public bool IsSwordQiSkillRunning =>
+            swordQiSkillController != null && swordQiSkillController.IsRunning;
         public bool IsGameOver => heroHp <= 0 || bossHp <= 0
             || (soulEnabled && (heroSoulHp <= 0 || bossSoulHp <= 0));
         public bool PlayerWon => bossHp <= 0 || (soulEnabled && bossSoulHp <= 0);
@@ -228,6 +236,7 @@ namespace Match3RPG.Battle
                 heroProgressionConfigured = true;
             }
             EnsureFlyingSwordSkillSetup();
+            EnsureSwordQiSkillSetup();
             UpdateRageReadyVfx(BattleActor.Player);
             UpdateRageReadyVfx(BattleActor.Boss);
             Refresh();
@@ -249,6 +258,7 @@ namespace Match3RPG.Battle
             playerSoulGemCount = 0;
             playerRageGemCount = 0;
             flyingSwordCooldownRemaining = 0;
+            swordQiCooldownRemaining = 0;
             if (layoutTestMode)
                 ApplyLayoutTestState();
             statsInitialized = true;
@@ -636,6 +646,8 @@ namespace Match3RPG.Battle
         {
             if (flyingSwordCooldownRemaining > 0)
                 flyingSwordCooldownRemaining--;
+            if (swordQiCooldownRemaining > 0)
+                swordQiCooldownRemaining--;
         }
 
         void EnsureFlyingSwordSkillSetup()
@@ -654,19 +666,49 @@ namespace Match3RPG.Battle
 
         SkillConfig ResolveFlyingSwordSkill()
         {
-            if (flyingSwordSkillConfig != null)
-                return flyingSwordSkillConfig;
+            return ResolveSkillById(
+                ref flyingSwordSkillConfig,
+                SkillConfig.FlyingSwordSkillId,
+                SkillConfig.CreateRuntimeFlyingSwordFallback);
+        }
+
+        void EnsureSwordQiSkillSetup()
+        {
+            ResolveSwordQiSkill();
+            if (swordQiSkillController == null)
+            {
+                swordQiSkillController = GetComponent<SwordQiSkillController>();
+                if (swordQiSkillController == null)
+                    swordQiSkillController = gameObject.AddComponent<SwordQiSkillController>();
+            }
+            swordQiSkillController.SkillLevel = SkillConfig.DefaultLevel;
+        }
+
+        SkillConfig ResolveSwordQiSkill()
+        {
+            return ResolveSkillById(
+                ref swordQiSkillConfig,
+                SkillConfig.SwordQiSkillId,
+                SkillConfig.CreateRuntimeSwordQiFallback);
+        }
+
+        static SkillConfig ResolveSkillById(
+            ref SkillConfig cached,
+            string skillId,
+            Func<SkillConfig> fallbackFactory)
+        {
+            if (cached != null)
+                return cached;
 
             GameConfigService configService =
                 Resources.Load<GameConfigService>("Configuration/GameConfigService");
             if (configService != null)
-                flyingSwordSkillConfig = configService.GetSkill(SkillConfig.FlyingSwordSkillId);
-            if (flyingSwordSkillConfig == null)
-                flyingSwordSkillConfig = Resources.Load<SkillConfig>(
-                    "Configuration/Skills/" + SkillConfig.FlyingSwordSkillId);
-            if (flyingSwordSkillConfig == null)
-                flyingSwordSkillConfig = SkillConfig.CreateRuntimeFlyingSwordFallback();
-            return flyingSwordSkillConfig;
+                cached = configService.GetSkill(skillId);
+            if (cached == null)
+                cached = Resources.Load<SkillConfig>("Configuration/Skills/" + skillId);
+            if (cached == null && fallbackFactory != null)
+                cached = fallbackFactory();
+            return cached;
         }
 
         int ResolveActiveFlyingSwordLevel()
@@ -698,30 +740,86 @@ namespace Match3RPG.Battle
 
         public bool CanActivateFlyingSwordSkill()
         {
-            if (IsGameOver || flyingSwordCooldownRemaining > 0 || IsFlyingSwordSkillRunning)
-                return false;
-
-            SkillConfig skill = ResolveFlyingSwordSkill();
-            int requiredMana = skill != null ? skill.ManaCost : SkillConfig.DefaultManaCost;
-            int requiredRage = skill != null ? skill.RageCost : SkillConfig.DefaultRageCost;
-            return playerManaGemCount >= requiredMana && playerRageGemCount >= requiredRage;
+            return CanActivateSkill(
+                ResolveFlyingSwordSkill(),
+                flyingSwordCooldownRemaining,
+                IsFlyingSwordSkillRunning,
+                SkillConfig.DefaultManaCost,
+                SkillConfig.DefaultRageCost);
         }
 
         public bool TryConsumeFlyingSwordSkillCost()
         {
-            if (!CanActivateFlyingSwordSkill())
+            if (!TryConsumeSkillCost(
+                ResolveFlyingSwordSkill(),
+                flyingSwordCooldownRemaining,
+                IsFlyingSwordSkillRunning,
+                SkillConfig.DefaultManaCost,
+                SkillConfig.DefaultRageCost,
+                SkillConfig.DefaultCooldownTurns,
+                out int newCooldown))
                 return false;
 
-            SkillConfig skill = ResolveFlyingSwordSkill();
-            int requiredMana = skill != null ? skill.ManaCost : SkillConfig.DefaultManaCost;
-            int requiredRage = skill != null ? skill.RageCost : SkillConfig.DefaultRageCost;
-            int cooldown = skill != null ? skill.CooldownTurns : SkillConfig.DefaultCooldownTurns;
+            flyingSwordCooldownRemaining = newCooldown;
+            return true;
+        }
+
+        public bool CanActivateSwordQiSkill()
+        {
+            return CanActivateSkill(
+                ResolveSwordQiSkill(),
+                swordQiCooldownRemaining,
+                IsSwordQiSkillRunning,
+                SkillConfig.SwordQiDefaultManaCost,
+                SkillConfig.SwordQiDefaultRageCost);
+        }
+
+        public bool TryConsumeSwordQiSkillCost()
+        {
+            if (!TryConsumeSkillCost(
+                ResolveSwordQiSkill(),
+                swordQiCooldownRemaining,
+                IsSwordQiSkillRunning,
+                SkillConfig.SwordQiDefaultManaCost,
+                SkillConfig.SwordQiDefaultRageCost,
+                SkillConfig.SwordQiDefaultCooldownTurns,
+                out int newCooldown))
+                return false;
+
+            swordQiCooldownRemaining = newCooldown;
+            return true;
+        }
+
+        bool CanActivateSkill(SkillConfig skill, int cooldownRemaining, bool isRunning,
+            int defaultManaCost, int defaultRageCost)
+        {
+            if (IsGameOver || cooldownRemaining > 0 || isRunning)
+                return false;
+
+            int requiredMana = skill != null ? skill.ManaCost : defaultManaCost;
+            int requiredRage = skill != null ? skill.RageCost : defaultRageCost;
+            return playerManaGemCount >= requiredMana && playerRageGemCount >= requiredRage;
+        }
+
+        bool TryConsumeSkillCost(SkillConfig skill, int cooldownRemaining, bool isRunning,
+            int defaultManaCost, int defaultRageCost, int defaultCooldown,
+            out int newCooldownRemaining)
+        {
+            if (!CanActivateSkill(skill, cooldownRemaining, isRunning, defaultManaCost, defaultRageCost))
+            {
+                newCooldownRemaining = cooldownRemaining;
+                return false;
+            }
+
+            int requiredMana = skill != null ? skill.ManaCost : defaultManaCost;
+            int requiredRage = skill != null ? skill.RageCost : defaultRageCost;
+            int cooldown = skill != null ? skill.CooldownTurns : defaultCooldown;
 
             playerManaGemCount = Mathf.Max(0, playerManaGemCount - requiredMana);
             playerRageGemCount = Mathf.Max(0, playerRageGemCount - requiredRage);
             mana = Mathf.Clamp(mana - requiredMana, 0, GetMaxMana(BattleActor.Player));
             heroRage = Mathf.Clamp(heroRage - requiredRage, 0, MaxRage);
-            flyingSwordCooldownRemaining = Mathf.Max(0, cooldown);
+            newCooldownRemaining = Mathf.Max(0, cooldown);
             UpdateRageReadyVfx(BattleActor.Player);
             Refresh();
             return true;
@@ -751,6 +849,43 @@ namespace Match3RPG.Battle
                 yield return ResolveMove(BattleActor.Player, skillMoveResult,
                     atkMultiplier, isSkillGemResolution: true);
             }
+        }
+
+        public IEnumerator ExecuteSwordQiSkill()
+        {
+            if (IsGameOver)
+                yield break;
+
+            EnsureSwordQiSkillSetup();
+            SkillConfig skill = ResolveSwordQiSkill();
+            if (swordQiSkillController == null)
+                yield break;
+
+            yield return swordQiSkillController.ExecuteSkill(hero, boss, skill, ApplySwordQiImpact);
+        }
+
+        IEnumerator ApplySwordQiImpact()
+        {
+            if (IsGameOver)
+                yield break;
+
+            combatVfx?.PlaySwordQiImpact(BattleActor.Boss);
+
+            // GIẢ ĐỊNH TẠM: sát thương bằng 1 đòn đánh thường của hero (HeroAttackDamagePerGem),
+            // tính đúng lúc kiếm khí chạm boss.
+            int damage = ApplyDamage(BattleActor.Boss, HeroAttackDamagePerGem);
+            if (damage > 0)
+            {
+                ShowResource(boss, FloatingTextType.Damage, damage);
+                AddReceivedHitRage(BattleActor.Boss);
+                Refresh();
+                if (boss != null && bossHp > 0)
+                    yield return boss.Hit();
+            }
+
+            if ((bossHp == 0 || (soulEnabled && bossSoulHp == 0)) && boss != null)
+                yield return boss.Death();
+            Refresh();
         }
 
         float ApplyDrain(BattleActor actor, int gemCount)

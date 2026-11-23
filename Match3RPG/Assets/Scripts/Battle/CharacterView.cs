@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -184,6 +185,53 @@ namespace Match3RPG.Battle
             CancelActiveAnimation();
         }
 
+        // Plays the current attack clip completely in place without lunging or spawning afterimages.
+        public IEnumerator PlayAttackInPlaceWithoutLunge(Action onAttackImpact = null)
+        {
+            if (State == CharacterState.Death)
+                yield break;
+            if (rectTransform == null)
+            {
+                Debug.LogError("CharacterView cannot play an attack without a CharacterVisual RectTransform.", this);
+                yield break;
+            }
+
+            CancelActiveAnimation();
+            EnsureHomePosition();
+            RestoreHomeVisual();
+            int version = ++animationVersion;
+            State = CharacterState.Attack;
+            ApplyAttackFacingDirection();
+            rectTransform.localScale = GetVisualScale(
+                idleNormalizationScaleMultiplier * attackNormalizationScaleMultiplier);
+            heroAnimation?.PlayAttack();
+
+            try
+            {
+                if (heroAnimation != null && heroAnimation.HasAttackFrames)
+                    yield return heroAnimation.WaitForImpact(0);
+                if (version != animationVersion)
+                    yield break;
+
+                onAttackImpact?.Invoke();
+
+                if (heroAnimation != null && heroAnimation.HasAttackFrames)
+                    yield return heroAnimation.WaitForAttackComplete();
+            }
+            finally
+            {
+                if (version == animationVersion)
+                {
+                    RestoreHomeVisual();
+                    if (State != CharacterState.Death)
+                    {
+                        State = CharacterState.Idle;
+                        heroAnimation?.PlayIdle();
+                    }
+                }
+            }
+        }
+
         public IEnumerator Hit()
         {
             return PlayAnimation(CharacterState.Hit);
@@ -346,7 +394,8 @@ namespace Match3RPG.Battle
                 if (approach)
                     yield return MoveTo(target, .10f, version,
                         idleNormalizationScaleMultiplier * attackNormalizationScaleMultiplier,
-                        useAttackFacing: true);
+                        useAttackFacing: true,
+                        spawnAfterimages: !attackInPlace);
                 else if (!attackInPlace)
                     yield return MoveTo(target, .14f, version);
             }
@@ -382,7 +431,8 @@ namespace Match3RPG.Battle
                         : homePosition + AttackOffset(1f);
                     yield return MoveTo(attackTarget, .10f, version,
                         idleNormalizationScaleMultiplier * attackNormalizationScaleMultiplier,
-                        useAttackFacing: true);
+                        useAttackFacing: true,
+                        spawnAfterimages: !attackInPlace);
                     if (version != animationVersion) yield break;
                     if (heroAnimation != null)
                         yield return heroAnimation.WaitForAttackComplete();
@@ -475,7 +525,7 @@ namespace Match3RPG.Battle
         }
 
         IEnumerator MoveTo(Vector2 target, float duration, int version, float? scaleMultiplier = null,
-            bool useAttackFacing = false)
+            bool useAttackFacing = false, bool spawnAfterimages = false)
         {
             Vector2 start = rectTransform.anchoredPosition;
             Vector3 startScale = rectTransform.localScale;
@@ -486,6 +536,9 @@ namespace Match3RPG.Battle
                 : startScale;
             float scaleDuration = Mathf.Min(duration, visualScaleTransitionDuration);
             float elapsed = 0f;
+            bool shouldSpawnGhosts = spawnAfterimages && Vector2.Distance(start, target) > 1f
+                && portrait != null && rectTransform.parent != null;
+            int nextGhostIndex = 0;
             while (elapsed < duration)
             {
                 if (version != animationVersion) yield break;
@@ -499,6 +552,32 @@ namespace Match3RPG.Battle
                         : 1f;
                     rectTransform.localScale = Vector3.LerpUnclamped(startScale, targetScale, scaleProgress);
                 }
+
+                while (shouldSpawnGhosts
+                    && nextGhostIndex < AfterimageEffect.DistanceFractions.Length
+                    && movementProgress >= AfterimageEffect.DistanceFractions[nextGhostIndex])
+                {
+                    float fraction = AfterimageEffect.DistanceFractions[nextGhostIndex];
+                    Vector2 ghostPos = Vector2.Lerp(start, target, fraction);
+                    Vector3 ghostScale = scaleMultiplier.HasValue
+                        ? Vector3.LerpUnclamped(startScale, targetScale,
+                            scaleDuration > 0f
+                                ? Mathf.SmoothStep(0f, 1f, Mathf.Clamp01((fraction * duration) / scaleDuration))
+                                : 1f)
+                        : startScale;
+                    float ghostAlpha = AfterimageEffect.GetInitialAlphaForStep(nextGhostIndex);
+                    AfterimageEffect.SpawnUIGhost(
+                        rectTransform,
+                        portrait,
+                        rectTransform.parent,
+                        rectTransform.GetSiblingIndex(),
+                        ghostAlpha,
+                        AfterimageEffect.DefaultFadeDuration,
+                        ghostPos,
+                        ghostScale);
+                    nextGhostIndex++;
+                }
+
                 yield return null;
             }
             if (version == animationVersion)

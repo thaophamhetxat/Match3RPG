@@ -1,0 +1,943 @@
+fileFormatVersion: 2
+guid: 54ac3c3c1d642d94cb91136ce0c0da22
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5821017667983103886
+    second: SwordQi_C_0
+  - first:
+      213: -1457861867064836715
+    second: SwordQi_C_1
+  - first:
+      213: -2936040292706006284
+    second: SwordQi_C_2
+  - first:
+      213: -6430012453966265927
+    second: SwordQi_C_3
+  - first:
+      213: 3444388941315449401
+    second: SwordQi_C_4
+  - first:
+      213: 4142401242867219308
+    second: SwordQi_C_5
+  - first:
+      213: 184645071679650404
+    second: SwordQi_C_6
+  - first:
+      213: 6413227328088781051
+    second: SwordQi_C_7
+  - first:
+      213: -6818392391080125554
+    second: SwordQi_C_8
+  - first:
+      213: -5557809579538856990
+    second: SwordQi_C_9
+  - first:
+      213: 2463238360707173431
+    second: SwordQi_C_10
+  - first:
+      213: -1292155017093683107
+    second: SwordQi_C_11
+  - first:
+      213: -1119524521520720709
+    second: SwordQi_C_12
+  - first:
+      213: 8491547962239653735
+    second: SwordQi_C_13
+  - first:
+      213: -2195227486539267215
+    second: SwordQi_C_14
+  - first:
+      213: 4232699542813572405
+    second: SwordQi_C_15
+  - first:
+      213: -3102003331270508680
+    second: SwordQi_C_16
+  - first:
+      213: 3974122322519064987
+    second: SwordQi_C_17
+  - first:
+      213: -2206053827193388296
+    second: SwordQi_C_18
+  - first:
+      213: 7681222445832477501
+    second: SwordQi_C_19
+  - first:
+      213: -4099554809043262179
+    second: SwordQi_C_20
+  - first:
+      213: -8496085310832488421
+    second: SwordQi_C_21
+  - first:
+      213: 2720513738270869321
+    second: SwordQi_C_22
+  - first:
+      213: 3289890533694870859
+    second: SwordQi_C_23
+  - first:
+      213: -8443001335971642378
+    second: SwordQi_C_24
+  - first:
+      213: 108405933289079254
+    second: SwordQi_C_25
+  - first:
+      213: 8696855249885157595
+    second: SwordQi_C_26
+  - first:
+      213: 5325406860398692822
+    second: SwordQi_C_27
+  - first:
+      213: 6969327450360180915
+    second: SwordQi_C_28
+  - first:
+      213: -819025456469369723
+    second: SwordQi_C_29
+  - first:
+      213: -7391451877485260339
+    second: SwordQi_C_30
+  - first:
+      213: -3747306943792907919
+    second: SwordQi_C_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SwordQi_C_0
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 59
+        width: 1077
+        height: 1454
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e87d76b5ab868c050800000000000000
+      internalID: 5821017667983103886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_1
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 1511
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59d33022b52a4cbe0800000000000000
+      internalID: -1457861867064836715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_2
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 1511
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fa460bd8e61147d0800000000000000
+      internalID: -2936040292706006284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_3
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 1511
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b1c004adb104c6a0800000000000000
+      internalID: -6430012453966265927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_4
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 1511
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93224633e7deccf20800000000000000
+      internalID: 3444388941315449401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_5
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 1511
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6bbc36abf3cc7930800000000000000
+      internalID: 4142401242867219308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_6
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 1511
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46afdf2e6bdff8200800000000000000
+      internalID: 184645071679650404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_7
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 1511
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf03f82b64c500950800000000000000
+      internalID: 6413227328088781051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_8
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 1511
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8b5176ee343061a0800000000000000
+      internalID: -6818392391080125554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_9
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 1511
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e3c25a42a1bed2b0800000000000000
+      internalID: -5557809579538856990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_10
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 1511
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73c011ffc3e2f2220800000000000000
+      internalID: 2463238360707173431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_11
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 1511
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d58646babd7511ee0800000000000000
+      internalID: -1292155017093683107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_12
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 1511
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb41b611166a670f0800000000000000
+      internalID: -1119524521520720709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_13
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 1511
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7679c7aa1e908d570800000000000000
+      internalID: 8491547962239653735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_14
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 1122
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17347a75b3cf881e0800000000000000
+      internalID: -2195227486539267215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_15
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 1042
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53d7c52fec19dba30800000000000000
+      internalID: 4232699542813572405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_16
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 881
+        width: 44
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87ffa83c76873f4d0800000000000000
+      internalID: -3102003331270508680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_17
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 18
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9103bf423be62730800000000000000
+      internalID: 3974122322519064987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_18
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 59
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f24fba7bb58261e0800000000000000
+      internalID: -2206053827193388296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_19
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 18
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3b1a9c1e1f299a60800000000000000
+      internalID: 7681222445832477501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_20
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 59
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d156bbd1f947b17c0800000000000000
+      internalID: -4099554809043262179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_21
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 18
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b105a6a8c67d71a80800000000000000
+      internalID: -8496085310832488421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_22
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 18
+        width: 44
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9478430c4d431c520800000000000000
+      internalID: 2720513738270869321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_23
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 18
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b459dc2820a08ad20800000000000000
+      internalID: 3289890533694870859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_24
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 18
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f30343940f64da80800000000000000
+      internalID: -8443001335971642378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_25
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 18
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d18d393f92218100800000000000000
+      internalID: 108405933289079254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_26
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 19
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd8556895cf61b870800000000000000
+      internalID: 8696855249885157595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_27
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 18
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d90e760355a7e940800000000000000
+      internalID: 5325406860398692822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_28
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 19
+        width: 43
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b0f81a146608b060800000000000000
+      internalID: 6969327450360180915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_29
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 18
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58c142dcfac32a4f0800000000000000
+      internalID: -819025456469369723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_30
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 18
+        width: 43
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc1d814dda94c6990800000000000000
+      internalID: -7391451877485260339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordQi_C_31
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 18
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1797ede4034eefbc0800000000000000
+      internalID: -3747306943792907919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

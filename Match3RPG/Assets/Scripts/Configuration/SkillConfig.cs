@@ -30,6 +30,14 @@ namespace Match3RPG.Configuration
         public const string FlyingSwordSkillId = "flying_sword";
         public const string FlyingSwordDisplayName = "Kiếm Bay Quanh";
         public const string FlyingSwordAssetPath = "Assets/Art/VFX/Skills/FlyingSword/Sword.png";
+        public const string SwordQiSkillId = "sword_qi";
+        public const string SwordQiDisplayName = "Kiếm Khí";
+        public const string SwordQiAssetPath = "Assets/Art/VFX/Skills/SwordQi/SwordQi_C.png";
+        public const string SwordQiDescription =
+            "Đứng im tại chỗ, chém ra 1 luồng kiếm khí bay tới boss.";
+        public const int SwordQiDefaultManaCost = 3; // TẠM
+        public const int SwordQiDefaultRageCost = 0; // TẠM
+        public const int SwordQiDefaultCooldownTurns = 3; // TẠM
         public const int DefaultManaCost = 3;
         public const int DefaultRageCost = 0;
         public const int DefaultCooldownTurns = 3;
@@ -50,11 +58,18 @@ namespace Match3RPG.Configuration
         [SerializeField] SkillLevelConfig[] levelTable = CreateDefaultFlyingSwordLevels();
 
         static Sprite cachedSwordSprite;
+        static Sprite cachedSwordQiSprite;
 
         public string DisplayName => string.IsNullOrEmpty(displayName)
-            ? FlyingSwordDisplayName
+            ? (string.Equals(StableId, SwordQiSkillId, StringComparison.Ordinal)
+                ? SwordQiDisplayName
+                : FlyingSwordDisplayName)
             : displayName;
-        public Sprite Icon => icon != null ? icon : ResolveSwordSprite();
+        public Sprite Icon => icon != null
+            ? icon
+            : (string.Equals(StableId, SwordQiSkillId, StringComparison.Ordinal)
+                ? ResolveSwordQiSprite()
+                : ResolveSwordSprite());
         public string Description => GetDescriptionForLevel(Level);
         public SkillType Type => skillType;
         public SkillTargetType TargetType => targetType;
@@ -105,6 +120,13 @@ namespace Match3RPG.Configuration
 
         public string GetDescriptionForLevel(int skillLevel)
         {
+            if (string.Equals(StableId, SwordQiSkillId, StringComparison.Ordinal))
+                return string.IsNullOrEmpty(description) ? SwordQiDescription : description;
+            if (!string.IsNullOrEmpty(StableId)
+                && !string.Equals(StableId, FlyingSwordSkillId, StringComparison.Ordinal)
+                && !string.IsNullOrEmpty(description))
+                return description;
+
             int rows = GetRowClearCount(skillLevel);
             return $"Tạo 1 lớp kiếm khí quanh nhân vật, sau đó triệt tiêu {rows} hàng kim cương bất kỳ.";
         }
@@ -141,27 +163,37 @@ namespace Match3RPG.Configuration
 
         public static Sprite ResolveSwordSprite()
         {
-            if (cachedSwordSprite != null)
-                return cachedSwordSprite;
+            return ResolveSpriteAsset(FlyingSwordAssetPath, ref cachedSwordSprite);
+        }
+
+        public static Sprite ResolveSwordQiSprite()
+        {
+            return ResolveSpriteAsset(SwordQiAssetPath, ref cachedSwordQiSprite);
+        }
+
+        static Sprite ResolveSpriteAsset(string assetPath, ref Sprite cache)
+        {
+            if (cache != null)
+                return cache;
 #if UNITY_EDITOR
-            cachedSwordSprite = AssetDatabase.LoadAssetAtPath<Sprite>(FlyingSwordAssetPath);
-            if (cachedSwordSprite == null)
+            cache = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
+            if (cache == null)
             {
-                UnityEngine.Object[] all = AssetDatabase.LoadAllAssetsAtPath(FlyingSwordAssetPath);
+                UnityEngine.Object[] all = AssetDatabase.LoadAllAssetsAtPath(assetPath);
                 if (all != null)
                 {
                     for (int i = 0; i < all.Length; i++)
                     {
                         if (all[i] is Sprite sprite)
                         {
-                            cachedSwordSprite = sprite;
+                            cache = sprite;
                             break;
                         }
                     }
                 }
             }
 #endif
-            return cachedSwordSprite;
+            return cache;
         }
 
         public static SkillConfig CreateRuntimeFlyingSwordFallback()
@@ -181,6 +213,25 @@ namespace Match3RPG.Configuration
             runtime.cooldownTurns = DefaultCooldownTurns;
             runtime.level = DefaultLevel;
             runtime.levelTable = CreateDefaultFlyingSwordLevels();
+            return runtime;
+        }
+
+        public static SkillConfig CreateRuntimeSwordQiFallback()
+        {
+            SkillConfig runtime = CreateInstance<SkillConfig>();
+            runtime.name = SwordQiSkillId;
+            runtime.SetStableId(SwordQiSkillId);
+            runtime.displayName = SwordQiDisplayName;
+            runtime.icon = ResolveSwordQiSprite();
+            runtime.description = SwordQiDescription;
+            runtime.skillType = SkillType.Active;
+            runtime.targetType = SkillTargetType.SingleEnemy;
+            runtime.triggerType = SkillTriggerType.Manual;
+            runtime.manaCost = SwordQiDefaultManaCost;
+            runtime.rageCost = SwordQiDefaultRageCost;
+            runtime.cooldownTurns = SwordQiDefaultCooldownTurns;
+            runtime.level = DefaultLevel;
+            runtime.levelTable = Array.Empty<SkillLevelConfig>();
             return runtime;
         }
     }

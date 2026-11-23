@@ -162,6 +162,7 @@ namespace Match3RPG.Battle
             // Each call plays one full attack clip (one clip per hit) at AttackSpeedMultiplier.
             animator.speed = AttackSpeedMultiplier;
             animator.SetTrigger(AttackTrigger);
+            animator.Update(0f);
         }
 
         public void PlayIdle()
