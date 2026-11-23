@@ -653,6 +653,67 @@ namespace Match3RPG.Board
             }
         }
 
+        public Vector3 GetCellWorldCenter(int row, int column)
+        {
+            EnsureBoardReady();
+            int clampedRow = Mathf.Clamp(row, 0, Mathf.Max(0, rows - 1));
+            int clampedCol = Mathf.Clamp(column, 0, Mathf.Max(0, columns - 1));
+            return GetCellWorldPosition(new BoardPos(clampedRow, clampedCol));
+        }
+
+        public void BeginSkillRowClear(out bool wasLayoutEnabled)
+        {
+            EnsureBoardReady();
+            resolving = true;
+            SetInput(false);
+            GridLayoutGroup boardLayout = boardRoot != null
+                ? boardRoot.GetComponent<GridLayoutGroup>()
+                : null;
+            wasLayoutEnabled = boardLayout != null && boardLayout.enabled;
+            if (wasLayoutEnabled)
+                boardLayout.enabled = false;
+        }
+
+        public bool EatGemAtForSkill(int row, int column, out GemType eatenType)
+        {
+            eatenType = default;
+            if (grid == null || row < 0 || row >= rows || column < 0 || column >= columns)
+                return false;
+
+            GemView gem = grid[row, column];
+            if (gem == null)
+                return false;
+
+            eatenType = gem.Type;
+            ClearSelectionForDestroyedGem(gem);
+            grid[row, column] = null;
+            DestroyMatchedGem(gem);
+            RefreshBombRadiusGlows();
+            return true;
+        }
+
+        public IEnumerator FinishSkillRowClear(bool wasLayoutEnabled)
+        {
+            if (grid == null)
+            {
+                FinishResolution();
+                yield break;
+            }
+
+            HashSet<int> affectedColumns = new HashSet<int>();
+            for (int column = 0; column < columns; column++)
+                affectedColumns.Add(column);
+
+            if (stepDelay > 0f)
+                yield return new WaitForSeconds(stepDelay);
+            yield return CollapseAndRefill(affectedColumns, wasLayoutEnabled,
+                Array.Empty<GemSpecialType>());
+            ValidateGemVisualsAfterBoardChange();
+            if (gemSettleDelay > 0f)
+                yield return new WaitForSecondsRealtime(gemSettleDelay);
+            FinishResolution();
+        }
+
         void SwapCells(BoardPos first, BoardPos second)
         {
             GemView firstGem = grid[first.Row, first.Col];

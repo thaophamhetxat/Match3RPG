@@ -53,7 +53,8 @@ namespace Match3RPG.Configuration
         SingleAlly = 1,
         AllAllies = 2,
         SingleEnemy = 3,
-        AllEnemies = 4
+        AllEnemies = 4,
+        SelfAndBoard = 5
     }
 
     public enum SkillTriggerType

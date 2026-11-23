@@ -46,6 +46,7 @@ namespace Match3RPG.Battle
 
         public CharacterState State { get; private set; } = CharacterState.Idle;
         public CharacterFacing FacingDirection => facingDirection;
+        public RectTransform VisualRect => rectTransform;
         public RectTransform FloatingTextAnchor => floatingTextAnchor;
         public RectTransform VFXAnchor => vfxAnchor;
         public RectTransform PersistentVFXAnchor => persistentVfxAnchor;

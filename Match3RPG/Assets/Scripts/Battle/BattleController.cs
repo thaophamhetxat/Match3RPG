@@ -1,10 +1,14 @@
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using Match3RPG.Board;
 using Match3RPG.Campaign.Data;
+using Match3RPG.Configuration;
 using Match3RPG.Core;
 using Match3RPG.Persistence;
 using Match3RPG.UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Match3RPG.Battle
 {
@@ -49,6 +53,8 @@ namespace Match3RPG.Battle
         [SerializeField] private CombatVFXType bossAttackVfx = CombatVFXType.Slash;
         [SerializeField, Min(0f)] private float multiHitInterval = .15f;
         [SerializeField] private bool showReceivedHitRageText;
+        [Header("Flying Sword Skill (Kiếm Bay Quanh)")]
+        [SerializeField, Range(1, SkillConfig.MaxLevel)] private int flyingSwordSkillLevel = SkillConfig.DefaultLevel;
         [Header("Temporary layout test mode")]
         [SerializeField] private bool layoutTestMode = false;
 
@@ -56,6 +62,10 @@ namespace Match3RPG.Battle
         int heroMaxSoulHp, bossMaxSoulHp;
         int heroShield, heroShieldTurns;
         int heroRage, bossRage;
+        int flyingSwordCooldownRemaining;
+        int lastSyncedFlyingSwordLevel = SkillConfig.DefaultLevel;
+        SkillConfig flyingSwordSkillConfig;
+        FlyingSwordSkillController flyingSwordSkillController;
         int loggedHeroRage = int.MinValue;
         int loggedHeroMaxRage = int.MinValue;
         bool statsInitialized;
@@ -67,6 +77,11 @@ namespace Match3RPG.Battle
         StarChartGemInventoryService starChartGemInventory;
 
         public int InvalidMovePenaltyCount { get; private set; }
+        public int FlyingSwordCooldownRemaining => flyingSwordCooldownRemaining;
+        public SkillConfig FlyingSwordSkill => ResolveFlyingSwordSkill();
+        public int FlyingSwordSkillLevel => ResolveActiveFlyingSwordLevel();
+        public bool IsFlyingSwordSkillRunning =>
+            flyingSwordSkillController != null && flyingSwordSkillController.IsRunning;
         public bool IsGameOver => heroHp <= 0 || bossHp <= 0
             || (soulEnabled && (heroSoulHp <= 0 || bossSoulHp <= 0));
         public bool PlayerWon => bossHp <= 0 || (soulEnabled && bossSoulHp <= 0);
@@ -207,6 +222,7 @@ namespace Match3RPG.Battle
                 progressionService.Configure(SaveManager.Instance, heroData.StableId);
                 heroProgressionConfigured = true;
             }
+            EnsureFlyingSwordSkillSetup();
             UpdateRageReadyVfx(BattleActor.Player);
             UpdateRageReadyVfx(BattleActor.Boss);
             Refresh();
@@ -219,8 +235,11 @@ namespace Match3RPG.Battle
             bossHp = bossMaxHp;
             heroSoulHp = heroMaxSoulHp;
             bossSoulHp = bossMaxSoulHp;
+            mana = 0;
+            bossMana = 0;
             heroRage = 0;
             bossRage = Mathf.Clamp(bossStartingRage, 0, BossMaxRage);
+            flyingSwordCooldownRemaining = 0;
             if (layoutTestMode)
                 ApplyLayoutTestState();
             statsInitialized = true;
@@ -243,7 +262,8 @@ namespace Match3RPG.Battle
             bossUltimate = 100;
         }
 
-        public IEnumerator ResolveMove(BattleActor actor, MoveResult move)
+        public IEnumerator ResolveMove(BattleActor actor, MoveResult move,
+            float attackDamageMultiplier = 1f, bool isSkillGemResolution = false)
         {
             if (move == null || !move.IsValid || IsGameOver) yield break;
             if (layoutTestMode)
@@ -252,7 +272,8 @@ namespace Match3RPG.Battle
                 Refresh();
             }
 
-            starChartGemInventory.CollectMatch(move);
+            if (!isSkillGemResolution)
+                starChartGemInventory.CollectMatch(move);
             int attackGems = Count(move, GemType.Attack);
             int manaGems = Count(move, GemType.Mana);
             int experienceGems = Count(move, GemType.ExpDrain);
@@ -284,10 +305,11 @@ namespace Match3RPG.Battle
                 {
                     if (precedingVfxDuration > 0f)
                         yield return new WaitForSeconds(precedingVfxDuration);
-                    yield return ResolveAttackAction(BattleActor.Player, attackGems, 0, soulGems);
+                    yield return ResolveAttackAction(BattleActor.Player, attackGems, 0, soulGems,
+                        attackDamageMultiplier);
                 }
 
-                if (ultimate >= 100 && bossHp > 0 && !IsGameOver)
+                if (!isSkillGemResolution && ultimate >= 100 && bossHp > 0 && !IsGameOver)
                 {
                     int spentUltimate = ultimate;
                     ultimate = 0;
@@ -362,7 +384,7 @@ namespace Match3RPG.Battle
         }
 
         IEnumerator ResolveAttackAction(BattleActor actor, int hitCount, int bonusDamage,
-            int soulHitCount = 0)
+            int soulHitCount = 0, float attackDamageMultiplier = 1f)
         {
             int totalHitCount = hitCount + soulHitCount;
             CharacterView attacker = actor == BattleActor.Player ? hero : boss;
@@ -377,8 +399,10 @@ namespace Match3RPG.Battle
                 ? CombatVFXType.Slash : bossAttackVfx;
             bool rangedAttack = attackVfx == CombatVFXType.Fireball
                 || attackVfx == CombatVFXType.AirSlash;
-            int attackDamage = actor == BattleActor.Player
+            int baseAttackDamage = actor == BattleActor.Player
                 ? HeroAttackDamagePerGem : bossAttackDamagePerGem;
+            int attackDamage = Mathf.Max(0,
+                Mathf.RoundToInt(baseAttackDamage * Mathf.Max(0f, attackDamageMultiplier)));
             int soulAttackDamage = actor == BattleActor.Player
                 ? HeroSoulAttackDamagePerGem : bossAttackDamagePerGem;
             float criticalMultiplier = actor == BattleActor.Player
@@ -589,6 +613,125 @@ namespace Match3RPG.Battle
                 heroShield = 0;
                 combatVfx?.SetPersistentEffect(BattleActor.Player, CombatVFXType.Shield, false);
                 Refresh();
+            }
+        }
+
+        public void AdvanceRoundCooldowns()
+        {
+            if (flyingSwordCooldownRemaining > 0)
+                flyingSwordCooldownRemaining--;
+        }
+
+        void EnsureFlyingSwordSkillSetup()
+        {
+            ResolveFlyingSwordSkill();
+            if (flyingSwordSkillController == null)
+            {
+                flyingSwordSkillController = GetComponent<FlyingSwordSkillController>();
+                if (flyingSwordSkillController == null)
+                    flyingSwordSkillController = gameObject.AddComponent<FlyingSwordSkillController>();
+            }
+            if (hero != null)
+                flyingSwordSkillController.Configure(hero);
+            ResolveActiveFlyingSwordLevel();
+        }
+
+        SkillConfig ResolveFlyingSwordSkill()
+        {
+            if (flyingSwordSkillConfig != null)
+                return flyingSwordSkillConfig;
+
+            GameConfigService configService =
+                Resources.Load<GameConfigService>("Configuration/GameConfigService");
+            if (configService != null)
+                flyingSwordSkillConfig = configService.GetSkill(SkillConfig.FlyingSwordSkillId);
+            if (flyingSwordSkillConfig == null)
+                flyingSwordSkillConfig = Resources.Load<SkillConfig>(
+                    "Configuration/Skills/" + SkillConfig.FlyingSwordSkillId);
+            if (flyingSwordSkillConfig == null)
+                flyingSwordSkillConfig = SkillConfig.CreateRuntimeFlyingSwordFallback();
+            return flyingSwordSkillConfig;
+        }
+
+        int ResolveActiveFlyingSwordLevel()
+        {
+            SkillConfig skill = ResolveFlyingSwordSkill();
+            int controllerLevel = flyingSwordSkillController != null
+                ? flyingSwordSkillController.SkillLevel
+                : lastSyncedFlyingSwordLevel;
+            int configLevel = skill != null ? skill.Level : lastSyncedFlyingSwordLevel;
+            int inspectorLevel = Mathf.Clamp(flyingSwordSkillLevel, 1, SkillConfig.MaxLevel);
+
+            int resolved = lastSyncedFlyingSwordLevel;
+            if (inspectorLevel != lastSyncedFlyingSwordLevel)
+                resolved = inspectorLevel;
+            else if (controllerLevel != lastSyncedFlyingSwordLevel)
+                resolved = controllerLevel;
+            else if (configLevel != lastSyncedFlyingSwordLevel)
+                resolved = configLevel;
+
+            resolved = Mathf.Clamp(resolved, 1, SkillConfig.MaxLevel);
+            lastSyncedFlyingSwordLevel = resolved;
+            flyingSwordSkillLevel = resolved;
+            if (flyingSwordSkillController != null)
+                flyingSwordSkillController.SkillLevel = resolved;
+            if (skill != null)
+                skill.Level = resolved;
+            return resolved;
+        }
+
+        public bool CanActivateFlyingSwordSkill()
+        {
+            if (IsGameOver || flyingSwordCooldownRemaining > 0 || IsFlyingSwordSkillRunning)
+                return false;
+
+            SkillConfig skill = ResolveFlyingSwordSkill();
+            int requiredMana = skill != null ? skill.ManaCost : SkillConfig.DefaultManaCost;
+            int requiredRage = skill != null ? skill.RageCost : SkillConfig.DefaultRageCost;
+            return mana >= requiredMana && heroRage >= requiredRage;
+        }
+
+        public bool TryConsumeFlyingSwordSkillCost()
+        {
+            if (!CanActivateFlyingSwordSkill())
+                return false;
+
+            SkillConfig skill = ResolveFlyingSwordSkill();
+            int requiredMana = skill != null ? skill.ManaCost : SkillConfig.DefaultManaCost;
+            int requiredRage = skill != null ? skill.RageCost : SkillConfig.DefaultRageCost;
+            int cooldown = skill != null ? skill.CooldownTurns : SkillConfig.DefaultCooldownTurns;
+
+            mana = Mathf.Clamp(mana - requiredMana, 0, GetMaxMana(BattleActor.Player));
+            heroRage = Mathf.Clamp(heroRage - requiredRage, 0, MaxRage);
+            flyingSwordCooldownRemaining = Mathf.Max(0, cooldown);
+            UpdateRageReadyVfx(BattleActor.Player);
+            Refresh();
+            return true;
+        }
+
+        public IEnumerator ExecuteFlyingSwordSkill(BoardManager board)
+        {
+            if (IsGameOver)
+                yield break;
+
+            EnsureFlyingSwordSkillSetup();
+            SkillConfig skill = ResolveFlyingSwordSkill();
+            int activeLevel = ResolveActiveFlyingSwordLevel();
+            float atkMultiplier = skill != null
+                ? skill.GetAttackGemDamageMultiplier(activeLevel)
+                : 1f;
+
+            MoveResult skillMoveResult = null;
+            if (flyingSwordSkillController != null)
+            {
+                yield return flyingSwordSkillController.ExecuteSkill(hero, board, skill,
+                    activeLevel, result => skillMoveResult = result);
+            }
+
+            if (skillMoveResult != null && skillMoveResult.IsValid && !IsGameOver)
+            {
+                yield return ResolveMove(BattleActor.Player, skillMoveResult,
+                    atkMultiplier, isSkillGemResolution: true);
             }
         }
 
@@ -807,5 +950,552 @@ namespace Match3RPG.Battle
             SetRage(actor, value);
         }
 #endif
+    }
+
+    public sealed class FlyingSwordSkillController : MonoBehaviour
+    {
+        public const float DefaultOrbitSecondsPerRevolution = 1.44f;
+        public const float DefaultOrbitRadiusXRatio = 0.37f;
+        public const float DefaultOrbitRadiusYRatio = 0.13f;
+        public const float DefaultOrbitBackAlpha = 0.55f;
+        public const float DefaultOrbitEasingStrength = 0.25f;
+        public const float DefaultRowClearSweepDuration = 0.60f;
+        public const float DefaultDelayBetweenRowSwords = 0.15f;
+
+        [Header("Play-test Skill Level (Lv1 - Lv5)")]
+        [SerializeField, Range(1, SkillConfig.MaxLevel)] int skillLevel = SkillConfig.DefaultLevel;
+
+        [Header("Orbit (Kiếm bay quanh hero)")]
+        [SerializeField, Min(0.2f)] float orbitSecondsPerRevolution = DefaultOrbitSecondsPerRevolution;
+        [SerializeField, Min(0.05f)] float orbitRadiusXRatio = DefaultOrbitRadiusXRatio;
+        [SerializeField, Min(0.05f)] float orbitRadiusYRatio = DefaultOrbitRadiusYRatio;
+        [SerializeField, Range(0.1f, 1f)] float orbitBackAlpha = DefaultOrbitBackAlpha;
+        [SerializeField, Range(0f, 0.45f)] float orbitEasingStrength = DefaultOrbitEasingStrength;
+        [SerializeField, Min(0.1f)] float orbitSwordLengthRatio = 0.42f;
+        [SerializeField, Range(0, 5)] int orbitTrailCount = 3;
+        [SerializeField, Min(0.005f)] float orbitTrailPhaseStep = 0.032f;
+        [SerializeField, Min(0f)] float orbitLeadInDuration = 0.20f;
+        [SerializeField, Min(0f)] float orbitFadeOutDuration = 0.18f;
+
+        [Header("Row Clear (Kiếm diệt hàng ngang)")]
+        [SerializeField, Min(0.1f)] float rowClearSweepDuration = DefaultRowClearSweepDuration;
+        [SerializeField, Min(0f)] float delayBetweenRowSwords = DefaultDelayBetweenRowSwords;
+        [SerializeField, Min(0.5f)] float rowSwordCellWidthMultiplier = 2.2f;
+        [SerializeField, Range(0, 5)] int rowTrailCount = 3;
+
+        static readonly float[] TrailAlphaWeights = { 0.38f, 0.22f, 0.11f, 0.06f, 0.03f };
+        static readonly float[] TrailScaleWeights = { 0.95f, 0.90f, 0.85f, 0.80f, 0.75f };
+
+        readonly List<OrbitSwordInstance> activeOrbitSwords = new List<OrbitSwordInstance>();
+        readonly List<GameObject> activeRowSwords = new List<GameObject>();
+        CharacterView heroView;
+        RectTransform backOrbitLayer;
+        RectTransform frontOrbitLayer;
+        RectTransform rowClearLayer;
+        float orbitElapsed;
+        float orbitEnvelopeAlpha = 1f;
+        bool isOrbiting;
+        bool isRunning;
+
+        public bool IsRunning => isRunning;
+        public int SkillLevel
+        {
+            get => Mathf.Clamp(skillLevel, 1, SkillConfig.MaxLevel);
+            set => skillLevel = Mathf.Clamp(value, 1, SkillConfig.MaxLevel);
+        }
+        public float OrbitSecondsPerRevolution => orbitSecondsPerRevolution;
+        public float DelayBetweenRowSwords => delayBetweenRowSwords;
+        public float RowClearSweepDuration => rowClearSweepDuration;
+
+        sealed class OrbitSwordInstance
+        {
+            public float PhaseOffset;
+            public RectTransform MainRect;
+            public Image MainImage;
+            public RectTransform[] TrailRects;
+            public Image[] TrailImages;
+        }
+
+        public void Configure(CharacterView hero)
+        {
+            heroView = hero;
+            EnsureOrbitLayers();
+        }
+
+        void OnDisable()
+        {
+            StopAndClear();
+        }
+
+        public void StopAndClear()
+        {
+            isOrbiting = false;
+            isRunning = false;
+            ClearOrbitSwords();
+            ClearRowSwords();
+        }
+
+        void Update()
+        {
+            if (!isOrbiting || activeOrbitSwords.Count == 0 || heroView == null)
+                return;
+
+            float dt = Time.deltaTime > 0f ? Time.deltaTime : (1f / 60f);
+            orbitElapsed += dt;
+            UpdateOrbitPositions();
+        }
+
+        public static float MeasureHeroBattleHeight(CharacterView hero)
+        {
+            if (hero == null || hero.VisualRect == null)
+                return 394.74f;
+
+            RectTransform visualRect = hero.VisualRect;
+            float unscaled = Mathf.Min(visualRect.rect.width, visualRect.rect.height);
+            if (unscaled <= 1f)
+                unscaled = 464.4f;
+            float scaleY = Mathf.Abs(visualRect.localScale.y);
+            if (scaleY <= 0.01f)
+                scaleY = 0.85f;
+            return unscaled * scaleY;
+        }
+
+        public IEnumerator ExecuteSkill(CharacterView hero, BoardManager board,
+            SkillConfig config, int level, Action<MoveResult> onRowsCleared)
+        {
+            if (isRunning)
+                yield break;
+
+            isRunning = true;
+            heroView = hero != null ? hero : heroView;
+            SkillLevel = level;
+            int activeLevel = SkillLevel;
+            int orbitCount = config != null ? config.GetOrbitSwordCount(activeLevel) : 1;
+            int rowClearCount = config != null ? config.GetRowClearCount(activeLevel) : 1;
+            Sprite swordSprite = config != null ? config.Icon : SkillConfig.ResolveSwordSprite();
+
+            if (swordSprite == null)
+            {
+                Debug.LogError($"[FlyingSwordSkill] Missing sword sprite at {SkillConfig.FlyingSwordAssetPath}.", this);
+                isRunning = false;
+                yield break;
+            }
+
+            bool wasLayoutEnabled = false;
+            bool boardLocked = false;
+            MoveResult moveResult = new MoveResult(new BoardPos(0, 0), new BoardPos(0, 0))
+            {
+                IsValid = true,
+                IsDirectActivation = true,
+                WasSpecialActivation = false,
+                WasInitialMove = false
+            };
+            MatchResult matchResult = new MatchResult();
+
+            try
+            {
+                SpawnOrbitSwords(swordSprite, orbitCount);
+                orbitElapsed = 0f;
+                orbitEnvelopeAlpha = 1f;
+                isOrbiting = true;
+                UpdateOrbitPositions();
+
+                if (orbitLeadInDuration > 0f)
+                    yield return new WaitForSeconds(orbitLeadInDuration);
+
+                if (board != null)
+                {
+                    board.BeginSkillRowClear(out wasLayoutEnabled);
+                    boardLocked = true;
+                    EnsureRowClearLayer(board);
+
+                    List<int> selectedRows = SelectRandomDistinctRows(board.Rows, rowClearCount);
+                    for (int i = 0; i < selectedRows.Count; i++)
+                    {
+                        int targetRow = selectedRows[i];
+                        yield return SweepSingleRow(board, swordSprite, targetRow, matchResult);
+                        if (i + 1 < selectedRows.Count && delayBetweenRowSwords > 0f)
+                            yield return new WaitForSeconds(delayBetweenRowSwords);
+                    }
+
+                    boardLocked = false;
+                    yield return board.FinishSkillRowClear(wasLayoutEnabled);
+                }
+
+                if (orbitFadeOutDuration > 0f)
+                {
+                    float fadeElapsed = 0f;
+                    while (fadeElapsed < orbitFadeOutDuration)
+                    {
+                        fadeElapsed += Time.deltaTime > 0f ? Time.deltaTime : (1f / 60f);
+                        orbitEnvelopeAlpha = 1f - Mathf.Clamp01(fadeElapsed / orbitFadeOutDuration);
+                        yield return null;
+                    }
+                }
+            }
+            finally
+            {
+                if (boardLocked && board != null)
+                    StartCoroutine(board.FinishSkillRowClear(wasLayoutEnabled));
+                isOrbiting = false;
+                ClearOrbitSwords();
+                ClearRowSwords();
+                isRunning = false;
+            }
+
+            if (matchResult.ClearPositions.Count > 0)
+                moveResult.AddMatch(matchResult);
+            onRowsCleared?.Invoke(moveResult);
+        }
+
+        static List<int> SelectRandomDistinctRows(int totalRows, int requestedCount)
+        {
+            int clampedCount = Mathf.Clamp(requestedCount, 1, Mathf.Max(1, totalRows));
+            List<int> pool = new List<int>(totalRows);
+            for (int r = 0; r < totalRows; r++)
+                pool.Add(r);
+
+            for (int i = 0; i < clampedCount; i++)
+            {
+                int pick = UnityEngine.Random.Range(i, pool.Count);
+                int temp = pool[i];
+                pool[i] = pool[pick];
+                pool[pick] = temp;
+            }
+
+            return pool.GetRange(0, clampedCount);
+        }
+
+        IEnumerator SweepSingleRow(BoardManager board, Sprite swordSprite, int row,
+            MatchResult matchResult)
+        {
+            int columns = board.Columns;
+            if (columns <= 0 || rowClearLayer == null)
+                yield break;
+
+            Vector2[] cellLocalCenters = new Vector2[columns];
+            for (int col = 0; col < columns; col++)
+            {
+                Vector3 worldCenter = board.GetCellWorldCenter(row, col);
+                cellLocalCenters[col] = rowClearLayer.InverseTransformPoint(worldCenter);
+            }
+
+            float rowY = cellLocalCenters[0].y;
+            float cellWidth = columns > 1
+                ? Mathf.Abs(cellLocalCenters[1].x - cellLocalCenters[0].x)
+                : 125f;
+            if (cellWidth <= 1f)
+                cellWidth = 125f;
+
+            float spriteAspect = swordSprite.rect.width > 0f
+                ? swordSprite.rect.height / swordSprite.rect.width
+                : 0.5f;
+            float swordWidth = cellWidth * Mathf.Max(0.5f, rowSwordCellWidthMultiplier);
+            float swordHeight = swordWidth * spriteAspect;
+            Vector2 swordSize = new Vector2(swordWidth, swordHeight);
+
+            float startX = cellLocalCenters[0].x - cellWidth * 0.75f;
+            float endX = cellLocalCenters[columns - 1].x + cellWidth * 0.75f;
+
+            GameObject swordRootObj = new GameObject($"RowClearSword_Row{row}", typeof(RectTransform));
+            activeRowSwords.Add(swordRootObj);
+            RectTransform swordRoot = swordRootObj.GetComponent<RectTransform>();
+            swordRoot.SetParent(rowClearLayer, false);
+            swordRoot.anchorMin = new Vector2(0.5f, 0.5f);
+            swordRoot.anchorMax = new Vector2(0.5f, 0.5f);
+            swordRoot.pivot = new Vector2(0.5f, 0.5f);
+            swordRoot.sizeDelta = swordSize;
+            swordRoot.anchoredPosition = new Vector2(startX, rowY);
+            swordRoot.localEulerAngles = Vector3.zero;
+            swordRoot.localScale = Vector3.one;
+
+            int trailSteps = Mathf.Clamp(rowTrailCount, 0, TrailAlphaWeights.Length);
+            for (int t = trailSteps - 1; t >= 0; t--)
+            {
+                GameObject trailObj = new GameObject($"RowTrail_{t}", typeof(RectTransform),
+                    typeof(CanvasRenderer), typeof(Image));
+                RectTransform trailRect = trailObj.GetComponent<RectTransform>();
+                trailRect.SetParent(swordRoot, false);
+                trailRect.anchorMin = new Vector2(0.5f, 0.5f);
+                trailRect.anchorMax = new Vector2(0.5f, 0.5f);
+                trailRect.pivot = new Vector2(0.5f, 0.5f);
+                trailRect.sizeDelta = swordSize * TrailScaleWeights[t];
+                trailRect.anchoredPosition = new Vector2(-(t + 1) * cellWidth * 0.24f, 0f);
+                trailRect.localEulerAngles = Vector3.zero;
+                Image trailImage = trailObj.GetComponent<Image>();
+                trailImage.sprite = swordSprite;
+                trailImage.preserveAspect = true;
+                trailImage.raycastTarget = false;
+                trailImage.color = new Color(0.75f, 0.94f, 1f, TrailAlphaWeights[t]);
+            }
+
+            GameObject mainObj = new GameObject("SwordBody", typeof(RectTransform),
+                typeof(CanvasRenderer), typeof(Image));
+            RectTransform mainRect = mainObj.GetComponent<RectTransform>();
+            mainRect.SetParent(swordRoot, false);
+            mainRect.anchorMin = new Vector2(0.5f, 0.5f);
+            mainRect.anchorMax = new Vector2(0.5f, 0.5f);
+            mainRect.pivot = new Vector2(0.5f, 0.5f);
+            mainRect.sizeDelta = swordSize;
+            mainRect.anchoredPosition = Vector2.zero;
+            mainRect.localEulerAngles = Vector3.zero;
+            Image mainImage = mainObj.GetComponent<Image>();
+            mainImage.sprite = swordSprite;
+            mainImage.preserveAspect = true;
+            mainImage.raycastTarget = false;
+            mainImage.color = Color.white;
+
+            bool[] columnCleared = new bool[columns];
+            float duration = Mathf.Max(0.1f, rowClearSweepDuration);
+            float elapsed = 0f;
+
+            while (elapsed < duration)
+            {
+                float dt = Time.deltaTime > 0f ? Time.deltaTime : (1f / 60f);
+                elapsed += dt;
+                float progress = Mathf.Clamp01(elapsed / duration);
+                float currentX = Mathf.Lerp(startX, endX, progress);
+                swordRoot.anchoredPosition = new Vector2(currentX, rowY);
+
+                for (int col = 0; col < columns; col++)
+                {
+                    if (columnCleared[col] || currentX < cellLocalCenters[col].x)
+                        continue;
+
+                    columnCleared[col] = true;
+                    EatCellIntoMatchResult(board, row, col, matchResult);
+                }
+
+                yield return null;
+            }
+
+            for (int col = 0; col < columns; col++)
+            {
+                if (!columnCleared[col])
+                {
+                    columnCleared[col] = true;
+                    EatCellIntoMatchResult(board, row, col, matchResult);
+                }
+            }
+
+            activeRowSwords.Remove(swordRootObj);
+            if (swordRootObj != null)
+                Destroy(swordRootObj);
+        }
+
+        static void EatCellIntoMatchResult(BoardManager board, int row, int col,
+            MatchResult matchResult)
+        {
+            if (!board.EatGemAtForSkill(row, col, out GemType eatenType))
+                return;
+
+            BoardPos pos = new BoardPos(row, col);
+            matchResult.ClearPositions.Add(pos);
+            matchResult.GemCounts.TryGetValue(eatenType, out int currentCount);
+            matchResult.GemCounts[eatenType] = currentCount + 1;
+        }
+
+        void EnsureOrbitLayers()
+        {
+            if (heroView == null || heroView.VisualRect == null)
+                return;
+
+            RectTransform heroRoot = heroView.transform as RectTransform;
+            if (heroRoot == null)
+                return;
+
+            if (backOrbitLayer == null)
+                backOrbitLayer = CreateLayerRect("FlyingSwordBackOrbitLayer", heroRoot);
+            if (frontOrbitLayer == null)
+                frontOrbitLayer = CreateLayerRect("FlyingSwordFrontOrbitLayer", heroRoot);
+
+            int visualIndex = heroView.VisualRect.GetSiblingIndex();
+            backOrbitLayer.SetSiblingIndex(visualIndex);
+            visualIndex = heroView.VisualRect.GetSiblingIndex();
+            frontOrbitLayer.SetSiblingIndex(visualIndex + 1);
+        }
+
+        void EnsureRowClearLayer(BoardManager board)
+        {
+            if (rowClearLayer != null)
+                return;
+
+            Transform boardRoot = board != null ? board.BoardRoot : null;
+            RectTransform viewport = boardRoot != null && boardRoot.parent != null
+                ? boardRoot.parent.parent as RectTransform
+                : null;
+            RectTransform boardArea = viewport != null
+                ? viewport.parent as RectTransform
+                : boardRoot as RectTransform;
+            if (boardArea == null)
+                return;
+
+            rowClearLayer = CreateLayerRect("FlyingSwordRowClearLayer", boardArea);
+            rowClearLayer.SetAsLastSibling();
+        }
+
+        static RectTransform CreateLayerRect(string name, RectTransform parent)
+        {
+            GameObject layerObj = new GameObject(name, typeof(RectTransform));
+            RectTransform rect = layerObj.GetComponent<RectTransform>();
+            rect.SetParent(parent, false);
+            rect.anchorMin = Vector2.zero;
+            rect.anchorMax = Vector2.one;
+            rect.offsetMin = Vector2.zero;
+            rect.offsetMax = Vector2.zero;
+            rect.pivot = new Vector2(0.5f, 0.5f);
+            rect.localScale = Vector3.one;
+            return rect;
+        }
+
+        void SpawnOrbitSwords(Sprite swordSprite, int count)
+        {
+            ClearOrbitSwords();
+            EnsureOrbitLayers();
+            if (frontOrbitLayer == null || backOrbitLayer == null || swordSprite == null)
+                return;
+
+            float heroHeight = MeasureHeroBattleHeight(heroView);
+            float spriteAspect = swordSprite.rect.width > 0f
+                ? swordSprite.rect.height / swordSprite.rect.width
+                : 0.5f;
+            float swordLength = heroHeight * Mathf.Max(0.15f, orbitSwordLengthRatio);
+            Vector2 swordSize = new Vector2(swordLength, swordLength * spriteAspect);
+            int clampedCount = Mathf.Max(1, count);
+            int trailSteps = Mathf.Clamp(orbitTrailCount, 0, TrailAlphaWeights.Length);
+
+            for (int index = 0; index < clampedCount; index++)
+            {
+                OrbitSwordInstance instance = new OrbitSwordInstance
+                {
+                    PhaseOffset = index / (float)clampedCount,
+                    TrailRects = new RectTransform[trailSteps],
+                    TrailImages = new Image[trailSteps]
+                };
+
+                for (int t = trailSteps - 1; t >= 0; t--)
+                {
+                    RectTransform trailRect = CreateSwordImage($"OrbitSword_{index}_Trail_{t}",
+                        frontOrbitLayer, swordSprite, swordSize * TrailScaleWeights[t],
+                        out Image trailImg);
+                    trailRect.localEulerAngles = new Vector3(0f, 0f, -90f);
+                    instance.TrailRects[t] = trailRect;
+                    instance.TrailImages[t] = trailImg;
+                }
+
+                RectTransform mainRect = CreateSwordImage($"OrbitSword_{index}",
+                    frontOrbitLayer, swordSprite, swordSize, out Image mainImg);
+                mainRect.localEulerAngles = new Vector3(0f, 0f, -90f);
+                instance.MainRect = mainRect;
+                instance.MainImage = mainImg;
+
+                activeOrbitSwords.Add(instance);
+            }
+        }
+
+        static RectTransform CreateSwordImage(string name, RectTransform parent, Sprite sprite,
+            Vector2 size, out Image image)
+        {
+            GameObject obj = new GameObject(name, typeof(RectTransform),
+                typeof(CanvasRenderer), typeof(Image));
+            RectTransform rect = obj.GetComponent<RectTransform>();
+            rect.SetParent(parent, false);
+            rect.anchorMin = new Vector2(0.5f, 0.5f);
+            rect.anchorMax = new Vector2(0.5f, 0.5f);
+            rect.pivot = new Vector2(0.5f, 0.5f);
+            rect.sizeDelta = size;
+            rect.localScale = Vector3.one;
+            image = obj.GetComponent<Image>();
+            image.sprite = sprite;
+            image.preserveAspect = true;
+            image.raycastTarget = false;
+            return rect;
+        }
+
+        void UpdateOrbitPositions()
+        {
+            if (heroView == null || frontOrbitLayer == null || backOrbitLayer == null)
+                return;
+
+            RectTransform heroRoot = heroView.transform as RectTransform;
+            Vector2 center = heroView.VFXAnchor != null && heroRoot != null
+                ? (Vector2)heroRoot.InverseTransformPoint(heroView.VFXAnchor.position)
+                : Vector2.zero;
+
+            float heroHeight = MeasureHeroBattleHeight(heroView);
+            float radiusX = orbitRadiusXRatio * heroHeight;
+            float radiusY = orbitRadiusYRatio * heroHeight;
+            float period = Mathf.Max(0.2f, orbitSecondsPerRevolution);
+
+            for (int i = 0; i < activeOrbitSwords.Count; i++)
+            {
+                OrbitSwordInstance instance = activeOrbitSwords[i];
+                float basePhase = (orbitElapsed / period) + instance.PhaseOffset;
+
+                for (int t = instance.TrailRects.Length - 1; t >= 0; t--)
+                {
+                    float trailPhase = basePhase - (t + 1) * orbitTrailPhaseStep;
+                    ApplyOrbitSample(instance.TrailRects[t], instance.TrailImages[t],
+                        center, radiusX, radiusY, trailPhase,
+                        TrailAlphaWeights[t] * orbitEnvelopeAlpha, true);
+                }
+
+                ApplyOrbitSample(instance.MainRect, instance.MainImage,
+                    center, radiusX, radiusY, basePhase, orbitEnvelopeAlpha, false);
+            }
+        }
+
+        void ApplyOrbitSample(RectTransform rect, Image image, Vector2 center,
+            float radiusX, float radiusY, float phase, float alphaScale, bool isTrail)
+        {
+            if (rect == null || image == null)
+                return;
+
+            float phi = phase * Mathf.PI * 2f;
+            float theta = phi + orbitEasingStrength * Mathf.Cos(phi);
+
+            float x = center.x + radiusX * Mathf.Cos(theta);
+            float y = center.y + radiusY * Mathf.Sin(theta);
+            float depth = Mathf.Sin(theta);
+
+            RectTransform targetLayer = depth > 0f ? backOrbitLayer : frontOrbitLayer;
+            if (rect.parent != targetLayer)
+                rect.SetParent(targetLayer, false);
+
+            rect.anchoredPosition = new Vector2(x, y);
+            rect.localEulerAngles = new Vector3(0f, 0f, -90f);
+
+            float backBlend = Mathf.SmoothStep(0f, 1f, Mathf.InverseLerp(-0.18f, 0.22f, depth));
+            float depthAlpha = Mathf.Lerp(1f, orbitBackAlpha, backBlend) * alphaScale;
+
+            image.color = isTrail
+                ? new Color(0.75f, 0.94f, 1f, depthAlpha)
+                : new Color(1f, 1f, 1f, depthAlpha);
+        }
+
+        void ClearOrbitSwords()
+        {
+            for (int i = 0; i < activeOrbitSwords.Count; i++)
+            {
+                OrbitSwordInstance instance = activeOrbitSwords[i];
+                if (instance.MainRect != null)
+                    Destroy(instance.MainRect.gameObject);
+                if (instance.TrailRects != null)
+                {
+                    for (int t = 0; t < instance.TrailRects.Length; t++)
+                        if (instance.TrailRects[t] != null)
+                            Destroy(instance.TrailRects[t].gameObject);
+                }
+            }
+            activeOrbitSwords.Clear();
+        }
+
+        void ClearRowSwords()
+        {
+            for (int i = 0; i < activeRowSwords.Count; i++)
+                if (activeRowSwords[i] != null)
+                    Destroy(activeRowSwords[i]);
+            activeRowSwords.Clear();
+        }
     }
 }

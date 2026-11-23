@@ -26,6 +26,7 @@ namespace Match3RPG.Battle
         int bossTurnsRemaining;
         bool extraTurnMessage;
         bool pausedForStatusPopup;
+        bool manualSkillRunning;
         public BattleTurnState State { get; private set; } = BattleTurnState.BattleStart;
         public BattleActor CurrentActor { get; private set; } = BattleActor.Player;
         public int PlayerTurnsRemaining => playerTurnsRemaining;
@@ -34,6 +35,15 @@ namespace Match3RPG.Battle
         public BattleController Battle => battle;
         public TurnTimer Timer => turnTimer;
         public bool IsPausedForStatusPopup => pausedForStatusPopup;
+        public bool IsManualSkillRunning => manualSkillRunning;
+        public bool CanActivateManualSkill =>
+            State == BattleTurnState.PlayerTurn
+            && activeTurn == null
+            && !manualSkillRunning
+            && board != null
+            && !board.IsResolving
+            && battle != null
+            && battle.CanActivateFlyingSwordSkill();
         int StoredTurnLimit => Mathf.Clamp(maximumStoredTurns, 1, 5);
 
         public static BattleActor? GetFasterActor(float heroSpeed, float bossSpeed)
@@ -60,7 +70,8 @@ namespace Match3RPG.Battle
             if (!pausedForStatusPopup)
                 return;
             pausedForStatusPopup = false;
-            if (State == BattleTurnState.PlayerTurn && board != null && !board.IsResolving)
+            if (State == BattleTurnState.PlayerTurn && !manualSkillRunning
+                && board != null && !board.IsResolving)
             {
                 turnTimer?.Resume();
                 board.SetInputEnabled(true);
@@ -69,9 +80,59 @@ namespace Match3RPG.Battle
                 board?.SetInputEnabled(false);
         }
 
+        public bool TryActivateFlyingSwordSkill()
+        {
+            if (!CanActivateManualSkill)
+                return false;
+            if (!battle.TryConsumeFlyingSwordSkillCost())
+                return false;
+
+            pausedForStatusPopup = false;
+            turnTimer?.Pause();
+            board?.SetInputEnabled(false);
+            activeTurn = StartCoroutine(ExecuteFlyingSwordSkillRoutine());
+            return true;
+        }
+
+        IEnumerator ExecuteFlyingSwordSkillRoutine()
+        {
+            manualSkillRunning = true;
+            turnTimer?.Pause();
+            board?.SetInputEnabled(false);
+            try
+            {
+                yield return battle.ExecuteFlyingSwordSkill(board);
+                yield return WaitWhileStatusPopupClosed();
+                if (CheckBattleEnd())
+                    yield break;
+
+                float savedTime = turnTimer != null && turnTimer.RemainingTime > 0f
+                    ? turnTimer.RemainingTime
+                    : PlayerDecisionSeconds;
+                yield return EnsureBoardPlayable(BattleActor.Player, savedTime,
+                    time => savedTime = time);
+            }
+            finally
+            {
+                manualSkillRunning = false;
+                activeTurn = null;
+            }
+
+            if (!battle.IsGameOver && State == BattleTurnState.PlayerTurn)
+            {
+                if (!pausedForStatusPopup)
+                {
+                    turnTimer?.Resume();
+                    board?.SetInputEnabled(true);
+                }
+                RefreshIndicator();
+            }
+        }
+
         public void StopForBattleExit()
         {
             pausedForStatusPopup = true;
+            manualSkillRunning = false;
             turnTimer?.Stop();
             if (activeTurn != null) StopCoroutine(activeTurn);
             if (extraTurnMessageRoutine != null) StopCoroutine(extraTurnMessageRoutine);
@@ -323,6 +384,7 @@ namespace Match3RPG.Battle
             }
 
             if (CheckBattleEnd()) yield break;
+            battle?.AdvanceRoundCooldowns();
             activeTurn = StartCoroutine(StartPlayerPhase(true, false, PlayerDecisionSeconds));
         }
 
