@@ -415,7 +415,7 @@ namespace Match3RPG.Core
                 headVfxAnchorPosition: selectedHeroData != null
                     ? selectedHeroData.HeadVfxAnchor : new Vector2(.5f, .82f),
                 floatingAnchorPosition: selectedHeroData != null
-                    ? selectedHeroData.FloatingTextAnchor : new Vector2(.5f, .88f),
+                    ? selectedHeroData.FloatingTextAnchor : new Vector2(.5f, .72f),
                 idleFeetPaddingFraction: GetIdleFeetPaddingFraction(heroAnimationSet));
             bossCharacterView = CreateCharacter(bossAnchorRect, "BossCharacterRoot", "B",
                 new Color32(204, 91, 78, 255), Vector2.zero, Vector2.one, bossVisualSprite,
@@ -430,7 +430,7 @@ namespace Match3RPG.Core
                 headVfxAnchorPosition: battleBossData != null
                     ? battleBossData.HeadVfxAnchor : new Vector2(.5f, .82f),
                 floatingAnchorPosition: battleBossData != null
-                    ? battleBossData.FloatingTextAnchor : new Vector2(.5f, .88f),
+                    ? battleBossData.FloatingTextAnchor : new Vector2(.5f, .62f),
                 idleFeetPaddingFraction: GetIdleFeetPaddingFraction(bossAnimationSet),
                 attackNormalizationMultiplier: bossAnimationSet != null
                     ? bossAnimationSet.AttackNormalizationScaleMultiplier
