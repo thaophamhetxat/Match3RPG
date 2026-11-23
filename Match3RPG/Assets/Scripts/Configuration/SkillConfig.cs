@@ -40,7 +40,8 @@ namespace Match3RPG.Configuration
         public const int SwordQiDefaultCooldownTurns = 3; // TẠM
         public const int DefaultManaCost = 3;
         public const int DefaultRageCost = 0;
-        public const int DefaultCooldownTurns = 3;
+        public const int DefaultCooldownTurns = 8;
+        public const int FlyingSwordOrbitDurationTurns = 5;
         public const int DefaultLevel = 1;
         public const int MaxLevel = 5;
 

@@ -64,6 +64,7 @@ namespace Match3RPG.Battle
         int heroRage, bossRage;
         int playerManaGemCount, playerAttackGemCount, playerSoulGemCount, playerRageGemCount;
         int flyingSwordCooldownRemaining;
+        int flyingSwordOrbitTurnsRemaining;
         int swordQiCooldownRemaining;
         int lastSyncedFlyingSwordLevel = SkillConfig.DefaultLevel;
         SkillConfig flyingSwordSkillConfig;
@@ -86,6 +87,7 @@ namespace Match3RPG.Battle
         public int PlayerSoulGemCount => playerSoulGemCount;
         public int PlayerRageGemCount => playerRageGemCount;
         public int FlyingSwordCooldownRemaining => flyingSwordCooldownRemaining;
+        public int FlyingSwordOrbitTurnsRemaining => flyingSwordOrbitTurnsRemaining;
         public SkillConfig FlyingSwordSkill => ResolveFlyingSwordSkill();
         public int FlyingSwordSkillLevel => ResolveActiveFlyingSwordLevel();
         public bool IsFlyingSwordSkillRunning =>
@@ -258,7 +260,9 @@ namespace Match3RPG.Battle
             playerSoulGemCount = 0;
             playerRageGemCount = 0;
             flyingSwordCooldownRemaining = 0;
+            flyingSwordOrbitTurnsRemaining = 0;
             swordQiCooldownRemaining = 0;
+            flyingSwordSkillController?.StopOrbitImmediate();
             if (layoutTestMode)
                 ApplyLayoutTestState();
             statsInitialized = true;
@@ -384,6 +388,7 @@ namespace Match3RPG.Battle
                 yield return boss.Death();
             if ((heroHp == 0 || (soulEnabled && heroSoulHp == 0)) && hero != null)
                 yield return hero.Death();
+            StopFlyingSwordOrbitIfBattleEnded();
             Refresh();
         }
 
@@ -406,6 +411,7 @@ namespace Match3RPG.Battle
             }
             if ((heroHp == 0 || (soulEnabled && heroSoulHp == 0)) && hero != null)
                 yield return hero.Death();
+            StopFlyingSwordOrbitIfBattleEnded();
             Refresh();
         }
 
@@ -648,6 +654,26 @@ namespace Match3RPG.Battle
                 flyingSwordCooldownRemaining--;
             if (swordQiCooldownRemaining > 0)
                 swordQiCooldownRemaining--;
+
+            if (flyingSwordOrbitTurnsRemaining > 0)
+            {
+                flyingSwordOrbitTurnsRemaining--;
+                if (flyingSwordOrbitTurnsRemaining == 0)
+                    flyingSwordSkillController?.FadeOutAndStopOrbit();
+            }
+        }
+
+        void StopFlyingSwordOrbitIfBattleEnded()
+        {
+            if (!IsGameOver || flyingSwordOrbitTurnsRemaining <= 0)
+                return;
+
+            flyingSwordOrbitTurnsRemaining = 0;
+            bool heroDead = heroHp <= 0 || (soulEnabled && heroSoulHp <= 0);
+            if (heroDead)
+                flyingSwordSkillController?.StopOrbitImmediate();
+            else
+                flyingSwordSkillController?.FadeOutAndStopOrbit();
         }
 
         void EnsureFlyingSwordSkillSetup()
@@ -761,6 +787,7 @@ namespace Match3RPG.Battle
                 return false;
 
             flyingSwordCooldownRemaining = newCooldown;
+            flyingSwordOrbitTurnsRemaining = SkillConfig.FlyingSwordOrbitDurationTurns;
             return true;
         }
 
@@ -841,7 +868,8 @@ namespace Match3RPG.Battle
             if (flyingSwordSkillController != null)
             {
                 yield return flyingSwordSkillController.ExecuteSkill(hero, board, skill,
-                    activeLevel, result => skillMoveResult = result);
+                    activeLevel, result => skillMoveResult = result,
+                    keepOrbitingAfterSkill: true);
             }
 
             if (skillMoveResult != null && skillMoveResult.IsValid && !IsGameOver)
@@ -849,6 +877,8 @@ namespace Match3RPG.Battle
                 yield return ResolveMove(BattleActor.Player, skillMoveResult,
                     atkMultiplier, isSkillGemResolution: true);
             }
+
+            StopFlyingSwordOrbitIfBattleEnded();
         }
 
         public IEnumerator ExecuteSwordQiSkill()
@@ -885,6 +915,7 @@ namespace Match3RPG.Battle
 
             if ((bossHp == 0 || (soulEnabled && bossSoulHp == 0)) && boss != null)
                 yield return boss.Death();
+            StopFlyingSwordOrbitIfBattleEnded();
             Refresh();
         }
 
@@ -1149,6 +1180,7 @@ namespace Match3RPG.Battle
         float orbitEnvelopeAlpha = 1f;
         bool isOrbiting;
         bool isRunning;
+        Coroutine orbitFadeRoutine;
 
         public bool IsRunning => isRunning;
         public int SkillLevel
@@ -1182,10 +1214,57 @@ namespace Match3RPG.Battle
 
         public void StopAndClear()
         {
+            if (orbitFadeRoutine != null)
+            {
+                StopCoroutine(orbitFadeRoutine);
+                orbitFadeRoutine = null;
+            }
             isOrbiting = false;
             isRunning = false;
             ClearOrbitSwords();
             ClearRowSwords();
+        }
+
+        public void StopOrbitImmediate()
+        {
+            if (orbitFadeRoutine != null)
+            {
+                StopCoroutine(orbitFadeRoutine);
+                orbitFadeRoutine = null;
+            }
+            isOrbiting = false;
+            ClearOrbitSwords();
+        }
+
+        public void FadeOutAndStopOrbit()
+        {
+            if (!isOrbiting && activeOrbitSwords.Count == 0)
+                return;
+            if (!isActiveAndEnabled || orbitFadeOutDuration <= 0f)
+            {
+                StopOrbitImmediate();
+                return;
+            }
+            if (orbitFadeRoutine != null)
+                StopCoroutine(orbitFadeRoutine);
+            orbitFadeRoutine = StartCoroutine(FadeOutAndClearOrbitRoutine());
+        }
+
+        IEnumerator FadeOutAndClearOrbitRoutine()
+        {
+            float fadeElapsed = 0f;
+            float duration = Mathf.Max(0.01f, orbitFadeOutDuration);
+            float startAlpha = orbitEnvelopeAlpha;
+            while (fadeElapsed < duration && isOrbiting)
+            {
+                float dt = Time.deltaTime > 0f ? Time.deltaTime : (1f / 60f);
+                fadeElapsed += dt;
+                orbitEnvelopeAlpha = Mathf.Lerp(startAlpha, 0f, Mathf.Clamp01(fadeElapsed / duration));
+                yield return null;
+            }
+            isOrbiting = false;
+            ClearOrbitSwords();
+            orbitFadeRoutine = null;
         }
 
         void Update()
@@ -1214,7 +1293,8 @@ namespace Match3RPG.Battle
         }
 
         public IEnumerator ExecuteSkill(CharacterView hero, BoardManager board,
-            SkillConfig config, int level, Action<MoveResult> onRowsCleared)
+            SkillConfig config, int level, Action<MoveResult> onRowsCleared,
+            bool keepOrbitingAfterSkill = false)
         {
             if (isRunning)
                 yield break;
@@ -1236,6 +1316,7 @@ namespace Match3RPG.Battle
 
             bool wasLayoutEnabled = false;
             bool boardLocked = false;
+            bool completedNormally = false;
             MoveResult moveResult = new MoveResult(new BoardPos(0, 0), new BoardPos(0, 0))
             {
                 IsValid = true,
@@ -1247,6 +1328,11 @@ namespace Match3RPG.Battle
 
             try
             {
+                if (orbitFadeRoutine != null)
+                {
+                    StopCoroutine(orbitFadeRoutine);
+                    orbitFadeRoutine = null;
+                }
                 SpawnOrbitSwords(swordSprite, orbitCount);
                 orbitElapsed = 0f;
                 orbitEnvelopeAlpha = 1f;
@@ -1275,7 +1361,7 @@ namespace Match3RPG.Battle
                     yield return board.FinishSkillRowClear(wasLayoutEnabled);
                 }
 
-                if (orbitFadeOutDuration > 0f)
+                if (!keepOrbitingAfterSkill && orbitFadeOutDuration > 0f)
                 {
                     float fadeElapsed = 0f;
                     while (fadeElapsed < orbitFadeOutDuration)
@@ -1285,13 +1371,17 @@ namespace Match3RPG.Battle
                         yield return null;
                     }
                 }
+                completedNormally = true;
             }
             finally
             {
                 if (boardLocked && board != null)
                     StartCoroutine(board.FinishSkillRowClear(wasLayoutEnabled));
-                isOrbiting = false;
-                ClearOrbitSwords();
+                if (!keepOrbitingAfterSkill || !completedNormally)
+                {
+                    isOrbiting = false;
+                    ClearOrbitSwords();
+                }
                 ClearRowSwords();
                 isRunning = false;
             }

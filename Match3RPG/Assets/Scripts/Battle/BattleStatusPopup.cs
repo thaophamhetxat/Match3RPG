@@ -556,7 +556,7 @@ namespace Match3RPG.Battle
                 new Vector2(1f, 1f), new Vector2(1f, 1f), Vector2.zero, Vector2.zero);
             gemCounterBox.pivot = new Vector2(1f, 1f);
             gemCounterBox.sizeDelta = new Vector2(440f, 54f);
-            gemCounterBox.anchoredPosition = new Vector2(-24f, -10f);
+            gemCounterBox.anchoredPosition = new Vector2(-29f, -10f);
             Image counterBg = AddImage(gemCounterBox.gameObject, new Color32(12, 27, 36, 255));
             counterBg.raycastTarget = false;
             Outline counterOutline = gemCounterBox.gameObject.AddComponent<Outline>();
@@ -598,8 +598,10 @@ namespace Match3RPG.Battle
             }
 
             // (2) Danh sách skill cuộn dọc (ScrollRect) bên dưới ô đếm gem cố định
+            // Áp cùng khoảng cách mép dưới 40px như tab Túi đồ (gridBottomMargin = 40f) để hàng 4 không đè vạch dưới popup
+            const float skillsViewportBottomMargin = 40f;
             RectTransform viewportRect = CreateRect("SkillsScrollViewport", skillsContentRoot,
-                Vector2.zero, Vector2.one, new Vector2(0f, 10f), new Vector2(0f, -74f));
+                Vector2.zero, Vector2.one, new Vector2(0f, skillsViewportBottomMargin), new Vector2(0f, -74f));
             Image viewportImage = AddImage(viewportRect.gameObject, new Color(1f, 1f, 1f, 0.001f));
             viewportImage.raycastTarget = true;
             viewportRect.gameObject.AddComponent<RectMask2D>();

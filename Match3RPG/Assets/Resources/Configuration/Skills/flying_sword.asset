@@ -21,7 +21,7 @@ MonoBehaviour:
   triggerType: 0
   manaCost: 3
   rageCost: 0
-  cooldownTurns: 3
+  cooldownTurns: 8
   level: 1
   levelTable:
   - level: 1
