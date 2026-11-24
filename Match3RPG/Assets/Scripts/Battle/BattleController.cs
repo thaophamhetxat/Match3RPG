@@ -1661,8 +1661,9 @@ namespace Match3RPG.Battle
                 return;
 
             RectTransform heroRoot = heroView.transform as RectTransform;
-            Vector2 center = heroView.VFXAnchor != null && heroRoot != null
-                ? (Vector2)heroRoot.InverseTransformPoint(heroView.VFXAnchor.position)
+            RectTransform orbitAnchor = heroView.TorsoAnchor != null ? heroView.TorsoAnchor : heroView.VFXAnchor;
+            Vector2 center = orbitAnchor != null && heroRoot != null
+                ? (Vector2)heroRoot.InverseTransformPoint(orbitAnchor.position)
                 : Vector2.zero;
 
             float heroHeight = MeasureHeroBattleHeight(heroView);
