@@ -415,7 +415,7 @@ namespace Match3RPG.Core
                 headVfxAnchorPosition: selectedHeroData != null
                     ? selectedHeroData.HeadVfxAnchor : new Vector2(.5f, .82f),
                 floatingAnchorPosition: selectedHeroData != null
-                    ? selectedHeroData.FloatingTextAnchor : new Vector2(.5f, .72f),
+                    ? selectedHeroData.FloatingTextAnchor : new Vector2(.5f, .49f),
                 idleFeetPaddingFraction: GetIdleFeetPaddingFraction(heroAnimationSet));
             bossCharacterView = CreateCharacter(bossAnchorRect, "BossCharacterRoot", "B",
                 new Color32(204, 91, 78, 255), Vector2.zero, Vector2.one, bossVisualSprite,
@@ -430,7 +430,7 @@ namespace Match3RPG.Core
                 headVfxAnchorPosition: battleBossData != null
                     ? battleBossData.HeadVfxAnchor : new Vector2(.5f, .82f),
                 floatingAnchorPosition: battleBossData != null
-                    ? battleBossData.FloatingTextAnchor : new Vector2(.5f, .62f),
+                    ? battleBossData.FloatingTextAnchor : new Vector2(.5f, .49f),
                 idleFeetPaddingFraction: GetIdleFeetPaddingFraction(bossAnimationSet),
                 attackNormalizationMultiplier: bossAnimationSet != null
                     ? bossAnimationSet.AttackNormalizationScaleMultiplier
@@ -947,11 +947,16 @@ namespace Match3RPG.Core
             RectTransform healAnchor = CreateRect("HealAnchor", visualRect,
                 new Vector2(.5f, healAnchorY),
                 new Vector2(.5f, healAnchorY), Vector2.zero, Vector2.zero);
+            const float torsoAnchorY = 0.30f;
+            RectTransform torsoAnchor = CreateRect("TorsoAnchor", visualRect,
+                new Vector2(.5f, torsoAnchorY),
+                new Vector2(.5f, torsoAnchorY), Vector2.zero, Vector2.zero);
             vfxAnchor.SetAsLastSibling();
             persistentVfxAnchor.SetAsLastSibling();
             headVfxAnchor.SetAsLastSibling();
             healAnchor.SetAsLastSibling();
-            view.SetCombatVFXAnchors(vfxAnchor, persistentVfxAnchor, headVfxAnchor, healAnchor);
+            torsoAnchor.SetAsLastSibling();
+            view.SetCombatVFXAnchors(vfxAnchor, persistentVfxAnchor, headVfxAnchor, healAnchor, torsoAnchor);
             if (characterSprite == null)
                 Debug.LogWarning($"Character sprite missing for {objectName}; using the existing placeholder.", this);
             return view;

@@ -153,7 +153,7 @@ namespace Match3RPG.Battle
             text.fontStyle = FontStyles.Bold;
             text.outlineColor = new Color(0f, 0f, 0f, 0.9f);
             text.outlineWidth = OutlineWidthFor(type);
-            text.alignment = TextAlignmentOptions.Left;
+            text.alignment = TextAlignmentOptions.Center;
             text.transform.localScale = Vector3.one * 1.3f;
             if (icon != null)
             {

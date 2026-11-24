@@ -115,10 +115,12 @@ namespace Match3RPG.Battle
         {
             CharacterView target = GetCharacter(actor);
             RectTransform targetAnchor = target != null ? target.VFXAnchor : null;
+            RectTransform hitImpactAnchor = target != null && target.TorsoAnchor != null
+                ? target.TorsoAnchor : targetAnchor;
             if (targetAnchor == null || transientRoot == null)
                 return;
 
-            PlayAt(CombatVFXType.HitImpact, targetAnchor, TransientLifetime, FacingSign(target));
+            PlayAt(CombatVFXType.HitImpact, hitImpactAnchor, TransientLifetime, FacingSign(target));
 
             Vector2 position = ToTransientPosition(targetAnchor.position);
             GameObject flashObj = new GameObject("SwordQiImpactFlash", typeof(RectTransform),
@@ -199,6 +201,8 @@ namespace Match3RPG.Battle
             CharacterView target = GetCharacter(Opponent(actor));
             RectTransform sourceAnchor = attacker != null ? attacker.VFXAnchor : null;
             RectTransform targetAnchor = target != null ? target.VFXAnchor : null;
+            RectTransform hitImpactAnchor = target != null && target.TorsoAnchor != null
+                ? target.TorsoAnchor : targetAnchor;
             if (attacker == null || target == null)
                 return;
 
@@ -214,8 +218,8 @@ namespace Match3RPG.Battle
                 PlayAt(CombatVFXType.Slash, targetAnchor, .23f, FacingSign(attacker));
             if (critical)
                 PlayAt(CombatVFXType.CriticalHit, targetAnchor, TransientLifetime, FacingSign(attacker));
-            else if (targetAnchor != null)
-                PlayHitImpact(targetAnchor.position, FacingSign(attacker), targetAnchor);
+            else if (hitImpactAnchor != null)
+                PlayHitImpact(hitImpactAnchor.position, FacingSign(attacker), hitImpactAnchor);
             else if (target.VisualRect != null)
                 PlayHitImpact(target.VisualRect.TransformPoint(target.VisualRect.rect.center), FacingSign(attacker));
         }
@@ -500,7 +504,9 @@ namespace Match3RPG.Battle
                 if (type == CombatVFXType.Fireball || type == CombatVFXType.AirSlash)
                     PlayProjectile(type, hero != null ? hero.VFXAnchor : null,
                         boss != null ? boss.VFXAnchor : null, CombatVFXType.HitImpact, 1f);
-                else if (type == CombatVFXType.ShieldHit || type == CombatVFXType.HitImpact
+                else if (type == CombatVFXType.HitImpact)
+                    PlayAt(type, boss != null ? (boss.TorsoAnchor != null ? boss.TorsoAnchor : boss.VFXAnchor) : null, TransientLifetime, 1f);
+                else if (type == CombatVFXType.ShieldHit
                     || type == CombatVFXType.HitPhysical || type == CombatVFXType.CriticalHit)
                     PlayAt(type, boss != null ? boss.VFXAnchor : null, TransientLifetime, 1f);
                 else if (type == CombatVFXType.LifeSteal)

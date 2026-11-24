@@ -27,6 +27,7 @@ namespace Match3RPG.Battle
         RectTransform persistentVfxAnchor;
         RectTransform headVfxAnchor;
         RectTransform healAnchor;
+        RectTransform torsoAnchor;
         HeroAnimationDriver heroAnimation;
         Vector2 homePosition;
         Vector2 configuredVisualOffset;
@@ -53,6 +54,7 @@ namespace Match3RPG.Battle
         public RectTransform PersistentVFXAnchor => persistentVfxAnchor;
         public RectTransform HeadVFXAnchor => headVfxAnchor;
         public RectTransform HealAnchor => healAnchor;
+        public RectTransform TorsoAnchor => torsoAnchor;
         public bool HasSpriteAttackAnimation => heroAnimation != null && heroAnimation.HasAttackFrames;
 
         void Awake()
@@ -133,13 +135,14 @@ namespace Match3RPG.Battle
             floatingTextAnchor = anchor;
         }
 
-        public void SetCombatVFXAnchors(RectTransform torsoAnchor, RectTransform persistentAnchor,
-            RectTransform headAnchor, RectTransform healAnchor)
+        public void SetCombatVFXAnchors(RectTransform vfxAnchor, RectTransform persistentAnchor,
+            RectTransform headAnchor, RectTransform healAnchor, RectTransform torsoAnchor = null)
         {
-            vfxAnchor = torsoAnchor;
+            this.vfxAnchor = vfxAnchor;
             persistentVfxAnchor = persistentAnchor;
             headVfxAnchor = headAnchor;
             this.healAnchor = healAnchor;
+            this.torsoAnchor = torsoAnchor;
         }
 
         public IEnumerator Attack()
