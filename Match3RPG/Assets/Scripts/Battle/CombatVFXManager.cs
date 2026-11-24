@@ -208,17 +208,15 @@ namespace Match3RPG.Battle
 
             if (preferredAttack == CombatVFXType.Fireball || preferredAttack == CombatVFXType.AirSlash)
             {
-                CombatVFXType impactType = critical ? CombatVFXType.CriticalHit : CombatVFXType.HitImpact;
-                PlayProjectile(preferredAttack, sourceAnchor, targetAnchor, impactType,
+                CombatVFXType impactType = CombatVFXType.HitImpact;
+                PlayProjectile(preferredAttack, sourceAnchor, hitImpactAnchor, impactType,
                     FacingSign(attacker));
                 return;
             }
 
             if (firstHit && actor != BattleActor.Player)
                 PlayAt(CombatVFXType.Slash, targetAnchor, .23f, FacingSign(attacker));
-            if (critical)
-                PlayAt(CombatVFXType.CriticalHit, targetAnchor, TransientLifetime, FacingSign(attacker));
-            else if (hitImpactAnchor != null)
+            if (hitImpactAnchor != null)
                 PlayHitImpact(hitImpactAnchor.position, FacingSign(attacker), hitImpactAnchor);
             else if (target.VisualRect != null)
                 PlayHitImpact(target.VisualRect.TransformPoint(target.VisualRect.rect.center), FacingSign(attacker));
