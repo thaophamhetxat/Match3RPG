@@ -19,6 +19,7 @@ namespace Match3RPG.Editor
         const string LifeStealPath = VfxRoot + "Other/life_steal.png";
         const string RageAuraPath = VfxRoot + "Other/rage_aura_blue.png";
         const string BloodHitPath = VfxRoot + "Impact/BloodHit.png";
+        const string ShieldBubblePath = VfxRoot + "Shield/ShieldBubble.png";
 
         static readonly CombatVFXType[] VfxTypes =
         {
@@ -37,7 +38,7 @@ namespace Match3RPG.Editor
             VfxRoot + "Attack/VFX_AirSlash.png",
             VfxRoot + "Attack/VFX_Dash.png",
             HealingAuraPath,
-            VfxRoot + "Shield/shield_ring.png",
+            ShieldBubblePath,
             VfxRoot + "Defense/VFX_ShieldHit.png",
             BloodHitPath,
             VfxRoot + "Impact/VFX_HitPhysical.png",
@@ -70,6 +71,8 @@ namespace Match3RPG.Editor
                     frames[index] = LoadFrameSprites(RageAuraPath, "RageAura", 30);
                 else if (VfxTypes[index] == CombatVFXType.HitImpact)
                     frames[index] = LoadFrameSprites(BloodHitPath, "BloodHit", 6);
+                else if (VfxTypes[index] == CombatVFXType.Shield)
+                    frames[index] = LoadFrameSprites(ShieldBubblePath, "ShieldBubble", 25);
 
                 sprites[index] = VfxTypes[index] != CombatVFXType.RageReady
                     && frames[index] != null && frames[index].Length > 0
@@ -130,6 +133,13 @@ namespace Match3RPG.Editor
                     EnsureFrameSheetImportSettings(assetPath, "BloodHit", 3, 2, 6,
                         SpriteAlignment.Center, new Vector2(.5f, .5f));
                     spriteCount += 6;
+                    continue;
+                }
+                if (string.Equals(assetPath, ShieldBubblePath, StringComparison.OrdinalIgnoreCase))
+                {
+                    EnsureFrameSheetImportSettings(assetPath, "ShieldBubble", 5, 5, 25,
+                        SpriteAlignment.Center, new Vector2(.5f, .5f));
+                    spriteCount += 25;
                     continue;
                 }
 

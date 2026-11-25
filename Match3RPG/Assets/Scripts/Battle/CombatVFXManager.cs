@@ -324,7 +324,10 @@ namespace Match3RPG.Battle
                 position, 0f, out rect, out image);
             persistentEffects[actorIndex, typeIndex] = view;
             if (hasFrames)
-                view.BeginPersistent(type, frames, 30f);
+            {
+                float frameRate = type == CombatVFXType.Shield ? 12f : 30f;
+                view.BeginPersistent(type, frames, frameRate);
+            }
             else
                 view.BeginPersistent(type);
         }
