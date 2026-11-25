@@ -1,0 +1,886 @@
+fileFormatVersion: 2
+guid: 686207ef02726544abce65fdc9243625
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1522202952300455687
+    second: Ngoclonghh-atk_side_left_0
+  - first:
+      213: 6069405594141860837
+    second: Ngoclonghh-atk_side_left_1
+  - first:
+      213: -1668946993037726020
+    second: Ngoclonghh-atk_side_left_2
+  - first:
+      213: 1318256310720813607
+    second: Ngoclonghh-atk_side_left_3
+  - first:
+      213: 6491464848565573179
+    second: Ngoclonghh-atk_side_left_4
+  - first:
+      213: -5380956080933033608
+    second: Ngoclonghh-atk_side_left_5
+  - first:
+      213: 9162740932654608814
+    second: Ngoclonghh-atk_side_left_6
+  - first:
+      213: -7059110583252578398
+    second: Ngoclonghh-atk_side_left_7
+  - first:
+      213: -8764348061603809509
+    second: Ngoclonghh-atk_side_left_8
+  - first:
+      213: -4471333287167230523
+    second: Ngoclonghh-atk_side_left_9
+  - first:
+      213: 362931759859699418
+    second: Ngoclonghh-atk_side_left_10
+  - first:
+      213: -4798155579205915586
+    second: Ngoclonghh-atk_side_left_11
+  - first:
+      213: -5465643804876164558
+    second: Ngoclonghh-atk_side_left_12
+  - first:
+      213: -3015592614335417617
+    second: Ngoclonghh-atk_side_left_13
+  - first:
+      213: 1003065663748836367
+    second: Ngoclonghh-atk_side_left_14
+  - first:
+      213: -2242763989102540218
+    second: Ngoclonghh-atk_side_left_15
+  - first:
+      213: 7840421217057854597
+    second: Ngoclonghh-atk_side_left_16
+  - first:
+      213: 4579772263667642896
+    second: Ngoclonghh-atk_side_left_17
+  - first:
+      213: 1915701890311744772
+    second: Ngoclonghh-atk_side_left_18
+  - first:
+      213: 9073752766499306752
+    second: Ngoclonghh-atk_side_left_19
+  - first:
+      213: -4193846240544883771
+    second: Ngoclonghh-atk_side_left_20
+  - first:
+      213: 4758620978517285326
+    second: Ngoclonghh-atk_side_left_21
+  - first:
+      213: 4394018018916353180
+    second: Ngoclonghh-atk_side_left_22
+  - first:
+      213: 908187783268073976
+    second: Ngoclonghh-atk_side_left_23
+  - first:
+      213: -5330230575271833531
+    second: Ngoclonghh-atk_side_left_24
+  - first:
+      213: -3814691561121222495
+    second: Ngoclonghh-atk_side_left_25
+  - first:
+      213: -8868441503956847266
+    second: Ngoclonghh-atk_side_left_26
+  - first:
+      213: 1965925852906793325
+    second: Ngoclonghh-atk_side_left_27
+  - first:
+      213: -7510905736346957158
+    second: Ngoclonghh-atk_side_left_28
+  - first:
+      213: 7806532324367199241
+    second: Ngoclonghh-atk_side_left_29
+  - first:
+      213: -2808149007239804983
+    second: Ngoclonghh-atk_side_left_30
+  - first:
+      213: 3105966388856392376
+    second: Ngoclonghh-atk_side_left_31
+  - first:
+      213: -7594767115948388161
+    second: Ngoclonghh-atk_side_left_32
+  - first:
+      213: -8476811930359897709
+    second: Ngoclonghh-atk_side_left_33
+  - first:
+      213: 4751538221627306079
+    second: Ngoclonghh-atk_side_left_34
+  - first:
+      213: -9021987459770400123
+    second: Ngoclonghh-atk_side_left_35
+  - first:
+      213: -2275567336182106359
+    second: Ngoclonghh-atk_side_left_36
+  - first:
+      213: -4729447988935948665
+    second: Ngoclonghh-atk_side_left_37
+  - first:
+      213: -8002458785126796154
+    second: Ngoclonghh-atk_side_left_38
+  - first:
+      213: 3097354331315101516
+    second: Ngoclonghh-atk_side_left_39
+  - first:
+      213: 898122575199098374
+    second: Ngoclonghh-atk_side_left_40
+  - first:
+      213: -3698384827629120425
+    second: Ngoclonghh-atk_side_left_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2d493adbd1df454cbb66d0cfc3732a2
+      internalID: 1291954139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62a9dbe2f99b9814885fe223d7c090de
+      internalID: -262593076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6eb53d237ef767e4bb610148b99ed4b0
+      internalID: 1622434477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b27654fdff6fee43a7aeb43aad8748d
+      internalID: 1343814483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c729b185a90986e41a254c9ed57b4af4
+      internalID: -622145362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 266014bb1c5e2274a8b62399ea092510
+      internalID: -235177121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a3fe3c5e72ed324d95724c580a95e91
+      internalID: -420671217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bec9278f6c9e79341941034840fb155f
+      internalID: -1107670864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f1c3dfb115e6ad48bb4c0b98f478f8b
+      internalID: -1243109690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf961e7b4a28c5f4293291075ab0316e
+      internalID: -566028105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e42ed407e1b2d545a117d44dfcec0f2
+      internalID: 667748013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f8cefc75f70bb14e9d809a48efef73a
+      internalID: -1036230160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 120b2ffbf2b6f2e4884cfe80e675dc49
+      internalID: 1240748548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 101c6a6cd7af30445a89cc4dd3e362ec
+      internalID: -1144465108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53f478a892f71da4c9816e067205279f
+      internalID: 1835106675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1f1602a2e5c0c943b0797aeb35b9e49
+      internalID: 738176281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e4cdd15e87195a408a4b2d74f8b33c0
+      internalID: -1950181566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3f0fc8e5044510449b40a34b522d5a5
+      internalID: -1643308180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c67f50f43b873a64d8c70054e1abcc4c
+      internalID: -795478744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 126439857e693884f907d68ece1ddb7a
+      internalID: 1048136533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcb5e741d2a66d947b562c802940369f
+      internalID: -176677761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a6bb1f2ccb692c40b47f7fbca57a216
+      internalID: -662824803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17eb198f4f89e584ab0f221aa4418adf
+      internalID: -1196313847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c63925e01781a24ea65b65a96fd9eb0
+      internalID: 1282186063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Attack_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3faabd8306e081141adb381313f77999
+      internalID: 174432595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossJadeForestDragon_Attack_00: 1291954139
+      BossJadeForestDragon_Attack_01: -262593076
+      BossJadeForestDragon_Attack_02: 1622434477
+      BossJadeForestDragon_Attack_03: 1343814483
+      BossJadeForestDragon_Attack_04: -622145362
+      BossJadeForestDragon_Attack_05: -235177121
+      BossJadeForestDragon_Attack_06: -420671217
+      BossJadeForestDragon_Attack_07: -1107670864
+      BossJadeForestDragon_Attack_08: -1243109690
+      BossJadeForestDragon_Attack_09: -566028105
+      BossJadeForestDragon_Attack_10: 667748013
+      BossJadeForestDragon_Attack_11: -1036230160
+      BossJadeForestDragon_Attack_12: 1240748548
+      BossJadeForestDragon_Attack_13: -1144465108
+      BossJadeForestDragon_Attack_14: 1835106675
+      BossJadeForestDragon_Attack_15: 738176281
+      BossJadeForestDragon_Attack_16: -1950181566
+      BossJadeForestDragon_Attack_17: -1643308180
+      BossJadeForestDragon_Attack_18: -795478744
+      BossJadeForestDragon_Attack_19: 1048136533
+      BossJadeForestDragon_Attack_20: -176677761
+      BossJadeForestDragon_Attack_21: -662824803
+      BossJadeForestDragon_Attack_22: -1196313847
+      BossJadeForestDragon_Attack_23: 1282186063
+      BossJadeForestDragon_Attack_24: 174432595
+      Ngoclonghh-atk_side_left_0: -1522202952300455687
+      Ngoclonghh-atk_side_left_1: 6069405594141860837
+      Ngoclonghh-atk_side_left_10: 362931759859699418
+      Ngoclonghh-atk_side_left_11: -4798155579205915586
+      Ngoclonghh-atk_side_left_12: -5465643804876164558
+      Ngoclonghh-atk_side_left_13: -3015592614335417617
+      Ngoclonghh-atk_side_left_14: 1003065663748836367
+      Ngoclonghh-atk_side_left_15: -2242763989102540218
+      Ngoclonghh-atk_side_left_16: 7840421217057854597
+      Ngoclonghh-atk_side_left_17: 4579772263667642896
+      Ngoclonghh-atk_side_left_18: 1915701890311744772
+      Ngoclonghh-atk_side_left_19: 9073752766499306752
+      Ngoclonghh-atk_side_left_2: -1668946993037726020
+      Ngoclonghh-atk_side_left_20: -4193846240544883771
+      Ngoclonghh-atk_side_left_21: 4758620978517285326
+      Ngoclonghh-atk_side_left_22: 4394018018916353180
+      Ngoclonghh-atk_side_left_23: 908187783268073976
+      Ngoclonghh-atk_side_left_24: -5330230575271833531
+      Ngoclonghh-atk_side_left_25: -3814691561121222495
+      Ngoclonghh-atk_side_left_26: -8868441503956847266
+      Ngoclonghh-atk_side_left_27: 1965925852906793325
+      Ngoclonghh-atk_side_left_28: -7510905736346957158
+      Ngoclonghh-atk_side_left_29: 7806532324367199241
+      Ngoclonghh-atk_side_left_3: 1318256310720813607
+      Ngoclonghh-atk_side_left_30: -2808149007239804983
+      Ngoclonghh-atk_side_left_31: 3105966388856392376
+      Ngoclonghh-atk_side_left_32: -7594767115948388161
+      Ngoclonghh-atk_side_left_33: -8476811930359897709
+      Ngoclonghh-atk_side_left_34: 4751538221627306079
+      Ngoclonghh-atk_side_left_35: -9021987459770400123
+      Ngoclonghh-atk_side_left_36: -2275567336182106359
+      Ngoclonghh-atk_side_left_37: -4729447988935948665
+      Ngoclonghh-atk_side_left_38: -8002458785126796154
+      Ngoclonghh-atk_side_left_39: 3097354331315101516
+      Ngoclonghh-atk_side_left_4: 6491464848565573179
+      Ngoclonghh-atk_side_left_40: 898122575199098374
+      Ngoclonghh-atk_side_left_41: -3698384827629120425
+      Ngoclonghh-atk_side_left_5: -5380956080933033608
+      Ngoclonghh-atk_side_left_6: 9162740932654608814
+      Ngoclonghh-atk_side_left_7: -7059110583252578398
+      Ngoclonghh-atk_side_left_8: -8764348061603809509
+      Ngoclonghh-atk_side_left_9: -4471333287167230523
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -26,7 +26,8 @@ namespace Match3RPG.Editor
         {
             "Assets/Art/Bosses/Region01/",
             "Assets/Art/Bosses/Region02/",
-            "Assets/Art/Bosses/Region03/"
+            "Assets/Art/Bosses/Region03/",
+            "Assets/Art/Bosses/Region04/"
         };
         static readonly string[] Hero2BattleFolders =
         {

@@ -1,0 +1,818 @@
+fileFormatVersion: 2
+guid: 66f90b99176084242849d04a5ce89dc9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -853136600580621743
+    second: Soiquymoc-idle_side_left_0
+  - first:
+      213: -8520497795268676956
+    second: Soiquymoc-idle_side_left_1
+  - first:
+      213: 9026664696684105697
+    second: Soiquymoc-idle_side_left_2
+  - first:
+      213: 6237097516625344933
+    second: Soiquymoc-idle_side_left_3
+  - first:
+      213: -5854209275132322029
+    second: Soiquymoc-idle_side_left_4
+  - first:
+      213: -6242841678984397698
+    second: Soiquymoc-idle_side_left_5
+  - first:
+      213: 6599006994531753000
+    second: Soiquymoc-idle_side_left_6
+  - first:
+      213: -271381278590799221
+    second: Soiquymoc-idle_side_left_7
+  - first:
+      213: -3452473437799545941
+    second: Soiquymoc-idle_side_left_8
+  - first:
+      213: 7027775279419452575
+    second: Soiquymoc-idle_side_left_9
+  - first:
+      213: 1067567580161529789
+    second: Soiquymoc-idle_side_left_10
+  - first:
+      213: 7065510855836497987
+    second: Soiquymoc-idle_side_left_11
+  - first:
+      213: -675622476311338754
+    second: Soiquymoc-idle_side_left_12
+  - first:
+      213: 6737503500926423403
+    second: Soiquymoc-idle_side_left_13
+  - first:
+      213: -4510631267340440815
+    second: Soiquymoc-idle_side_left_14
+  - first:
+      213: 257702536096894358
+    second: Soiquymoc-idle_side_left_15
+  - first:
+      213: -3749601743672934799
+    second: Soiquymoc-idle_side_left_16
+  - first:
+      213: -7434447592065594092
+    second: Soiquymoc-idle_side_left_17
+  - first:
+      213: -8642909801685375842
+    second: Soiquymoc-idle_side_left_18
+  - first:
+      213: -2440049852071156115
+    second: Soiquymoc-idle_side_left_19
+  - first:
+      213: 259871893913946622
+    second: Soiquymoc-idle_side_left_20
+  - first:
+      213: 2610869378543285007
+    second: Soiquymoc-idle_side_left_21
+  - first:
+      213: -664545667656771481
+    second: Soiquymoc-idle_side_left_22
+  - first:
+      213: 173188398731682892
+    second: Soiquymoc-idle_side_left_23
+  - first:
+      213: 4210391344966556989
+    second: Soiquymoc-idle_side_left_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f640db386c1efd4791113723eb12457
+      internalID: -1289553940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e13dd27230b80074fb2a30a1da3134c2
+      internalID: 529204299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3a2f29fc43490d41810fd8d0f8e5870
+      internalID: 312572151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00384557601185647a5c8df95d99838f
+      internalID: -494265728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f56dcefe91d75cd4bb8ef6583cc3c100
+      internalID: -796895898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21e97e9fbb81e6f4399969ad28162a8c
+      internalID: -771443404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21972f42db870854f81286c1769e406e
+      internalID: -1420892301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1af131426c3a2c43afd36fce8eb1013
+      internalID: 864463240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80ad988dc091d374db3d6f2caedbe158
+      internalID: 357653247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 221e33f71d8016f48a4da6937acd58f8
+      internalID: -336242500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04bb161164ecb64984e0346d719a1c5
+      internalID: 329822701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 094f73f1b622e71409e01d437c7e62d9
+      internalID: 583100260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d8d90655e1d312418ebddd3b80945ef
+      internalID: -1622056626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5760c2b398b41c47b03c5ce9dae3c5b
+      internalID: -2133228298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a0449c2912d3e45be4cb9dca69f61c
+      internalID: 403791068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23c30e79ddc924442b5f61b33ee41102
+      internalID: 1881119462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d229cd9b73c5524f8e2b3166a7f0823
+      internalID: -1323913274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f9634f8175f1b840973d5ababa8c3fc
+      internalID: -178692805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c47a4bca9af16014ba9627382ef81bd1
+      internalID: -1192017680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee41a2bd7d3396740819c35b58a86ad4
+      internalID: -1921396884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 918916d9db915f74a99e6eaadcff79ce
+      internalID: -95704489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d50c2ceabd2b115468c83170211baf44
+      internalID: -244286498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd376ef69f854041987dc964283b9a2
+      internalID: -905983276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a241768efd49d4445a33d1701a3871ad
+      internalID: 14985069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Idle_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d435b4a6d99af143aacefe6dd199587
+      internalID: 895119080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossDemonWoodWolf_Idle_00: -1289553940
+      BossDemonWoodWolf_Idle_01: 529204299
+      BossDemonWoodWolf_Idle_02: 312572151
+      BossDemonWoodWolf_Idle_03: -494265728
+      BossDemonWoodWolf_Idle_04: -796895898
+      BossDemonWoodWolf_Idle_05: -771443404
+      BossDemonWoodWolf_Idle_06: -1420892301
+      BossDemonWoodWolf_Idle_07: 864463240
+      BossDemonWoodWolf_Idle_08: 357653247
+      BossDemonWoodWolf_Idle_09: -336242500
+      BossDemonWoodWolf_Idle_10: 329822701
+      BossDemonWoodWolf_Idle_11: 583100260
+      BossDemonWoodWolf_Idle_12: -1622056626
+      BossDemonWoodWolf_Idle_13: -2133228298
+      BossDemonWoodWolf_Idle_14: 403791068
+      BossDemonWoodWolf_Idle_15: 1881119462
+      BossDemonWoodWolf_Idle_16: -1323913274
+      BossDemonWoodWolf_Idle_17: -178692805
+      BossDemonWoodWolf_Idle_18: -1192017680
+      BossDemonWoodWolf_Idle_19: -1921396884
+      BossDemonWoodWolf_Idle_20: -95704489
+      BossDemonWoodWolf_Idle_21: -244286498
+      BossDemonWoodWolf_Idle_22: -905983276
+      BossDemonWoodWolf_Idle_23: 14985069
+      BossDemonWoodWolf_Idle_24: 895119080
+      Soiquymoc-idle_side_left_0: -853136600580621743
+      Soiquymoc-idle_side_left_1: -8520497795268676956
+      Soiquymoc-idle_side_left_10: 1067567580161529789
+      Soiquymoc-idle_side_left_11: 7065510855836497987
+      Soiquymoc-idle_side_left_12: -675622476311338754
+      Soiquymoc-idle_side_left_13: 6737503500926423403
+      Soiquymoc-idle_side_left_14: -4510631267340440815
+      Soiquymoc-idle_side_left_15: 257702536096894358
+      Soiquymoc-idle_side_left_16: -3749601743672934799
+      Soiquymoc-idle_side_left_17: -7434447592065594092
+      Soiquymoc-idle_side_left_18: -8642909801685375842
+      Soiquymoc-idle_side_left_19: -2440049852071156115
+      Soiquymoc-idle_side_left_2: 9026664696684105697
+      Soiquymoc-idle_side_left_20: 259871893913946622
+      Soiquymoc-idle_side_left_21: 2610869378543285007
+      Soiquymoc-idle_side_left_22: -664545667656771481
+      Soiquymoc-idle_side_left_23: 173188398731682892
+      Soiquymoc-idle_side_left_24: 4210391344966556989
+      Soiquymoc-idle_side_left_3: 6237097516625344933
+      Soiquymoc-idle_side_left_4: -5854209275132322029
+      Soiquymoc-idle_side_left_5: -6242841678984397698
+      Soiquymoc-idle_side_left_6: 6599006994531753000
+      Soiquymoc-idle_side_left_7: -271381278590799221
+      Soiquymoc-idle_side_left_8: -3452473437799545941
+      Soiquymoc-idle_side_left_9: 7027775279419452575
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

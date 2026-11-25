@@ -1,0 +1,818 @@
+fileFormatVersion: 2
+guid: 02b68c00b6ade984381f1177d19e8be5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1743430025879762102
+    second: Nutetu-idle_side_left_0
+  - first:
+      213: 7138954183223399142
+    second: Nutetu-idle_side_left_1
+  - first:
+      213: -7326680469917197723
+    second: Nutetu-idle_side_left_2
+  - first:
+      213: -4842820862553915761
+    second: Nutetu-idle_side_left_3
+  - first:
+      213: 7521345483695278848
+    second: Nutetu-idle_side_left_4
+  - first:
+      213: -2302843572015536322
+    second: Nutetu-idle_side_left_5
+  - first:
+      213: 6367157341819551411
+    second: Nutetu-idle_side_left_6
+  - first:
+      213: -7329425883564088796
+    second: Nutetu-idle_side_left_7
+  - first:
+      213: -2289091368893221448
+    second: Nutetu-idle_side_left_8
+  - first:
+      213: 3663603376495866154
+    second: Nutetu-idle_side_left_9
+  - first:
+      213: 4847886943985331015
+    second: Nutetu-idle_side_left_10
+  - first:
+      213: 6669572101179682981
+    second: Nutetu-idle_side_left_11
+  - first:
+      213: 6676640391909414902
+    second: Nutetu-idle_side_left_12
+  - first:
+      213: -345498788110451575
+    second: Nutetu-idle_side_left_13
+  - first:
+      213: -5174453813623367697
+    second: Nutetu-idle_side_left_14
+  - first:
+      213: -4668931467771043720
+    second: Nutetu-idle_side_left_15
+  - first:
+      213: -4490396336972099571
+    second: Nutetu-idle_side_left_16
+  - first:
+      213: -3026132110294333673
+    second: Nutetu-idle_side_left_17
+  - first:
+      213: -1317833593374720333
+    second: Nutetu-idle_side_left_18
+  - first:
+      213: -1152729436810815015
+    second: Nutetu-idle_side_left_19
+  - first:
+      213: 6267854986005664159
+    second: Nutetu-idle_side_left_20
+  - first:
+      213: -2027548386250942814
+    second: Nutetu-idle_side_left_21
+  - first:
+      213: 5993614326532387344
+    second: Nutetu-idle_side_left_22
+  - first:
+      213: 2185603616051847087
+    second: Nutetu-idle_side_left_23
+  - first:
+      213: 5400487136900943134
+    second: Nutetu-idle_side_left_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2801356cbee6cb449a4608ea11af741
+      internalID: -744870172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc9de4eb3940523438ffe755f9c9c455
+      internalID: -1513766113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e64733468cab4154994b522207656b5a
+      internalID: -1042024925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a69e83a8c402724fb86ef768df9edcd
+      internalID: -1593269510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dba17d534210a3948991b3cf0d52f923
+      internalID: -919197859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44065d91405cf7c46973801188958c00
+      internalID: 392198502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3922ae99c26d5ce48ba371443a60ce2d
+      internalID: -2017463592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ad15963a0cfbb44dae4b8b36b9662cc
+      internalID: 1677667180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a837c45e302c31f4e93e7ebb61535d59
+      internalID: -1165619871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53b263eac9e070d44a2854e8bce065f8
+      internalID: 1993365058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e79e4b548ce8cc24bb4cf483ede6d76d
+      internalID: 1865786071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 512686eba78a67e459c062cdf0eb1d70
+      internalID: 102632381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b044113f42dca1a4d9b02980ca14c11b
+      internalID: 172915494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e463b726c6fb7f4782f185cd50cef60
+      internalID: 1524885408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9f39e09cbacba3469474be28ed9f5e7
+      internalID: 1283593448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06979315c0637374d9b0f313e0f29a5f
+      internalID: 280935011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dab6e5625e4445a419d356a98c1e93dc
+      internalID: 1445831681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b82de61e66bedfb4a9e3b81b549696e0
+      internalID: 619404102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b151e7493177dd42ab6a7c26a53bb7c
+      internalID: 641931543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d743a506eeb4def44887d5e3f723d759
+      internalID: -250262916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3179fcff39286cc48bb2365a48f47f8b
+      internalID: -2078121032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6160272a53f5cd84dabf1a30703e2bbc
+      internalID: -1164727779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39933377cd3d71442a4b2e0312cd3bdd
+      internalID: -756647672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f1ae2b2784f61c418a482af5015325e
+      internalID: 139461743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Idle_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd7de7385416a8945b6afacf1431d6cc
+      internalID: 127772900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossWoodPriestess_Idle_00: -744870172
+      BossWoodPriestess_Idle_01: -1513766113
+      BossWoodPriestess_Idle_02: -1042024925
+      BossWoodPriestess_Idle_03: -1593269510
+      BossWoodPriestess_Idle_04: -919197859
+      BossWoodPriestess_Idle_05: 392198502
+      BossWoodPriestess_Idle_06: -2017463592
+      BossWoodPriestess_Idle_07: 1677667180
+      BossWoodPriestess_Idle_08: -1165619871
+      BossWoodPriestess_Idle_09: 1993365058
+      BossWoodPriestess_Idle_10: 1865786071
+      BossWoodPriestess_Idle_11: 102632381
+      BossWoodPriestess_Idle_12: 172915494
+      BossWoodPriestess_Idle_13: 1524885408
+      BossWoodPriestess_Idle_14: 1283593448
+      BossWoodPriestess_Idle_15: 280935011
+      BossWoodPriestess_Idle_16: 1445831681
+      BossWoodPriestess_Idle_17: 619404102
+      BossWoodPriestess_Idle_18: 641931543
+      BossWoodPriestess_Idle_19: -250262916
+      BossWoodPriestess_Idle_20: -2078121032
+      BossWoodPriestess_Idle_21: -1164727779
+      BossWoodPriestess_Idle_22: -756647672
+      BossWoodPriestess_Idle_23: 139461743
+      BossWoodPriestess_Idle_24: 127772900
+      Nutetu-idle_side_left_0: -1743430025879762102
+      Nutetu-idle_side_left_1: 7138954183223399142
+      Nutetu-idle_side_left_10: 4847886943985331015
+      Nutetu-idle_side_left_11: 6669572101179682981
+      Nutetu-idle_side_left_12: 6676640391909414902
+      Nutetu-idle_side_left_13: -345498788110451575
+      Nutetu-idle_side_left_14: -5174453813623367697
+      Nutetu-idle_side_left_15: -4668931467771043720
+      Nutetu-idle_side_left_16: -4490396336972099571
+      Nutetu-idle_side_left_17: -3026132110294333673
+      Nutetu-idle_side_left_18: -1317833593374720333
+      Nutetu-idle_side_left_19: -1152729436810815015
+      Nutetu-idle_side_left_2: -7326680469917197723
+      Nutetu-idle_side_left_20: 6267854986005664159
+      Nutetu-idle_side_left_21: -2027548386250942814
+      Nutetu-idle_side_left_22: 5993614326532387344
+      Nutetu-idle_side_left_23: 2185603616051847087
+      Nutetu-idle_side_left_24: 5400487136900943134
+      Nutetu-idle_side_left_3: -4842820862553915761
+      Nutetu-idle_side_left_4: 7521345483695278848
+      Nutetu-idle_side_left_5: -2302843572015536322
+      Nutetu-idle_side_left_6: 6367157341819551411
+      Nutetu-idle_side_left_7: -7329425883564088796
+      Nutetu-idle_side_left_8: -2289091368893221448
+      Nutetu-idle_side_left_9: 3663603376495866154
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: region_04_boss_03
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
   bossId: region_04_boss_03
-  displayName: Spirit Mountain Tortoise
-  portrait: {fileID: 21300000, guid: 2d54be1bc9de29f4c960474b6028942c, type: 3}
+  displayName: "N\u1EEF T\u1EBF M\u1ED9c T\u1ED9c"
+  portrait: {fileID: -744870172, guid: 02b68c00b6ade984381f1177d19e8be5, type: 3}
+  animationSet: {fileID: 11400000, guid: 33a9a0643bb72284e91f78c212da46b7, type: 2}
   maxHP: 1600
   attack: 28
   maxRage: 100
@@ -24,3 +25,11 @@ MonoBehaviour:
   criticalEnabled: 1
   criticalDamageMultiplier: 2
   statusEffectCapabilities: 8
+  preferredAttackVfx: 0
+  defaultLootTableId: 
+  visualScale: 1
+  visualOffset: {x: 0, y: 0}
+  sourceFacing: 0
+  vfxAnchor: {x: 0.5, y: 0.48}
+  headVfxAnchor: {x: 0.5, y: 0.82}
+  floatingTextAnchor: {x: 0.5, y: 0.88}

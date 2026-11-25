@@ -1,0 +1,1250 @@
+fileFormatVersion: 2
+guid: 317efedc3d030df40866346fec39173b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5219820336982560565
+    second: Nutetu-atk_side_left_0
+  - first:
+      213: 7055973232504634335
+    second: Nutetu-atk_side_left_1
+  - first:
+      213: -9098283839225557026
+    second: Nutetu-atk_side_left_2
+  - first:
+      213: 3530193745496486135
+    second: Nutetu-atk_side_left_3
+  - first:
+      213: 7631173247495022703
+    second: Nutetu-atk_side_left_4
+  - first:
+      213: 6654831177678967376
+    second: Nutetu-atk_side_left_5
+  - first:
+      213: -5280965897169351725
+    second: Nutetu-atk_side_left_6
+  - first:
+      213: -797313206441269645
+    second: Nutetu-atk_side_left_7
+  - first:
+      213: 6286403381313512987
+    second: Nutetu-atk_side_left_8
+  - first:
+      213: -3889690024620356021
+    second: Nutetu-atk_side_left_9
+  - first:
+      213: -2388629990571416050
+    second: Nutetu-atk_side_left_10
+  - first:
+      213: 191811347516132988
+    second: Nutetu-atk_side_left_11
+  - first:
+      213: -6402465609043683206
+    second: Nutetu-atk_side_left_12
+  - first:
+      213: 7108709258677549448
+    second: Nutetu-atk_side_left_13
+  - first:
+      213: -8049851527824795090
+    second: Nutetu-atk_side_left_14
+  - first:
+      213: -7616218989020347606
+    second: Nutetu-atk_side_left_15
+  - first:
+      213: -5220017453939150827
+    second: Nutetu-atk_side_left_16
+  - first:
+      213: -1151701615006466466
+    second: Nutetu-atk_side_left_17
+  - first:
+      213: 2664290794393832851
+    second: Nutetu-atk_side_left_18
+  - first:
+      213: 2035857189639429184
+    second: Nutetu-atk_side_left_19
+  - first:
+      213: -8302801701586774806
+    second: Nutetu-atk_side_left_20
+  - first:
+      213: -1251360999339402899
+    second: Nutetu-atk_side_left_21
+  - first:
+      213: -3363762503230647234
+    second: Nutetu-atk_side_left_22
+  - first:
+      213: 6693453039872552191
+    second: Nutetu-atk_side_left_23
+  - first:
+      213: -435684810611637349
+    second: Nutetu-atk_side_left_24
+  - first:
+      213: -8258657634748313726
+    second: Nutetu-atk_side_left_25
+  - first:
+      213: -5305642343425619480
+    second: Nutetu-atk_side_left_26
+  - first:
+      213: 2534602659408773959
+    second: Nutetu-atk_side_left_27
+  - first:
+      213: -6986150561538209362
+    second: Nutetu-atk_side_left_28
+  - first:
+      213: 5844013697157575877
+    second: Nutetu-atk_side_left_29
+  - first:
+      213: 5962561256620660320
+    second: Nutetu-atk_side_left_30
+  - first:
+      213: 7559803779054174248
+    second: Nutetu-atk_side_left_31
+  - first:
+      213: -2532953556654844116
+    second: Nutetu-atk_side_left_32
+  - first:
+      213: -987712774636779928
+    second: Nutetu-atk_side_left_33
+  - first:
+      213: -997532296017927587
+    second: Nutetu-atk_side_left_34
+  - first:
+      213: -1796174472739834254
+    second: Nutetu-atk_side_left_35
+  - first:
+      213: 137460515595027210
+    second: Nutetu-atk_side_left_36
+  - first:
+      213: -886037605809693403
+    second: Nutetu-atk_side_left_37
+  - first:
+      213: 430102770314688069
+    second: Nutetu-atk_side_left_38
+  - first:
+      213: -5134914325995581589
+    second: Nutetu-atk_side_left_39
+  - first:
+      213: 3695978325870054101
+    second: Nutetu-atk_side_left_40
+  - first:
+      213: -5296655190913713128
+    second: Nutetu-atk_side_left_41
+  - first:
+      213: -6641882120671829058
+    second: Nutetu-atk_side_left_42
+  - first:
+      213: 5750469313921671507
+    second: Nutetu-atk_side_left_43
+  - first:
+      213: 2942401288033727068
+    second: Nutetu-atk_side_left_44
+  - first:
+      213: 7614033553687909131
+    second: Nutetu-atk_side_left_45
+  - first:
+      213: -5162803685600601342
+    second: Nutetu-atk_side_left_46
+  - first:
+      213: 7350148206431234928
+    second: Nutetu-atk_side_left_47
+  - first:
+      213: -8247456802754872444
+    second: Nutetu-atk_side_left_48
+  - first:
+      213: -733782666457077788
+    second: Nutetu-atk_side_left_49
+  - first:
+      213: -2092832190206694517
+    second: Nutetu-atk_side_left_50
+  - first:
+      213: -5032036826445685529
+    second: Nutetu-atk_side_left_51
+  - first:
+      213: 2867261094877068603
+    second: Nutetu-atk_side_left_52
+  - first:
+      213: 6443035510626698802
+    second: Nutetu-atk_side_left_53
+  - first:
+      213: -5906566054252307208
+    second: Nutetu-atk_side_left_54
+  - first:
+      213: 6520400063061497093
+    second: Nutetu-atk_side_left_55
+  - first:
+      213: 1816931949934242060
+    second: Nutetu-atk_side_left_56
+  - first:
+      213: 2166744141537713595
+    second: Nutetu-atk_side_left_57
+  - first:
+      213: 5877686438650089162
+    second: Nutetu-atk_side_left_58
+  - first:
+      213: 6635844196982518428
+    second: Nutetu-atk_side_left_59
+  - first:
+      213: -7811501587163419260
+    second: Nutetu-atk_side_left_60
+  - first:
+      213: 8326411137697170160
+    second: Nutetu-atk_side_left_61
+  - first:
+      213: -1234077840790966140
+    second: Nutetu-atk_side_left_62
+  - first:
+      213: 7636529599551915481
+    second: Nutetu-atk_side_left_63
+  - first:
+      213: -1026426195443291096
+    second: Nutetu-atk_side_left_64
+  - first:
+      213: 3810836260608807873
+    second: Nutetu-atk_side_left_65
+  - first:
+      213: 2867163317424801474
+    second: Nutetu-atk_side_left_66
+  - first:
+      213: 3775519819846540595
+    second: Nutetu-atk_side_left_67
+  - first:
+      213: 6646760241913675012
+    second: Nutetu-atk_side_left_68
+  - first:
+      213: 2385951980077648973
+    second: Nutetu-atk_side_left_69
+  - first:
+      213: -5026495267466866883
+    second: Nutetu-atk_side_left_70
+  - first:
+      213: -6710820498803235891
+    second: Nutetu-atk_side_left_71
+  - first:
+      213: 2013421329037785174
+    second: Nutetu-atk_side_left_72
+  - first:
+      213: 4048607762687586343
+    second: Nutetu-atk_side_left_73
+  - first:
+      213: 6743126719686866207
+    second: Nutetu-atk_side_left_74
+  - first:
+      213: 4477015901486360301
+    second: Nutetu-atk_side_left_75
+  - first:
+      213: 4770194271427006971
+    second: Nutetu-atk_side_left_76
+  - first:
+      213: -5369287720820394803
+    second: Nutetu-atk_side_left_77
+  - first:
+      213: -7144923877768926506
+    second: Nutetu-atk_side_left_78
+  - first:
+      213: 225376833004477783
+    second: Nutetu-atk_side_left_79
+  - first:
+      213: 682319866921025933
+    second: Nutetu-atk_side_left_80
+  - first:
+      213: -8673891373956660423
+    second: Nutetu-atk_side_left_81
+  - first:
+      213: 921364404735871950
+    second: Nutetu-atk_side_left_82
+  - first:
+      213: -4464673441837515871
+    second: Nutetu-atk_side_left_83
+  - first:
+      213: 7199668492176220838
+    second: Nutetu-atk_side_left_84
+  - first:
+      213: -8375802906219239288
+    second: Nutetu-atk_side_left_85
+  - first:
+      213: 5353117057810685563
+    second: Nutetu-atk_side_left_86
+  - first:
+      213: 6520323466904712407
+    second: Nutetu-atk_side_left_87
+  - first:
+      213: -3036954094146601643
+    second: Nutetu-atk_side_left_88
+  - first:
+      213: 9210428818685285018
+    second: Nutetu-atk_side_left_89
+  - first:
+      213: -1508857890153657593
+    second: Nutetu-atk_side_left_90
+  - first:
+      213: 6960206639199575429
+    second: Nutetu-atk_side_left_91
+  - first:
+      213: 980852828280658471
+    second: Nutetu-atk_side_left_92
+  - first:
+      213: -3802906524309407399
+    second: Nutetu-atk_side_left_93
+  - first:
+      213: -8343008522734527505
+    second: Nutetu-atk_side_left_94
+  - first:
+      213: 2924183583202289589
+    second: Nutetu-atk_side_left_95
+  - first:
+      213: -8249203312160260666
+    second: Nutetu-atk_side_left_96
+  - first:
+      213: -4596499804785506726
+    second: Nutetu-atk_side_left_97
+  - first:
+      213: -3112520247991658617
+    second: Nutetu-atk_side_left_98
+  - first:
+      213: -6048370207619811219
+    second: Nutetu-atk_side_left_99
+  - first:
+      213: 8508835588167604820
+    second: Nutetu-atk_side_left_100
+  - first:
+      213: -8807285890472910532
+    second: Nutetu-atk_side_left_101
+  - first:
+      213: -5035782577690236501
+    second: Nutetu-atk_side_left_102
+  - first:
+      213: 6060674743165585386
+    second: Nutetu-atk_side_left_103
+  - first:
+      213: -7864933554594330132
+    second: Nutetu-atk_side_left_104
+  - first:
+      213: 2323301988047052976
+    second: Nutetu-atk_side_left_105
+  - first:
+      213: -2203176210367023593
+    second: Nutetu-atk_side_left_106
+  - first:
+      213: 3523862716721982176
+    second: Nutetu-atk_side_left_107
+  - first:
+      213: 2052109017247282464
+    second: Nutetu-atk_side_left_108
+  - first:
+      213: 3510193598990392291
+    second: Nutetu-atk_side_left_109
+  - first:
+      213: 283508613869723943
+    second: Nutetu-atk_side_left_110
+  - first:
+      213: -554262681559290043
+    second: Nutetu-atk_side_left_111
+  - first:
+      213: -977360104679975711
+    second: Nutetu-atk_side_left_112
+  - first:
+      213: -7195290268282949866
+    second: Nutetu-atk_side_left_113
+  - first:
+      213: 3716915597108107063
+    second: Nutetu-atk_side_left_114
+  - first:
+      213: 3003846675830229641
+    second: Nutetu-atk_side_left_115
+  - first:
+      213: -5326283720815792107
+    second: Nutetu-atk_side_left_116
+  - first:
+      213: -428414561058057606
+    second: Nutetu-atk_side_left_117
+  - first:
+      213: 7708748493289386723
+    second: Nutetu-atk_side_left_118
+  - first:
+      213: -7985988999711207783
+    second: Nutetu-atk_side_left_119
+  - first:
+      213: 6409408473359297208
+    second: Nutetu-atk_side_left_120
+  - first:
+      213: 9202599974123160894
+    second: Nutetu-atk_side_left_121
+  - first:
+      213: -7693921816965346393
+    second: Nutetu-atk_side_left_122
+  - first:
+      213: 2437256014245684798
+    second: Nutetu-atk_side_left_123
+  - first:
+      213: -4441038350154485333
+    second: Nutetu-atk_side_left_124
+  - first:
+      213: 6315052426089231378
+    second: Nutetu-atk_side_left_125
+  - first:
+      213: -1639233016846163248
+    second: Nutetu-atk_side_left_126
+  - first:
+      213: -4312556391871384936
+    second: Nutetu-atk_side_left_127
+  - first:
+      213: 3085456644520681755
+    second: Nutetu-atk_side_left_128
+  - first:
+      213: 8249885178562771248
+    second: Nutetu-atk_side_left_129
+  - first:
+      213: 7027907062472638728
+    second: Nutetu-atk_side_left_130
+  - first:
+      213: -81786080292198339
+    second: Nutetu-atk_side_left_131
+  - first:
+      213: -1943920933784600375
+    second: Nutetu-atk_side_left_132
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4da4181943fd29489c9e0b54416f975
+      internalID: 1003442481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc09827bffefb5941881cd7f768ed7af
+      internalID: 1672944654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78d36a5822ca4aa4fb64b3afdd4bf6d5
+      internalID: -1868865649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aceb2aae1e023394aaeb2efc5a9e7109
+      internalID: 127872940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb150a6595e5c17429d3cee29cc01829
+      internalID: 476171556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ace448a66cb386747ac707020610ea7f
+      internalID: 745396247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5dc59dff0a19ea438e807fe69416f30
+      internalID: -1661225457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 513a783bbb0ffe24cbfc2acd0e61f315
+      internalID: 1904421606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22d706c89b819bc4d9baba8e1586258e
+      internalID: 217454499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55a57d9da7ca5304ab64b0c82876c00e
+      internalID: -1220343661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ad3211b6b1494346bede39f95a6ded8
+      internalID: 92431113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69757a7e51c34bc429d4544ecc01d781
+      internalID: -347838667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85e3f1e080ff42745a898fbfacb1644a
+      internalID: 1097126235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9661cfbdf07b92844bc684b3ce4f6f54
+      internalID: -1467381118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65fe60aa45bac8841ab2757bd9fa0b99
+      internalID: 17072346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0804be9594d21046b9ab797775904e6
+      internalID: -1608615222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9e2a79d2b6a5c94eab076e355d37891
+      internalID: 1662929208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d08dc42165e3b1e47903ce23c3b0e8c4
+      internalID: -564131288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a861b3278805214d8c3da9d83692a78
+      internalID: 504372156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2010dbcc5fb26454a9634d93cef4cfb0
+      internalID: -1749992311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbb4b85916125b645bce84a4c5a792da
+      internalID: -788742891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fc8cb5fb8f1a1d449f58e7cdcd54bec
+      internalID: -1472467293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5e39e54177ba6842b269c3e7fef63b5
+      internalID: 109289042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 379af064d527d7a47b61dcfea3f83bfd
+      internalID: 893042443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossWoodPriestess_Attack_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ca735cd80cc2da49b0c0d7bebd7f260
+      internalID: -1906345754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossWoodPriestess_Attack_00: 1003442481
+      BossWoodPriestess_Attack_01: 1672944654
+      BossWoodPriestess_Attack_02: -1868865649
+      BossWoodPriestess_Attack_03: 127872940
+      BossWoodPriestess_Attack_04: 476171556
+      BossWoodPriestess_Attack_05: 745396247
+      BossWoodPriestess_Attack_06: -1661225457
+      BossWoodPriestess_Attack_07: 1904421606
+      BossWoodPriestess_Attack_08: 217454499
+      BossWoodPriestess_Attack_09: -1220343661
+      BossWoodPriestess_Attack_10: 92431113
+      BossWoodPriestess_Attack_11: -347838667
+      BossWoodPriestess_Attack_12: 1097126235
+      BossWoodPriestess_Attack_13: -1467381118
+      BossWoodPriestess_Attack_14: 17072346
+      BossWoodPriestess_Attack_15: -1608615222
+      BossWoodPriestess_Attack_16: 1662929208
+      BossWoodPriestess_Attack_17: -564131288
+      BossWoodPriestess_Attack_18: 504372156
+      BossWoodPriestess_Attack_19: -1749992311
+      BossWoodPriestess_Attack_20: -788742891
+      BossWoodPriestess_Attack_21: -1472467293
+      BossWoodPriestess_Attack_22: 109289042
+      BossWoodPriestess_Attack_23: 893042443
+      BossWoodPriestess_Attack_24: -1906345754
+      Nutetu-atk_side_left_0: -5219820336982560565
+      Nutetu-atk_side_left_1: 7055973232504634335
+      Nutetu-atk_side_left_10: -2388629990571416050
+      Nutetu-atk_side_left_100: 8508835588167604820
+      Nutetu-atk_side_left_101: -8807285890472910532
+      Nutetu-atk_side_left_102: -5035782577690236501
+      Nutetu-atk_side_left_103: 6060674743165585386
+      Nutetu-atk_side_left_104: -7864933554594330132
+      Nutetu-atk_side_left_105: 2323301988047052976
+      Nutetu-atk_side_left_106: -2203176210367023593
+      Nutetu-atk_side_left_107: 3523862716721982176
+      Nutetu-atk_side_left_108: 2052109017247282464
+      Nutetu-atk_side_left_109: 3510193598990392291
+      Nutetu-atk_side_left_11: 191811347516132988
+      Nutetu-atk_side_left_110: 283508613869723943
+      Nutetu-atk_side_left_111: -554262681559290043
+      Nutetu-atk_side_left_112: -977360104679975711
+      Nutetu-atk_side_left_113: -7195290268282949866
+      Nutetu-atk_side_left_114: 3716915597108107063
+      Nutetu-atk_side_left_115: 3003846675830229641
+      Nutetu-atk_side_left_116: -5326283720815792107
+      Nutetu-atk_side_left_117: -428414561058057606
+      Nutetu-atk_side_left_118: 7708748493289386723
+      Nutetu-atk_side_left_119: -7985988999711207783
+      Nutetu-atk_side_left_12: -6402465609043683206
+      Nutetu-atk_side_left_120: 6409408473359297208
+      Nutetu-atk_side_left_121: 9202599974123160894
+      Nutetu-atk_side_left_122: -7693921816965346393
+      Nutetu-atk_side_left_123: 2437256014245684798
+      Nutetu-atk_side_left_124: -4441038350154485333
+      Nutetu-atk_side_left_125: 6315052426089231378
+      Nutetu-atk_side_left_126: -1639233016846163248
+      Nutetu-atk_side_left_127: -4312556391871384936
+      Nutetu-atk_side_left_128: 3085456644520681755
+      Nutetu-atk_side_left_129: 8249885178562771248
+      Nutetu-atk_side_left_13: 7108709258677549448
+      Nutetu-atk_side_left_130: 7027907062472638728
+      Nutetu-atk_side_left_131: -81786080292198339
+      Nutetu-atk_side_left_132: -1943920933784600375
+      Nutetu-atk_side_left_14: -8049851527824795090
+      Nutetu-atk_side_left_15: -7616218989020347606
+      Nutetu-atk_side_left_16: -5220017453939150827
+      Nutetu-atk_side_left_17: -1151701615006466466
+      Nutetu-atk_side_left_18: 2664290794393832851
+      Nutetu-atk_side_left_19: 2035857189639429184
+      Nutetu-atk_side_left_2: -9098283839225557026
+      Nutetu-atk_side_left_20: -8302801701586774806
+      Nutetu-atk_side_left_21: -1251360999339402899
+      Nutetu-atk_side_left_22: -3363762503230647234
+      Nutetu-atk_side_left_23: 6693453039872552191
+      Nutetu-atk_side_left_24: -435684810611637349
+      Nutetu-atk_side_left_25: -8258657634748313726
+      Nutetu-atk_side_left_26: -5305642343425619480
+      Nutetu-atk_side_left_27: 2534602659408773959
+      Nutetu-atk_side_left_28: -6986150561538209362
+      Nutetu-atk_side_left_29: 5844013697157575877
+      Nutetu-atk_side_left_3: 3530193745496486135
+      Nutetu-atk_side_left_30: 5962561256620660320
+      Nutetu-atk_side_left_31: 7559803779054174248
+      Nutetu-atk_side_left_32: -2532953556654844116
+      Nutetu-atk_side_left_33: -987712774636779928
+      Nutetu-atk_side_left_34: -997532296017927587
+      Nutetu-atk_side_left_35: -1796174472739834254
+      Nutetu-atk_side_left_36: 137460515595027210
+      Nutetu-atk_side_left_37: -886037605809693403
+      Nutetu-atk_side_left_38: 430102770314688069
+      Nutetu-atk_side_left_39: -5134914325995581589
+      Nutetu-atk_side_left_4: 7631173247495022703
+      Nutetu-atk_side_left_40: 3695978325870054101
+      Nutetu-atk_side_left_41: -5296655190913713128
+      Nutetu-atk_side_left_42: -6641882120671829058
+      Nutetu-atk_side_left_43: 5750469313921671507
+      Nutetu-atk_side_left_44: 2942401288033727068
+      Nutetu-atk_side_left_45: 7614033553687909131
+      Nutetu-atk_side_left_46: -5162803685600601342
+      Nutetu-atk_side_left_47: 7350148206431234928
+      Nutetu-atk_side_left_48: -8247456802754872444
+      Nutetu-atk_side_left_49: -733782666457077788
+      Nutetu-atk_side_left_5: 6654831177678967376
+      Nutetu-atk_side_left_50: -2092832190206694517
+      Nutetu-atk_side_left_51: -5032036826445685529
+      Nutetu-atk_side_left_52: 2867261094877068603
+      Nutetu-atk_side_left_53: 6443035510626698802
+      Nutetu-atk_side_left_54: -5906566054252307208
+      Nutetu-atk_side_left_55: 6520400063061497093
+      Nutetu-atk_side_left_56: 1816931949934242060
+      Nutetu-atk_side_left_57: 2166744141537713595
+      Nutetu-atk_side_left_58: 5877686438650089162
+      Nutetu-atk_side_left_59: 6635844196982518428
+      Nutetu-atk_side_left_6: -5280965897169351725
+      Nutetu-atk_side_left_60: -7811501587163419260
+      Nutetu-atk_side_left_61: 8326411137697170160
+      Nutetu-atk_side_left_62: -1234077840790966140
+      Nutetu-atk_side_left_63: 7636529599551915481
+      Nutetu-atk_side_left_64: -1026426195443291096
+      Nutetu-atk_side_left_65: 3810836260608807873
+      Nutetu-atk_side_left_66: 2867163317424801474
+      Nutetu-atk_side_left_67: 3775519819846540595
+      Nutetu-atk_side_left_68: 6646760241913675012
+      Nutetu-atk_side_left_69: 2385951980077648973
+      Nutetu-atk_side_left_7: -797313206441269645
+      Nutetu-atk_side_left_70: -5026495267466866883
+      Nutetu-atk_side_left_71: -6710820498803235891
+      Nutetu-atk_side_left_72: 2013421329037785174
+      Nutetu-atk_side_left_73: 4048607762687586343
+      Nutetu-atk_side_left_74: 6743126719686866207
+      Nutetu-atk_side_left_75: 4477015901486360301
+      Nutetu-atk_side_left_76: 4770194271427006971
+      Nutetu-atk_side_left_77: -5369287720820394803
+      Nutetu-atk_side_left_78: -7144923877768926506
+      Nutetu-atk_side_left_79: 225376833004477783
+      Nutetu-atk_side_left_8: 6286403381313512987
+      Nutetu-atk_side_left_80: 682319866921025933
+      Nutetu-atk_side_left_81: -8673891373956660423
+      Nutetu-atk_side_left_82: 921364404735871950
+      Nutetu-atk_side_left_83: -4464673441837515871
+      Nutetu-atk_side_left_84: 7199668492176220838
+      Nutetu-atk_side_left_85: -8375802906219239288
+      Nutetu-atk_side_left_86: 5353117057810685563
+      Nutetu-atk_side_left_87: 6520323466904712407
+      Nutetu-atk_side_left_88: -3036954094146601643
+      Nutetu-atk_side_left_89: 9210428818685285018
+      Nutetu-atk_side_left_9: -3889690024620356021
+      Nutetu-atk_side_left_90: -1508857890153657593
+      Nutetu-atk_side_left_91: 6960206639199575429
+      Nutetu-atk_side_left_92: 980852828280658471
+      Nutetu-atk_side_left_93: -3802906524309407399
+      Nutetu-atk_side_left_94: -8343008522734527505
+      Nutetu-atk_side_left_95: 2924183583202289589
+      Nutetu-atk_side_left_96: -8249203312160260666
+      Nutetu-atk_side_left_97: -4596499804785506726
+      Nutetu-atk_side_left_98: -3112520247991658617
+      Nutetu-atk_side_left_99: -6048370207619811219
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

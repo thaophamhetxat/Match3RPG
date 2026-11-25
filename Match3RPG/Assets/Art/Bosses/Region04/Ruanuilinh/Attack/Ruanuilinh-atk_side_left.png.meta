@@ -1,0 +1,850 @@
+fileFormatVersion: 2
+guid: 00e74b00f56e528498b77742c3f932bc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5125506873680415634
+    second: Ruanuilinh-atk_side_left_0
+  - first:
+      213: -7069885659128383652
+    second: Ruanuilinh-atk_side_left_1
+  - first:
+      213: -6334596020434598628
+    second: Ruanuilinh-atk_side_left_2
+  - first:
+      213: 7632466840438384826
+    second: Ruanuilinh-atk_side_left_3
+  - first:
+      213: 5964735145588024525
+    second: Ruanuilinh-atk_side_left_4
+  - first:
+      213: 6350299509567596256
+    second: Ruanuilinh-atk_side_left_5
+  - first:
+      213: 8083939617784461280
+    second: Ruanuilinh-atk_side_left_6
+  - first:
+      213: 4514063660049882105
+    second: Ruanuilinh-atk_side_left_7
+  - first:
+      213: -5206551620502104107
+    second: Ruanuilinh-atk_side_left_8
+  - first:
+      213: -4537506091195575910
+    second: Ruanuilinh-atk_side_left_9
+  - first:
+      213: 8812971253614097342
+    second: Ruanuilinh-atk_side_left_10
+  - first:
+      213: -27282565233319282
+    second: Ruanuilinh-atk_side_left_11
+  - first:
+      213: -7449845232773213755
+    second: Ruanuilinh-atk_side_left_12
+  - first:
+      213: -3202959555790764533
+    second: Ruanuilinh-atk_side_left_13
+  - first:
+      213: -8313096466223759310
+    second: Ruanuilinh-atk_side_left_14
+  - first:
+      213: 8858494167740580977
+    second: Ruanuilinh-atk_side_left_15
+  - first:
+      213: 2637808603435142127
+    second: Ruanuilinh-atk_side_left_16
+  - first:
+      213: -5291655366428980708
+    second: Ruanuilinh-atk_side_left_17
+  - first:
+      213: -8777846272339652995
+    second: Ruanuilinh-atk_side_left_18
+  - first:
+      213: 4099427242767395887
+    second: Ruanuilinh-atk_side_left_19
+  - first:
+      213: 3445437817989348548
+    second: Ruanuilinh-atk_side_left_20
+  - first:
+      213: -291497533037534839
+    second: Ruanuilinh-atk_side_left_21
+  - first:
+      213: -2192892591813679394
+    second: Ruanuilinh-atk_side_left_22
+  - first:
+      213: 7508392620948497698
+    second: Ruanuilinh-atk_side_left_23
+  - first:
+      213: 4935611573659230086
+    second: Ruanuilinh-atk_side_left_24
+  - first:
+      213: 6030603497331589526
+    second: Ruanuilinh-atk_side_left_25
+  - first:
+      213: -4589466673367147332
+    second: Ruanuilinh-atk_side_left_26
+  - first:
+      213: -3743858364896723713
+    second: Ruanuilinh-atk_side_left_27
+  - first:
+      213: 2879740932511960683
+    second: Ruanuilinh-atk_side_left_28
+  - first:
+      213: -7003354848741826139
+    second: Ruanuilinh-atk_side_left_29
+  - first:
+      213: -357194424919724970
+    second: Ruanuilinh-atk_side_left_30
+  - first:
+      213: -230869897635518549
+    second: Ruanuilinh-atk_side_left_31
+  - first:
+      213: -6888517507313690553
+    second: Ruanuilinh-atk_side_left_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfe9277af025ae1419117ffa1c8cf103
+      internalID: -345593406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddf6f1f6c34606046a6db10a8468d570
+      internalID: -1893448333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7ef835bed2be334e9c111add7484f59
+      internalID: -1180534890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e965df61bd8717f4d8384cbfd1e7f903
+      internalID: 562651321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7df8fe4db9f32d34d8ed81cd52f039ae
+      internalID: 431789372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c90eb0ec001c4f40a3cf6a2a365986b
+      internalID: -1873279908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d242afd829db6b49a16deb72f4b46e5
+      internalID: 1126708042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d1e030bf2551524ba0cc5fdf2438075
+      internalID: -872859176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c13175d6e490b824ab0c022be187b58d
+      internalID: -711475426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64c40f59bc042854fb70f6323896dcad
+      internalID: 2042725157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0580be36719c7ee48a029057b37bc91a
+      internalID: 533544556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e4a56bc1a5333d4e8de6202403fe2e5
+      internalID: 661474587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4df8b80d6c82e544a7b1daba81e1996
+      internalID: 1895648273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cbcc9d08b1243b4b8f334e367c34d9e
+      internalID: -1054268860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53ca668f95d057b418054074ea1ad47d
+      internalID: -435499493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85b9e4e1ca9ac6a4b9d87ee18e22be52
+      internalID: 329124027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d91a05ff693d16478e6728f862d574f
+      internalID: -1613834540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c23550eafdbdb14db2d70bc62b87074
+      internalID: 1396228668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ece74d00c0efd24b901422d421605bb
+      internalID: 1986865370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2307f6331a522344aa48f500a1e311a6
+      internalID: 836080603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0b2aad118b6224458da4158b755396a
+      internalID: 1904575757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a10eb3734cb0f947a3f19623e7f0cc8
+      internalID: -2006892171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23241a07f00547e47902185b57e88ac7
+      internalID: -550830421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7fca5a040e0c664fba1dda2aa93f18f
+      internalID: -1445309298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossSpiritMountainTortoise_Attack_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b28a8fe46a0af7f4191e127153d40316
+      internalID: -655451103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossSpiritMountainTortoise_Attack_00: -345593406
+      BossSpiritMountainTortoise_Attack_01: -1893448333
+      BossSpiritMountainTortoise_Attack_02: -1180534890
+      BossSpiritMountainTortoise_Attack_03: 562651321
+      BossSpiritMountainTortoise_Attack_04: 431789372
+      BossSpiritMountainTortoise_Attack_05: -1873279908
+      BossSpiritMountainTortoise_Attack_06: 1126708042
+      BossSpiritMountainTortoise_Attack_07: -872859176
+      BossSpiritMountainTortoise_Attack_08: -711475426
+      BossSpiritMountainTortoise_Attack_09: 2042725157
+      BossSpiritMountainTortoise_Attack_10: 533544556
+      BossSpiritMountainTortoise_Attack_11: 661474587
+      BossSpiritMountainTortoise_Attack_12: 1895648273
+      BossSpiritMountainTortoise_Attack_13: -1054268860
+      BossSpiritMountainTortoise_Attack_14: -435499493
+      BossSpiritMountainTortoise_Attack_15: 329124027
+      BossSpiritMountainTortoise_Attack_16: -1613834540
+      BossSpiritMountainTortoise_Attack_17: 1396228668
+      BossSpiritMountainTortoise_Attack_18: 1986865370
+      BossSpiritMountainTortoise_Attack_19: 836080603
+      BossSpiritMountainTortoise_Attack_20: 1904575757
+      BossSpiritMountainTortoise_Attack_21: -2006892171
+      BossSpiritMountainTortoise_Attack_22: -550830421
+      BossSpiritMountainTortoise_Attack_23: -1445309298
+      BossSpiritMountainTortoise_Attack_24: -655451103
+      Ruanuilinh-atk_side_left_0: -5125506873680415634
+      Ruanuilinh-atk_side_left_1: -7069885659128383652
+      Ruanuilinh-atk_side_left_10: 8812971253614097342
+      Ruanuilinh-atk_side_left_11: -27282565233319282
+      Ruanuilinh-atk_side_left_12: -7449845232773213755
+      Ruanuilinh-atk_side_left_13: -3202959555790764533
+      Ruanuilinh-atk_side_left_14: -8313096466223759310
+      Ruanuilinh-atk_side_left_15: 8858494167740580977
+      Ruanuilinh-atk_side_left_16: 2637808603435142127
+      Ruanuilinh-atk_side_left_17: -5291655366428980708
+      Ruanuilinh-atk_side_left_18: -8777846272339652995
+      Ruanuilinh-atk_side_left_19: 4099427242767395887
+      Ruanuilinh-atk_side_left_2: -6334596020434598628
+      Ruanuilinh-atk_side_left_20: 3445437817989348548
+      Ruanuilinh-atk_side_left_21: -291497533037534839
+      Ruanuilinh-atk_side_left_22: -2192892591813679394
+      Ruanuilinh-atk_side_left_23: 7508392620948497698
+      Ruanuilinh-atk_side_left_24: 4935611573659230086
+      Ruanuilinh-atk_side_left_25: 6030603497331589526
+      Ruanuilinh-atk_side_left_26: -4589466673367147332
+      Ruanuilinh-atk_side_left_27: -3743858364896723713
+      Ruanuilinh-atk_side_left_28: 2879740932511960683
+      Ruanuilinh-atk_side_left_29: -7003354848741826139
+      Ruanuilinh-atk_side_left_3: 7632466840438384826
+      Ruanuilinh-atk_side_left_30: -357194424919724970
+      Ruanuilinh-atk_side_left_31: -230869897635518549
+      Ruanuilinh-atk_side_left_32: -6888517507313690553
+      Ruanuilinh-atk_side_left_4: 5964735145588024525
+      Ruanuilinh-atk_side_left_5: 6350299509567596256
+      Ruanuilinh-atk_side_left_6: 8083939617784461280
+      Ruanuilinh-atk_side_left_7: 4514063660049882105
+      Ruanuilinh-atk_side_left_8: -5206551620502104107
+      Ruanuilinh-atk_side_left_9: -4537506091195575910
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

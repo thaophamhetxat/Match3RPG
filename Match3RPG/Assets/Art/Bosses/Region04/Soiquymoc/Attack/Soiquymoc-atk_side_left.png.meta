@@ -1,0 +1,990 @@
+fileFormatVersion: 2
+guid: 511f25e63debee5479df15dc69202a28
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6746088491273001953
+    second: Soiquymoc-atk_side_left_0
+  - first:
+      213: -8984887640354414073
+    second: Soiquymoc-atk_side_left_1
+  - first:
+      213: 6020441366142878781
+    second: Soiquymoc-atk_side_left_2
+  - first:
+      213: -4285976380403048623
+    second: Soiquymoc-atk_side_left_3
+  - first:
+      213: -185685222225895402
+    second: Soiquymoc-atk_side_left_4
+  - first:
+      213: -7364673625216040764
+    second: Soiquymoc-atk_side_left_5
+  - first:
+      213: 2880822891691763794
+    second: Soiquymoc-atk_side_left_6
+  - first:
+      213: -7960759635152548243
+    second: Soiquymoc-atk_side_left_7
+  - first:
+      213: 2253541108363207232
+    second: Soiquymoc-atk_side_left_8
+  - first:
+      213: -7563807728881739927
+    second: Soiquymoc-atk_side_left_9
+  - first:
+      213: -6876439285561601128
+    second: Soiquymoc-atk_side_left_10
+  - first:
+      213: -147494121874419058
+    second: Soiquymoc-atk_side_left_11
+  - first:
+      213: 2841018961653412356
+    second: Soiquymoc-atk_side_left_12
+  - first:
+      213: -4507997651520098349
+    second: Soiquymoc-atk_side_left_13
+  - first:
+      213: -6095410400605046209
+    second: Soiquymoc-atk_side_left_14
+  - first:
+      213: -5226574154797954293
+    second: Soiquymoc-atk_side_left_15
+  - first:
+      213: -6896722663001677708
+    second: Soiquymoc-atk_side_left_16
+  - first:
+      213: 8439374095006667326
+    second: Soiquymoc-atk_side_left_17
+  - first:
+      213: 9092704215595281837
+    second: Soiquymoc-atk_side_left_18
+  - first:
+      213: -5615158390552052847
+    second: Soiquymoc-atk_side_left_19
+  - first:
+      213: 1676974949519187890
+    second: Soiquymoc-atk_side_left_20
+  - first:
+      213: 4831675479334370785
+    second: Soiquymoc-atk_side_left_21
+  - first:
+      213: 6638111331065093417
+    second: Soiquymoc-atk_side_left_22
+  - first:
+      213: 7717804569317011221
+    second: Soiquymoc-atk_side_left_23
+  - first:
+      213: -969363100582380611
+    second: Soiquymoc-atk_side_left_24
+  - first:
+      213: -8902284388798599386
+    second: Soiquymoc-atk_side_left_25
+  - first:
+      213: 8550602066457423806
+    second: Soiquymoc-atk_side_left_26
+  - first:
+      213: -9091930295670287462
+    second: Soiquymoc-atk_side_left_27
+  - first:
+      213: -2070794413682222014
+    second: Soiquymoc-atk_side_left_28
+  - first:
+      213: -1681283165538880393
+    second: Soiquymoc-atk_side_left_29
+  - first:
+      213: -8936474319105229536
+    second: Soiquymoc-atk_side_left_30
+  - first:
+      213: 1076114458529001667
+    second: Soiquymoc-atk_side_left_31
+  - first:
+      213: 4742183960359877323
+    second: Soiquymoc-atk_side_left_32
+  - first:
+      213: -3430399820635220402
+    second: Soiquymoc-atk_side_left_33
+  - first:
+      213: -1927749351388286592
+    second: Soiquymoc-atk_side_left_34
+  - first:
+      213: -227678678241306841
+    second: Soiquymoc-atk_side_left_35
+  - first:
+      213: -5342827182902440039
+    second: Soiquymoc-atk_side_left_36
+  - first:
+      213: -787201143580889917
+    second: Soiquymoc-atk_side_left_37
+  - first:
+      213: -760676244976403008
+    second: Soiquymoc-atk_side_left_38
+  - first:
+      213: -1351763917367026192
+    second: Soiquymoc-atk_side_left_39
+  - first:
+      213: 3448132324356014406
+    second: Soiquymoc-atk_side_left_40
+  - first:
+      213: 8529725313552325711
+    second: Soiquymoc-atk_side_left_41
+  - first:
+      213: -8873948664761458519
+    second: Soiquymoc-atk_side_left_42
+  - first:
+      213: 717788887143533992
+    second: Soiquymoc-atk_side_left_43
+  - first:
+      213: 4623122139069372967
+    second: Soiquymoc-atk_side_left_44
+  - first:
+      213: -1323762140633148611
+    second: Soiquymoc-atk_side_left_45
+  - first:
+      213: -2271152664657781210
+    second: Soiquymoc-atk_side_left_46
+  - first:
+      213: -5951215509647746746
+    second: Soiquymoc-atk_side_left_47
+  - first:
+      213: 487182133449014444
+    second: Soiquymoc-atk_side_left_48
+  - first:
+      213: -3847769427232674707
+    second: Soiquymoc-atk_side_left_49
+  - first:
+      213: -8967709264746532286
+    second: Soiquymoc-atk_side_left_50
+  - first:
+      213: -3399364062748581587
+    second: Soiquymoc-atk_side_left_51
+  - first:
+      213: 4098526924394774788
+    second: Soiquymoc-atk_side_left_52
+  - first:
+      213: -541173692592637870
+    second: Soiquymoc-atk_side_left_53
+  - first:
+      213: 1234367159901839851
+    second: Soiquymoc-atk_side_left_54
+  - first:
+      213: -3166763902205728960
+    second: Soiquymoc-atk_side_left_55
+  - first:
+      213: 16536492835328608
+    second: Soiquymoc-atk_side_left_56
+  - first:
+      213: -8786846937451538084
+    second: Soiquymoc-atk_side_left_57
+  - first:
+      213: 3909897817958546828
+    second: Soiquymoc-atk_side_left_58
+  - first:
+      213: -1468028546633761929
+    second: Soiquymoc-atk_side_left_59
+  - first:
+      213: -2950501699940311559
+    second: Soiquymoc-atk_side_left_60
+  - first:
+      213: 3862039196464754612
+    second: Soiquymoc-atk_side_left_61
+  - first:
+      213: 9085015783771656498
+    second: Soiquymoc-atk_side_left_62
+  - first:
+      213: -967194463040111462
+    second: Soiquymoc-atk_side_left_63
+  - first:
+      213: 8909936760798374825
+    second: Soiquymoc-atk_side_left_64
+  - first:
+      213: -9063158569976438262
+    second: Soiquymoc-atk_side_left_65
+  - first:
+      213: -1983113371397346005
+    second: Soiquymoc-atk_side_left_66
+  - first:
+      213: 6100911345724923087
+    second: Soiquymoc-atk_side_left_67
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e068e285e8f2b5498b7e0dc2ccc1153
+      internalID: 1418284737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 453a85e1641596346840c16403cf3d91
+      internalID: -1311221540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adfc1cb1d62d1f248b9b1b4acf25ed0f
+      internalID: -22499149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d17c39f0e9291b42877c16b2c2ef91b
+      internalID: -1652560803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f93cac07f98d3df4f97545d1d546eddd
+      internalID: -1821614854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57e9a5330af3b4348a1097a006ce1b0e
+      internalID: 1210241489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aa05cb8841ae30499ad2ccb9c51c313
+      internalID: -1440408766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce790f0c9dcc7264080e78dd39ed63f2
+      internalID: -857797762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54e543e1527c67143a329a9f9e021099
+      internalID: -940804510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 290853c67e4942d438c21381747fdfb7
+      internalID: -370224539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb0a086f0e2d73d4dbcb2d9f28a93d6d
+      internalID: -1765107249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff6e409535ec5ff40801343015b75855
+      internalID: -575400207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f7fd91003375124a842a43b6cfe2f68
+      internalID: 1514231946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 195b09fc35096c042965ea5e65d30eb1
+      internalID: 1238469634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffa68b0ac6a1adb4ab515ed9d9035342
+      internalID: -1167168376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38aef0e57b1188143a1287c426615319
+      internalID: 1524837557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a38acabd9b12dcc438e73b16a50c086b
+      internalID: 592657926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c33b318df7ebf346a69baa52d6e579a
+      internalID: 330071279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 852780ae716515d41b9ff12b084e7095
+      internalID: -1465695254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bb10803bf693cd4c896ea9fe3209bdf
+      internalID: 1814213832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f38367df2169a6d4a86e72ea1c67ffc3
+      internalID: -1353983814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 239fae9ce25a94a4d88e7a63a366c94e
+      internalID: -182109249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef1b761a28f8875499e407f2e93b162d
+      internalID: -1606216905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab6173c982062f244822247916cb51da
+      internalID: -1096039041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossDemonWoodWolf_Attack_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df85d053bbc123a4fa30daa0191ffa6b
+      internalID: -988606784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossDemonWoodWolf_Attack_00: 1418284737
+      BossDemonWoodWolf_Attack_01: -1311221540
+      BossDemonWoodWolf_Attack_02: -22499149
+      BossDemonWoodWolf_Attack_03: -1652560803
+      BossDemonWoodWolf_Attack_04: -1821614854
+      BossDemonWoodWolf_Attack_05: 1210241489
+      BossDemonWoodWolf_Attack_06: -1440408766
+      BossDemonWoodWolf_Attack_07: -857797762
+      BossDemonWoodWolf_Attack_08: -940804510
+      BossDemonWoodWolf_Attack_09: -370224539
+      BossDemonWoodWolf_Attack_10: -1765107249
+      BossDemonWoodWolf_Attack_11: -575400207
+      BossDemonWoodWolf_Attack_12: 1514231946
+      BossDemonWoodWolf_Attack_13: 1238469634
+      BossDemonWoodWolf_Attack_14: -1167168376
+      BossDemonWoodWolf_Attack_15: 1524837557
+      BossDemonWoodWolf_Attack_16: 592657926
+      BossDemonWoodWolf_Attack_17: 330071279
+      BossDemonWoodWolf_Attack_18: -1465695254
+      BossDemonWoodWolf_Attack_19: 1814213832
+      BossDemonWoodWolf_Attack_20: -1353983814
+      BossDemonWoodWolf_Attack_21: -182109249
+      BossDemonWoodWolf_Attack_22: -1606216905
+      BossDemonWoodWolf_Attack_23: -1096039041
+      BossDemonWoodWolf_Attack_24: -988606784
+      Soiquymoc-atk_side_left_0: 6746088491273001953
+      Soiquymoc-atk_side_left_1: -8984887640354414073
+      Soiquymoc-atk_side_left_10: -6876439285561601128
+      Soiquymoc-atk_side_left_11: -147494121874419058
+      Soiquymoc-atk_side_left_12: 2841018961653412356
+      Soiquymoc-atk_side_left_13: -4507997651520098349
+      Soiquymoc-atk_side_left_14: -6095410400605046209
+      Soiquymoc-atk_side_left_15: -5226574154797954293
+      Soiquymoc-atk_side_left_16: -6896722663001677708
+      Soiquymoc-atk_side_left_17: 8439374095006667326
+      Soiquymoc-atk_side_left_18: 9092704215595281837
+      Soiquymoc-atk_side_left_19: -5615158390552052847
+      Soiquymoc-atk_side_left_2: 6020441366142878781
+      Soiquymoc-atk_side_left_20: 1676974949519187890
+      Soiquymoc-atk_side_left_21: 4831675479334370785
+      Soiquymoc-atk_side_left_22: 6638111331065093417
+      Soiquymoc-atk_side_left_23: 7717804569317011221
+      Soiquymoc-atk_side_left_24: -969363100582380611
+      Soiquymoc-atk_side_left_25: -8902284388798599386
+      Soiquymoc-atk_side_left_26: 8550602066457423806
+      Soiquymoc-atk_side_left_27: -9091930295670287462
+      Soiquymoc-atk_side_left_28: -2070794413682222014
+      Soiquymoc-atk_side_left_29: -1681283165538880393
+      Soiquymoc-atk_side_left_3: -4285976380403048623
+      Soiquymoc-atk_side_left_30: -8936474319105229536
+      Soiquymoc-atk_side_left_31: 1076114458529001667
+      Soiquymoc-atk_side_left_32: 4742183960359877323
+      Soiquymoc-atk_side_left_33: -3430399820635220402
+      Soiquymoc-atk_side_left_34: -1927749351388286592
+      Soiquymoc-atk_side_left_35: -227678678241306841
+      Soiquymoc-atk_side_left_36: -5342827182902440039
+      Soiquymoc-atk_side_left_37: -787201143580889917
+      Soiquymoc-atk_side_left_38: -760676244976403008
+      Soiquymoc-atk_side_left_39: -1351763917367026192
+      Soiquymoc-atk_side_left_4: -185685222225895402
+      Soiquymoc-atk_side_left_40: 3448132324356014406
+      Soiquymoc-atk_side_left_41: 8529725313552325711
+      Soiquymoc-atk_side_left_42: -8873948664761458519
+      Soiquymoc-atk_side_left_43: 717788887143533992
+      Soiquymoc-atk_side_left_44: 4623122139069372967
+      Soiquymoc-atk_side_left_45: -1323762140633148611
+      Soiquymoc-atk_side_left_46: -2271152664657781210
+      Soiquymoc-atk_side_left_47: -5951215509647746746
+      Soiquymoc-atk_side_left_48: 487182133449014444
+      Soiquymoc-atk_side_left_49: -3847769427232674707
+      Soiquymoc-atk_side_left_5: -7364673625216040764
+      Soiquymoc-atk_side_left_50: -8967709264746532286
+      Soiquymoc-atk_side_left_51: -3399364062748581587
+      Soiquymoc-atk_side_left_52: 4098526924394774788
+      Soiquymoc-atk_side_left_53: -541173692592637870
+      Soiquymoc-atk_side_left_54: 1234367159901839851
+      Soiquymoc-atk_side_left_55: -3166763902205728960
+      Soiquymoc-atk_side_left_56: 16536492835328608
+      Soiquymoc-atk_side_left_57: -8786846937451538084
+      Soiquymoc-atk_side_left_58: 3909897817958546828
+      Soiquymoc-atk_side_left_59: -1468028546633761929
+      Soiquymoc-atk_side_left_6: 2880822891691763794
+      Soiquymoc-atk_side_left_60: -2950501699940311559
+      Soiquymoc-atk_side_left_61: 3862039196464754612
+      Soiquymoc-atk_side_left_62: 9085015783771656498
+      Soiquymoc-atk_side_left_63: -967194463040111462
+      Soiquymoc-atk_side_left_64: 8909936760798374825
+      Soiquymoc-atk_side_left_65: -9063158569976438262
+      Soiquymoc-atk_side_left_66: -1983113371397346005
+      Soiquymoc-atk_side_left_67: 6100911345724923087
+      Soiquymoc-atk_side_left_7: -7960759635152548243
+      Soiquymoc-atk_side_left_8: 2253541108363207232
+      Soiquymoc-atk_side_left_9: -7563807728881739927
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

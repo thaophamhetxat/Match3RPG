@@ -109,17 +109,41 @@ namespace Match3RPG.Editor
             new SheetDefinition("BossFlameLion", BattleCharacterAnimState.Idle,
                 "Assets/Art/Bosses/Region03/flame_lion/Idle/flame_lion-idle_side_left.png", 5, 5, 25, IdleFps, true),
             new SheetDefinition("BossFlameLion", BattleCharacterAnimState.Attack,
-                "Assets/Art/Bosses/Region03/flame_lion/Skill/flame_lion-cast.png", 5, 5, 25, ActionFps)
+                "Assets/Art/Bosses/Region03/flame_lion/Skill/flame_lion-cast.png", 5, 5, 25, ActionFps),
+
+            new SheetDefinition("BossTreant", BattleCharacterAnimState.Idle,
+                "Assets/Art/Bosses/Region04/Thunhan/Idle/Thunhan-idle_side_left.png", 5, 5, 25, IdleFps, true),
+            new SheetDefinition("BossTreant", BattleCharacterAnimState.Attack,
+                "Assets/Art/Bosses/Region04/Thunhan/Attack/Thunhan-atk_side_left.png", 5, 5, 25, ActionFps),
+
+            new SheetDefinition("BossDemonWoodWolf", BattleCharacterAnimState.Idle,
+                "Assets/Art/Bosses/Region04/Soiquymoc/Idle/Soiquymoc-idle_side_left.png", 5, 5, 25, IdleFps, true),
+            new SheetDefinition("BossDemonWoodWolf", BattleCharacterAnimState.Attack,
+                "Assets/Art/Bosses/Region04/Soiquymoc/Attack/Soiquymoc-atk_side_left.png", 5, 5, 25, ActionFps),
+
+            new SheetDefinition("BossWoodPriestess", BattleCharacterAnimState.Idle,
+                "Assets/Art/Bosses/Region04/Nutetu/Idle/Nutetu-idle_side_left.png", 5, 5, 25, IdleFps, true),
+            new SheetDefinition("BossWoodPriestess", BattleCharacterAnimState.Attack,
+                "Assets/Art/Bosses/Region04/Nutetu/Attack/Nutetu-atk_side_left.png", 5, 5, 25, ActionFps),
+
+            new SheetDefinition("BossSpiritMountainTortoise", BattleCharacterAnimState.Idle,
+                "Assets/Art/Bosses/Region04/Ruanuilinh/Idle/Ruanuilinh-idle_side_left.png", 5, 5, 25, IdleFps, true),
+            new SheetDefinition("BossSpiritMountainTortoise", BattleCharacterAnimState.Attack,
+                "Assets/Art/Bosses/Region04/Ruanuilinh/Attack/Ruanuilinh-atk_side_left.png", 5, 5, 25, ActionFps),
+
+            new SheetDefinition("BossJadeForestDragon", BattleCharacterAnimState.Idle,
+                "Assets/Art/Bosses/Region04/Ngoclonghh/Idle/Ngoclonghh-idle_side_left.png", 5, 5, 25, IdleFps, true),
+            new SheetDefinition("BossJadeForestDragon", BattleCharacterAnimState.Attack,
+                "Assets/Art/Bosses/Region04/Ngoclonghh/Attack/Ngoclonghh-atk_side_left.png", 5, 5, 25, ActionFps)
         };
 
         static readonly string[] TargetBuildCharacterIds =
         {
-            "BossFrostWolf",
-            "BossIceCrystalBeast",
-            "BossAzureRiverDragon",
-            "BossInfernoQilin",
-            "BossCrimsonScorpion",
-            "BossFlameLion"
+            "BossTreant",
+            "BossDemonWoodWolf",
+            "BossWoodPriestess",
+            "BossSpiritMountainTortoise",
+            "BossJadeForestDragon"
         };
 
         [MenuItem("Tools/Characters/Build Character Content")]
@@ -498,6 +522,12 @@ namespace Match3RPG.Editor
                 case "BossCrimsonScorpion":
                 case "BossFlameLion":
                     return $"{AnimationOutput}/Bosses/Region03/{characterId}";
+                case "BossTreant":
+                case "BossDemonWoodWolf":
+                case "BossWoodPriestess":
+                case "BossSpiritMountainTortoise":
+                case "BossJadeForestDragon":
+                    return $"{AnimationOutput}/Bosses/Region04/{characterId}";
                 default:
                     return characterId.StartsWith("Boss", StringComparison.Ordinal)
                         ? $"{AnimationOutput}/Bosses/Region01/{characterId}"
@@ -655,6 +685,31 @@ namespace Match3RPG.Editor
                     ids = new[] { "region_03_boss_09", "region_03_boss_10" };
                     displayName = "Sư Tử Lửa";
                     sourceFacing = CharacterFacing.Right;
+                    break;
+                case "BossTreant":
+                    ids = new[] { "region_04_boss_01", "region_04_boss_06" };
+                    displayName = "Thụ Nhân";
+                    sourceFacing = CharacterFacing.Left;
+                    break;
+                case "BossDemonWoodWolf":
+                    ids = new[] { "region_04_boss_02", "region_04_boss_07" };
+                    displayName = "Sói Quỷ Mộc";
+                    sourceFacing = CharacterFacing.Left;
+                    break;
+                case "BossWoodPriestess":
+                    ids = new[] { "region_04_boss_03", "region_04_boss_08" };
+                    displayName = "Nữ Tế Mộc Tộc";
+                    sourceFacing = CharacterFacing.Left;
+                    break;
+                case "BossSpiritMountainTortoise":
+                    ids = new[] { "region_04_boss_04", "region_04_boss_09" };
+                    displayName = "Rùa Núi Linh";
+                    sourceFacing = CharacterFacing.Left;
+                    break;
+                case "BossJadeForestDragon":
+                    ids = new[] { "region_04_boss_05", "region_04_boss_10" };
+                    displayName = "Long Rừng Ngọc";
+                    sourceFacing = CharacterFacing.Left;
                     break;
                 case "Boss01":
                     ids = new[] { "region_01_boss_01" };

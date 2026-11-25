@@ -1,0 +1,954 @@
+fileFormatVersion: 2
+guid: 82dc7c58e69243345bf8b3de535e8ca6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2305549520942611621
+    second: Ngoclonghh-idle_side_left_0
+  - first:
+      213: 8846965870477381153
+    second: Ngoclonghh-idle_side_left_1
+  - first:
+      213: -1462775095965362941
+    second: Ngoclonghh-idle_side_left_2
+  - first:
+      213: 3723170085802152463
+    second: Ngoclonghh-idle_side_left_3
+  - first:
+      213: -6637768841623574838
+    second: Ngoclonghh-idle_side_left_4
+  - first:
+      213: -708632064726538385
+    second: Ngoclonghh-idle_side_left_5
+  - first:
+      213: -4793310861732267525
+    second: Ngoclonghh-idle_side_left_6
+  - first:
+      213: -4815740314915154829
+    second: Ngoclonghh-idle_side_left_7
+  - first:
+      213: 8780900973816520944
+    second: Ngoclonghh-idle_side_left_8
+  - first:
+      213: 2335428850130191568
+    second: Ngoclonghh-idle_side_left_9
+  - first:
+      213: -7171942657808135959
+    second: Ngoclonghh-idle_side_left_10
+  - first:
+      213: 4137567123918354392
+    second: Ngoclonghh-idle_side_left_11
+  - first:
+      213: 2353091783232353062
+    second: Ngoclonghh-idle_side_left_12
+  - first:
+      213: 5715605507405017603
+    second: Ngoclonghh-idle_side_left_13
+  - first:
+      213: 5486178974244848978
+    second: Ngoclonghh-idle_side_left_14
+  - first:
+      213: -4188049070062350691
+    second: Ngoclonghh-idle_side_left_15
+  - first:
+      213: 5157847538146271472
+    second: Ngoclonghh-idle_side_left_16
+  - first:
+      213: 9131729244341250652
+    second: Ngoclonghh-idle_side_left_17
+  - first:
+      213: 8433497386208703210
+    second: Ngoclonghh-idle_side_left_18
+  - first:
+      213: 7897747726771487879
+    second: Ngoclonghh-idle_side_left_19
+  - first:
+      213: 7199381490846639252
+    second: Ngoclonghh-idle_side_left_20
+  - first:
+      213: -3617842040013636666
+    second: Ngoclonghh-idle_side_left_21
+  - first:
+      213: -2986278564438406203
+    second: Ngoclonghh-idle_side_left_22
+  - first:
+      213: 4799514722659832555
+    second: Ngoclonghh-idle_side_left_23
+  - first:
+      213: 1322616008996447386
+    second: Ngoclonghh-idle_side_left_24
+  - first:
+      213: 7350417031421074090
+    second: Ngoclonghh-idle_side_left_25
+  - first:
+      213: -7141233840445547972
+    second: Ngoclonghh-idle_side_left_26
+  - first:
+      213: -202446266845743247
+    second: Ngoclonghh-idle_side_left_27
+  - first:
+      213: 8424856267744900433
+    second: Ngoclonghh-idle_side_left_28
+  - first:
+      213: 9121562635646814392
+    second: Ngoclonghh-idle_side_left_29
+  - first:
+      213: -6385640749095509463
+    second: Ngoclonghh-idle_side_left_30
+  - first:
+      213: -770700778539280712
+    second: Ngoclonghh-idle_side_left_31
+  - first:
+      213: -2055032444912003505
+    second: Ngoclonghh-idle_side_left_32
+  - first:
+      213: -1153756541765568882
+    second: Ngoclonghh-idle_side_left_33
+  - first:
+      213: -6632332702578477883
+    second: Ngoclonghh-idle_side_left_34
+  - first:
+      213: -4132502359158345935
+    second: Ngoclonghh-idle_side_left_35
+  - first:
+      213: 4839092180042788839
+    second: Ngoclonghh-idle_side_left_36
+  - first:
+      213: 4556045935687626744
+    second: Ngoclonghh-idle_side_left_37
+  - first:
+      213: 4393453611246264514
+    second: Ngoclonghh-idle_side_left_38
+  - first:
+      213: -3527131495928460220
+    second: Ngoclonghh-idle_side_left_39
+  - first:
+      213: 7671524963819041047
+    second: Ngoclonghh-idle_side_left_40
+  - first:
+      213: 1048576579209673815
+    second: Ngoclonghh-idle_side_left_41
+  - first:
+      213: 1139136940629354075
+    second: Ngoclonghh-idle_side_left_42
+  - first:
+      213: -5243296380853390548
+    second: Ngoclonghh-idle_side_left_43
+  - first:
+      213: -2357014189417065532
+    second: Ngoclonghh-idle_side_left_44
+  - first:
+      213: -3226933916416549870
+    second: Ngoclonghh-idle_side_left_45
+  - first:
+      213: -8949633108625589666
+    second: Ngoclonghh-idle_side_left_46
+  - first:
+      213: -5338061854921052656
+    second: Ngoclonghh-idle_side_left_47
+  - first:
+      213: 4662309819470149687
+    second: Ngoclonghh-idle_side_left_48
+  - first:
+      213: 3822303214542707230
+    second: Ngoclonghh-idle_side_left_49
+  - first:
+      213: 9108776047343833216
+    second: Ngoclonghh-idle_side_left_50
+  - first:
+      213: 5470121973578449671
+    second: Ngoclonghh-idle_side_left_51
+  - first:
+      213: 4998508542839798287
+    second: Ngoclonghh-idle_side_left_52
+  - first:
+      213: -4281975879613740633
+    second: Ngoclonghh-idle_side_left_53
+  - first:
+      213: -4320308160622978439
+    second: Ngoclonghh-idle_side_left_54
+  - first:
+      213: 4648342399277185623
+    second: Ngoclonghh-idle_side_left_55
+  - first:
+      213: -4790275570323378556
+    second: Ngoclonghh-idle_side_left_56
+  - first:
+      213: -217443266491568325
+    second: Ngoclonghh-idle_side_left_57
+  - first:
+      213: 2071748112258844431
+    second: Ngoclonghh-idle_side_left_58
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b47bcebae2fbaa14ba46b0efe28692b8
+      internalID: -1662348000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 450b6a905358dc94a8510860fa78c6e4
+      internalID: 1718221156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f31e9b4fecababe4da60b48ce72f1ac2
+      internalID: 135202970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4907f62e7390fe4da8ba8a42768c747
+      internalID: -1289293802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d815a4371db074e45a0153f8e182bd6f
+      internalID: -2132579577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a4222296ffea1048b09c82c567e4583
+      internalID: 1155065444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eca7c51de0188f944829e9aaec414599
+      internalID: -1599136478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa7559062361928429db88029bdb3862
+      internalID: 547888995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7a4a09736ea83f4aa7b0f10a323eaad
+      internalID: -1378416140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa74f6e24ba424c428397e972f575ba1
+      internalID: 1992325799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 782d92b7cd7528a419f78aa9ccf9459b
+      internalID: -1250386802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2271e4b51f3f2a94193800847abca8c2
+      internalID: -541219615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eada96212e39cd4e83299779c58733d
+      internalID: -1478014293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edfc5a5911f7550478265905f4d4de9b
+      internalID: -1007472077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 289dbcabf86958344a87b5c29f8fc5cf
+      internalID: -388445496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97d8914987524914792bfc1e2559d8b7
+      internalID: -1477463804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 772848cfff7d4ed4dbcb4cdcc0f6b93a
+      internalID: -1575002871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8128aa6579c4a5245b15d7069ece50e7
+      internalID: -1591084489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da89acb6202c0b54490464fe94340513
+      internalID: 1185918678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44fd769a7796e384abece894586867ae
+      internalID: -373256836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8d82bd306446054c81859bfcc399be3
+      internalID: -1701983101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b905bf7ade1c67a42a90c4d20dd0693f
+      internalID: 566903128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 921f3eba95b39874296c0a5ca993f3c8
+      internalID: 349611500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ed67003852be954f9077f53508a872c
+      internalID: -2044510631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossJadeForestDragon_Idle_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7be51707d436064c83e1716eed674c4
+      internalID: 1933898067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossJadeForestDragon_Idle_00: -1662348000
+      BossJadeForestDragon_Idle_01: 1718221156
+      BossJadeForestDragon_Idle_02: 135202970
+      BossJadeForestDragon_Idle_03: -1289293802
+      BossJadeForestDragon_Idle_04: -2132579577
+      BossJadeForestDragon_Idle_05: 1155065444
+      BossJadeForestDragon_Idle_06: -1599136478
+      BossJadeForestDragon_Idle_07: 547888995
+      BossJadeForestDragon_Idle_08: -1378416140
+      BossJadeForestDragon_Idle_09: 1992325799
+      BossJadeForestDragon_Idle_10: -1250386802
+      BossJadeForestDragon_Idle_11: -541219615
+      BossJadeForestDragon_Idle_12: -1478014293
+      BossJadeForestDragon_Idle_13: -1007472077
+      BossJadeForestDragon_Idle_14: -388445496
+      BossJadeForestDragon_Idle_15: -1477463804
+      BossJadeForestDragon_Idle_16: -1575002871
+      BossJadeForestDragon_Idle_17: -1591084489
+      BossJadeForestDragon_Idle_18: 1185918678
+      BossJadeForestDragon_Idle_19: -373256836
+      BossJadeForestDragon_Idle_20: -1701983101
+      BossJadeForestDragon_Idle_21: 566903128
+      BossJadeForestDragon_Idle_22: 349611500
+      BossJadeForestDragon_Idle_23: -2044510631
+      BossJadeForestDragon_Idle_24: 1933898067
+      Ngoclonghh-idle_side_left_0: -2305549520942611621
+      Ngoclonghh-idle_side_left_1: 8846965870477381153
+      Ngoclonghh-idle_side_left_10: -7171942657808135959
+      Ngoclonghh-idle_side_left_11: 4137567123918354392
+      Ngoclonghh-idle_side_left_12: 2353091783232353062
+      Ngoclonghh-idle_side_left_13: 5715605507405017603
+      Ngoclonghh-idle_side_left_14: 5486178974244848978
+      Ngoclonghh-idle_side_left_15: -4188049070062350691
+      Ngoclonghh-idle_side_left_16: 5157847538146271472
+      Ngoclonghh-idle_side_left_17: 9131729244341250652
+      Ngoclonghh-idle_side_left_18: 8433497386208703210
+      Ngoclonghh-idle_side_left_19: 7897747726771487879
+      Ngoclonghh-idle_side_left_2: -1462775095965362941
+      Ngoclonghh-idle_side_left_20: 7199381490846639252
+      Ngoclonghh-idle_side_left_21: -3617842040013636666
+      Ngoclonghh-idle_side_left_22: -2986278564438406203
+      Ngoclonghh-idle_side_left_23: 4799514722659832555
+      Ngoclonghh-idle_side_left_24: 1322616008996447386
+      Ngoclonghh-idle_side_left_25: 7350417031421074090
+      Ngoclonghh-idle_side_left_26: -7141233840445547972
+      Ngoclonghh-idle_side_left_27: -202446266845743247
+      Ngoclonghh-idle_side_left_28: 8424856267744900433
+      Ngoclonghh-idle_side_left_29: 9121562635646814392
+      Ngoclonghh-idle_side_left_3: 3723170085802152463
+      Ngoclonghh-idle_side_left_30: -6385640749095509463
+      Ngoclonghh-idle_side_left_31: -770700778539280712
+      Ngoclonghh-idle_side_left_32: -2055032444912003505
+      Ngoclonghh-idle_side_left_33: -1153756541765568882
+      Ngoclonghh-idle_side_left_34: -6632332702578477883
+      Ngoclonghh-idle_side_left_35: -4132502359158345935
+      Ngoclonghh-idle_side_left_36: 4839092180042788839
+      Ngoclonghh-idle_side_left_37: 4556045935687626744
+      Ngoclonghh-idle_side_left_38: 4393453611246264514
+      Ngoclonghh-idle_side_left_39: -3527131495928460220
+      Ngoclonghh-idle_side_left_4: -6637768841623574838
+      Ngoclonghh-idle_side_left_40: 7671524963819041047
+      Ngoclonghh-idle_side_left_41: 1048576579209673815
+      Ngoclonghh-idle_side_left_42: 1139136940629354075
+      Ngoclonghh-idle_side_left_43: -5243296380853390548
+      Ngoclonghh-idle_side_left_44: -2357014189417065532
+      Ngoclonghh-idle_side_left_45: -3226933916416549870
+      Ngoclonghh-idle_side_left_46: -8949633108625589666
+      Ngoclonghh-idle_side_left_47: -5338061854921052656
+      Ngoclonghh-idle_side_left_48: 4662309819470149687
+      Ngoclonghh-idle_side_left_49: 3822303214542707230
+      Ngoclonghh-idle_side_left_5: -708632064726538385
+      Ngoclonghh-idle_side_left_50: 9108776047343833216
+      Ngoclonghh-idle_side_left_51: 5470121973578449671
+      Ngoclonghh-idle_side_left_52: 4998508542839798287
+      Ngoclonghh-idle_side_left_53: -4281975879613740633
+      Ngoclonghh-idle_side_left_54: -4320308160622978439
+      Ngoclonghh-idle_side_left_55: 4648342399277185623
+      Ngoclonghh-idle_side_left_56: -4790275570323378556
+      Ngoclonghh-idle_side_left_57: -217443266491568325
+      Ngoclonghh-idle_side_left_58: 2071748112258844431
+      Ngoclonghh-idle_side_left_6: -4793310861732267525
+      Ngoclonghh-idle_side_left_7: -4815740314915154829
+      Ngoclonghh-idle_side_left_8: 8780900973816520944
+      Ngoclonghh-idle_side_left_9: 2335428850130191568
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

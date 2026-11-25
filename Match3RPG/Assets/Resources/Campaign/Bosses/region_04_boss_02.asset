@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: region_04_boss_02
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.BossData
   bossId: region_04_boss_02
-  displayName: Shadow Wyvern
-  portrait: {fileID: 21300000, guid: 2452b6bbb17f6344db5aa0066858a857, type: 3}
+  displayName: "S\xF3i Qu\u1EF7 M\u1ED9c"
+  portrait: {fileID: -1289553940, guid: 66f90b99176084242849d04a5ce89dc9, type: 3}
+  animationSet: {fileID: 11400000, guid: 4c8d8a1ed6441984f97610c29690f439, type: 2}
   maxHP: 1525
   attack: 27
   maxRage: 100
@@ -24,3 +25,11 @@ MonoBehaviour:
   criticalEnabled: 1
   criticalDamageMultiplier: 2
   statusEffectCapabilities: 8
+  preferredAttackVfx: 0
+  defaultLootTableId: 
+  visualScale: 1
+  visualOffset: {x: 0, y: 0}
+  sourceFacing: 0
+  vfxAnchor: {x: 0.5, y: 0.48}
+  headVfxAnchor: {x: 0.5, y: 0.82}
+  floatingTextAnchor: {x: 0.5, y: 0.88}

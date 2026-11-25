@@ -1,0 +1,994 @@
+fileFormatVersion: 2
+guid: 1504e657b720018479728068ebb55e95
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8705930242582066729
+    second: Thunhan-atk_side_left_0
+  - first:
+      213: 457165288371976901
+    second: Thunhan-atk_side_left_1
+  - first:
+      213: 8050790399643331789
+    second: Thunhan-atk_side_left_2
+  - first:
+      213: -3697495561039774759
+    second: Thunhan-atk_side_left_3
+  - first:
+      213: -7047058989514278055
+    second: Thunhan-atk_side_left_4
+  - first:
+      213: 6322823834452291263
+    second: Thunhan-atk_side_left_5
+  - first:
+      213: 5673239678592840364
+    second: Thunhan-atk_side_left_6
+  - first:
+      213: -1305709914278754233
+    second: Thunhan-atk_side_left_7
+  - first:
+      213: -8083891213227505341
+    second: Thunhan-atk_side_left_8
+  - first:
+      213: -8769655538371172549
+    second: Thunhan-atk_side_left_9
+  - first:
+      213: 6260872716939719478
+    second: Thunhan-atk_side_left_10
+  - first:
+      213: -8726084570250079141
+    second: Thunhan-atk_side_left_11
+  - first:
+      213: 4556312328695714287
+    second: Thunhan-atk_side_left_12
+  - first:
+      213: -5417923933589348512
+    second: Thunhan-atk_side_left_13
+  - first:
+      213: 1279513210085688231
+    second: Thunhan-atk_side_left_14
+  - first:
+      213: 100979013469415871
+    second: Thunhan-atk_side_left_15
+  - first:
+      213: -3507766747907047308
+    second: Thunhan-atk_side_left_16
+  - first:
+      213: 4242180306874252861
+    second: Thunhan-atk_side_left_17
+  - first:
+      213: 7464843671775864900
+    second: Thunhan-atk_side_left_18
+  - first:
+      213: 5279036794684801643
+    second: Thunhan-atk_side_left_19
+  - first:
+      213: 2253607071412525861
+    second: Thunhan-atk_side_left_20
+  - first:
+      213: -3147142824806179459
+    second: Thunhan-atk_side_left_21
+  - first:
+      213: -7196317428051763511
+    second: Thunhan-atk_side_left_22
+  - first:
+      213: -357680624871110804
+    second: Thunhan-atk_side_left_23
+  - first:
+      213: -8523004302285422726
+    second: Thunhan-atk_side_left_24
+  - first:
+      213: 6583248798204722295
+    second: Thunhan-atk_side_left_25
+  - first:
+      213: 6230652657123277837
+    second: Thunhan-atk_side_left_26
+  - first:
+      213: -1326872867987602427
+    second: Thunhan-atk_side_left_27
+  - first:
+      213: -7679779745285824271
+    second: Thunhan-atk_side_left_28
+  - first:
+      213: -1029736529014225722
+    second: Thunhan-atk_side_left_29
+  - first:
+      213: -8890160951634659472
+    second: Thunhan-atk_side_left_30
+  - first:
+      213: -1014070182282939836
+    second: Thunhan-atk_side_left_31
+  - first:
+      213: 2692671484883610267
+    second: Thunhan-atk_side_left_32
+  - first:
+      213: 6382561516310448074
+    second: Thunhan-atk_side_left_33
+  - first:
+      213: 5655411356640545035
+    second: Thunhan-atk_side_left_34
+  - first:
+      213: -9066588737141965309
+    second: Thunhan-atk_side_left_35
+  - first:
+      213: -4987169101653270438
+    second: Thunhan-atk_side_left_36
+  - first:
+      213: -6113740259964319557
+    second: Thunhan-atk_side_left_37
+  - first:
+      213: 1795591027727121882
+    second: Thunhan-atk_side_left_38
+  - first:
+      213: -7682308220476555807
+    second: Thunhan-atk_side_left_39
+  - first:
+      213: 7453584298476254175
+    second: Thunhan-atk_side_left_40
+  - first:
+      213: -4340096552717225112
+    second: Thunhan-atk_side_left_41
+  - first:
+      213: -3998701673432635245
+    second: Thunhan-atk_side_left_42
+  - first:
+      213: 5518782045244888112
+    second: Thunhan-atk_side_left_43
+  - first:
+      213: -4676699997500987068
+    second: Thunhan-atk_side_left_44
+  - first:
+      213: 1195598536582155224
+    second: Thunhan-atk_side_left_45
+  - first:
+      213: -2739390623471621474
+    second: Thunhan-atk_side_left_46
+  - first:
+      213: 981083766297006730
+    second: Thunhan-atk_side_left_47
+  - first:
+      213: 9118170004684036725
+    second: Thunhan-atk_side_left_48
+  - first:
+      213: -5377689960712749957
+    second: Thunhan-atk_side_left_49
+  - first:
+      213: 6497553217863837534
+    second: Thunhan-atk_side_left_50
+  - first:
+      213: 6609425311676837807
+    second: Thunhan-atk_side_left_51
+  - first:
+      213: -3275963338334844113
+    second: Thunhan-atk_side_left_52
+  - first:
+      213: 1866168263346115633
+    second: Thunhan-atk_side_left_53
+  - first:
+      213: 5806983081748252227
+    second: Thunhan-atk_side_left_54
+  - first:
+      213: -9119865900355866990
+    second: Thunhan-atk_side_left_55
+  - first:
+      213: 4653603354534543644
+    second: Thunhan-atk_side_left_56
+  - first:
+      213: 7573753204033390009
+    second: Thunhan-atk_side_left_57
+  - first:
+      213: 1458925692970930677
+    second: Thunhan-atk_side_left_58
+  - first:
+      213: -378019670916685590
+    second: Thunhan-atk_side_left_59
+  - first:
+      213: -5917572354039165611
+    second: Thunhan-atk_side_left_60
+  - first:
+      213: -6322019001136451203
+    second: Thunhan-atk_side_left_61
+  - first:
+      213: -9035591575771561715
+    second: Thunhan-atk_side_left_62
+  - first:
+      213: -8412836828256817691
+    second: Thunhan-atk_side_left_63
+  - first:
+      213: -7084712096631925201
+    second: Thunhan-atk_side_left_64
+  - first:
+      213: -6955061434042758376
+    second: Thunhan-atk_side_left_65
+  - first:
+      213: 4989717143230160638
+    second: Thunhan-atk_side_left_66
+  - first:
+      213: -6124326949412932850
+    second: Thunhan-atk_side_left_67
+  - first:
+      213: -5108412439143122067
+    second: Thunhan-atk_side_left_68
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BossTreant_Attack_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3a8fe5e6d2b7b64daa28d1787726ef3
+      internalID: 1429933789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_01
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a170a17056485f941a9ed71c9af7b23a
+      internalID: 628363339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_02
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93be666a6802b6b45bb1f90a2e98b567
+      internalID: 1973231080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_03
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec716207dcd27df4ba9ad90622638d09
+      internalID: 1611146598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_04
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 2048
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b433217854bf474b92161eeec179d92
+      internalID: -377420143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_05
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08349fc9cc2bda54881250cc8558f27a
+      internalID: 544739868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_06
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 752b3c038c4266047984d9282d7f348f
+      internalID: -108668094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_07
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22be7fe2bb362d441ad7d0107796998b
+      internalID: -714622645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_08
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 440995cfa0c2b134fa207b05f2351d2a
+      internalID: 2064074394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_09
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1536
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a45f802da2fa764b8884d86fcbe5870
+      internalID: 1257849139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 463e4aff906ad284ba2be1add76af9f0
+      internalID: 1233686359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_11
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9760b168239402d4ea7e7f7bc855cfde
+      internalID: -2035752243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_12
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b90d4acb6f24c34899811788dd1a779
+      internalID: 1012229902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_13
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec8df5b63a7fa744da176d28f68abc61
+      internalID: 572911011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_14
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 1024
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36af64791e1b2d14ab96ddae5e196250
+      internalID: -1481057439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb172eebd5d986342bf88c3f0a4ec148
+      internalID: 349642179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_16
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48cafd21865719844be1fac6d96675d4
+      internalID: -1399866075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_17
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2612e42cbd6abd243aca9c2625f26cd2
+      internalID: -1397635484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_18
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2a5aaf49504a824393cebaecbaa8655
+      internalID: -323820747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_19
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 512
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d50d8500cdc37b142bf681abda7070c9
+      internalID: 1603142746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dd1b2b8359dc36418f8e9a618aa3f28
+      internalID: 1725079696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_21
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 611e7f31cbc493a40aead59550ccb735
+      internalID: -1382742313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_22
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d06640baa303adf48b5676e11a3e0c8d
+      internalID: 712849570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_23
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31427b8eda5dfb3488a38c88ae92b64b
+      internalID: -1030393032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BossTreant_Attack_24
+      rect:
+        serializedVersion: 2
+        x: 2048
+        y: 0
+        width: 512
+        height: 512
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6841f238c48b9443a9dbf903c779c93
+      internalID: 1201581410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BossTreant_Attack_00: 1429933789
+      BossTreant_Attack_01: 628363339
+      BossTreant_Attack_02: 1973231080
+      BossTreant_Attack_03: 1611146598
+      BossTreant_Attack_04: -377420143
+      BossTreant_Attack_05: 544739868
+      BossTreant_Attack_06: -108668094
+      BossTreant_Attack_07: -714622645
+      BossTreant_Attack_08: 2064074394
+      BossTreant_Attack_09: 1257849139
+      BossTreant_Attack_10: 1233686359
+      BossTreant_Attack_11: -2035752243
+      BossTreant_Attack_12: 1012229902
+      BossTreant_Attack_13: 572911011
+      BossTreant_Attack_14: -1481057439
+      BossTreant_Attack_15: 349642179
+      BossTreant_Attack_16: -1399866075
+      BossTreant_Attack_17: -1397635484
+      BossTreant_Attack_18: -323820747
+      BossTreant_Attack_19: 1603142746
+      BossTreant_Attack_20: 1725079696
+      BossTreant_Attack_21: -1382742313
+      BossTreant_Attack_22: 712849570
+      BossTreant_Attack_23: -1030393032
+      BossTreant_Attack_24: 1201581410
+      Thunhan-atk_side_left_0: -8705930242582066729
+      Thunhan-atk_side_left_1: 457165288371976901
+      Thunhan-atk_side_left_10: 6260872716939719478
+      Thunhan-atk_side_left_11: -8726084570250079141
+      Thunhan-atk_side_left_12: 4556312328695714287
+      Thunhan-atk_side_left_13: -5417923933589348512
+      Thunhan-atk_side_left_14: 1279513210085688231
+      Thunhan-atk_side_left_15: 100979013469415871
+      Thunhan-atk_side_left_16: -3507766747907047308
+      Thunhan-atk_side_left_17: 4242180306874252861
+      Thunhan-atk_side_left_18: 7464843671775864900
+      Thunhan-atk_side_left_19: 5279036794684801643
+      Thunhan-atk_side_left_2: 8050790399643331789
+      Thunhan-atk_side_left_20: 2253607071412525861
+      Thunhan-atk_side_left_21: -3147142824806179459
+      Thunhan-atk_side_left_22: -7196317428051763511
+      Thunhan-atk_side_left_23: -357680624871110804
+      Thunhan-atk_side_left_24: -8523004302285422726
+      Thunhan-atk_side_left_25: 6583248798204722295
+      Thunhan-atk_side_left_26: 6230652657123277837
+      Thunhan-atk_side_left_27: -1326872867987602427
+      Thunhan-atk_side_left_28: -7679779745285824271
+      Thunhan-atk_side_left_29: -1029736529014225722
+      Thunhan-atk_side_left_3: -3697495561039774759
+      Thunhan-atk_side_left_30: -8890160951634659472
+      Thunhan-atk_side_left_31: -1014070182282939836
+      Thunhan-atk_side_left_32: 2692671484883610267
+      Thunhan-atk_side_left_33: 6382561516310448074
+      Thunhan-atk_side_left_34: 5655411356640545035
+      Thunhan-atk_side_left_35: -9066588737141965309
+      Thunhan-atk_side_left_36: -4987169101653270438
+      Thunhan-atk_side_left_37: -6113740259964319557
+      Thunhan-atk_side_left_38: 1795591027727121882
+      Thunhan-atk_side_left_39: -7682308220476555807
+      Thunhan-atk_side_left_4: -7047058989514278055
+      Thunhan-atk_side_left_40: 7453584298476254175
+      Thunhan-atk_side_left_41: -4340096552717225112
+      Thunhan-atk_side_left_42: -3998701673432635245
+      Thunhan-atk_side_left_43: 5518782045244888112
+      Thunhan-atk_side_left_44: -4676699997500987068
+      Thunhan-atk_side_left_45: 1195598536582155224
+      Thunhan-atk_side_left_46: -2739390623471621474
+      Thunhan-atk_side_left_47: 981083766297006730
+      Thunhan-atk_side_left_48: 9118170004684036725
+      Thunhan-atk_side_left_49: -5377689960712749957
+      Thunhan-atk_side_left_5: 6322823834452291263
+      Thunhan-atk_side_left_50: 6497553217863837534
+      Thunhan-atk_side_left_51: 6609425311676837807
+      Thunhan-atk_side_left_52: -3275963338334844113
+      Thunhan-atk_side_left_53: 1866168263346115633
+      Thunhan-atk_side_left_54: 5806983081748252227
+      Thunhan-atk_side_left_55: -9119865900355866990
+      Thunhan-atk_side_left_56: 4653603354534543644
+      Thunhan-atk_side_left_57: 7573753204033390009
+      Thunhan-atk_side_left_58: 1458925692970930677
+      Thunhan-atk_side_left_59: -378019670916685590
+      Thunhan-atk_side_left_6: 5673239678592840364
+      Thunhan-atk_side_left_60: -5917572354039165611
+      Thunhan-atk_side_left_61: -6322019001136451203
+      Thunhan-atk_side_left_62: -9035591575771561715
+      Thunhan-atk_side_left_63: -8412836828256817691
+      Thunhan-atk_side_left_64: -7084712096631925201
+      Thunhan-atk_side_left_65: -6955061434042758376
+      Thunhan-atk_side_left_66: 4989717143230160638
+      Thunhan-atk_side_left_67: -6124326949412932850
+      Thunhan-atk_side_left_68: -5108412439143122067
+      Thunhan-atk_side_left_7: -1305709914278754233
+      Thunhan-atk_side_left_8: -8083891213227505341
+      Thunhan-atk_side_left_9: -8769655538371172549
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
