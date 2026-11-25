@@ -364,6 +364,7 @@ namespace Match3RPG.Battle
             CurrentActor = BattleActor.Boss;
             yield return EnsureBoardPlayable(BattleActor.Boss, 0f, null);
 
+            bool bossTurnAdvanced = false;
             while (bossTurnsRemaining > 0 && !battle.IsGameOver)
             {
                 SetState(BattleTurnState.BossThinking);
@@ -382,6 +383,12 @@ namespace Match3RPG.Battle
                     continue;
                 }
 
+                if (!bossTurnAdvanced)
+                {
+                    battle.AdvanceBossTurn();
+                    bossTurnAdvanced = true;
+                }
+
                 SetState(BattleTurnState.BossTurn);
                 yield return WaitForStatusDuration(bossTurnDisplayDelay);
                 SetState(BattleTurnState.BossResolving);
@@ -398,6 +405,7 @@ namespace Match3RPG.Battle
                 bossTurnsRemaining = ConsumeTurn(bossTurnsRemaining, resolved.ExtraTurnsGranted, StoredTurnLimit);
                 RefreshIndicator();
                 yield return battle.ResolveMove(BattleActor.Boss, resolved);
+                bossTurnAdvanced = false;
                 yield return WaitWhileStatusPopupClosed();
                 if (CheckBattleEnd()) yield break;
                 yield return EnsureBoardPlayable(BattleActor.Boss, 0f, null);

@@ -9,6 +9,10 @@ namespace Match3RPG.Battle
         const float TransientLifetime = .24f;
         const float HitImpactDuration = .5f;
         const float HitImpactFrameRate = 12f;
+        const float HeroShieldDropOffset = 173f;
+        const float BossShieldBaseDropOffset = 176f;
+        const float DefaultShieldAnchorY = 0.48f;
+        const float FallbackCharacterRootHeight = 768f;
         static readonly Vector2 HitImpactSize = new Vector2(220f, 220f);
         public const float HealingAuraDuration = 2.4f;
         public const float LifeStealDuration = 1.333f;
@@ -317,6 +321,10 @@ namespace Match3RPG.Battle
             {
                 position.y += size.y * 0.5f;
             }
+            else if (type == CombatVFXType.Shield)
+            {
+                position.y -= GetShieldDropOffset(actor, anchor);
+            }
 
             RectTransform rect;
             Image image;
@@ -465,11 +473,28 @@ namespace Match3RPG.Battle
             return character.FacingDirection == CharacterFacing.Right ? 1f : -1f;
         }
 
+        static float GetShieldDropOffset(BattleActor actor, RectTransform anchor)
+        {
+            if (actor == BattleActor.Player)
+                return HeroShieldDropOffset;
+
+            float extraAnchorDrop = 0f;
+            if (anchor != null)
+            {
+                RectTransform parentRect = anchor.parent as RectTransform;
+                float rootHeight = parentRect != null && parentRect.rect.height > 1f
+                    ? parentRect.rect.height
+                    : FallbackCharacterRootHeight;
+                extraAnchorDrop = (anchor.anchorMin.y - DefaultShieldAnchorY) * rootHeight;
+            }
+            return BossShieldBaseDropOffset + extraAnchorDrop;
+        }
+
         static Vector2 PersistentSize(CombatVFXType type)
         {
             switch (type)
             {
-                case CombatVFXType.Shield: return new Vector2(550f, 550f);
+                case CombatVFXType.Shield: return new Vector2(460f, 460f);
                 case CombatVFXType.Stun: return new Vector2(145f, 100f);
                 case CombatVFXType.Burn: return new Vector2(210f, 225f);
                 case CombatVFXType.Freeze: return new Vector2(215f, 235f);

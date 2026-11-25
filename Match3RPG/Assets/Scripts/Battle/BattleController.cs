@@ -61,6 +61,7 @@ namespace Match3RPG.Battle
         int heroHp, bossHp, heroSoulHp, bossSoulHp, mana, ultimate, bossMana, bossUltimate;
         int heroMaxSoulHp, bossMaxSoulHp;
         int heroShield, heroShieldTurns;
+        int bossShield, bossShieldTurns;
         int heroRage, bossRage;
         int playerManaGemCount, playerAttackGemCount, playerSoulGemCount, playerRageGemCount;
         int flyingSwordCooldownRemaining;
@@ -108,6 +109,7 @@ namespace Match3RPG.Battle
         public int HeroSoulHealth => heroSoulHp;
         public int BossSoulHealth => bossSoulHp;
         public int HeroShield => heroShield;
+        public int BossShield => bossShield;
         public int BossHealth => bossHp;
         public int HeroMaxHealth => heroMaxHp;
         public int BossMaxHealth => bossMaxHp;
@@ -253,6 +255,10 @@ namespace Match3RPG.Battle
             bossSoulHp = bossMaxSoulHp;
             mana = 0;
             bossMana = 0;
+            heroShield = 0;
+            heroShieldTurns = 0;
+            bossShield = 0;
+            bossShieldTurns = 0;
             heroRage = 0;
             bossRage = Mathf.Clamp(bossStartingRage, 0, BossMaxRage);
             playerManaGemCount = 0;
@@ -327,7 +333,7 @@ namespace Match3RPG.Battle
                 ShowResource(hero, FloatingTextType.Mana, mana - previousMana);
                 AddExperience(experienceGems);
                 AddGemRage(BattleActor.Player, rageGems);
-                AddShield(shieldGems);
+                AddShield(BattleActor.Player, shieldGems);
                 precedingVfxDuration = Mathf.Max(precedingVfxDuration,
                     ApplyDrain(BattleActor.Player, experienceGems));
 
@@ -362,6 +368,7 @@ namespace Match3RPG.Battle
                 bossMana = Mathf.Min(bossMaxMana, bossMana + manaGems * manaPerGem);
                 ShowResource(boss, FloatingTextType.Mana, bossMana - previousBossMana);
                 AddGemRage(BattleActor.Boss, rageGems);
+                AddShield(BattleActor.Boss, shieldGems);
                 precedingVfxDuration = Mathf.Max(precedingVfxDuration,
                     ApplyDrain(BattleActor.Boss, experienceGems));
 
@@ -473,12 +480,12 @@ namespace Match3RPG.Battle
                         && attacker.HasSpriteAttackAnimation)
                         yield return attacker.WaitForAttackImpact(hit);
                     if (IsGameOver) break;
-                    int shieldBefore = targetActor == BattleActor.Player ? heroShield : 0;
+                    int shieldBefore = GetShield(targetActor);
                     bool soulHit = hit >= hitCount;
                     int damage = soulHit
                         ? ApplySoulDamage(targetActor, soulDamagePerHit)
                         : ApplyDamage(targetActor, damagePerHit);
-                    int shieldAbsorbed = targetActor == BattleActor.Player ? shieldBefore - heroShield : 0;
+                    int shieldAbsorbed = shieldBefore - GetShield(targetActor);
                     if (damage <= 0 && shieldAbsorbed <= 0) break;
 
                     if (damage > 0)
@@ -508,9 +515,9 @@ namespace Match3RPG.Battle
 
                 if (!IsGameOver && bonusDamage > 0)
                 {
-                    int shieldBefore = targetActor == BattleActor.Player ? heroShield : 0;
+                    int shieldBefore = GetShield(targetActor);
                     int damage = ApplyDamage(targetActor, bonusDamage);
-                    int shieldAbsorbed = targetActor == BattleActor.Player ? shieldBefore - heroShield : 0;
+                    int shieldAbsorbed = shieldBefore - GetShield(targetActor);
                     if (damage > 0)
                     {
                         bool shielded = shieldAbsorbed > 0 || (combatVfx != null
@@ -585,18 +592,28 @@ namespace Match3RPG.Battle
             return previous - current;
         }
 
+        int GetShield(BattleActor actor) => actor == BattleActor.Player ? heroShield : bossShield;
+
         int AbsorbShield(BattleActor target, int amount, bool shieldCanAbsorb)
         {
-            if (target != BattleActor.Player || !shieldCanAbsorb || heroShield <= 0)
+            int currentShield = GetShield(target);
+            if (!shieldCanAbsorb || currentShield <= 0)
                 return amount;
-            int absorbed = Mathf.Min(heroShield, amount);
-            heroShield -= absorbed;
-            if (heroShield <= 0)
+            int absorbed = Mathf.Min(currentShield, amount);
+            int remainingShield = currentShield - absorbed;
+            if (target == BattleActor.Player)
+                heroShield = remainingShield;
+            else
+                bossShield = remainingShield;
+            if (remainingShield <= 0)
             {
-                heroShield = 0;
-                combatVfx?.SetPersistentEffect(BattleActor.Player, CombatVFXType.Shield, false);
+                if (target == BattleActor.Player)
+                    heroShield = 0;
+                else
+                    bossShield = 0;
+                combatVfx?.SetPersistentEffect(target, CombatVFXType.Shield, false);
             }
-            ShowResource(hero, FloatingTextType.ShieldLost, absorbed);
+            ShowResource(target == BattleActor.Player ? hero : boss, FloatingTextType.ShieldLost, absorbed);
             return amount - absorbed;
         }
 
@@ -622,17 +639,26 @@ namespace Match3RPG.Battle
             ShowResource(hero, FloatingTextType.Experience, amount);
         }
 
-        void AddShield(int gemCount)
+        void AddShield(BattleActor actor, int gemCount)
         {
             if (gemCount <= 0) return;
             int effectiveShieldPerGem = HeroShieldPerGem;
-            long totalShield = (long)heroShield + (long)gemCount * effectiveShieldPerGem;
-            heroShield = totalShield >= int.MaxValue ? int.MaxValue : (int)totalShield;
-            heroShieldTurns = 2;
-            if (heroShield > 0)
-                combatVfx?.SetPersistentEffect(BattleActor.Player, CombatVFXType.Shield, true);
+            long totalShield = (long)GetShield(actor) + (long)gemCount * effectiveShieldPerGem;
+            int updatedShield = totalShield >= int.MaxValue ? int.MaxValue : (int)totalShield;
+            if (actor == BattleActor.Player)
+            {
+                heroShield = updatedShield;
+                heroShieldTurns = 2;
+            }
+            else
+            {
+                bossShield = updatedShield;
+                bossShieldTurns = 2;
+            }
+            if (updatedShield > 0)
+                combatVfx?.SetPersistentEffect(actor, CombatVFXType.Shield, true);
             long gained = (long)gemCount * effectiveShieldPerGem;
-            ShowResource(hero, FloatingTextType.Shield,
+            ShowResource(actor == BattleActor.Player ? hero : boss, FloatingTextType.Shield,
                 gained >= int.MaxValue ? int.MaxValue : (int)gained);
         }
 
@@ -644,6 +670,18 @@ namespace Match3RPG.Battle
             {
                 heroShield = 0;
                 combatVfx?.SetPersistentEffect(BattleActor.Player, CombatVFXType.Shield, false);
+                Refresh();
+            }
+        }
+
+        public void AdvanceBossTurn()
+        {
+            if (bossShieldTurns <= 0) return;
+            bossShieldTurns--;
+            if (bossShieldTurns == 0)
+            {
+                bossShield = 0;
+                combatVfx?.SetPersistentEffect(BattleActor.Boss, CombatVFXType.Shield, false);
                 Refresh();
             }
         }
