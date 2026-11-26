@@ -52,6 +52,18 @@ namespace Match3RPG.Configuration
         public const int RockSpikeFrameCount = RockSpikeGridColumns * RockSpikeGridRows;
         public const int RockSpikePeakFrameIndex = 12; // 1-based frame 13 (đỉnh 5 gai đá)
         public const float RockSpikePivotY = 0.36f; // Đáy gai đặc (alpha >= 64 tại y ≈ 251/392)
+        public const string EllipseSwordsSkillId = "ellipse_swords";
+        public const string EllipseSwordsDisplayName = "Ngũ Kiếm Trận"; // TẠM: Sư Huynh chốt tên thật sau Play-test
+        public const string EllipseSwordsAssetPath =
+            "Assets/Art/VFX/Skills/ellipse_portal/ellipse_portal.png";
+        public const string EllipseSwordsDescription =
+            "Mở 5 cổng hình elip, 5 kiếm bay ra chém boss."; // TẠM
+        public const int EllipseSwordsDefaultManaCost = 3; // TẠM
+        public const int EllipseSwordsDefaultRageCost = 0; // TẠM
+        public const int EllipseSwordsDefaultCooldownTurns = 3; // TẠM
+        public const int EllipseSwordsDefaultSwordCount = 5; // TẠM
+        public const float EllipseSwordsDefaultIntervalSeconds = 0.15f; // TẠM
+        public const float EllipseSwordsDefaultFlightSeconds = 0.50f; // TẠM
         public const string SwordRainSkillId = "sword_rain";
         public const string SwordRainDisplayName = "Kiếm Vũ"; // TẠM: Sư Huynh chốt tên thật sau Play-test
         public const string SwordRainDescription =
@@ -87,15 +99,18 @@ namespace Match3RPG.Configuration
         static Sprite cachedSwordQiSprite;
         static Sprite cachedRockSpikeSprite;
         static Sprite[] cachedRockSpikeFrames;
+        static Sprite cachedEllipseSwordsSprite;
 
         public string DisplayName => string.IsNullOrEmpty(displayName)
             ? (string.Equals(StableId, SwordQiSkillId, StringComparison.Ordinal)
                 ? SwordQiDisplayName
                 : (string.Equals(StableId, RockSpikeSkillId, StringComparison.Ordinal)
                     ? RockSpikeDisplayName
-                    : (string.Equals(StableId, SwordRainSkillId, StringComparison.Ordinal)
-                        ? SwordRainDisplayName
-                        : FlyingSwordDisplayName)))
+                    : (string.Equals(StableId, EllipseSwordsSkillId, StringComparison.Ordinal)
+                        ? EllipseSwordsDisplayName
+                        : (string.Equals(StableId, SwordRainSkillId, StringComparison.Ordinal)
+                            ? SwordRainDisplayName
+                            : FlyingSwordDisplayName))))
             : displayName;
         public Sprite Icon => icon != null
             ? icon
@@ -103,7 +118,9 @@ namespace Match3RPG.Configuration
                 ? ResolveSwordQiSprite()
                 : (string.Equals(StableId, RockSpikeSkillId, StringComparison.Ordinal)
                     ? ResolveRockSpikeSprite()
-                    : ResolveSwordSprite()));
+                    : (string.Equals(StableId, EllipseSwordsSkillId, StringComparison.Ordinal)
+                        ? ResolveEllipseSwordsSprite()
+                        : ResolveSwordSprite())));
         public Sprite[] EffectFrames => effectFrames;
         public string Description => GetDescriptionForLevel(Level);
         public SkillType Type => skillType;
@@ -159,6 +176,8 @@ namespace Match3RPG.Configuration
                 return string.IsNullOrEmpty(description) ? SwordQiDescription : description;
             if (string.Equals(StableId, RockSpikeSkillId, StringComparison.Ordinal))
                 return string.IsNullOrEmpty(description) ? RockSpikeDescription : description;
+            if (string.Equals(StableId, EllipseSwordsSkillId, StringComparison.Ordinal))
+                return string.IsNullOrEmpty(description) ? EllipseSwordsDescription : description;
             if (string.Equals(StableId, SwordRainSkillId, StringComparison.Ordinal))
                 return string.IsNullOrEmpty(description) ? SwordRainDescription : description;
             if (!string.IsNullOrEmpty(StableId)
@@ -208,6 +227,11 @@ namespace Match3RPG.Configuration
         public static Sprite ResolveSwordQiSprite()
         {
             return ResolveSpriteAsset(SwordQiAssetPath, ref cachedSwordQiSprite);
+        }
+
+        public static Sprite ResolveEllipseSwordsSprite()
+        {
+            return ResolveSpriteAsset(EllipseSwordsAssetPath, ref cachedEllipseSwordsSprite);
         }
 
         public static Sprite ResolveRockSpikeSprite()
@@ -342,6 +366,25 @@ namespace Match3RPG.Configuration
             runtime.manaCost = RockSpikeDefaultManaCost;
             runtime.rageCost = RockSpikeDefaultRageCost;
             runtime.cooldownTurns = RockSpikeDefaultCooldownTurns;
+            runtime.level = DefaultLevel;
+            runtime.levelTable = Array.Empty<SkillLevelConfig>();
+            return runtime;
+        }
+
+        public static SkillConfig CreateRuntimeEllipseSwordsFallback()
+        {
+            SkillConfig runtime = CreateInstance<SkillConfig>();
+            runtime.name = EllipseSwordsSkillId;
+            runtime.SetStableId(EllipseSwordsSkillId);
+            runtime.displayName = EllipseSwordsDisplayName;
+            runtime.icon = ResolveEllipseSwordsSprite();
+            runtime.description = EllipseSwordsDescription;
+            runtime.skillType = SkillType.Active;
+            runtime.targetType = SkillTargetType.SingleEnemy;
+            runtime.triggerType = SkillTriggerType.Manual;
+            runtime.manaCost = EllipseSwordsDefaultManaCost;
+            runtime.rageCost = EllipseSwordsDefaultRageCost;
+            runtime.cooldownTurns = EllipseSwordsDefaultCooldownTurns;
             runtime.level = DefaultLevel;
             runtime.levelTable = Array.Empty<SkillLevelConfig>();
             return runtime;

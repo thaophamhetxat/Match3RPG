@@ -68,14 +68,17 @@ namespace Match3RPG.Battle
         int flyingSwordOrbitTurnsRemaining;
         int swordQiCooldownRemaining;
         int rockSpikeCooldownRemaining;
+        int ellipseSwordsCooldownRemaining;
         int lastSyncedFlyingSwordLevel = SkillConfig.DefaultLevel;
         SkillConfig flyingSwordSkillConfig;
         SkillConfig swordQiSkillConfig;
         SkillConfig rockSpikeSkillConfig;
+        SkillConfig ellipseSwordsSkillConfig;
         SkillConfig swordRainSkillConfig;
         FlyingSwordSkillController flyingSwordSkillController;
         SwordQiSkillController swordQiSkillController;
         RockSpikeSkillController rockSpikeSkillController;
+        EllipseSwordsSkillController ellipseSwordsSkillController;
         int loggedHeroRage = int.MinValue;
         int loggedHeroMaxRage = int.MinValue;
         bool statsInitialized;
@@ -107,6 +110,11 @@ namespace Match3RPG.Battle
         public int RockSpikeSkillLevel => SkillConfig.DefaultLevel; // TẠM: chỉ có Lv1
         public bool IsRockSpikeSkillRunning =>
             rockSpikeSkillController != null && rockSpikeSkillController.IsRunning;
+        public int EllipseSwordsCooldownRemaining => ellipseSwordsCooldownRemaining;
+        public SkillConfig EllipseSwordsSkill => ResolveEllipseSwordsSkill();
+        public int EllipseSwordsSkillLevel => SkillConfig.DefaultLevel; // TẠM: chỉ có Lv1
+        public bool IsEllipseSwordsSkillRunning =>
+            ellipseSwordsSkillController != null && ellipseSwordsSkillController.IsRunning;
         public SkillConfig SwordRainSkill => ResolveSwordRainSkill();
         public int SwordRainSkillLevel => SkillConfig.DefaultLevel; // TẠM: chỉ có Lv1
         public bool IsGameOver => heroHp <= 0 || bossHp <= 0
@@ -253,6 +261,7 @@ namespace Match3RPG.Battle
             EnsureFlyingSwordSkillSetup();
             EnsureSwordQiSkillSetup();
             EnsureRockSpikeSkillSetup();
+            EnsureEllipseSwordsSkillSetup();
             EnsureSwordRainSkillSetup();
             UpdateRageReadyVfx(BattleActor.Player);
             UpdateRageReadyVfx(BattleActor.Boss);
@@ -282,6 +291,7 @@ namespace Match3RPG.Battle
             flyingSwordOrbitTurnsRemaining = 0;
             swordQiCooldownRemaining = 0;
             rockSpikeCooldownRemaining = 0;
+            ellipseSwordsCooldownRemaining = 0;
             flyingSwordSkillController?.StopOrbitImmediate();
             if (layoutTestMode)
                 ApplyLayoutTestState();
@@ -742,6 +752,8 @@ namespace Match3RPG.Battle
                 swordQiCooldownRemaining--;
             if (rockSpikeCooldownRemaining > 0)
                 rockSpikeCooldownRemaining--;
+            if (ellipseSwordsCooldownRemaining > 0)
+                ellipseSwordsCooldownRemaining--;
 
             if (flyingSwordOrbitTurnsRemaining > 0)
             {
@@ -824,6 +836,26 @@ namespace Match3RPG.Battle
                 ref rockSpikeSkillConfig,
                 SkillConfig.RockSpikeSkillId,
                 SkillConfig.CreateRuntimeRockSpikeFallback);
+        }
+
+        void EnsureEllipseSwordsSkillSetup()
+        {
+            ResolveEllipseSwordsSkill();
+            if (ellipseSwordsSkillController == null)
+            {
+                ellipseSwordsSkillController = GetComponent<EllipseSwordsSkillController>();
+                if (ellipseSwordsSkillController == null)
+                    ellipseSwordsSkillController = gameObject.AddComponent<EllipseSwordsSkillController>();
+            }
+            ellipseSwordsSkillController.SkillLevel = SkillConfig.DefaultLevel;
+        }
+
+        SkillConfig ResolveEllipseSwordsSkill()
+        {
+            return ResolveSkillById(
+                ref ellipseSwordsSkillConfig,
+                SkillConfig.EllipseSwordsSkillId,
+                SkillConfig.CreateRuntimeEllipseSwordsFallback);
         }
 
         void EnsureSwordRainSkillSetup()
@@ -1083,6 +1115,32 @@ namespace Match3RPG.Battle
             return true;
         }
 
+        public bool CanActivateEllipseSwordsSkill()
+        {
+            return CanActivateSkill(
+                ResolveEllipseSwordsSkill(),
+                ellipseSwordsCooldownRemaining,
+                IsEllipseSwordsSkillRunning,
+                SkillConfig.EllipseSwordsDefaultManaCost,
+                SkillConfig.EllipseSwordsDefaultRageCost);
+        }
+
+        public bool TryConsumeEllipseSwordsSkillCost()
+        {
+            if (!TryConsumeSkillCost(
+                ResolveEllipseSwordsSkill(),
+                ellipseSwordsCooldownRemaining,
+                IsEllipseSwordsSkillRunning,
+                SkillConfig.EllipseSwordsDefaultManaCost,
+                SkillConfig.EllipseSwordsDefaultRageCost,
+                SkillConfig.EllipseSwordsDefaultCooldownTurns,
+                out int newCooldown))
+                return false;
+
+            ellipseSwordsCooldownRemaining = newCooldown;
+            return true;
+        }
+
         bool CanActivateSkill(SkillConfig skill, int cooldownRemaining, bool isRunning,
             int defaultManaCost, int defaultRageCost)
         {
@@ -1208,6 +1266,55 @@ namespace Match3RPG.Battle
             // TẠM: sát thương bằng 1 đòn đánh thường của hero (HeroAttackDamagePerGem),
             // tính đúng lúc gai đá đạt đỉnh (frame 13).
             int damage = ApplyDamage(BattleActor.Boss, HeroAttackDamagePerGem);
+            if (damage > 0)
+            {
+                ShowResource(boss, FloatingTextType.Damage, damage);
+                AddReceivedHitRage(BattleActor.Boss);
+                Refresh();
+                if (boss != null && bossHp > 0)
+                    yield return boss.Hit();
+            }
+
+            if ((bossHp == 0 || (soulEnabled && bossSoulHp == 0)) && boss != null)
+                yield return boss.Death();
+            StopFlyingSwordOrbitIfBattleEnded();
+            Refresh();
+        }
+
+        public IEnumerator ExecuteEllipseSwordsSkill()
+        {
+            if (IsGameOver)
+                yield break;
+
+            EnsureEllipseSwordsSkillSetup();
+            SkillConfig skill = ResolveEllipseSwordsSkill();
+            if (ellipseSwordsSkillController == null)
+                yield break;
+
+            yield return ellipseSwordsSkillController.ExecuteSkill(
+                hero,
+                boss,
+                skill,
+                ApplyEllipseSwordsImpact,
+                () => IsGameOver || bossHp <= 0);
+        }
+
+        IEnumerator ApplyEllipseSwordsImpact(int swordIndex)
+        {
+            if (IsGameOver || bossHp <= 0)
+                yield break;
+
+            combatVfx?.PlayHitImpact(BattleActor.Boss);
+
+            // TẠM: tổng sát thương 5 kiếm = 1 đòn đánh thường của hero (HeroAttackDamagePerGem),
+            // chia đều số nguyên cho 5 kiếm, kiếm số 0 (cổng #1) lấy phần dư.
+            int totalDamage = HeroAttackDamagePerGem;
+            int swordCount = SkillConfig.EllipseSwordsDefaultSwordCount;
+            int baseDamage = totalDamage / swordCount;
+            int remainder = totalDamage % swordCount;
+            int rawDamage = baseDamage + (swordIndex == 0 ? remainder : 0);
+
+            int damage = ApplyDamage(BattleActor.Boss, rawDamage);
             if (damage > 0)
             {
                 ShowResource(boss, FloatingTextType.Damage, damage);

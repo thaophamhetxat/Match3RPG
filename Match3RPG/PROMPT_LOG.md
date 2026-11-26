@@ -88,3 +88,33 @@
   - Vào trận bấm kỹ năng Thạch Thứ: kiểm tra hero đứng yên kết ấn (KHÔNG lao tới) → tới lúc ấn thành (F12→F13) 5 gai đá mọc đúng dưới chân boss (không lệch lên đầu, không lơ lửng) → sát thương + `HitImpact` hiện đúng lúc gai cao nhất (f13) → boss Hit/Death đúng → cooldown 3 turn + pizza wipe → bấm khi chưa đủ mana/nộ hiện đúng thông báo "Không đủ tinh lực để sử dụng kỹ năng".
   - Chốt sau Play-test: tên skill thật (TẠM "Thạch Thứ"), cost (TẠM 3 mana / 0 nộ), cooldown (TẠM 3 turn), sát thương (TẠM = 1 đòn thường), kích thước gai (TẠM rộng `2.0 ×` chiều rộng boss).
 - **Lỗi (nếu fail):** Không có.
+
+
+## Prompt 167 — 2026-11-26 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error). *(Ghi chú: Unity Editor đang mở sẵn giữ khóa `Temp/UnityLockfile` nên không chạy batch mode; đã cấu hình trực tiếp `.meta` Single + Pivot Center `(0.5, 0.5)` cho `ellipse_portal.png`, tạo `ellipse_swords.asset`, cập nhật `SkillDatabase.asset` theo chuẩn YAML Unity và có sẵn menu `Tools/Match3RPG/Install Ellipse Swords Skill` + `EllipseSwordsSkillSetup.Verify()` để chạy kiểm chứng thêm trong Editor.)*
+- **File đã đổi:**
+  - `Match3RPG/Assets/Art/VFX/Skills/ellipse_portal.meta` *(mới)*
+  - `Match3RPG/Assets/Art/VFX/Skills/ellipse_portal/ellipse_portal.png` *(mới — 256×148, RGBA, góc trong suốt alpha 0, ruột mờ alpha 70)*
+  - `Match3RPG/Assets/Art/VFX/Skills/ellipse_portal/ellipse_portal.png.meta` *(mới — `spriteMode: 1`, `alignment: 0`, `spritePivot: {x: 0.5, y: 0.5}`)*
+  - `Match3RPG/Assets/Scripts/Battle/EllipseSwordsSkillController.cs` *(mới)*
+  - `Match3RPG/Assets/Scripts/Battle/EllipseSwordsSkillController.cs.meta` *(mới)*
+  - `Match3RPG/Assets/Editor/EllipseSwordsSkillSetup.cs` *(mới)*
+  - `Match3RPG/Assets/Editor/EllipseSwordsSkillSetup.cs.meta` *(mới)*
+  - `Match3RPG/Assets/Resources/Configuration/Skills/ellipse_swords.asset` *(mới)*
+  - `Match3RPG/Assets/Resources/Configuration/Skills/ellipse_swords.asset.meta` *(mới)*
+  - `Match3RPG/Assets/Scripts/Configuration/SkillConfig.cs`
+  - `Match3RPG/Assets/Scripts/Battle/BattleController.cs`
+  - `Match3RPG/Assets/Scripts/Battle/TurnManager.cs`
+  - `Match3RPG/Assets/Scripts/Battle/BattleStatusPopup.cs`
+  - `Match3RPG/Assets/Resources/Configuration/SkillDatabase.asset`
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Import ảnh `ellipse_portal.png` (256×148, RGBA) tại `Assets/Art/VFX/Skills/ellipse_portal/ellipse_portal.png` với chế độ `Single` + Pivot `Center (0.5, 0.5)` (không sửa `CampaignSpriteImporter.cs`).
+  - Thêm khối hằng số + `ResolveEllipseSwordsSprite()` + fallback `DisplayName`/`Icon`/`GetDescriptionForLevel`/`CreateRuntimeEllipseSwordsFallback()` cho `ellipse_swords` trong `SkillConfig.cs` (mọi giá trị TẠM ghi `// TẠM`).
+  - Tạo `EllipseSwordsSkillController.cs`: mở `EllipseSwordsLayer` trên `CharacterLayer` (1080×2400), quy đổi 5 cổng elip theo khung 16:9 `1080×607.5` neo mép TRÊN layer đúng bảng demo v4 (`(195,48) 74×40 50°`, `(120,98) 64×34 35°`, `(195,108) 52×30 20°`, `(165,152) 48×28 45°`, `(100,172) 68×36 40°`), hiện dần từng cổng cách ~0.1s (fade-in ~0.15s); 5 kiếm (`Sword.png`, dài TẠM 17.5% chiều rộng layer) chui ra từ từng cổng (30%→100% trong ~0.13s), xoay theo vector bay (`atan2`), bay tới `boss.TorsoAnchor` cách nhau 0.15s (TẠM), bay 0.50s (TẠM); hero đứng yên tuyệt đối (giữ Idle); boss chết giữa chừng thì kiếm còn lại dừng ngay; xong thì 5 cổng mờ dần 0.3s rồi hủy layer.
+  - Nối vào `BattleController.cs` (sát thương TẠM tổng 5 kiếm = `HeroAttackDamagePerGem` chia đều số nguyên, kiếm 0 lấy phần dư; mỗi kiếm gọi `PlayHitImpact` + `ShowResource` + `AddReceivedHitRage` + `boss.Hit()` + check `boss.Death()`; trừ cooldown mỗi lượt trong `AdvanceRoundCooldowns()`), `TurnManager.cs` (`CanActivateEllipseSwordsSkill` / `TryActivateEllipseSwordsSkill()`), `BattleStatusPopup.cs` (hàng mới Row 3 ngay sau `rockSpikeRow` và trước `swordRainRow` Passive, tăng `totalRows = 6`), tạo `ellipse_swords.asset`, đăng ký vào `SkillDatabase.asset` và thêm `EllipseSwordsSkillSetup.cs` (`Install` + `Verify`).
+- **Chờ Play-test:**
+  - Focus lại Unity Editor để nhận `ellipse_portal.png.meta`, `ellipse_swords.asset`, `SkillDatabase.asset` và biên dịch script mới (nếu cần chạy `Tools → Match3RPG → Install Ellipse Swords Skill`).
+  - Vào trận bấm kỹ năng Ngũ Kiếm Trận: kiểm tra hero đứng yên suốt skill → 5 cổng elip hiện chụm nghiêng ở góc trên-trái → 5 kiếm chui ra bay chéo xuống thân boss → sát thương + `HitImpact` hiện từng kiếm → boss Hit/Death đúng (boss chết giữa chừng thì kiếm còn lại dừng) → 5 cổng mờ dần 0.3s → cooldown 3 turn + pizza wipe → bấm khi chưa đủ mana/nộ hiện đúng câu "Không đủ tinh lực để sử dụng kỹ năng".
+  - Chốt sau Play-test: tên thật (TẠM "Ngũ Kiếm Trận"), cost (TẠM 3 mana / 0 nộ), cooldown (TẠM 3 turn), sát thương (TẠM tổng 5 kiếm = 1 đòn thường), kích thước/vị trí 5 elip, tốc độ kiếm (TẠM cách 0.15s, bay 0.50s).
+- **Lỗi (nếu fail):** Không có.
