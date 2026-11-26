@@ -470,6 +470,7 @@ namespace Match3RPG.Battle
                         && combatVfx.IsPersistentEffectActive(actor, CombatVFXType.Shield);
                     if (shieldWasActive)
                         combatVfx.SetPersistentEffect(actor, CombatVFXType.Shield, false);
+                    attacker.BringToFront();
                     // Lunge forward once and start the first hit's full attack clip.
                     yield return attacker.BeginAttackSequence(1, 0f, 0f);
                 }

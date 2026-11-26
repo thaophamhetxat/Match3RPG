@@ -947,7 +947,7 @@ namespace Match3RPG.Core
             RectTransform healAnchor = CreateRect("HealAnchor", visualRect,
                 new Vector2(.5f, healAnchorY),
                 new Vector2(.5f, healAnchorY), Vector2.zero, Vector2.zero);
-            const float torsoAnchorY = 0.25f;
+            const float torsoAnchorY = 0.248f;
             RectTransform torsoAnchor = CreateRect("TorsoAnchor", visualRect,
                 new Vector2(.5f, torsoAnchorY),
                 new Vector2(.5f, torsoAnchorY), Vector2.zero, Vector2.zero);

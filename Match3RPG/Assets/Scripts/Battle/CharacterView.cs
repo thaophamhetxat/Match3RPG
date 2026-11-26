@@ -130,6 +130,16 @@ namespace Match3RPG.Battle
             }
         }
 
+        public void BringToFront()
+        {
+            // visualRect -> characterRoot -> anchorRect (HeroAnchor/BossAnchor).
+            // Hai anchor là sibling dưới battleAreaRect; đưa anchor của nhân vật
+            // này lên trước (SetAsLastSibling) thì nhân vật này render trên đối thủ.
+            Transform anchor = rectTransform != null && rectTransform.parent != null
+                ? rectTransform.parent.parent : null;
+            anchor?.SetAsLastSibling();
+        }
+
         public void SetFloatingTextAnchor(RectTransform anchor)
         {
             floatingTextAnchor = anchor;
