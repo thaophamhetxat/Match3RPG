@@ -70,6 +70,7 @@ namespace Match3RPG.Battle
         int lastSyncedFlyingSwordLevel = SkillConfig.DefaultLevel;
         SkillConfig flyingSwordSkillConfig;
         SkillConfig swordQiSkillConfig;
+        SkillConfig swordRainSkillConfig;
         FlyingSwordSkillController flyingSwordSkillController;
         SwordQiSkillController swordQiSkillController;
         int loggedHeroRage = int.MinValue;
@@ -98,6 +99,8 @@ namespace Match3RPG.Battle
         public int SwordQiSkillLevel => SkillConfig.DefaultLevel; // TẠM: chỉ có Lv1
         public bool IsSwordQiSkillRunning =>
             swordQiSkillController != null && swordQiSkillController.IsRunning;
+        public SkillConfig SwordRainSkill => ResolveSwordRainSkill();
+        public int SwordRainSkillLevel => SkillConfig.DefaultLevel; // TẠM: chỉ có Lv1
         public bool IsGameOver => heroHp <= 0 || bossHp <= 0
             || (soulEnabled && (heroSoulHp <= 0 || bossSoulHp <= 0));
         public bool PlayerWon => bossHp <= 0 || (soulEnabled && bossSoulHp <= 0);
@@ -241,6 +244,7 @@ namespace Match3RPG.Battle
             }
             EnsureFlyingSwordSkillSetup();
             EnsureSwordQiSkillSetup();
+            EnsureSwordRainSkillSetup();
             UpdateRageReadyVfx(BattleActor.Player);
             UpdateRageReadyVfx(BattleActor.Boss);
             Refresh();
@@ -342,7 +346,7 @@ namespace Match3RPG.Battle
                     if (precedingVfxDuration > 0f)
                         yield return new WaitForSeconds(precedingVfxDuration);
                     yield return ResolveAttackAction(BattleActor.Player, attackGems, 0, soulGems,
-                        attackDamageMultiplier);
+                        attackDamageMultiplier, isSkillGemResolution);
                 }
 
                 if (!isSkillGemResolution && ultimate >= 100 && bossHp > 0 && !IsGameOver)
@@ -423,7 +427,7 @@ namespace Match3RPG.Battle
         }
 
         IEnumerator ResolveAttackAction(BattleActor actor, int hitCount, int bonusDamage,
-            int soulHitCount = 0, float attackDamageMultiplier = 1f)
+            int soulHitCount = 0, float attackDamageMultiplier = 1f, bool isSkillGemResolution = false)
         {
             int totalHitCount = hitCount + soulHitCount;
             CharacterView attacker = actor == BattleActor.Player ? hero : boss;
@@ -438,6 +442,13 @@ namespace Match3RPG.Battle
                 ? CombatVFXType.Slash : bossAttackVfx;
             bool rangedAttack = attackVfx == CombatVFXType.Fireball
                 || attackVfx == CombatVFXType.AirSlash;
+            bool shouldTriggerSwordRain = actor == BattleActor.Player
+                && !isSkillGemResolution
+                && !rangedAttack
+                && totalHitCount > 0
+                && !IsGameOver
+                && boss != null
+                && IsSwordRainPassiveEnabled();
             int baseAttackDamage = actor == BattleActor.Player
                 ? HeroAttackDamagePerGem : bossAttackDamagePerGem;
             int attackDamage = Mathf.Max(0,
@@ -460,6 +471,8 @@ namespace Match3RPG.Battle
 
             bool recovered = attacker == null;
             bool shieldWasActive = false;
+            bool swordRainPending = false;
+            Coroutine swordRainRoutine = null;
             try
             {
                 if (attacker != null && !rangedAttack)
@@ -471,6 +484,14 @@ namespace Match3RPG.Battle
                     if (shieldWasActive)
                         combatVfx.SetPersistentEffect(actor, CombatVFXType.Shield, false);
                     attacker.BringToFront();
+                    if (shouldTriggerSwordRain)
+                    {
+                        // Nội tại Kiếm Vũ: bắt đầu phóng 3 kiếm ngay khi hero bắt đầu lao tới,
+                        // để cả 3 kiếm rơi xong trước khi hero lùi về xong.
+                        swordRainPending = true;
+                        swordRainRoutine = StartCoroutine(
+                            RunSwordRainPassiveRoutine(() => swordRainPending = false));
+                    }
                     // Lunge forward once and start the first hit's full attack clip.
                     yield return attacker.BeginAttackSequence(1, 0f, 0f);
                 }
@@ -541,9 +562,18 @@ namespace Match3RPG.Battle
                     yield return attacker.EndAttackSequence();
                     recovered = true;
                 }
+
+                while (swordRainPending && !IsGameOver)
+                    yield return null;
             }
             finally
             {
+                if ((!recovered || IsGameOver) && swordRainRoutine != null)
+                {
+                    StopCoroutine(swordRainRoutine);
+                    swordRainRoutine = null;
+                    swordRainPending = false;
+                }
                 if (!recovered && attacker != null)
                     attacker.CancelAttackSequence();
                 if (shieldWasActive && combatVfx != null && GetShield(actor) > 0 && !IsGameOver)
@@ -762,6 +792,138 @@ namespace Match3RPG.Battle
                 ref swordQiSkillConfig,
                 SkillConfig.SwordQiSkillId,
                 SkillConfig.CreateRuntimeSwordQiFallback);
+        }
+
+        void EnsureSwordRainSkillSetup()
+        {
+            ResolveSwordRainSkill();
+        }
+
+        SkillConfig ResolveSwordRainSkill()
+        {
+            return ResolveSkillById(
+                ref swordRainSkillConfig,
+                SkillConfig.SwordRainSkillId,
+                SkillConfig.CreateRuntimeSwordRainFallback);
+        }
+
+        bool IsSwordRainPassiveEnabled()
+        {
+            SkillConfig skill = ResolveSwordRainSkill();
+            return skill != null
+                && skill.Type == SkillType.Passive
+                && skill.TriggerType == SkillTriggerType.OnNormalAttack;
+        }
+
+        IEnumerator RunSwordRainPassiveRoutine(Action onFinished)
+        {
+            try
+            {
+                if (IsGameOver || combatVfx == null || boss == null)
+                    yield break;
+
+                SkillConfig skill = ResolveSwordRainSkill();
+                Sprite swordSprite = skill != null && skill.Icon != null
+                    ? skill.Icon
+                    : SkillConfig.ResolveSwordSprite();
+                if (swordSprite == null)
+                {
+                    Debug.LogWarning($"[SwordRainPassive] Missing sword sprite at {SkillConfig.FlyingSwordAssetPath}.", this);
+                    yield break;
+                }
+
+                // TẠM: 3 kiếm bay nối tiếp cách ~0.12s, mỗi kiếm bay ~0.40s từ góc trên-trái xuống boss,
+                // kích thước bằng kiếm quanh của Skill 1. Sư Huynh chốt lại sau Play-test.
+                const int swordCount = SkillConfig.SwordRainDefaultSwordCount;
+                const float spawnInterval = SkillConfig.SwordRainDefaultIntervalSeconds;
+                const float flightDuration = SkillConfig.SwordRainDefaultFlightSeconds;
+                Vector2 swordSize = FlyingSwordSkillController.CalculateOrbitSwordSize(hero, swordSprite);
+
+                int inFlightCount = 0;
+                Func<bool> shouldCancel = () => IsGameOver || bossHp <= 0;
+
+                for (int i = 0; i < swordCount; i++)
+                {
+                    if (shouldCancel())
+                        break;
+
+                    int swordIndex = i;
+                    bool launched = combatVfx.PlayProjectileFromTopLeftScreen(
+                        swordSprite,
+                        swordSize,
+                        BattleActor.Boss,
+                        flightDuration,
+                        shouldCancel,
+                        () =>
+                        {
+                            inFlightCount = Mathf.Max(0, inFlightCount - 1);
+                            ApplySwordRainImpact(swordIndex, swordCount);
+                        },
+                        () =>
+                        {
+                            inFlightCount = Mathf.Max(0, inFlightCount - 1);
+                        });
+
+                    if (launched)
+                        inFlightCount++;
+
+                    if (i + 1 < swordCount && spawnInterval > 0f && !shouldCancel())
+                    {
+                        float waitElapsed = 0f;
+                        while (waitElapsed < spawnInterval && !shouldCancel())
+                        {
+                            float dt = Time.deltaTime > 0f ? Time.deltaTime : (1f / 60f);
+                            waitElapsed += dt;
+                            yield return null;
+                        }
+                    }
+                }
+
+                float maxWait = flightDuration + 0.5f;
+                float waitAfterLaunch = 0f;
+                while (inFlightCount > 0 && !shouldCancel() && waitAfterLaunch < maxWait)
+                {
+                    float dt = Time.deltaTime > 0f ? Time.deltaTime : (1f / 60f);
+                    waitAfterLaunch += dt;
+                    yield return null;
+                }
+            }
+            finally
+            {
+                onFinished?.Invoke();
+            }
+        }
+
+        void ApplySwordRainImpact(int swordIndex, int totalSwords)
+        {
+            if (IsGameOver || bossHp <= 0)
+                return;
+
+            // TẠM: tổng sát thương 3 kiếm = 1 đòn đánh thường của hero (HeroAttackDamagePerGem),
+            // tính tại thời điểm chính kiếm này chạm boss; chia đều số nguyên, kiếm đầu nhận phần dư.
+            // Sư Huynh chốt lại sau Play-test.
+            int totalDamage = HeroAttackDamagePerGem;
+            int safeCount = Mathf.Max(1, totalSwords);
+            int baseDamage = totalDamage / safeCount;
+            int remainder = totalDamage % safeCount;
+            int rawDamage = baseDamage + (swordIndex == 0 ? remainder : 0);
+
+            int shieldBefore = GetShield(BattleActor.Boss);
+            int damage = ApplyDamage(BattleActor.Boss, rawDamage);
+            int shieldAbsorbed = shieldBefore - GetShield(BattleActor.Boss);
+            if (damage > 0)
+            {
+                bool shielded = shieldAbsorbed > 0 || (combatVfx != null
+                    && combatVfx.IsPersistentEffectActive(BattleActor.Boss, CombatVFXType.Shield));
+                combatVfx?.PlayAttack(BattleActor.Player, false, CombatVFXType.Slash, false, shielded);
+                ShowResource(boss, FloatingTextType.Damage, damage);
+                AddReceivedHitRage(BattleActor.Boss);
+                Refresh();
+            }
+            else if (shieldAbsorbed > 0)
+            {
+                Refresh();
+            }
         }
 
         static SkillConfig ResolveSkillById(
@@ -1189,6 +1351,7 @@ namespace Match3RPG.Battle
         public const float DefaultOrbitRadiusYRatio = 0.13f;
         public const float DefaultOrbitBackAlpha = 0.55f;
         public const float DefaultOrbitEasingStrength = 0.25f;
+        public const float DefaultOrbitSwordLengthRatio = 0.42f;
         public const float DefaultRowClearSweepDuration = 0.60f;
         public const float DefaultDelayBetweenRowSwords = 0.15f;
 
@@ -1201,7 +1364,7 @@ namespace Match3RPG.Battle
         [SerializeField, Min(0.05f)] float orbitRadiusYRatio = DefaultOrbitRadiusYRatio;
         [SerializeField, Range(0.1f, 1f)] float orbitBackAlpha = DefaultOrbitBackAlpha;
         [SerializeField, Range(0f, 0.45f)] float orbitEasingStrength = DefaultOrbitEasingStrength;
-        [SerializeField, Min(0.1f)] float orbitSwordLengthRatio = 0.42f;
+        [SerializeField, Min(0.1f)] float orbitSwordLengthRatio = DefaultOrbitSwordLengthRatio;
         [SerializeField, Range(0, 5)] int orbitTrailCount = 3;
         [SerializeField, Min(0.005f)] float orbitTrailPhaseStep = 0.032f;
         [SerializeField, Min(0f)] float orbitLeadInDuration = 0.20f;
@@ -1336,6 +1499,16 @@ namespace Match3RPG.Battle
             if (scaleY <= 0.01f)
                 scaleY = 0.85f;
             return unscaled * scaleY;
+        }
+
+        public static Vector2 CalculateOrbitSwordSize(CharacterView hero, Sprite swordSprite)
+        {
+            float heroHeight = MeasureHeroBattleHeight(hero);
+            float spriteAspect = swordSprite != null && swordSprite.rect.width > 0f
+                ? swordSprite.rect.height / swordSprite.rect.width
+                : 0.5f;
+            float swordLength = heroHeight * Mathf.Max(0.15f, DefaultOrbitSwordLengthRatio);
+            return new Vector2(swordLength, swordLength * spriteAspect);
         }
 
         public IEnumerator ExecuteSkill(CharacterView hero, BoardManager board,

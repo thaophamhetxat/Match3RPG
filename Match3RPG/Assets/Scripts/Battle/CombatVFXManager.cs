@@ -359,6 +359,88 @@ namespace Match3RPG.Battle
                 PlayAtPosition(impactType, destination, TransientLifetime, direction));
         }
 
+        public bool PlayProjectileFromTopLeftScreen(
+            Sprite sprite,
+            Vector2 size,
+            BattleActor targetActor,
+            float duration,
+            System.Func<bool> shouldCancel,
+            System.Action onImpact,
+            System.Action onCancelled = null,
+            Vector2 offscreenMargin = default)
+        {
+            if (sprite == null || transientRoot == null)
+                return false;
+
+            CharacterView target = GetCharacter(targetActor);
+            if (target == null)
+                return false;
+
+            // Điểm đến là đúng anchor tâm người boss dùng cho HitImpact (TorsoAnchor).
+            RectTransform hitImpactAnchor = target.TorsoAnchor != null
+                ? target.TorsoAnchor
+                : (target.VFXAnchor != null ? target.VFXAnchor : target.VisualRect);
+            if (hitImpactAnchor == null)
+                return false;
+
+            // TẠM: mép trái - 100, mép trên + 100 (đơn vị canvas); chỉnh lại sau Play-test nếu cần.
+            Vector2 margin = offscreenMargin == default ? new Vector2(100f, 100f) : offscreenMargin;
+            Vector2 start = ResolveTopLeftOffscreenTransientPosition(margin);
+            Vector2 destination = ToTransientPosition(hitImpactAnchor.position);
+            return PlayProjectileFromPosition(sprite, size, start, destination, duration,
+                shouldCancel, onImpact, onCancelled);
+        }
+
+        public bool PlayProjectileFromPosition(
+            Sprite sprite,
+            Vector2 size,
+            Vector2 startTransientPosition,
+            Vector2 destinationTransientPosition,
+            float duration,
+            System.Func<bool> shouldCancel,
+            System.Action onImpact,
+            System.Action onCancelled = null)
+        {
+            if (sprite == null || transientRoot == null)
+                return false;
+
+            Vector2 delta = destinationTransientPosition - startTransientPosition;
+            float rotationZ = delta.sqrMagnitude > 0.0001f
+                ? Mathf.Atan2(delta.y, delta.x) * Mathf.Rad2Deg
+                : 0f;
+
+            RectTransform rect;
+            Image image;
+            // Dùng lại đường tạo đạn CombatVFXView với direction = 1f để mũi kiếm Sword.png (+X)
+            // xoay khớp trực tiếp theo góc rotationZ hướng về boss.
+            CombatVFXView view = CreateView(transientRoot, sprite, CombatVFXType.AirSlash,
+                size, startTransientPosition, 1f, out rect, out image);
+            view.gameObject.name = "SwordRainProjectile";
+            view.BeginDirectionalProjectile(CombatVFXType.AirSlash, duration,
+                destinationTransientPosition, rotationZ, shouldCancel, onImpact, onCancelled);
+            return true;
+        }
+
+        Vector2 ResolveTopLeftOffscreenTransientPosition(Vector2 margin)
+        {
+            Canvas rootCanvas = transientRoot.GetComponentInParent<Canvas>();
+            RectTransform canvasRect = rootCanvas != null && rootCanvas.rootCanvas != null
+                ? rootCanvas.rootCanvas.transform as RectTransform
+                : null;
+            if (canvasRect != null && canvasRect.rect.width > 1f && canvasRect.rect.height > 1f)
+            {
+                Vector3 topLeftWorld = canvasRect.TransformPoint(
+                    new Vector3(canvasRect.rect.xMin, canvasRect.rect.yMax, 0f));
+                Vector2 topLeftLocal = ToTransientPosition(topLeftWorld);
+                return new Vector2(topLeftLocal.x - margin.x, topLeftLocal.y + margin.y);
+            }
+
+            Rect rect = transientRoot.rect;
+            float left = rect.width > 1f ? rect.xMin : -540f;
+            float top = rect.height > 1f ? rect.yMax : 1200f;
+            return new Vector2(left - margin.x, top + margin.y);
+        }
+
         void PlayAt(CombatVFXType type, RectTransform anchor, float duration, float direction)
         {
             if (type == CombatVFXType.HitImpact && anchor != null

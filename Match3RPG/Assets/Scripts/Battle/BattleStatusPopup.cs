@@ -88,6 +88,7 @@ namespace Match3RPG.Battle
         ScrollRect skillsScrollRect;
         SkillRowWidgets flyingSwordRow;
         SkillRowWidgets swordQiRow;
+        SkillRowWidgets swordRainRow;
         float skillRowRightTextWidth = 575f;
         RectTransform skillTooltipRoot;
         TMP_Text skillTooltipText;
@@ -615,7 +616,7 @@ namespace Match3RPG.Battle
             skillsScrollRect.scrollSensitivity = 36f;
             skillsScrollRect.viewport = viewportRect;
 
-            const int totalRows = 4; // 2 skill thật + 2 ô kỹ năng trống
+            const int totalRows = 4; // 3 skill thật (2 active + 1 passive) + 1 ô kỹ năng trống
             const float rowWidth = 815f;
             const float rowHeight = 220f; // Thu nhỏ ~15% từ 258f xuống 220f
             const float rowSpacing = 26f;
@@ -668,6 +669,20 @@ namespace Match3RPG.Battle
                     continue;
                 }
 
+                if (rowIndex == 2)
+                {
+                    // Kỹ năng nội tại (Passive): không thêm nút bấm tay (onClick = null).
+                    swordRainRow = BuildSkillRow(
+                        rowRect,
+                        rowWidth,
+                        iconSize,
+                        iconLeftMargin,
+                        SkillConfig.ResolveSwordSprite(),
+                        SkillConfig.SwordRainDescription,
+                        null);
+                    continue;
+                }
+
                 Image emptyRowBg = AddImage(rowRect.gameObject, new Color32(12, 27, 36, 165));
                 emptyRowBg.raycastTarget = true;
                 Outline emptyRowOutline = rowRect.gameObject.AddComponent<Outline>();
@@ -714,10 +729,13 @@ namespace Match3RPG.Battle
             rowOutline.effectDistance = new Vector2(2f, -2f);
 
             widgets.RowBackground = rowBg;
-            widgets.RowButton = rowRect.gameObject.AddComponent<Button>();
-            widgets.RowButton.targetGraphic = rowBg;
-            widgets.RowButton.transition = Selectable.Transition.None;
-            widgets.RowButton.onClick.AddListener(onClick);
+            if (onClick != null)
+            {
+                widgets.RowButton = rowRect.gameObject.AddComponent<Button>();
+                widgets.RowButton.targetGraphic = rowBg;
+                widgets.RowButton.transition = Selectable.Transition.None;
+                widgets.RowButton.onClick.AddListener(onClick);
+            }
 
             // Phần (1): 1 ảnh kỹ năng bên trái (ô vuông 170x170)
             RectTransform iconFrameRect = CreateRect("SkillIconFrame", rowRect,
@@ -982,6 +1000,23 @@ namespace Match3RPG.Battle
                     SkillConfig.SwordQiDescription,
                     turnManager != null && turnManager.CanActivateSwordQiSkill);
             }
+
+            if (swordRainRow != null)
+            {
+                SkillConfig swordRainSkill = battle != null ? battle.SwordRainSkill : null;
+                int level = battle != null ? battle.SwordRainSkillLevel : SkillConfig.DefaultLevel;
+                RefreshSkillRow(
+                    swordRainRow,
+                    swordRainSkill,
+                    SkillConfig.ResolveSwordSprite(),
+                    level,
+                    SkillConfig.SwordRainDefaultManaCost,
+                    SkillConfig.SwordRainDefaultRageCost,
+                    SkillConfig.SwordRainDefaultCooldownTurns,
+                    0,
+                    SkillConfig.SwordRainDescription,
+                    false);
+            }
         }
 
         void RefreshSkillRow(
@@ -1016,6 +1051,43 @@ namespace Match3RPG.Battle
                 ? skill.GetDescriptionForLevel(level)
                 : fallbackDescription;
             widgets.DescriptionText.text = description;
+
+            bool isPassive = (skill != null && skill.Type == SkillType.Passive)
+                || widgets.RowButton == null;
+            if (isPassive)
+            {
+                if (widgets.RowButton != null)
+                    widgets.RowButton.interactable = false;
+                if (widgets.ManaCostIcon != null)
+                    widgets.ManaCostIcon.gameObject.SetActive(false);
+                if (widgets.ManaCostText != null)
+                    widgets.ManaCostText.gameObject.SetActive(false);
+                if (widgets.RageCostIcon != null)
+                    widgets.RageCostIcon.gameObject.SetActive(false);
+                if (widgets.ConditionTextRect != null)
+                {
+                    widgets.ConditionTextRect.anchoredPosition = Vector2.zero;
+                    widgets.ConditionTextRect.sizeDelta = new Vector2(
+                        Mathf.Max(100f, skillRowRightTextWidth), 44f);
+                }
+                widgets.ConditionText.text = "Nội tại • Tự kích hoạt khi đánh thường";
+                widgets.ConditionText.color = Gold;
+                widgets.DescriptionText.color = Color.white;
+                if (widgets.CooldownPizzaOverlay != null)
+                {
+                    widgets.CooldownPizzaOverlay.fillAmount = 0f;
+                    if (widgets.CooldownPizzaOverlay.gameObject.activeSelf)
+                        widgets.CooldownPizzaOverlay.gameObject.SetActive(false);
+                }
+                return;
+            }
+
+            if (widgets.ManaCostIcon != null && !widgets.ManaCostIcon.gameObject.activeSelf)
+                widgets.ManaCostIcon.gameObject.SetActive(true);
+            if (widgets.ManaCostText != null && !widgets.ManaCostText.gameObject.activeSelf)
+                widgets.ManaCostText.gameObject.SetActive(true);
+            if (widgets.RageCostIcon != null && !widgets.RageCostIcon.gameObject.activeSelf)
+                widgets.RageCostIcon.gameObject.SetActive(true);
 
             if (widgets.RowButton != null)
                 widgets.RowButton.interactable = true;

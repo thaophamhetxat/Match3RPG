@@ -64,6 +64,7 @@ namespace Match3RPG.Configuration
         TurnStart = 2,
         OnAttack = 3,
         OnDamageTaken = 4,
-        OnMatch = 5
+        OnMatch = 5,
+        OnNormalAttack = 6
     }
 }

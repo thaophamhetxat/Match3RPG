@@ -38,6 +38,16 @@ namespace Match3RPG.Configuration
         public const int SwordQiDefaultManaCost = 3; // TẠM
         public const int SwordQiDefaultRageCost = 0; // TẠM
         public const int SwordQiDefaultCooldownTurns = 3; // TẠM
+        public const string SwordRainSkillId = "sword_rain";
+        public const string SwordRainDisplayName = "Kiếm Vũ"; // TẠM: Sư Huynh chốt tên thật sau Play-test
+        public const string SwordRainDescription =
+            "Nội tại: mỗi lần đánh thường trúng boss, 3 kiếm bay từ góc trên-trái xuống boss."; // TẠM
+        public const int SwordRainDefaultManaCost = 0;
+        public const int SwordRainDefaultRageCost = 0;
+        public const int SwordRainDefaultCooldownTurns = 0;
+        public const int SwordRainDefaultSwordCount = 3; // TẠM: Sư Huynh chốt số kiếm sau Play-test
+        public const float SwordRainDefaultIntervalSeconds = 0.12f; // TẠM: Sư Huynh chốt nhịp giữa các kiếm sau Play-test
+        public const float SwordRainDefaultFlightSeconds = 0.40f; // TẠM
         public const int DefaultManaCost = 3;
         public const int DefaultRageCost = 0;
         public const int DefaultCooldownTurns = 8;
@@ -64,7 +74,9 @@ namespace Match3RPG.Configuration
         public string DisplayName => string.IsNullOrEmpty(displayName)
             ? (string.Equals(StableId, SwordQiSkillId, StringComparison.Ordinal)
                 ? SwordQiDisplayName
-                : FlyingSwordDisplayName)
+                : (string.Equals(StableId, SwordRainSkillId, StringComparison.Ordinal)
+                    ? SwordRainDisplayName
+                    : FlyingSwordDisplayName))
             : displayName;
         public Sprite Icon => icon != null
             ? icon
@@ -123,6 +135,8 @@ namespace Match3RPG.Configuration
         {
             if (string.Equals(StableId, SwordQiSkillId, StringComparison.Ordinal))
                 return string.IsNullOrEmpty(description) ? SwordQiDescription : description;
+            if (string.Equals(StableId, SwordRainSkillId, StringComparison.Ordinal))
+                return string.IsNullOrEmpty(description) ? SwordRainDescription : description;
             if (!string.IsNullOrEmpty(StableId)
                 && !string.Equals(StableId, FlyingSwordSkillId, StringComparison.Ordinal)
                 && !string.IsNullOrEmpty(description))
@@ -231,6 +245,25 @@ namespace Match3RPG.Configuration
             runtime.manaCost = SwordQiDefaultManaCost;
             runtime.rageCost = SwordQiDefaultRageCost;
             runtime.cooldownTurns = SwordQiDefaultCooldownTurns;
+            runtime.level = DefaultLevel;
+            runtime.levelTable = Array.Empty<SkillLevelConfig>();
+            return runtime;
+        }
+
+        public static SkillConfig CreateRuntimeSwordRainFallback()
+        {
+            SkillConfig runtime = CreateInstance<SkillConfig>();
+            runtime.name = SwordRainSkillId;
+            runtime.SetStableId(SwordRainSkillId);
+            runtime.displayName = SwordRainDisplayName;
+            runtime.icon = ResolveSwordSprite();
+            runtime.description = SwordRainDescription;
+            runtime.skillType = SkillType.Passive;
+            runtime.targetType = SkillTargetType.SingleEnemy;
+            runtime.triggerType = SkillTriggerType.OnNormalAttack;
+            runtime.manaCost = SwordRainDefaultManaCost;
+            runtime.rageCost = SwordRainDefaultRageCost;
+            runtime.cooldownTurns = SwordRainDefaultCooldownTurns;
             runtime.level = DefaultLevel;
             runtime.levelTable = Array.Empty<SkillLevelConfig>();
             return runtime;

@@ -40,7 +40,17 @@ namespace Match3RPG.Battle
         public void BeginTransient(CombatVFXType type, float duration, Vector2 destination,
             bool travels, System.Action onComplete)
         {
-            StartCoroutine(PlayTransient(type, duration, destination, travels, null, 0f, onComplete));
+            StartCoroutine(PlayTransient(type, duration, destination, travels, null, 0f, onComplete,
+                null, false, null, null));
+        }
+
+        public void BeginDirectionalProjectile(CombatVFXType type, float duration, Vector2 destination,
+            float rotationZ, System.Func<bool> shouldCancel, System.Action onComplete,
+            System.Action onCancelled = null)
+        {
+            rectTransform.localRotation = Quaternion.Euler(0f, 0f, rotationZ);
+            StartCoroutine(PlayTransient(type, duration, destination, true, null, 0f, onComplete,
+                rotationZ, true, shouldCancel, onCancelled));
         }
 
         public void BeginFrameTransient(CombatVFXType type, Sprite[] frames, float frameRate,
@@ -55,7 +65,7 @@ namespace Match3RPG.Battle
 
             image.sprite = frames[0];
             StartCoroutine(PlayTransient(type, duration, rectTransform.anchoredPosition,
-                false, frames, frameRate, onComplete));
+                false, frames, frameRate, onComplete, null, false, null, null));
         }
 
         public void BeginPersistent(CombatVFXType type)
@@ -69,7 +79,9 @@ namespace Match3RPG.Battle
         }
 
         IEnumerator PlayTransient(CombatVFXType type, float duration, Vector2 destination,
-            bool travels, Sprite[] frames, float frameRate, System.Action onComplete)
+            bool travels, Sprite[] frames, float frameRate, System.Action onComplete,
+            float? fixedRotationZ, bool constantVisual, System.Func<bool> shouldCancel,
+            System.Action onCancelled)
         {
             Vector3 baseScale = rectTransform.localScale;
             Vector2 start = rectTransform.anchoredPosition;
@@ -78,24 +90,41 @@ namespace Match3RPG.Battle
             Color color = image.color;
             while (elapsed < safeDuration)
             {
-                elapsed += Time.unscaledDeltaTime;
+                if (shouldCancel != null && shouldCancel())
+                {
+                    onCancelled?.Invoke();
+                    Destroy(gameObject);
+                    yield break;
+                }
+                elapsed += constantVisual
+                    ? (Time.deltaTime > 0f ? Time.deltaTime : (1f / 60f))
+                    : Time.unscaledDeltaTime;
                 float t = Mathf.Clamp01(elapsed / safeDuration);
                 if (frames != null && frames.Length > 0)
                 {
                     int frameIndex = Mathf.Min(Mathf.FloorToInt(elapsed * frameRate), frames.Length - 1);
                     image.sprite = frames[frameIndex];
                 }
-                float scale = ScaleAt(type, t);
+                float scale = constantVisual ? 1f : ScaleAt(type, t);
                 rectTransform.localScale = new Vector3(baseScale.x * scale, baseScale.y * scale, 1f);
                 if (travels)
-                    rectTransform.anchoredPosition = Vector2.Lerp(start, destination, EaseOut(t));
+                    rectTransform.anchoredPosition = Vector2.Lerp(start, destination,
+                        constantVisual ? t : EaseOut(t));
                 else if (type == CombatVFXType.Heal || type == CombatVFXType.LifeSteal)
                     rectTransform.anchoredPosition = start + Vector2.up * (24f * t);
 
-                color.a = AlphaAt(type, t);
+                color.a = constantVisual ? 1f : AlphaAt(type, t);
                 image.color = color;
-                rectTransform.localRotation = Quaternion.Euler(0f, 0f, RotationAt(type, t));
+                float rotationZ = fixedRotationZ.HasValue ? fixedRotationZ.Value : RotationAt(type, t);
+                rectTransform.localRotation = Quaternion.Euler(0f, 0f, rotationZ);
                 yield return null;
+            }
+
+            if (shouldCancel != null && shouldCancel())
+            {
+                onCancelled?.Invoke();
+                Destroy(gameObject);
+                yield break;
             }
 
             if (travels)
