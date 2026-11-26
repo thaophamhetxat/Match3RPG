@@ -38,6 +38,20 @@ namespace Match3RPG.Configuration
         public const int SwordQiDefaultManaCost = 3; // TẠM
         public const int SwordQiDefaultRageCost = 0; // TẠM
         public const int SwordQiDefaultCooldownTurns = 3; // TẠM
+        public const string RockSpikeSkillId = "rock_spike";
+        public const string RockSpikeDisplayName = "Thạch Thứ"; // TẠM: Sư Huynh chốt tên thật sau Play-test
+        public const string RockSpikeAssetPath =
+            "Assets/Art/VFX/Skills/RockSpike/anime-rock-spike-eruption-sheet.png";
+        public const string RockSpikeDescription =
+            "Kết ấn gọi 5 gai đá mọc lên từ mặt đất dưới chân boss."; // TẠM
+        public const int RockSpikeDefaultManaCost = 3; // TẠM
+        public const int RockSpikeDefaultRageCost = 0; // TẠM
+        public const int RockSpikeDefaultCooldownTurns = 3; // TẠM
+        public const int RockSpikeGridColumns = 7;
+        public const int RockSpikeGridRows = 6;
+        public const int RockSpikeFrameCount = RockSpikeGridColumns * RockSpikeGridRows;
+        public const int RockSpikePeakFrameIndex = 12; // 1-based frame 13 (đỉnh 5 gai đá)
+        public const float RockSpikePivotY = 0.36f; // Đáy gai đặc (alpha >= 64 tại y ≈ 251/392)
         public const string SwordRainSkillId = "sword_rain";
         public const string SwordRainDisplayName = "Kiếm Vũ"; // TẠM: Sư Huynh chốt tên thật sau Play-test
         public const string SwordRainDescription =
@@ -67,22 +81,30 @@ namespace Match3RPG.Configuration
         [SerializeField, Min(0)] int cooldownTurns = DefaultCooldownTurns;
         [SerializeField, Range(1, MaxLevel)] int level = DefaultLevel;
         [SerializeField] SkillLevelConfig[] levelTable = CreateDefaultFlyingSwordLevels();
+        [SerializeField] Sprite[] effectFrames = Array.Empty<Sprite>();
 
         static Sprite cachedSwordSprite;
         static Sprite cachedSwordQiSprite;
+        static Sprite cachedRockSpikeSprite;
+        static Sprite[] cachedRockSpikeFrames;
 
         public string DisplayName => string.IsNullOrEmpty(displayName)
             ? (string.Equals(StableId, SwordQiSkillId, StringComparison.Ordinal)
                 ? SwordQiDisplayName
-                : (string.Equals(StableId, SwordRainSkillId, StringComparison.Ordinal)
-                    ? SwordRainDisplayName
-                    : FlyingSwordDisplayName))
+                : (string.Equals(StableId, RockSpikeSkillId, StringComparison.Ordinal)
+                    ? RockSpikeDisplayName
+                    : (string.Equals(StableId, SwordRainSkillId, StringComparison.Ordinal)
+                        ? SwordRainDisplayName
+                        : FlyingSwordDisplayName)))
             : displayName;
         public Sprite Icon => icon != null
             ? icon
             : (string.Equals(StableId, SwordQiSkillId, StringComparison.Ordinal)
                 ? ResolveSwordQiSprite()
-                : ResolveSwordSprite());
+                : (string.Equals(StableId, RockSpikeSkillId, StringComparison.Ordinal)
+                    ? ResolveRockSpikeSprite()
+                    : ResolveSwordSprite()));
+        public Sprite[] EffectFrames => effectFrames;
         public string Description => GetDescriptionForLevel(Level);
         public SkillType Type => skillType;
         public SkillTargetType TargetType => targetType;
@@ -135,6 +157,8 @@ namespace Match3RPG.Configuration
         {
             if (string.Equals(StableId, SwordQiSkillId, StringComparison.Ordinal))
                 return string.IsNullOrEmpty(description) ? SwordQiDescription : description;
+            if (string.Equals(StableId, RockSpikeSkillId, StringComparison.Ordinal))
+                return string.IsNullOrEmpty(description) ? RockSpikeDescription : description;
             if (string.Equals(StableId, SwordRainSkillId, StringComparison.Ordinal))
                 return string.IsNullOrEmpty(description) ? SwordRainDescription : description;
             if (!string.IsNullOrEmpty(StableId)
@@ -184,6 +208,59 @@ namespace Match3RPG.Configuration
         public static Sprite ResolveSwordQiSprite()
         {
             return ResolveSpriteAsset(SwordQiAssetPath, ref cachedSwordQiSprite);
+        }
+
+        public static Sprite ResolveRockSpikeSprite()
+        {
+            if (cachedRockSpikeSprite != null)
+                return cachedRockSpikeSprite;
+
+            Sprite[] frames = ResolveRockSpikeFrames();
+            if (frames != null && frames.Length > RockSpikePeakFrameIndex)
+                cachedRockSpikeSprite = frames[RockSpikePeakFrameIndex];
+            else if (frames != null && frames.Length > 0)
+                cachedRockSpikeSprite = frames[0];
+            return cachedRockSpikeSprite;
+        }
+
+        public static Sprite[] ResolveRockSpikeFrames()
+        {
+            if (cachedRockSpikeFrames != null
+                && cachedRockSpikeFrames.Length == RockSpikeFrameCount
+                && cachedRockSpikeFrames[0] != null)
+                return cachedRockSpikeFrames;
+
+#if UNITY_EDITOR
+            UnityEngine.Object[] all = AssetDatabase.LoadAllAssetsAtPath(RockSpikeAssetPath);
+            if (all != null && all.Length > 0)
+            {
+                System.Collections.Generic.List<Sprite> sprites =
+                    new System.Collections.Generic.List<Sprite>(RockSpikeFrameCount);
+                for (int i = 0; i < all.Length; i++)
+                {
+                    if (all[i] is Sprite sprite)
+                        sprites.Add(sprite);
+                }
+                if (sprites.Count > 0)
+                {
+                    // Sắp xếp theo THỨ TỰ HÌNH ẢNH (trên-trái -> dưới-phải):
+                    // rect.y giảm dần (hàng trên trước), rồi rect.x tăng dần (trái sang phải),
+                    // không phụ thuộc vào số hậu tố _N mà Unity đánh từ dưới lên.
+                    sprites.Sort((a, b) =>
+                    {
+                        int yCompare = b.rect.y.CompareTo(a.rect.y);
+                        if (Mathf.Abs(b.rect.y - a.rect.y) > 1f)
+                            return yCompare;
+                        return a.rect.x.CompareTo(b.rect.x);
+                    });
+                    cachedRockSpikeFrames = sprites.ToArray();
+                    if (cachedRockSpikeFrames.Length > RockSpikePeakFrameIndex)
+                        cachedRockSpikeSprite = cachedRockSpikeFrames[RockSpikePeakFrameIndex];
+                    return cachedRockSpikeFrames;
+                }
+            }
+#endif
+            return Array.Empty<Sprite>();
         }
 
         static Sprite ResolveSpriteAsset(string assetPath, ref Sprite cache)
@@ -245,6 +322,26 @@ namespace Match3RPG.Configuration
             runtime.manaCost = SwordQiDefaultManaCost;
             runtime.rageCost = SwordQiDefaultRageCost;
             runtime.cooldownTurns = SwordQiDefaultCooldownTurns;
+            runtime.level = DefaultLevel;
+            runtime.levelTable = Array.Empty<SkillLevelConfig>();
+            return runtime;
+        }
+
+        public static SkillConfig CreateRuntimeRockSpikeFallback()
+        {
+            SkillConfig runtime = CreateInstance<SkillConfig>();
+            runtime.name = RockSpikeSkillId;
+            runtime.SetStableId(RockSpikeSkillId);
+            runtime.displayName = RockSpikeDisplayName;
+            runtime.icon = ResolveRockSpikeSprite();
+            runtime.effectFrames = ResolveRockSpikeFrames();
+            runtime.description = RockSpikeDescription;
+            runtime.skillType = SkillType.Active;
+            runtime.targetType = SkillTargetType.SingleEnemy;
+            runtime.triggerType = SkillTriggerType.Manual;
+            runtime.manaCost = RockSpikeDefaultManaCost;
+            runtime.rageCost = RockSpikeDefaultRageCost;
+            runtime.cooldownTurns = RockSpikeDefaultCooldownTurns;
             runtime.level = DefaultLevel;
             runtime.levelTable = Array.Empty<SkillLevelConfig>();
             return runtime;

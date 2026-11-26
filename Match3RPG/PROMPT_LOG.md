@@ -55,3 +55,36 @@
 - **Chờ Play-test:**
   - Mở tab Nhân vật → Tu luyện kiểm tra: hàng 7 nút ngọc thu nhỏ gọn và có khoảng hở với viền khung; 2 nút "Tổng chỉ số" và "ĐỘT PHÁ" thu nhỏ và hở rõ khỏi viền dưới; thanh tiến độ vàng "70/70" dưới khung cảnh giới đã biến mất hoàn toàn; quả cầu Soul Harvest và popup nâng cấp sao / Tổng chỉ số / ĐỘT PHÁ vẫn hoạt động đúng.
 - **Lỗi (nếu fail):** Không có.
+
+## Prompt 166 — 2026-11-26 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error). *(Ghi chú: Unity Editor đang mở sẵn giữ khóa `Temp/UnityLockfile` nên không chạy batch mode; đã cấu hình trực tiếp `.meta` Multiple 7×6 + `rock_spike.asset` + `SkillDatabase.asset` theo chuẩn YAML Unity giống Prompt 163/164 và có sẵn menu `Tools/Match3RPG/Install Rock Spike Skill` để chạy kiểm chứng thêm trong Editor.)*
+- **File đã đổi:**
+  - `Match3RPG/Assets/Art/VFX/Skills/RockSpike.meta` *(mới)*
+  - `Match3RPG/Assets/Art/VFX/Skills/RockSpike/anime-rock-spike-eruption-sheet.png` *(mới — file sẵn trên máy, 4438×2352, 7×6 ô 634×392)*
+  - `Match3RPG/Assets/Art/VFX/Skills/RockSpike/anime-rock-spike-eruption-sheet.png.meta` *(mới — `spriteMode: 2`, 42 sub-sprite, pivot `(0.5, 0.36)`)*
+  - `Match3RPG/Assets/Editor/CampaignSpriteImporter.cs`
+  - `Match3RPG/Assets/Editor/RockSpikeSkillSetup.cs` *(mới)*
+  - `Match3RPG/Assets/Editor/RockSpikeSkillSetup.cs.meta` *(mới)*
+  - `Match3RPG/Assets/Resources/Configuration/Skills/rock_spike.asset` *(mới)*
+  - `Match3RPG/Assets/Resources/Configuration/Skills/rock_spike.asset.meta` *(mới)*
+  - `Match3RPG/Assets/Resources/Configuration/SkillDatabase.asset`
+  - `Match3RPG/Assets/Scripts/Configuration/SkillConfig.cs`
+  - `Match3RPG/Assets/Scripts/Battle/HeroAnimationDriver.cs`
+  - `Match3RPG/Assets/Scripts/Battle/CharacterView.cs`
+  - `Match3RPG/Assets/Scripts/Battle/CombatVFXManager.cs`
+  - `Match3RPG/Assets/Scripts/Battle/RockSpikeSkillController.cs` *(mới)*
+  - `Match3RPG/Assets/Scripts/Battle/RockSpikeSkillController.cs.meta` *(mới)*
+  - `Match3RPG/Assets/Scripts/Battle/BattleController.cs`
+  - `Match3RPG/Assets/Scripts/Battle/TurnManager.cs`
+  - `Match3RPG/Assets/Scripts/Battle/BattleStatusPopup.cs`
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Mở ngoại lệ `RockSpikePath` (`Assets/Art/VFX/Skills/RockSpike/`) trong `CampaignSpriteImporter.cs` để giữ `SpriteImportMode.Multiple` và không ghi đè `spriteAlignment`/`spritePivot` về Center.
+  - Cấu hình import sheet `anime-rock-spike-eruption-sheet.png` (4438×2352, lưới 7×6 ô 634×392, 42 khung, `spriteMode: 2`, Custom Pivot `(0.5, 0.36)` theo đáy gai đặc `alpha >= 64` tại `y ≈ 251/392`), tạo `rock_spike.asset` (tên TẠM "Thạch Thứ", cost TẠM 3 mana + 0 nộ, cooldown TẠM 3 turn, Lv1, icon khung đỉnh f13 `_33`, lưu đủ 42 `effectFrames` theo thứ tự hình ảnh trên-trái → dưới-phải) và đăng ký vào `SkillDatabase.asset`.
+  - Thêm `HeroAnimationDriver.WaitForSkillNormalizedTime(float)`, `CharacterView.PlaySkillInPlaceWithoutLunge(float, Action)` (đứng yên kết ấn không lao tới, bắn `onCastRelease` tại mốc `0.48` F12→F13 khi ấn thành, giữ nguyên nhánh `Animate()` cũ), và `CombatVFXManager.PlayHitImpact(BattleActor)` (chỉ phát `HitImpact` tại `TorsoAnchor` của boss).
+  - Thêm `RockSpikeSkillController.cs` (chạy 42 khung @30fps one-shot 1.4s trên `RockSpikeLayer` đặt đúng mặt đất đáy `VisualRect` của boss với pivot `(0.5, 0.36)`, rộng TẠM `2.0 ×` chiều rộng battle boss, giữ tỉ lệ `634:392`, gây sát thương TẠM = 1 đòn đánh thường đúng 1 lần tại khung đỉnh f13, dừng khung còn lại nếu boss chết giữa chừng), nối vào `BattleController`, `TurnManager`, tab Skills trong `BattleStatusPopup` (ngay sau Kiếm Khí, đẩy Kiếm Vũ xuống hàng 4) và thêm installer/verifier `RockSpikeSkillSetup.cs`.
+- **Chờ Play-test:**
+  - Focus lại Unity Editor để nhận `CampaignSpriteImporter.cs`, `anime-rock-spike-eruption-sheet.png.meta` (nếu cần chạy `Tools → Match3RPG → Install Rock Spike Skill`), `rock_spike.asset` và `SkillDatabase.asset`.
+  - Vào trận bấm kỹ năng Thạch Thứ: kiểm tra hero đứng yên kết ấn (KHÔNG lao tới) → tới lúc ấn thành (F12→F13) 5 gai đá mọc đúng dưới chân boss (không lệch lên đầu, không lơ lửng) → sát thương + `HitImpact` hiện đúng lúc gai cao nhất (f13) → boss Hit/Death đúng → cooldown 3 turn + pizza wipe → bấm khi chưa đủ mana/nộ hiện đúng thông báo "Không đủ tinh lực để sử dụng kỹ năng".
+  - Chốt sau Play-test: tên skill thật (TẠM "Thạch Thứ"), cost (TẠM 3 mana / 0 nộ), cooldown (TẠM 3 turn), sát thương (TẠM = 1 đòn thường), kích thước gai (TẠM rộng `2.0 ×` chiều rộng boss).
+- **Lỗi (nếu fail):** Không có.

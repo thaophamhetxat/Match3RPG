@@ -67,12 +67,15 @@ namespace Match3RPG.Battle
         int flyingSwordCooldownRemaining;
         int flyingSwordOrbitTurnsRemaining;
         int swordQiCooldownRemaining;
+        int rockSpikeCooldownRemaining;
         int lastSyncedFlyingSwordLevel = SkillConfig.DefaultLevel;
         SkillConfig flyingSwordSkillConfig;
         SkillConfig swordQiSkillConfig;
+        SkillConfig rockSpikeSkillConfig;
         SkillConfig swordRainSkillConfig;
         FlyingSwordSkillController flyingSwordSkillController;
         SwordQiSkillController swordQiSkillController;
+        RockSpikeSkillController rockSpikeSkillController;
         int loggedHeroRage = int.MinValue;
         int loggedHeroMaxRage = int.MinValue;
         bool statsInitialized;
@@ -99,6 +102,11 @@ namespace Match3RPG.Battle
         public int SwordQiSkillLevel => SkillConfig.DefaultLevel; // TẠM: chỉ có Lv1
         public bool IsSwordQiSkillRunning =>
             swordQiSkillController != null && swordQiSkillController.IsRunning;
+        public int RockSpikeCooldownRemaining => rockSpikeCooldownRemaining;
+        public SkillConfig RockSpikeSkill => ResolveRockSpikeSkill();
+        public int RockSpikeSkillLevel => SkillConfig.DefaultLevel; // TẠM: chỉ có Lv1
+        public bool IsRockSpikeSkillRunning =>
+            rockSpikeSkillController != null && rockSpikeSkillController.IsRunning;
         public SkillConfig SwordRainSkill => ResolveSwordRainSkill();
         public int SwordRainSkillLevel => SkillConfig.DefaultLevel; // TẠM: chỉ có Lv1
         public bool IsGameOver => heroHp <= 0 || bossHp <= 0
@@ -244,6 +252,7 @@ namespace Match3RPG.Battle
             }
             EnsureFlyingSwordSkillSetup();
             EnsureSwordQiSkillSetup();
+            EnsureRockSpikeSkillSetup();
             EnsureSwordRainSkillSetup();
             UpdateRageReadyVfx(BattleActor.Player);
             UpdateRageReadyVfx(BattleActor.Boss);
@@ -272,6 +281,7 @@ namespace Match3RPG.Battle
             flyingSwordCooldownRemaining = 0;
             flyingSwordOrbitTurnsRemaining = 0;
             swordQiCooldownRemaining = 0;
+            rockSpikeCooldownRemaining = 0;
             flyingSwordSkillController?.StopOrbitImmediate();
             if (layoutTestMode)
                 ApplyLayoutTestState();
@@ -730,6 +740,8 @@ namespace Match3RPG.Battle
                 flyingSwordCooldownRemaining--;
             if (swordQiCooldownRemaining > 0)
                 swordQiCooldownRemaining--;
+            if (rockSpikeCooldownRemaining > 0)
+                rockSpikeCooldownRemaining--;
 
             if (flyingSwordOrbitTurnsRemaining > 0)
             {
@@ -792,6 +804,26 @@ namespace Match3RPG.Battle
                 ref swordQiSkillConfig,
                 SkillConfig.SwordQiSkillId,
                 SkillConfig.CreateRuntimeSwordQiFallback);
+        }
+
+        void EnsureRockSpikeSkillSetup()
+        {
+            ResolveRockSpikeSkill();
+            if (rockSpikeSkillController == null)
+            {
+                rockSpikeSkillController = GetComponent<RockSpikeSkillController>();
+                if (rockSpikeSkillController == null)
+                    rockSpikeSkillController = gameObject.AddComponent<RockSpikeSkillController>();
+            }
+            rockSpikeSkillController.SkillLevel = SkillConfig.DefaultLevel;
+        }
+
+        SkillConfig ResolveRockSpikeSkill()
+        {
+            return ResolveSkillById(
+                ref rockSpikeSkillConfig,
+                SkillConfig.RockSpikeSkillId,
+                SkillConfig.CreateRuntimeRockSpikeFallback);
         }
 
         void EnsureSwordRainSkillSetup()
@@ -1025,6 +1057,32 @@ namespace Match3RPG.Battle
             return true;
         }
 
+        public bool CanActivateRockSpikeSkill()
+        {
+            return CanActivateSkill(
+                ResolveRockSpikeSkill(),
+                rockSpikeCooldownRemaining,
+                IsRockSpikeSkillRunning,
+                SkillConfig.RockSpikeDefaultManaCost,
+                SkillConfig.RockSpikeDefaultRageCost);
+        }
+
+        public bool TryConsumeRockSpikeSkillCost()
+        {
+            if (!TryConsumeSkillCost(
+                ResolveRockSpikeSkill(),
+                rockSpikeCooldownRemaining,
+                IsRockSpikeSkillRunning,
+                SkillConfig.RockSpikeDefaultManaCost,
+                SkillConfig.RockSpikeDefaultRageCost,
+                SkillConfig.RockSpikeDefaultCooldownTurns,
+                out int newCooldown))
+                return false;
+
+            rockSpikeCooldownRemaining = newCooldown;
+            return true;
+        }
+
         bool CanActivateSkill(SkillConfig skill, int cooldownRemaining, bool isRunning,
             int defaultManaCost, int defaultRageCost)
         {
@@ -1111,6 +1169,44 @@ namespace Match3RPG.Battle
 
             // GIẢ ĐỊNH TẠM: sát thương bằng 1 đòn đánh thường của hero (HeroAttackDamagePerGem),
             // tính đúng lúc kiếm khí chạm boss.
+            int damage = ApplyDamage(BattleActor.Boss, HeroAttackDamagePerGem);
+            if (damage > 0)
+            {
+                ShowResource(boss, FloatingTextType.Damage, damage);
+                AddReceivedHitRage(BattleActor.Boss);
+                Refresh();
+                if (boss != null && bossHp > 0)
+                    yield return boss.Hit();
+            }
+
+            if ((bossHp == 0 || (soulEnabled && bossSoulHp == 0)) && boss != null)
+                yield return boss.Death();
+            StopFlyingSwordOrbitIfBattleEnded();
+            Refresh();
+        }
+
+        public IEnumerator ExecuteRockSpikeSkill()
+        {
+            if (IsGameOver)
+                yield break;
+
+            EnsureRockSpikeSkillSetup();
+            SkillConfig skill = ResolveRockSpikeSkill();
+            if (rockSpikeSkillController == null)
+                yield break;
+
+            yield return rockSpikeSkillController.ExecuteSkill(hero, boss, skill, ApplyRockSpikeImpact);
+        }
+
+        IEnumerator ApplyRockSpikeImpact()
+        {
+            if (IsGameOver)
+                yield break;
+
+            combatVfx?.PlayHitImpact(BattleActor.Boss);
+
+            // TẠM: sát thương bằng 1 đòn đánh thường của hero (HeroAttackDamagePerGem),
+            // tính đúng lúc gai đá đạt đỉnh (frame 13).
             int damage = ApplyDamage(BattleActor.Boss, HeroAttackDamagePerGem);
             if (damage > 0)
             {

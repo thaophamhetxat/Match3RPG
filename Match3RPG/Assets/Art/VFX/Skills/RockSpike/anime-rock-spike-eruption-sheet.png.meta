@@ -1,0 +1,1193 @@
+fileFormatVersion: 2
+guid: 81277f7830ec09b499d19067edd053ef
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6054319674030577440
+    second: anime-rock-spike-eruption-sheet_0
+  - first:
+      213: 5513307077177671881
+    second: anime-rock-spike-eruption-sheet_1
+  - first:
+      213: 2387607392072146836
+    second: anime-rock-spike-eruption-sheet_2
+  - first:
+      213: 3451119955367802073
+    second: anime-rock-spike-eruption-sheet_3
+  - first:
+      213: -3101076408681822884
+    second: anime-rock-spike-eruption-sheet_4
+  - first:
+      213: -6655726328217580959
+    second: anime-rock-spike-eruption-sheet_5
+  - first:
+      213: 2348052487674479827
+    second: anime-rock-spike-eruption-sheet_6
+  - first:
+      213: -7843333370427778908
+    second: anime-rock-spike-eruption-sheet_7
+  - first:
+      213: -3364082435415503483
+    second: anime-rock-spike-eruption-sheet_8
+  - first:
+      213: -4245591345157768991
+    second: anime-rock-spike-eruption-sheet_9
+  - first:
+      213: 9097227335156453824
+    second: anime-rock-spike-eruption-sheet_10
+  - first:
+      213: -6294870994343473860
+    second: anime-rock-spike-eruption-sheet_11
+  - first:
+      213: 3942658467648088252
+    second: anime-rock-spike-eruption-sheet_12
+  - first:
+      213: -964739361352126208
+    second: anime-rock-spike-eruption-sheet_13
+  - first:
+      213: 1168039598824245221
+    second: anime-rock-spike-eruption-sheet_14
+  - first:
+      213: 3867140042290433215
+    second: anime-rock-spike-eruption-sheet_15
+  - first:
+      213: 2621437991045772071
+    second: anime-rock-spike-eruption-sheet_16
+  - first:
+      213: 5516182143186752699
+    second: anime-rock-spike-eruption-sheet_17
+  - first:
+      213: 6104049955528606227
+    second: anime-rock-spike-eruption-sheet_18
+  - first:
+      213: -8990169390451821819
+    second: anime-rock-spike-eruption-sheet_19
+  - first:
+      213: -2044064306098205917
+    second: anime-rock-spike-eruption-sheet_20
+  - first:
+      213: -7088009458536708681
+    second: anime-rock-spike-eruption-sheet_21
+  - first:
+      213: 8306523597307317913
+    second: anime-rock-spike-eruption-sheet_22
+  - first:
+      213: 2428710353323933364
+    second: anime-rock-spike-eruption-sheet_23
+  - first:
+      213: -6242891809691107343
+    second: anime-rock-spike-eruption-sheet_24
+  - first:
+      213: 9047138291613413115
+    second: anime-rock-spike-eruption-sheet_25
+  - first:
+      213: -870651624026250049
+    second: anime-rock-spike-eruption-sheet_26
+  - first:
+      213: 2091766105390728134
+    second: anime-rock-spike-eruption-sheet_27
+  - first:
+      213: 5238321560545943316
+    second: anime-rock-spike-eruption-sheet_28
+  - first:
+      213: 1265858649685540394
+    second: anime-rock-spike-eruption-sheet_29
+  - first:
+      213: -794314679031023928
+    second: anime-rock-spike-eruption-sheet_30
+  - first:
+      213: -6724753513935484333
+    second: anime-rock-spike-eruption-sheet_31
+  - first:
+      213: 2085974870515266769
+    second: anime-rock-spike-eruption-sheet_32
+  - first:
+      213: 1276609376477984922
+    second: anime-rock-spike-eruption-sheet_33
+  - first:
+      213: 3555137245633999526
+    second: anime-rock-spike-eruption-sheet_34
+  - first:
+      213: 545575878547474660
+    second: anime-rock-spike-eruption-sheet_35
+  - first:
+      213: -9126055286918705671
+    second: anime-rock-spike-eruption-sheet_36
+  - first:
+      213: -1878066955601908209
+    second: anime-rock-spike-eruption-sheet_37
+  - first:
+      213: -1561494598541079834
+    second: anime-rock-spike-eruption-sheet_38
+  - first:
+      213: 1827760939134539353
+    second: anime-rock-spike-eruption-sheet_39
+  - first:
+      213: -2936179060092423255
+    second: anime-rock-spike-eruption-sheet_40
+  - first:
+      213: 7847993117234908618
+    second: anime-rock-spike-eruption-sheet_41
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 8192
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.36}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e8afb8655cbafba0800000000000000
+      internalID: -6054319674030577440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 0
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c082d07393338c40800000000000000
+      internalID: 5513307077177671881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 0
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49f9e83e54c722120800000000000000
+      internalID: 2387607392072146836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 0
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d4b5f88057d4ef20800000000000000
+      internalID: 3451119955367802073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2536
+        y: 0
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c550d2fbf63c6f4d0800000000000000
+      internalID: -3101076408681822884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_5
+      rect:
+        serializedVersion: 2
+        x: 3170
+        y: 0
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16a40640b2c12a3a0800000000000000
+      internalID: -6655726328217580959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_6
+      rect:
+        serializedVersion: 2
+        x: 3804
+        y: 0
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d44fc90c45f59020800000000000000
+      internalID: 2348052487674479827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 392
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a85fa8fad1e62390800000000000000
+      internalID: -7843333370427778908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_8
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 392
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58d8de149d06051d0800000000000000
+      internalID: -3364082435415503483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_9
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 392
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e8f56a6a21a415c0800000000000000
+      internalID: -4245591345157768991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_10
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 392
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c159f8ef08df3e70800000000000000
+      internalID: 9097227335156453824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_11
+      rect:
+        serializedVersion: 2
+        x: 2536
+        y: 392
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3d4f3bae2024a8a0800000000000000
+      internalID: -6294870994343473860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_12
+      rect:
+        serializedVersion: 2
+        x: 3170
+        y: 392
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb8a9dabcf227b630800000000000000
+      internalID: 3942658467648088252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_13
+      rect:
+        serializedVersion: 2
+        x: 3804
+        y: 392
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 001f4c989ae8c92f0800000000000000
+      internalID: -964739361352126208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 784
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e7428b93d5b53010800000000000000
+      internalID: 1168039598824245221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_15
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 784
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbc09652167daa530800000000000000
+      internalID: 3867140042290433215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_16
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 784
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7233ff0c6f7316420800000000000000
+      internalID: 2621437991045772071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_17
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 784
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb4dff8ee6a6d8c40800000000000000
+      internalID: 5516182143186752699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_18
+      rect:
+        serializedVersion: 2
+        x: 2536
+        y: 784
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 312858a0811f5b450800000000000000
+      internalID: 6104049955528606227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_19
+      rect:
+        serializedVersion: 2
+        x: 3170
+        y: 784
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 503778342908c3380800000000000000
+      internalID: -8990169390451821819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_20
+      rect:
+        serializedVersion: 2
+        x: 3804
+        y: 784
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32b06f0f75602a3e0800000000000000
+      internalID: -2044064306098205917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1176
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b58f4b83f452ad90800000000000000
+      internalID: -7088009458536708681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_22
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 1176
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99e07efa333b64370800000000000000
+      internalID: 8306523597307317913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_23
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 1176
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bebf20d23384b120800000000000000
+      internalID: 2428710353323933364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_24
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 1176
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ff7a20b9facc59a0800000000000000
+      internalID: -6242891809691107343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_25
+      rect:
+        serializedVersion: 2
+        x: 2536
+        y: 1176
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfea379a754ed8d70800000000000000
+      internalID: 9047138291613413115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_26
+      rect:
+        serializedVersion: 2
+        x: 3170
+        y: 1176
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb46ccaf5f2dae3f0800000000000000
+      internalID: -870651624026250049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_27
+      rect:
+        serializedVersion: 2
+        x: 3804
+        y: 1176
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c34401b032770d10800000000000000
+      internalID: 2091766105390728134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1568
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41f5c9b94b142b840800000000000000
+      internalID: 5238321560545943316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_29
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 1568
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2ebc5e2cbb319110800000000000000
+      internalID: 1265858649685540394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_30
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 1568
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c63a7402070af4f0800000000000000
+      internalID: -794314679031023928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_31
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 1568
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35ac0dfee40eca2a0800000000000000
+      internalID: -6724753513935484333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_32
+      rect:
+        serializedVersion: 2
+        x: 2536
+        y: 1568
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d4347fb71fd2fc10800000000000000
+      internalID: 2085974870515266769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_33
+      rect:
+        serializedVersion: 2
+        x: 3170
+        y: 1568
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9837e1d67d67b110800000000000000
+      internalID: 1276609376477984922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_34
+      rect:
+        serializedVersion: 2
+        x: 3804
+        y: 1568
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a276cd2d72665130800000000000000
+      internalID: 3555137245633999526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1960
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e808d6fe56429700800000000000000
+      internalID: 545575878547474660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_36
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 1960
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fd82a6811db95180800000000000000
+      internalID: -9126055286918705671
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_37
+      rect:
+        serializedVersion: 2
+        x: 1268
+        y: 1960
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0ee2f6ed04cfe5e0800000000000000
+      internalID: -1878066955601908209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_38
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 1960
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ea844f8fe4745ae0800000000000000
+      internalID: -1561494598541079834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_39
+      rect:
+        serializedVersion: 2
+        x: 2536
+        y: 1960
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 956d277e3e28d5910800000000000000
+      internalID: 1827760939134539353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_40
+      rect:
+        serializedVersion: 2
+        x: 3170
+        y: 1960
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a3304e83b89047d0800000000000000
+      internalID: -2936179060092423255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: anime-rock-spike-eruption-sheet_41
+      rect:
+        serializedVersion: 2
+        x: 3804
+        y: 1960
+        width: 634
+        height: 392
+      alignment: 9
+      pivot: {x: 0.5, y: 0.36}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acd4f70e82ca9ec60800000000000000
+      internalID: 7847993117234908618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

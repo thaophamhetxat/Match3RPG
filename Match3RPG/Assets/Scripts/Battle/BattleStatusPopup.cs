@@ -88,6 +88,7 @@ namespace Match3RPG.Battle
         ScrollRect skillsScrollRect;
         SkillRowWidgets flyingSwordRow;
         SkillRowWidgets swordQiRow;
+        SkillRowWidgets rockSpikeRow;
         SkillRowWidgets swordRainRow;
         float skillRowRightTextWidth = 575f;
         RectTransform skillTooltipRoot;
@@ -616,7 +617,7 @@ namespace Match3RPG.Battle
             skillsScrollRect.scrollSensitivity = 36f;
             skillsScrollRect.viewport = viewportRect;
 
-            const int totalRows = 4; // 3 skill thật (2 active + 1 passive) + 1 ô kỹ năng trống
+            const int totalRows = 5; // 4 skill thật (3 active + 1 passive) + 1 ô kỹ năng trống
             const float rowWidth = 815f;
             const float rowHeight = 220f; // Thu nhỏ ~15% từ 258f xuống 220f
             const float rowSpacing = 26f;
@@ -670,6 +671,19 @@ namespace Match3RPG.Battle
                 }
 
                 if (rowIndex == 2)
+                {
+                    rockSpikeRow = BuildSkillRow(
+                        rowRect,
+                        rowWidth,
+                        iconSize,
+                        iconLeftMargin,
+                        SkillConfig.ResolveRockSpikeSprite(),
+                        SkillConfig.RockSpikeDescription,
+                        OnRockSpikeSkillClicked);
+                    continue;
+                }
+
+                if (rowIndex == 3)
                 {
                     // Kỹ năng nội tại (Passive): không thêm nút bấm tay (onClick = null).
                     swordRainRow = BuildSkillRow(
@@ -1001,6 +1015,23 @@ namespace Match3RPG.Battle
                     turnManager != null && turnManager.CanActivateSwordQiSkill);
             }
 
+            if (rockSpikeRow != null)
+            {
+                SkillConfig rockSpikeSkill = battle != null ? battle.RockSpikeSkill : null;
+                int level = battle != null ? battle.RockSpikeSkillLevel : SkillConfig.DefaultLevel;
+                RefreshSkillRow(
+                    rockSpikeRow,
+                    rockSpikeSkill,
+                    SkillConfig.ResolveRockSpikeSprite(),
+                    level,
+                    SkillConfig.RockSpikeDefaultManaCost,
+                    SkillConfig.RockSpikeDefaultRageCost,
+                    SkillConfig.RockSpikeDefaultCooldownTurns,
+                    battle != null ? battle.RockSpikeCooldownRemaining : 0,
+                    SkillConfig.RockSpikeDescription,
+                    turnManager != null && turnManager.CanActivateRockSpikeSkill);
+            }
+
             if (swordRainRow != null)
             {
                 SkillConfig swordRainSkill = battle != null ? battle.SwordRainSkill : null;
@@ -1152,6 +1183,13 @@ namespace Match3RPG.Battle
             HandleSkillClicked(
                 turnManager != null && turnManager.CanActivateSwordQiSkill,
                 () => turnManager.TryActivateSwordQiSkill());
+        }
+
+        void OnRockSpikeSkillClicked()
+        {
+            HandleSkillClicked(
+                turnManager != null && turnManager.CanActivateRockSpikeSkill,
+                () => turnManager.TryActivateRockSpikeSkill());
         }
 
         void HandleSkillClicked(bool canActivate, System.Func<bool> tryActivate)

@@ -115,6 +115,18 @@ namespace Match3RPG.Battle
             PlayAt(CombatVFXType.Dash, GetCharacter(actor)?.VFXAnchor, .24f, FacingSign(GetCharacter(actor)));
         }
 
+        public void PlayHitImpact(BattleActor actor)
+        {
+            CharacterView target = GetCharacter(actor);
+            RectTransform targetAnchor = target != null ? target.VFXAnchor : null;
+            RectTransform hitImpactAnchor = target != null && target.TorsoAnchor != null
+                ? target.TorsoAnchor : targetAnchor;
+            if (hitImpactAnchor == null || transientRoot == null)
+                return;
+
+            PlayAt(CombatVFXType.HitImpact, hitImpactAnchor, TransientLifetime, FacingSign(target));
+        }
+
         public void PlaySwordQiImpact(BattleActor actor)
         {
             CharacterView target = GetCharacter(actor);

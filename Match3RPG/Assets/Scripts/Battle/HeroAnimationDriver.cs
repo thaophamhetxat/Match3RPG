@@ -42,6 +42,7 @@ namespace Match3RPG.Battle
             && attackClip != null && animator.HasState(0, IdleState)
             && animator.HasState(0, AttackState);
         public bool HasAttackFrames => IsReady && attackFramesAvailable;
+        public bool HasSkillClip => IsReady && skillClip != null && animator.HasState(0, SkillState);
         public bool HasDeathClip => deathClip != null;
         public bool IsAttackPlaying => IsReady
             && animator.GetCurrentAnimatorStateInfo(0).fullPathHash == AttackState;
@@ -271,6 +272,37 @@ namespace Match3RPG.Battle
                 AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
                 if (state.fullPathHash != SkillState && !animator.IsInTransition(0))
                     yield break;
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+        }
+
+        public IEnumerator WaitForSkillNormalizedTime(float normalizedTime)
+        {
+            if (!IsReady || currentState != BattleCharacterAnimState.Skill || skillClip == null)
+                yield break;
+
+            int version = attackVersion;
+            float threshold = Mathf.Clamp01(normalizedTime);
+            float elapsed = 0f;
+            bool enteredSkillState = false;
+            while (version == attackVersion && currentState == BattleCharacterAnimState.Skill
+                && elapsed < skillClip.length)
+            {
+                AnimatorStateInfo state = animator.GetCurrentAnimatorStateInfo(0);
+                if (state.fullPathHash == SkillState)
+                {
+                    enteredSkillState = true;
+                    if (state.normalizedTime >= threshold)
+                    {
+                        OnSkillImpact(0);
+                        yield break;
+                    }
+                }
+                else if (enteredSkillState && !animator.IsInTransition(0))
+                {
+                    yield break;
+                }
                 elapsed += Time.deltaTime;
                 yield return null;
             }

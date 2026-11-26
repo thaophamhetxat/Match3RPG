@@ -245,6 +245,70 @@ namespace Match3RPG.Battle
             }
         }
 
+        // Plays the current skill clip completely in place without lunging or returning.
+        public IEnumerator PlaySkillInPlaceWithoutLunge(float releaseNormalizedTime, Action onCastRelease = null)
+        {
+            if (State == CharacterState.Death)
+                yield break;
+            if (rectTransform == null)
+            {
+                Debug.LogError("CharacterView cannot play a skill without a CharacterVisual RectTransform.", this);
+                yield break;
+            }
+
+            CancelActiveAnimation();
+            EnsureHomePosition();
+            RestoreHomeVisual();
+            int version = ++animationVersion;
+            State = CharacterState.Skill;
+            ApplyFacingDirection();
+            BattleCharacterAnimState skillAnimationState = heroAnimation != null
+                ? heroAnimation.PlaySkill()
+                : BattleCharacterAnimState.Idle;
+            float skillScale = skillAnimationState == BattleCharacterAnimState.Skill
+                ? skillNormalizationScaleMultiplier
+                : skillAnimationState == BattleCharacterAnimState.SpecAttack
+                    ? specAttackNormalizationScaleMultiplier
+                    : skillAnimationState == BattleCharacterAnimState.Attack
+                        ? idleNormalizationScaleMultiplier * attackNormalizationScaleMultiplier
+                        : idleNormalizationScaleMultiplier;
+            rectTransform.localScale = GetVisualScale(skillScale);
+
+            try
+            {
+                if (skillAnimationState == BattleCharacterAnimState.Skill && heroAnimation != null)
+                    yield return heroAnimation.WaitForSkillNormalizedTime(releaseNormalizedTime);
+                else if (skillAnimationState == BattleCharacterAnimState.Attack
+                    && heroAnimation != null && heroAnimation.HasAttackFrames)
+                    yield return heroAnimation.WaitForImpact(0);
+
+                if (version != animationVersion)
+                    yield break;
+
+                onCastRelease?.Invoke();
+
+                if (skillAnimationState == BattleCharacterAnimState.Skill && heroAnimation != null)
+                    yield return heroAnimation.WaitForSkillComplete();
+                else if (skillAnimationState == BattleCharacterAnimState.SpecAttack && heroAnimation != null)
+                    yield return heroAnimation.WaitForStateComplete(BattleCharacterAnimState.SpecAttack);
+                else if (skillAnimationState == BattleCharacterAnimState.Attack
+                    && heroAnimation != null && heroAnimation.HasAttackFrames)
+                    yield return heroAnimation.WaitForAttackComplete();
+            }
+            finally
+            {
+                if (version == animationVersion)
+                {
+                    RestoreHomeVisual();
+                    if (State != CharacterState.Death)
+                    {
+                        State = CharacterState.Idle;
+                        heroAnimation?.PlayIdle();
+                    }
+                }
+            }
+        }
+
         public IEnumerator Hit()
         {
             return PlayAnimation(CharacterState.Hit);

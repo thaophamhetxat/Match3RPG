@@ -49,6 +49,9 @@ namespace Match3RPG.Battle
         public bool CanActivateSwordQiSkill =>
             CanActivateAnyManualSkill
             && battle.CanActivateSwordQiSkill();
+        public bool CanActivateRockSpikeSkill =>
+            CanActivateAnyManualSkill
+            && battle.CanActivateRockSpikeSkill();
         int StoredTurnLimit => Mathf.Clamp(maximumStoredTurns, 1, 5);
 
         public static BattleActor? GetFasterActor(float heroSpeed, float bossSpeed)
@@ -103,6 +106,16 @@ namespace Match3RPG.Battle
                 return false;
 
             return StartManualSkillExecution(battle.ExecuteSwordQiSkill());
+        }
+
+        public bool TryActivateRockSpikeSkill()
+        {
+            if (!CanActivateRockSpikeSkill)
+                return false;
+            if (!battle.TryConsumeRockSpikeSkillCost())
+                return false;
+
+            return StartManualSkillExecution(battle.ExecuteRockSpikeSkill());
         }
 
         bool StartManualSkillExecution(IEnumerator skillExecution)
