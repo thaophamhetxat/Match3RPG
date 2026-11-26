@@ -87,6 +87,9 @@ namespace Match3RPG.Campaign
         static Sprite tabFocusWhiteSprite;
         static Sprite starPolygonSprite;
         static Sprite rainbowBorderSprite;
+        static Sprite chamferedPlaqueSprite;
+        static Sprite bevelTriangleLeftSprite;
+        static Sprite bevelTriangleRightSprite;
         static readonly Dictionary<int, Sprite> roundedRectSprites = new Dictionary<int, Sprite>();
 
         static readonly (Vector2 min, Vector2 max)[] InventoryTabAnchors =
@@ -193,6 +196,8 @@ namespace Match3RPG.Campaign
         float inventoryGridTopOffset;
         Sprite[] resolvedInventoryItemSprites;
         TMP_Text realmButtonLabel;
+        Image realmProgressFillImage;
+        TMP_Text realmProgressLabel;
         TMP_Text starActionStatus;
         TMP_Text starActionHint;
         ScrollRect starChartDetailsScrollRect;
@@ -205,6 +210,7 @@ namespace Match3RPG.Campaign
         GameObject breakthroughPopup;
         Button breakthroughButton;
         TMP_Text breakthroughButtonLabel;
+        Image breakthroughGlowImage;
         Button breakthroughConfirmButton;
         RectTransform starChartGraphicRect;
         ScrollRect starChartZoomScrollRect;
@@ -222,6 +228,8 @@ namespace Match3RPG.Campaign
         MainProgressChartGraphic starChartGraphic;
         StarChartGemInventoryService starChartGemInventory;
         readonly TMP_Text[] baseGemInventoryCountLabels = new TMP_Text[7];
+        readonly Outline[] baseGemSlotOutlines = new Outline[7];
+        readonly Image[] baseGemSlotGlowImages = new Image[7];
         readonly TMP_Text[] characterStatValueLabels = new TMP_Text[12];
         readonly Image[] equippedSlotIcons = new Image[6];
         // Thứ tự đúng bằng thứ tự 6 dòng AddEquipmentSlot trong
@@ -2668,6 +2676,96 @@ backgroundLayer.SetAsFirstSibling();
             return sprite;
         }
 
+        static Sprite GetChamferedPlaqueSprite()
+        {
+            if (chamferedPlaqueSprite != null)
+                return chamferedPlaqueSprite;
+
+            const int size = 48;
+            const float chamfer = 12f;
+            Texture2D tex = new Texture2D(size, size, TextureFormat.RGBA32, false)
+            {
+                filterMode = FilterMode.Bilinear,
+                wrapMode = TextureWrapMode.Clamp
+            };
+
+            Color32[] pixels = new Color32[size * size];
+            for (int y = 0; y < size; y++)
+            {
+                float py = y + 0.5f;
+                float cy = Mathf.Min(py, size - py);
+                for (int x = 0; x < size; x++)
+                {
+                    float px = x + 0.5f;
+                    float cx = Mathf.Min(px, size - px);
+                    float alpha = Mathf.Clamp01((cx + cy - chamfer) + 0.5f);
+                    pixels[y * size + x] = new Color32(255, 255, 255,
+                        (byte)Mathf.RoundToInt(alpha * 255f));
+                }
+            }
+
+            tex.SetPixels32(pixels);
+            tex.Apply(false, false);
+
+            const float border = 14f;
+            chamferedPlaqueSprite = Sprite.Create(
+                tex,
+                new Rect(0f, 0f, size, size),
+                new Vector2(0.5f, 0.5f),
+                100f,
+                0u,
+                SpriteMeshType.FullRect,
+                new Vector4(border, border, border, border));
+            return chamferedPlaqueSprite;
+        }
+
+        static Sprite GetBevelTriangleSprite(bool pointLeft)
+        {
+            if (pointLeft && bevelTriangleLeftSprite != null)
+                return bevelTriangleLeftSprite;
+            if (!pointLeft && bevelTriangleRightSprite != null)
+                return bevelTriangleRightSprite;
+
+            const int width = 24;
+            const int height = 48;
+            Texture2D tex = new Texture2D(width, height, TextureFormat.RGBA32, false)
+            {
+                filterMode = FilterMode.Bilinear,
+                wrapMode = TextureWrapMode.Clamp
+            };
+
+            Color32[] pixels = new Color32[width * height];
+            float halfH = height * 0.5f;
+            for (int y = 0; y < height; y++)
+            {
+                float py = y + 0.5f;
+                float normY = Mathf.Abs(py - halfH) / halfH;
+                for (int x = 0; x < width; x++)
+                {
+                    float px = x + 0.5f;
+                    float edgeX = pointLeft ? normY * width : (1f - normY) * width;
+                    float dist = pointLeft ? (px - edgeX) : (edgeX - px);
+                    float alpha = Mathf.Clamp01(dist + 0.5f);
+                    pixels[y * width + x] = new Color32(255, 255, 255,
+                        (byte)Mathf.RoundToInt(alpha * 255f));
+                }
+            }
+
+            tex.SetPixels32(pixels);
+            tex.Apply(false, false);
+
+            Sprite sprite = Sprite.Create(
+                tex,
+                new Rect(0f, 0f, width, height),
+                new Vector2(0.5f, 0.5f),
+                100f);
+            if (pointLeft)
+                bevelTriangleLeftSprite = sprite;
+            else
+                bevelTriangleRightSprite = sprite;
+            return sprite;
+        }
+
         static Sprite GetStarPolygonSprite()
         {
             if (starPolygonSprite != null)
@@ -3355,34 +3453,58 @@ backgroundLayer.SetAsFirstSibling();
                 : 0;
             SelectStarChartRealm(FindRealmIndex(heroLevel), heroLevel);
 
-            float realmSelectorMinY = .66f;
+            float realmSelectorMinY = .665f;
             float realmSelectorMaxY = .71f;
-            float realmSelectorWidth = .54f;
-            float realmSelectorLeft = .5f - realmSelectorWidth * .5f;
-            float realmSelectorRight = .5f + realmSelectorWidth * .5f;
+            float realmSelectorLeft = .26f;
+            float realmSelectorRight = .74f;
 
             previousRealmButton = CreateCharacterHitButton(starChartUIGroup.transform, "PreviousRealm",
-                .10f, realmSelectorMinY, .21f, realmSelectorMaxY, SelectPreviousStarChartRealm);
-            ConfigureOutlinedButton(previousRealmButton, new Color32(18, 25, 31, 255), Gold, 2f);
+                .16f, realmSelectorMinY, .25f, realmSelectorMaxY, SelectPreviousStarChartRealm);
             TMP_Text previousRealmArrow = AddLabel(starChartUIGroup.transform, "PreviousRealmArrow",
-                "◁", 42, Gold, new Vector2(.10f, realmSelectorMinY),
-                new Vector2(.21f, realmSelectorMaxY), TextAlignmentOptions.Center);
+                "◁", 42, Gold, new Vector2(.16f, realmSelectorMinY),
+                new Vector2(.25f, realmSelectorMaxY), TextAlignmentOptions.Center);
             ApplyStarChartTextStyle(previousRealmArrow, 42);
 
             RectTransform realmSelectorFrame = CreateAnchoredRect(starChartUIGroup.transform,
                 "RealmSelectorFrame", new Vector2(realmSelectorLeft, realmSelectorMinY),
                 new Vector2(realmSelectorRight, realmSelectorMaxY), Vector2.zero, Vector2.zero);
             Image realmSelectorBackground = realmSelectorFrame.gameObject.AddComponent<Image>();
+            realmSelectorBackground.sprite = GetChamferedPlaqueSprite();
+            realmSelectorBackground.type = Image.Type.Sliced;
             realmSelectorBackground.color = new Color32(12, 27, 36, 255);
             realmSelectorBackground.raycastTarget = false;
             Outline realmSelectorOutline = realmSelectorFrame.gameObject.AddComponent<Outline>();
             realmSelectorOutline.effectColor = Gold;
             realmSelectorOutline.effectDistance = new Vector2(3f, -3f);
 
+            RectTransform realmBevelLeft = CreateAnchoredRect(realmSelectorFrame,
+                "RealmBevelLeft", new Vector2(-.024f, .14f), new Vector2(.006f, .86f),
+                Vector2.zero, Vector2.zero);
+            Image realmBevelLeftImage = realmBevelLeft.gameObject.AddComponent<Image>();
+            realmBevelLeftImage.sprite = GetBevelTriangleSprite(true);
+            realmBevelLeftImage.color = new Color32(12, 27, 36, 255);
+            realmBevelLeftImage.raycastTarget = false;
+            Outline realmBevelLeftOutline = realmBevelLeft.gameObject.AddComponent<Outline>();
+            realmBevelLeftOutline.effectColor = Gold;
+            realmBevelLeftOutline.effectDistance = new Vector2(2f, -2f);
+
+            RectTransform realmBevelRight = CreateAnchoredRect(realmSelectorFrame,
+                "RealmBevelRight", new Vector2(.994f, .14f), new Vector2(1.024f, .86f),
+                Vector2.zero, Vector2.zero);
+            Image realmBevelRightImage = realmBevelRight.gameObject.AddComponent<Image>();
+            realmBevelRightImage.sprite = GetBevelTriangleSprite(false);
+            realmBevelRightImage.color = new Color32(12, 27, 36, 255);
+            realmBevelRightImage.raycastTarget = false;
+            Outline realmBevelRightOutline = realmBevelRight.gameObject.AddComponent<Outline>();
+            realmBevelRightOutline.effectColor = Gold;
+            realmBevelRightOutline.effectDistance = new Vector2(2f, -2f);
+
             RectTransform realmSelectorInnerBorder = CreateAnchoredRect(realmSelectorFrame,
                 "RealmSelectorInnerBorder", new Vector2(.035f, .10f), new Vector2(.965f, .90f),
                 Vector2.zero, Vector2.zero);
             Image realmSelectorInnerImage = realmSelectorInnerBorder.gameObject.AddComponent<Image>();
+            realmSelectorInnerImage.sprite = GetChamferedPlaqueSprite();
+            realmSelectorInnerImage.type = Image.Type.Sliced;
             realmSelectorInnerImage.color = new Color32(22, 38, 48, 255);
             realmSelectorInnerImage.raycastTarget = false;
             Outline realmSelectorInnerOutline = realmSelectorInnerBorder.gameObject.AddComponent<Outline>();
@@ -3400,16 +3522,17 @@ backgroundLayer.SetAsFirstSibling();
             ApplyStarChartTextStyle(realmButtonLabel, 30);
 
             nextRealmButton = CreateCharacterHitButton(starChartUIGroup.transform, "NextRealm",
-                .79f, realmSelectorMinY, .90f, realmSelectorMaxY, SelectNextStarChartRealm);
-            ConfigureOutlinedButton(nextRealmButton, new Color32(18, 25, 31, 255), Gold, 2f);
+                .75f, realmSelectorMinY, .84f, realmSelectorMaxY, SelectNextStarChartRealm);
             TMP_Text nextRealmArrow = AddLabel(starChartUIGroup.transform, "NextRealmArrow",
-                "▷", 42, Gold, new Vector2(.79f, realmSelectorMinY),
-                new Vector2(.90f, realmSelectorMaxY), TextAlignmentOptions.Center);
+                "▷", 42, Gold, new Vector2(.75f, realmSelectorMinY),
+                new Vector2(.84f, realmSelectorMaxY), TextAlignmentOptions.Center);
             ApplyStarChartTextStyle(nextRealmArrow, 42);
             RefreshRealmNavigationButtons();
 
+            CreateRealmProgressBar(starChartUIGroup.transform);
+
             starChartContent = CreateAnchoredRect(starChartUIGroup.transform, "StarChartContent",
-                new Vector2(.09f, .31f), new Vector2(.91f, .632f),
+                new Vector2(.09f, .31f), new Vector2(.91f, .63f),
                 Vector2.zero, Vector2.zero).gameObject;
             Image chartViewportImage = starChartContent.AddComponent<Image>();
             chartViewportImage.color = Color.white;
@@ -3506,15 +3629,46 @@ backgroundLayer.SetAsFirstSibling();
 
             const int gemCount = 7;
             float slotWidth = 1f / gemCount;
+            Sprite slotBgSprite = GetRoundedRectSprite(12);
+            Sprite slotGlowSprite = GetRoundedRectSprite(14);
             for (int index = 0; index < StarChartGemTypes.Length; index++)
             {
                 float slotCenter = (index + .5f) * slotWidth;
+                float slotMinX = slotCenter - slotWidth * .48f;
+                float slotMaxX = slotCenter + slotWidth * .48f;
                 Sprite sprite = GetSpriteAt(starChartBaseGemSprites, index);
                 if (sprite == null)
                 {
                     Debug.LogError($"Tinh đồ thiếu sprite base gem {StarChartGemTypes[index]}.", this);
                     continue;
                 }
+
+                RectTransform slotGlowRect = CreateAnchoredRect(row,
+                    $"GemSlotGlow_{StarChartGemTypes[index]}",
+                    new Vector2(slotMinX, .02f),
+                    new Vector2(slotMaxX, .98f),
+                    new Vector2(-2f, -2f), new Vector2(2f, 2f));
+                Image slotGlowImage = slotGlowRect.gameObject.AddComponent<Image>();
+                slotGlowImage.sprite = slotGlowSprite;
+                slotGlowImage.type = Image.Type.Sliced;
+                slotGlowImage.color = new Color32(231, 190, 110, 65);
+                slotGlowImage.raycastTarget = false;
+                baseGemSlotGlowImages[index] = slotGlowImage;
+
+                RectTransform slotBgRect = CreateAnchoredRect(row,
+                    $"GemSlotBg_{StarChartGemTypes[index]}",
+                    new Vector2(slotMinX, .02f),
+                    new Vector2(slotMaxX, .98f),
+                    Vector2.zero, Vector2.zero);
+                Image slotBgImage = slotBgRect.gameObject.AddComponent<Image>();
+                slotBgImage.sprite = slotBgSprite;
+                slotBgImage.type = Image.Type.Sliced;
+                slotBgImage.color = new Color32(10, 16, 24, 200);
+                slotBgImage.raycastTarget = false;
+                Outline slotOutline = slotBgRect.gameObject.AddComponent<Outline>();
+                slotOutline.effectColor = new Color32(90, 105, 120, 80);
+                slotOutline.effectDistance = new Vector2(1f, -1f);
+                baseGemSlotOutlines[index] = slotOutline;
 
                 const float iconWidth = .075f;
                 RectTransform iconRect = CreateAnchoredRect(row,
@@ -3535,7 +3689,93 @@ backgroundLayer.SetAsFirstSibling();
                     new Vector2(slotCenter - slotWidth * .45f, .06f),
                     new Vector2(slotCenter + slotWidth * .45f, .42f));
                 ApplyStarChartTextStyle(baseGemInventoryCountLabels[index], 25);
+
+                int branchIndex = index;
+                CreateCharacterHitButton(row, $"GemSlotButton_{StarChartGemTypes[index]}",
+                    slotMinX, .02f, slotMaxX, .98f,
+                    () => SelectStarChartBranch(branchIndex));
             }
+
+            RefreshGemSlotSelectionVisuals();
+        }
+
+        void SelectStarChartBranch(int branchIndex)
+        {
+            if (branchIndex < 0 || branchIndex >= StarChartGemTypes.Length)
+                return;
+            HideStarNodePopup();
+            selectedStarChartBranchIndex = branchIndex;
+            RefreshSelectedRealmStars();
+        }
+
+        void RefreshGemSlotSelectionVisuals()
+        {
+            for (int index = 0; index < StarChartGemTypes.Length; index++)
+            {
+                bool isSelected = index == selectedStarChartBranchIndex;
+                if (baseGemSlotOutlines[index] != null)
+                {
+                    baseGemSlotOutlines[index].effectColor = isSelected
+                        ? Gold
+                        : new Color32(90, 105, 120, 80);
+                    baseGemSlotOutlines[index].effectDistance = isSelected
+                        ? new Vector2(2.5f, -2.5f)
+                        : new Vector2(1f, -1f);
+                }
+
+                if (baseGemSlotGlowImages[index] != null)
+                    baseGemSlotGlowImages[index].enabled = isSelected;
+            }
+        }
+
+        void CreateRealmProgressBar(Transform parent)
+        {
+            RectTransform bar = CreateAnchoredRect(parent, "RealmProgressBar",
+                new Vector2(.23f, .635f), new Vector2(.77f, .66f),
+                Vector2.zero, Vector2.zero);
+            Image trackImage = bar.gameObject.AddComponent<Image>();
+            trackImage.sprite = GetRoundedRectSprite(6);
+            trackImage.type = Image.Type.Sliced;
+            trackImage.color = new Color32(10, 16, 24, 255);
+            trackImage.raycastTarget = false;
+            Outline trackOutline = bar.gameObject.AddComponent<Outline>();
+            trackOutline.effectColor = MutedGold;
+            trackOutline.effectDistance = new Vector2(1f, -1f);
+
+            EnsureTabFocusWhiteSprite();
+            RectTransform fillRect = CreateAnchoredRect(bar, "RealmProgressFill",
+                Vector2.zero, Vector2.one, new Vector2(2f, 2f), new Vector2(-2f, -2f));
+            realmProgressFillImage = fillRect.gameObject.AddComponent<Image>();
+            realmProgressFillImage.sprite = tabFocusWhiteSprite;
+            realmProgressFillImage.color = Gold;
+            realmProgressFillImage.type = Image.Type.Filled;
+            realmProgressFillImage.fillMethod = Image.FillMethod.Horizontal;
+            realmProgressFillImage.fillOrigin = (int)Image.OriginHorizontal.Left;
+            realmProgressFillImage.fillAmount = 0f;
+            realmProgressFillImage.raycastTarget = false;
+
+            realmProgressLabel = AddLabel(bar, "RealmProgressLabel",
+                string.Empty, 20, Color.white, Vector2.zero, Vector2.one,
+                TextAlignmentOptions.Center);
+            ApplyStarChartTextStyle(realmProgressLabel, 20);
+            Outline labelOutline = realmProgressLabel.gameObject.AddComponent<Outline>();
+            labelOutline.effectColor = new Color32(10, 16, 24, 230);
+            labelOutline.effectDistance = new Vector2(1.2f, -1.2f);
+            RefreshRealmProgressBar();
+        }
+
+        void RefreshRealmProgressBar()
+        {
+            int litStars = 0;
+            for (int index = 0; index < litStarsPerBranch.Length; index++)
+                litStars += litStarsPerBranch[index];
+            int requiredStars = StarChartGemTypes.Length * MainProgressChartGraphic.StarsPerBranch;
+            if (realmProgressFillImage != null)
+                realmProgressFillImage.fillAmount = requiredStars > 0
+                    ? Mathf.Clamp01((float)litStars / requiredStars)
+                    : 0f;
+            if (realmProgressLabel != null)
+                realmProgressLabel.text = $"{litStars}/{requiredStars}";
         }
 
         void CreateStarChartDetailsPanel(Transform parent)
@@ -3673,20 +3913,59 @@ backgroundLayer.SetAsFirstSibling();
 
         void CreateStarChartZoomControls(Transform parent)
         {
-            totalBuffButton = CreateStarChartControlButton(parent, "TotalBuffButton",
-                new Vector2(.313f, .25f), new Vector2(.517f, .292f), "Tổng chỉ số",
-                20, OpenTotalBuffPopup);
-            CreateStarChartControlButton(parent, "StarChartZoomOut",
-                new Vector2(.528f, .25f), new Vector2(.602f, .292f), "−",
-                32, () => SetStarChartZoom(currentStarChartZoom - .2f));
-            CreateStarChartControlButton(parent, "StarChartZoomIn",
-                new Vector2(.613f, .25f), new Vector2(.687f, .292f), "+",
+            CreateStarChartCircleButton(parent, "StarChartZoomIn",
+                new Vector2(.875f, .47f), new Vector2(.935f, .53f), "+",
                 32, () => SetStarChartZoom(currentStarChartZoom + .2f));
-            breakthroughButton = CreateStarChartControlButton(parent, "BreakthroughButton", new Vector2(.698f, .25f), new Vector2(.90f, .292f), "ĐỘT PHÁ", 20, TryOpenBreakthroughPopup);
+            CreateStarChartCircleButton(parent, "StarChartZoomOut",
+                new Vector2(.875f, .40f), new Vector2(.935f, .46f), "−",
+                32, () => SetStarChartZoom(currentStarChartZoom - .2f));
+
+            totalBuffButton = CreateStarChartControlButton(parent, "TotalBuffButton",
+                new Vector2(.13f, .25f), new Vector2(.47f, .292f), "Tổng chỉ số",
+                20, OpenTotalBuffPopup);
+
+            RectTransform breakthroughGlowRect = CreateAnchoredRect(parent,
+                "BreakthroughButtonGlow", new Vector2(.522f, .244f),
+                new Vector2(.878f, .298f), Vector2.zero, Vector2.zero);
+            breakthroughGlowImage = breakthroughGlowRect.gameObject.AddComponent<Image>();
+            breakthroughGlowImage.sprite = GetRoundedRectSprite(18);
+            breakthroughGlowImage.type = Image.Type.Sliced;
+            breakthroughGlowImage.color = new Color32(255, 214, 100, 95);
+            breakthroughGlowImage.raycastTarget = false;
+
+            breakthroughButton = CreateStarChartControlButton(parent, "BreakthroughButton",
+                new Vector2(.53f, .25f), new Vector2(.87f, .292f), "ĐỘT PHÁ",
+                20, TryOpenBreakthroughPopup);
+            ConfigureOutlinedButton(breakthroughButton, new Color32(28, 35, 44, 245), Gold, 3.5f);
             Transform breakthroughLabelTransform = parent != null ? parent.Find("BreakthroughButtonLabel") : null;
             breakthroughButtonLabel = breakthroughLabelTransform != null
                 ? breakthroughLabelTransform.GetComponent<TMP_Text>()
                 : null;
+            UpdateBreakthroughButtonState();
+        }
+
+        Button CreateStarChartCircleButton(Transform parent, string name,
+            Vector2 anchorMin, Vector2 anchorMax, string label, int fontSize,
+            UnityEngine.Events.UnityAction onClick)
+        {
+            Button button = CreateCharacterHitButton(parent, name,
+                anchorMin.x, anchorMin.y, anchorMax.x, anchorMax.y, onClick);
+            Image image = button.GetComponent<Image>();
+            if (image != null)
+            {
+                image.sprite = CampaignUIFactory.GetFallbackMarkerSprite();
+                image.preserveAspect = true;
+                image.color = new Color32(18, 25, 31, 220);
+                image.raycastTarget = true;
+            }
+            Outline outline = button.gameObject.AddComponent<Outline>();
+            outline.effectColor = Gold;
+            outline.effectDistance = new Vector2(1.5f, -1.5f);
+            TMP_Text labelText = AddLabel(button.transform, $"{name}Label", label, fontSize,
+                Gold, Vector2.zero, Vector2.one, TextAlignmentOptions.Center);
+            ApplyStarChartTextStyle(labelText, fontSize);
+            labelText.raycastTarget = false;
+            return button;
         }
 
         Button CreateStarChartControlButton(Transform parent, string name,
@@ -4095,16 +4374,20 @@ backgroundLayer.SetAsFirstSibling();
             breakthroughButton.interactable = enabled;
             if (enabled)
             {
-                ConfigureOutlinedButton(breakthroughButton, new Color32(28, 35, 44, 245), Gold, 2.5f);
+                ConfigureOutlinedButton(breakthroughButton, new Color32(28, 35, 44, 245), Gold, 3.5f);
+                if (breakthroughGlowImage != null)
+                    breakthroughGlowImage.color = new Color32(255, 214, 100, 120);
                 if (breakthroughButtonLabel != null)
                     breakthroughButtonLabel.color = Color.white;
             }
             else
             {
                 ConfigureOutlinedButton(breakthroughButton, new Color32(45, 48, 54, 245),
-                    new Color32(110, 115, 125, 255), 2.5f);
+                    new Color32(180, 150, 90, 255), 3f);
+                if (breakthroughGlowImage != null)
+                    breakthroughGlowImage.color = new Color32(231, 190, 110, 48);
                 if (breakthroughButtonLabel != null)
-                    breakthroughButtonLabel.color = new Color32(150, 150, 150, 255);
+                    breakthroughButtonLabel.color = new Color32(185, 185, 185, 255);
             }
         }
 
@@ -4210,6 +4493,7 @@ backgroundLayer.SetAsFirstSibling();
             }
 
             selectedStarChartBranchIndex = branchIndex;
+            RefreshGemSlotSelectionVisuals();
             int nextStar = litStarsPerBranch[branchIndex];
             bool clickedLitStar = starIndex < nextStar;
             if (nextStar >= MainProgressChartGraphic.StarsPerBranch)
@@ -4250,6 +4534,8 @@ backgroundLayer.SetAsFirstSibling();
                     MainProgressChartGraphic.StarsPerBranch - 1);
                 starChartGraphic.SetSelectedStar(selectedStarChartBranchIndex, starIndex);
             }
+            RefreshGemSlotSelectionVisuals();
+            RefreshRealmProgressBar();
             UpdateStarActionDetails();
             SetStarChartStatus(
                 "Mốc 1 sáng hiển thị trên cả 7 nhánh; tiến độ thật không đổi.");
@@ -4328,6 +4614,8 @@ backgroundLayer.SetAsFirstSibling();
             if (selectedCharacterTab == 1)
             {
                 RefreshBaseGemInventory();
+                RefreshGemSlotSelectionVisuals();
+                RefreshRealmProgressBar();
                 UpdateBreakthroughButtonState();
             }
         }

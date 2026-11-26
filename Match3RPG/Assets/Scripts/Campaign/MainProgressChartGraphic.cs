@@ -140,7 +140,7 @@ namespace Match3RPG.Campaign
                 return;
 
             Rect rect = rectTransform.rect;
-            float hitRadius = Mathf.Min(rect.width, rect.height) * .055f;
+            float hitRadius = Mathf.Min(rect.width, rect.height) * .075f;
             float closestDistance = hitRadius;
             int hitBranch = -1;
             int hitStar = -1;
@@ -190,15 +190,17 @@ namespace Match3RPG.Campaign
             if (unit <= 0f)
                 return;
 
+            bool hasSelectedBranch = selectedBranch >= 0 && selectedBranch < BranchCount;
             for (int branch = 0; branch < BranchCount; branch++)
             {
+                float branchBrightness = !hasSelectedBranch || branch == selectedBranch ? 1f : .55f;
                 int litCount = litStarCounts[branch];
                 Vector2 firstPosition = GetStarPosition(rect, branch, 0);
                 Vector2 rootPosition = GetBranchRootPosition(rect, branch);
                 Color firstSegmentColor = litCount > 0 ? BranchColors[branch] : LockedColor;
                 firstSegmentColor.a *= litCount > 0 ? .82f : .62f;
                 AddLine(vertexHelper, rootPosition, firstPosition, unit * .008f,
-                    firstSegmentColor);
+                    ApplyBranchBrightness(firstSegmentColor, branchBrightness));
 
                 for (int star = 0; star < StarsPerBranch; star++)
                 {
@@ -209,6 +211,7 @@ namespace Match3RPG.Campaign
                         bool segmentLit = star < litCount;
                         Color lineColor = segmentLit ? BranchColors[branch] : LockedColor;
                         lineColor.a *= segmentLit ? .82f : .62f;
+                        lineColor = ApplyBranchBrightness(lineColor, branchBrightness);
                         int secondArmStart = BranchSecondArmStartIndices[branch];
                         if (star == secondArmStart)
                         {
@@ -236,23 +239,36 @@ namespace Match3RPG.Campaign
                         starColor = Color.Lerp(starColor, new Color32(255, 98, 98, 255), .35f);
                     if (star == 0)
                     {
-                        AddDisc(vertexHelper, position, unit * .030f,
-                            new Color32(255, 215, 120, 55));
-                        AddRing(vertexHelper, position, unit * .026f,
-                            unit * .004f, new Color32(255, 215, 120, 235));
+                        AddDisc(vertexHelper, position, unit * .040f,
+                            ApplyBranchBrightness(new Color32(255, 215, 120, 55), branchBrightness));
+                        AddRing(vertexHelper, position, unit * .035f,
+                            unit * .004f,
+                            ApplyBranchBrightness(new Color32(255, 215, 120, 235), branchBrightness));
                     }
-                    AddStar(vertexHelper, position, unit * (.019f * pulse),
-                        starColor * color);
+                    AddStar(vertexHelper, position, unit * (.026f * pulse),
+                        ApplyBranchBrightness(starColor * color, branchBrightness));
                     if (lit)
-                        AddRing(vertexHelper, position, unit * (.028f * pulse),
-                            unit * .0035f, new Color32(255, 112, 112, 220));
+                        AddRing(vertexHelper, position, unit * (.038f * pulse),
+                            unit * .0035f,
+                            ApplyBranchBrightness(new Color32(255, 112, 112, 220), branchBrightness));
                     if (branch == selectedBranch && star == selectedStar)
-                        AddRing(vertexHelper, position, unit * .032f,
+                        AddRing(vertexHelper, position, unit * .043f,
                             unit * .004f, BranchColors[branch] * color);
                 }
             }
 
             DrawBagua(vertexHelper, rect);
+        }
+
+        static Color ApplyBranchBrightness(Color source, float brightness)
+        {
+            if (brightness >= .999f)
+                return source;
+            return new Color(
+                source.r * brightness,
+                source.g * brightness,
+                source.b * brightness,
+                source.a * brightness);
         }
 
         static void AddRing(VertexHelper vertexHelper, Vector2 center,
