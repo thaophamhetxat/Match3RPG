@@ -14,6 +14,7 @@ namespace Match3RPG.Editor
         const string SoulHarvestPath = CampaignVfxPath + "SouldH/";
         const string SkillsVfxPath = "Assets/Art/VFX/Skills/";
         const string RockSpikePath = SkillsVfxPath + "RockSpike/";
+        const string StarfallBarragePath = SkillsVfxPath + "starfall_barrage/";
         const string HealingAuraPath = CampaignVfxPath + "Other/healing_aura.png";
         const string LifeStealPath = CampaignVfxPath + "Other/life_steal.png";
         const string RageAuraPath = CampaignVfxPath + "Other/rage_aura_blue.png";
@@ -34,8 +35,10 @@ namespace Match3RPG.Editor
 
             TextureImporter importer = (TextureImporter)assetImporter;
             bool isRockSpike = assetPath.StartsWith(RockSpikePath, System.StringComparison.Ordinal);
+            bool isStarfallBarrage = assetPath.StartsWith(StarfallBarragePath, System.StringComparison.Ordinal);
             importer.textureType = TextureImporterType.Sprite;
             importer.spriteImportMode = isRockSpike
+                || isStarfallBarrage
                 || (!isSkillsVfx
                     && (assetPath == HealingAuraPath || assetPath == LifeStealPath
                         || assetPath == RageAuraPath || assetPath == BloodHitPath
@@ -43,7 +46,7 @@ namespace Match3RPG.Editor
                         || assetPath.StartsWith(SoulHarvestPath, System.StringComparison.Ordinal)))
                 ? SpriteImportMode.Multiple
                 : SpriteImportMode.Single;
-            if (isSkillsVfx && !isRockSpike)
+            if (isSkillsVfx && !isRockSpike && !isStarfallBarrage)
             {
                 TextureImporterSettings settings = new TextureImporterSettings();
                 importer.ReadTextureSettings(settings);

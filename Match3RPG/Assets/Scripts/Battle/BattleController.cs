@@ -69,16 +69,19 @@ namespace Match3RPG.Battle
         int swordQiCooldownRemaining;
         int rockSpikeCooldownRemaining;
         int ellipseSwordsCooldownRemaining;
+        int starfallBarrageCooldownRemaining;
         int lastSyncedFlyingSwordLevel = SkillConfig.DefaultLevel;
         SkillConfig flyingSwordSkillConfig;
         SkillConfig swordQiSkillConfig;
         SkillConfig rockSpikeSkillConfig;
         SkillConfig ellipseSwordsSkillConfig;
+        SkillConfig starfallBarrageSkillConfig;
         SkillConfig swordRainSkillConfig;
         FlyingSwordSkillController flyingSwordSkillController;
         SwordQiSkillController swordQiSkillController;
         RockSpikeSkillController rockSpikeSkillController;
         EllipseSwordsSkillController ellipseSwordsSkillController;
+        StarfallBarrageSkillController starfallBarrageSkillController;
         int loggedHeroRage = int.MinValue;
         int loggedHeroMaxRage = int.MinValue;
         bool statsInitialized;
@@ -115,6 +118,11 @@ namespace Match3RPG.Battle
         public int EllipseSwordsSkillLevel => SkillConfig.DefaultLevel; // TẠM: chỉ có Lv1
         public bool IsEllipseSwordsSkillRunning =>
             ellipseSwordsSkillController != null && ellipseSwordsSkillController.IsRunning;
+        public int StarfallBarrageCooldownRemaining => starfallBarrageCooldownRemaining;
+        public SkillConfig StarfallBarrageSkill => ResolveStarfallBarrageSkill();
+        public int StarfallBarrageSkillLevel => SkillConfig.DefaultLevel; // TẠM: chỉ có Lv1
+        public bool IsStarfallBarrageSkillRunning =>
+            starfallBarrageSkillController != null && starfallBarrageSkillController.IsRunning;
         public SkillConfig SwordRainSkill => ResolveSwordRainSkill();
         public int SwordRainSkillLevel => SkillConfig.DefaultLevel; // TẠM: chỉ có Lv1
         public bool IsGameOver => heroHp <= 0 || bossHp <= 0
@@ -262,6 +270,7 @@ namespace Match3RPG.Battle
             EnsureSwordQiSkillSetup();
             EnsureRockSpikeSkillSetup();
             EnsureEllipseSwordsSkillSetup();
+            EnsureStarfallBarrageSkillSetup();
             EnsureSwordRainSkillSetup();
             UpdateRageReadyVfx(BattleActor.Player);
             UpdateRageReadyVfx(BattleActor.Boss);
@@ -292,6 +301,7 @@ namespace Match3RPG.Battle
             swordQiCooldownRemaining = 0;
             rockSpikeCooldownRemaining = 0;
             ellipseSwordsCooldownRemaining = 0;
+            starfallBarrageCooldownRemaining = 0;
             flyingSwordSkillController?.StopOrbitImmediate();
             if (layoutTestMode)
                 ApplyLayoutTestState();
@@ -754,6 +764,8 @@ namespace Match3RPG.Battle
                 rockSpikeCooldownRemaining--;
             if (ellipseSwordsCooldownRemaining > 0)
                 ellipseSwordsCooldownRemaining--;
+            if (starfallBarrageCooldownRemaining > 0)
+                starfallBarrageCooldownRemaining--;
 
             if (flyingSwordOrbitTurnsRemaining > 0)
             {
@@ -856,6 +868,26 @@ namespace Match3RPG.Battle
                 ref ellipseSwordsSkillConfig,
                 SkillConfig.EllipseSwordsSkillId,
                 SkillConfig.CreateRuntimeEllipseSwordsFallback);
+        }
+
+        void EnsureStarfallBarrageSkillSetup()
+        {
+            ResolveStarfallBarrageSkill();
+            if (starfallBarrageSkillController == null)
+            {
+                starfallBarrageSkillController = GetComponent<StarfallBarrageSkillController>();
+                if (starfallBarrageSkillController == null)
+                    starfallBarrageSkillController = gameObject.AddComponent<StarfallBarrageSkillController>();
+            }
+            starfallBarrageSkillController.SkillLevel = SkillConfig.DefaultLevel;
+        }
+
+        SkillConfig ResolveStarfallBarrageSkill()
+        {
+            return ResolveSkillById(
+                ref starfallBarrageSkillConfig,
+                SkillConfig.StarfallBarrageSkillId,
+                SkillConfig.CreateRuntimeStarfallBarrageFallback);
         }
 
         void EnsureSwordRainSkillSetup()
@@ -1141,6 +1173,32 @@ namespace Match3RPG.Battle
             return true;
         }
 
+        public bool CanActivateStarfallBarrageSkill()
+        {
+            return CanActivateSkill(
+                ResolveStarfallBarrageSkill(),
+                starfallBarrageCooldownRemaining,
+                IsStarfallBarrageSkillRunning,
+                SkillConfig.StarfallBarrageDefaultManaCost,
+                SkillConfig.StarfallBarrageDefaultRageCost);
+        }
+
+        public bool TryConsumeStarfallBarrageSkillCost()
+        {
+            if (!TryConsumeSkillCost(
+                ResolveStarfallBarrageSkill(),
+                starfallBarrageCooldownRemaining,
+                IsStarfallBarrageSkillRunning,
+                SkillConfig.StarfallBarrageDefaultManaCost,
+                SkillConfig.StarfallBarrageDefaultRageCost,
+                SkillConfig.StarfallBarrageDefaultCooldownTurns,
+                out int newCooldown))
+                return false;
+
+            starfallBarrageCooldownRemaining = newCooldown;
+            return true;
+        }
+
         bool CanActivateSkill(SkillConfig skill, int cooldownRemaining, bool isRunning,
             int defaultManaCost, int defaultRageCost)
         {
@@ -1315,6 +1373,44 @@ namespace Match3RPG.Battle
             int rawDamage = baseDamage + (swordIndex == 0 ? remainder : 0);
 
             int damage = ApplyDamage(BattleActor.Boss, rawDamage);
+            if (damage > 0)
+            {
+                ShowResource(boss, FloatingTextType.Damage, damage);
+                AddReceivedHitRage(BattleActor.Boss);
+                Refresh();
+                if (boss != null && bossHp > 0)
+                    yield return boss.Hit();
+            }
+
+            if ((bossHp == 0 || (soulEnabled && bossSoulHp == 0)) && boss != null)
+                yield return boss.Death();
+            StopFlyingSwordOrbitIfBattleEnded();
+            Refresh();
+        }
+
+        public IEnumerator ExecuteStarfallBarrageSkill()
+        {
+            if (IsGameOver)
+                yield break;
+
+            EnsureStarfallBarrageSkillSetup();
+            SkillConfig skill = ResolveStarfallBarrageSkill();
+            if (starfallBarrageSkillController == null)
+                yield break;
+
+            yield return starfallBarrageSkillController.ExecuteSkill(hero, boss, skill, ApplyStarfallBarrageImpact);
+        }
+
+        IEnumerator ApplyStarfallBarrageImpact()
+        {
+            if (IsGameOver)
+                yield break;
+
+            combatVfx?.PlayHitImpact(BattleActor.Boss);
+
+            // TẠM: sát thương phẳng = 100 (StarfallBarrageDefaultDamage),
+            // tính đúng lúc vòng nổ dưới đất đạt đỉnh (frame 52). Sư Huynh chốt sau Play-test.
+            int damage = ApplyDamage(BattleActor.Boss, SkillConfig.StarfallBarrageDefaultDamage);
             if (damage > 0)
             {
                 ShowResource(boss, FloatingTextType.Damage, damage);

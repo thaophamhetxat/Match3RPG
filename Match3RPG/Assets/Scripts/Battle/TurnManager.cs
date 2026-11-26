@@ -55,6 +55,9 @@ namespace Match3RPG.Battle
         public bool CanActivateEllipseSwordsSkill =>
             CanActivateAnyManualSkill
             && battle.CanActivateEllipseSwordsSkill();
+        public bool CanActivateStarfallBarrageSkill =>
+            CanActivateAnyManualSkill
+            && battle.CanActivateStarfallBarrageSkill();
         int StoredTurnLimit => Mathf.Clamp(maximumStoredTurns, 1, 5);
 
         public static BattleActor? GetFasterActor(float heroSpeed, float bossSpeed)
@@ -129,6 +132,16 @@ namespace Match3RPG.Battle
                 return false;
 
             return StartManualSkillExecution(battle.ExecuteEllipseSwordsSkill());
+        }
+
+        public bool TryActivateStarfallBarrageSkill()
+        {
+            if (!CanActivateStarfallBarrageSkill)
+                return false;
+            if (!battle.TryConsumeStarfallBarrageSkillCost())
+                return false;
+
+            return StartManualSkillExecution(battle.ExecuteStarfallBarrageSkill());
         }
 
         bool StartManualSkillExecution(IEnumerator skillExecution)

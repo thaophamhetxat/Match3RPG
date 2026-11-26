@@ -90,6 +90,7 @@ namespace Match3RPG.Battle
         SkillRowWidgets swordQiRow;
         SkillRowWidgets rockSpikeRow;
         SkillRowWidgets ellipseSwordsRow;
+        SkillRowWidgets starfallBarrageRow;
         SkillRowWidgets swordRainRow;
         float skillRowRightTextWidth = 575f;
         RectTransform skillTooltipRoot;
@@ -618,7 +619,7 @@ namespace Match3RPG.Battle
             skillsScrollRect.scrollSensitivity = 36f;
             skillsScrollRect.viewport = viewportRect;
 
-            const int totalRows = 6; // 5 skill thật (4 active + 1 passive) + 1 ô kỹ năng trống
+            const int totalRows = 7; // 6 skill thật (5 active + 1 passive) + 1 ô kỹ năng trống
             const float rowWidth = 815f;
             const float rowHeight = 220f; // Thu nhỏ ~15% từ 258f xuống 220f
             const float rowSpacing = 26f;
@@ -698,6 +699,19 @@ namespace Match3RPG.Battle
                 }
 
                 if (rowIndex == 4)
+                {
+                    starfallBarrageRow = BuildSkillRow(
+                        rowRect,
+                        rowWidth,
+                        iconSize,
+                        iconLeftMargin,
+                        SkillConfig.ResolveStarfallBarrageSprite(),
+                        SkillConfig.StarfallBarrageDescription,
+                        OnStarfallBarrageSkillClicked);
+                    continue;
+                }
+
+                if (rowIndex == 5)
                 {
                     // Kỹ năng nội tại (Passive): không thêm nút bấm tay (onClick = null).
                     swordRainRow = BuildSkillRow(
@@ -1063,6 +1077,23 @@ namespace Match3RPG.Battle
                     turnManager != null && turnManager.CanActivateEllipseSwordsSkill);
             }
 
+            if (starfallBarrageRow != null)
+            {
+                SkillConfig starfallBarrageSkill = battle != null ? battle.StarfallBarrageSkill : null;
+                int level = battle != null ? battle.StarfallBarrageSkillLevel : SkillConfig.DefaultLevel;
+                RefreshSkillRow(
+                    starfallBarrageRow,
+                    starfallBarrageSkill,
+                    SkillConfig.ResolveStarfallBarrageSprite(),
+                    level,
+                    SkillConfig.StarfallBarrageDefaultManaCost,
+                    SkillConfig.StarfallBarrageDefaultRageCost,
+                    SkillConfig.StarfallBarrageDefaultCooldownTurns,
+                    battle != null ? battle.StarfallBarrageCooldownRemaining : 0,
+                    SkillConfig.StarfallBarrageDescription,
+                    turnManager != null && turnManager.CanActivateStarfallBarrageSkill);
+            }
+
             if (swordRainRow != null)
             {
                 SkillConfig swordRainSkill = battle != null ? battle.SwordRainSkill : null;
@@ -1228,6 +1259,13 @@ namespace Match3RPG.Battle
             HandleSkillClicked(
                 turnManager != null && turnManager.CanActivateEllipseSwordsSkill,
                 () => turnManager.TryActivateEllipseSwordsSkill());
+        }
+
+        void OnStarfallBarrageSkillClicked()
+        {
+            HandleSkillClicked(
+                turnManager != null && turnManager.CanActivateStarfallBarrageSkill,
+                () => turnManager.TryActivateStarfallBarrageSkill());
         }
 
         void HandleSkillClicked(bool canActivate, System.Func<bool> tryActivate)

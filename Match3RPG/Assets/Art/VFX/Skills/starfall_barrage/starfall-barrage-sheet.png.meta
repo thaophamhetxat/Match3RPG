@@ -1,0 +1,4011 @@
+fileFormatVersion: 2
+guid: d6c8653fa1acb184c831ddba61ba29e9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6625175551685970823
+    second: starfall-barrage-sheet_0
+  - first:
+      213: -5957074984786267620
+    second: starfall-barrage-sheet_1
+  - first:
+      213: 8831411454904652134
+    second: starfall-barrage-sheet_2
+  - first:
+      213: 3936252494741292359
+    second: starfall-barrage-sheet_3
+  - first:
+      213: 2057482719524179080
+    second: starfall-barrage-sheet_4
+  - first:
+      213: -8795921763878197231
+    second: starfall-barrage-sheet_5
+  - first:
+      213: 6175738758579345475
+    second: starfall-barrage-sheet_6
+  - first:
+      213: 8192451631400864228
+    second: starfall-barrage-sheet_7
+  - first:
+      213: 8078685759141272212
+    second: starfall-barrage-sheet_8
+  - first:
+      213: -736769162271677418
+    second: starfall-barrage-sheet_9
+  - first:
+      213: -4001700377324045388
+    second: starfall-barrage-sheet_10
+  - first:
+      213: 115843447898826898
+    second: starfall-barrage-sheet_11
+  - first:
+      213: -4031697189043651095
+    second: starfall-barrage-sheet_12
+  - first:
+      213: 4735398922688123667
+    second: starfall-barrage-sheet_13
+  - first:
+      213: 9132491660896390672
+    second: starfall-barrage-sheet_14
+  - first:
+      213: -6748950047763698003
+    second: starfall-barrage-sheet_15
+  - first:
+      213: -6280452917811202609
+    second: starfall-barrage-sheet_16
+  - first:
+      213: 2784985753455785702
+    second: starfall-barrage-sheet_17
+  - first:
+      213: 2839161909079933639
+    second: starfall-barrage-sheet_18
+  - first:
+      213: 5220724758268583906
+    second: starfall-barrage-sheet_19
+  - first:
+      213: -4539820048283235642
+    second: starfall-barrage-sheet_20
+  - first:
+      213: -811500252280411119
+    second: starfall-barrage-sheet_21
+  - first:
+      213: -2883487900131708075
+    second: starfall-barrage-sheet_22
+  - first:
+      213: -3749300225150790096
+    second: starfall-barrage-sheet_23
+  - first:
+      213: 3296853823105647340
+    second: starfall-barrage-sheet_24
+  - first:
+      213: 7836094261039566359
+    second: starfall-barrage-sheet_25
+  - first:
+      213: 5596330826872782551
+    second: starfall-barrage-sheet_26
+  - first:
+      213: -4327227033475695665
+    second: starfall-barrage-sheet_27
+  - first:
+      213: -7389608581937047268
+    second: starfall-barrage-sheet_28
+  - first:
+      213: 2694211808291374519
+    second: starfall-barrage-sheet_29
+  - first:
+      213: 7692447607456897246
+    second: starfall-barrage-sheet_30
+  - first:
+      213: 3637626209149244949
+    second: starfall-barrage-sheet_31
+  - first:
+      213: -6328887772984801517
+    second: starfall-barrage-sheet_32
+  - first:
+      213: -6125229219046404872
+    second: starfall-barrage-sheet_33
+  - first:
+      213: -7073137286923692321
+    second: starfall-barrage-sheet_34
+  - first:
+      213: 1717560297069609063
+    second: starfall-barrage-sheet_35
+  - first:
+      213: -3385585119991381265
+    second: starfall-barrage-sheet_36
+  - first:
+      213: 6506199062245828068
+    second: starfall-barrage-sheet_37
+  - first:
+      213: 8672444489827401307
+    second: starfall-barrage-sheet_38
+  - first:
+      213: -4733608464238148651
+    second: starfall-barrage-sheet_39
+  - first:
+      213: 4540474576606516288
+    second: starfall-barrage-sheet_40
+  - first:
+      213: -5700951513221664262
+    second: starfall-barrage-sheet_41
+  - first:
+      213: -4655797681745106017
+    second: starfall-barrage-sheet_42
+  - first:
+      213: -1496803200732435346
+    second: starfall-barrage-sheet_43
+  - first:
+      213: -4869879930452381474
+    second: starfall-barrage-sheet_44
+  - first:
+      213: -8678995493475185068
+    second: starfall-barrage-sheet_45
+  - first:
+      213: 4784706233175823924
+    second: starfall-barrage-sheet_46
+  - first:
+      213: -6622471995813356083
+    second: starfall-barrage-sheet_47
+  - first:
+      213: -2596939310018587995
+    second: starfall-barrage-sheet_48
+  - first:
+      213: 8888114234524415433
+    second: starfall-barrage-sheet_49
+  - first:
+      213: -671448927190100994
+    second: starfall-barrage-sheet_50
+  - first:
+      213: 9189435670559198015
+    second: starfall-barrage-sheet_51
+  - first:
+      213: 8703364083338432133
+    second: starfall-barrage-sheet_52
+  - first:
+      213: -8206493443991218198
+    second: starfall-barrage-sheet_53
+  - first:
+      213: -5827703423828071258
+    second: starfall-barrage-sheet_54
+  - first:
+      213: -4949452608017898463
+    second: starfall-barrage-sheet_55
+  - first:
+      213: -8980917881545315382
+    second: starfall-barrage-sheet_56
+  - first:
+      213: 357382050417013265
+    second: starfall-barrage-sheet_57
+  - first:
+      213: 7460302864478224681
+    second: starfall-barrage-sheet_58
+  - first:
+      213: -2959463229762882419
+    second: starfall-barrage-sheet_59
+  - first:
+      213: -5710031024877357
+    second: starfall-barrage-sheet_60
+  - first:
+      213: 941726792934798519
+    second: starfall-barrage-sheet_61
+  - first:
+      213: -3357307663696559925
+    second: starfall-barrage-sheet_62
+  - first:
+      213: 8105876816697680011
+    second: starfall-barrage-sheet_63
+  - first:
+      213: 5182553650060820423
+    second: starfall-barrage-sheet_64
+  - first:
+      213: 2847338302603880121
+    second: starfall-barrage-sheet_65
+  - first:
+      213: 2659381846446561364
+    second: starfall-barrage-sheet_66
+  - first:
+      213: -52672961733250478
+    second: starfall-barrage-sheet_67
+  - first:
+      213: -2365346773185251792
+    second: starfall-barrage-sheet_68
+  - first:
+      213: -9099535828493991814
+    second: starfall-barrage-sheet_69
+  - first:
+      213: 1899244787026123658
+    second: starfall-barrage-sheet_70
+  - first:
+      213: 8724666455636718275
+    second: starfall-barrage-sheet_71
+  - first:
+      213: 5106520388083409746
+    second: starfall-barrage-sheet_72
+  - first:
+      213: -996760218737298590
+    second: starfall-barrage-sheet_73
+  - first:
+      213: 2660092108005483834
+    second: starfall-barrage-sheet_74
+  - first:
+      213: -8207388091104802702
+    second: starfall-barrage-sheet_75
+  - first:
+      213: 3258240691098447293
+    second: starfall-barrage-sheet_76
+  - first:
+      213: -1238271114832438576
+    second: starfall-barrage-sheet_77
+  - first:
+      213: 2034324456265518231
+    second: starfall-barrage-sheet_78
+  - first:
+      213: -3703914401983017876
+    second: starfall-barrage-sheet_79
+  - first:
+      213: 7365952829812639243
+    second: starfall-barrage-sheet_80
+  - first:
+      213: 4291901880717281593
+    second: starfall-barrage-sheet_81
+  - first:
+      213: -5089987082519222538
+    second: starfall-barrage-sheet_82
+  - first:
+      213: 5828079039817270593
+    second: starfall-barrage-sheet_83
+  - first:
+      213: 6110903613006347162
+    second: starfall-barrage-sheet_84
+  - first:
+      213: 6726335252164227568
+    second: starfall-barrage-sheet_85
+  - first:
+      213: 3487547515604080566
+    second: starfall-barrage-sheet_86
+  - first:
+      213: 829692170460348111
+    second: starfall-barrage-sheet_87
+  - first:
+      213: 3657495114332743235
+    second: starfall-barrage-sheet_88
+  - first:
+      213: -6434904079243587890
+    second: starfall-barrage-sheet_89
+  - first:
+      213: -4630571469616638752
+    second: starfall-barrage-sheet_90
+  - first:
+      213: -1889722571696776907
+    second: starfall-barrage-sheet_91
+  - first:
+      213: 8811152686439076269
+    second: starfall-barrage-sheet_92
+  - first:
+      213: -606717405902475098
+    second: starfall-barrage-sheet_93
+  - first:
+      213: -8620612539974507325
+    second: starfall-barrage-sheet_94
+  - first:
+      213: -2586037668333180627
+    second: starfall-barrage-sheet_95
+  - first:
+      213: 7828216437386864164
+    second: starfall-barrage-sheet_96
+  - first:
+      213: -6122161706454979644
+    second: starfall-barrage-sheet_97
+  - first:
+      213: -8042193467916913166
+    second: starfall-barrage-sheet_98
+  - first:
+      213: 3362194357580410000
+    second: starfall-barrage-sheet_99
+  - first:
+      213: -4340714980246206292
+    second: starfall-barrage-sheet_100
+  - first:
+      213: -306385918456788406
+    second: starfall-barrage-sheet_101
+  - first:
+      213: 5570692521073640195
+    second: starfall-barrage-sheet_102
+  - first:
+      213: 4108482376846072757
+    second: starfall-barrage-sheet_103
+  - first:
+      213: -3348266114535909518
+    second: starfall-barrage-sheet_104
+  - first:
+      213: -2458292218716735398
+    second: starfall-barrage-sheet_105
+  - first:
+      213: -3126518223357163163
+    second: starfall-barrage-sheet_106
+  - first:
+      213: -8415034509446887894
+    second: starfall-barrage-sheet_107
+  - first:
+      213: 7606042176459901597
+    second: starfall-barrage-sheet_108
+  - first:
+      213: -9002702660176900046
+    second: starfall-barrage-sheet_109
+  - first:
+      213: -3883963186815683507
+    second: starfall-barrage-sheet_110
+  - first:
+      213: -6077050228847898532
+    second: starfall-barrage-sheet_111
+  - first:
+      213: -6193760869752044560
+    second: starfall-barrage-sheet_112
+  - first:
+      213: 919689879948941594
+    second: starfall-barrage-sheet_113
+  - first:
+      213: 3398293468879832618
+    second: starfall-barrage-sheet_114
+  - first:
+      213: -1293209504437059299
+    second: starfall-barrage-sheet_115
+  - first:
+      213: -3602197372753776778
+    second: starfall-barrage-sheet_116
+  - first:
+      213: -7793833350558348584
+    second: starfall-barrage-sheet_117
+  - first:
+      213: 8983217959402847498
+    second: starfall-barrage-sheet_118
+  - first:
+      213: -5281492661702886601
+    second: starfall-barrage-sheet_119
+  - first:
+      213: 3754579647705289554
+    second: starfall-barrage-sheet_120
+  - first:
+      213: 5415781513795454769
+    second: starfall-barrage-sheet_121
+  - first:
+      213: 272089427336795852
+    second: starfall-barrage-sheet_122
+  - first:
+      213: -2546568085640596209
+    second: starfall-barrage-sheet_123
+  - first:
+      213: -3976461176927062583
+    second: starfall-barrage-sheet_124
+  - first:
+      213: 8598454718291932750
+    second: starfall-barrage-sheet_125
+  - first:
+      213: 8205768948610867549
+    second: starfall-barrage-sheet_126
+  - first:
+      213: -4684681142043432534
+    second: starfall-barrage-sheet_127
+  - first:
+      213: -6024525597752205355
+    second: starfall-barrage-sheet_128
+  - first:
+      213: -1526606567407561956
+    second: starfall-barrage-sheet_129
+  - first:
+      213: -363936886161541913
+    second: starfall-barrage-sheet_130
+  - first:
+      213: -4981589604959372946
+    second: starfall-barrage-sheet_131
+  - first:
+      213: 1195309494243845512
+    second: starfall-barrage-sheet_132
+  - first:
+      213: 3589595605616542488
+    second: starfall-barrage-sheet_133
+  - first:
+      213: 3132497665400017807
+    second: starfall-barrage-sheet_134
+  - first:
+      213: -7484916986420249762
+    second: starfall-barrage-sheet_135
+  - first:
+      213: 5578227186905130657
+    second: starfall-barrage-sheet_136
+  - first:
+      213: -6007032445426209135
+    second: starfall-barrage-sheet_137
+  - first:
+      213: 1724343949614938591
+    second: starfall-barrage-sheet_138
+  - first:
+      213: -6667151654365979313
+    second: starfall-barrage-sheet_139
+  - first:
+      213: -1900528871348107311
+    second: starfall-barrage-sheet_140
+  - first:
+      213: -7171909777179924708
+    second: starfall-barrage-sheet_141
+  - first:
+      213: 3299076607356179978
+    second: starfall-barrage-sheet_142
+  - first:
+      213: 3783445982648168769
+    second: starfall-barrage-sheet_143
+  - first:
+      213: -1696892298533651847
+    second: starfall-barrage-sheet_144
+  - first:
+      213: 7745295668940557111
+    second: starfall-barrage-sheet_145
+  - first:
+      213: -8001812233382505467
+    second: starfall-barrage-sheet_146
+  - first:
+      213: 2430281014388633348
+    second: starfall-barrage-sheet_147
+  - first:
+      213: 3075359507331821466
+    second: starfall-barrage-sheet_148
+  - first:
+      213: 9084442313767566774
+    second: starfall-barrage-sheet_149
+  - first:
+      213: 4006973989561642096
+    second: starfall-barrage-sheet_150
+  - first:
+      213: -515265158155834428
+    second: starfall-barrage-sheet_151
+  - first:
+      213: -5794893061960649288
+    second: starfall-barrage-sheet_152
+  - first:
+      213: 3115276638330374028
+    second: starfall-barrage-sheet_153
+  - first:
+      213: 2580750729422456935
+    second: starfall-barrage-sheet_154
+  - first:
+      213: -4598302710988613081
+    second: starfall-barrage-sheet_155
+  - first:
+      213: -4461399200043981305
+    second: starfall-barrage-sheet_156
+  - first:
+      213: -3141911622140782550
+    second: starfall-barrage-sheet_157
+  - first:
+      213: -7002475799973644364
+    second: starfall-barrage-sheet_158
+  - first:
+      213: 1370409328728446841
+    second: starfall-barrage-sheet_159
+  - first:
+      213: 647999803973162991
+    second: starfall-barrage-sheet_160
+  - first:
+      213: -5815821888694659763
+    second: starfall-barrage-sheet_161
+  - first:
+      213: 2925635129195772658
+    second: starfall-barrage-sheet_162
+  - first:
+      213: -745642013207653799
+    second: starfall-barrage-sheet_163
+  - first:
+      213: 39537722468627701
+    second: starfall-barrage-sheet_164
+  - first:
+      213: -8966176438590555014
+    second: starfall-barrage-sheet_165
+  - first:
+      213: -1779480280219695402
+    second: starfall-barrage-sheet_166
+  - first:
+      213: -7844657789430255791
+    second: starfall-barrage-sheet_167
+  - first:
+      213: -289903179866854810
+    second: starfall-barrage-sheet_168
+  - first:
+      213: -2798859802241303512
+    second: starfall-barrage-sheet_169
+  - first:
+      213: -6379309773041553068
+    second: starfall-barrage-sheet_170
+  - first:
+      213: 8014908073723742290
+    second: starfall-barrage-sheet_171
+  - first:
+      213: -5383114873937763998
+    second: starfall-barrage-sheet_172
+  - first:
+      213: -123799708708549457
+    second: starfall-barrage-sheet_173
+  - first:
+      213: -2015152071145290903
+    second: starfall-barrage-sheet_174
+  - first:
+      213: 7701385702235210775
+    second: starfall-barrage-sheet_175
+  - first:
+      213: -7392032455749636941
+    second: starfall-barrage-sheet_176
+  - first:
+      213: 3846783449447609272
+    second: starfall-barrage-sheet_177
+  - first:
+      213: 8122168441451488133
+    second: starfall-barrage-sheet_178
+  - first:
+      213: -1559694232595738748
+    second: starfall-barrage-sheet_179
+  - first:
+      213: 6225667683150278829
+    second: starfall-barrage-sheet_180
+  - first:
+      213: 2519230093737344165
+    second: starfall-barrage-sheet_181
+  - first:
+      213: -9171527532799112684
+    second: starfall-barrage-sheet_182
+  - first:
+      213: -4297364143004927446
+    second: starfall-barrage-sheet_183
+  - first:
+      213: -3385352351105057421
+    second: starfall-barrage-sheet_184
+  - first:
+      213: -4106253451369788457
+    second: starfall-barrage-sheet_185
+  - first:
+      213: -2784812568904095775
+    second: starfall-barrage-sheet_186
+  - first:
+      213: -5429009496229294460
+    second: starfall-barrage-sheet_187
+  - first:
+      213: 3681913072893135135
+    second: starfall-barrage-sheet_188
+  - first:
+      213: -8372405635486705777
+    second: starfall-barrage-sheet_189
+  - first:
+      213: 1506915197762066155
+    second: starfall-barrage-sheet_190
+  - first:
+      213: -1632697384988828931
+    second: starfall-barrage-sheet_191
+  - first:
+      213: -4759226806871459468
+    second: starfall-barrage-sheet_192
+  - first:
+      213: 291857821537787869
+    second: starfall-barrage-sheet_193
+  - first:
+      213: -2992946376987908421
+    second: starfall-barrage-sheet_194
+  - first:
+      213: 2273960024702023899
+    second: starfall-barrage-sheet_195
+  - first:
+      213: -3092501116209865877
+    second: starfall-barrage-sheet_196
+  - first:
+      213: -6176642032486662306
+    second: starfall-barrage-sheet_197
+  - first:
+      213: -2352741964210627305
+    second: starfall-barrage-sheet_198
+  - first:
+      213: -68856425178990173
+    second: starfall-barrage-sheet_199
+  - first:
+      213: -6416231032290609283
+    second: starfall-barrage-sheet_200
+  - first:
+      213: -5894152332712993555
+    second: starfall-barrage-sheet_201
+  - first:
+      213: 8714089430579102098
+    second: starfall-barrage-sheet_202
+  - first:
+      213: -8304968470767454580
+    second: starfall-barrage-sheet_203
+  - first:
+      213: 3561056548214804808
+    second: starfall-barrage-sheet_204
+  - first:
+      213: 6165412957111066210
+    second: starfall-barrage-sheet_205
+  - first:
+      213: 6943743354220950678
+    second: starfall-barrage-sheet_206
+  - first:
+      213: -5702233730170640912
+    second: starfall-barrage-sheet_207
+  - first:
+      213: -355280873477419318
+    second: starfall-barrage-sheet_208
+  - first:
+      213: 3046843846287177501
+    second: starfall-barrage-sheet_209
+  - first:
+      213: 554148354979739059
+    second: starfall-barrage-sheet_210
+  - first:
+      213: 6944738961749855101
+    second: starfall-barrage-sheet_211
+  - first:
+      213: 7800371036886664783
+    second: starfall-barrage-sheet_212
+  - first:
+      213: 1258638152397998971
+    second: starfall-barrage-sheet_213
+  - first:
+      213: -2591933108244584843
+    second: starfall-barrage-sheet_214
+  - first:
+      213: -2821867939279242070
+    second: starfall-barrage-sheet_215
+  - first:
+      213: -5679246355756848392
+    second: starfall-barrage-sheet_216
+  - first:
+      213: -113410653652848064
+    second: starfall-barrage-sheet_217
+  - first:
+      213: -6132056162020779088
+    second: starfall-barrage-sheet_218
+  - first:
+      213: 7336788785870599197
+    second: starfall-barrage-sheet_219
+  - first:
+      213: -7781503874562996087
+    second: starfall-barrage-sheet_220
+  - first:
+      213: 3709711595632520810
+    second: starfall-barrage-sheet_221
+  - first:
+      213: 3787642787498285522
+    second: starfall-barrage-sheet_222
+  - first:
+      213: 4021186199748959572
+    second: starfall-barrage-sheet_223
+  - first:
+      213: 656779878773734692
+    second: starfall-barrage-sheet_224
+  - first:
+      213: -1211469723724114499
+    second: starfall-barrage-sheet_225
+  - first:
+      213: -9220962281120423031
+    second: starfall-barrage-sheet_226
+  - first:
+      213: 4319960150525950501
+    second: starfall-barrage-sheet_227
+  - first:
+      213: 5908829768893622131
+    second: starfall-barrage-sheet_228
+  - first:
+      213: 7436172677453076849
+    second: starfall-barrage-sheet_229
+  - first:
+      213: 1851607399733095421
+    second: starfall-barrage-sheet_230
+  - first:
+      213: 902834666568711419
+    second: starfall-barrage-sheet_231
+  - first:
+      213: 6973321640099361378
+    second: starfall-barrage-sheet_232
+  - first:
+      213: 5594089731656484422
+    second: starfall-barrage-sheet_233
+  - first:
+      213: 2472111208620144875
+    second: starfall-barrage-sheet_234
+  - first:
+      213: -76610103801778837
+    second: starfall-barrage-sheet_235
+  - first:
+      213: 5766788830518790123
+    second: starfall-barrage-sheet_236
+  - first:
+      213: -3308921311602654886
+    second: starfall-barrage-sheet_237
+  - first:
+      213: 7360590203828967493
+    second: starfall-barrage-sheet_238
+  - first:
+      213: -8853697532378625932
+    second: starfall-barrage-sheet_239
+  - first:
+      213: -1256585846037627489
+    second: starfall-barrage-sheet_240
+  - first:
+      213: -107840144654438042
+    second: starfall-barrage-sheet_241
+  - first:
+      213: 8497751501897619840
+    second: starfall-barrage-sheet_242
+  - first:
+      213: -2948480519064597052
+    second: starfall-barrage-sheet_243
+  - first:
+      213: 8232936531761917489
+    second: starfall-barrage-sheet_244
+  - first:
+      213: -6199485361538498461
+    second: starfall-barrage-sheet_245
+  - first:
+      213: 7035123874147230977
+    second: starfall-barrage-sheet_246
+  - first:
+      213: -6271053272317252547
+    second: starfall-barrage-sheet_247
+  - first:
+      213: -1219647122502480136
+    second: starfall-barrage-sheet_248
+  - first:
+      213: 2485490732144657256
+    second: starfall-barrage-sheet_249
+  - first:
+      213: -3074852648683567783
+    second: starfall-barrage-sheet_250
+  - first:
+      213: 507879001274152877
+    second: starfall-barrage-sheet_251
+  - first:
+      213: 4710880722020177720
+    second: starfall-barrage-sheet_252
+  - first:
+      213: 7116552935602923568
+    second: starfall-barrage-sheet_253
+  - first:
+      213: 5649869258415477310
+    second: starfall-barrage-sheet_254
+  - first:
+      213: -6456782276692210449
+    second: starfall-barrage-sheet_255
+  - first:
+      213: 8310286661270878978
+    second: starfall-barrage-sheet_256
+  - first:
+      213: 7218513927027706638
+    second: starfall-barrage-sheet_257
+  - first:
+      213: 5306688536910672621
+    second: starfall-barrage-sheet_258
+  - first:
+      213: -95063180895026690
+    second: starfall-barrage-sheet_259
+  - first:
+      213: -8375565939799213475
+    second: starfall-barrage-sheet_260
+  - first:
+      213: -3125436592566995561
+    second: starfall-barrage-sheet_261
+  - first:
+      213: -3161124904054699095
+    second: starfall-barrage-sheet_262
+  - first:
+      213: -7196920905915736430
+    second: starfall-barrage-sheet_263
+  - first:
+      213: -7229698090127146653
+    second: starfall-barrage-sheet_264
+  - first:
+      213: -634331593764145459
+    second: starfall-barrage-sheet_265
+  - first:
+      213: -1718710044147175843
+    second: starfall-barrage-sheet_266
+  - first:
+      213: -1024605178746377808
+    second: starfall-barrage-sheet_267
+  - first:
+      213: 1449003370512499759
+    second: starfall-barrage-sheet_268
+  - first:
+      213: -178671154148605545
+    second: starfall-barrage-sheet_269
+  - first:
+      213: 4023253804442223147
+    second: starfall-barrage-sheet_270
+  - first:
+      213: 4482958929191986773
+    second: starfall-barrage-sheet_271
+  - first:
+      213: 2548217023741562143
+    second: starfall-barrage-sheet_272
+  - first:
+      213: 4483247295183954030
+    second: starfall-barrage-sheet_273
+  - first:
+      213: -6453149468213645489
+    second: starfall-barrage-sheet_274
+  - first:
+      213: 8880903514482077206
+    second: starfall-barrage-sheet_275
+  - first:
+      213: 4517547145679213748
+    second: starfall-barrage-sheet_276
+  - first:
+      213: -2823793751382983513
+    second: starfall-barrage-sheet_277
+  - first:
+      213: -3356408405914936001
+    second: starfall-barrage-sheet_278
+  - first:
+      213: -1836606807063639900
+    second: starfall-barrage-sheet_279
+  - first:
+      213: -1486919679901015031
+    second: starfall-barrage-sheet_280
+  - first:
+      213: -2292104337517606886
+    second: starfall-barrage-sheet_281
+  - first:
+      213: 1267858477168046410
+    second: starfall-barrage-sheet_282
+  - first:
+      213: 1050836141948589713
+    second: starfall-barrage-sheet_283
+  - first:
+      213: 1170037282161992782
+    second: starfall-barrage-sheet_284
+  - first:
+      213: -6192430953988967095
+    second: starfall-barrage-sheet_285
+  - first:
+      213: -7500649511785206172
+    second: starfall-barrage-sheet_286
+  - first:
+      213: 4753428643931639233
+    second: starfall-barrage-sheet_287
+  - first:
+      213: 589332586244755108
+    second: starfall-barrage-sheet_288
+  - first:
+      213: 3894734803722171915
+    second: starfall-barrage-sheet_289
+  - first:
+      213: 2715529330650130076
+    second: starfall-barrage-sheet_290
+  - first:
+      213: -8139239506032071622
+    second: starfall-barrage-sheet_291
+  - first:
+      213: 6387486934704406644
+    second: starfall-barrage-sheet_292
+  - first:
+      213: 2433911890311216215
+    second: starfall-barrage-sheet_293
+  - first:
+      213: 7610199106920498612
+    second: starfall-barrage-sheet_294
+  - first:
+      213: -5885577936977497221
+    second: starfall-barrage-sheet_295
+  - first:
+      213: -4692760628773733889
+    second: starfall-barrage-sheet_296
+  - first:
+      213: -2592867566190234384
+    second: starfall-barrage-sheet_297
+  - first:
+      213: 5106392587655926740
+    second: starfall-barrage-sheet_298
+  - first:
+      213: -289319765039728359
+    second: starfall-barrage-sheet_299
+  - first:
+      213: 3932481283476490295
+    second: starfall-barrage-sheet_300
+  - first:
+      213: -6691551256607414513
+    second: starfall-barrage-sheet_301
+  - first:
+      213: -3293452414990825829
+    second: starfall-barrage-sheet_302
+  - first:
+      213: 8373906021111192866
+    second: starfall-barrage-sheet_303
+  - first:
+      213: -2219742630885886411
+    second: starfall-barrage-sheet_304
+  - first:
+      213: -1108931606980324863
+    second: starfall-barrage-sheet_305
+  - first:
+      213: -752442228147955411
+    second: starfall-barrage-sheet_306
+  - first:
+      213: -3144395453717081418
+    second: starfall-barrage-sheet_307
+  - first:
+      213: -2139760038263362497
+    second: starfall-barrage-sheet_308
+  - first:
+      213: 9169234357650561322
+    second: starfall-barrage-sheet_309
+  - first:
+      213: -3030114435718706279
+    second: starfall-barrage-sheet_310
+  - first:
+      213: 2320074606033271124
+    second: starfall-barrage-sheet_311
+  - first:
+      213: -632601387769080471
+    second: starfall-barrage-sheet_312
+  - first:
+      213: -8087683973843032421
+    second: starfall-barrage-sheet_313
+  - first:
+      213: -7816597668595208867
+    second: starfall-barrage-sheet_314
+  - first:
+      213: 4720138350218415665
+    second: starfall-barrage-sheet_315
+  - first:
+      213: 1286742863516788405
+    second: starfall-barrage-sheet_316
+  - first:
+      213: 5489332912688274919
+    second: starfall-barrage-sheet_317
+  - first:
+      213: -4004262100642355319
+    second: starfall-barrage-sheet_318
+  - first:
+      213: 3881964334075284145
+    second: starfall-barrage-sheet_319
+  - first:
+      213: -5411435478540713816
+    second: starfall-barrage-sheet_320
+  - first:
+      213: -4091404999715918629
+    second: starfall-barrage-sheet_321
+  - first:
+      213: 5250929214494741265
+    second: starfall-barrage-sheet_322
+  - first:
+      213: 3589273224368615379
+    second: starfall-barrage-sheet_323
+  - first:
+      213: 897419983871667031
+    second: starfall-barrage-sheet_324
+  - first:
+      213: -526225241937025984
+    second: starfall-barrage-sheet_325
+  - first:
+      213: -4536416061064385375
+    second: starfall-barrage-sheet_326
+  - first:
+      213: -5666482182721930836
+    second: starfall-barrage-sheet_327
+  - first:
+      213: -6397417156827314537
+    second: starfall-barrage-sheet_328
+  - first:
+      213: 3269763405930966959
+    second: starfall-barrage-sheet_329
+  - first:
+      213: 1172646111537200939
+    second: starfall-barrage-sheet_330
+  - first:
+      213: -703512574675137070
+    second: starfall-barrage-sheet_331
+  - first:
+      213: 1481385137024395184
+    second: starfall-barrage-sheet_332
+  - first:
+      213: -8545374201905379571
+    second: starfall-barrage-sheet_333
+  - first:
+      213: -6011750026548309702
+    second: starfall-barrage-sheet_334
+  - first:
+      213: 6435724429101591379
+    second: starfall-barrage-sheet_335
+  - first:
+      213: 96313253594978713
+    second: starfall-barrage-sheet_336
+  - first:
+      213: 3154854933008275808
+    second: starfall-barrage-sheet_337
+  - first:
+      213: -4271958765570061859
+    second: starfall-barrage-sheet_338
+  - first:
+      213: 1814643840499307890
+    second: starfall-barrage-sheet_339
+  - first:
+      213: -1600159481787004649
+    second: starfall-barrage-sheet_340
+  - first:
+      213: -9161837051217856534
+    second: starfall-barrage-sheet_341
+  - first:
+      213: 817650334106391340
+    second: starfall-barrage-sheet_342
+  - first:
+      213: -3307192139976704867
+    second: starfall-barrage-sheet_343
+  - first:
+      213: 2681462248499784812
+    second: starfall-barrage-sheet_344
+  - first:
+      213: 6242527167771321495
+    second: starfall-barrage-sheet_345
+  - first:
+      213: -6022673413267363823
+    second: starfall-barrage-sheet_346
+  - first:
+      213: 4448246746067423352
+    second: starfall-barrage-sheet_347
+  - first:
+      213: 4858697505532119895
+    second: starfall-barrage-sheet_348
+  - first:
+      213: -7143498201428480337
+    second: starfall-barrage-sheet_349
+  - first:
+      213: 1941242007494626748
+    second: starfall-barrage-sheet_350
+  - first:
+      213: -5678659281475722780
+    second: starfall-barrage-sheet_351
+  - first:
+      213: -5970182395140988280
+    second: starfall-barrage-sheet_352
+  - first:
+      213: 1508135363899389551
+    second: starfall-barrage-sheet_353
+  - first:
+      213: 6952579923536999015
+    second: starfall-barrage-sheet_354
+  - first:
+      213: -5302916056978325881
+    second: starfall-barrage-sheet_355
+  - first:
+      213: 8032945980482327173
+    second: starfall-barrage-sheet_356
+  - first:
+      213: 7527692831289678608
+    second: starfall-barrage-sheet_357
+  - first:
+      213: 5711533222803002872
+    second: starfall-barrage-sheet_358
+  - first:
+      213: 4277293364405360695
+    second: starfall-barrage-sheet_359
+  - first:
+      213: -8911785841764551743
+    second: starfall-barrage-sheet_360
+  - first:
+      213: -8100554281375122343
+    second: starfall-barrage-sheet_361
+  - first:
+      213: 7584059092573378149
+    second: starfall-barrage-sheet_362
+  - first:
+      213: -4962041734992756548
+    second: starfall-barrage-sheet_363
+  - first:
+      213: -9032773112417185060
+    second: starfall-barrage-sheet_364
+  - first:
+      213: -6334164906125960673
+    second: starfall-barrage-sheet_365
+  - first:
+      213: -1544428098757485314
+    second: starfall-barrage-sheet_366
+  - first:
+      213: -1652285229209856787
+    second: starfall-barrage-sheet_367
+  - first:
+      213: 950613367184100175
+    second: starfall-barrage-sheet_368
+  - first:
+      213: -181260477864200964
+    second: starfall-barrage-sheet_369
+  - first:
+      213: 4421802979414037862
+    second: starfall-barrage-sheet_370
+  - first:
+      213: -241565726856988488
+    second: starfall-barrage-sheet_371
+  - first:
+      213: 1313601371812096747
+    second: starfall-barrage-sheet_372
+  - first:
+      213: 1281937569934594179
+    second: starfall-barrage-sheet_373
+  - first:
+      213: 288164467732487402
+    second: starfall-barrage-sheet_374
+  - first:
+      213: 2131125501508288735
+    second: starfall-barrage-sheet_375
+  - first:
+      213: -5199438116148122536
+    second: starfall-barrage-sheet_376
+  - first:
+      213: -3456459726119358870
+    second: starfall-barrage-sheet_377
+  - first:
+      213: 5933960501152206155
+    second: starfall-barrage-sheet_378
+  - first:
+      213: 6317608728611942060
+    second: starfall-barrage-sheet_379
+  - first:
+      213: 6407383281395859101
+    second: starfall-barrage-sheet_380
+  - first:
+      213: 5428900639779789673
+    second: starfall-barrage-sheet_381
+  - first:
+      213: 5680447185200183707
+    second: starfall-barrage-sheet_382
+  - first:
+      213: 7194713116688608918
+    second: starfall-barrage-sheet_383
+  - first:
+      213: 8594693468995140435
+    second: starfall-barrage-sheet_384
+  - first:
+      213: -4884064431071789521
+    second: starfall-barrage-sheet_385
+  - first:
+      213: 732537181968863323
+    second: starfall-barrage-sheet_386
+  - first:
+      213: -7791100748531606917
+    second: starfall-barrage-sheet_387
+  - first:
+      213: -1639382459462520052
+    second: starfall-barrage-sheet_388
+  - first:
+      213: -7960467990306668431
+    second: starfall-barrage-sheet_389
+  - first:
+      213: 7672447856375880569
+    second: starfall-barrage-sheet_390
+  - first:
+      213: -6453195360825481812
+    second: starfall-barrage-sheet_391
+  - first:
+      213: 4903970374034147674
+    second: starfall-barrage-sheet_392
+  - first:
+      213: -5631264194584845711
+    second: starfall-barrage-sheet_393
+  - first:
+      213: -2579887815679458353
+    second: starfall-barrage-sheet_394
+  - first:
+      213: -3885880634925541582
+    second: starfall-barrage-sheet_395
+  - first:
+      213: 5796597509052526631
+    second: starfall-barrage-sheet_396
+  - first:
+      213: -8945390597256054402
+    second: starfall-barrage-sheet_397
+  - first:
+      213: 8174239419021916349
+    second: starfall-barrage-sheet_398
+  - first:
+      213: 3763428573221331985
+    second: starfall-barrage-sheet_399
+  - first:
+      213: -5907473351006505143
+    second: starfall-barrage-sheet_400
+  - first:
+      213: 31006580615845608
+    second: starfall-barrage-sheet_401
+  - first:
+      213: -4943484829363951842
+    second: starfall-barrage-sheet_402
+  - first:
+      213: 3222069038696443150
+    second: starfall-barrage-sheet_403
+  - first:
+      213: -6729585795200833472
+    second: starfall-barrage-sheet_404
+  - first:
+      213: 637830759399682913
+    second: starfall-barrage-sheet_405
+  - first:
+      213: 2755316925531616195
+    second: starfall-barrage-sheet_406
+  - first:
+      213: 7656782042445903438
+    second: starfall-barrage-sheet_407
+  - first:
+      213: 557141932825582014
+    second: starfall-barrage-sheet_408
+  - first:
+      213: -7439350228371747412
+    second: starfall-barrage-sheet_409
+  - first:
+      213: 63955336244628088
+    second: starfall-barrage-sheet_410
+  - first:
+      213: 7556249951748484261
+    second: starfall-barrage-sheet_411
+  - first:
+      213: -4141526437225559096
+    second: starfall-barrage-sheet_412
+  - first:
+      213: -5233113557099040144
+    second: starfall-barrage-sheet_413
+  - first:
+      213: 7401801202268934099
+    second: starfall-barrage-sheet_414
+  - first:
+      213: -1778660992765792404
+    second: starfall-barrage-sheet_415
+  - first:
+      213: -6882865979252142114
+    second: starfall-barrage-sheet_416
+  - first:
+      213: -2216528950799423922
+    second: starfall-barrage-sheet_417
+  - first:
+      213: 6303201571382389154
+    second: starfall-barrage-sheet_418
+  - first:
+      213: -8087212055885186036
+    second: starfall-barrage-sheet_419
+  - first:
+      213: 1522434237716748665
+    second: starfall-barrage-sheet_420
+  - first:
+      213: 9113766935285423621
+    second: starfall-barrage-sheet_421
+  - first:
+      213: -3945397062171453351
+    second: starfall-barrage-sheet_422
+  - first:
+      213: -7700765710557437329
+    second: starfall-barrage-sheet_423
+  - first:
+      213: 1636961202636779763
+    second: starfall-barrage-sheet_424
+  - first:
+      213: -8718575885584512539
+    second: starfall-barrage-sheet_425
+  - first:
+      213: 6699349987933390530
+    second: starfall-barrage-sheet_426
+  - first:
+      213: -1930468002084499306
+    second: starfall-barrage-sheet_427
+  - first:
+      213: 4296594993976992789
+    second: starfall-barrage-sheet_428
+  - first:
+      213: 3771242217210409881
+    second: starfall-barrage-sheet_429
+  - first:
+      213: -7963326029517210696
+    second: starfall-barrage-sheet_430
+  - first:
+      213: -2509181642602372590
+    second: starfall-barrage-sheet_431
+  - first:
+      213: 3472321163126098394
+    second: starfall-barrage-sheet_432
+  - first:
+      213: 3458304201980822102
+    second: starfall-barrage-sheet_433
+  - first:
+      213: -2477216052977741320
+    second: starfall-barrage-sheet_434
+  - first:
+      213: 1073483711852531610
+    second: starfall-barrage-sheet_435
+  - first:
+      213: -4674240686970320224
+    second: starfall-barrage-sheet_436
+  - first:
+      213: 3680583025217358693
+    second: starfall-barrage-sheet_437
+  - first:
+      213: -2412385613081916755
+    second: starfall-barrage-sheet_438
+  - first:
+      213: 1431757538105086266
+    second: starfall-barrage-sheet_439
+  - first:
+      213: -8535629437618965925
+    second: starfall-barrage-sheet_440
+  - first:
+      213: -5888957399313445886
+    second: starfall-barrage-sheet_441
+  - first:
+      213: 1463983665255571706
+    second: starfall-barrage-sheet_442
+  - first:
+      213: 6809058229116987896
+    second: starfall-barrage-sheet_443
+  - first:
+      213: 4619326252678687967
+    second: starfall-barrage-sheet_444
+  - first:
+      213: -8136381681582182864
+    second: starfall-barrage-sheet_445
+  - first:
+      213: -7904924604041511406
+    second: starfall-barrage-sheet_446
+  - first:
+      213: -5113290558429817132
+    second: starfall-barrage-sheet_447
+  - first:
+      213: -3142679738089178018
+    second: starfall-barrage-sheet_448
+  - first:
+      213: 3747786926341743796
+    second: starfall-barrage-sheet_449
+  - first:
+      213: 985262214661653998
+    second: starfall-barrage-sheet_450
+  - first:
+      213: -4760862155516664706
+    second: starfall-barrage-sheet_451
+  - first:
+      213: -8315742260109021941
+    second: starfall-barrage-sheet_452
+  - first:
+      213: -2530041203905491642
+    second: starfall-barrage-sheet_453
+  - first:
+      213: -81348208182974251
+    second: starfall-barrage-sheet_454
+  - first:
+      213: -5637237383052380312
+    second: starfall-barrage-sheet_455
+  - first:
+      213: 8289423135356859733
+    second: starfall-barrage-sheet_456
+  - first:
+      213: -320943602717015962
+    second: starfall-barrage-sheet_457
+  - first:
+      213: -5775487758690145349
+    second: starfall-barrage-sheet_458
+  - first:
+      213: 5779726344282225201
+    second: starfall-barrage-sheet_459
+  - first:
+      213: 3975255419606020012
+    second: starfall-barrage-sheet_460
+  - first:
+      213: -5227410216748897423
+    second: starfall-barrage-sheet_461
+  - first:
+      213: -6598102229829040267
+    second: starfall-barrage-sheet_462
+  - first:
+      213: 3757668397597772912
+    second: starfall-barrage-sheet_463
+  - first:
+      213: -1758945236665993638
+    second: starfall-barrage-sheet_464
+  - first:
+      213: 5773048574702034602
+    second: starfall-barrage-sheet_465
+  - first:
+      213: 836981951182120240
+    second: starfall-barrage-sheet_466
+  - first:
+      213: 7422534039923515209
+    second: starfall-barrage-sheet_467
+  - first:
+      213: 4881812808261490891
+    second: starfall-barrage-sheet_468
+  - first:
+      213: 2099268739257803040
+    second: starfall-barrage-sheet_469
+  - first:
+      213: -7653947729681243843
+    second: starfall-barrage-sheet_470
+  - first:
+      213: 3122325252120282930
+    second: starfall-barrage-sheet_471
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 974b72bffe5ae04a0800000000000000
+      internalID: -6625175551685970823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c12f27ffcd7345da0800000000000000
+      internalID: -5957074984786267620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 0
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66158ea6de97f8a70800000000000000
+      internalID: 8831411454904652134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 745cc4fe9c060a630800000000000000
+      internalID: 3936252494741292359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_4
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 0
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88c4eb4e1a5ad8c10800000000000000
+      internalID: 2057482719524179080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_5
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 118a9ef22cb9ee580800000000000000
+      internalID: -8795921763878197231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_6
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 0
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 348dbb23ea1a4b550800000000000000
+      internalID: 6175738758579345475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_7
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 0
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e9c7317a5f61b170800000000000000
+      internalID: 8192451631400864228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_8
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 0
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a5f9d25e14d1070800000000000000
+      internalID: 8078685759141272212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_9
+      rect:
+        serializedVersion: 2
+        x: 6912
+        y: 0
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 614a559b95876c5f0800000000000000
+      internalID: -736769162271677418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bbbd0075ba1778c0800000000000000
+      internalID: -4001700377324045388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_11
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 640
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 298e099800f8b9100800000000000000
+      internalID: 115843447898826898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 640
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9edbc1574c88c08c0800000000000000
+      internalID: -4031697189043651095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_13
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 640
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 313d7902b3487b140800000000000000
+      internalID: 4735398922688123667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_14
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 640
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01e42f197c02dbe70800000000000000
+      internalID: 9132491660896390672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_15
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 640
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dae603460b9e652a0800000000000000
+      internalID: -6748950047763698003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_16
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 640
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc53c45b85957d8a0800000000000000
+      internalID: -6280452917811202609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_17
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 640
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e6714b89c146a620800000000000000
+      internalID: 2784985753455785702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_18
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 640
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c2878ab6bab66720800000000000000
+      internalID: 2839161909079933639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_19
+      rect:
+        serializedVersion: 2
+        x: 6912
+        y: 640
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ef9faec18db37840800000000000000
+      internalID: 5220724758268583906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1280
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ca81e518b15ff0c0800000000000000
+      internalID: -4539820048283235642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_21
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1280
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11cafafe1d8fcb4f0800000000000000
+      internalID: -811500252280411119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_22
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1280
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 553338e380bcbf7d0800000000000000
+      internalID: -2883487900131708075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_23
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1280
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03658935f4fc7fbc0800000000000000
+      internalID: -3749300225150790096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_24
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1280
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce2c99aa517c0cd20800000000000000
+      internalID: 3296853823105647340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_25
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1280
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71e8db786366fbc60800000000000000
+      internalID: 7836094261039566359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_26
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 1280
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7def1558c392aad40800000000000000
+      internalID: 5596330826872782551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_27
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 1280
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcbb63f80f992f3c0800000000000000
+      internalID: -4327227033475695665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_28
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 1280
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c19d6748526d27990800000000000000
+      internalID: -7389608581937047268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_29
+      rect:
+        serializedVersion: 2
+        x: 6912
+        y: 1280
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b5ced67d53c36520800000000000000
+      internalID: 2694211808291374519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1920
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed895c7b75011ca60800000000000000
+      internalID: 7692447607456897246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_31
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1920
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 516ddf5a3c17b7230800000000000000
+      internalID: 3637626209149244949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_32
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1920
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3178de33a164b28a0800000000000000
+      internalID: -6328887772984801517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_33
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 1920
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fc45e66a70defaa0800000000000000
+      internalID: -6125229219046404872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_34
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 1920
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd6d755dc1b27dd90800000000000000
+      internalID: -7073137286923692321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_35
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1920
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 760062b7dfff5d710800000000000000
+      internalID: 1717560297069609063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_36
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 1920
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe2c01e554cf301d0800000000000000
+      internalID: -3385585119991381265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_37
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 1920
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e564276399aa4a50800000000000000
+      internalID: 6506199062245828068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_38
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 1920
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5eb47e9056ba5870800000000000000
+      internalID: 8672444489827401307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_39
+      rect:
+        serializedVersion: 2
+        x: 6912
+        y: 1920
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d38d477e28de4eb0800000000000000
+      internalID: -4733608464238148651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2560
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 044d25a2291030f30800000000000000
+      internalID: 4540474576606516288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_41
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 2560
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af172bcbdc622e0b0800000000000000
+      internalID: -5700951513221664262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_42
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 2560
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9bee790da8436fb0800000000000000
+      internalID: -4655797681745106017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_43
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 2560
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6ceca95b694a3be0800000000000000
+      internalID: -1496803200732435346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_44
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 2560
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed0f4964106ba6cb0800000000000000
+      internalID: -4869879930452381474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_45
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2560
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45e023cf4930e8780800000000000000
+      internalID: -8678995493475185068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_46
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 2560
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 436da07f7f0b66240800000000000000
+      internalID: 4784706233175823924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_47
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 2560
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcd9292aec04814a0800000000000000
+      internalID: -6622471995813356083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_48
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 2560
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a2181be471d5fbd0800000000000000
+      internalID: -2596939310018587995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_49
+      rect:
+        serializedVersion: 2
+        x: 6912
+        y: 2560
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c5bbe71ecce85b70800000000000000
+      internalID: 8888114234524415433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3200
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef3540a12c88ea6f0800000000000000
+      internalID: -671448927190100994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_51
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 3200
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3b0cfdfd0f678f70800000000000000
+      internalID: 9189435670559198015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_52
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3200
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58ec74a758f88c870800000000000000
+      internalID: 8703364083338432133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_53
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 3200
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae7d45b41bdac1e80800000000000000
+      internalID: -8206493443991218198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_54
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3200
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ac666ecc96df1fa0800000000000000
+      internalID: -5827703423828071258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_55
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3200
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 124667a8313005bb0800000000000000
+      internalID: -4949452608017898463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_56
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 3200
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acba98905ce5d5380800000000000000
+      internalID: -8980917881545315382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_57
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 3200
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 112f434d41da5f400800000000000000
+      internalID: 357382050417013265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_58
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 3200
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 921cd0acde1588760800000000000000
+      internalID: 7460302864478224681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_59
+      rect:
+        serializedVersion: 2
+        x: 6912
+        y: 3200
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8437285fdfdde6d0800000000000000
+      internalID: -2959463229762882419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d01b1dc1c6bbeff0800000000000000
+      internalID: -5710031024877357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_61
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 3840
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b4b858578fa11d00800000000000000
+      internalID: 941726792934798519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_62
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 3840
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc08ba7b7727861d0800000000000000
+      internalID: -3357307663696559925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_63
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 3840
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b80e65c940cdd7070800000000000000
+      internalID: 8105876816697680011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_64
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 3840
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cf774d16112ce740800000000000000
+      internalID: 5182553650060820423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_65
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3840
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b66112b917c38720800000000000000
+      internalID: 2847338302603880121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_66
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 3840
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 458d19703b508e420800000000000000
+      internalID: 2659381846446561364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_67
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 3840
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2523f9a683ed44ff0800000000000000
+      internalID: -52672961733250478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_68
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 3840
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0363da554a99c2fd0800000000000000
+      internalID: -2365346773185251792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_69
+      rect:
+        serializedVersion: 2
+        x: 6912
+        y: 3840
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a700da91064f7b180800000000000000
+      internalID: -9099535828493991814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4480
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8b543832197b5a10800000000000000
+      internalID: 1899244787026123658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_71
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 4480
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c23ef78aed341970800000000000000
+      internalID: 8724666455636718275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_72
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 4480
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 253600acc310ed640800000000000000
+      internalID: 5106520388083409746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_73
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 4480
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2633ce3bcdbca22f0800000000000000
+      internalID: -996760218737298590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_74
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 4480
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a35ac7fadab8ae420800000000000000
+      internalID: 2660092108005483834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_75
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 4480
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2784de70400891e80800000000000000
+      internalID: -8207388091104802702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_76
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 4480
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbd65a945a8973d20800000000000000
+      internalID: 3258240691098447293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_77
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 4480
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0da19c05bf6c0dee0800000000000000
+      internalID: -1238271114832438576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_78
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 4480
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79c889d805f5b3c10800000000000000
+      internalID: 2034324456265518231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_79
+      rect:
+        serializedVersion: 2
+        x: 6912
+        y: 4480
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6c495fb97d099cc0800000000000000
+      internalID: -3703914401983017876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5120
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b06044d721f193660800000000000000
+      internalID: 7365952829812639243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_81
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 5120
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9390cf26506ef8b30800000000000000
+      internalID: 4291901880717281593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_82
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 5120
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f66d1367bbbc59b0800000000000000
+      internalID: -5089987082519222538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_83
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 5120
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 145453b120f71e050800000000000000
+      internalID: 5828079039817270593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_84
+      rect:
+        serializedVersion: 2
+        x: 3072
+        y: 5120
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9bf4e5857a4ec450800000000000000
+      internalID: 6110903613006347162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_85
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 5120
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f1bf61364eb85d50800000000000000
+      internalID: 6726335252164227568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_86
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 5120
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b790e4dcf1466030800000000000000
+      internalID: 3487547515604080566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_87
+      rect:
+        serializedVersion: 2
+        x: 5376
+        y: 5120
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fce363512a8a38b00800000000000000
+      internalID: 829692170460348111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_88
+      rect:
+        serializedVersion: 2
+        x: 6144
+        y: 5120
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 346a781ad6802c230800000000000000
+      internalID: 3657495114332743235
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: starfall-barrage-sheet_89
+      rect:
+        serializedVersion: 2
+        x: 6912
+        y: 5120
+        width: 768
+        height: 640
+      alignment: 9
+      pivot: {x: 0.5, y: 0.3}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ece49f065d0a2b6a0800000000000000
+      internalID: -6434904079243587890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      starfall-barrage-sheet_0: -6625175551685970823
+      starfall-barrage-sheet_1: -5957074984786267620
+      starfall-barrage-sheet_10: -4001700377324045388
+      starfall-barrage-sheet_100: -4340714980246206292
+      starfall-barrage-sheet_101: -306385918456788406
+      starfall-barrage-sheet_102: 5570692521073640195
+      starfall-barrage-sheet_103: 4108482376846072757
+      starfall-barrage-sheet_104: -3348266114535909518
+      starfall-barrage-sheet_105: -2458292218716735398
+      starfall-barrage-sheet_106: -3126518223357163163
+      starfall-barrage-sheet_107: -8415034509446887894
+      starfall-barrage-sheet_108: 7606042176459901597
+      starfall-barrage-sheet_109: -9002702660176900046
+      starfall-barrage-sheet_11: 115843447898826898
+      starfall-barrage-sheet_110: -3883963186815683507
+      starfall-barrage-sheet_111: -6077050228847898532
+      starfall-barrage-sheet_112: -6193760869752044560
+      starfall-barrage-sheet_113: 919689879948941594
+      starfall-barrage-sheet_114: 3398293468879832618
+      starfall-barrage-sheet_115: -1293209504437059299
+      starfall-barrage-sheet_116: -3602197372753776778
+      starfall-barrage-sheet_117: -7793833350558348584
+      starfall-barrage-sheet_118: 8983217959402847498
+      starfall-barrage-sheet_119: -5281492661702886601
+      starfall-barrage-sheet_12: -4031697189043651095
+      starfall-barrage-sheet_120: 3754579647705289554
+      starfall-barrage-sheet_121: 5415781513795454769
+      starfall-barrage-sheet_122: 272089427336795852
+      starfall-barrage-sheet_123: -2546568085640596209
+      starfall-barrage-sheet_124: -3976461176927062583
+      starfall-barrage-sheet_125: 8598454718291932750
+      starfall-barrage-sheet_126: 8205768948610867549
+      starfall-barrage-sheet_127: -4684681142043432534
+      starfall-barrage-sheet_128: -6024525597752205355
+      starfall-barrage-sheet_129: -1526606567407561956
+      starfall-barrage-sheet_13: 4735398922688123667
+      starfall-barrage-sheet_130: -363936886161541913
+      starfall-barrage-sheet_131: -4981589604959372946
+      starfall-barrage-sheet_132: 1195309494243845512
+      starfall-barrage-sheet_133: 3589595605616542488
+      starfall-barrage-sheet_134: 3132497665400017807
+      starfall-barrage-sheet_135: -7484916986420249762
+      starfall-barrage-sheet_136: 5578227186905130657
+      starfall-barrage-sheet_137: -6007032445426209135
+      starfall-barrage-sheet_138: 1724343949614938591
+      starfall-barrage-sheet_139: -6667151654365979313
+      starfall-barrage-sheet_14: 9132491660896390672
+      starfall-barrage-sheet_140: -1900528871348107311
+      starfall-barrage-sheet_141: -7171909777179924708
+      starfall-barrage-sheet_142: 3299076607356179978
+      starfall-barrage-sheet_143: 3783445982648168769
+      starfall-barrage-sheet_144: -1696892298533651847
+      starfall-barrage-sheet_145: 7745295668940557111
+      starfall-barrage-sheet_146: -8001812233382505467
+      starfall-barrage-sheet_147: 2430281014388633348
+      starfall-barrage-sheet_148: 3075359507331821466
+      starfall-barrage-sheet_149: 9084442313767566774
+      starfall-barrage-sheet_15: -6748950047763698003
+      starfall-barrage-sheet_150: 4006973989561642096
+      starfall-barrage-sheet_151: -515265158155834428
+      starfall-barrage-sheet_152: -5794893061960649288
+      starfall-barrage-sheet_153: 3115276638330374028
+      starfall-barrage-sheet_154: 2580750729422456935
+      starfall-barrage-sheet_155: -4598302710988613081
+      starfall-barrage-sheet_156: -4461399200043981305
+      starfall-barrage-sheet_157: -3141911622140782550
+      starfall-barrage-sheet_158: -7002475799973644364
+      starfall-barrage-sheet_159: 1370409328728446841
+      starfall-barrage-sheet_16: -6280452917811202609
+      starfall-barrage-sheet_160: 647999803973162991
+      starfall-barrage-sheet_161: -5815821888694659763
+      starfall-barrage-sheet_162: 2925635129195772658
+      starfall-barrage-sheet_163: -745642013207653799
+      starfall-barrage-sheet_164: 39537722468627701
+      starfall-barrage-sheet_165: -8966176438590555014
+      starfall-barrage-sheet_166: -1779480280219695402
+      starfall-barrage-sheet_167: -7844657789430255791
+      starfall-barrage-sheet_168: -289903179866854810
+      starfall-barrage-sheet_169: -2798859802241303512
+      starfall-barrage-sheet_17: 2784985753455785702
+      starfall-barrage-sheet_170: -6379309773041553068
+      starfall-barrage-sheet_171: 8014908073723742290
+      starfall-barrage-sheet_172: -5383114873937763998
+      starfall-barrage-sheet_173: -123799708708549457
+      starfall-barrage-sheet_174: -2015152071145290903
+      starfall-barrage-sheet_175: 7701385702235210775
+      starfall-barrage-sheet_176: -7392032455749636941
+      starfall-barrage-sheet_177: 3846783449447609272
+      starfall-barrage-sheet_178: 8122168441451488133
+      starfall-barrage-sheet_179: -1559694232595738748
+      starfall-barrage-sheet_18: 2839161909079933639
+      starfall-barrage-sheet_180: 6225667683150278829
+      starfall-barrage-sheet_181: 2519230093737344165
+      starfall-barrage-sheet_182: -9171527532799112684
+      starfall-barrage-sheet_183: -4297364143004927446
+      starfall-barrage-sheet_184: -3385352351105057421
+      starfall-barrage-sheet_185: -4106253451369788457
+      starfall-barrage-sheet_186: -2784812568904095775
+      starfall-barrage-sheet_187: -5429009496229294460
+      starfall-barrage-sheet_188: 3681913072893135135
+      starfall-barrage-sheet_189: -8372405635486705777
+      starfall-barrage-sheet_19: 5220724758268583906
+      starfall-barrage-sheet_190: 1506915197762066155
+      starfall-barrage-sheet_191: -1632697384988828931
+      starfall-barrage-sheet_192: -4759226806871459468
+      starfall-barrage-sheet_193: 291857821537787869
+      starfall-barrage-sheet_194: -2992946376987908421
+      starfall-barrage-sheet_195: 2273960024702023899
+      starfall-barrage-sheet_196: -3092501116209865877
+      starfall-barrage-sheet_197: -6176642032486662306
+      starfall-barrage-sheet_198: -2352741964210627305
+      starfall-barrage-sheet_199: -68856425178990173
+      starfall-barrage-sheet_2: 8831411454904652134
+      starfall-barrage-sheet_20: -4539820048283235642
+      starfall-barrage-sheet_200: -6416231032290609283
+      starfall-barrage-sheet_201: -5894152332712993555
+      starfall-barrage-sheet_202: 8714089430579102098
+      starfall-barrage-sheet_203: -8304968470767454580
+      starfall-barrage-sheet_204: 3561056548214804808
+      starfall-barrage-sheet_205: 6165412957111066210
+      starfall-barrage-sheet_206: 6943743354220950678
+      starfall-barrage-sheet_207: -5702233730170640912
+      starfall-barrage-sheet_208: -355280873477419318
+      starfall-barrage-sheet_209: 3046843846287177501
+      starfall-barrage-sheet_21: -811500252280411119
+      starfall-barrage-sheet_210: 554148354979739059
+      starfall-barrage-sheet_211: 6944738961749855101
+      starfall-barrage-sheet_212: 7800371036886664783
+      starfall-barrage-sheet_213: 1258638152397998971
+      starfall-barrage-sheet_214: -2591933108244584843
+      starfall-barrage-sheet_215: -2821867939279242070
+      starfall-barrage-sheet_216: -5679246355756848392
+      starfall-barrage-sheet_217: -113410653652848064
+      starfall-barrage-sheet_218: -6132056162020779088
+      starfall-barrage-sheet_219: 7336788785870599197
+      starfall-barrage-sheet_22: -2883487900131708075
+      starfall-barrage-sheet_220: -7781503874562996087
+      starfall-barrage-sheet_221: 3709711595632520810
+      starfall-barrage-sheet_222: 3787642787498285522
+      starfall-barrage-sheet_223: 4021186199748959572
+      starfall-barrage-sheet_224: 656779878773734692
+      starfall-barrage-sheet_225: -1211469723724114499
+      starfall-barrage-sheet_226: -9220962281120423031
+      starfall-barrage-sheet_227: 4319960150525950501
+      starfall-barrage-sheet_228: 5908829768893622131
+      starfall-barrage-sheet_229: 7436172677453076849
+      starfall-barrage-sheet_23: -3749300225150790096
+      starfall-barrage-sheet_230: 1851607399733095421
+      starfall-barrage-sheet_231: 902834666568711419
+      starfall-barrage-sheet_232: 6973321640099361378
+      starfall-barrage-sheet_233: 5594089731656484422
+      starfall-barrage-sheet_234: 2472111208620144875
+      starfall-barrage-sheet_235: -76610103801778837
+      starfall-barrage-sheet_236: 5766788830518790123
+      starfall-barrage-sheet_237: -3308921311602654886
+      starfall-barrage-sheet_238: 7360590203828967493
+      starfall-barrage-sheet_239: -8853697532378625932
+      starfall-barrage-sheet_24: 3296853823105647340
+      starfall-barrage-sheet_240: -1256585846037627489
+      starfall-barrage-sheet_241: -107840144654438042
+      starfall-barrage-sheet_242: 8497751501897619840
+      starfall-barrage-sheet_243: -2948480519064597052
+      starfall-barrage-sheet_244: 8232936531761917489
+      starfall-barrage-sheet_245: -6199485361538498461
+      starfall-barrage-sheet_246: 7035123874147230977
+      starfall-barrage-sheet_247: -6271053272317252547
+      starfall-barrage-sheet_248: -1219647122502480136
+      starfall-barrage-sheet_249: 2485490732144657256
+      starfall-barrage-sheet_25: 7836094261039566359
+      starfall-barrage-sheet_250: -3074852648683567783
+      starfall-barrage-sheet_251: 507879001274152877
+      starfall-barrage-sheet_252: 4710880722020177720
+      starfall-barrage-sheet_253: 7116552935602923568
+      starfall-barrage-sheet_254: 5649869258415477310
+      starfall-barrage-sheet_255: -6456782276692210449
+      starfall-barrage-sheet_256: 8310286661270878978
+      starfall-barrage-sheet_257: 7218513927027706638
+      starfall-barrage-sheet_258: 5306688536910672621
+      starfall-barrage-sheet_259: -95063180895026690
+      starfall-barrage-sheet_26: 5596330826872782551
+      starfall-barrage-sheet_260: -8375565939799213475
+      starfall-barrage-sheet_261: -3125436592566995561
+      starfall-barrage-sheet_262: -3161124904054699095
+      starfall-barrage-sheet_263: -7196920905915736430
+      starfall-barrage-sheet_264: -7229698090127146653
+      starfall-barrage-sheet_265: -634331593764145459
+      starfall-barrage-sheet_266: -1718710044147175843
+      starfall-barrage-sheet_267: -1024605178746377808
+      starfall-barrage-sheet_268: 1449003370512499759
+      starfall-barrage-sheet_269: -178671154148605545
+      starfall-barrage-sheet_27: -4327227033475695665
+      starfall-barrage-sheet_270: 4023253804442223147
+      starfall-barrage-sheet_271: 4482958929191986773
+      starfall-barrage-sheet_272: 2548217023741562143
+      starfall-barrage-sheet_273: 4483247295183954030
+      starfall-barrage-sheet_274: -6453149468213645489
+      starfall-barrage-sheet_275: 8880903514482077206
+      starfall-barrage-sheet_276: 4517547145679213748
+      starfall-barrage-sheet_277: -2823793751382983513
+      starfall-barrage-sheet_278: -3356408405914936001
+      starfall-barrage-sheet_279: -1836606807063639900
+      starfall-barrage-sheet_28: -7389608581937047268
+      starfall-barrage-sheet_280: -1486919679901015031
+      starfall-barrage-sheet_281: -2292104337517606886
+      starfall-barrage-sheet_282: 1267858477168046410
+      starfall-barrage-sheet_283: 1050836141948589713
+      starfall-barrage-sheet_284: 1170037282161992782
+      starfall-barrage-sheet_285: -6192430953988967095
+      starfall-barrage-sheet_286: -7500649511785206172
+      starfall-barrage-sheet_287: 4753428643931639233
+      starfall-barrage-sheet_288: 589332586244755108
+      starfall-barrage-sheet_289: 3894734803722171915
+      starfall-barrage-sheet_29: 2694211808291374519
+      starfall-barrage-sheet_290: 2715529330650130076
+      starfall-barrage-sheet_291: -8139239506032071622
+      starfall-barrage-sheet_292: 6387486934704406644
+      starfall-barrage-sheet_293: 2433911890311216215
+      starfall-barrage-sheet_294: 7610199106920498612
+      starfall-barrage-sheet_295: -5885577936977497221
+      starfall-barrage-sheet_296: -4692760628773733889
+      starfall-barrage-sheet_297: -2592867566190234384
+      starfall-barrage-sheet_298: 5106392587655926740
+      starfall-barrage-sheet_299: -289319765039728359
+      starfall-barrage-sheet_3: 3936252494741292359
+      starfall-barrage-sheet_30: 7692447607456897246
+      starfall-barrage-sheet_300: 3932481283476490295
+      starfall-barrage-sheet_301: -6691551256607414513
+      starfall-barrage-sheet_302: -3293452414990825829
+      starfall-barrage-sheet_303: 8373906021111192866
+      starfall-barrage-sheet_304: -2219742630885886411
+      starfall-barrage-sheet_305: -1108931606980324863
+      starfall-barrage-sheet_306: -752442228147955411
+      starfall-barrage-sheet_307: -3144395453717081418
+      starfall-barrage-sheet_308: -2139760038263362497
+      starfall-barrage-sheet_309: 9169234357650561322
+      starfall-barrage-sheet_31: 3637626209149244949
+      starfall-barrage-sheet_310: -3030114435718706279
+      starfall-barrage-sheet_311: 2320074606033271124
+      starfall-barrage-sheet_312: -632601387769080471
+      starfall-barrage-sheet_313: -8087683973843032421
+      starfall-barrage-sheet_314: -7816597668595208867
+      starfall-barrage-sheet_315: 4720138350218415665
+      starfall-barrage-sheet_316: 1286742863516788405
+      starfall-barrage-sheet_317: 5489332912688274919
+      starfall-barrage-sheet_318: -4004262100642355319
+      starfall-barrage-sheet_319: 3881964334075284145
+      starfall-barrage-sheet_32: -6328887772984801517
+      starfall-barrage-sheet_320: -5411435478540713816
+      starfall-barrage-sheet_321: -4091404999715918629
+      starfall-barrage-sheet_322: 5250929214494741265
+      starfall-barrage-sheet_323: 3589273224368615379
+      starfall-barrage-sheet_324: 897419983871667031
+      starfall-barrage-sheet_325: -526225241937025984
+      starfall-barrage-sheet_326: -4536416061064385375
+      starfall-barrage-sheet_327: -5666482182721930836
+      starfall-barrage-sheet_328: -6397417156827314537
+      starfall-barrage-sheet_329: 3269763405930966959
+      starfall-barrage-sheet_33: -6125229219046404872
+      starfall-barrage-sheet_330: 1172646111537200939
+      starfall-barrage-sheet_331: -703512574675137070
+      starfall-barrage-sheet_332: 1481385137024395184
+      starfall-barrage-sheet_333: -8545374201905379571
+      starfall-barrage-sheet_334: -6011750026548309702
+      starfall-barrage-sheet_335: 6435724429101591379
+      starfall-barrage-sheet_336: 96313253594978713
+      starfall-barrage-sheet_337: 3154854933008275808
+      starfall-barrage-sheet_338: -4271958765570061859
+      starfall-barrage-sheet_339: 1814643840499307890
+      starfall-barrage-sheet_34: -7073137286923692321
+      starfall-barrage-sheet_340: -1600159481787004649
+      starfall-barrage-sheet_341: -9161837051217856534
+      starfall-barrage-sheet_342: 817650334106391340
+      starfall-barrage-sheet_343: -3307192139976704867
+      starfall-barrage-sheet_344: 2681462248499784812
+      starfall-barrage-sheet_345: 6242527167771321495
+      starfall-barrage-sheet_346: -6022673413267363823
+      starfall-barrage-sheet_347: 4448246746067423352
+      starfall-barrage-sheet_348: 4858697505532119895
+      starfall-barrage-sheet_349: -7143498201428480337
+      starfall-barrage-sheet_35: 1717560297069609063
+      starfall-barrage-sheet_350: 1941242007494626748
+      starfall-barrage-sheet_351: -5678659281475722780
+      starfall-barrage-sheet_352: -5970182395140988280
+      starfall-barrage-sheet_353: 1508135363899389551
+      starfall-barrage-sheet_354: 6952579923536999015
+      starfall-barrage-sheet_355: -5302916056978325881
+      starfall-barrage-sheet_356: 8032945980482327173
+      starfall-barrage-sheet_357: 7527692831289678608
+      starfall-barrage-sheet_358: 5711533222803002872
+      starfall-barrage-sheet_359: 4277293364405360695
+      starfall-barrage-sheet_36: -3385585119991381265
+      starfall-barrage-sheet_360: -8911785841764551743
+      starfall-barrage-sheet_361: -8100554281375122343
+      starfall-barrage-sheet_362: 7584059092573378149
+      starfall-barrage-sheet_363: -4962041734992756548
+      starfall-barrage-sheet_364: -9032773112417185060
+      starfall-barrage-sheet_365: -6334164906125960673
+      starfall-barrage-sheet_366: -1544428098757485314
+      starfall-barrage-sheet_367: -1652285229209856787
+      starfall-barrage-sheet_368: 950613367184100175
+      starfall-barrage-sheet_369: -181260477864200964
+      starfall-barrage-sheet_37: 6506199062245828068
+      starfall-barrage-sheet_370: 4421802979414037862
+      starfall-barrage-sheet_371: -241565726856988488
+      starfall-barrage-sheet_372: 1313601371812096747
+      starfall-barrage-sheet_373: 1281937569934594179
+      starfall-barrage-sheet_374: 288164467732487402
+      starfall-barrage-sheet_375: 2131125501508288735
+      starfall-barrage-sheet_376: -5199438116148122536
+      starfall-barrage-sheet_377: -3456459726119358870
+      starfall-barrage-sheet_378: 5933960501152206155
+      starfall-barrage-sheet_379: 6317608728611942060
+      starfall-barrage-sheet_38: 8672444489827401307
+      starfall-barrage-sheet_380: 6407383281395859101
+      starfall-barrage-sheet_381: 5428900639779789673
+      starfall-barrage-sheet_382: 5680447185200183707
+      starfall-barrage-sheet_383: 7194713116688608918
+      starfall-barrage-sheet_384: 8594693468995140435
+      starfall-barrage-sheet_385: -4884064431071789521
+      starfall-barrage-sheet_386: 732537181968863323
+      starfall-barrage-sheet_387: -7791100748531606917
+      starfall-barrage-sheet_388: -1639382459462520052
+      starfall-barrage-sheet_389: -7960467990306668431
+      starfall-barrage-sheet_39: -4733608464238148651
+      starfall-barrage-sheet_390: 7672447856375880569
+      starfall-barrage-sheet_391: -6453195360825481812
+      starfall-barrage-sheet_392: 4903970374034147674
+      starfall-barrage-sheet_393: -5631264194584845711
+      starfall-barrage-sheet_394: -2579887815679458353
+      starfall-barrage-sheet_395: -3885880634925541582
+      starfall-barrage-sheet_396: 5796597509052526631
+      starfall-barrage-sheet_397: -8945390597256054402
+      starfall-barrage-sheet_398: 8174239419021916349
+      starfall-barrage-sheet_399: 3763428573221331985
+      starfall-barrage-sheet_4: 2057482719524179080
+      starfall-barrage-sheet_40: 4540474576606516288
+      starfall-barrage-sheet_400: -5907473351006505143
+      starfall-barrage-sheet_401: 31006580615845608
+      starfall-barrage-sheet_402: -4943484829363951842
+      starfall-barrage-sheet_403: 3222069038696443150
+      starfall-barrage-sheet_404: -6729585795200833472
+      starfall-barrage-sheet_405: 637830759399682913
+      starfall-barrage-sheet_406: 2755316925531616195
+      starfall-barrage-sheet_407: 7656782042445903438
+      starfall-barrage-sheet_408: 557141932825582014
+      starfall-barrage-sheet_409: -7439350228371747412
+      starfall-barrage-sheet_41: -5700951513221664262
+      starfall-barrage-sheet_410: 63955336244628088
+      starfall-barrage-sheet_411: 7556249951748484261
+      starfall-barrage-sheet_412: -4141526437225559096
+      starfall-barrage-sheet_413: -5233113557099040144
+      starfall-barrage-sheet_414: 7401801202268934099
+      starfall-barrage-sheet_415: -1778660992765792404
+      starfall-barrage-sheet_416: -6882865979252142114
+      starfall-barrage-sheet_417: -2216528950799423922
+      starfall-barrage-sheet_418: 6303201571382389154
+      starfall-barrage-sheet_419: -8087212055885186036
+      starfall-barrage-sheet_42: -4655797681745106017
+      starfall-barrage-sheet_420: 1522434237716748665
+      starfall-barrage-sheet_421: 9113766935285423621
+      starfall-barrage-sheet_422: -3945397062171453351
+      starfall-barrage-sheet_423: -7700765710557437329
+      starfall-barrage-sheet_424: 1636961202636779763
+      starfall-barrage-sheet_425: -8718575885584512539
+      starfall-barrage-sheet_426: 6699349987933390530
+      starfall-barrage-sheet_427: -1930468002084499306
+      starfall-barrage-sheet_428: 4296594993976992789
+      starfall-barrage-sheet_429: 3771242217210409881
+      starfall-barrage-sheet_43: -1496803200732435346
+      starfall-barrage-sheet_430: -7963326029517210696
+      starfall-barrage-sheet_431: -2509181642602372590
+      starfall-barrage-sheet_432: 3472321163126098394
+      starfall-barrage-sheet_433: 3458304201980822102
+      starfall-barrage-sheet_434: -2477216052977741320
+      starfall-barrage-sheet_435: 1073483711852531610
+      starfall-barrage-sheet_436: -4674240686970320224
+      starfall-barrage-sheet_437: 3680583025217358693
+      starfall-barrage-sheet_438: -2412385613081916755
+      starfall-barrage-sheet_439: 1431757538105086266
+      starfall-barrage-sheet_44: -4869879930452381474
+      starfall-barrage-sheet_440: -8535629437618965925
+      starfall-barrage-sheet_441: -5888957399313445886
+      starfall-barrage-sheet_442: 1463983665255571706
+      starfall-barrage-sheet_443: 6809058229116987896
+      starfall-barrage-sheet_444: 4619326252678687967
+      starfall-barrage-sheet_445: -8136381681582182864
+      starfall-barrage-sheet_446: -7904924604041511406
+      starfall-barrage-sheet_447: -5113290558429817132
+      starfall-barrage-sheet_448: -3142679738089178018
+      starfall-barrage-sheet_449: 3747786926341743796
+      starfall-barrage-sheet_45: -8678995493475185068
+      starfall-barrage-sheet_450: 985262214661653998
+      starfall-barrage-sheet_451: -4760862155516664706
+      starfall-barrage-sheet_452: -8315742260109021941
+      starfall-barrage-sheet_453: -2530041203905491642
+      starfall-barrage-sheet_454: -81348208182974251
+      starfall-barrage-sheet_455: -5637237383052380312
+      starfall-barrage-sheet_456: 8289423135356859733
+      starfall-barrage-sheet_457: -320943602717015962
+      starfall-barrage-sheet_458: -5775487758690145349
+      starfall-barrage-sheet_459: 5779726344282225201
+      starfall-barrage-sheet_46: 4784706233175823924
+      starfall-barrage-sheet_460: 3975255419606020012
+      starfall-barrage-sheet_461: -5227410216748897423
+      starfall-barrage-sheet_462: -6598102229829040267
+      starfall-barrage-sheet_463: 3757668397597772912
+      starfall-barrage-sheet_464: -1758945236665993638
+      starfall-barrage-sheet_465: 5773048574702034602
+      starfall-barrage-sheet_466: 836981951182120240
+      starfall-barrage-sheet_467: 7422534039923515209
+      starfall-barrage-sheet_468: 4881812808261490891
+      starfall-barrage-sheet_469: 2099268739257803040
+      starfall-barrage-sheet_47: -6622471995813356083
+      starfall-barrage-sheet_470: -7653947729681243843
+      starfall-barrage-sheet_471: 3122325252120282930
+      starfall-barrage-sheet_48: -2596939310018587995
+      starfall-barrage-sheet_49: 8888114234524415433
+      starfall-barrage-sheet_5: -8795921763878197231
+      starfall-barrage-sheet_50: -671448927190100994
+      starfall-barrage-sheet_51: 9189435670559198015
+      starfall-barrage-sheet_52: 8703364083338432133
+      starfall-barrage-sheet_53: -8206493443991218198
+      starfall-barrage-sheet_54: -5827703423828071258
+      starfall-barrage-sheet_55: -4949452608017898463
+      starfall-barrage-sheet_56: -8980917881545315382
+      starfall-barrage-sheet_57: 357382050417013265
+      starfall-barrage-sheet_58: 7460302864478224681
+      starfall-barrage-sheet_59: -2959463229762882419
+      starfall-barrage-sheet_6: 6175738758579345475
+      starfall-barrage-sheet_60: -5710031024877357
+      starfall-barrage-sheet_61: 941726792934798519
+      starfall-barrage-sheet_62: -3357307663696559925
+      starfall-barrage-sheet_63: 8105876816697680011
+      starfall-barrage-sheet_64: 5182553650060820423
+      starfall-barrage-sheet_65: 2847338302603880121
+      starfall-barrage-sheet_66: 2659381846446561364
+      starfall-barrage-sheet_67: -52672961733250478
+      starfall-barrage-sheet_68: -2365346773185251792
+      starfall-barrage-sheet_69: -9099535828493991814
+      starfall-barrage-sheet_7: 8192451631400864228
+      starfall-barrage-sheet_70: 1899244787026123658
+      starfall-barrage-sheet_71: 8724666455636718275
+      starfall-barrage-sheet_72: 5106520388083409746
+      starfall-barrage-sheet_73: -996760218737298590
+      starfall-barrage-sheet_74: 2660092108005483834
+      starfall-barrage-sheet_75: -8207388091104802702
+      starfall-barrage-sheet_76: 3258240691098447293
+      starfall-barrage-sheet_77: -1238271114832438576
+      starfall-barrage-sheet_78: 2034324456265518231
+      starfall-barrage-sheet_79: -3703914401983017876
+      starfall-barrage-sheet_8: 8078685759141272212
+      starfall-barrage-sheet_80: 7365952829812639243
+      starfall-barrage-sheet_81: 4291901880717281593
+      starfall-barrage-sheet_82: -5089987082519222538
+      starfall-barrage-sheet_83: 5828079039817270593
+      starfall-barrage-sheet_84: 6110903613006347162
+      starfall-barrage-sheet_85: 6726335252164227568
+      starfall-barrage-sheet_86: 3487547515604080566
+      starfall-barrage-sheet_87: 829692170460348111
+      starfall-barrage-sheet_88: 3657495114332743235
+      starfall-barrage-sheet_89: -6434904079243587890
+      starfall-barrage-sheet_9: -736769162271677418
+      starfall-barrage-sheet_90: -4630571469616638752
+      starfall-barrage-sheet_91: -1889722571696776907
+      starfall-barrage-sheet_92: 8811152686439076269
+      starfall-barrage-sheet_93: -606717405902475098
+      starfall-barrage-sheet_94: -8620612539974507325
+      starfall-barrage-sheet_95: -2586037668333180627
+      starfall-barrage-sheet_96: 7828216437386864164
+      starfall-barrage-sheet_97: -6122161706454979644
+      starfall-barrage-sheet_98: -8042193467916913166
+      starfall-barrage-sheet_99: 3362194357580410000
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -52,6 +52,21 @@ namespace Match3RPG.Configuration
         public const int RockSpikeFrameCount = RockSpikeGridColumns * RockSpikeGridRows;
         public const int RockSpikePeakFrameIndex = 12; // 1-based frame 13 (đỉnh 5 gai đá)
         public const float RockSpikePivotY = 0.36f; // Đáy gai đặc (alpha >= 64 tại y ≈ 251/392)
+        public const string StarfallBarrageSkillId = "starfall_barrage";
+        public const string StarfallBarrageDisplayName = "Mưa Sao Băng"; // TẠM: Sư Huynh chốt tên thật sau Play-test
+        public const string StarfallBarrageAssetPath =
+            "Assets/Art/VFX/Skills/starfall_barrage/starfall-barrage-sheet.png";
+        public const string StarfallBarrageDescription =
+            "Kết ấn gọi mưa sao băng rơi xuống đầu boss."; // TẠM
+        public const int StarfallBarrageDefaultManaCost = 3; // TẠM
+        public const int StarfallBarrageDefaultRageCost = 0; // TẠM
+        public const int StarfallBarrageDefaultCooldownTurns = 3; // TẠM
+        public const int StarfallBarrageDefaultDamage = 100; // TẠM: Sư Huynh chốt sát thương thật sau Play-test
+        public const int StarfallBarrageGridColumns = 10;
+        public const int StarfallBarrageGridRows = 9;
+        public const int StarfallBarrageFrameCount = StarfallBarrageGridColumns * StarfallBarrageGridRows;
+        public const int StarfallBarragePeakFrameIndex = 51; // 1-based frame 52 (vòng nổ dưới đất to nhất / sáng nhất, 1.70s @30fps)
+        public const float StarfallBarragePivotY = 0.30f; // Tâm vòng nổ tại y ≈ 448/640 từ trên xuống (pivot_y = (640 - 448) / 640 = 0.30)
         public const string EllipseSwordsSkillId = "ellipse_swords";
         public const string EllipseSwordsDisplayName = "Ngũ Kiếm Trận"; // TẠM: Sư Huynh chốt tên thật sau Play-test
         public const string EllipseSwordsAssetPath =
@@ -99,6 +114,8 @@ namespace Match3RPG.Configuration
         static Sprite cachedSwordQiSprite;
         static Sprite cachedRockSpikeSprite;
         static Sprite[] cachedRockSpikeFrames;
+        static Sprite cachedStarfallBarrageSprite;
+        static Sprite[] cachedStarfallBarrageFrames;
         static Sprite cachedEllipseSwordsSprite;
 
         public string DisplayName => string.IsNullOrEmpty(displayName)
@@ -106,11 +123,13 @@ namespace Match3RPG.Configuration
                 ? SwordQiDisplayName
                 : (string.Equals(StableId, RockSpikeSkillId, StringComparison.Ordinal)
                     ? RockSpikeDisplayName
-                    : (string.Equals(StableId, EllipseSwordsSkillId, StringComparison.Ordinal)
-                        ? EllipseSwordsDisplayName
-                        : (string.Equals(StableId, SwordRainSkillId, StringComparison.Ordinal)
-                            ? SwordRainDisplayName
-                            : FlyingSwordDisplayName))))
+                    : (string.Equals(StableId, StarfallBarrageSkillId, StringComparison.Ordinal)
+                        ? StarfallBarrageDisplayName
+                        : (string.Equals(StableId, EllipseSwordsSkillId, StringComparison.Ordinal)
+                            ? EllipseSwordsDisplayName
+                            : (string.Equals(StableId, SwordRainSkillId, StringComparison.Ordinal)
+                                ? SwordRainDisplayName
+                                : FlyingSwordDisplayName)))))
             : displayName;
         public Sprite Icon => icon != null
             ? icon
@@ -118,9 +137,11 @@ namespace Match3RPG.Configuration
                 ? ResolveSwordQiSprite()
                 : (string.Equals(StableId, RockSpikeSkillId, StringComparison.Ordinal)
                     ? ResolveRockSpikeSprite()
-                    : (string.Equals(StableId, EllipseSwordsSkillId, StringComparison.Ordinal)
-                        ? ResolveEllipseSwordsSprite()
-                        : ResolveSwordSprite())));
+                    : (string.Equals(StableId, StarfallBarrageSkillId, StringComparison.Ordinal)
+                        ? ResolveStarfallBarrageSprite()
+                        : (string.Equals(StableId, EllipseSwordsSkillId, StringComparison.Ordinal)
+                            ? ResolveEllipseSwordsSprite()
+                            : ResolveSwordSprite()))));
         public Sprite[] EffectFrames => effectFrames;
         public string Description => GetDescriptionForLevel(Level);
         public SkillType Type => skillType;
@@ -176,6 +197,8 @@ namespace Match3RPG.Configuration
                 return string.IsNullOrEmpty(description) ? SwordQiDescription : description;
             if (string.Equals(StableId, RockSpikeSkillId, StringComparison.Ordinal))
                 return string.IsNullOrEmpty(description) ? RockSpikeDescription : description;
+            if (string.Equals(StableId, StarfallBarrageSkillId, StringComparison.Ordinal))
+                return string.IsNullOrEmpty(description) ? StarfallBarrageDescription : description;
             if (string.Equals(StableId, EllipseSwordsSkillId, StringComparison.Ordinal))
                 return string.IsNullOrEmpty(description) ? EllipseSwordsDescription : description;
             if (string.Equals(StableId, SwordRainSkillId, StringComparison.Ordinal))
@@ -287,6 +310,59 @@ namespace Match3RPG.Configuration
             return Array.Empty<Sprite>();
         }
 
+        public static Sprite ResolveStarfallBarrageSprite()
+        {
+            if (cachedStarfallBarrageSprite != null)
+                return cachedStarfallBarrageSprite;
+
+            Sprite[] frames = ResolveStarfallBarrageFrames();
+            if (frames != null && frames.Length > StarfallBarragePeakFrameIndex)
+                cachedStarfallBarrageSprite = frames[StarfallBarragePeakFrameIndex];
+            else if (frames != null && frames.Length > 0)
+                cachedStarfallBarrageSprite = frames[0];
+            return cachedStarfallBarrageSprite;
+        }
+
+        public static Sprite[] ResolveStarfallBarrageFrames()
+        {
+            if (cachedStarfallBarrageFrames != null
+                && cachedStarfallBarrageFrames.Length == StarfallBarrageFrameCount
+                && cachedStarfallBarrageFrames[0] != null)
+                return cachedStarfallBarrageFrames;
+
+#if UNITY_EDITOR
+            UnityEngine.Object[] all = AssetDatabase.LoadAllAssetsAtPath(StarfallBarrageAssetPath);
+            if (all != null && all.Length > 0)
+            {
+                System.Collections.Generic.List<Sprite> sprites =
+                    new System.Collections.Generic.List<Sprite>(StarfallBarrageFrameCount);
+                for (int i = 0; i < all.Length; i++)
+                {
+                    if (all[i] is Sprite sprite)
+                        sprites.Add(sprite);
+                }
+                if (sprites.Count > 0)
+                {
+                    // Sắp xếp theo THỨ TỰ HÌNH ẢNH (trên-trái -> dưới-phải):
+                    // rect.y giảm dần (hàng trên trước), rồi rect.x tăng dần (trái sang phải),
+                    // không phụ thuộc vào số hậu tố _N mà Unity đánh từ dưới lên.
+                    sprites.Sort((a, b) =>
+                    {
+                        int yCompare = b.rect.y.CompareTo(a.rect.y);
+                        if (Mathf.Abs(b.rect.y - a.rect.y) > 1f)
+                            return yCompare;
+                        return a.rect.x.CompareTo(b.rect.x);
+                    });
+                    cachedStarfallBarrageFrames = sprites.ToArray();
+                    if (cachedStarfallBarrageFrames.Length > StarfallBarragePeakFrameIndex)
+                        cachedStarfallBarrageSprite = cachedStarfallBarrageFrames[StarfallBarragePeakFrameIndex];
+                    return cachedStarfallBarrageFrames;
+                }
+            }
+#endif
+            return Array.Empty<Sprite>();
+        }
+
         static Sprite ResolveSpriteAsset(string assetPath, ref Sprite cache)
         {
             if (cache != null)
@@ -366,6 +442,26 @@ namespace Match3RPG.Configuration
             runtime.manaCost = RockSpikeDefaultManaCost;
             runtime.rageCost = RockSpikeDefaultRageCost;
             runtime.cooldownTurns = RockSpikeDefaultCooldownTurns;
+            runtime.level = DefaultLevel;
+            runtime.levelTable = Array.Empty<SkillLevelConfig>();
+            return runtime;
+        }
+
+        public static SkillConfig CreateRuntimeStarfallBarrageFallback()
+        {
+            SkillConfig runtime = CreateInstance<SkillConfig>();
+            runtime.name = StarfallBarrageSkillId;
+            runtime.SetStableId(StarfallBarrageSkillId);
+            runtime.displayName = StarfallBarrageDisplayName;
+            runtime.icon = ResolveStarfallBarrageSprite();
+            runtime.effectFrames = ResolveStarfallBarrageFrames();
+            runtime.description = StarfallBarrageDescription;
+            runtime.skillType = SkillType.Active;
+            runtime.targetType = SkillTargetType.SingleEnemy;
+            runtime.triggerType = SkillTriggerType.Manual;
+            runtime.manaCost = StarfallBarrageDefaultManaCost;
+            runtime.rageCost = StarfallBarrageDefaultRageCost;
+            runtime.cooldownTurns = StarfallBarrageDefaultCooldownTurns;
             runtime.level = DefaultLevel;
             runtime.levelTable = Array.Empty<SkillLevelConfig>();
             return runtime;

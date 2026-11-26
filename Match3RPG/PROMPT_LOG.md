@@ -118,3 +118,35 @@
   - Vào trận bấm kỹ năng Ngũ Kiếm Trận: kiểm tra hero đứng yên suốt skill → 5 cổng elip hiện chụm nghiêng ở góc trên-trái → 5 kiếm chui ra bay chéo xuống thân boss → sát thương + `HitImpact` hiện từng kiếm → boss Hit/Death đúng (boss chết giữa chừng thì kiếm còn lại dừng) → 5 cổng mờ dần 0.3s → cooldown 3 turn + pizza wipe → bấm khi chưa đủ mana/nộ hiện đúng câu "Không đủ tinh lực để sử dụng kỹ năng".
   - Chốt sau Play-test: tên thật (TẠM "Ngũ Kiếm Trận"), cost (TẠM 3 mana / 0 nộ), cooldown (TẠM 3 turn), sát thương (TẠM tổng 5 kiếm = 1 đòn thường), kích thước/vị trí 5 elip, tốc độ kiếm (TẠM cách 0.15s, bay 0.50s).
 - **Lỗi (nếu fail):** Không có.
+
+
+
+## Prompt 168 — 2026-11-27 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error). Unity batch mode `StarfallBarrageSkillSetup.Install()` exit 0 + `StarfallBarrageSkillSetup.Verify()` exit 0 (`DefinitionDatabaseValidator`, `HeroBossRuntimeIntegrationRegressionTests`, `PlayerLoadoutRegressionTests` đều pass).
+- **File đã đổi:**
+  - `Match3RPG/Assets/Art/VFX/Skills/starfall_barrage.meta` *(mới)*
+  - `Match3RPG/Assets/Art/VFX/Skills/starfall_barrage/starfall-barrage-sheet.png` *(mới — file sẵn trên máy, 7680×5760, RGBA, lưới 10×9 ô 768×640, 90 khung)*
+  - `Match3RPG/Assets/Art/VFX/Skills/starfall_barrage/starfall-barrage-sheet.png.meta` *(mới — `spriteMode: 2`, 90 sub-sprite, Custom Pivot `(0.5, 0.3)`)*
+  - `Match3RPG/Assets/Editor/CampaignSpriteImporter.cs`
+  - `Match3RPG/Assets/Scripts/Battle/StarfallBarrageSkillController.cs` *(mới)*
+  - `Match3RPG/Assets/Scripts/Battle/StarfallBarrageSkillController.cs.meta` *(mới)*
+  - `Match3RPG/Assets/Editor/StarfallBarrageSkillSetup.cs` *(mới)*
+  - `Match3RPG/Assets/Editor/StarfallBarrageSkillSetup.cs.meta` *(mới)*
+  - `Match3RPG/Assets/Resources/Configuration/Skills/starfall_barrage.asset` *(mới)*
+  - `Match3RPG/Assets/Resources/Configuration/Skills/starfall_barrage.asset.meta` *(mới)*
+  - `Match3RPG/Assets/Scripts/Configuration/SkillConfig.cs`
+  - `Match3RPG/Assets/Scripts/Battle/BattleController.cs`
+  - `Match3RPG/Assets/Scripts/Battle/TurnManager.cs`
+  - `Match3RPG/Assets/Scripts/Battle/BattleStatusPopup.cs`
+  - `Match3RPG/Assets/Resources/Configuration/SkillDatabase.asset`
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Mở ngoại lệ `StarfallBarragePath` (`Assets/Art/VFX/Skills/starfall_barrage/`) trong `CampaignSpriteImporter.cs` để giữ `SpriteImportMode.Multiple` và không ghi đè `spriteAlignment`/`spritePivot` về Center.
+  - Import tại chỗ sheet `starfall-barrage-sheet.png` (7680×5760, RGBA, 10×9 = 90 khung, ô 768×640, không Trim, `spriteMode: 2`, Custom Pivot `(0.5, 0.30)` đo theo tâm vòng nổ ở khung đỉnh f52 tại `y ≈ 448/640` từ trên xuống), tạo `starfall_barrage.asset` (tên TẠM "Mưa Sao Băng", cost TẠM 3 mana + 0 nộ, cooldown TẠM 3 turn, Lv1, icon khung đỉnh f52 `starfall-barrage-sheet_31`, đủ 90 `effectFrames` theo thứ tự trên-trái → dưới-phải) và đăng ký vào `SkillDatabase.asset`.
+  - Thêm hằng số, `ResolveStarfallBarrageSprite()`, `ResolveStarfallBarrageFrames()`, fallback `DisplayName`/`Icon`/`GetDescriptionForLevel`/`CreateRuntimeStarfallBarrageFallback()` trong `SkillConfig.cs` (mọi giá trị TẠM ghi `// TẠM`).
+  - Tạo `StarfallBarrageSkillController.cs`: dùng lại `hero.PlaySkillInPlaceWithoutLunge(0.48f, onCastRelease)` (hero đứng yên kết ấn tới mốc 0.48 F12→F13), mở `StarfallBarrageLayer` trên `CharacterLayer`, đặt ảnh hiệu ứng tại chân boss (đáy `VisualRect`, không dùng `VFXAnchor`), cao TẠM `1.6 ×` chiều cao battle boss (giữ tỉ lệ ô `768/640`), phát đủ 90 khung @30fps one-shot; gọi `onImpact()` đúng 1 lần tại khung đỉnh 0-based `51` (1-based `52`, `1.70s`), dừng ngay nếu boss chết giữa chừng.
+  - Nối vào `BattleController.cs` (gọi lại `combatVfx?.PlayHitImpact(BattleActor.Boss)`, sát thương phẳng TẠM = `100`, `ShowResource`, `AddReceivedHitRage`, `boss.Hit()`, check `boss.Death()`, trừ cooldown trong `AdvanceRoundCooldowns()`), `TurnManager.cs` (`CanActivateStarfallBarrageSkill` / `TryActivateStarfallBarrageSkill()`), `BattleStatusPopup.cs` (hàng mới Row 4 ngay sau `ellipseSwordsRow` và trước `swordRainRow` Passive, tăng `totalRows = 7`) và `StarfallBarrageSkillSetup.cs` (`Install` + `Verify`).
+- **Chờ Play-test:**
+  - Vào trận bấm kỹ năng Mưa Sao Băng: hero đứng yên kết ấn (KHÔNG lao tới) → sao băng rơi đúng lên đầu boss, vòng nổ chạm đất dưới chân boss (không lệch lên đầu, không lơ lửng) → sát thương 100 hiện đúng lúc vòng nổ to nhất (f52) → boss Hit/Death đúng → cooldown 3 turn + pizza wipe → bấm khi chưa đủ mana/nộ hiện đúng câu "Không đủ tinh lực để sử dụng kỹ năng".
+  - Chốt sau Play-test: tên thật (TẠM "Mưa Sao Băng"), cost (TẠM 3 mana / 0 nộ), cooldown (TẠM 3 turn), sát thương (TẠM 100), kích thước hiệu ứng (TẠM cao `1.6 ×` chiều cao battle boss).
+- **Lỗi (nếu fail):** Không có.
