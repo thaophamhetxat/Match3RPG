@@ -11,6 +11,7 @@ namespace Match3RPG.Editor
         const string CampaignReferencePath = CampaignUiPath + "Reference/";
         const string CampaignVfxPath = "Assets/Art/VFX/Campaign/";
         const string CampaignVfxReferencePath = CampaignVfxPath + "Reference/";
+        const string SoulHarvestPath = CampaignVfxPath + "SouldH/";
         const string SkillsVfxPath = "Assets/Art/VFX/Skills/";
         const string HealingAuraPath = CampaignVfxPath + "Other/healing_aura.png";
         const string LifeStealPath = CampaignVfxPath + "Other/life_steal.png";
@@ -35,7 +36,8 @@ namespace Match3RPG.Editor
             importer.spriteImportMode = !isSkillsVfx
                 && (assetPath == HealingAuraPath || assetPath == LifeStealPath
                     || assetPath == RageAuraPath || assetPath == BloodHitPath
-                    || assetPath == ShieldBubblePath)
+                    || assetPath == ShieldBubblePath
+                    || assetPath.StartsWith(SoulHarvestPath, System.StringComparison.Ordinal))
                 ? SpriteImportMode.Multiple
                 : SpriteImportMode.Single;
             if (isSkillsVfx)
