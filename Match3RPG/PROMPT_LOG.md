@@ -42,3 +42,16 @@
   - Vào trận, hero đánh thường boss: kiểm tra 3 kiếm bay từ góc trên-trái xuống boss ngay lúc hero lao tới, xoay đúng hướng bay, rơi xong trước khi hero lùi về xong, mỗi kiếm chạm boss có vệt máu + số sát thương; kiểm tra tab Skills hiển thị hàng nội tại không bấm được; kiểm tra boss đánh / Skill 1 / Skill 2 không kích hoạt.
   - Chốt lại sau Play-test: tên skill (TẠM "Kiếm Vũ"), số kiếm (TẠM 3), sát thương (TẠM tổng = 1 đòn thường), khoảng cách giữa các kiếm (~0.12s), và vị trí góc xuất phát.
 - **Lỗi (nếu fail):** Không có.
+
+## Prompt 165 — 2026-11-26 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error).
+- **File đã đổi:**
+  - `Match3RPG/Assets/Scripts/Campaign/MainProgressController.cs`
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Thu nhỏ 7 nút ngọc trong `CreateGemInventoryRow`: bề rộng slot từ `slotWidth * .48f` xuống `.40f`, chiều dọc slot glow / bg / button từ `.02–.98` xuống `.08–.92`; thu icon dọc từ `.34–.96` xuống `.36–.90` và nhãn số lượng dọc từ `.06–.42` xuống `.10–.40` (giữ nguyên số lượng slot, thứ tự, cỡ chữ 25, màu sắc, viền/glow chọn và logic chọn nhánh).
+  - Thu nhỏ và nhấc 2 nút dưới trong `CreateStarChartZoomControls`: `TotalBuffButton` từ `(.13,.25)–(.47,.292)` thành `(.15,.258)–(.45,.29)`, `BreakthroughButton` từ `(.53,.25)–(.87,.292)` thành `(.55,.258)–(.85,.29)`, và `BreakthroughButtonGlow` từ `(.522,.244)–(.878,.298)` thành `(.542,.252)–(.858,.296)` (giữ nguyên text, cỡ chữ 20, màu sắc, onClick và logic đột phá).
+  - Xóa sạch thanh tiến độ cảnh giới (`CreateRealmProgressBar`, `RefreshRealmProgressBar`, 2 field `realmProgressFillImage` / `realmProgressLabel` và toàn bộ các lời gọi liên quan); giữ nguyên quả cầu Soul Harvest và toàn bộ logic sao / đột phá / chi phí nâng cấp.
+- **Chờ Play-test:**
+  - Mở tab Nhân vật → Tu luyện kiểm tra: hàng 7 nút ngọc thu nhỏ gọn và có khoảng hở với viền khung; 2 nút "Tổng chỉ số" và "ĐỘT PHÁ" thu nhỏ và hở rõ khỏi viền dưới; thanh tiến độ vàng "70/70" dưới khung cảnh giới đã biến mất hoàn toàn; quả cầu Soul Harvest và popup nâng cấp sao / Tổng chỉ số / ĐỘT PHÁ vẫn hoạt động đúng.
+- **Lỗi (nếu fail):** Không có.

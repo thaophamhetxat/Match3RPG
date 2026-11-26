@@ -207,8 +207,6 @@ namespace Match3RPG.Campaign
         float inventoryGridTopOffset;
         Sprite[] resolvedInventoryItemSprites;
         TMP_Text realmButtonLabel;
-        Image realmProgressFillImage;
-        TMP_Text realmProgressLabel;
         TMP_Text starActionStatus;
         TMP_Text starActionHint;
         ScrollRect starChartDetailsScrollRect;
@@ -3552,8 +3550,6 @@ backgroundLayer.SetAsFirstSibling();
             ApplyStarChartTextStyle(nextRealmArrow, 42);
             RefreshRealmNavigationButtons();
 
-            CreateRealmProgressBar(starChartUIGroup.transform);
-
             starChartContent = CreateAnchoredRect(starChartUIGroup.transform, "StarChartContent",
                 new Vector2(.09f, .31f), new Vector2(.91f, .63f),
                 Vector2.zero, Vector2.zero).gameObject;
@@ -3662,8 +3658,8 @@ backgroundLayer.SetAsFirstSibling();
             for (int index = 0; index < StarChartGemTypes.Length; index++)
             {
                 float slotCenter = (index + .5f) * slotWidth;
-                float slotMinX = slotCenter - slotWidth * .48f;
-                float slotMaxX = slotCenter + slotWidth * .48f;
+                float slotMinX = slotCenter - slotWidth * .40f;
+                float slotMaxX = slotCenter + slotWidth * .40f;
                 Sprite sprite = GetSpriteAt(starChartBaseGemSprites, index);
                 if (sprite == null)
                 {
@@ -3673,8 +3669,8 @@ backgroundLayer.SetAsFirstSibling();
 
                 RectTransform slotGlowRect = CreateAnchoredRect(row,
                     $"GemSlotGlow_{StarChartGemTypes[index]}",
-                    new Vector2(slotMinX, .02f),
-                    new Vector2(slotMaxX, .98f),
+                    new Vector2(slotMinX, .08f),
+                    new Vector2(slotMaxX, .92f),
                     new Vector2(-2f, -2f), new Vector2(2f, 2f));
                 Image slotGlowImage = slotGlowRect.gameObject.AddComponent<Image>();
                 slotGlowImage.sprite = slotGlowSprite;
@@ -3685,8 +3681,8 @@ backgroundLayer.SetAsFirstSibling();
 
                 RectTransform slotBgRect = CreateAnchoredRect(row,
                     $"GemSlotBg_{StarChartGemTypes[index]}",
-                    new Vector2(slotMinX, .02f),
-                    new Vector2(slotMaxX, .98f),
+                    new Vector2(slotMinX, .08f),
+                    new Vector2(slotMaxX, .92f),
                     Vector2.zero, Vector2.zero);
                 Image slotBgImage = slotBgRect.gameObject.AddComponent<Image>();
                 slotBgImage.sprite = slotBgSprite;
@@ -3701,8 +3697,8 @@ backgroundLayer.SetAsFirstSibling();
                 const float iconWidth = .075f;
                 RectTransform iconRect = CreateAnchoredRect(row,
                     $"GemIcon_{StarChartGemTypes[index]}",
-                    new Vector2(slotCenter - iconWidth * .5f, .34f),
-                    new Vector2(slotCenter + iconWidth * .5f, .96f),
+                    new Vector2(slotCenter - iconWidth * .5f, .36f),
+                    new Vector2(slotCenter + iconWidth * .5f, .90f),
                     Vector2.zero, Vector2.zero);
                 Image icon = iconRect.gameObject.AddComponent<Image>();
                 icon.sprite = sprite;
@@ -3714,13 +3710,13 @@ backgroundLayer.SetAsFirstSibling();
                 baseGemInventoryCountLabels[index] = AddLabel(row,
                     $"GemCount_{StarChartGemTypes[index]}",
                     gemValue.ToString(CultureInfo.InvariantCulture), 25, Color.white,
-                    new Vector2(slotCenter - slotWidth * .45f, .06f),
-                    new Vector2(slotCenter + slotWidth * .45f, .42f));
+                    new Vector2(slotCenter - slotWidth * .45f, .10f),
+                    new Vector2(slotCenter + slotWidth * .45f, .40f));
                 ApplyStarChartTextStyle(baseGemInventoryCountLabels[index], 25);
 
                 int branchIndex = index;
                 CreateCharacterHitButton(row, $"GemSlotButton_{StarChartGemTypes[index]}",
-                    slotMinX, .02f, slotMaxX, .98f,
+                    slotMinX, .08f, slotMaxX, .92f,
                     () => SelectStarChartBranch(branchIndex));
             }
 
@@ -3754,56 +3750,6 @@ backgroundLayer.SetAsFirstSibling();
                 if (baseGemSlotGlowImages[index] != null)
                     baseGemSlotGlowImages[index].enabled = isSelected;
             }
-        }
-
-        void CreateRealmProgressBar(Transform parent)
-        {
-            RectTransform bar = CreateAnchoredRect(parent, "RealmProgressBar",
-                new Vector2(.23f, .635f), new Vector2(.77f, .66f),
-                Vector2.zero, Vector2.zero);
-            Image trackImage = bar.gameObject.AddComponent<Image>();
-            trackImage.sprite = GetRoundedRectSprite(6);
-            trackImage.type = Image.Type.Sliced;
-            trackImage.color = new Color32(10, 16, 24, 255);
-            trackImage.raycastTarget = false;
-            Outline trackOutline = bar.gameObject.AddComponent<Outline>();
-            trackOutline.effectColor = MutedGold;
-            trackOutline.effectDistance = new Vector2(1f, -1f);
-
-            EnsureTabFocusWhiteSprite();
-            RectTransform fillRect = CreateAnchoredRect(bar, "RealmProgressFill",
-                Vector2.zero, Vector2.one, new Vector2(2f, 2f), new Vector2(-2f, -2f));
-            realmProgressFillImage = fillRect.gameObject.AddComponent<Image>();
-            realmProgressFillImage.sprite = tabFocusWhiteSprite;
-            realmProgressFillImage.color = Gold;
-            realmProgressFillImage.type = Image.Type.Filled;
-            realmProgressFillImage.fillMethod = Image.FillMethod.Horizontal;
-            realmProgressFillImage.fillOrigin = (int)Image.OriginHorizontal.Left;
-            realmProgressFillImage.fillAmount = 0f;
-            realmProgressFillImage.raycastTarget = false;
-
-            realmProgressLabel = AddLabel(bar, "RealmProgressLabel",
-                string.Empty, 20, Color.white, Vector2.zero, Vector2.one,
-                TextAlignmentOptions.Center);
-            ApplyStarChartTextStyle(realmProgressLabel, 20);
-            Outline labelOutline = realmProgressLabel.gameObject.AddComponent<Outline>();
-            labelOutline.effectColor = new Color32(10, 16, 24, 230);
-            labelOutline.effectDistance = new Vector2(1.2f, -1.2f);
-            RefreshRealmProgressBar();
-        }
-
-        void RefreshRealmProgressBar()
-        {
-            int litStars = 0;
-            for (int index = 0; index < litStarsPerBranch.Length; index++)
-                litStars += litStarsPerBranch[index];
-            int requiredStars = StarChartGemTypes.Length * MainProgressChartGraphic.StarsPerBranch;
-            if (realmProgressFillImage != null)
-                realmProgressFillImage.fillAmount = requiredStars > 0
-                    ? Mathf.Clamp01((float)litStars / requiredStars)
-                    : 0f;
-            if (realmProgressLabel != null)
-                realmProgressLabel.text = $"{litStars}/{requiredStars}";
         }
 
         void CreateStarChartDetailsPanel(Transform parent)
@@ -3949,12 +3895,12 @@ backgroundLayer.SetAsFirstSibling();
                 32, () => SetStarChartZoom(currentStarChartZoom - SoulHarvestOrbZoomStep));
 
             totalBuffButton = CreateStarChartControlButton(parent, "TotalBuffButton",
-                new Vector2(.13f, .25f), new Vector2(.47f, .292f), "Tổng chỉ số",
+                new Vector2(.15f, .258f), new Vector2(.45f, .29f), "Tổng chỉ số",
                 20, OpenTotalBuffPopup);
 
             RectTransform breakthroughGlowRect = CreateAnchoredRect(parent,
-                "BreakthroughButtonGlow", new Vector2(.522f, .244f),
-                new Vector2(.878f, .298f), Vector2.zero, Vector2.zero);
+                "BreakthroughButtonGlow", new Vector2(.542f, .252f),
+                new Vector2(.858f, .296f), Vector2.zero, Vector2.zero);
             breakthroughGlowImage = breakthroughGlowRect.gameObject.AddComponent<Image>();
             breakthroughGlowImage.sprite = GetRoundedRectSprite(18);
             breakthroughGlowImage.type = Image.Type.Sliced;
@@ -3962,7 +3908,7 @@ backgroundLayer.SetAsFirstSibling();
             breakthroughGlowImage.raycastTarget = false;
 
             breakthroughButton = CreateStarChartControlButton(parent, "BreakthroughButton",
-                new Vector2(.53f, .25f), new Vector2(.87f, .292f), "ĐỘT PHÁ",
+                new Vector2(.55f, .258f), new Vector2(.85f, .29f), "ĐỘT PHÁ",
                 20, TryOpenBreakthroughPopup);
             ConfigureOutlinedButton(breakthroughButton, new Color32(28, 35, 44, 245), Gold, 3.5f);
             Transform breakthroughLabelTransform = parent != null ? parent.Find("BreakthroughButtonLabel") : null;
@@ -4761,7 +4707,6 @@ backgroundLayer.SetAsFirstSibling();
                 starChartGraphic.SetSelectedStar(selectedStarChartBranchIndex, starIndex);
             }
             RefreshGemSlotSelectionVisuals();
-            RefreshRealmProgressBar();
             RefreshSoulHarvestOrbVisual();
             UpdateStarActionDetails();
             SetStarChartStatus(
@@ -4844,7 +4789,6 @@ backgroundLayer.SetAsFirstSibling();
                     starChartGraphicRect.gameObject.SetActive(false);
                 RefreshBaseGemInventory();
                 RefreshGemSlotSelectionVisuals();
-                RefreshRealmProgressBar();
                 RefreshSoulHarvestOrbVisual();
                 UpdateBreakthroughButtonState();
             }
