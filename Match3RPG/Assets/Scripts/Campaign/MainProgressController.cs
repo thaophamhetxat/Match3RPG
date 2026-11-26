@@ -11,6 +11,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Match3RPG.Campaign
 {
@@ -25,6 +28,13 @@ namespace Match3RPG.Campaign
         const int MaxEquipmentQualityTier = 3;
         const string BlackDragonSetDetailText = "Bộ Hắc Long (hệ ATK) — 6 món: Kiếm, Mũ, Giáp, Găng, Giầy, Nhẫn.";
         const string MeditateAnimatorResourcePath = "MainProgress/Hero2_Meditate";
+        const string SoulHarvestRedSheetAssetPath = "Assets/Art/VFX/Campaign/SouldH/soul-harvest-red-sheet.png";
+        const string SoulHarvestRedSheetResourcePath = "VFX/Campaign/SouldH/soul-harvest-red-sheet";
+        const float SoulHarvestOrbFrameRate = 30f;
+        const float SoulHarvestOrbAspectRatio = 520f / 576f;
+        const float SoulHarvestOrbMinScale = 0.6f;
+        const float SoulHarvestOrbMaxScale = 2.0f;
+        const float SoulHarvestOrbZoomStep = 0.2f;
 
         // Thiên phú chỉ để hiển thị mốc nâng cấp, KHÔNG cộng thêm bonus riêng vào chỉ số.
         static readonly (int milestoneLevel, string text, Vector2 anchorMin, Vector2 anchorMax)[] EquipmentTalentMilestones =
@@ -83,6 +93,7 @@ namespace Match3RPG.Campaign
         [SerializeField] Sprite[] inventoryItemSprites = new Sprite[4];
         [SerializeField] Sprite[] starChartBaseGemSprites = new Sprite[7];
         [SerializeField] Sprite[] starChartSpecialGemSprites = new Sprite[7];
+        [SerializeField] Sprite[] soulHarvestRedFrames;
 
         static Sprite tabFocusWhiteSprite;
         static Sprite starPolygonSprite;
@@ -214,6 +225,13 @@ namespace Match3RPG.Campaign
         Button breakthroughConfirmButton;
         RectTransform starChartGraphicRect;
         ScrollRect starChartZoomScrollRect;
+        RectTransform soulHarvestOrbRect;
+        Image soulHarvestOrbImage;
+        Button soulHarvestOrbButton;
+        Sprite[] resolvedSoulHarvestRedFrames;
+        Sprite[] activeSoulHarvestOrbFrames;
+        float soulHarvestOrbElapsed;
+        int soulHarvestOrbFrameIndex = -1;
         RectTransform starNodePopup;
         TMP_Text starNodePopupText;
         Button starNodePopupCloseButton;
@@ -429,6 +447,11 @@ namespace Match3RPG.Campaign
         void OnEnable()
         {
             RefreshBannerInfo();
+        }
+
+        void Update()
+        {
+            UpdateSoulHarvestOrbAnimation();
         }
 
         void BuildUI()
@@ -3557,9 +3580,14 @@ backgroundLayer.SetAsFirstSibling();
             starChartGraphic.color = Color.white;
             starChartGraphic.StarClicked += SelectStarChartNode;
             starChartZoomScrollRect.content = starChartGraphicRect;
+            CreateStarChartArtwork();
+            // Ẩn cây nhánh tinh đồ (giữ lại code/GameObject để có thể bật lại sau nếu cần),
+            // thay bằng hiệu ứng quả cầu Soul Harvest ở giữa khu vực chart.
+            starChartGraphicRect.gameObject.SetActive(false);
+            starChartZoomScrollRect.enabled = false;
+            CreateSoulHarvestOrb(starChartContent.transform);
             SetStarChartZoom(1f);
             RefreshSelectedRealmStars();
-            CreateStarChartArtwork();
             CreateStarChartZoomControls(starChartUIGroup.transform);
             CreateStarNodePopup();
             CreateTotalBuffPopup();
@@ -3915,10 +3943,10 @@ backgroundLayer.SetAsFirstSibling();
         {
             CreateStarChartCircleButton(parent, "StarChartZoomIn",
                 new Vector2(.875f, .47f), new Vector2(.935f, .53f), "+",
-                32, () => SetStarChartZoom(currentStarChartZoom + .2f));
+                32, () => SetStarChartZoom(currentStarChartZoom + SoulHarvestOrbZoomStep));
             CreateStarChartCircleButton(parent, "StarChartZoomOut",
                 new Vector2(.875f, .40f), new Vector2(.935f, .46f), "−",
-                32, () => SetStarChartZoom(currentStarChartZoom - .2f));
+                32, () => SetStarChartZoom(currentStarChartZoom - SoulHarvestOrbZoomStep));
 
             totalBuffButton = CreateStarChartControlButton(parent, "TotalBuffButton",
                 new Vector2(.13f, .25f), new Vector2(.47f, .292f), "Tổng chỉ số",
@@ -4004,8 +4032,8 @@ backgroundLayer.SetAsFirstSibling();
 
         void CreateStarNodePopup()
         {
-            starNodePopup = CreateAnchoredRect(starChartGraphicRect,
-                "StarNodePopup", new Vector2(.5f, .5f), new Vector2(.5f, .5f),
+            starNodePopup = CreateAnchoredRect(starChartUIGroup.transform,
+                "StarNodePopup", new Vector2(.5f, .47f), new Vector2(.5f, .47f),
                 Vector2.zero, Vector2.zero);
             starNodePopup.sizeDelta = new Vector2(440f, 300f);
             starNodePopup.anchoredPosition = Vector2.zero;
@@ -4071,16 +4099,214 @@ backgroundLayer.SetAsFirstSibling();
 
         void SetStarChartZoom(float targetZoom)
         {
-            if (starChartGraphicRect == null || starChartContent == null)
-                return;
-            currentStarChartZoom = Mathf.Clamp(targetZoom, .6f, 2f);
-            RectTransform viewport = starChartContent.GetComponent<RectTransform>();
-            starChartGraphicRect.sizeDelta = viewport.rect.size * currentStarChartZoom;
-            if (starChartZoomScrollRect != null)
+            currentStarChartZoom = Mathf.Clamp(targetZoom,
+                SoulHarvestOrbMinScale, SoulHarvestOrbMaxScale);
+            if (soulHarvestOrbRect != null)
+                soulHarvestOrbRect.localScale = Vector3.one * currentStarChartZoom;
+        }
+
+        readonly struct SoulHarvestOrbStyle
+        {
+            public readonly Sprite[] Frames;
+            public readonly Color TintColor;
+
+            public SoulHarvestOrbStyle(Sprite[] frames, Color tintColor)
             {
-                starChartZoomScrollRect.StopMovement();
-                starChartZoomScrollRect.normalizedPosition = Vector2.zero;
+                Frames = frames;
+                TintColor = tintColor;
             }
+        }
+
+        void CreateSoulHarvestOrb(Transform parent)
+        {
+            if (parent == null)
+                return;
+
+            soulHarvestOrbRect = CreateAnchoredRect(parent, "SoulHarvestOrb",
+                new Vector2(.04f, .04f), new Vector2(.96f, .96f),
+                Vector2.zero, Vector2.zero);
+            soulHarvestOrbRect.pivot = new Vector2(.5f, .5f);
+
+            // Project chưa có material additive sẵn cho VFX nên dùng material mặc định của UI Image.
+            soulHarvestOrbImage = soulHarvestOrbRect.gameObject.AddComponent<Image>();
+            soulHarvestOrbImage.preserveAspect = true;
+            soulHarvestOrbImage.raycastTarget = false;
+            soulHarvestOrbImage.color = Color.white;
+
+            AspectRatioFitter aspectFitter = soulHarvestOrbRect.gameObject.AddComponent<AspectRatioFitter>();
+            aspectFitter.aspectMode = AspectRatioFitter.AspectMode.FitInParent;
+            aspectFitter.aspectRatio = SoulHarvestOrbAspectRatio;
+
+            // Nút bấm trong suốt bao phủ 60% đường kính tâm quả cầu (anchors .20–.80).
+            soulHarvestOrbButton = CreateCharacterHitButton(soulHarvestOrbRect,
+                "SoulHarvestOrbButton", .20f, .20f, .80f, .80f,
+                OpenSelectedBranchUpgradePopup);
+
+            soulHarvestOrbElapsed = 0f;
+            soulHarvestOrbFrameIndex = -1;
+            RefreshSoulHarvestOrbVisual();
+        }
+
+        Sprite[] ResolveSoulHarvestRedFrames()
+        {
+            if (soulHarvestRedFrames != null && soulHarvestRedFrames.Length > 0)
+                return soulHarvestRedFrames;
+            if (resolvedSoulHarvestRedFrames != null && resolvedSoulHarvestRedFrames.Length > 0)
+                return resolvedSoulHarvestRedFrames;
+
+            List<Sprite> loaded = new List<Sprite>();
+#if UNITY_EDITOR
+            UnityEngine.Object[] assets = AssetDatabase.LoadAllAssetsAtPath(SoulHarvestRedSheetAssetPath);
+            if (assets != null)
+            {
+                for (int i = 0; i < assets.Length; i++)
+                {
+                    if (assets[i] is Sprite sprite)
+                        loaded.Add(sprite);
+                }
+            }
+#endif
+            if (loaded.Count == 0)
+            {
+                Sprite[] resourceSprites = Resources.LoadAll<Sprite>(SoulHarvestRedSheetResourcePath);
+                if (resourceSprites != null && resourceSprites.Length > 0)
+                    loaded.AddRange(resourceSprites);
+            }
+
+            if (loaded.Count > 1)
+                loaded.Sort(CompareSpriteFrameOrder);
+
+            resolvedSoulHarvestRedFrames = loaded.ToArray();
+            if (resolvedSoulHarvestRedFrames.Length == 0)
+            {
+                Debug.LogWarning(
+                    $"MainProgress failed to load Soul Harvest orb frames from {SoulHarvestRedSheetAssetPath}.",
+                    this);
+            }
+
+            return resolvedSoulHarvestRedFrames;
+        }
+
+        static int CompareSpriteFrameOrder(Sprite a, Sprite b)
+        {
+            if (a == null && b == null) return 0;
+            if (a == null) return -1;
+            if (b == null) return 1;
+
+            int indexA = ExtractTrailingFrameIndex(a.name);
+            int indexB = ExtractTrailingFrameIndex(b.name);
+            if (indexA != indexB)
+                return indexA.CompareTo(indexB);
+            return string.CompareOrdinal(a.name, b.name);
+        }
+
+        static int ExtractTrailingFrameIndex(string spriteName)
+        {
+            if (string.IsNullOrEmpty(spriteName))
+                return int.MaxValue;
+
+            int end = spriteName.Length - 1;
+            while (end >= 0 && !char.IsDigit(spriteName[end]))
+                end--;
+            if (end < 0)
+                return int.MaxValue;
+
+            int start = end;
+            while (start > 0 && char.IsDigit(spriteName[start - 1]))
+                start--;
+
+            return int.TryParse(spriteName.Substring(start, end - start + 1),
+                NumberStyles.Integer, CultureInfo.InvariantCulture, out int parsed)
+                ? parsed
+                : int.MaxValue;
+        }
+
+        // Ánh xạ loại ngọc -> hiệu ứng quả cầu Soul Harvest.
+        // Hiện mới nối sheet thật SoulHarvest_Red cho viên đỏ (GemType.Attack / Lửa Đỏ).
+        // Các viên khác TẠM dùng chung sheet đỏ + tint nhân màu bằng Image.color; sẽ thay bằng sheet màu riêng sau.
+        SoulHarvestOrbStyle ResolveSoulHarvestOrbStyle(GemType gemType)
+        {
+            Sprite[] redFrames = ResolveSoulHarvestRedFrames();
+            switch (gemType)
+            {
+                case GemType.Attack:
+                    return new SoulHarvestOrbStyle(redFrames, Color.white);
+                case GemType.Mana:
+                    return new SoulHarvestOrbStyle(redFrames, new Color32(94, 167, 255, 255));
+                case GemType.ExpDrain:
+                    return new SoulHarvestOrbStyle(redFrames, new Color32(195, 130, 255, 255));
+                case GemType.Rage:
+                    return new SoulHarvestOrbStyle(redFrames, new Color32(255, 215, 110, 255));
+                case GemType.Health:
+                    return new SoulHarvestOrbStyle(redFrames, new Color32(100, 235, 155, 255));
+                case GemType.Shield:
+                    return new SoulHarvestOrbStyle(redFrames, new Color32(156, 218, 240, 255));
+                case GemType.Soul:
+                    return new SoulHarvestOrbStyle(redFrames, new Color32(230, 235, 245, 255));
+                default:
+                    return new SoulHarvestOrbStyle(redFrames, Color.white);
+            }
+        }
+
+        void RefreshSoulHarvestOrbVisual()
+        {
+            if (soulHarvestOrbImage == null)
+                return;
+
+            int branchIndex = Mathf.Clamp(selectedStarChartBranchIndex, 0, StarChartGemTypes.Length - 1);
+            SoulHarvestOrbStyle style = ResolveSoulHarvestOrbStyle(StarChartGemTypes[branchIndex]);
+            activeSoulHarvestOrbFrames = style.Frames;
+            soulHarvestOrbImage.color = style.TintColor;
+
+            if (activeSoulHarvestOrbFrames != null && activeSoulHarvestOrbFrames.Length > 0)
+            {
+                int frameIndex = soulHarvestOrbFrameIndex >= 0
+                    ? soulHarvestOrbFrameIndex % activeSoulHarvestOrbFrames.Length
+                    : 0;
+                soulHarvestOrbFrameIndex = frameIndex;
+                soulHarvestOrbImage.sprite = activeSoulHarvestOrbFrames[frameIndex];
+                soulHarvestOrbImage.enabled = true;
+            }
+            else
+            {
+                soulHarvestOrbImage.enabled = false;
+            }
+        }
+
+        void UpdateSoulHarvestOrbAnimation()
+        {
+            if (soulHarvestOrbImage == null
+                || !soulHarvestOrbImage.gameObject.activeInHierarchy
+                || activeSoulHarvestOrbFrames == null
+                || activeSoulHarvestOrbFrames.Length == 0)
+                return;
+
+            soulHarvestOrbElapsed += Time.unscaledDeltaTime;
+            int frameIndex = Mathf.FloorToInt(soulHarvestOrbElapsed * SoulHarvestOrbFrameRate)
+                % activeSoulHarvestOrbFrames.Length;
+            if (frameIndex != soulHarvestOrbFrameIndex)
+            {
+                soulHarvestOrbFrameIndex = frameIndex;
+                soulHarvestOrbImage.sprite = activeSoulHarvestOrbFrames[frameIndex];
+            }
+        }
+
+        void OpenSelectedBranchUpgradePopup()
+        {
+            int branchIndex = Mathf.Clamp(selectedStarChartBranchIndex, 0, StarChartGemTypes.Length - 1);
+            int nextStar = litStarsPerBranch[branchIndex];
+            if (nextStar >= MainProgressChartGraphic.StarsPerBranch)
+            {
+                int maxStarIndex = MainProgressChartGraphic.StarsPerBranch - 1;
+                UpdateStarActionDetails();
+                SetStarChartStatus("Nhánh này đã thắp đủ 10 sao · "
+                    + StarChartStatDescriptions[branchIndex] + ".");
+                ShowStarNodePopup(branchIndex, maxStarIndex);
+                return;
+            }
+
+            UpdateStarActionDetails();
+            ShowStarNodePopup(branchIndex, nextStar);
         }
 
         void OpenTotalBuffPopup()
@@ -4536,9 +4762,10 @@ backgroundLayer.SetAsFirstSibling();
             }
             RefreshGemSlotSelectionVisuals();
             RefreshRealmProgressBar();
+            RefreshSoulHarvestOrbVisual();
             UpdateStarActionDetails();
             SetStarChartStatus(
-                "Mốc 1 sáng hiển thị trên cả 7 nhánh; tiến độ thật không đổi.");
+                "Bấm vào tâm quả cầu để xem Lv và nâng cấp sao.");
             UpdateBreakthroughButtonState();
         }
 
@@ -4613,9 +4840,12 @@ backgroundLayer.SetAsFirstSibling();
                 starChartUIGroup.SetActive(selectedCharacterTab == 1);
             if (selectedCharacterTab == 1)
             {
+                if (starChartGraphicRect != null)
+                    starChartGraphicRect.gameObject.SetActive(false);
                 RefreshBaseGemInventory();
                 RefreshGemSlotSelectionVisuals();
                 RefreshRealmProgressBar();
+                RefreshSoulHarvestOrbVisual();
                 UpdateBreakthroughButtonState();
             }
         }

@@ -1,0 +1,2485 @@
+fileFormatVersion: 2
+guid: cb1bcfaba0ec9f5438f263e8dbf81095
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3342549774706386673
+    second: soul-harvest-red-sheet_00
+  - first:
+      213: 5740074799876768306
+    second: soul-harvest-red-sheet_01
+  - first:
+      213: -8800279639155128203
+    second: soul-harvest-red-sheet_02
+  - first:
+      213: -3650667300911204746
+    second: soul-harvest-red-sheet_03
+  - first:
+      213: -7917574322338735877
+    second: soul-harvest-red-sheet_04
+  - first:
+      213: 6109376280135096491
+    second: soul-harvest-red-sheet_05
+  - first:
+      213: 8538418733399488541
+    second: soul-harvest-red-sheet_06
+  - first:
+      213: -7637445657436512652
+    second: soul-harvest-red-sheet_07
+  - first:
+      213: -1326879017489146453
+    second: soul-harvest-red-sheet_08
+  - first:
+      213: 8419675523984052126
+    second: soul-harvest-red-sheet_09
+  - first:
+      213: -3570013569966957351
+    second: soul-harvest-red-sheet_10
+  - first:
+      213: 8176164899841141207
+    second: soul-harvest-red-sheet_11
+  - first:
+      213: 7308443516424206906
+    second: soul-harvest-red-sheet_12
+  - first:
+      213: -7662288164462915651
+    second: soul-harvest-red-sheet_13
+  - first:
+      213: -8568625582420963073
+    second: soul-harvest-red-sheet_14
+  - first:
+      213: 8511159691768045071
+    second: soul-harvest-red-sheet_15
+  - first:
+      213: 1863016394142045424
+    second: soul-harvest-red-sheet_16
+  - first:
+      213: -8681888838148958529
+    second: soul-harvest-red-sheet_17
+  - first:
+      213: -2357988481172488991
+    second: soul-harvest-red-sheet_18
+  - first:
+      213: 6850259837407867486
+    second: soul-harvest-red-sheet_19
+  - first:
+      213: -7386487022340355581
+    second: soul-harvest-red-sheet_20
+  - first:
+      213: 2907917643967551348
+    second: soul-harvest-red-sheet_21
+  - first:
+      213: 4681450857973637000
+    second: soul-harvest-red-sheet_22
+  - first:
+      213: 4969673505394162601
+    second: soul-harvest-red-sheet_23
+  - first:
+      213: -6850401980229319703
+    second: soul-harvest-red-sheet_24
+  - first:
+      213: 353586667412133528
+    second: soul-harvest-red-sheet_25
+  - first:
+      213: 4724972259475603180
+    second: soul-harvest-red-sheet_26
+  - first:
+      213: -4447162375323974774
+    second: soul-harvest-red-sheet_27
+  - first:
+      213: 3387012470374449861
+    second: soul-harvest-red-sheet_28
+  - first:
+      213: -7339231712772954258
+    second: soul-harvest-red-sheet_29
+  - first:
+      213: 1501055525319841699
+    second: soul-harvest-red-sheet_30
+  - first:
+      213: -5787881588544092688
+    second: soul-harvest-red-sheet_31
+  - first:
+      213: 6243753349444721782
+    second: soul-harvest-red-sheet_32
+  - first:
+      213: -64082620134054711
+    second: soul-harvest-red-sheet_33
+  - first:
+      213: 1397734353722383334
+    second: soul-harvest-red-sheet_34
+  - first:
+      213: -7561079100075952090
+    second: soul-harvest-red-sheet_35
+  - first:
+      213: 7884359548070108632
+    second: soul-harvest-red-sheet_36
+  - first:
+      213: 7432713653735840840
+    second: soul-harvest-red-sheet_37
+  - first:
+      213: -2240909071460247652
+    second: soul-harvest-red-sheet_38
+  - first:
+      213: -2059426544531622823
+    second: soul-harvest-red-sheet_39
+  - first:
+      213: -2220951538262586398
+    second: soul-harvest-red-sheet_40
+  - first:
+      213: 1980678031471898233
+    second: soul-harvest-red-sheet_41
+  - first:
+      213: 502395885456354905
+    second: soul-harvest-red-sheet_42
+  - first:
+      213: -8658099794311285737
+    second: soul-harvest-red-sheet_43
+  - first:
+      213: 251890559849468415
+    second: soul-harvest-red-sheet_44
+  - first:
+      213: -2651722701061464454
+    second: soul-harvest-red-sheet_45
+  - first:
+      213: 6587489594236084146
+    second: soul-harvest-red-sheet_46
+  - first:
+      213: 2407343908728808084
+    second: soul-harvest-red-sheet_47
+  - first:
+      213: 3310596974969707915
+    second: soul-harvest-red-sheet_48
+  - first:
+      213: -3360066301252635982
+    second: soul-harvest-red-sheet_49
+  - first:
+      213: 4223003147062543037
+    second: soul-harvest-red-sheet_50
+  - first:
+      213: -2818114023979886237
+    second: soul-harvest-red-sheet_51
+  - first:
+      213: 3647546431522142884
+    second: soul-harvest-red-sheet_52
+  - first:
+      213: 3448010044879033640
+    second: soul-harvest-red-sheet_53
+  - first:
+      213: -4764340365247904205
+    second: soul-harvest-red-sheet_54
+  - first:
+      213: 1282736919919920300
+    second: soul-harvest-red-sheet_55
+  - first:
+      213: -3405270066842158994
+    second: soul-harvest-red-sheet_56
+  - first:
+      213: -7847958047003404407
+    second: soul-harvest-red-sheet_57
+  - first:
+      213: -5361683620317859783
+    second: soul-harvest-red-sheet_58
+  - first:
+      213: -36827853058384390
+    second: soul-harvest-red-sheet_59
+  - first:
+      213: -2350499501140990102
+    second: soul-harvest-red-sheet_60
+  - first:
+      213: 4573239982466743810
+    second: soul-harvest-red-sheet_61
+  - first:
+      213: -8217687474949875544
+    second: soul-harvest-red-sheet_62
+  - first:
+      213: -3208680770108347882
+    second: soul-harvest-red-sheet_63
+  - first:
+      213: -1854987320417169900
+    second: soul-harvest-red-sheet_64
+  - first:
+      213: -3669303502358709246
+    second: soul-harvest-red-sheet_65
+  - first:
+      213: 1956333589606768819
+    second: soul-harvest-red-sheet_66
+  - first:
+      213: 988964171274666801
+    second: soul-harvest-red-sheet_67
+  - first:
+      213: -6346957882710218329
+    second: soul-harvest-red-sheet_68
+  - first:
+      213: -5574769131617689143
+    second: soul-harvest-red-sheet_69
+  - first:
+      213: -596726499514261989
+    second: soul-harvest-red-sheet_70
+  - first:
+      213: 3688859069171180596
+    second: soul-harvest-red-sheet_71
+  - first:
+      213: -8236676483630235696
+    second: soul-harvest-red-sheet_72
+  - first:
+      213: -4856074958249943669
+    second: soul-harvest-red-sheet_73
+  - first:
+      213: -7926268157304927350
+    second: soul-harvest-red-sheet_74
+  - first:
+      213: 5414589874665370237
+    second: soul-harvest-red-sheet_75
+  - first:
+      213: -7086474590884165244
+    second: soul-harvest-red-sheet_76
+  - first:
+      213: -2645370355032778417
+    second: soul-harvest-red-sheet_77
+  - first:
+      213: -6259485070305190392
+    second: soul-harvest-red-sheet_78
+  - first:
+      213: 3066634609071247104
+    second: soul-harvest-red-sheet_79
+  - first:
+      213: 5785017766634292279
+    second: soul-harvest-red-sheet_80
+  - first:
+      213: 5763694024385935013
+    second: soul-harvest-red-sheet_81
+  - first:
+      213: -3133905190640877325
+    second: soul-harvest-red-sheet_82
+  - first:
+      213: -255223182862810627
+    second: soul-harvest-red-sheet_83
+  - first:
+      213: 2402989353917312149
+    second: soul-harvest-red-sheet_84
+  - first:
+      213: -7370681079438105027
+    second: soul-harvest-red-sheet_85
+  - first:
+      213: 7741174428430115874
+    second: soul-harvest-red-sheet_86
+  - first:
+      213: 6943954395691435396
+    second: soul-harvest-red-sheet_87
+  - first:
+      213: 3253560835741481499
+    second: soul-harvest-red-sheet_88
+  - first:
+      213: -6476892428762811562
+    second: soul-harvest-red-sheet_89
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 4096
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_00
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4608
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f599082b0e09cd14d3e245f60a52acd
+      internalID: -3342549774706386673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_01
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 4608
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3282d3469ed7a84f2f7e6be84fa2a1e4
+      internalID: 5740074799876768306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_02
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 4608
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75480e484b20df8543a6089fd5018d06
+      internalID: -8800279639155128203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_03
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 4608
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76b60d906e3956cdf7b5b5917a0879e0
+      internalID: -3650667300911204746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_04
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 4608
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbd83e5a1a201f9295127e97eebb8f04
+      internalID: -7917574322338735877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_05
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 4608
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab58a6a05bddc854972e1042b2fb39dd
+      internalID: 6109376280135096491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_06
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 4608
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d38d17b998e7e76e5ec36c4291a9f32
+      internalID: 8538418733399488541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_07
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 4608
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 749e25b5a357029682c4b4b6ef821ccd
+      internalID: -7637445657436512652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_08
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 4608
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abdda34e90fa95ed3b32e0144cbcbc27
+      internalID: -1326879017489146453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_09
+      rect:
+        serializedVersion: 2
+        x: 4680
+        y: 4608
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ecf1e9b47b2d8745989d2a059360f3b
+      internalID: 8419675523984052126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4032
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d99ccba692c374ce671f50b254f205da
+      internalID: -3570013569966957351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_11
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 4032
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7690c40a8927771246b10eec8a9c8a3
+      internalID: 8176164899841141207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 4032
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aba7809a8ce6c65bc3218baf81e8eb2
+      internalID: 7308443516424206906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 4032
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd0f82ce8215aa95a42caef5311da215
+      internalID: -7662288164462915651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 4032
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff50796a6e20168955071df1e1dc979b
+      internalID: -8568625582420963073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_15
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 4032
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f1e7546a5b61d76415a66c485118c32
+      internalID: 8511159691768045071
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_16
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 4032
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0d4902f8ac3da19df793757fade680b
+      internalID: 1863016394142045424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_17
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 4032
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfd6b3ae19bc838744d697937b00409f
+      internalID: -8681888838148958529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_18
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 4032
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e13c4033f8bd46dfdb3c9e6ffbd7f8ed
+      internalID: -2357988481172488991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_19
+      rect:
+        serializedVersion: 2
+        x: 4680
+        y: 4032
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e32d2230703115f740bdae76e803e1d
+      internalID: 6850259837407867486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3456
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03ca5e3f30ed7d99fea4c9c50e1838fe
+      internalID: -7386487022340355581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_21
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 3456
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74d7c6bcb0ff5a2895f0273d5e9328f6
+      internalID: 2907917643967551348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_22
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 3456
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 885ff77ec0daf74076b514f2b4e826c6
+      internalID: 4681450857973637000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_23
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 3456
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a97bb002b9d3f74472e24bc1346f0ed4
+      internalID: 4969673505394162601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_24
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 3456
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e983cca7b17beea0086f142d52d36557
+      internalID: -6850401980229319703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_25
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 3456
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98166a5c3331e8048d7575a733297c6b
+      internalID: 353586667412133528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_26
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 3456
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec3e9e6b3c7992412ae33408ad2cb0f6
+      internalID: 4724972259475603180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_27
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 3456
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a0355b8618148c2965fcc1b24b705a4
+      internalID: -4447162375323974774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_28
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 3456
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5c27c8ae515012fb1459fbe3c1c321c
+      internalID: 3387012470374449861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_29
+      rect:
+        serializedVersion: 2
+        x: 4680
+        y: 3456
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ee7e263a4cf259a58dd03b7e3941fa3
+      internalID: -7339231712772954258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2880
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a397d31e0cd2d4143ce0d5c76bfe80e0
+      internalID: 1501055525319841699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_31
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 2880
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f045ce585c50adafef4b410b172942d2
+      internalID: -5787881588544092688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_32
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 2880
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76dcce2a9744a6562b88bea05244cb74
+      internalID: 6243753349444721782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_33
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 2880
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c924a24e32551cffafa704ca4d95e8cc
+      internalID: -64082620134054711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_34
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 2880
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e69bfb3bfdbf651304db82d07606094e
+      internalID: 1397734353722383334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_35
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 2880
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b857699ea61197229048804b7fd09a
+      internalID: -7561079100075952090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_36
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 2880
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d89d2d603cdf6a6df86fcd9b7c98835e
+      internalID: 7884359548070108632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_37
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 2880
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48dc1e18b04d26672bcc4956ea5e2da4
+      internalID: 7432713653735840840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_38
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 2880
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c57a98512b1e6e002a3bf1e63f4af98
+      internalID: -2240909071460247652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_39
+      rect:
+        serializedVersion: 2
+        x: 4680
+        y: 2880
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59b42e1478726be3073cab543422ae2f
+      internalID: -2059426544531622823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e24b80d257982de11040148503f1257f
+      internalID: -2220951538262586398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_41
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 2304
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 796e4df02cc87c1be2ce61d739b5e437
+      internalID: 1980678031471898233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_42
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 2304
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 596e3e6165def806275aa381d795109a
+      internalID: 502395885456354905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_43
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 2304
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 177431121c40d887a41cad016a5ec27c
+      internalID: -8658099794311285737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_44
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 2304
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff111a2e21e57e031e5562a1235a5eea
+      internalID: 251890559849468415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_45
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 2304
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a5e64b8403033dbda53042178dd687f
+      internalID: -2651722701061464454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_46
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 2304
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b21f064ae2766b5b478687754e028da1
+      internalID: 6587489594236084146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_47
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 2304
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9422fbc3879a6821f57cafda559cfae5
+      internalID: 2407343908728808084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_48
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 2304
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b5d8d8f689af12de0b6025a163de366
+      internalID: 3310596974969707915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_49
+      rect:
+        serializedVersion: 2
+        x: 4680
+        y: 2304
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b272135c80a55ed178cf80ff835127e4
+      internalID: -3360066301252635982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1728
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd0205e2fc1e9b3a4c2f1277b3add61c
+      internalID: 4223003147062543037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_51
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 1728
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63d921e8390ce4d875aae49894fdc7da
+      internalID: -2818114023979886237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_52
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 1728
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4fa9e6827b09e32fa7869f81d4e63a6
+      internalID: 3647546431522142884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_53
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 1728
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2855fe12decad92fb854da08290aeba9
+      internalID: 3448010044879033640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_54
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 1728
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3306582caea9e1bdece22f518c8ab401
+      internalID: -4764340365247904205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_55
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 1728
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac041bb46e32cd110aeab54460eb5bbf
+      internalID: 1282736919919920300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_56
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 1728
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e389a85ea0cbed0b54b4ee40c9e74c4
+      internalID: -3405270066842158994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_57
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 1728
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8997318cbc731693e76d9350d16d4e24
+      internalID: -7847958047003404407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_58
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 1728
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3970ec9c277997b50441b0b0697e3877
+      internalID: -5361683620317859783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_59
+      rect:
+        serializedVersion: 2
+        x: 4680
+        y: 1728
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa5d9d4443297dff72ac46aeb064152d
+      internalID: -36827853058384390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a27c23d285961df94a0af9dd0b52591
+      internalID: -2350499501140990102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_61
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 1152
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 023e8bb38869773f72fd5b11b0ab6188
+      internalID: 4573239982466743810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_62
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 1152
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8986fdcc7e8f48da4b2881ca8057e4a
+      internalID: -8217687474949875544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_63
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 1152
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16aa1004d77978d39ddd8f433b7472a3
+      internalID: -3208680770108347882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_64
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 1152
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 144eae37dcc241e6b8005a54d144f223
+      internalID: -1854987320417169900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_65
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 1152
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02fccfc8e70314cd8b4af82996ba00a5
+      internalID: -3669303502358709246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_66
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 1152
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b320adde084b261bfa22026c557a77a5
+      internalID: 1956333589606768819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_67
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 1152
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31436a8cac81b90def67ec30173d7105
+      internalID: 988964171274666801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_68
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 1152
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a729b1ec6e13eba76b5954eb0f9ea346
+      internalID: -6346957882710218329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_69
+      rect:
+        serializedVersion: 2
+        x: 4680
+        y: 1152
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9611ddd0271a2b25a9258575cf8bdf9
+      internalID: -5574769131617689143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bde63086900b8f7da2c19997e9aff12
+      internalID: -596726499514261989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_71
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 576
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34246d6cc7753133fb3615799ecc8dfb
+      internalID: 3688859069171180596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_72
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 576
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0ff67bf6072b18d4180861295d89dbb
+      internalID: -8236676483630235696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_73
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 576
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b9dd7d68dc19bbc3de746eee9f14805
+      internalID: -4856074958249943669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_74
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 576
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a8b59291b3d009274de250e3c0e984f
+      internalID: -7926268157304927350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_75
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 576
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d32dba3cd7c244bb9d739cba45d9e2f
+      internalID: 5414589874665370237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_76
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 576
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 848984c4e7c8a79d1f44d299dffecf88
+      internalID: -7086474590884165244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_77
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 576
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f19ec88adc149db740cc8f30cebf718
+      internalID: -2645370355032778417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_78
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 576
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 081e99237ed721a93f66e21fee5c63d9
+      internalID: -6259485070305190392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_79
+      rect:
+        serializedVersion: 2
+        x: 4680
+        y: 576
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 004f9ce1eddf8e2a7f6de013e718eb1f
+      internalID: 3066634609071247104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37848f27028348507cde44f0c699b019
+      internalID: 5785017766634292279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_81
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 0
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5b690852dc1fc4f275ea276d128c54f
+      internalID: 5763694024385935013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_82
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 0
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3001950d52182d4e7535be2dd6da792
+      internalID: -3133905190640877325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_83
+      rect:
+        serializedVersion: 2
+        x: 1560
+        y: 0
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd81040fde4375fc8190eec22fffd5ab
+      internalID: -255223182862810627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_84
+      rect:
+        serializedVersion: 2
+        x: 2080
+        y: 0
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 956c49f715225921e321f58720b0cb85
+      internalID: 2402989353917312149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_85
+      rect:
+        serializedVersion: 2
+        x: 2600
+        y: 0
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d26661b9c14b6997f20ede7475d4e0e
+      internalID: -7370681079438105027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_86
+      rect:
+        serializedVersion: 2
+        x: 3120
+        y: 0
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2224eace202d6e6ba273a4101ad928a8
+      internalID: 7741174428430115874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_87
+      rect:
+        serializedVersion: 2
+        x: 3640
+        y: 0
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8445b373bbe15d60934e7260e0f32571
+      internalID: 6943954395691435396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_88
+      rect:
+        serializedVersion: 2
+        x: 4160
+        y: 0
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b7a7e8d57f8262dad9e0ac99ed601cc
+      internalID: 3253560835741481499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: soul-harvest-red-sheet_89
+      rect:
+        serializedVersion: 2
+        x: 4680
+        y: 0
+        width: 520
+        height: 576
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56f32cefa6741da60139c4efe67480af
+      internalID: -6476892428762811562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":10.0,"y":9.0},"gridSpriteSize":{"x":520.0,"y":576.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      soul-harvest-red-sheet_00: -3342549774706386673
+      soul-harvest-red-sheet_01: 5740074799876768306
+      soul-harvest-red-sheet_02: -8800279639155128203
+      soul-harvest-red-sheet_03: -3650667300911204746
+      soul-harvest-red-sheet_04: -7917574322338735877
+      soul-harvest-red-sheet_05: 6109376280135096491
+      soul-harvest-red-sheet_06: 8538418733399488541
+      soul-harvest-red-sheet_07: -7637445657436512652
+      soul-harvest-red-sheet_08: -1326879017489146453
+      soul-harvest-red-sheet_09: 8419675523984052126
+      soul-harvest-red-sheet_10: -3570013569966957351
+      soul-harvest-red-sheet_11: 8176164899841141207
+      soul-harvest-red-sheet_12: 7308443516424206906
+      soul-harvest-red-sheet_13: -7662288164462915651
+      soul-harvest-red-sheet_14: -8568625582420963073
+      soul-harvest-red-sheet_15: 8511159691768045071
+      soul-harvest-red-sheet_16: 1863016394142045424
+      soul-harvest-red-sheet_17: -8681888838148958529
+      soul-harvest-red-sheet_18: -2357988481172488991
+      soul-harvest-red-sheet_19: 6850259837407867486
+      soul-harvest-red-sheet_20: -7386487022340355581
+      soul-harvest-red-sheet_21: 2907917643967551348
+      soul-harvest-red-sheet_22: 4681450857973637000
+      soul-harvest-red-sheet_23: 4969673505394162601
+      soul-harvest-red-sheet_24: -6850401980229319703
+      soul-harvest-red-sheet_25: 353586667412133528
+      soul-harvest-red-sheet_26: 4724972259475603180
+      soul-harvest-red-sheet_27: -4447162375323974774
+      soul-harvest-red-sheet_28: 3387012470374449861
+      soul-harvest-red-sheet_29: -7339231712772954258
+      soul-harvest-red-sheet_30: 1501055525319841699
+      soul-harvest-red-sheet_31: -5787881588544092688
+      soul-harvest-red-sheet_32: 6243753349444721782
+      soul-harvest-red-sheet_33: -64082620134054711
+      soul-harvest-red-sheet_34: 1397734353722383334
+      soul-harvest-red-sheet_35: -7561079100075952090
+      soul-harvest-red-sheet_36: 7884359548070108632
+      soul-harvest-red-sheet_37: 7432713653735840840
+      soul-harvest-red-sheet_38: -2240909071460247652
+      soul-harvest-red-sheet_39: -2059426544531622823
+      soul-harvest-red-sheet_40: -2220951538262586398
+      soul-harvest-red-sheet_41: 1980678031471898233
+      soul-harvest-red-sheet_42: 502395885456354905
+      soul-harvest-red-sheet_43: -8658099794311285737
+      soul-harvest-red-sheet_44: 251890559849468415
+      soul-harvest-red-sheet_45: -2651722701061464454
+      soul-harvest-red-sheet_46: 6587489594236084146
+      soul-harvest-red-sheet_47: 2407343908728808084
+      soul-harvest-red-sheet_48: 3310596974969707915
+      soul-harvest-red-sheet_49: -3360066301252635982
+      soul-harvest-red-sheet_50: 4223003147062543037
+      soul-harvest-red-sheet_51: -2818114023979886237
+      soul-harvest-red-sheet_52: 3647546431522142884
+      soul-harvest-red-sheet_53: 3448010044879033640
+      soul-harvest-red-sheet_54: -4764340365247904205
+      soul-harvest-red-sheet_55: 1282736919919920300
+      soul-harvest-red-sheet_56: -3405270066842158994
+      soul-harvest-red-sheet_57: -7847958047003404407
+      soul-harvest-red-sheet_58: -5361683620317859783
+      soul-harvest-red-sheet_59: -36827853058384390
+      soul-harvest-red-sheet_60: -2350499501140990102
+      soul-harvest-red-sheet_61: 4573239982466743810
+      soul-harvest-red-sheet_62: -8217687474949875544
+      soul-harvest-red-sheet_63: -3208680770108347882
+      soul-harvest-red-sheet_64: -1854987320417169900
+      soul-harvest-red-sheet_65: -3669303502358709246
+      soul-harvest-red-sheet_66: 1956333589606768819
+      soul-harvest-red-sheet_67: 988964171274666801
+      soul-harvest-red-sheet_68: -6346957882710218329
+      soul-harvest-red-sheet_69: -5574769131617689143
+      soul-harvest-red-sheet_70: -596726499514261989
+      soul-harvest-red-sheet_71: 3688859069171180596
+      soul-harvest-red-sheet_72: -8236676483630235696
+      soul-harvest-red-sheet_73: -4856074958249943669
+      soul-harvest-red-sheet_74: -7926268157304927350
+      soul-harvest-red-sheet_75: 5414589874665370237
+      soul-harvest-red-sheet_76: -7086474590884165244
+      soul-harvest-red-sheet_77: -2645370355032778417
+      soul-harvest-red-sheet_78: -6259485070305190392
+      soul-harvest-red-sheet_79: 3066634609071247104
+      soul-harvest-red-sheet_80: 5785017766634292279
+      soul-harvest-red-sheet_81: 5763694024385935013
+      soul-harvest-red-sheet_82: -3133905190640877325
+      soul-harvest-red-sheet_83: -255223182862810627
+      soul-harvest-red-sheet_84: 2402989353917312149
+      soul-harvest-red-sheet_85: -7370681079438105027
+      soul-harvest-red-sheet_86: 7741174428430115874
+      soul-harvest-red-sheet_87: 6943954395691435396
+      soul-harvest-red-sheet_88: 3253560835741481499
+      soul-harvest-red-sheet_89: -6476892428762811562
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
