@@ -24,7 +24,7 @@ MonoBehaviour:
     displayName: Stage 1
     regionId: region_04
     isBossStage: 0
-    regionMapNodePosition: {x: 0.776, y: 0.901}
+    regionMapNodePosition: {x: 0.776, y: 0.925}
     platformSize: {x: 200, y: 120}
     bossData: {fileID: 11400000, guid: b75354a5c241d7a4bbaa06b781c08af4, type: 2}
   - stageId: region_04_stage_02
@@ -32,7 +32,7 @@ MonoBehaviour:
     displayName: Stage 2
     regionId: region_04
     isBossStage: 0
-    regionMapNodePosition: {x: 0.212, y: 0.825}
+    regionMapNodePosition: {x: 0.212, y: 0.849}
     platformSize: {x: 169, y: 100}
     bossData: {fileID: 11400000, guid: ad686e0ce9095574c96222edd1887ad5, type: 2}
   - stageId: region_04_stage_03
@@ -40,7 +40,7 @@ MonoBehaviour:
     displayName: Stage 3
     regionId: region_04
     isBossStage: 0
-    regionMapNodePosition: {x: 0.323, y: 0.780}
+    regionMapNodePosition: {x: 0.323, y: 0.804}
     platformSize: {x: 193, y: 115}
     bossData: {fileID: 11400000, guid: 83662dd2380492a46bb69019481d004e, type: 2}
   - stageId: region_04_stage_04
@@ -48,7 +48,7 @@ MonoBehaviour:
     displayName: Stage 4
     regionId: region_04
     isBossStage: 0
-    regionMapNodePosition: {x: 0.504, y: 0.735}
+    regionMapNodePosition: {x: 0.504, y: 0.759}
     platformSize: {x: 169, y: 100}
     bossData: {fileID: 11400000, guid: 0e07f384b372fab478f3333621d72558, type: 2}
   - stageId: region_04_stage_05
@@ -56,7 +56,7 @@ MonoBehaviour:
     displayName: Stage 5
     regionId: region_04
     isBossStage: 0
-    regionMapNodePosition: {x: 0.247, y: 0.686}
+    regionMapNodePosition: {x: 0.247, y: 0.710}
     platformSize: {x: 167, y: 99}
     bossData: {fileID: 11400000, guid: 537563e51f1899240b14d3315685d400, type: 2}
   - stageId: region_04_stage_06
@@ -64,7 +64,7 @@ MonoBehaviour:
     displayName: Stage 6
     regionId: region_04
     isBossStage: 0
-    regionMapNodePosition: {x: 0.586, y: 0.606}
+    regionMapNodePosition: {x: 0.586, y: 0.630}
     platformSize: {x: 157, y: 93}
     bossData: {fileID: 11400000, guid: cb506bd32fcdc554693163ead6d8a6e9, type: 2}
   - stageId: region_04_stage_07
@@ -72,7 +72,7 @@ MonoBehaviour:
     displayName: Stage 7
     regionId: region_04
     isBossStage: 0
-    regionMapNodePosition: {x: 0.230, y: 0.541}
+    regionMapNodePosition: {x: 0.230, y: 0.565}
     platformSize: {x: 169, y: 100}
     bossData: {fileID: 11400000, guid: e4c945bab3d61a74aaaa8b6c37a83de9, type: 2}
   - stageId: region_04_stage_08
@@ -80,7 +80,7 @@ MonoBehaviour:
     displayName: Stage 8
     regionId: region_04
     isBossStage: 0
-    regionMapNodePosition: {x: 0.406, y: 0.529}
+    regionMapNodePosition: {x: 0.406, y: 0.553}
     platformSize: {x: 200, y: 120}
     bossData: {fileID: 11400000, guid: 9430c0eed029fed4fa8ef69f7bea822f, type: 2}
   - stageId: region_04_stage_09
@@ -88,7 +88,7 @@ MonoBehaviour:
     displayName: Stage 9
     regionId: region_04
     isBossStage: 0
-    regionMapNodePosition: {x: 0.603, y: 0.306}
+    regionMapNodePosition: {x: 0.603, y: 0.330}
     platformSize: {x: 200, y: 120}
     bossData: {fileID: 11400000, guid: 446e202f74864c945bc13f148398a994, type: 2}
   - stageId: region_04_stage_10
@@ -96,7 +96,7 @@ MonoBehaviour:
     displayName: Stage 10
     regionId: region_04
     isBossStage: 1
-    regionMapNodePosition: {x: 0.381, y: 0.192}
+    regionMapNodePosition: {x: 0.381, y: 0.216}
     platformSize: {x: 200, y: 120}
     bossData: {fileID: 11400000, guid: 8581cdf05752ec44ba93728e946aeaea, type: 2}
   nextRegionId: region_05

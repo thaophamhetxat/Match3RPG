@@ -254,7 +254,7 @@ namespace Match3RPG.Campaign
                     fadeDuration = .1f
                 };
 
-                float markerScale = stage.IsBossStage ? 1.5f : 1f;
+                float markerScale = stage.IsBossStage ? 1.73f : 1f;
                 RectTransform markerRect = CampaignUIFactory.CreateRect("MarkerImage", nodeRect,
                     new Vector2(.5f, .5f), new Vector2(.5f, .5f), Vector2.zero, Vector2.zero);
                 markerRect.sizeDelta = new Vector2(176f * markerScale, 216f * markerScale);

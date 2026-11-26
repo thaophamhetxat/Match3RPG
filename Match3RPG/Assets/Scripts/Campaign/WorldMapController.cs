@@ -272,13 +272,13 @@ namespace Match3RPG.Campaign
         {
             RectTransform markerRect = CampaignUIFactory.CreateRect("MarkerVisual", nodeRect,
                 new Vector2(.5f, .5f), new Vector2(.5f, .5f), Vector2.zero, Vector2.zero);
-            markerRect.sizeDelta = new Vector2(68f, 68f);
+            markerRect.sizeDelta = new Vector2(176f, 216f);
             CampaignUIFactory.CreateCenteredImage(markerRect, "OuterGlow",
-                new Vector2(68f, 68f), catalog.CampaignStageGlow, Color.white);
+                new Vector2(176f, 216f), catalog.CampaignStageGlow, Color.white);
             CampaignUIFactory.CreateCenteredImage(markerRect, "PulseEffect",
-                new Vector2(44f, 44f), catalog.CampaignStageGlow, Color.white);
+                new Vector2(114f, 140f), catalog.CampaignStageGlow, Color.white);
             CampaignUIFactory.CreateCenteredImage(markerRect, "MarkerBody",
-                new Vector2(46f, 56f), catalog.CampaignAvailableStageMarker, Color.white);
+                new Vector2(176f, 216f), catalog.CampaignAvailableStageMarker, Color.white);
             CampaignUIFactory.CreateCenteredImage(markerRect, "InnerCore",
                 new Vector2(12f, 20f), catalog.CampaignStageGlow, Color.white);
             Image lockImage = CampaignUIFactory.CreateCenteredImage(markerRect, "LockVisual",

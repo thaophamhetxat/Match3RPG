@@ -62,7 +62,7 @@ namespace Match3RPG.Campaign
             if (markerRectTransform != null)
             {
                 // Prompt 120: pin to 1.3 lan; ghi de rect tay chinh khong deu cua prefab Region 01 ve cung mot co.
-                float pinScale = stage.IsBossStage ? 1.5f : 1f;
+                float pinScale = stage.IsBossStage ? 1.73f : 1f;
                 markerRectTransform.sizeDelta = new Vector2(176f * pinScale, 216f * pinScale);
                 float tipPx = stage.IsBossStage ? 194f : 210f;
                 markerRectTransform.anchoredPosition = new Vector2(0f, tipPx / 512f * markerRectTransform.sizeDelta.x);

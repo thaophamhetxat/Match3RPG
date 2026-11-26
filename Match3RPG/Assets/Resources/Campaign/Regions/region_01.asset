@@ -25,7 +25,7 @@ MonoBehaviour:
     displayName: Stage 1
     regionId: region_01
     isBossStage: 0
-    regionMapNodePosition: {x: 0.413, y: 0.763}
+    regionMapNodePosition: {x: 0.413, y: 0.787}
     bossData: {fileID: 11400000, guid: e2b12b2230e031c448f6bbaf36fe8f3c, type: 2}
     lootTableId: 
   - stageId: region_01_stage_02
@@ -33,7 +33,7 @@ MonoBehaviour:
     displayName: Stage 2
     regionId: region_01
     isBossStage: 0
-    regionMapNodePosition: {x: 0.742, y: 0.689}
+    regionMapNodePosition: {x: 0.742, y: 0.713}
     bossData: {fileID: 11400000, guid: 173993338cbacff40b2a0b4c7eae10d0, type: 2}
     lootTableId: 
   - stageId: region_01_stage_03
@@ -41,7 +41,7 @@ MonoBehaviour:
     displayName: Stage 3
     regionId: region_01
     isBossStage: 0
-    regionMapNodePosition: {x: 0.38, y: 0.614}
+    regionMapNodePosition: {x: 0.38, y: 0.638}
     bossData: {fileID: 11400000, guid: 71bf64be7f602e34aa155ffd06217b68, type: 2}
     lootTableId: 
   - stageId: region_01_stage_04
@@ -49,7 +49,7 @@ MonoBehaviour:
     displayName: Stage 4
     regionId: region_01
     isBossStage: 0
-    regionMapNodePosition: {x: 0.329, y: 0.558}
+    regionMapNodePosition: {x: 0.329, y: 0.582}
     bossData: {fileID: 11400000, guid: 69af4832547b1d443972b33e01741c32, type: 2}
     lootTableId: 
   - stageId: region_01_stage_05
@@ -57,7 +57,7 @@ MonoBehaviour:
     displayName: Stage 5
     regionId: region_01
     isBossStage: 0
-    regionMapNodePosition: {x: 0.66, y: 0.488}
+    regionMapNodePosition: {x: 0.66, y: 0.512}
     bossData: {fileID: 11400000, guid: 56ebb6dc7e4ec6140828807124a373fe, type: 2}
     lootTableId: 
   - stageId: region_01_stage_06
@@ -65,7 +65,7 @@ MonoBehaviour:
     displayName: Stage 6
     regionId: region_01
     isBossStage: 0
-    regionMapNodePosition: {x: 0.433, y: 0.427}
+    regionMapNodePosition: {x: 0.433, y: 0.451}
     bossData: {fileID: 11400000, guid: 52e6e22bf68d06044a698f3e8f58dc37, type: 2}
     lootTableId: 
   - stageId: region_01_stage_07
@@ -73,7 +73,7 @@ MonoBehaviour:
     displayName: Stage 7
     regionId: region_01
     isBossStage: 0
-    regionMapNodePosition: {x: 0.351, y: 0.333}
+    regionMapNodePosition: {x: 0.351, y: 0.357}
     bossData: {fileID: 11400000, guid: 146bffbadebf5e94293bc46d0a6a2f6d, type: 2}
     lootTableId: 
   - stageId: region_01_stage_08
@@ -81,7 +81,7 @@ MonoBehaviour:
     displayName: Stage 8
     regionId: region_01
     isBossStage: 0
-    regionMapNodePosition: {x: 0.578, y: 0.295}
+    regionMapNodePosition: {x: 0.578, y: 0.319}
     bossData: {fileID: 11400000, guid: 251408eb9fe3fb44bae91d6c0e758bd0, type: 2}
     lootTableId: 
   - stageId: region_01_stage_09
@@ -89,7 +89,7 @@ MonoBehaviour:
     displayName: Stage 9
     regionId: region_01
     isBossStage: 0
-    regionMapNodePosition: {x: 0.401, y: 0.25}
+    regionMapNodePosition: {x: 0.401, y: 0.274}
     bossData: {fileID: 11400000, guid: dc70605b74bc58e438c2453d89e5f25f, type: 2}
     lootTableId: 
   - stageId: region_01_stage_10
@@ -97,7 +97,7 @@ MonoBehaviour:
     displayName: Stage 10
     regionId: region_01
     isBossStage: 1
-    regionMapNodePosition: {x: 0.539, y: 0.247}
+    regionMapNodePosition: {x: 0.539, y: 0.271}
     bossData: {fileID: 11400000, guid: bc120b0ba6dfe3a46ab65790ffc8fedf, type: 2}
     lootTableId: 
   nextRegionId: region_02
