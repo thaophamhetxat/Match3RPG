@@ -943,7 +943,7 @@ namespace Match3RPG.Core
             RectTransform headVfxAnchor = CreateRect("HeadVFXAnchor", characterRoot,
                 headVfxAnchorPosition ?? new Vector2(.5f, .82f),
                 headVfxAnchorPosition ?? new Vector2(.5f, .82f), Vector2.zero, Vector2.zero);
-            const float healAnchorY = 0.35f;
+            const float healAnchorY = 0.42f;
             RectTransform healAnchor = CreateRect("HealAnchor", visualRect,
                 new Vector2(.5f, healAnchorY),
                 new Vector2(.5f, healAnchorY), Vector2.zero, Vector2.zero);

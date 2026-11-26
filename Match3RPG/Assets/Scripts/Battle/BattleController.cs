@@ -459,12 +459,17 @@ namespace Match3RPG.Battle
                 ShowResource(attacker, FloatingTextType.CriticalReady, 1);
 
             bool recovered = attacker == null;
+            bool shieldWasActive = false;
             try
             {
                 if (attacker != null && !rangedAttack)
                 {
                     if (attackVfx == CombatVFXType.Dash)
                         combatVfx?.PlayDash(actor);
+                    shieldWasActive = combatVfx != null
+                        && combatVfx.IsPersistentEffectActive(actor, CombatVFXType.Shield);
+                    if (shieldWasActive)
+                        combatVfx.SetPersistentEffect(actor, CombatVFXType.Shield, false);
                     // Lunge forward once and start the first hit's full attack clip.
                     yield return attacker.BeginAttackSequence(1, 0f, 0f);
                 }
@@ -540,6 +545,8 @@ namespace Match3RPG.Battle
             {
                 if (!recovered && attacker != null)
                     attacker.CancelAttackSequence();
+                if (shieldWasActive && combatVfx != null && GetShield(actor) > 0 && !IsGameOver)
+                    combatVfx.SetPersistentEffect(actor, CombatVFXType.Shield, true);
                 if (rageCritical)
                     SetRage(actor, 0);
                 Refresh();

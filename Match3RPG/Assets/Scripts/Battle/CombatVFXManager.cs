@@ -494,7 +494,7 @@ namespace Match3RPG.Battle
         {
             switch (type)
             {
-                case CombatVFXType.Shield: return new Vector2(460f, 460f);
+                case CombatVFXType.Shield: return new Vector2(360f, 360f);
                 case CombatVFXType.Stun: return new Vector2(145f, 100f);
                 case CombatVFXType.Burn: return new Vector2(210f, 225f);
                 case CombatVFXType.Freeze: return new Vector2(215f, 235f);

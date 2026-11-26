@@ -704,7 +704,7 @@ namespace Match3RPG.Editor
                 case "BossSpiritMountainTortoise":
                     ids = new[] { "region_04_boss_04", "region_04_boss_09" };
                     displayName = "Rùa Núi Linh";
-                    sourceFacing = CharacterFacing.Left;
+                    sourceFacing = CharacterFacing.Right;
                     break;
                 case "BossJadeForestDragon":
                     ids = new[] { "region_04_boss_05", "region_04_boss_10" };
