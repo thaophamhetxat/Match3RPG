@@ -55,7 +55,7 @@ namespace Match3RPG.Campaign
 
         // TẠM MỞ HẾT ĐỂ TEST (Prompt 115) — sau khi test xong đặt lại false để khôi phục rule
         // phải qua map cũ mới mở map mới. KHÔNG xóa dữ liệu PlayerPrefs.
-        public static readonly bool UnlockAllForTesting = true;
+        public static readonly bool UnlockAllForTesting = false;
 
         public static int HighestUnlockedRegion => Mathf.Clamp(PlayerPrefs.GetInt(HighestRegionKey, 1), 1, 5);
 

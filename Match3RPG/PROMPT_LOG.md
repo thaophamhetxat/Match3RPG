@@ -181,3 +181,28 @@
   - Vào trận bấm kỹ năng Lôi Thần: hero đứng yên kết ấn (KHÔNG lao tới) → mây giông tụ trên đầu boss, vòng xanh hiện dưới chân boss, sét đánh trúng vòng (không lệch lên đầu, không lơ lửng) → sát thương 100 hiện đúng lúc sét chạm vòng (f46) → boss Hit/Death đúng → cooldown 3 turn + pizza wipe → bấm khi chưa đủ mana/nộ hiện đúng câu "Không đủ tinh lực để sử dụng kỹ năng".
   - Chốt sau Play-test: tên thật (TẠM "Lôi Thần"), cost (TẠM 3 mana / 0 nộ), cooldown (TẠM 3 turn), sát thương (TẠM 100), kích thước hiệu ứng (TẠM cao `1.6 ×` chiều cao battle boss).
 - **Lỗi (nếu fail):** Không có.
+
+
+
+## Prompt 172 — 2026-11-27 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error).
+- **File đã đổi:**
+  - `Match3RPG/Assets/Scripts/Campaign/GameProgressService.cs`
+  - `Match3RPG/Assets/Resources/Campaign/Bosses/region_03_boss_05.asset`
+  - `Match3RPG/Assets/Resources/Campaign/Bosses/region_03_boss_06.asset`
+  - `Match3RPG/Assets/Resources/Campaign/Bosses/region_03_boss_07.asset`
+  - `Match3RPG/Assets/Resources/Campaign/Bosses/region_03_boss_08.asset`
+  - `Match3RPG/Assets/Resources/Campaign/Bosses/region_01_boss_01.asset`
+  - `Match3RPG/Assets/Art/VFX/Skills/SwordQi/SwordQi_C.png`
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Tắt `UnlockAllForTesting` (`true` → `false`) tại `GameProgressService.cs` dòng 58, giữ nguyên comment dòng 56–57 và 2 nhánh `if (UnlockAllForTesting)` dòng 80, 100 để khôi phục rule phải qua map cũ mới mở map mới.
+  - Sửa `sourceFacing: 1` → `0` cho cả 4 boss Bọ Cạp Đỏ Pha Lê (`region_03_boss_05.asset` … `region_03_boss_08.asset`) để không bị lật lưng về phía hero trong trận.
+  - Dọn sót anchor rồng trên Lâm Phong (`region_01_boss_01.asset`): `vfxAnchor` `(0.5, 0.58)` → `(0.5, 0.48)`, `headVfxAnchor` `(0.5, 1.22)` → `(0.5, 0.82)`; giữ nguyên `floatingTextAnchor: (0.5, 0.49)` và `sourceFacing: 1`.
+  - Xác nhận `SwordQi_C.png` đã là bản đúng (1153×1714 RGBA, MD5 `cc9492179315e23a53153f26a494bee7`, giữ nguyên `.meta` / GUID `54ac3c3c1d642d94cb91136ce0c0da22`) và đưa vào commit.
+- **Chờ Play-test:**
+  - Vào R03 stage 5–8 xem Bọ Cạp Đỏ Pha Lê quay mặt về hero (không quay lưng nữa).
+  - Vào R01 stage 1 xem Stun/shield không hiện cao quá đầu Lâm Phong.
+  - Bắn kỹ năng Kiếm Khí kiểm tra ảnh bay ra không còn nền checkerboard.
+  - Vào bản đồ thế giới / vùng xem khóa/mở ải hoạt động đúng rule cũ (không còn mở hết 50 ải, phải qua map cũ mới mở map mới).
+- **Lỗi (nếu fail):** Không có.
