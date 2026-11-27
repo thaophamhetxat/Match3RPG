@@ -67,6 +67,21 @@ namespace Match3RPG.Configuration
         public const int StarfallBarrageFrameCount = StarfallBarrageGridColumns * StarfallBarrageGridRows;
         public const int StarfallBarragePeakFrameIndex = 51; // 1-based frame 52 (vòng nổ dưới đất to nhất / sáng nhất, 1.70s @30fps)
         public const float StarfallBarragePivotY = 0.30f; // Tâm vòng nổ tại y ≈ 448/640 từ trên xuống (pivot_y = (640 - 448) / 640 = 0.30)
+        public const string ThunderGodSkillId = "thunder_god";
+        public const string ThunderGodDisplayName = "Lôi Thần"; // TẠM: Sư Huynh chốt tên thật sau Play-test
+        public const string ThunderGodAssetPath =
+            "Assets/Art/VFX/Skills/thunder_god/thunder-god-strike-sheet.png";
+        public const string ThunderGodDescription =
+            "Kết ấn gọi mây giông, sét đánh xuống đầu boss."; // TẠM
+        public const int ThunderGodDefaultManaCost = 3; // TẠM
+        public const int ThunderGodDefaultRageCost = 0; // TẠM
+        public const int ThunderGodDefaultCooldownTurns = 3; // TẠM
+        public const int ThunderGodDefaultDamage = 100; // TẠM: Sư Huynh chốt sát thương thật sau Play-test
+        public const int ThunderGodGridColumns = 10;
+        public const int ThunderGodGridRows = 9;
+        public const int ThunderGodFrameCount = ThunderGodGridColumns * ThunderGodGridRows;
+        public const int ThunderGodPeakFrameIndex = 45; // 1-based frame 46 (sét khổng lồ đánh trúng + vòng xanh dưới đất chói nhất, 1.50s @30fps)
+        public const float ThunderGodPivotY = 0.26f; // Tâm vòng xanh tại y ≈ 568/768 từ trên xuống (pivot_y = (768 - 568) / 768 = 0.2604 ≈ 0.26)
         public const string EllipseSwordsSkillId = "ellipse_swords";
         public const string EllipseSwordsDisplayName = "Ngũ Kiếm Trận"; // TẠM: Sư Huynh chốt tên thật sau Play-test
         public const string EllipseSwordsAssetPath =
@@ -116,6 +131,8 @@ namespace Match3RPG.Configuration
         static Sprite[] cachedRockSpikeFrames;
         static Sprite cachedStarfallBarrageSprite;
         static Sprite[] cachedStarfallBarrageFrames;
+        static Sprite cachedThunderGodSprite;
+        static Sprite[] cachedThunderGodFrames;
         static Sprite cachedEllipseSwordsSprite;
 
         public string DisplayName => string.IsNullOrEmpty(displayName)
@@ -125,11 +142,13 @@ namespace Match3RPG.Configuration
                     ? RockSpikeDisplayName
                     : (string.Equals(StableId, StarfallBarrageSkillId, StringComparison.Ordinal)
                         ? StarfallBarrageDisplayName
-                        : (string.Equals(StableId, EllipseSwordsSkillId, StringComparison.Ordinal)
-                            ? EllipseSwordsDisplayName
-                            : (string.Equals(StableId, SwordRainSkillId, StringComparison.Ordinal)
-                                ? SwordRainDisplayName
-                                : FlyingSwordDisplayName)))))
+                        : (string.Equals(StableId, ThunderGodSkillId, StringComparison.Ordinal)
+                            ? ThunderGodDisplayName
+                            : (string.Equals(StableId, EllipseSwordsSkillId, StringComparison.Ordinal)
+                                ? EllipseSwordsDisplayName
+                                : (string.Equals(StableId, SwordRainSkillId, StringComparison.Ordinal)
+                                    ? SwordRainDisplayName
+                                    : FlyingSwordDisplayName))))))
             : displayName;
         public Sprite Icon => icon != null
             ? icon
@@ -139,9 +158,11 @@ namespace Match3RPG.Configuration
                     ? ResolveRockSpikeSprite()
                     : (string.Equals(StableId, StarfallBarrageSkillId, StringComparison.Ordinal)
                         ? ResolveStarfallBarrageSprite()
-                        : (string.Equals(StableId, EllipseSwordsSkillId, StringComparison.Ordinal)
-                            ? ResolveEllipseSwordsSprite()
-                            : ResolveSwordSprite()))));
+                        : (string.Equals(StableId, ThunderGodSkillId, StringComparison.Ordinal)
+                            ? ResolveThunderGodSprite()
+                            : (string.Equals(StableId, EllipseSwordsSkillId, StringComparison.Ordinal)
+                                ? ResolveEllipseSwordsSprite()
+                                : ResolveSwordSprite())))));
         public Sprite[] EffectFrames => effectFrames;
         public string Description => GetDescriptionForLevel(Level);
         public SkillType Type => skillType;
@@ -199,6 +220,8 @@ namespace Match3RPG.Configuration
                 return string.IsNullOrEmpty(description) ? RockSpikeDescription : description;
             if (string.Equals(StableId, StarfallBarrageSkillId, StringComparison.Ordinal))
                 return string.IsNullOrEmpty(description) ? StarfallBarrageDescription : description;
+            if (string.Equals(StableId, ThunderGodSkillId, StringComparison.Ordinal))
+                return string.IsNullOrEmpty(description) ? ThunderGodDescription : description;
             if (string.Equals(StableId, EllipseSwordsSkillId, StringComparison.Ordinal))
                 return string.IsNullOrEmpty(description) ? EllipseSwordsDescription : description;
             if (string.Equals(StableId, SwordRainSkillId, StringComparison.Ordinal))
@@ -363,6 +386,59 @@ namespace Match3RPG.Configuration
             return Array.Empty<Sprite>();
         }
 
+        public static Sprite ResolveThunderGodSprite()
+        {
+            if (cachedThunderGodSprite != null)
+                return cachedThunderGodSprite;
+
+            Sprite[] frames = ResolveThunderGodFrames();
+            if (frames != null && frames.Length > ThunderGodPeakFrameIndex)
+                cachedThunderGodSprite = frames[ThunderGodPeakFrameIndex];
+            else if (frames != null && frames.Length > 0)
+                cachedThunderGodSprite = frames[0];
+            return cachedThunderGodSprite;
+        }
+
+        public static Sprite[] ResolveThunderGodFrames()
+        {
+            if (cachedThunderGodFrames != null
+                && cachedThunderGodFrames.Length == ThunderGodFrameCount
+                && cachedThunderGodFrames[0] != null)
+                return cachedThunderGodFrames;
+
+#if UNITY_EDITOR
+            UnityEngine.Object[] all = AssetDatabase.LoadAllAssetsAtPath(ThunderGodAssetPath);
+            if (all != null && all.Length > 0)
+            {
+                System.Collections.Generic.List<Sprite> sprites =
+                    new System.Collections.Generic.List<Sprite>(ThunderGodFrameCount);
+                for (int i = 0; i < all.Length; i++)
+                {
+                    if (all[i] is Sprite sprite)
+                        sprites.Add(sprite);
+                }
+                if (sprites.Count > 0)
+                {
+                    // Sắp xếp theo THỨ TỰ HÌNH ẢNH (trên-trái -> dưới-phải):
+                    // rect.y giảm dần (hàng trên trước), rồi rect.x tăng dần (trái sang phải),
+                    // không phụ thuộc vào số hậu tố _N mà Unity đánh từ dưới lên.
+                    sprites.Sort((a, b) =>
+                    {
+                        int yCompare = b.rect.y.CompareTo(a.rect.y);
+                        if (Mathf.Abs(b.rect.y - a.rect.y) > 1f)
+                            return yCompare;
+                        return a.rect.x.CompareTo(b.rect.x);
+                    });
+                    cachedThunderGodFrames = sprites.ToArray();
+                    if (cachedThunderGodFrames.Length > ThunderGodPeakFrameIndex)
+                        cachedThunderGodSprite = cachedThunderGodFrames[ThunderGodPeakFrameIndex];
+                    return cachedThunderGodFrames;
+                }
+            }
+#endif
+            return Array.Empty<Sprite>();
+        }
+
         static Sprite ResolveSpriteAsset(string assetPath, ref Sprite cache)
         {
             if (cache != null)
@@ -462,6 +538,26 @@ namespace Match3RPG.Configuration
             runtime.manaCost = StarfallBarrageDefaultManaCost;
             runtime.rageCost = StarfallBarrageDefaultRageCost;
             runtime.cooldownTurns = StarfallBarrageDefaultCooldownTurns;
+            runtime.level = DefaultLevel;
+            runtime.levelTable = Array.Empty<SkillLevelConfig>();
+            return runtime;
+        }
+
+        public static SkillConfig CreateRuntimeThunderGodFallback()
+        {
+            SkillConfig runtime = CreateInstance<SkillConfig>();
+            runtime.name = ThunderGodSkillId;
+            runtime.SetStableId(ThunderGodSkillId);
+            runtime.displayName = ThunderGodDisplayName;
+            runtime.icon = ResolveThunderGodSprite();
+            runtime.effectFrames = ResolveThunderGodFrames();
+            runtime.description = ThunderGodDescription;
+            runtime.skillType = SkillType.Active;
+            runtime.targetType = SkillTargetType.SingleEnemy;
+            runtime.triggerType = SkillTriggerType.Manual;
+            runtime.manaCost = ThunderGodDefaultManaCost;
+            runtime.rageCost = ThunderGodDefaultRageCost;
+            runtime.cooldownTurns = ThunderGodDefaultCooldownTurns;
             runtime.level = DefaultLevel;
             runtime.levelTable = Array.Empty<SkillLevelConfig>();
             return runtime;

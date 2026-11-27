@@ -150,3 +150,34 @@
   - Vào trận bấm kỹ năng Mưa Sao Băng: hero đứng yên kết ấn (KHÔNG lao tới) → sao băng rơi đúng lên đầu boss, vòng nổ chạm đất dưới chân boss (không lệch lên đầu, không lơ lửng) → sát thương 100 hiện đúng lúc vòng nổ to nhất (f52) → boss Hit/Death đúng → cooldown 3 turn + pizza wipe → bấm khi chưa đủ mana/nộ hiện đúng câu "Không đủ tinh lực để sử dụng kỹ năng".
   - Chốt sau Play-test: tên thật (TẠM "Mưa Sao Băng"), cost (TẠM 3 mana / 0 nộ), cooldown (TẠM 3 turn), sát thương (TẠM 100), kích thước hiệu ứng (TẠM cao `1.6 ×` chiều cao battle boss).
 - **Lỗi (nếu fail):** Không có.
+
+
+## Prompt 169 — 2026-11-27 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error). Unity batch mode `ThunderGodSkillSetup.Install()` exit 0 + `ThunderGodSkillSetup.Verify()` exit 0 (`DefinitionDatabaseValidator`, `HeroBossRuntimeIntegrationRegressionTests`, `PlayerLoadoutRegressionTests` đều pass).
+- **File đã đổi:**
+  - `Match3RPG/Assets/Art/VFX/Skills/thunder_god.meta` *(mới)*
+  - `Match3RPG/Assets/Art/VFX/Skills/thunder_god/thunder-god-strike-sheet.png` *(mới — file sẵn trên máy, 6400×6912, RGBA, lưới 10×9 ô 640×768, 90 khung)*
+  - `Match3RPG/Assets/Art/VFX/Skills/thunder_god/thunder-god-strike-sheet.png.meta` *(mới — `spriteMode: 2`, 90 sub-sprite, Custom Pivot `(0.5, 0.26)`)*
+  - `Match3RPG/Assets/Editor/CampaignSpriteImporter.cs`
+  - `Match3RPG/Assets/Scripts/Battle/ThunderGodSkillController.cs` *(mới)*
+  - `Match3RPG/Assets/Scripts/Battle/ThunderGodSkillController.cs.meta` *(mới)*
+  - `Match3RPG/Assets/Editor/ThunderGodSkillSetup.cs` *(mới)*
+  - `Match3RPG/Assets/Editor/ThunderGodSkillSetup.cs.meta` *(mới)*
+  - `Match3RPG/Assets/Resources/Configuration/Skills/thunder_god.asset` *(mới)*
+  - `Match3RPG/Assets/Resources/Configuration/Skills/thunder_god.asset.meta` *(mới)*
+  - `Match3RPG/Assets/Scripts/Configuration/SkillConfig.cs`
+  - `Match3RPG/Assets/Scripts/Battle/BattleController.cs`
+  - `Match3RPG/Assets/Scripts/Battle/TurnManager.cs`
+  - `Match3RPG/Assets/Scripts/Battle/BattleStatusPopup.cs`
+  - `Match3RPG/Assets/Resources/Configuration/SkillDatabase.asset`
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Mở ngoại lệ `ThunderGodPath` (`Assets/Art/VFX/Skills/thunder_god/`) trong `CampaignSpriteImporter.cs` để giữ `SpriteImportMode.Multiple` và không ghi đè `spriteAlignment`/`spritePivot` về Center.
+  - Import tại chỗ sheet `thunder-god-strike-sheet.png` (6400×6912, RGBA, lưới 10×9 = 90 khung trong đó 84 khung đầu có hình và 6 ô cuối lưới trống trong suốt, ô 640×768, không Trim, `spriteMode: 2`, Custom Pivot `(0.5, 0.26)` đo theo tâm vòng xanh dưới đất tại `y ≈ 568/768` từ trên xuống), tạo `thunder_god.asset` (tên TẠM "Lôi Thần", cost TẠM 3 mana + 0 nộ, cooldown TẠM 3 turn, Lv1, icon khung đỉnh f46 `thunder-god-strike-sheet_45`, đủ 90 `effectFrames` theo thứ tự trên-trái → dưới-phải) và đăng ký vào `SkillDatabase.asset`.
+  - Thêm hằng số, `ResolveThunderGodSprite()`, `ResolveThunderGodFrames()`, fallback `DisplayName`/`Icon`/`GetDescriptionForLevel`/`CreateRuntimeThunderGodFallback()` trong `SkillConfig.cs` (mọi giá trị TẠM ghi `// TẠM`).
+  - Tạo `ThunderGodSkillController.cs`: dùng lại `hero.PlaySkillInPlaceWithoutLunge(0.48f, onCastRelease)` (hero đứng yên kết ấn tới mốc 0.48 F12→F13), mở `ThunderGodLayer` trên `CharacterLayer`, đặt ảnh hiệu ứng tại chân boss (đáy `VisualRect`, không dùng `VFXAnchor`), cao TẠM `1.6 ×` chiều cao battle boss (giữ tỉ lệ ô `640/768`), phát đủ 90 khung @30fps one-shot; gọi `onImpact()` đúng 1 lần tại khung đỉnh 0-based `45` (1-based `46`, `1.50s`), dừng ngay nếu boss chết giữa chừng.
+  - Nối vào `BattleController.cs` (gọi lại `combatVfx?.PlayHitImpact(BattleActor.Boss)`, sát thương phẳng TẠM = `100`, `ShowResource`, `AddReceivedHitRage`, `boss.Hit()`, check `boss.Death()`, trừ cooldown trong `AdvanceRoundCooldowns()`), `TurnManager.cs` (`CanActivateThunderGodSkill` / `TryActivateThunderGodSkill()`), `BattleStatusPopup.cs` (hàng mới Row 5 ngay sau `starfallBarrageRow` và trước `swordRainRow` Passive, tăng `totalRows = 8`) và `ThunderGodSkillSetup.cs` (`Install` + `Verify`).
+- **Chờ Play-test:**
+  - Vào trận bấm kỹ năng Lôi Thần: hero đứng yên kết ấn (KHÔNG lao tới) → mây giông tụ trên đầu boss, vòng xanh hiện dưới chân boss, sét đánh trúng vòng (không lệch lên đầu, không lơ lửng) → sát thương 100 hiện đúng lúc sét chạm vòng (f46) → boss Hit/Death đúng → cooldown 3 turn + pizza wipe → bấm khi chưa đủ mana/nộ hiện đúng câu "Không đủ tinh lực để sử dụng kỹ năng".
+  - Chốt sau Play-test: tên thật (TẠM "Lôi Thần"), cost (TẠM 3 mana / 0 nộ), cooldown (TẠM 3 turn), sát thương (TẠM 100), kích thước hiệu ứng (TẠM cao `1.6 ×` chiều cao battle boss).
+- **Lỗi (nếu fail):** Không có.

@@ -91,6 +91,7 @@ namespace Match3RPG.Battle
         SkillRowWidgets rockSpikeRow;
         SkillRowWidgets ellipseSwordsRow;
         SkillRowWidgets starfallBarrageRow;
+        SkillRowWidgets thunderGodRow;
         SkillRowWidgets swordRainRow;
         float skillRowRightTextWidth = 575f;
         RectTransform skillTooltipRoot;
@@ -619,7 +620,7 @@ namespace Match3RPG.Battle
             skillsScrollRect.scrollSensitivity = 36f;
             skillsScrollRect.viewport = viewportRect;
 
-            const int totalRows = 7; // 6 skill thật (5 active + 1 passive) + 1 ô kỹ năng trống
+            const int totalRows = 8; // 7 skill thật (6 active + 1 passive) + 1 ô kỹ năng trống
             const float rowWidth = 815f;
             const float rowHeight = 220f; // Thu nhỏ ~15% từ 258f xuống 220f
             const float rowSpacing = 26f;
@@ -712,6 +713,19 @@ namespace Match3RPG.Battle
                 }
 
                 if (rowIndex == 5)
+                {
+                    thunderGodRow = BuildSkillRow(
+                        rowRect,
+                        rowWidth,
+                        iconSize,
+                        iconLeftMargin,
+                        SkillConfig.ResolveThunderGodSprite(),
+                        SkillConfig.ThunderGodDescription,
+                        OnThunderGodSkillClicked);
+                    continue;
+                }
+
+                if (rowIndex == 6)
                 {
                     // Kỹ năng nội tại (Passive): không thêm nút bấm tay (onClick = null).
                     swordRainRow = BuildSkillRow(
@@ -1094,6 +1108,23 @@ namespace Match3RPG.Battle
                     turnManager != null && turnManager.CanActivateStarfallBarrageSkill);
             }
 
+            if (thunderGodRow != null)
+            {
+                SkillConfig thunderGodSkill = battle != null ? battle.ThunderGodSkill : null;
+                int level = battle != null ? battle.ThunderGodSkillLevel : SkillConfig.DefaultLevel;
+                RefreshSkillRow(
+                    thunderGodRow,
+                    thunderGodSkill,
+                    SkillConfig.ResolveThunderGodSprite(),
+                    level,
+                    SkillConfig.ThunderGodDefaultManaCost,
+                    SkillConfig.ThunderGodDefaultRageCost,
+                    SkillConfig.ThunderGodDefaultCooldownTurns,
+                    battle != null ? battle.ThunderGodCooldownRemaining : 0,
+                    SkillConfig.ThunderGodDescription,
+                    turnManager != null && turnManager.CanActivateThunderGodSkill);
+            }
+
             if (swordRainRow != null)
             {
                 SkillConfig swordRainSkill = battle != null ? battle.SwordRainSkill : null;
@@ -1266,6 +1297,13 @@ namespace Match3RPG.Battle
             HandleSkillClicked(
                 turnManager != null && turnManager.CanActivateStarfallBarrageSkill,
                 () => turnManager.TryActivateStarfallBarrageSkill());
+        }
+
+        void OnThunderGodSkillClicked()
+        {
+            HandleSkillClicked(
+                turnManager != null && turnManager.CanActivateThunderGodSkill,
+                () => turnManager.TryActivateThunderGodSkill());
         }
 
         void HandleSkillClicked(bool canActivate, System.Func<bool> tryActivate)

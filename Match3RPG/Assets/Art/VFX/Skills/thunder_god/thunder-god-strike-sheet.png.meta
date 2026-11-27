@@ -1,0 +1,2480 @@
+fileFormatVersion: 2
+guid: 4971b09380bc3684fa370656044eecdc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4680491382338568016
+    second: thunder-god-strike-sheet_0
+  - first:
+      213: -6790545816783386005
+    second: thunder-god-strike-sheet_1
+  - first:
+      213: -6473113040398343780
+    second: thunder-god-strike-sheet_2
+  - first:
+      213: 8441597224491646960
+    second: thunder-god-strike-sheet_3
+  - first:
+      213: 8921073779820555730
+    second: thunder-god-strike-sheet_4
+  - first:
+      213: -8955569931536550246
+    second: thunder-god-strike-sheet_5
+  - first:
+      213: 3217995453067231939
+    second: thunder-god-strike-sheet_6
+  - first:
+      213: 3540076251002828781
+    second: thunder-god-strike-sheet_7
+  - first:
+      213: 8659979514143636520
+    second: thunder-god-strike-sheet_8
+  - first:
+      213: 6459570156446196694
+    second: thunder-god-strike-sheet_9
+  - first:
+      213: -2773237722586049784
+    second: thunder-god-strike-sheet_10
+  - first:
+      213: -5299906948856482620
+    second: thunder-god-strike-sheet_11
+  - first:
+      213: 3426549552225745389
+    second: thunder-god-strike-sheet_12
+  - first:
+      213: -1349760191693085464
+    second: thunder-god-strike-sheet_13
+  - first:
+      213: 7183051250406090436
+    second: thunder-god-strike-sheet_14
+  - first:
+      213: -4281772538169604149
+    second: thunder-god-strike-sheet_15
+  - first:
+      213: -6153007826578052322
+    second: thunder-god-strike-sheet_16
+  - first:
+      213: 4865830690720109907
+    second: thunder-god-strike-sheet_17
+  - first:
+      213: 1989838724478256207
+    second: thunder-god-strike-sheet_18
+  - first:
+      213: -7459792788035918884
+    second: thunder-god-strike-sheet_19
+  - first:
+      213: 4488523019127838829
+    second: thunder-god-strike-sheet_20
+  - first:
+      213: 4134440619570135037
+    second: thunder-god-strike-sheet_21
+  - first:
+      213: 1797697500118659777
+    second: thunder-god-strike-sheet_22
+  - first:
+      213: 105833275987683853
+    second: thunder-god-strike-sheet_23
+  - first:
+      213: 1266355430130853639
+    second: thunder-god-strike-sheet_24
+  - first:
+      213: -2742186417781501321
+    second: thunder-god-strike-sheet_25
+  - first:
+      213: -8719617680489709359
+    second: thunder-god-strike-sheet_26
+  - first:
+      213: 6132900220977414626
+    second: thunder-god-strike-sheet_27
+  - first:
+      213: -2686733177890851748
+    second: thunder-god-strike-sheet_28
+  - first:
+      213: -3029063189411852328
+    second: thunder-god-strike-sheet_29
+  - first:
+      213: -6283250125798842556
+    second: thunder-god-strike-sheet_30
+  - first:
+      213: 3832268028690728433
+    second: thunder-god-strike-sheet_31
+  - first:
+      213: -5573125115566981586
+    second: thunder-god-strike-sheet_32
+  - first:
+      213: -9175892601431491618
+    second: thunder-god-strike-sheet_33
+  - first:
+      213: -1157826597820028724
+    second: thunder-god-strike-sheet_34
+  - first:
+      213: -1124160093242407073
+    second: thunder-god-strike-sheet_35
+  - first:
+      213: -8358017181584347344
+    second: thunder-god-strike-sheet_36
+  - first:
+      213: 1766141971784219803
+    second: thunder-god-strike-sheet_37
+  - first:
+      213: -9203864412892777085
+    second: thunder-god-strike-sheet_38
+  - first:
+      213: 8523158502733419110
+    second: thunder-god-strike-sheet_39
+  - first:
+      213: -3073968633408591357
+    second: thunder-god-strike-sheet_40
+  - first:
+      213: 626754291923497161
+    second: thunder-god-strike-sheet_41
+  - first:
+      213: -11812473384364242
+    second: thunder-god-strike-sheet_42
+  - first:
+      213: 7537496192517876751
+    second: thunder-god-strike-sheet_43
+  - first:
+      213: -1065838016363335424
+    second: thunder-god-strike-sheet_44
+  - first:
+      213: 4433047675112223101
+    second: thunder-god-strike-sheet_45
+  - first:
+      213: 7348741455520425060
+    second: thunder-god-strike-sheet_46
+  - first:
+      213: 837333616381290076
+    second: thunder-god-strike-sheet_47
+  - first:
+      213: -926043450289434042
+    second: thunder-god-strike-sheet_48
+  - first:
+      213: -163193742147287914
+    second: thunder-god-strike-sheet_49
+  - first:
+      213: -7714872533188757981
+    second: thunder-god-strike-sheet_50
+  - first:
+      213: 5591875990853252452
+    second: thunder-god-strike-sheet_51
+  - first:
+      213: 6167273485197970186
+    second: thunder-god-strike-sheet_52
+  - first:
+      213: -8022125417364706209
+    second: thunder-god-strike-sheet_53
+  - first:
+      213: 3335107002058006475
+    second: thunder-god-strike-sheet_54
+  - first:
+      213: -636363174759014913
+    second: thunder-god-strike-sheet_55
+  - first:
+      213: -4305937630798054869
+    second: thunder-god-strike-sheet_56
+  - first:
+      213: -7784677285709889627
+    second: thunder-god-strike-sheet_57
+  - first:
+      213: -6547371860925989710
+    second: thunder-god-strike-sheet_58
+  - first:
+      213: 7822928050722834942
+    second: thunder-god-strike-sheet_59
+  - first:
+      213: 805580395410498097
+    second: thunder-god-strike-sheet_60
+  - first:
+      213: -4473618821142662428
+    second: thunder-god-strike-sheet_61
+  - first:
+      213: 8770435954787066595
+    second: thunder-god-strike-sheet_62
+  - first:
+      213: 4305388360447857372
+    second: thunder-god-strike-sheet_63
+  - first:
+      213: 904044740220609985
+    second: thunder-god-strike-sheet_64
+  - first:
+      213: 9164456687782189484
+    second: thunder-god-strike-sheet_65
+  - first:
+      213: 9116696155010601046
+    second: thunder-god-strike-sheet_66
+  - first:
+      213: -7901998312754020606
+    second: thunder-god-strike-sheet_67
+  - first:
+      213: -2986815007950405054
+    second: thunder-god-strike-sheet_68
+  - first:
+      213: -3695871261356265091
+    second: thunder-god-strike-sheet_69
+  - first:
+      213: -6505251194133811890
+    second: thunder-god-strike-sheet_70
+  - first:
+      213: -4726184104131479670
+    second: thunder-god-strike-sheet_71
+  - first:
+      213: 1442606487210796143
+    second: thunder-god-strike-sheet_72
+  - first:
+      213: -7775477405928077704
+    second: thunder-god-strike-sheet_73
+  - first:
+      213: 7352907215844974118
+    second: thunder-god-strike-sheet_74
+  - first:
+      213: 8082690512304724345
+    second: thunder-god-strike-sheet_75
+  - first:
+      213: -5800463013631478546
+    second: thunder-god-strike-sheet_76
+  - first:
+      213: -5398165915469192330
+    second: thunder-god-strike-sheet_77
+  - first:
+      213: 2338217074732907318
+    second: thunder-god-strike-sheet_78
+  - first:
+      213: 4146288136786074879
+    second: thunder-god-strike-sheet_79
+  - first:
+      213: -3196821720101272052
+    second: thunder-god-strike-sheet_80
+  - first:
+      213: 5876534777979483468
+    second: thunder-god-strike-sheet_81
+  - first:
+      213: -9026137331111947814
+    second: thunder-god-strike-sheet_82
+  - first:
+      213: -1811119088926817889
+    second: thunder-god-strike-sheet_83
+  - first:
+      213: 1438542971494020951
+    second: thunder-god-strike-sheet_84
+  - first:
+      213: -6262817438369332052
+    second: thunder-god-strike-sheet_85
+  - first:
+      213: -2255137527010892599
+    second: thunder-god-strike-sheet_86
+  - first:
+      213: -121156838264597712
+    second: thunder-god-strike-sheet_87
+  - first:
+      213: -5061760932709067070
+    second: thunder-god-strike-sheet_88
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b0ce65d2ed8b0fb0800000000000000
+      internalID: -4680491382338568016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6a8c97be8223c1a0800000000000000
+      internalID: -6790545816783386005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c91ab1c5cf1ea26a0800000000000000
+      internalID: -6473113040398343780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ff7fbe33f3962570800000000000000
+      internalID: 8441597224491646960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dd614d36550ecb70800000000000000
+      internalID: 8921073779820555730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_5
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a96389d889c67b380800000000000000
+      internalID: -8955569931536550246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_6
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c205ec90dd98ac20800000000000000
+      internalID: 3217995453067231939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_7
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de7f1da1890e02130800000000000000
+      internalID: 3540076251002828781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_8
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82cf0be4c7d6e2870800000000000000
+      internalID: 8659979514143636520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_9
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d3a0b045d005a950800000000000000
+      internalID: 6459570156446196694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8039b8b0cfa7389d0800000000000000
+      internalID: -2773237722586049784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_11
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c4f8cac5b2f276b0800000000000000
+      internalID: -5299906948856482620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de970b1c9ac8d8f20800000000000000
+      internalID: 3426549552225745389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e4ab2ac140b44de0800000000000000
+      internalID: -1349760191693085464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c661e70e035fa360800000000000000
+      internalID: 7183051250406090436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_15
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc7c065ff861494c0800000000000000
+      internalID: -4281772538169604149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_16
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1bed945bff1c9aa0800000000000000
+      internalID: -6153007826578052322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_17
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 355d091ab37e68340800000000000000
+      internalID: 4865830690720109907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_18
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f44c7dcf6c35d9b10800000000000000
+      internalID: 1989838724478256207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_19
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 768
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd32913abfd797890800000000000000
+      internalID: -7459792788035918884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d68574997ef6a4e30800000000000000
+      internalID: 4488523019127838829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_21
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dff7c6a96db706930800000000000000
+      internalID: 4134440619570135037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_22
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c23e2c0a54b2f810800000000000000
+      internalID: 1797697500118659777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_23
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0a69a4cdcef77100800000000000000
+      internalID: 105833275987683853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_24
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7072654ed8ff29110800000000000000
+      internalID: 1266355430130853639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_25
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7729b345bfbc1f9d0800000000000000
+      internalID: -2742186417781501321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_26
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d002390be1bdf680800000000000000
+      internalID: -8719617680489709359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_27
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e1064ae1407c1550800000000000000
+      internalID: 6132900220977414626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_28
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c543f8dd86ec6bad0800000000000000
+      internalID: -2686733177890851748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_29
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 1536
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8df05e0f31b96f5d0800000000000000
+      internalID: -3029063189411852328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44fd4d8fc496dc8a0800000000000000
+      internalID: -6283250125798842556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_31
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f58236c773fe2530800000000000000
+      internalID: 3832268028690728433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_32
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2e72dd2c3848a2b0800000000000000
+      internalID: -5573125115566981586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_33
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edb7a828b4ea8a080800000000000000
+      internalID: -9175892601431491618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_34
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc8207df7d29eefe0800000000000000
+      internalID: -1157826597820028724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_35
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f57cd9be95e2660f0800000000000000
+      internalID: -1124160093242407073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_36
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03fad01f7ab520c80800000000000000
+      internalID: -8358017181584347344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_37
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9c3b1314c8928810800000000000000
+      internalID: 1766141971784219803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_38
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 385baa4a41e454080800000000000000
+      internalID: -9203864412892777085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_39
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 2304
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66296c72087584670800000000000000
+      internalID: 8523158502733419110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30aecf280d11755d0800000000000000
+      internalID: -3073968633408591357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_41
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c03d8335bda2b800800000000000000
+      internalID: 626754291923497161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_42
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2791083e9806dff0800000000000000
+      internalID: -11812473384364242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_43
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0c23ea0ad09a9860800000000000000
+      internalID: 7537496192517876751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_44
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0017e8e98f16531f0800000000000000
+      internalID: -1065838016363335424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_45
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d717f6b8f59558d30800000000000000
+      internalID: 4433047675112223101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_46
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4646b722b69fbf560800000000000000
+      internalID: 7348741455520425060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_47
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5666eadc7ece9b00800000000000000
+      internalID: 837333616381290076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_48
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 642dbea63680623f0800000000000000
+      internalID: -926043450289434042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_49
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 3072
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6948eb9f7283cbdf0800000000000000
+      internalID: -163193742147287914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_50
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 326bdd36e444fe490800000000000000
+      internalID: -7714872533188757981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_51
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 465f7de26955a9d40800000000000000
+      internalID: 5591875990853252452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_52
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0b09e52f8e869550800000000000000
+      internalID: 6167273485197970186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_53
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5c285a9f6faba090800000000000000
+      internalID: -8022125417364706209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_54
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcfd591f52ea84e20800000000000000
+      internalID: 3335107002058006475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_55
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffd595c601f2b27f0800000000000000
+      internalID: -636363174759014913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_56
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2a7b43e98c3e34c0800000000000000
+      internalID: -4305937630798054869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_57
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5afb53ee04547f390800000000000000
+      internalID: -7784677285709889627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_58
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bc3e116bff0325a0800000000000000
+      internalID: -6547371860925989710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_59
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 3840
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef906ce4d9f909c60800000000000000
+      internalID: 7822928050722834942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 132267af91ffd2b00800000000000000
+      internalID: 805580395410498097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_61
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e23a4962638ae1c0800000000000000
+      internalID: -4473618821142662428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_62
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e2a56a7809d6b970800000000000000
+      internalID: 8770435954787066595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_63
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd2989427efcfbb30800000000000000
+      internalID: 4305388360447857372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_64
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c5e8e1c6efcb8c00800000000000000
+      internalID: 904044740220609985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_65
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca9d5ba5dc0be2f70800000000000000
+      internalID: 9164456687782189484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_66
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6509394c9d2058e70800000000000000
+      internalID: 9116696155010601046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_67
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20f7f80b666765290800000000000000
+      internalID: -7901998312754020606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_68
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2428f493393bc86d0800000000000000
+      internalID: -2986815007950405054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_69
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 4608
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d71f84b5ba0a5bcc0800000000000000
+      internalID: -3695871261356265091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_70
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4de7f65184b8b5a0800000000000000
+      internalID: -6505251194133811890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_71
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8735220998396eb0800000000000000
+      internalID: -4726184104131479670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_72
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f64afd4f4fa250410800000000000000
+      internalID: 1442606487210796143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_73
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 876c49cde74f71490800000000000000
+      internalID: -7775477405928077704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_74
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62e98dac726ca0660800000000000000
+      internalID: 7352907215844974118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_75
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 979d75f623c7b2070800000000000000
+      internalID: 8082690512304724345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_76
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee434bb0f9d908fa0800000000000000
+      internalID: -5800463013631478546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_77
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67366d953bcd515b0800000000000000
+      internalID: -5398165915469192330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_78
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63b35338a04037020800000000000000
+      internalID: 2338217074732907318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_79
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 5376
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffcdc89a7139a8930800000000000000
+      internalID: 4146288136786074879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_80
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c064c13459b92a3d0800000000000000
+      internalID: -3196821720101272052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_81
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4532bfce35ad8150800000000000000
+      internalID: 5876534777979483468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_82
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad11e2d7be7bcb280800000000000000
+      internalID: -9026137331111947814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_83
+      rect:
+        serializedVersion: 2
+        x: 1920
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f91869ac8cc9dd6e0800000000000000
+      internalID: -1811119088926817889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_84
+      rect:
+        serializedVersion: 2
+        x: 2560
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 757390af53bb6f310800000000000000
+      internalID: 1438542971494020951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_85
+      rect:
+        serializedVersion: 2
+        x: 3200
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca4cfdcb8b00619a0800000000000000
+      internalID: -6262817438369332052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_86
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c4ecde0e5424b0e0800000000000000
+      internalID: -2255137527010892599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_87
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 033112d5f70915ef0800000000000000
+      internalID: -121156838264597712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_88
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c61de3004301c9b0800000000000000
+      internalID: -5061760932709067070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: thunder-god-strike-sheet_89
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 6144
+        width: 640
+        height: 768
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 947fc9c185ae41f4a82f5fac62f69b65
+      internalID: -988343551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      thunder-god-strike-sheet_0: -4680491382338568016
+      thunder-god-strike-sheet_1: -6790545816783386005
+      thunder-god-strike-sheet_10: -2773237722586049784
+      thunder-god-strike-sheet_11: -5299906948856482620
+      thunder-god-strike-sheet_12: 3426549552225745389
+      thunder-god-strike-sheet_13: -1349760191693085464
+      thunder-god-strike-sheet_14: 7183051250406090436
+      thunder-god-strike-sheet_15: -4281772538169604149
+      thunder-god-strike-sheet_16: -6153007826578052322
+      thunder-god-strike-sheet_17: 4865830690720109907
+      thunder-god-strike-sheet_18: 1989838724478256207
+      thunder-god-strike-sheet_19: -7459792788035918884
+      thunder-god-strike-sheet_2: -6473113040398343780
+      thunder-god-strike-sheet_20: 4488523019127838829
+      thunder-god-strike-sheet_21: 4134440619570135037
+      thunder-god-strike-sheet_22: 1797697500118659777
+      thunder-god-strike-sheet_23: 105833275987683853
+      thunder-god-strike-sheet_24: 1266355430130853639
+      thunder-god-strike-sheet_25: -2742186417781501321
+      thunder-god-strike-sheet_26: -8719617680489709359
+      thunder-god-strike-sheet_27: 6132900220977414626
+      thunder-god-strike-sheet_28: -2686733177890851748
+      thunder-god-strike-sheet_29: -3029063189411852328
+      thunder-god-strike-sheet_3: 8441597224491646960
+      thunder-god-strike-sheet_30: -6283250125798842556
+      thunder-god-strike-sheet_31: 3832268028690728433
+      thunder-god-strike-sheet_32: -5573125115566981586
+      thunder-god-strike-sheet_33: -9175892601431491618
+      thunder-god-strike-sheet_34: -1157826597820028724
+      thunder-god-strike-sheet_35: -1124160093242407073
+      thunder-god-strike-sheet_36: -8358017181584347344
+      thunder-god-strike-sheet_37: 1766141971784219803
+      thunder-god-strike-sheet_38: -9203864412892777085
+      thunder-god-strike-sheet_39: 8523158502733419110
+      thunder-god-strike-sheet_4: 8921073779820555730
+      thunder-god-strike-sheet_40: -3073968633408591357
+      thunder-god-strike-sheet_41: 626754291923497161
+      thunder-god-strike-sheet_42: -11812473384364242
+      thunder-god-strike-sheet_43: 7537496192517876751
+      thunder-god-strike-sheet_44: -1065838016363335424
+      thunder-god-strike-sheet_45: 4433047675112223101
+      thunder-god-strike-sheet_46: 7348741455520425060
+      thunder-god-strike-sheet_47: 837333616381290076
+      thunder-god-strike-sheet_48: -926043450289434042
+      thunder-god-strike-sheet_49: -163193742147287914
+      thunder-god-strike-sheet_5: -8955569931536550246
+      thunder-god-strike-sheet_50: -7714872533188757981
+      thunder-god-strike-sheet_51: 5591875990853252452
+      thunder-god-strike-sheet_52: 6167273485197970186
+      thunder-god-strike-sheet_53: -8022125417364706209
+      thunder-god-strike-sheet_54: 3335107002058006475
+      thunder-god-strike-sheet_55: -636363174759014913
+      thunder-god-strike-sheet_56: -4305937630798054869
+      thunder-god-strike-sheet_57: -7784677285709889627
+      thunder-god-strike-sheet_58: -6547371860925989710
+      thunder-god-strike-sheet_59: 7822928050722834942
+      thunder-god-strike-sheet_6: 3217995453067231939
+      thunder-god-strike-sheet_60: 805580395410498097
+      thunder-god-strike-sheet_61: -4473618821142662428
+      thunder-god-strike-sheet_62: 8770435954787066595
+      thunder-god-strike-sheet_63: 4305388360447857372
+      thunder-god-strike-sheet_64: 904044740220609985
+      thunder-god-strike-sheet_65: 9164456687782189484
+      thunder-god-strike-sheet_66: 9116696155010601046
+      thunder-god-strike-sheet_67: -7901998312754020606
+      thunder-god-strike-sheet_68: -2986815007950405054
+      thunder-god-strike-sheet_69: -3695871261356265091
+      thunder-god-strike-sheet_7: 3540076251002828781
+      thunder-god-strike-sheet_70: -6505251194133811890
+      thunder-god-strike-sheet_71: -4726184104131479670
+      thunder-god-strike-sheet_72: 1442606487210796143
+      thunder-god-strike-sheet_73: -7775477405928077704
+      thunder-god-strike-sheet_74: 7352907215844974118
+      thunder-god-strike-sheet_75: 8082690512304724345
+      thunder-god-strike-sheet_76: -5800463013631478546
+      thunder-god-strike-sheet_77: -5398165915469192330
+      thunder-god-strike-sheet_78: 2338217074732907318
+      thunder-god-strike-sheet_79: 4146288136786074879
+      thunder-god-strike-sheet_8: 8659979514143636520
+      thunder-god-strike-sheet_80: -3196821720101272052
+      thunder-god-strike-sheet_81: 5876534777979483468
+      thunder-god-strike-sheet_82: -9026137331111947814
+      thunder-god-strike-sheet_83: -1811119088926817889
+      thunder-god-strike-sheet_84: 1438542971494020951
+      thunder-god-strike-sheet_85: -6262817438369332052
+      thunder-god-strike-sheet_86: -2255137527010892599
+      thunder-god-strike-sheet_87: -121156838264597712
+      thunder-god-strike-sheet_88: -5061760932709067070
+      thunder-god-strike-sheet_89: -988343551
+      thunder-god-strike-sheet_9: 6459570156446196694
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

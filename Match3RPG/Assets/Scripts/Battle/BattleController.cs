@@ -70,18 +70,21 @@ namespace Match3RPG.Battle
         int rockSpikeCooldownRemaining;
         int ellipseSwordsCooldownRemaining;
         int starfallBarrageCooldownRemaining;
+        int thunderGodCooldownRemaining;
         int lastSyncedFlyingSwordLevel = SkillConfig.DefaultLevel;
         SkillConfig flyingSwordSkillConfig;
         SkillConfig swordQiSkillConfig;
         SkillConfig rockSpikeSkillConfig;
         SkillConfig ellipseSwordsSkillConfig;
         SkillConfig starfallBarrageSkillConfig;
+        SkillConfig thunderGodSkillConfig;
         SkillConfig swordRainSkillConfig;
         FlyingSwordSkillController flyingSwordSkillController;
         SwordQiSkillController swordQiSkillController;
         RockSpikeSkillController rockSpikeSkillController;
         EllipseSwordsSkillController ellipseSwordsSkillController;
         StarfallBarrageSkillController starfallBarrageSkillController;
+        ThunderGodSkillController thunderGodSkillController;
         int loggedHeroRage = int.MinValue;
         int loggedHeroMaxRage = int.MinValue;
         bool statsInitialized;
@@ -123,6 +126,11 @@ namespace Match3RPG.Battle
         public int StarfallBarrageSkillLevel => SkillConfig.DefaultLevel; // TẠM: chỉ có Lv1
         public bool IsStarfallBarrageSkillRunning =>
             starfallBarrageSkillController != null && starfallBarrageSkillController.IsRunning;
+        public int ThunderGodCooldownRemaining => thunderGodCooldownRemaining;
+        public SkillConfig ThunderGodSkill => ResolveThunderGodSkill();
+        public int ThunderGodSkillLevel => SkillConfig.DefaultLevel; // TẠM: chỉ có Lv1
+        public bool IsThunderGodSkillRunning =>
+            thunderGodSkillController != null && thunderGodSkillController.IsRunning;
         public SkillConfig SwordRainSkill => ResolveSwordRainSkill();
         public int SwordRainSkillLevel => SkillConfig.DefaultLevel; // TẠM: chỉ có Lv1
         public bool IsGameOver => heroHp <= 0 || bossHp <= 0
@@ -271,6 +279,7 @@ namespace Match3RPG.Battle
             EnsureRockSpikeSkillSetup();
             EnsureEllipseSwordsSkillSetup();
             EnsureStarfallBarrageSkillSetup();
+            EnsureThunderGodSkillSetup();
             EnsureSwordRainSkillSetup();
             UpdateRageReadyVfx(BattleActor.Player);
             UpdateRageReadyVfx(BattleActor.Boss);
@@ -302,6 +311,7 @@ namespace Match3RPG.Battle
             rockSpikeCooldownRemaining = 0;
             ellipseSwordsCooldownRemaining = 0;
             starfallBarrageCooldownRemaining = 0;
+            thunderGodCooldownRemaining = 0;
             flyingSwordSkillController?.StopOrbitImmediate();
             if (layoutTestMode)
                 ApplyLayoutTestState();
@@ -766,6 +776,8 @@ namespace Match3RPG.Battle
                 ellipseSwordsCooldownRemaining--;
             if (starfallBarrageCooldownRemaining > 0)
                 starfallBarrageCooldownRemaining--;
+            if (thunderGodCooldownRemaining > 0)
+                thunderGodCooldownRemaining--;
 
             if (flyingSwordOrbitTurnsRemaining > 0)
             {
@@ -888,6 +900,26 @@ namespace Match3RPG.Battle
                 ref starfallBarrageSkillConfig,
                 SkillConfig.StarfallBarrageSkillId,
                 SkillConfig.CreateRuntimeStarfallBarrageFallback);
+        }
+
+        void EnsureThunderGodSkillSetup()
+        {
+            ResolveThunderGodSkill();
+            if (thunderGodSkillController == null)
+            {
+                thunderGodSkillController = GetComponent<ThunderGodSkillController>();
+                if (thunderGodSkillController == null)
+                    thunderGodSkillController = gameObject.AddComponent<ThunderGodSkillController>();
+            }
+            thunderGodSkillController.SkillLevel = SkillConfig.DefaultLevel;
+        }
+
+        SkillConfig ResolveThunderGodSkill()
+        {
+            return ResolveSkillById(
+                ref thunderGodSkillConfig,
+                SkillConfig.ThunderGodSkillId,
+                SkillConfig.CreateRuntimeThunderGodFallback);
         }
 
         void EnsureSwordRainSkillSetup()
@@ -1199,6 +1231,32 @@ namespace Match3RPG.Battle
             return true;
         }
 
+        public bool CanActivateThunderGodSkill()
+        {
+            return CanActivateSkill(
+                ResolveThunderGodSkill(),
+                thunderGodCooldownRemaining,
+                IsThunderGodSkillRunning,
+                SkillConfig.ThunderGodDefaultManaCost,
+                SkillConfig.ThunderGodDefaultRageCost);
+        }
+
+        public bool TryConsumeThunderGodSkillCost()
+        {
+            if (!TryConsumeSkillCost(
+                ResolveThunderGodSkill(),
+                thunderGodCooldownRemaining,
+                IsThunderGodSkillRunning,
+                SkillConfig.ThunderGodDefaultManaCost,
+                SkillConfig.ThunderGodDefaultRageCost,
+                SkillConfig.ThunderGodDefaultCooldownTurns,
+                out int newCooldown))
+                return false;
+
+            thunderGodCooldownRemaining = newCooldown;
+            return true;
+        }
+
         bool CanActivateSkill(SkillConfig skill, int cooldownRemaining, bool isRunning,
             int defaultManaCost, int defaultRageCost)
         {
@@ -1411,6 +1469,44 @@ namespace Match3RPG.Battle
             // TẠM: sát thương phẳng = 100 (StarfallBarrageDefaultDamage),
             // tính đúng lúc vòng nổ dưới đất đạt đỉnh (frame 52). Sư Huynh chốt sau Play-test.
             int damage = ApplyDamage(BattleActor.Boss, SkillConfig.StarfallBarrageDefaultDamage);
+            if (damage > 0)
+            {
+                ShowResource(boss, FloatingTextType.Damage, damage);
+                AddReceivedHitRage(BattleActor.Boss);
+                Refresh();
+                if (boss != null && bossHp > 0)
+                    yield return boss.Hit();
+            }
+
+            if ((bossHp == 0 || (soulEnabled && bossSoulHp == 0)) && boss != null)
+                yield return boss.Death();
+            StopFlyingSwordOrbitIfBattleEnded();
+            Refresh();
+        }
+
+        public IEnumerator ExecuteThunderGodSkill()
+        {
+            if (IsGameOver)
+                yield break;
+
+            EnsureThunderGodSkillSetup();
+            SkillConfig skill = ResolveThunderGodSkill();
+            if (thunderGodSkillController == null)
+                yield break;
+
+            yield return thunderGodSkillController.ExecuteSkill(hero, boss, skill, ApplyThunderGodImpact);
+        }
+
+        IEnumerator ApplyThunderGodImpact()
+        {
+            if (IsGameOver)
+                yield break;
+
+            combatVfx?.PlayHitImpact(BattleActor.Boss);
+
+            // TẠM: sát thương phẳng = 100 (ThunderGodDefaultDamage),
+            // tính đúng lúc sét đánh trúng vòng xanh dưới đất đạt đỉnh (frame 46). Sư Huynh chốt sau Play-test.
+            int damage = ApplyDamage(BattleActor.Boss, SkillConfig.ThunderGodDefaultDamage);
             if (damage > 0)
             {
                 ShowResource(boss, FloatingTextType.Damage, damage);
