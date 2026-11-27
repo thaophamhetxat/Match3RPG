@@ -245,3 +245,19 @@
   - Né: ở Lv cao / nhiều sao Giọt Nước, thỉnh thoảng thấy chữ "Né!" màu xám nhạt và hit đó 0 sát thương; Lv1 không né (tỉ lệ 0).
   - Tốc độ: vào ải mà boss nhanh hơn hero thì boss đi trước ở lượt mở đầu; các lượt sau vẫn theo vòng lặp thường hero → boss.
 - **Lỗi (nếu fail):** Không có.
+
+
+
+## Prompt 175 — 2026-11-28 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error). Unity batch mode probe `TempFloatAnchorProbe.Run` exit 0 (đã xóa sạch file probe khỏi repo sau khi đo).
+- **File đã đổi:**
+  - 30 file BossData R02–R04 (`Match3RPG/Assets/Resources/Campaign/Bosses/region_02_boss_01..10.asset`, `region_03_boss_01..10.asset`, `region_04_boss_01..10.asset` — chỉ đổi `floatingTextAnchor.y`, giữ `x = 0.5`)
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Chạy Unity batch mode probe đo thật (`characterRoot` = `visualRect` = `464.40×768.00`, `localScale.y = 0.83 × visualScale`, `CaptureHomePosition()` + pixel opaque `alpha >= 16` trên Idle frame 0): hiệu chuẩn khớp Hero2 `headTopY = 314.53` (`Δ = 0.00`, anchor `0.49`) và tái hiện mốc trước Prompt 173 của Lâm Phong `314.68` (`Δ = -0.01`), Thanh Vân `314.69` (`Δ = 0.00`), Tử Hà `346.31` (`Δ = -0.75`); xác nhận toàn bộ 11 boss R02–R04 đứng đúng baseline `feetY = 77.84`.
+  - Áp `floatingTextAnchor.y = round((headTopY + 60) / 768, 2)` vào 30 file BossData R02–R04 theo `CharacterId` trong `animationSet`: R02 (`BossFrostWolf` 01..04, `BossIceCrystalBeast` 05..08, `BossAzureRiverDragon` 09..10) = `0.55`; R03 (`BossInfernoQilin` 01..04 = `0.58`, `BossCrimsonScorpion` 05..08 = `0.55`, `BossFlameLion` 09..10 = `0.55`); R04 (`BossTreant` 01/06 = `0.55`, `BossDemonWoodWolf` 02/07 = `0.55`, `BossWoodPriestess` 03/08 = `0.49`, `BossSpiritMountainTortoise` 04/09 = `0.60`, `BossJadeForestDragon` 05/10 = `0.55`).
+  - Giữ nguyên `Hero2.asset`, R01 BossData, `GameBootstrap.cs`, `FloatingTextManager.cs`, `CharacterView.cs` và toàn bộ các field khác (`vfxAnchor`, `headVfxAnchor`, `visualScale`, `visualOffset`, `sourceFacing`).
+- **Chờ Play-test:**
+  - Vào các ải R02–R04, đánh thường + ăn gem heal/mana: kiểm tra số damage/heal/mana nằm ngay trên đầu từng boss (cách khoảng 1 chữ, căn giữa đầu, không cao tít lên trên như trước và không chìm vào đầu).
+  - Ghi nhận sau Prompt 173: R01 Tử Hà (`region_01_boss_09..10`) đã được nâng `anchPos.y = +39.44` để chạm baseline `77.84`, đẩy `headTopY` thực tế lên `385.75` (tương ứng anchor ~`0.58` thay vì `0.53` cũ) — không sửa trong Prompt 175 theo luật cứng, để Sư Huynh xem xét riêng nếu cần.
+- **Lỗi (nếu fail):** Không có.

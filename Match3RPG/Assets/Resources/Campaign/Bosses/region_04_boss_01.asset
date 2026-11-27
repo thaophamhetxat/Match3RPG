@@ -32,4 +32,4 @@ MonoBehaviour:
   sourceFacing: 0
   vfxAnchor: {x: 0.5, y: 0.48}
   headVfxAnchor: {x: 0.5, y: 0.82}
-  floatingTextAnchor: {x: 0.5, y: 0.88}
+  floatingTextAnchor: {x: 0.5, y: 0.55}
