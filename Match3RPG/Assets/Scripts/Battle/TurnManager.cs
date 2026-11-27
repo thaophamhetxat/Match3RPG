@@ -265,7 +265,14 @@ namespace Match3RPG.Battle
         void Start()
         {
             board.EnsureBoardReady();
-            activeTurn = StartCoroutine(StartPlayerPhase(true, false, PlayerDecisionSeconds));
+            // Tốc độ chỉ quyết định lượt MỞ ĐẦU: boss nhanh hơn thì boss đi trước, còn lại hero đi trước như cũ.
+            BattleActor? faster = battle != null
+                ? GetFasterActor(battle.HeroSpeed, battle.BossSpeed)
+                : null;
+            if (faster == BattleActor.Boss)
+                activeTurn = StartCoroutine(StartBossPhase(true));
+            else
+                activeTurn = StartCoroutine(StartPlayerPhase(true, false, PlayerDecisionSeconds));
         }
 
         void BindBoard()

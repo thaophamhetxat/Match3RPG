@@ -36,6 +36,7 @@ namespace Match3RPG.Battle
         [SerializeField, Min(1)] private int maxRage;
         [SerializeField, Min(1f)] private float criticalDamageMultiplier = 2f;
         [SerializeField, Range(0f, 100f)] private float heroCriticalChancePercent = 10f;
+        [SerializeField, Min(0)] private int heroDefense = 20;
         [SerializeField, Range(0f, 100f)] private float heroDodgePercent;
         [SerializeField, Min(0f)] private float heroAccuracyPercent = 100f;
         [SerializeField, Min(0)] private int heroSpeed = 10;
@@ -43,6 +44,10 @@ namespace Match3RPG.Battle
         [SerializeField, Min(0)] private int healthStars;
         [SerializeField, Min(0)] private int shieldStars;
         [SerializeField, Min(0)] private int bossAttackDamagePerGem;
+        [SerializeField, Min(0)] private int bossDefense = 20;
+        [SerializeField, Range(0f, 100f)] private float bossDodgePercent;
+        [SerializeField, Min(0f)] private float bossAccuracyPercent = 100f;
+        [SerializeField, Min(0)] private int bossSpeed = 10;
         [SerializeField, Min(1)] private int bossMaxRage = 100;
         [SerializeField, Min(0)] private int bossStartingRage;
         [SerializeField, Min(0)] private int bossRagePerGem = 5;
@@ -154,10 +159,15 @@ namespace Match3RPG.Battle
         public int HeroShieldPerGem => AddNonNegative(shieldPerGem,
             MultiplyNonNegative(shieldStars, 10));
         public float HeroCriticalChancePercent => heroCriticalChancePercent;
+        public int HeroDefense => heroDefense;
         public float HeroDodgePercent => heroDodgePercent;
         public float HeroAccuracyPercent => heroAccuracyPercent;
         public int HeroSpeed => heroSpeed;
         public int BossAttackDamagePerGem => bossAttackDamagePerGem;
+        public int BossDefense => bossDefense;
+        public float BossDodgePercent => bossDodgePercent;
+        public float BossAccuracyPercent => bossAccuracyPercent;
+        public int BossSpeed => bossSpeed;
         public int HeroMana => mana;
         public int HeroUltimate => ultimate;
         public int BossMana => bossMana;
@@ -190,6 +200,7 @@ namespace Match3RPG.Battle
                 heroSoulAttack = stats.SoulAttack;
                 heroCriticalChancePercent = stats.CriticalChancePercent;
                 criticalDamageMultiplier = stats.CriticalDamageMultiplier;
+                heroDefense = stats.Defense;
                 heroDodgePercent = stats.DodgePercent;
                 heroAccuracyPercent = stats.AccuracyPercent;
                 heroSpeed = stats.Speed;
@@ -208,6 +219,7 @@ namespace Match3RPG.Battle
                 heroSoulAttack = 50;
                 heroCriticalChancePercent = 10f;
                 criticalDamageMultiplier = 2f;
+                heroDefense = 20;
                 heroDodgePercent = 0f;
                 heroAccuracyPercent = 100f;
                 heroSpeed = 10;
@@ -233,6 +245,10 @@ namespace Match3RPG.Battle
                 bossMaxHp = stats.MaxHP;
                 bossMaxSoulHp = stats.MaxSoulHP;
                 bossAttackDamagePerGem = stats.Attack;
+                bossDefense = stats.Defense;
+                bossDodgePercent = stats.DodgePercent;
+                bossAccuracyPercent = stats.AccuracyPercent;
+                bossSpeed = stats.Speed;
                 bossMaxRage = stats.MaxRage;
                 bossStartingRage = stats.StartingRage;
                 bossMaxMana = stats.MaxMana;
@@ -246,6 +262,10 @@ namespace Match3RPG.Battle
                 bossMaxHp = Mathf.Max(1, bossData.MaxHP);
                 bossMaxSoulHp = SoulHealthCalculator.CalculateBossMaxHealth(bossMaxHp, 1);
                 bossAttackDamagePerGem = Mathf.Max(0, bossData.Attack);
+                bossDefense = 20;
+                bossDodgePercent = 0f;
+                bossAccuracyPercent = 100f;
+                bossSpeed = 10;
                 bossMaxRage = Mathf.Max(1, bossData.MaxRage);
                 bossStartingRage = Mathf.Clamp(bossData.StartingRage, 0, bossMaxRage);
                 bossRagePerReceivedHit = Mathf.Max(0, bossData.RagePerReceivedHit);
@@ -547,13 +567,24 @@ namespace Match3RPG.Battle
                         && attacker.HasSpriteAttackAnimation)
                         yield return attacker.WaitForAttackImpact(hit);
                     if (IsGameOver) break;
+                    // Né: mỗi hit tung riêng. Tỉ lệ = max(0, Né của người bị đánh - Chính xác của người đánh).
+                    bool dodged = false;
+                    float dodgeChance = targetActor == BattleActor.Player
+                        ? Mathf.Max(0f, heroDodgePercent - bossAccuracyPercent)
+                        : Mathf.Max(0f, bossDodgePercent - heroAccuracyPercent);
+                    if (dodgeChance > 0f && UnityEngine.Random.value * 100f < dodgeChance)
+                    {
+                        dodged = true;
+                        // amount = 1 chỉ để qua guard amount > 0 của ShowResource; Format(Dodge) trả "Né!" không dùng amount.
+                        ShowResource(target, FloatingTextType.Dodge, 1);
+                    }
                     int shieldBefore = GetShield(targetActor);
                     bool soulHit = hit >= hitCount;
-                    int damage = soulHit
+                    int damage = dodged ? 0 : (soulHit
                         ? ApplySoulDamage(targetActor, soulDamagePerHit)
-                        : ApplyDamage(targetActor, damagePerHit);
+                        : ApplyDamage(targetActor, damagePerHit));
                     int shieldAbsorbed = shieldBefore - GetShield(targetActor);
-                    if (damage <= 0 && shieldAbsorbed <= 0) break;
+                    if (!dodged && damage <= 0 && shieldAbsorbed <= 0) break;
 
                     if (damage > 0)
                     {
@@ -636,6 +667,13 @@ namespace Match3RPG.Battle
             Refresh();
         }
 
+        int ApplyDefense(BattleActor target, int amount)
+        {
+            if (amount <= 0) return 0;
+            int defense = target == BattleActor.Player ? heroDefense : bossDefense;
+            return Mathf.Max(1, Mathf.RoundToInt(amount * 100f / (100f + defense)));
+        }
+
         int ApplyDamage(BattleActor target, int amount, bool shieldCanAbsorb = true)
         {
             if (layoutTestMode)
@@ -643,6 +681,7 @@ namespace Match3RPG.Battle
             if (amount <= 0 || IsGameOver) return 0;
             amount = AbsorbShield(target, amount, shieldCanAbsorb);
             if (amount <= 0) return 0;
+            amount = ApplyDefense(target, amount);
             int previous = target == BattleActor.Player ? heroHp : bossHp;
             if (target == BattleActor.Player)
                 heroHp = Mathf.Max(0, heroHp - amount);
@@ -661,6 +700,7 @@ namespace Match3RPG.Battle
                 return ApplyDamage(target, amount);
             amount = AbsorbShield(target, amount, true);
             if (amount <= 0) return 0;
+            amount = ApplyDefense(target, amount);
             int previous = target == BattleActor.Player ? heroSoulHp : bossSoulHp;
             if (target == BattleActor.Player)
                 heroSoulHp = Mathf.Max(0, heroSoulHp - amount);
@@ -1720,9 +1760,14 @@ namespace Match3RPG.Battle
             heroSoulAttack = 50;
             heroCriticalChancePercent = 0f;
             criticalDamageMultiplier = 2f;
+            heroDefense = 20;
             heroDodgePercent = 0f;
             heroAccuracyPercent = 100f;
             heroSpeed = 10;
+            bossDefense = 20;
+            bossDodgePercent = 0f;
+            bossAccuracyPercent = 100f;
+            bossSpeed = 10;
             bossAttackDamagePerGem = Mathf.Max(0, opponentAttackDamage);
             maxMana = 100;
             maxRage = 100;

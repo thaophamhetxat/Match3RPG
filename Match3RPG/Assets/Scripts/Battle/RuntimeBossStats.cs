@@ -19,6 +19,10 @@ namespace Match3RPG.Battle
         public float CriticalDamageMultiplier { get; }
         public CombatVFXType AttackVfx { get; }
         public int MaxMana => 100;
+        public int Defense => 20 + (Level - 1);
+        public float DodgePercent => (Level - 1) * 0.5f;
+        public float AccuracyPercent => 100f + (Level - 1) * 0.5f;
+        public int Speed => 10 + (Level - 1);
 
         public RuntimeBossStats(BossData config, int level = 1)
         {

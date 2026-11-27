@@ -11,6 +11,7 @@ namespace Match3RPG.Battle
     {
         Damage,
         Critical,
+        Dodge,
         CriticalReady,
         Heal,
         Mana,
@@ -274,6 +275,7 @@ namespace Match3RPG.Battle
             {
                 case FloatingTextType.Damage: return amount.ToString();
                 case FloatingTextType.Critical: return amount.ToString() + "!";
+                case FloatingTextType.Dodge: return "Né!";
                 case FloatingTextType.SoulDamage: return amount.ToString();
                 case FloatingTextType.SoulCritical: return amount.ToString() + "!";
                 case FloatingTextType.CriticalReady: return "CRITICAL!";
@@ -299,6 +301,7 @@ namespace Match3RPG.Battle
                 case FloatingTextType.Critical:
                 case FloatingTextType.SoulCritical: return 64f;
                 case FloatingTextType.Damage:
+                case FloatingTextType.Dodge:
                 case FloatingTextType.SoulDamage: return 48f;
                 case FloatingTextType.Heal: return 32f;
                 default: return 32f;
@@ -350,6 +353,7 @@ namespace Match3RPG.Battle
             {
                 case FloatingTextType.Damage: return new Color32(255, 159, 28, 255);
                 case FloatingTextType.Critical: return new Color32(255, 211, 72, 255);
+                case FloatingTextType.Dodge: return new Color32(200, 200, 200, 255);
                 case FloatingTextType.SoulDamage: return new Color32(242, 242, 255, 255);
                 case FloatingTextType.SoulCritical: return new Color32(255, 255, 255, 255);
                 case FloatingTextType.CriticalReady: return new Color32(255, 211, 72, 255);

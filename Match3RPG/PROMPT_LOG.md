@@ -225,3 +225,23 @@
   - Vào các ải R01–R04 kiểm tra chân tất cả 14 boss chạm cùng 1 đường đất với hero (không chìm, không nổi).
   - Kiểm tra boss dạng người (Lâm Phong, Thanh Vân, Tử Hà, Nữ Tế) to bằng hero; boss dạng quái to hơn hero rõ rệt (~1.2×, con đã to sẵn giữ nguyên). Chốt sau Play-test mốc 1.2× có vừa mắt không.
 - **Lỗi (nếu fail):** Không có.
+
+
+
+## Prompt 174 — 2026-11-28 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error).
+- **File đã đổi:**
+  - `Match3RPG/Assets/Scripts/Battle/BattleController.cs`
+  - `Match3RPG/Assets/Scripts/Battle/RuntimeBossStats.cs`
+  - `Match3RPG/Assets/Scripts/Battle/FloatingTextManager.cs`
+  - `Match3RPG/Assets/Scripts/Battle/TurnManager.cs`
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - **DEF:** thêm 4 property tính từ `Level` trên `RuntimeBossStats` (`Defense = 20 + (Level - 1)`, `DodgePercent = (Level - 1) * 0.5f`, `AccuracyPercent = 100f + (Level - 1) * 0.5f`, `Speed = 10 + (Level - 1)` — không sửa `BossData` asset); thêm `heroDefense` + 4 field boss + 5 property tương ứng vào `BattleController`, nạp đủ ở `Configure` (2 nhánh hero + 2 nhánh boss) và `ConfigureDebugStats`; thêm helper `ApplyDefense` (`Mathf.Max(1, Mathf.RoundToInt(amount * 100f / (100f + defense)))`) và chèn sau `AbsorbShield` trong cả `ApplyDamage` lẫn `ApplySoulDamage`.
+  - **Né / Chính xác:** thêm `FloatingTextType.Dodge` (`Format` → `"Né!"`, `FontSizeFor` → `48f`, `ColorFor` → `new Color32(200, 200, 200, 255)`); chèn tung né riêng từng hit vào vòng hit của `ResolveAttackAction` (sau `WaitForAttackImpact`, trước `shieldBefore`) với tỉ lệ `max(0, Né người bị đánh - Chính xác người đánh)`; hit né cho `damage = 0`, hiện chữ `"Né!"`, không VFX / nộ / hit reaction và giữ nguyên nhịp chờ cuối hit; kỹ năng không né.
+  - **Tốc độ:** nối `GetFasterActor(battle.HeroSpeed, battle.BossSpeed)` có sẵn vào `TurnManager.Start()` cho duy nhất lượt mở đầu (boss nhanh hơn → `StartBossPhase(true)`, hòa hoặc hero nhanh hơn hoặc `battle == null` → `StartPlayerPhase` như cũ), giữ nguyên vòng lặp lượt thường ở dòng 468.
+- **Chờ Play-test:**
+  - DEF: đánh boss Lv thấp (DEF ~20) thấy sát thương giảm ~17% so với trước; boss Lv cao giảm nhiều hơn; sát thương tối thiểu vẫn 1 (không về 0); đòn trắng (Soul HP) cũng bị DEF giảm như đòn đỏ.
+  - Né: ở Lv cao / nhiều sao Giọt Nước, thỉnh thoảng thấy chữ "Né!" màu xám nhạt và hit đó 0 sát thương; Lv1 không né (tỉ lệ 0).
+  - Tốc độ: vào ải mà boss nhanh hơn hero thì boss đi trước ở lượt mở đầu; các lượt sau vẫn theo vòng lặp thường hero → boss.
+- **Lỗi (nếu fail):** Không có.
