@@ -452,6 +452,9 @@ namespace Match3RPG.Campaign
             return stageChallengeLayout;
         }
 
+        // Hero feetFrac 102/512 vs Lam Phong 94/512 on a 349.9-wide preview: 5.5 popup units.
+        const float HeroPreviewBaselineOffset = 5.5f;
+
         void ConfigureCharacterPreviews()
         {
             GameSaveData save = SaveManager.Instance.LoadOrCreate(catalog);
@@ -495,6 +498,11 @@ namespace Match3RPG.Campaign
                     ?? heroData.Portrait;
                 ConfigurePreview(heroPreviewImage, heroSprite, idleFrames,
                     heroData.SourceFacing == CharacterFacing.Right, true);
+                // Baseline: only shift the hero preview image down so its feet match the
+                // boss (Lam Phong) feet. Slot and boss preview are untouched. Set absolute
+                // (not +=) so reopening the popup does not accumulate the offset.
+                heroPreviewImage.rectTransform.anchoredPosition =
+                    new Vector2(0f, -HeroPreviewBaselineOffset);
             }
             else
                 powerText.text = "—";
@@ -571,7 +579,7 @@ namespace Match3RPG.Campaign
                 layoutElement.minWidth = 80f;
 
                 RectTransform tileRect = CampaignUIFactory.CreateRect("Tile", itemRoot,
-                    new Vector2(0.00f, 0.12f), new Vector2(1.00f, 0.67f),
+                    new Vector2(0.00f, 0.225f), new Vector2(1.00f, 0.775f),
                     Vector2.zero, Vector2.zero);
                 Image tile = tileRect.gameObject.AddComponent<Image>();
                 tile.color = new Color32(12, 27, 36, 255);

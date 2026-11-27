@@ -261,3 +261,20 @@
   - Vào các ải R02–R04, đánh thường + ăn gem heal/mana: kiểm tra số damage/heal/mana nằm ngay trên đầu từng boss (cách khoảng 1 chữ, căn giữa đầu, không cao tít lên trên như trước và không chìm vào đầu).
   - Ghi nhận sau Prompt 173: R01 Tử Hà (`region_01_boss_09..10`) đã được nâng `anchPos.y = +39.44` để chạm baseline `77.84`, đẩy `headTopY` thực tế lên `385.75` (tương ứng anchor ~`0.58` thay vì `0.53` cũ) — không sửa trong Prompt 175 theo luật cứng, để Sư Huynh xem xét riêng nếu cần.
 - **Lỗi (nếu fail):** Không có.
+
+
+## Prompt 176 — 2026-11-28 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error).
+- **File đã đổi:**
+  - `Match3RPG/Assets/Scenes/RegionMap.unity` (HeroPreviewSlot `anchorMax.y` 0.75 → 0.70)
+  - `Match3RPG/Assets/Scripts/Campaign/RegionMapController.cs` (hạ hero preview 5.5; Tile anchors 0.225–0.775)
+  - `Match3RPG/Assets/Resources/Configuration/StageChallengePopupLayout.asset` (`rewardIconRect.y` 0.16 → 0.265)
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Đo thật: slot hero/boss/RewardContent/StageLabel khớp prompt; minY Idle 0 (alpha >= 16): hero Character01 = 102, Lâm Phong = 94, Thanh Vân = 103, Tử Hà = 51. Trước sửa: chân hero 918.5, chân Lâm Phong 869.8, chênh 48.7.
+  - Cân slot hero bằng slot boss (455.2) → dư 5.5 > 5 → hạ thêm hero preview `anchoredPosition = (0, -5.5)` (đặt tuyệt đối, không cộng dồn khi mở lại popup). Chân hero = 869.8 = chân Lâm Phong (Δ 0.0). Boss giữ nguyên.
+  - Dư chân hero so với boss khác (chỉ để biết): Thanh Vân → hero thấp hơn 6.2; Tử Hà → hero cao hơn 29.4.
+  - Ô thưởng: tile + icon căn giữa dọc trong cell (tâm 0.5). Đáy tile cách mép trên nhãn STAGE ~20.4 đơn vị; đỉnh tile 618.3 < đỉnh khung 673.2.
+  - Ghi nhận: HorizontalLayoutGroup có padding top/bottom 8 + childControlHeight → cell cao thật 208.4 (không phải 224.4), nên tile thật 123.4×114.6 (không vuông hoàn toàn). Không sửa kích thước theo luật cứng.
+- **Chờ Play-test:** Stage 04 chân hero ngang chân Lâm Phong; xem Thanh Vân / Tử Hà; khung PHẦN THƯỞNG căn giữa, không chạm nhãn STAGE, số lượng đọc trọn vẹn.
+- **Lỗi (nếu fail):** Không có.
