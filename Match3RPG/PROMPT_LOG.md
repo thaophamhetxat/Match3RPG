@@ -278,3 +278,16 @@
   - Ghi nhận: HorizontalLayoutGroup có padding top/bottom 8 + childControlHeight → cell cao thật 208.4 (không phải 224.4), nên tile thật 123.4×114.6 (không vuông hoàn toàn). Không sửa kích thước theo luật cứng.
 - **Chờ Play-test:** Stage 04 chân hero ngang chân Lâm Phong; xem Thanh Vân / Tử Hà; khung PHẦN THƯỞNG căn giữa, không chạm nhãn STAGE, số lượng đọc trọn vẹn.
 - **Lỗi (nếu fail):** Không có.
+
+
+## Prompt 177 — 2026-11-28 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error).
+- **File đã đổi:**
+  - `Match3RPG/Assets/Scripts/Campaign/RegionMapController.cs` (thêm `HeroPreviewBackOffset = 25f`, gán `anchoredPosition = (-25, -5.5)`; đổi `BuildRewards` luôn tạo đủ `MaxRewardEntries = 6` ô, ô trống nền `(165, 222, 220, 255)` viền vàng, `FirstTag` chỉ tạo trên ô có đồ)
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Đo thật PNG Idle 0 hero Character01 (cell 512×512, alpha >= 16): `minX = 175`, `maxX = 328`. Mép trái thân hero trong slot (nửa rộng 174.95) trước dịch = `-55.36`; sau dịch trái 25 = `-80.36` (dư ~94.6 đơn vị trong slot, không tràn).
+  - Thêm `const float HeroPreviewBackOffset = 25f;` và gán tuyệt đối `heroPreviewImage.rectTransform.anchoredPosition = new Vector2(-HeroPreviewBackOffset, -HeroPreviewBaselineOffset);` (không dùng `+=`, giữ nguyên chân y = 869.8 ngang chân boss Lâm Phong, boss và slot giữ nguyên).
+  - Đổi `BuildRewards` luôn tạo đủ `slotCount = GetLayout().MaxRewardEntries` (6 ô), `cellSize = 123.4`, tổng rộng `770.4`, căn giữa `MiddleCenter` (lề 2 bên ~23). Stage 03 có 2 entry (Linh Thạch + EXP, `lootTableId` và `defaultLootTableId` đều rỗng) → 2 ô có đồ + 4 ô trống nền xanh ngọc nhạt `(165, 222, 220, 255)` viền vàng `(180, 137, 65, 255)`, không Icon / FirstTag / QuantityBadge. Đáy tile giữ nguyên cách mép trên nhãn STAGE ~20.4 đơn vị.
+- **Chờ Play-test:** Mở popup Khiêu chiến Stage 03 — kiểm tra hero lùi sang trái thoáng hơn so với VS/boss, chân vẫn ngang chân boss; khung PHẦN THƯỞNG hiện đủ 6 ô (2 ô có đồ + 4 ô trống nền nhạt viền vàng), đều nhau, căn giữa, không chạm nhãn STAGE; kiểm tra thêm ải có số phần thưởng khác để chắc ô trống/đồ hiển thị đúng.
+- **Lỗi (nếu fail):** Không có.

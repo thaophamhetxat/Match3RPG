@@ -454,6 +454,8 @@ namespace Match3RPG.Campaign
 
         // Hero feetFrac 102/512 vs Lam Phong 94/512 on a 349.9-wide preview: 5.5 popup units.
         const float HeroPreviewBaselineOffset = 5.5f;
+        // Hero stands a little too close to the boss/VS; step back (left) 25 popup units (~10 screenshot px).
+        const float HeroPreviewBackOffset = 25f;
 
         void ConfigureCharacterPreviews()
         {
@@ -498,11 +500,12 @@ namespace Match3RPG.Campaign
                     ?? heroData.Portrait;
                 ConfigurePreview(heroPreviewImage, heroSprite, idleFrames,
                     heroData.SourceFacing == CharacterFacing.Right, true);
-                // Baseline: only shift the hero preview image down so its feet match the
-                // boss (Lam Phong) feet. Slot and boss preview are untouched. Set absolute
-                // (not +=) so reopening the popup does not accumulate the offset.
+                // Baseline + horizontal spacing: only shift the hero preview image so its feet
+                // match the boss (Lam Phong) feet and it steps back left from VS/boss. Slot and
+                // boss preview are untouched. Set absolute (not +=) so reopening the popup does
+                // not accumulate the offset.
                 heroPreviewImage.rectTransform.anchoredPosition =
-                    new Vector2(0f, -HeroPreviewBaselineOffset);
+                    new Vector2(-HeroPreviewBackOffset, -HeroPreviewBaselineOffset);
             }
             else
                 powerText.text = "—";
@@ -556,7 +559,8 @@ namespace Match3RPG.Campaign
 
             List<RewardPreviewEntry> entries = GetRewardEntries(stage, boss);
 
-            int visibleCount = Mathf.Min(entries.Count, GetLayout().MaxRewardEntries);
+            int slotCount = GetLayout().MaxRewardEntries;
+            int shownEntries = Mathf.Min(entries.Count, slotCount);
             group.childAlignment = TextAnchor.MiddleCenter;
             group.spacing = 6f;
             group.childForceExpandWidth = false;
@@ -564,13 +568,13 @@ namespace Match3RPG.Campaign
             Canvas.ForceUpdateCanvases();
             float boxW = rewardArea.rect.width;
             float boxH = rewardArea.rect.height;
-            float cellSize = visibleCount > 0
-                ? Mathf.Min(boxH * 0.55f, (boxW - 6f * (visibleCount - 1)) / visibleCount)
+            float cellSize = slotCount > 0
+                ? Mathf.Min(boxH * 0.55f, (boxW - 6f * (slotCount - 1)) / slotCount)
                 : boxH;
 
-            for (int i = 0; i < visibleCount; i++)
+            for (int i = 0; i < slotCount; i++)
             {
-                RewardPreviewEntry entry = entries[i];
+                bool hasEntry = i < shownEntries;
                 RectTransform itemRoot = CampaignUIFactory.CreateRect($"Reward_{i + 1}",
                     rewardArea, Vector2.zero, Vector2.one, Vector2.zero, Vector2.zero);
                 LayoutElement layoutElement = itemRoot.gameObject.AddComponent<LayoutElement>();
@@ -582,11 +586,18 @@ namespace Match3RPG.Campaign
                     new Vector2(0.00f, 0.225f), new Vector2(1.00f, 0.775f),
                     Vector2.zero, Vector2.zero);
                 Image tile = tileRect.gameObject.AddComponent<Image>();
-                tile.color = new Color32(12, 27, 36, 255);
+                tile.color = hasEntry
+                    ? new Color32(12, 27, 36, 255)
+                    : new Color32(165, 222, 220, 255);
                 tile.raycastTarget = false;
                 Outline tileOutline = tileRect.gameObject.AddComponent<Outline>();
                 tileOutline.effectColor = new Color32(180, 137, 65, 255);
                 tileOutline.effectDistance = new Vector2(2f, -2f);
+
+                if (!hasEntry)
+                    continue;
+
+                RewardPreviewEntry entry = entries[i];
 
                 RectTransform iconRect = CampaignUIFactory.CreateRect("Icon", itemRoot,
                     new Vector2(GetLayout().RewardIconRect.xMin, GetLayout().RewardIconRect.yMin),
