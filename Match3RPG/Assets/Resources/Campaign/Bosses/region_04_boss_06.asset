@@ -27,7 +27,7 @@ MonoBehaviour:
   statusEffectCapabilities: 8
   preferredAttackVfx: 0
   defaultLootTableId: 
-  visualScale: 1
+  visualScale: 1.0417
   visualOffset: {x: 0, y: 0}
   sourceFacing: 0
   vfxAnchor: {x: 0.5, y: 0.48}

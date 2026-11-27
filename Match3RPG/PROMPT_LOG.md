@@ -206,3 +206,22 @@
   - Bắn kỹ năng Kiếm Khí kiểm tra ảnh bay ra không còn nền checkerboard.
   - Vào bản đồ thế giới / vùng xem khóa/mở ải hoạt động đúng rule cũ (không còn mở hết 50 ải, phải qua map cũ mới mở map mới).
 - **Lỗi (nếu fail):** Không có.
+
+
+
+## Prompt 173 — 2026-11-28 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error).
+- **File đã đổi:**
+  - `Match3RPG/Assets/Scripts/Battle/CharacterView.cs`
+  - `Match3RPG/Assets/Scripts/Core/GameBootstrap.cs`
+  - 24 file BossData thay đổi `visualScale` (trong tổng 40 file R01–R04 đã kiểm chứng): `region_02_boss_01..10.asset`, `region_03_boss_05..10.asset`, `region_04_boss_01..03.asset`, `region_04_boss_05..08.asset`, `region_04_boss_10.asset` (16 file còn lại giữ `visualScale: 1`)
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Hiệu chuẩn Hero2 Idle frame 0 (`Main-idle_side_right.png`, 2560×2560, ô 512×512, `minY=102`, `maxY=408`, `cH=306`) khớp mốc chân `77.84` và `idleFeetPaddingFraction = 16/256 = 0.0625`.
+  - Áp Phương án A theo chốt của Sư Huynh: đổi `CharacterView.cs` dòng 93 `Mathf.Clamp01(idleFeetPadding)` → `Mathf.Clamp(idleFeetPadding, -1f, 1f)` để hỗ trợ padding âm (dịch visual lên) mà không cần phóng đại `visualScale` quá khổ.
+  - Mở rộng `GameBootstrap.GetIdleFeetPaddingFraction` thêm đủ 14 case boss R01–R04 (giữ nguyên `Hero2`, `Boss01`, `Boss02` và `default: 0f`), đưa chân toàn bộ 14 boss về đúng baseline `77.84` của hero.
+  - Cập nhật `visualScale` trên các file BossData theo quy tắc 2 dạng (dạng người = 1.0× hero, dạng quái = 1.2× hero, con nào đã ≥ mốc giữ `visualScale = 1`): `BossFrostWolf` `1.0446`, `BossIceCrystalBeast` `1.4519`, `BossAzureRiverDragon` `1.4747`, `BossCrimsonScorpion` `1.5669`, `BossFlameLion` `1.3979`, `BossTreant` `1.0417`, `BossDemonWoodWolf` `1.1752`, `BossWoodPriestess` `1.1232`, `BossJadeForestDragon` `1.0837`; giữ `1` cho `BossLamPhong`, `BossThanhVan`, `BossTuHa`, `BossInfernoQilin`, `BossSpiritMountainTortoise`.
+- **Chờ Play-test:**
+  - Vào các ải R01–R04 kiểm tra chân tất cả 14 boss chạm cùng 1 đường đất với hero (không chìm, không nổi).
+  - Kiểm tra boss dạng người (Lâm Phong, Thanh Vân, Tử Hà, Nữ Tế) to bằng hero; boss dạng quái to hơn hero rõ rệt (~1.2×, con đã to sẵn giữ nguyên). Chốt sau Play-test mốc 1.2× có vừa mắt không.
+- **Lỗi (nếu fail):** Không có.

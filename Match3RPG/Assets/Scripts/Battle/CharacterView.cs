@@ -90,7 +90,7 @@ namespace Match3RPG.Battle
             attackNormalizationScaleMultiplier = Mathf.Max(.1f, attackNormalizationMultiplier);
             specAttackNormalizationScaleMultiplier = Mathf.Max(.1f, specAttackNormalizationMultiplier);
             skillNormalizationScaleMultiplier = Mathf.Max(.1f, skillNormalizationMultiplier);
-            idleFeetPaddingFraction = Mathf.Clamp01(idleFeetPadding);
+            idleFeetPaddingFraction = Mathf.Clamp(idleFeetPadding, -1f, 1f);
             visualScaleTransitionDuration = Mathf.Max(0f, scaleTransitionDuration);
             attackInPlace = keepAttackInPlace;
             idleFacesForward = keepIdleFacingForward;

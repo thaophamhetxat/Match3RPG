@@ -971,6 +971,20 @@ namespace Match3RPG.Core
                 case "Hero2": return 16f / 256f;
                 case "Boss01": return 53f / 256f;
                 case "Boss02": return 10f / 324f;
+                case "BossLamPhong": return -0.01110f;
+                case "BossThanhVan": return -0.00047f;
+                case "BossTuHa": return -0.06188f;
+                case "BossFrostWolf": return -0.07675f;
+                case "BossIceCrystalBeast": return 0.06352f;
+                case "BossAzureRiverDragon": return 0.00341f;
+                case "BossInfernoQilin": return -0.10912f;
+                case "BossCrimsonScorpion": return 0.08269f;
+                case "BossFlameLion": return 0.04847f;
+                case "BossTreant": return -0.03219f;
+                case "BossDemonWoodWolf": return -0.00116f;
+                case "BossWoodPriestess": return 0.01647f;
+                case "BossSpiritMountainTortoise": return -0.06897f;
+                case "BossJadeForestDragon": return -0.01465f;
                 default: return 0f;
             }
         }
