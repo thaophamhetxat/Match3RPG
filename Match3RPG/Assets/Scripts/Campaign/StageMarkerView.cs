@@ -64,7 +64,8 @@ namespace Match3RPG.Campaign
                 // Prompt 120: pin to 1.3 lan; ghi de rect tay chinh khong deu cua prefab Region 01 ve cung mot co.
                 float pinScale = stage.IsBossStage ? 1.73f : 1f;
                 markerRectTransform.sizeDelta = new Vector2(176f * pinScale, 216f * pinScale);
-                float tipPx = stage.IsBossStage ? 194f : 210f;
+                // New pin sprites (256px, standardized) have tip 109px below center = 218px on the 512 scale for all 4 pins; single value, no boss/normal split.
+                float tipPx = 218f;
                 markerRectTransform.anchoredPosition = new Vector2(0f, tipPx / 512f * markerRectTransform.sizeDelta.x);
             }
 

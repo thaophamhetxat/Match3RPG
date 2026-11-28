@@ -258,7 +258,8 @@ namespace Match3RPG.Campaign
                 RectTransform markerRect = CampaignUIFactory.CreateRect("MarkerImage", nodeRect,
                     new Vector2(.5f, .5f), new Vector2(.5f, .5f), Vector2.zero, Vector2.zero);
                 markerRect.sizeDelta = new Vector2(176f * markerScale, 216f * markerScale);
-                float tipPx = stage.IsBossStage ? 194f : 210f;
+                // New pin sprites (256px, standardized) have tip 109px below center = 218px on the 512 scale for all 4 pins; single value, no boss/normal split.
+                float tipPx = 218f;
                 markerRect.anchoredPosition = new Vector2(0f, tipPx / 512f * markerRect.sizeDelta.x);
                 Image marker = markerRect.gameObject.AddComponent<Image>();
                 marker.preserveAspect = true;

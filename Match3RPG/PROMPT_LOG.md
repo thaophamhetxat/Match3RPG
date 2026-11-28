@@ -319,3 +319,21 @@
   - Tính kiểm chứng: `slotCount = 5`, `cellSize = min(224.4 × 0.55, (816.5 − 30 × 4) / 5) = 123.4` (không đổi), tổng rộng hàng `5 × 123.4 + 4 × 30 = 737.0`, căn giữa `MiddleCenter` (lề 2 bên `~39.8` ≈ `40` đơn vị). Stage 04 (2 entry: Linh Thạch + EXP) → 2 ô có đồ + 3 ô trống nền nhạt viền vàng.
 - **Chờ Play-test:** Mở popup Khiêu chiến Stage 04 — kiểm tra chỉ hiện 5 ô (2 ô có đồ + 3 ô trống), giãn cách giữa các ô thoáng gấp 5 lần (~5px thay vì ~1px), hàng ô vẫn sát dưới nhãn PHẦN THƯỞNG, số lượng `"×130"` / `"×65"` đọc rõ; kiểm tra thêm ải có số phần thưởng khác để chắc số ô không vượt quá 5.
 - **Lỗi (nếu fail):** Không có.
+
+
+## Prompt 180 — 2026-11-28 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error).
+- **File đã đổi:**
+  - `Match3RPG/Assets/Scripts/Campaign/RegionMapController.cs` (`BuildStageNodes`: `tipPx` 194f/210f → `218f`)
+  - `Match3RPG/Assets/Scripts/Campaign/StageMarkerView.cs` (`Configure`: `tipPx` 194f/210f → `218f`)
+  - `Match3RPG/Assets/Art/UI/StageMarkers/Stage_Green.png` (ảnh pin chuẩn hoá 256×256)
+  - `Match3RPG/Assets/Art/UI/StageMarkers/Stage_Gold.png` (ảnh pin chuẩn hoá 256×256)
+  - `Match3RPG/Assets/Art/UI/StageMarkers/Stage_Locked.png` (ảnh pin chuẩn hoá 256×256)
+  - `Match3RPG/Assets/Art/UI/StageMarkers/Stage_Red.png` (ảnh pin chuẩn hoá 256×256)
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Đo thật bằng alpha (> 16) cả 4 ảnh pin mới trong `Match3RPG/Assets/Art/UI/StageMarkers/`: tất cả đều `256×256`, khung nội dung `128×220` tại `(64, 18)`–`(191, 237)`, đầu nhọn dưới tâm `109px` → quy ra thang 512px là `218.0px` (đồng bộ 4 ảnh, giữ nguyên `.meta`).
+  - Đổi `tipPx` từ `stage.IsBossStage ? 194f : 210f` thành giá trị chung `218f` ở cả `RegionMapController.cs` và `StageMarkerView.cs`, giữ nguyên công thức `anchoredPosition = new Vector2(0f, tipPx / 512f * sizeDelta.x)`, `sizeDelta` (thường `176×216`, boss `304.5×373.7` tỉ lệ `1.73×`), vị trí node và logic chọn sprite.
+  - Tính kiểm chứng: pin thường offset tăng từ `72.2` lên `75.0` (+2.8 đơn vị), pin boss tăng từ `115.4` lên `129.7` (+14.3 đơn vị) để đầu nhọn pin chạm tâm bục. Diff Prompt 179 (spacing 30f, maxRewardEntries 5) giữ nguyên.
+- **Chờ Play-test:** Mở 5 map R01–R05 kiểm tra đầu nhọn mỗi pin chạm tâm vòng bục (không tụt xuống dưới), cả 10 ải mỗi map (đặc biệt ải boss Stage 10); 4 loại pin đồng bộ kích thước ảnh gốc, pin boss đỏ vẫn to hơn 1.73×.
+- **Lỗi (nếu fail):** Không có.
