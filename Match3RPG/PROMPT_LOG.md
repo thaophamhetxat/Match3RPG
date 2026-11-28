@@ -304,3 +304,18 @@
   - Khe hở đáy ô tới đỉnh nhãn STAGE (`0.28`, y `483.3`) tăng từ `~20.4` lên `~37.6` đơn vị (~38 đơn vị); đỉnh ô `635.5` vẫn trong khung thưởng (`690.4`) và không chạm nhãn PHẦN THƯỞNG. Không sửa kích thước ô, nhãn số lượng, code C# hay asset nào khác.
 - **Chờ Play-test:** Mở popup Khiêu chiến Stage 04 — kiểm tra hàng 6 ô thưởng nằm sát dưới nhãn PHẦN THƯỞNG (ngang vạch đỏ), cách nhãn STAGE thoáng hơn trước, kích thước 6 ô và nhãn số lượng giữ nguyên; kiểm tra thêm 1 ải khác để chắc không chạm nhãn PHẦN THƯỞNG hay STAGE.
 - **Lỗi (nếu fail):** Không có.
+
+
+## Prompt 179 — 2026-11-28 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error).
+- **File đã đổi:**
+  - `Match3RPG/Assets/Resources/Configuration/StageChallengePopupLayout.asset` (`maxRewardEntries` 6 → 5)
+  - `Match3RPG/Assets/Scripts/Campaign/RegionMapController.cs` (`BuildRewards`: `group.spacing` 6f → 30f và công thức `cellSize` đổi `6f` → `30f`)
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Xác nhận Prompt 178 đã vào repo (`RewardContent` anchors `(0.08, 0.27)`–`(0.92, 0.40)`), giữ nguyên scene `RegionMap.unity`.
+  - Đổi `maxRewardEntries` từ 6 sang 5 trong `StageChallengePopupLayout.asset` (giữ nguyên `rewardIconRect` và mọi field khác).
+  - Đổi spacing trong `BuildRewards` từ `6f` sang `30f` (gấp 5 lần) ở cả `group.spacing` và công thức `cellSize`.
+  - Tính kiểm chứng: `slotCount = 5`, `cellSize = min(224.4 × 0.55, (816.5 − 30 × 4) / 5) = 123.4` (không đổi), tổng rộng hàng `5 × 123.4 + 4 × 30 = 737.0`, căn giữa `MiddleCenter` (lề 2 bên `~39.8` ≈ `40` đơn vị). Stage 04 (2 entry: Linh Thạch + EXP) → 2 ô có đồ + 3 ô trống nền nhạt viền vàng.
+- **Chờ Play-test:** Mở popup Khiêu chiến Stage 04 — kiểm tra chỉ hiện 5 ô (2 ô có đồ + 3 ô trống), giãn cách giữa các ô thoáng gấp 5 lần (~5px thay vì ~1px), hàng ô vẫn sát dưới nhãn PHẦN THƯỞNG, số lượng `"×130"` / `"×65"` đọc rõ; kiểm tra thêm ải có số phần thưởng khác để chắc số ô không vượt quá 5.
+- **Lỗi (nếu fail):** Không có.

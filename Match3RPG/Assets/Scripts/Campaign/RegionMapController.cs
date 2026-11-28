@@ -562,14 +562,15 @@ namespace Match3RPG.Campaign
             int slotCount = GetLayout().MaxRewardEntries;
             int shownEntries = Mathf.Min(entries.Count, slotCount);
             group.childAlignment = TextAnchor.MiddleCenter;
-            group.spacing = 6f;
+            // 5x the old 6f gap — Thao: slots 5x further apart.
+            group.spacing = 30f;
             group.childForceExpandWidth = false;
 
             Canvas.ForceUpdateCanvases();
             float boxW = rewardArea.rect.width;
             float boxH = rewardArea.rect.height;
             float cellSize = slotCount > 0
-                ? Mathf.Min(boxH * 0.55f, (boxW - 6f * (slotCount - 1)) / slotCount)
+                ? Mathf.Min(boxH * 0.55f, (boxW - 30f * (slotCount - 1)) / slotCount)
                 : boxH;
 
             for (int i = 0; i < slotCount; i++)

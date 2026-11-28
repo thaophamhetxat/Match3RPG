@@ -82,7 +82,7 @@ MonoBehaviour:
   outlineColor: {r: 0.035, g: 0.02, b: 0.01, a: 0.9}
   outlineWidth: 0.16
   idleFrameSeconds: 0.12
-  maxRewardEntries: 6
+  maxRewardEntries: 5
   goldIcon: {fileID: 0}
   experienceIcon: {fileID: 3892281536378661841, guid: b0da5ee9927ecc748b09bfcec5af0cff, type: 3}
   combatPowerHpWeight: 1
