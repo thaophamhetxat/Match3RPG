@@ -32,6 +32,7 @@ namespace Match3RPG.Battle
             CheckBattleGemValues();
             CheckRageAndMultiHitCombat();
             CheckSoulLevelRules();
+            CheckSoulBurnRules();
             CheckRageHud();
             Debug.Log("Battle HUD Rage and Soul HP regression checks passed.");
         }
@@ -87,6 +88,7 @@ namespace Match3RPG.Battle
             CheckShufflePreservesGemData(activeTurnManager);
             CheckBossMoveUsesBoardPipeline();
             CheckBossDamageAndBattleEnd();
+            CheckSoulBurnRules();
             CheckCharacterAnimationPositions();
             CheckHeroScaleTransitions();
             CheckDeathAnimationPriority();
@@ -3464,6 +3466,51 @@ namespace Match3RPG.Battle
             {
                 UnityEngine.Object.DestroyImmediate(battleObject);
                 UnityEngine.Object.DestroyImmediate(victoryObject);
+            }
+        }
+
+        static void CheckSoulBurnRules()
+        {
+            GameObject battleObject = new GameObject("TurnDebugSoulBurn");
+            HeroData heroData = ScriptableObject.CreateInstance<HeroData>();
+            BossData bossData = ScriptableObject.CreateInstance<BossData>();
+            try
+            {
+                heroData.Configure("debug_soulburn_hero", "Debug Hero", null, null, null, null,
+                    500, 20, 100, 100, 1f, Vector2.zero, CharacterFacing.Right);
+                bossData.Configure("debug_soulburn_boss", "Debug Boss", null, 1000, 100, 100,
+                    0, 5, 1, false, 2f, BossStatusEffectCapability.None);
+                RuntimeHeroStats heroStats = new RuntimeHeroStats(heroData,
+                    new HeroProgressSaveData { level = 10 });
+                RuntimeBossStats bossStats = new RuntimeBossStats(bossData, 10);
+
+                BattleController battle = battleObject.AddComponent<BattleController>();
+                battle.Configure(null, null, null, bossData: bossData,
+                    runtimeHeroStats: heroStats, runtimeBossStats: bossStats);
+
+                Finish(battle.ResolveMove(BattleActor.Boss, DamageMove(200)));
+                Require(battle.HeroHealth == 0 && battle.HeroSoulHealth > 0
+                    && !battle.IsGameOver && battle.IsSoulBurning,
+                    "Hero HP reaching 0 with Soul HP remaining must enter Soul Burn instead of ending in Defeat.");
+
+                Finish(battle.ResolveMove(BattleActor.Player, ResourceMove(GemType.Health, 1)));
+                Require(battle.HeroHealth > 0 && !battle.IsSoulBurning && !battle.IsGameOver,
+                    "Healing Hero HP above 0 must exit Soul Burn.");
+
+                Finish(battle.ResolveMove(BattleActor.Boss, DamageMove(200)));
+                Require(battle.HeroHealth == 0 && battle.IsSoulBurning && !battle.IsGameOver,
+                    "Hero HP returning to 0 with Soul HP remaining must re-enter Soul Burn.");
+
+                Finish(battle.ResolveMove(BattleActor.Boss, ResourceMove(GemType.Soul, 200)));
+                Require(battle.HeroSoulHealth == 0 && battle.IsGameOver
+                    && !battle.PlayerWon && !battle.IsSoulBurning,
+                    "Hero Soul HP reaching 0 must end the battle in Defeat and stop Soul Burn.");
+            }
+            finally
+            {
+                UnityEngine.Object.DestroyImmediate(battleObject);
+                UnityEngine.Object.DestroyImmediate(heroData);
+                UnityEngine.Object.DestroyImmediate(bossData);
             }
         }
 

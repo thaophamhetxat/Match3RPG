@@ -25,7 +25,8 @@ namespace Match3RPG.Battle
         UltimateSpent,
         Rage,
         SoulDamage,
-        SoulCritical
+        SoulCritical,
+        SoulBurn
     }
 
     public sealed class FloatingTextManager : MonoBehaviour
@@ -278,6 +279,7 @@ namespace Match3RPG.Battle
                 case FloatingTextType.Dodge: return "Né!";
                 case FloatingTextType.SoulDamage: return amount.ToString();
                 case FloatingTextType.SoulCritical: return amount.ToString() + "!";
+                case FloatingTextType.SoulBurn: return "Thiêu Hồn!";
                 case FloatingTextType.CriticalReady: return "CRITICAL!";
                 case FloatingTextType.Heal: return "+" + amount;
                 case FloatingTextType.Mana: return $"+{amount} MANA";
@@ -302,7 +304,8 @@ namespace Match3RPG.Battle
                 case FloatingTextType.SoulCritical: return 64f;
                 case FloatingTextType.Damage:
                 case FloatingTextType.Dodge:
-                case FloatingTextType.SoulDamage: return 48f;
+                case FloatingTextType.SoulDamage:
+                case FloatingTextType.SoulBurn: return 48f;
                 case FloatingTextType.Heal: return 32f;
                 default: return 32f;
             }
@@ -354,7 +357,8 @@ namespace Match3RPG.Battle
                 case FloatingTextType.Damage: return new Color32(255, 159, 28, 255);
                 case FloatingTextType.Critical: return new Color32(255, 211, 72, 255);
                 case FloatingTextType.Dodge: return new Color32(200, 200, 200, 255);
-                case FloatingTextType.SoulDamage: return new Color32(242, 242, 255, 255);
+                case FloatingTextType.SoulDamage:
+                case FloatingTextType.SoulBurn: return new Color32(242, 242, 255, 255);
                 case FloatingTextType.SoulCritical: return new Color32(255, 255, 255, 255);
                 case FloatingTextType.CriticalReady: return new Color32(255, 211, 72, 255);
                 case FloatingTextType.Heal: return new Color32(104, 235, 143, 255);

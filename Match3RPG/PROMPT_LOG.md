@@ -354,3 +354,19 @@
   - Kiểm chứng cả 5 prefab R01–R05: 10 node mỗi prefab khớp 100% `region_01..05.asset` (`maxNodeDiff = 0.000000`, R01 10 node dịch lên ~9–10px và Platform reset về `118×70` tại `(0,0)` theo Phương án B), `MarkerImage` `176×216` (thường) / `304.48×373.68` (boss `1.73×`), `region_02..05.asset` trỏ đúng GUID prefab mới, `region_01.asset` không đổi.
 - **Chờ Sư Huynh tự chỉnh tay:** Mở từng prefab `Region01..05_MapLayout.prefab`, chọn Stage cần dời, kéo trong Scene hoặc sửa `anchoredPosition`, Ctrl+S lưu prefab (KHÔNG kéo `MarkerImage` vì code `tipPx = 218` đặt lại lúc chạy).
 - **Lỗi (nếu fail):** Không có.
+
+
+## Prompt 182 — 2026-11-28 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error).
+- **File đã đổi:**
+  - `Match3RPG/Assets/Scripts/Battle/BattleController.cs` (trạng thái Thiêu Hồn `isSoulBurning`/`soulBurnRoutine`/`IsSoulBurning`, `IsGameOver` mới, rút Soul 2% `heroMaxSoulHp`/1.0s trực tiếp, giảm 20% sát thương nhận vào của hero trước `AbsorbShield`, thoát khi HP > 0 hoặc trận kết thúc, sửa chốt `hero.Death()` và `heroDead`)
+  - `Match3RPG/Assets/Scripts/Battle/FloatingTextManager.cs` (thêm `FloatingTextType.SoulBurn` hiện `"Thiêu Hồn!"`, cỡ 48f, màu `Color32(242, 242, 255, 255)`, không icon)
+  - `Match3RPG/Assets/Scripts/Battle/TurnBattleDebugChecks.cs` (giữ nguyên khẳng định cũ trong `CheckBossDamageAndBattleEnd`, thêm `CheckSoulBurnRules()` kiểm tra vào/thoát/thua khi Soul về 0)
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Cài cơ chế Thiêu Hồn khi hero HP về 0 mà `soulEnabled && heroSoulHp > 0`: không thua ngay, hiện chữ `"Thiêu Hồn!"`, rút trực tiếp `Mathf.Max(1, Mathf.RoundToInt(heroMaxSoulHp * 0.02f))` mỗi 1.0s (hiện bằng `SoulDamage`), giảm 20% sát thương nhận vào của hero (cả HP và Soul, áp trước `AbsorbShield`).
+  - Thoát Thiêu Hồn ngay khi hero hồi HP > 0 (trong `ResolveMove`, `RestoreHealth`, và tick coroutine) hoặc khi trận kết thúc (`ApplyDamage`, `ApplySoulDamage`, `StopFlyingSwordOrbitIfBattleEnded`, `OnDisable`, `InitializeStats`).
+  - Sửa 2 chỗ `hero.Death()` thành `IsGameOver && !PlayerWon && hero != null` để không phát animation chết khi vừa vào Thiêu Hồn và ưu tiên thắng nếu cả 2 cùng chết.
+  - Thêm `CheckSoulBurnRules()` vào `TurnBattleDebugChecks` (gọi từ `RunAll` và `RunBattleHudRegressionChecks`; cần chạy trong Unity Play Mode vì check kiểm tra `Application.isPlaying`).
+- **Chờ Play-test:** (1) Boss đánh hero HP về 0 khi Soul > 0 → hiện `"Thiêu Hồn!"`, trận không thua, Soul rút ~2%/giây, damage boss nhận vào giảm ~20%; (2) Ăn gem Lá Xanh hồi HP > 0 → thoát Thiêu Hồn, dừng rút; (3) Ở trong Thiêu Hồn đến khi Soul về 0 → Thua; (4) Giết boss khi đang Thiêu Hồn → Thắng; (5) Trận không bật Soul (`soulEnabled == false`) thì HP 0 vẫn thua ngay.
+- **Lỗi (nếu fail):** Không có.

@@ -95,6 +95,8 @@ namespace Match3RPG.Battle
         bool statsInitialized;
         bool soulEnabled;
         bool soulDamageEnabled;
+        bool isSoulBurning;
+        Coroutine soulBurnRoutine;
         int heroBattleEntryLevel = 1;
         bool heroProgressionConfigured;
         PlayerProgressionService progressionService;
@@ -138,10 +140,13 @@ namespace Match3RPG.Battle
             thunderGodSkillController != null && thunderGodSkillController.IsRunning;
         public SkillConfig SwordRainSkill => ResolveSwordRainSkill();
         public int SwordRainSkillLevel => SkillConfig.DefaultLevel; // TẠM: chỉ có Lv1
-        public bool IsGameOver => heroHp <= 0 || bossHp <= 0
-            || (soulEnabled && (heroSoulHp <= 0 || bossSoulHp <= 0));
+        public bool IsGameOver => (heroHp <= 0 && (!soulEnabled || heroSoulHp <= 0))
+            || (soulEnabled && heroSoulHp <= 0)
+            || bossHp <= 0
+            || (soulEnabled && bossSoulHp <= 0);
         public bool PlayerWon => bossHp <= 0 || (soulEnabled && bossSoulHp <= 0);
         public bool SoulEnabled => soulEnabled;
+        public bool IsSoulBurning => isSoulBurning;
         public int HeroBattleEntryLevel => heroBattleEntryLevel;
         public float BossHealthRatio => bossMaxHp <= 0 ? 0f : (float)bossHp / bossMaxHp;
         public float BossRageRatio => (float)bossRage / BossMaxRage;
@@ -178,6 +183,8 @@ namespace Match3RPG.Battle
         public int BossMaxRage => Mathf.Max(1, bossMaxRage);
 
         void Awake() => InitializeStats();
+
+        void OnDisable() => StopSoulBurn();
 
         public void Configure(CharacterView heroView, CharacterView bossView, BattleHUD battleHud,
             FloatingTextManager textManager = null, BossData bossData = null,
@@ -332,6 +339,7 @@ namespace Match3RPG.Battle
             ellipseSwordsCooldownRemaining = 0;
             starfallBarrageCooldownRemaining = 0;
             thunderGodCooldownRemaining = 0;
+            StopSoulBurn();
             flyingSwordSkillController?.StopOrbitImmediate();
             if (layoutTestMode)
                 ApplyLayoutTestState();
@@ -388,6 +396,11 @@ namespace Match3RPG.Battle
                 int previousHealth = heroHp;
                 heroHp = Mathf.Min(heroMaxHp, heroHp
                     + healthGems * AddNonNegative(BaseHealthPerGem, healthStars));
+                if (heroHp > 0 && isSoulBurning)
+                {
+                    StopSoulBurn();
+                    Refresh();
+                }
                 if (heroHp > previousHealth && combatVfx != null
                     && combatVfx.PlayHeal(BattleActor.Player))
                     precedingVfxDuration = CombatVFXManager.HealingAuraDuration;
@@ -457,7 +470,7 @@ namespace Match3RPG.Battle
 
             if ((bossHp == 0 || (soulEnabled && bossSoulHp == 0)) && boss != null)
                 yield return boss.Death();
-            if ((heroHp == 0 || (soulEnabled && heroSoulHp == 0)) && hero != null)
+            if (IsGameOver && !PlayerWon && hero != null)
                 yield return hero.Death();
             StopFlyingSwordOrbitIfBattleEnded();
             Refresh();
@@ -480,7 +493,7 @@ namespace Match3RPG.Battle
                 AddReceivedHitRage(BattleActor.Player);
                 if (hero != null) yield return hero.Hit();
             }
-            if ((heroHp == 0 || (soulEnabled && heroSoulHp == 0)) && hero != null)
+            if (IsGameOver && !PlayerWon && hero != null)
                 yield return hero.Death();
             StopFlyingSwordOrbitIfBattleEnded();
             Refresh();
@@ -679,14 +692,30 @@ namespace Match3RPG.Battle
             if (layoutTestMode)
                 return 0;
             if (amount <= 0 || IsGameOver) return 0;
+            if (target == BattleActor.Player && isSoulBurning)
+                amount = Mathf.Max(1, Mathf.RoundToInt(amount * 0.8f));
             amount = AbsorbShield(target, amount, shieldCanAbsorb);
             if (amount <= 0) return 0;
             amount = ApplyDefense(target, amount);
             int previous = target == BattleActor.Player ? heroHp : bossHp;
             if (target == BattleActor.Player)
+            {
                 heroHp = Mathf.Max(0, heroHp - amount);
+                if (heroHp <= 0 && soulEnabled && heroSoulHp > 0 && !isSoulBurning)
+                {
+                    isSoulBurning = true;
+                    ShowResource(hero, FloatingTextType.SoulBurn, 1);
+                    if (soulBurnRoutine == null && isActiveAndEnabled)
+                        soulBurnRoutine = StartCoroutine(SoulBurnDrainRoutine());
+                    Refresh();
+                }
+            }
             else
+            {
                 bossHp = Mathf.Max(0, bossHp - amount);
+            }
+            if (IsGameOver)
+                StopSoulBurn();
             int current = target == BattleActor.Player ? heroHp : bossHp;
             return previous - current;
         }
@@ -698,6 +727,8 @@ namespace Match3RPG.Battle
             if (!soulEnabled || amount <= 0 || IsGameOver) return 0;
             if (!soulDamageEnabled)
                 return ApplyDamage(target, amount);
+            if (target == BattleActor.Player && isSoulBurning)
+                amount = Mathf.Max(1, Mathf.RoundToInt(amount * 0.8f));
             amount = AbsorbShield(target, amount, true);
             if (amount <= 0) return 0;
             amount = ApplyDefense(target, amount);
@@ -706,8 +737,56 @@ namespace Match3RPG.Battle
                 heroSoulHp = Mathf.Max(0, heroSoulHp - amount);
             else
                 bossSoulHp = Mathf.Max(0, bossSoulHp - amount);
+            if (IsGameOver)
+                StopSoulBurn();
             int current = target == BattleActor.Player ? heroSoulHp : bossSoulHp;
             return previous - current;
+        }
+
+        void StopSoulBurn()
+        {
+            isSoulBurning = false;
+            if (soulBurnRoutine != null)
+            {
+                StopCoroutine(soulBurnRoutine);
+                soulBurnRoutine = null;
+            }
+        }
+
+        IEnumerator SoulBurnDrainRoutine()
+        {
+            while (isSoulBurning && !IsGameOver && !layoutTestMode)
+            {
+                if (heroHp > 0)
+                {
+                    StopSoulBurn();
+                    Refresh();
+                    yield break;
+                }
+
+                yield return new WaitForSeconds(1.0f);
+
+                if (!isSoulBurning || IsGameOver || layoutTestMode)
+                    break;
+                if (heroHp > 0)
+                {
+                    StopSoulBurn();
+                    Refresh();
+                    yield break;
+                }
+
+                int drain = Mathf.Max(1, Mathf.RoundToInt(heroMaxSoulHp * 0.02f));
+                int previousSoul = heroSoulHp;
+                heroSoulHp = Mathf.Max(0, heroSoulHp - drain);
+                ShowResource(hero, FloatingTextType.SoulDamage, previousSoul - heroSoulHp);
+                Refresh();
+
+                if (heroHp > 0 || IsGameOver)
+                    break;
+            }
+
+            isSoulBurning = false;
+            soulBurnRoutine = null;
         }
 
         int GetShield(BattleActor actor) => actor == BattleActor.Player ? heroShield : bossShield;
@@ -829,11 +908,15 @@ namespace Match3RPG.Battle
 
         void StopFlyingSwordOrbitIfBattleEnded()
         {
-            if (!IsGameOver || flyingSwordOrbitTurnsRemaining <= 0)
+            if (!IsGameOver)
+                return;
+
+            StopSoulBurn();
+            if (flyingSwordOrbitTurnsRemaining <= 0)
                 return;
 
             flyingSwordOrbitTurnsRemaining = 0;
-            bool heroDead = heroHp <= 0 || (soulEnabled && heroSoulHp <= 0);
+            bool heroDead = !PlayerWon;
             if (heroDead)
                 flyingSwordSkillController?.StopOrbitImmediate();
             else
@@ -1619,6 +1702,11 @@ namespace Match3RPG.Battle
             {
                 int previous = heroHp;
                 heroHp = Mathf.Min(heroMaxHp, heroHp + amount);
+                if (heroHp > 0 && isSoulBurning)
+                {
+                    StopSoulBurn();
+                    Refresh();
+                }
                 return heroHp - previous;
             }
 
