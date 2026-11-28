@@ -370,3 +370,15 @@
   - Thêm `CheckSoulBurnRules()` vào `TurnBattleDebugChecks` (gọi từ `RunAll` và `RunBattleHudRegressionChecks`; cần chạy trong Unity Play Mode vì check kiểm tra `Application.isPlaying`).
 - **Chờ Play-test:** (1) Boss đánh hero HP về 0 khi Soul > 0 → hiện `"Thiêu Hồn!"`, trận không thua, Soul rút ~2%/giây, damage boss nhận vào giảm ~20%; (2) Ăn gem Lá Xanh hồi HP > 0 → thoát Thiêu Hồn, dừng rút; (3) Ở trong Thiêu Hồn đến khi Soul về 0 → Thua; (4) Giết boss khi đang Thiêu Hồn → Thắng; (5) Trận không bật Soul (`soulEnabled == false`) thì HP 0 vẫn thua ngay.
 - **Lỗi (nếu fail):** Không có.
+
+
+## Prompt 183 — 2026-11-28 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error).
+- **File đã đổi:**
+  - `Match3RPG/Assets/Scripts/Battle/BattleController.cs` (bỏ chốt `actor == BattleActor.Player` ở dòng chờ `WaitForAttackImpact(hit)` trong `ResolveAttackAction`)
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Đo thật xác nhận 14 boss R01–R04 đều đủ `attackClip` + 25 `attackFrames` + `attackImpactNormalizedTime: 0.52`, cả 50 `BossData` đều `preferredAttackVfx: 0` (đánh gần), `GameBootstrap.CreateCharacter` đã gắn `HeroAnimationDriver` cho cả boss lẫn hero, và các test debug đều truyền view null.
+  - Sửa đúng 1 chốt trong `BattleController.ResolveAttackAction`: `if (attacker != null && attacker.HasSpriteAttackAnimation) yield return attacker.WaitForAttackImpact(hit);` để boss cũng chờ tới điểm impact của clip trước khi tung né / trừ máu / VFX / số bay / `Hit()`, giữ nguyên mọi công thức và nhịp tổng của lượt boss.
+- **Chờ Play-test:** (1) Boss đánh (đặc biệt boss R02/R03 dùng clip Skill làm clip đánh) → damage + thanh HP hero tụt đúng lúc tay/vũ khí/phép chạm hero, không tụt sớm ngay đầu clip; (2) Boss đánh nhiều hít (3+ viên) → mỗi hít trừ máu đúng điểm impact của clip hít đó; (3) Hero đánh không đổi; (4) Ultimate của boss (80 damage) vẫn như cũ; (5) Tổng thời gian lượt boss không dài thêm.
+- **Lỗi (nếu fail):** Không có.

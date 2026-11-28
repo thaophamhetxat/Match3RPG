@@ -576,8 +576,7 @@ namespace Match3RPG.Battle
                     // Follow-up hits replay one full clip in place (already at the lunge position).
                     if (hit > 0 && attacker != null && !rangedAttack)
                         attacker.PlayAttackClip();
-                    if (actor == BattleActor.Player && attacker != null
-                        && attacker.HasSpriteAttackAnimation)
+                    if (attacker != null && attacker.HasSpriteAttackAnimation)
                         yield return attacker.WaitForAttackImpact(hit);
                     if (IsGameOver) break;
                     // Né: mỗi hit tung riêng. Tỉ lệ = max(0, Né của người bị đánh - Chính xác của người đánh).
