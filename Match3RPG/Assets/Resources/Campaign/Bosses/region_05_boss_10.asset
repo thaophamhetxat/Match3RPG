@@ -15,12 +15,12 @@ MonoBehaviour:
   bossId: region_05_boss_10
   displayName: Spirit Forest Sovereign
   portrait: {fileID: 0}
-  maxHP: 2275
-  attack: 37
+  maxHP: 22750
+  attack: 93
   maxRage: 100
   startingRage: 0
   ragePerOrangeGem: 5
   ragePerReceivedHit: 1
   criticalEnabled: 1
-  criticalDamageMultiplier: 2
+  criticalDamageMultiplier: 2.98
   statusEffectCapabilities: 16

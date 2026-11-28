@@ -16,14 +16,14 @@ MonoBehaviour:
   displayName: "R\xF9a N\xFAi Linh"
   portrait: {fileID: 1511735063, guid: 4713d302e31d05d40a066d4257eb1222, type: 3}
   animationSet: {fileID: 11400000, guid: f00969617415b8c4bba0627019373d27, type: 2}
-  maxHP: 1675
-  attack: 29
+  maxHP: 16750
+  attack: 73
   maxRage: 100
   startingRage: 0
   ragePerOrangeGem: 5
   ragePerReceivedHit: 1
   criticalEnabled: 1
-  criticalDamageMultiplier: 2
+  criticalDamageMultiplier: 2.66
   statusEffectCapabilities: 8
   preferredAttackVfx: 0
   defaultLootTableId: 

@@ -54,6 +54,7 @@ namespace Match3RPG.Battle
         [SerializeField, Min(1)] private int bossMaxMana = 100;
         [SerializeField, Min(0)] private int bossRagePerReceivedHit = 1;
         [SerializeField] private bool bossCriticalEnabled = true;
+        [SerializeField, Range(0f, 100f)] private float bossCriticalChancePercent = 10f;
         [SerializeField, Min(1f)] private float bossCriticalDamageMultiplier = 2f;
         [SerializeField] private CombatVFXType bossAttackVfx = CombatVFXType.Slash;
         [SerializeField, Min(0f)] private float multiHitInterval = .15f;
@@ -177,6 +178,7 @@ namespace Match3RPG.Battle
         public float BossDodgePercent => bossDodgePercent;
         public float BossAccuracyPercent => bossAccuracyPercent;
         public int BossSpeed => bossSpeed;
+        public float BossCriticalChancePercent => bossCriticalChancePercent;
         public int HeroMana => mana;
         public int HeroUltimate => ultimate;
         public int BossMana => bossMana;
@@ -269,6 +271,7 @@ namespace Match3RPG.Battle
                 bossMaxMana = stats.MaxMana;
                 bossRagePerReceivedHit = stats.RagePerReceivedHit;
                 bossCriticalEnabled = stats.CriticalEnabled;
+                bossCriticalChancePercent = stats.CriticalChancePercent;
                 bossCriticalDamageMultiplier = stats.CriticalDamageMultiplier;
                 bossAttackVfx = stats.AttackVfx;
             }
@@ -285,6 +288,7 @@ namespace Match3RPG.Battle
                 bossStartingRage = Mathf.Clamp(bossData.StartingRage, 0, bossMaxRage);
                 bossRagePerReceivedHit = Mathf.Max(0, bossData.RagePerReceivedHit);
                 bossCriticalEnabled = bossData.CriticalEnabled;
+                bossCriticalChancePercent = 10f;
                 bossCriticalDamageMultiplier = Mathf.Max(1f, bossData.CriticalDamageMultiplier);
                 bossAttackVfx = bossData.PreferredAttackVfx;
             }
@@ -523,8 +527,8 @@ namespace Match3RPG.Battle
             bool rageCritical = totalHitCount > 0 && IsCriticalEnabled(actor)
                 && GetRage(actor) >= GetMaxRage(actor);
             bool critical = rageCritical || (totalHitCount > 0
-                && actor == BattleActor.Player
-                && UnityEngine.Random.value * 100f < heroCriticalChancePercent);
+                && UnityEngine.Random.value * 100f < (actor == BattleActor.Player
+                    ? heroCriticalChancePercent : bossCriticalChancePercent));
             CombatVFXType attackVfx = actor == BattleActor.Player
                 ? CombatVFXType.Slash : bossAttackVfx;
             bool rangedAttack = attackVfx == CombatVFXType.Fireball
@@ -593,11 +597,11 @@ namespace Match3RPG.Battle
                     if (attacker != null && attacker.HasSpriteAttackAnimation)
                         yield return attacker.WaitForAttackImpact(hit);
                     if (IsGameOver) break;
-                    // Né: mỗi hit tung riêng. Tỉ lệ = max(0, Né của người bị đánh - Chính xác của người đánh).
+                    // Né: mỗi hit tung riêng. Tỉ lệ = max(0, Né của người bị đánh - max(0, Chính xác của người đánh - 100)).
                     bool dodged = false;
                     float dodgeChance = targetActor == BattleActor.Player
-                        ? Mathf.Max(0f, heroDodgePercent - bossAccuracyPercent)
-                        : Mathf.Max(0f, bossDodgePercent - heroAccuracyPercent);
+                        ? Mathf.Max(0f, heroDodgePercent - Mathf.Max(0f, bossAccuracyPercent - 100f))
+                        : Mathf.Max(0f, bossDodgePercent - Mathf.Max(0f, heroAccuracyPercent - 100f));
                     if (dodgeChance > 0f && UnityEngine.Random.value * 100f < dodgeChance)
                     {
                         dodged = true;

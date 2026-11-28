@@ -396,3 +396,20 @@
   - Mở rộng `CheckSoulBurnRules()` thêm case boss (cần chạy trong Unity Play Mode vì check kiểm tra `Application.isPlaying`).
 - **Chờ Play-test:** (1) Đánh boss HP về 0 khi Soul boss > 0 → hiện `"Thiêu Hồn!"` trên boss, trận không thắng ngay, Soul boss rút ~2%/giây, damage vào boss giảm ~20%; (2) Boss ăn gem Lá Xanh hồi HP > 0 → thoát Thiêu Hồn, dừng rút; (3) Rút Soul boss về 0 → Thắng; (4) Hero chết khi boss đang Thiêu Hồn → Thua; (5) Cả hero lẫn boss cùng Thiêu Hồn → cả 2 cùng rút, bên nào hết Soul trước thì thua; (6) Gem đỏ đánh boss đang Thiêu Hồn giữ HP boss = 0 (đúng thiết kế, không tràn sang Soul); (7) Thiêu Hồn hero không đổi.
 - **Lỗi (nếu fail):** Không có.
+
+
+## Prompt 185 — 2026-11-28 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error).
+- **File đã đổi:**
+  - 50 `BossData` asset live trong `Match3RPG/Assets/Resources/Campaign/Bosses/region_01_boss_01.asset` .. `region_05_boss_10.asset` (ví dụ: `region_01_boss_01.asset` HP 1000→10000 / ATK 20→50 / CritMult 2→2.00; `region_01_boss_10.asset` HP 1675→16750 / ATK 29→73 / CritMult 2→2.18; `region_05_boss_10.asset` HP 2275→22750 / ATK 37→93 / CritMult 2→2.98; giữ nguyên 9 file thừa R01 và `DevelopmentBoss.asset`)
+  - `Match3RPG/Assets/Scripts/Battle/RuntimeBossStats.cs` (`DodgePercent => 10f + (Level - 1) * 1f`, `Speed => 15 + Mathf.RoundToInt((Level - 1) * 1.5f)`, thêm `CriticalChancePercent => 10f + (Level - 1) * 0.5f`; giữ nguyên `Defense` và `AccuracyPercent`)
+  - `Match3RPG/Assets/Scripts/Battle/BattleController.cs` (thêm field `bossCriticalChancePercent` + getter `BossCriticalChancePercent`, gán trong `Configure` và nhánh fallback; mở crit roll ngẫu nhiên cho cả boss; đổi công thức né 2 chiều thành `max(0, Né - max(0, Chính xác - 100))`)
+  - `Match3RPG/Assets/Scripts/Battle/TurnBattleDebugChecks.cs` (thêm `CheckBossStatsScaling()` với menu `Tools/Match3RPG/Run boss stats formula check` và gọi từ `RunBattleHudRegressionChecks`/`RunAll`)
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Tăng chỉ số toàn bộ 50 boss live: `maxHP` ×10, `attack` ×2.5 (.5 làm tròn lên), `criticalDamageMultiplier` = `2 + (BossLevel - 1) * 0.02` (2 chữ số thập phân).
+  - Cập nhật `RuntimeBossStats`: Né boss `10 + (Level - 1)`, Speed boss `15 + Round((Level - 1) * 1.5)`, thêm tỷ lệ chí mạng boss `10 + (Level - 1) * 0.5`; giữ nguyên DEF, Accuracy, Soul HP formula, nộ, AI và skill.
+  - Cập nhật `BattleController`: kích hoạt random crit cho boss song song với `rageCritical`, sửa công thức né cho cả hai bên theo phần tăng Chính xác trên 100 để Né thực sự có tác dụng.
+  - Thêm check `CheckBossStatsScaling()` kiểm tra 3 mốc R01S01 / R01S10 / R05S10 (chưa chạy được trong Unity Editor từ CLI; cần chạy menu `Tools/Match3RPG/Run boss stats formula check` trong Unity Editor).
+- **Chờ Play-test:** (1) R01S01: boss HP 10000, 1 Match-3 boss trừ ~126 máu hero (~25%) — trận đầu có gắt quá không? (2) R01S10: boss đi trước (Speed 29), boss né ~10–15% đòn hero, boss crit ngẫu nhiên ~14.5% với ×2.18. (3) R05S10: boss HP 22750, boss né ~30–35% đòn hero, boss crit ~34.5% với ×2.98 — trận có quá dài/khó không? (4) Hero né boss tối đa 10% (nhánh nước max) — đúng thiết kế mới. (5) Boss Thiêu Hồn (184) vẫn hoạt động với HP mới (vào Thiêu Hồn ở HP 0, rút 2%/giây, Soul 0 = thắng). (6) Boss crit khi nộ đầy vẫn ×(critDamage mới) — kiểm tra text "Critical" xuất hiện đúng tần suất.
+- **Lỗi (nếu fail):** Không có.

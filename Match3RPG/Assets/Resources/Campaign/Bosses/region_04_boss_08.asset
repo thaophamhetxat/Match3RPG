@@ -16,14 +16,14 @@ MonoBehaviour:
   displayName: "N\u1EEF T\u1EBF M\u1ED9c T\u1ED9c"
   portrait: {fileID: -744870172, guid: 02b68c00b6ade984381f1177d19e8be5, type: 3}
   animationSet: {fileID: 11400000, guid: 33a9a0643bb72284e91f78c212da46b7, type: 2}
-  maxHP: 1975
-  attack: 33
+  maxHP: 19750
+  attack: 83
   maxRage: 100
   startingRage: 0
   ragePerOrangeGem: 5
   ragePerReceivedHit: 1
   criticalEnabled: 1
-  criticalDamageMultiplier: 2
+  criticalDamageMultiplier: 2.74
   statusEffectCapabilities: 8
   preferredAttackVfx: 0
   defaultLootTableId: 

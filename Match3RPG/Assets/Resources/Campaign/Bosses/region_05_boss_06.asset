@@ -15,12 +15,12 @@ MonoBehaviour:
   bossId: region_05_boss_06
   displayName: Spirit Forest Warden
   portrait: {fileID: 0}
-  maxHP: 1975
-  attack: 33
+  maxHP: 19750
+  attack: 83
   maxRage: 100
   startingRage: 0
   ragePerOrangeGem: 5
   ragePerReceivedHit: 1
   criticalEnabled: 1
-  criticalDamageMultiplier: 2
+  criticalDamageMultiplier: 2.90
   statusEffectCapabilities: 16

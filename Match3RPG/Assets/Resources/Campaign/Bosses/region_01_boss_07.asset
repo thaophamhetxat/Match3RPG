@@ -16,14 +16,14 @@ MonoBehaviour:
   displayName: "Thanh V\xE2n"
   portrait: {fileID: -1320635280, guid: 67482c71cb8965749b454307495d0a6a, type: 3}
   animationSet: {fileID: 11400000, guid: fb0d9c5f18159194ebe30f9db57e0681, type: 2}
-  maxHP: 1450
-  attack: 26
+  maxHP: 14500
+  attack: 65
   maxRage: 100
   startingRage: 0
   ragePerOrangeGem: 5
   ragePerReceivedHit: 1
   criticalEnabled: 1
-  criticalDamageMultiplier: 2
+  criticalDamageMultiplier: 2.12
   statusEffectCapabilities: 1
   preferredAttackVfx: 0
   defaultLootTableId: 

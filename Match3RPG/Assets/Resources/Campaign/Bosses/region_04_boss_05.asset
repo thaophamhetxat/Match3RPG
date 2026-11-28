@@ -16,14 +16,14 @@ MonoBehaviour:
   displayName: "Long R\u1EEBng Ng\u1ECDc"
   portrait: {fileID: -1662348000, guid: 82dc7c58e69243345bf8b3de535e8ca6, type: 3}
   animationSet: {fileID: 11400000, guid: 1cf37bfc972d36f40814cbf571eb37b6, type: 2}
-  maxHP: 1750
-  attack: 30
+  maxHP: 17500
+  attack: 75
   maxRage: 100
   startingRage: 0
   ragePerOrangeGem: 5
   ragePerReceivedHit: 1
   criticalEnabled: 1
-  criticalDamageMultiplier: 2
+  criticalDamageMultiplier: 2.68
   statusEffectCapabilities: 8
   preferredAttackVfx: 0
   defaultLootTableId: 

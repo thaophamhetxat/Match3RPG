@@ -16,14 +16,14 @@ MonoBehaviour:
   displayName: "Th\xFA B\u0103ng Tinh"
   portrait: {fileID: -1738582905, guid: 8bcd686a0d296b3439bcd6ab1b13cb8c, type: 3}
   animationSet: {fileID: 11400000, guid: 1e58647a09548b24eaae556ace7e9936, type: 2}
-  maxHP: 1450
-  attack: 26
+  maxHP: 14500
+  attack: 65
   maxRage: 100
   startingRage: 0
   ragePerOrangeGem: 5
   ragePerReceivedHit: 1
   criticalEnabled: 1
-  criticalDamageMultiplier: 2
+  criticalDamageMultiplier: 2.28
   statusEffectCapabilities: 4
   preferredAttackVfx: 0
   defaultLootTableId: 

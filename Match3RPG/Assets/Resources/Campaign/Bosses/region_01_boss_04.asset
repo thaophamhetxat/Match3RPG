@@ -16,14 +16,14 @@ MonoBehaviour:
   displayName: "L\xE2m Phong"
   portrait: {fileID: 463352791, guid: d2ca9acfd3411704bab903dbe4b42b5d, type: 3}
   animationSet: {fileID: 11400000, guid: 7501944dbd3b35c42ba4eb3ca12b2914, type: 2}
-  maxHP: 1225
-  attack: 23
+  maxHP: 12250
+  attack: 58
   maxRage: 100
   startingRage: 0
   ragePerOrangeGem: 5
   ragePerReceivedHit: 1
   criticalEnabled: 1
-  criticalDamageMultiplier: 2
+  criticalDamageMultiplier: 2.06
   statusEffectCapabilities: 1
   preferredAttackVfx: 0
   defaultLootTableId: 

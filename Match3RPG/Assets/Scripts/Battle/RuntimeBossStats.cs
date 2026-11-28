@@ -20,9 +20,10 @@ namespace Match3RPG.Battle
         public CombatVFXType AttackVfx { get; }
         public int MaxMana => 100;
         public int Defense => 20 + (Level - 1);
-        public float DodgePercent => (Level - 1) * 0.5f;
+        public float DodgePercent => 10f + (Level - 1) * 1f;
         public float AccuracyPercent => 100f + (Level - 1) * 0.5f;
-        public int Speed => 10 + (Level - 1);
+        public int Speed => 15 + Mathf.RoundToInt((Level - 1) * 1.5f);
+        public float CriticalChancePercent => 10f + (Level - 1) * 0.5f;
 
         public RuntimeBossStats(BossData config, int level = 1)
         {

@@ -16,14 +16,14 @@ MonoBehaviour:
   displayName: "S\xF3i B\u0103ng"
   portrait: {fileID: -1824654262, guid: 6693824dbfc9b1a46b4b8600953de006, type: 3}
   animationSet: {fileID: 11400000, guid: b10eae3ccc9344647af1be97465b81df, type: 2}
-  maxHP: 1375
-  attack: 25
+  maxHP: 13750
+  attack: 63
   maxRage: 100
   startingRage: 0
   ragePerOrangeGem: 5
   ragePerReceivedHit: 1
   criticalEnabled: 1
-  criticalDamageMultiplier: 2
+  criticalDamageMultiplier: 2.26
   statusEffectCapabilities: 4
   preferredAttackVfx: 0
   defaultLootTableId: 

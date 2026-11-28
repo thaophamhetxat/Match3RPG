@@ -33,6 +33,7 @@ namespace Match3RPG.Battle
             CheckRageAndMultiHitCombat();
             CheckSoulLevelRules();
             CheckSoulBurnRules();
+            CheckBossStatsScaling();
             CheckRageHud();
             Debug.Log("Battle HUD Rage and Soul HP regression checks passed.");
         }
@@ -88,6 +89,7 @@ namespace Match3RPG.Battle
             CheckShufflePreservesGemData(activeTurnManager);
             CheckBossMoveUsesBoardPipeline();
             CheckBossDamageAndBattleEnd();
+            CheckBossStatsScaling();
             CheckSoulBurnRules();
             CheckCharacterAnimationPositions();
             CheckHeroScaleTransitions();
@@ -3467,6 +3469,40 @@ namespace Match3RPG.Battle
                 UnityEngine.Object.DestroyImmediate(battleObject);
                 UnityEngine.Object.DestroyImmediate(victoryObject);
             }
+        }
+
+        [MenuItem("Tools/Match3RPG/Run boss stats formula check")]
+        public static void CheckBossStatsScaling()
+        {
+            VerifyBossAssetStats("Campaign/Bosses/region_01_boss_01", 1, 10000, 50, 10f, 15, 10f, 2.00f);
+            VerifyBossAssetStats("Campaign/Bosses/region_01_boss_10", 10, 16750, 73, 19f, 29, 14.5f, 2.18f);
+            VerifyBossAssetStats("Campaign/Bosses/region_05_boss_10", 50, 22750, 93, 59f, 89, 34.5f, 2.98f);
+            Debug.Log("Boss stats scaling formula check passed (R01S01, R01S10, R05S10).");
+        }
+
+        static void VerifyBossAssetStats(string resourcePath, int level, int expectedMaxHp,
+            int expectedAttack, float expectedDodge, int expectedSpeed,
+            float expectedCritChance, float expectedCritDamage)
+        {
+            BossData bossData = Resources.Load<BossData>(resourcePath);
+            Require(bossData != null, $"BossData asset must exist at Resources/{resourcePath}.");
+            RuntimeBossStats stats = new RuntimeBossStats(bossData, level);
+            Require(stats.MaxHP == expectedMaxHp,
+                $"{resourcePath} MaxHP expected {expectedMaxHp}, got {stats.MaxHP}.");
+            Require(stats.Attack == expectedAttack,
+                $"{resourcePath} Attack expected {expectedAttack}, got {stats.Attack}.");
+            Require(Mathf.Approximately(stats.DodgePercent, expectedDodge),
+                $"{resourcePath} DodgePercent expected {expectedDodge}, got {stats.DodgePercent}.");
+            Require(stats.Speed == expectedSpeed,
+                $"{resourcePath} Speed expected {expectedSpeed}, got {stats.Speed}.");
+            Require(Mathf.Approximately(stats.CriticalChancePercent, expectedCritChance),
+                $"{resourcePath} CriticalChancePercent expected {expectedCritChance}, got {stats.CriticalChancePercent}.");
+            Require(Mathf.Approximately(stats.CriticalDamageMultiplier, expectedCritDamage),
+                $"{resourcePath} CriticalDamageMultiplier expected {expectedCritDamage}, got {stats.CriticalDamageMultiplier}.");
+            Require(stats.Defense == 20 + (level - 1),
+                $"{resourcePath} Defense must remain 20 + (Level - 1).");
+            Require(Mathf.Approximately(stats.AccuracyPercent, 100f + (level - 1) * 0.5f),
+                $"{resourcePath} AccuracyPercent must remain 100 + (Level - 1) * 0.5.");
         }
 
         static void CheckSoulBurnRules()

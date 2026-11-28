@@ -16,14 +16,14 @@ MonoBehaviour:
   displayName: "R\u1ED3ng S\xF4ng Xanh"
   portrait: {fileID: 1357692475, guid: 09bb8e7423e639641861434bd501320b, type: 3}
   animationSet: {fileID: 11400000, guid: 3e324e927b5b3f149bb7e64f16ed82eb, type: 2}
-  maxHP: 1750
-  attack: 30
+  maxHP: 17500
+  attack: 75
   maxRage: 100
   startingRage: 0
   ragePerOrangeGem: 5
   ragePerReceivedHit: 1
   criticalEnabled: 1
-  criticalDamageMultiplier: 2
+  criticalDamageMultiplier: 2.36
   statusEffectCapabilities: 4
   preferredAttackVfx: 0
   defaultLootTableId: 
