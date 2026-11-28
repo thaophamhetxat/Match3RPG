@@ -291,3 +291,16 @@
   - Đổi `BuildRewards` luôn tạo đủ `slotCount = GetLayout().MaxRewardEntries` (6 ô), `cellSize = 123.4`, tổng rộng `770.4`, căn giữa `MiddleCenter` (lề 2 bên ~23). Stage 03 có 2 entry (Linh Thạch + EXP, `lootTableId` và `defaultLootTableId` đều rỗng) → 2 ô có đồ + 4 ô trống nền xanh ngọc nhạt `(165, 222, 220, 255)` viền vàng `(180, 137, 65, 255)`, không Icon / FirstTag / QuantityBadge. Đáy tile giữ nguyên cách mép trên nhãn STAGE ~20.4 đơn vị.
 - **Chờ Play-test:** Mở popup Khiêu chiến Stage 03 — kiểm tra hero lùi sang trái thoáng hơn so với VS/boss, chân vẫn ngang chân boss; khung PHẦN THƯỞNG hiện đủ 6 ô (2 ô có đồ + 4 ô trống nền nhạt viền vàng), đều nhau, căn giữa, không chạm nhãn STAGE; kiểm tra thêm ải có số phần thưởng khác để chắc ô trống/đồ hiển thị đúng.
 - **Lỗi (nếu fail):** Không có.
+
+
+## Prompt 178 — 2026-11-28 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error).
+- **File đã đổi:**
+  - `Match3RPG/Assets/Scenes/RegionMap.unity` (`RewardContent` fileID 1123899915: `m_AnchorMin.y` 0.26 → 0.27, `m_AnchorMax.y` 0.39 → 0.4)
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Đo thật từ `RegionMap.unity`: `PopupArtwork` (fileID 921377136) kích thước `972×1726.05`; `RewardContent` (fileID 1123899915) anchors `(0.08, 0.26)`–`(0.92, 0.39)`, chiều cao `224.4` đơn vị; `BuildRewards` giữ nguyên cấu trúc 6 ô (`cellSize = 123.4`, Tile `0.225–0.775`, Icon, FirstTag, QuantityBadge).
+  - Tăng cả `anchorMin.y` và `anchorMax.y` của `RewardContent` thêm `+0.01` (`0.27–0.40`): chiều cao khung giữ nguyên `224.4` đơn vị (`boxW/boxH` và `cellSize` không đổi), toàn bộ hàng ô thưởng (ô, icon, tag First, nhãn số lượng) dời lên cùng nhau `17.3` đơn vị popup (khớp mức vạch đỏ ~17 đơn vị ngay dưới nhãn PHẦN THƯỞNG).
+  - Khe hở đáy ô tới đỉnh nhãn STAGE (`0.28`, y `483.3`) tăng từ `~20.4` lên `~37.6` đơn vị (~38 đơn vị); đỉnh ô `635.5` vẫn trong khung thưởng (`690.4`) và không chạm nhãn PHẦN THƯỞNG. Không sửa kích thước ô, nhãn số lượng, code C# hay asset nào khác.
+- **Chờ Play-test:** Mở popup Khiêu chiến Stage 04 — kiểm tra hàng 6 ô thưởng nằm sát dưới nhãn PHẦN THƯỞNG (ngang vạch đỏ), cách nhãn STAGE thoáng hơn trước, kích thước 6 ô và nhãn số lượng giữ nguyên; kiểm tra thêm 1 ải khác để chắc không chạm nhãn PHẦN THƯỞNG hay STAGE.
+- **Lỗi (nếu fail):** Không có.
