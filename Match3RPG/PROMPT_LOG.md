@@ -337,3 +337,20 @@
   - Tính kiểm chứng: pin thường offset tăng từ `72.2` lên `75.0` (+2.8 đơn vị), pin boss tăng từ `115.4` lên `129.7` (+14.3 đơn vị) để đầu nhọn pin chạm tâm bục. Diff Prompt 179 (spacing 30f, maxRewardEntries 5) giữ nguyên.
 - **Chờ Play-test:** Mở 5 map R01–R05 kiểm tra đầu nhọn mỗi pin chạm tâm vòng bục (không tụt xuống dưới), cả 10 ải mỗi map (đặc biệt ải boss Stage 10); 4 loại pin đồng bộ kích thước ảnh gốc, pin boss đỏ vẫn to hơn 1.73×.
 - **Lỗi (nếu fail):** Không có.
+
+
+## Prompt 181 — 2026-11-28 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error). Unity batch mode `RegionMapPrefabTools.BakeRegionMapLayouts` exit 0.
+- **File đã đổi:**
+  - `Match3RPG/Assets/Editor/RegionMapPrefabTools.cs` (`markerScale` boss `1.25f → 1.73f`, `markerRect.sizeDelta` `72×88 → 176×216 × markerScale`; giữ nguyên `Platform 118×70`, `Glow 104×86`, `StateIcon 26×26` tại `(0.14, 0.72)`)
+  - `Match3RPG/Assets/Prefabs/RegionMaps/Region01_MapLayout.prefab` (bake đè theo Phương án B đã chốt, giữ nguyên GUID `cbe62438e7731cc46a4e1c445b618de8`)
+  - `Match3RPG/Assets/Prefabs/RegionMaps/Region02..05_MapLayout.prefab` + 4 file `.meta` mới
+  - `Match3RPG/Assets/Resources/Campaign/Regions/region_02..05.asset` (gán `mapLayoutPrefab`; `region_01.asset` giữ nguyên không đổi)
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Việc 0 phát hiện prefab R01 cũ lệch xuống `-9..10px` (`Stage01 dy = -0.00503`) so với `region_01.asset` + `Platform` chỉnh tay riêng; đã DỪNG báo số đo thật và Sư Huynh chốt **Phương án B** (bake đè cả R01–R05 từ `region_01..05.asset`).
+  - Cập nhật hằng số Bake trong `RegionMapPrefabTools.cs` cho khớp runtime (`boss markerScale = 1.73f`, `MarkerImage = 176×216 × markerScale`).
+  - Chạy Unity batch mode `BakeRegionMapLayouts`: `Baked 5 region map layout prefab(s) into Assets/Prefabs/RegionMaps.` và `Region map layout validation passed.` (0 error).
+  - Kiểm chứng cả 5 prefab R01–R05: 10 node mỗi prefab khớp 100% `region_01..05.asset` (`maxNodeDiff = 0.000000`, R01 10 node dịch lên ~9–10px và Platform reset về `118×70` tại `(0,0)` theo Phương án B), `MarkerImage` `176×216` (thường) / `304.48×373.68` (boss `1.73×`), `region_02..05.asset` trỏ đúng GUID prefab mới, `region_01.asset` không đổi.
+- **Chờ Sư Huynh tự chỉnh tay:** Mở từng prefab `Region01..05_MapLayout.prefab`, chọn Stage cần dời, kéo trong Scene hoặc sửa `anchoredPosition`, Ctrl+S lưu prefab (KHÔNG kéo `MarkerImage` vì code `tipPx = 218` đặt lại lúc chạy).
+- **Lỗi (nếu fail):** Không có.

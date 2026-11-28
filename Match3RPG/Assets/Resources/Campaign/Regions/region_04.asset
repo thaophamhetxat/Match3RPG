@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: region_04
   m_EditorClassIdentifier: Assembly-CSharp::Match3RPG.Campaign.Data.RegionData
   regionId: region_04
-  displayName: BĂNG TỘC
+  displayName: "B\u0102NG T\u1ED8C"
   mapSprite: {fileID: 21300000, guid: e8392a45a6886474da5b06e827858d95, type: 3}
   headerSprite: {fileID: 21300000, guid: 0b14bfe8914f0da4b84db281fbc3e916, type: 3}
   footerSprite: {fileID: 21300000, guid: 235954a75217cf74599feb4f49cfa216, type: 3}
+  mapLayoutPrefab: {fileID: 8440360815350578129, guid: 74c8b49081d1d154589a185783f45d4c, type: 3}
   worldMapNodePosition: {x: 0.84, y: 0.39}
   stages:
   - stageId: region_04_stage_01
@@ -27,6 +28,7 @@ MonoBehaviour:
     regionMapNodePosition: {x: 0.776, y: 0.925}
     platformSize: {x: 200, y: 120}
     bossData: {fileID: 11400000, guid: b75354a5c241d7a4bbaa06b781c08af4, type: 2}
+    lootTableId: 
   - stageId: region_04_stage_02
     stageNumber: 2
     displayName: Stage 2
@@ -35,6 +37,7 @@ MonoBehaviour:
     regionMapNodePosition: {x: 0.212, y: 0.849}
     platformSize: {x: 169, y: 100}
     bossData: {fileID: 11400000, guid: ad686e0ce9095574c96222edd1887ad5, type: 2}
+    lootTableId: 
   - stageId: region_04_stage_03
     stageNumber: 3
     displayName: Stage 3
@@ -43,6 +46,7 @@ MonoBehaviour:
     regionMapNodePosition: {x: 0.323, y: 0.804}
     platformSize: {x: 193, y: 115}
     bossData: {fileID: 11400000, guid: 83662dd2380492a46bb69019481d004e, type: 2}
+    lootTableId: 
   - stageId: region_04_stage_04
     stageNumber: 4
     displayName: Stage 4
@@ -51,30 +55,34 @@ MonoBehaviour:
     regionMapNodePosition: {x: 0.504, y: 0.759}
     platformSize: {x: 169, y: 100}
     bossData: {fileID: 11400000, guid: 0e07f384b372fab478f3333621d72558, type: 2}
+    lootTableId: 
   - stageId: region_04_stage_05
     stageNumber: 5
     displayName: Stage 5
     regionId: region_04
     isBossStage: 0
-    regionMapNodePosition: {x: 0.247, y: 0.710}
+    regionMapNodePosition: {x: 0.247, y: 0.71}
     platformSize: {x: 167, y: 99}
     bossData: {fileID: 11400000, guid: 537563e51f1899240b14d3315685d400, type: 2}
+    lootTableId: 
   - stageId: region_04_stage_06
     stageNumber: 6
     displayName: Stage 6
     regionId: region_04
     isBossStage: 0
-    regionMapNodePosition: {x: 0.586, y: 0.630}
+    regionMapNodePosition: {x: 0.586, y: 0.63}
     platformSize: {x: 157, y: 93}
     bossData: {fileID: 11400000, guid: cb506bd32fcdc554693163ead6d8a6e9, type: 2}
+    lootTableId: 
   - stageId: region_04_stage_07
     stageNumber: 7
     displayName: Stage 7
     regionId: region_04
     isBossStage: 0
-    regionMapNodePosition: {x: 0.230, y: 0.565}
+    regionMapNodePosition: {x: 0.23, y: 0.565}
     platformSize: {x: 169, y: 100}
     bossData: {fileID: 11400000, guid: e4c945bab3d61a74aaaa8b6c37a83de9, type: 2}
+    lootTableId: 
   - stageId: region_04_stage_08
     stageNumber: 8
     displayName: Stage 8
@@ -83,14 +91,16 @@ MonoBehaviour:
     regionMapNodePosition: {x: 0.406, y: 0.553}
     platformSize: {x: 200, y: 120}
     bossData: {fileID: 11400000, guid: 9430c0eed029fed4fa8ef69f7bea822f, type: 2}
+    lootTableId: 
   - stageId: region_04_stage_09
     stageNumber: 9
     displayName: Stage 9
     regionId: region_04
     isBossStage: 0
-    regionMapNodePosition: {x: 0.603, y: 0.330}
+    regionMapNodePosition: {x: 0.603, y: 0.33}
     platformSize: {x: 200, y: 120}
     bossData: {fileID: 11400000, guid: 446e202f74864c945bc13f148398a994, type: 2}
+    lootTableId: 
   - stageId: region_04_stage_10
     stageNumber: 10
     displayName: Stage 10
@@ -99,6 +109,7 @@ MonoBehaviour:
     regionMapNodePosition: {x: 0.381, y: 0.216}
     platformSize: {x: 200, y: 120}
     bossData: {fileID: 11400000, guid: 8581cdf05752ec44ba93728e946aeaea, type: 2}
+    lootTableId: 
   nextRegionId: region_05
   themeColor: {r: 0.5568628, g: 0.44313726, b: 0.8627451, a: 1}
   isFinalRegion: 0

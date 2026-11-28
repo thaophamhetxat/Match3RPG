@@ -150,7 +150,8 @@ namespace Match3RPG.Editor
                 RectTransform nodeRect = CreateRect($"Stage{stage.StageNumber:00}", stageLayer,
                     new Vector2(stage.RegionMapNodePosition.x, 1f - stage.RegionMapNodePosition.y),
                     new Vector2(stage.RegionMapNodePosition.x, 1f - stage.RegionMapNodePosition.y));
-                float markerScale = stage.IsBossStage ? 1.25f : 1f;
+                // Matches runtime StageMarkerView.Configure / BuildStageNodes (Prompt 160).
+                float markerScale = stage.IsBossStage ? 1.73f : 1f;
                 float size = stage.IsBossStage ? touchTarget + 8f : touchTarget;
                 nodeRect.sizeDelta = new Vector2(size, size);
 
@@ -178,7 +179,8 @@ namespace Match3RPG.Editor
                 glow.gameObject.SetActive(false);
                 RectTransform markerRect = CreateRect("MarkerImage", nodeRect,
                     new Vector2(.5f, .5f), new Vector2(.5f, .5f));
-                markerRect.sizeDelta = new Vector2(72f * markerScale, 88f * markerScale);
+                // Matches runtime marker size; Configure() also sets this at runtime, bake keeps prefab WYSIWYG.
+                markerRect.sizeDelta = new Vector2(176f * markerScale, 216f * markerScale);
                 Image marker = markerRect.gameObject.AddComponent<Image>();
                 marker.sprite = stage.IsBossStage && catalog.CampaignBossStageMarker != null
                     ? catalog.CampaignBossStageMarker : catalog.CampaignAvailableStageMarker;
