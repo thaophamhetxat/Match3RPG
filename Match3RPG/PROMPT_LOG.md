@@ -382,3 +382,17 @@
   - Sửa đúng 1 chốt trong `BattleController.ResolveAttackAction`: `if (attacker != null && attacker.HasSpriteAttackAnimation) yield return attacker.WaitForAttackImpact(hit);` để boss cũng chờ tới điểm impact của clip trước khi tung né / trừ máu / VFX / số bay / `Hit()`, giữ nguyên mọi công thức và nhịp tổng của lượt boss.
 - **Chờ Play-test:** (1) Boss đánh (đặc biệt boss R02/R03 dùng clip Skill làm clip đánh) → damage + thanh HP hero tụt đúng lúc tay/vũ khí/phép chạm hero, không tụt sớm ngay đầu clip; (2) Boss đánh nhiều hít (3+ viên) → mỗi hít trừ máu đúng điểm impact của clip hít đó; (3) Hero đánh không đổi; (4) Ultimate của boss (80 damage) vẫn như cũ; (5) Tổng thời gian lượt boss không dài thêm.
 - **Lỗi (nếu fail):** Không có.
+
+
+## Prompt 184 — 2026-11-28 — commit (xem ntfy / git log)
+- **Build:** `Assembly-CSharp.csproj` exit 0 (14 warning, 0 error); `Assembly-CSharp-Editor.csproj` exit 0 (28 warning, 0 error).
+- **File đã đổi:**
+  - `Match3RPG/Assets/Scripts/Battle/BattleController.cs` (trạng thái Thiêu Hồn riêng cho boss `isBossSoulBurning`/`bossSoulBurnRoutine`/`IsBossSoulBurning`, cập nhật `IsGameOver`/`PlayerWon`, vào Thiêu Hồn boss trong `ApplyDamage`, coroutine `BossSoulBurnDrainRoutine` rút trực tiếp 2% `bossMaxSoulHp`/1.0s, giảm 20% sát thương vào boss trước `AbsorbShield`, thoát khi boss hồi HP > 0 hoặc trận kết thúc, đổi cả 6 chốt `boss.Death()` thành `IsGameOver && PlayerWon`)
+  - `Match3RPG/Assets/Scripts/Battle/TurnBattleDebugChecks.cs` (thêm case boss Thiêu Hồn vào `CheckSoulBurnRules` với 4 Require: vào, thoát khi hồi HP, vào lại, Soul 0 = thắng)
+  - `Match3RPG/PROMPT_LOG.md`
+- **Làm được gì:**
+  - Cài cơ chế Thiêu Hồn cho boss đối xứng với hero (Prompt 182), dùng trạng thái + coroutine riêng (`isBossSoulBurning`/`bossSoulBurnRoutine`) để hero và boss có thể cùng Thiêu Hồn mà không tắt nhầm nhau.
+  - Sửa đủ cả 6 chỗ `boss.Death()` (`ResolveMove`, `ApplySwordQiImpact`, `ApplyRockSpikeImpact`, `ApplyEllipseSwordsImpact`, `ApplyStarfallBarrageImpact`, `ApplyThunderGodImpact`) thành `IsGameOver && PlayerWon`.
+  - Mở rộng `CheckSoulBurnRules()` thêm case boss (cần chạy trong Unity Play Mode vì check kiểm tra `Application.isPlaying`).
+- **Chờ Play-test:** (1) Đánh boss HP về 0 khi Soul boss > 0 → hiện `"Thiêu Hồn!"` trên boss, trận không thắng ngay, Soul boss rút ~2%/giây, damage vào boss giảm ~20%; (2) Boss ăn gem Lá Xanh hồi HP > 0 → thoát Thiêu Hồn, dừng rút; (3) Rút Soul boss về 0 → Thắng; (4) Hero chết khi boss đang Thiêu Hồn → Thua; (5) Cả hero lẫn boss cùng Thiêu Hồn → cả 2 cùng rút, bên nào hết Soul trước thì thua; (6) Gem đỏ đánh boss đang Thiêu Hồn giữ HP boss = 0 (đúng thiết kế, không tràn sang Soul); (7) Thiêu Hồn hero không đổi.
+- **Lỗi (nếu fail):** Không có.

@@ -3505,6 +3505,39 @@ namespace Match3RPG.Battle
                 Require(battle.HeroSoulHealth == 0 && battle.IsGameOver
                     && !battle.PlayerWon && !battle.IsSoulBurning,
                     "Hero Soul HP reaching 0 must end the battle in Defeat and stop Soul Burn.");
+
+                GameObject bossBattleObject = new GameObject("TurnDebugBossSoulBurn");
+                try
+                {
+                    BattleController bossBattle = bossBattleObject.AddComponent<BattleController>();
+                    bossBattle.Configure(null, null, null, bossData: bossData,
+                        runtimeHeroStats: heroStats, runtimeBossStats: bossStats);
+
+                    Finish(bossBattle.ResolveMove(BattleActor.Player, DamageMove(200)));
+                    Require(bossBattle.BossHealth == 0 && bossBattle.BossSoulHealth > 0
+                        && !bossBattle.IsGameOver && bossBattle.IsBossSoulBurning
+                        && !bossBattle.PlayerWon,
+                        "Boss HP reaching 0 with Soul HP remaining must enter Soul Burn instead of ending in Victory.");
+
+                    Finish(bossBattle.ResolveMove(BattleActor.Boss, ResourceMove(GemType.Health, 1)));
+                    Require(bossBattle.BossHealth > 0 && !bossBattle.IsBossSoulBurning
+                        && !bossBattle.IsGameOver,
+                        "Healing Boss HP above 0 must exit Boss Soul Burn.");
+
+                    Finish(bossBattle.ResolveMove(BattleActor.Player, DamageMove(200)));
+                    Require(bossBattle.BossHealth == 0 && bossBattle.IsBossSoulBurning
+                        && !bossBattle.IsGameOver,
+                        "Boss HP returning to 0 with Soul HP remaining must re-enter Boss Soul Burn.");
+
+                    Finish(bossBattle.ResolveMove(BattleActor.Player, ResourceMove(GemType.Soul, 300)));
+                    Require(bossBattle.BossSoulHealth == 0 && bossBattle.IsGameOver
+                        && bossBattle.PlayerWon && !bossBattle.IsBossSoulBurning,
+                        "Boss Soul HP reaching 0 must end the battle in Victory and stop Boss Soul Burn.");
+                }
+                finally
+                {
+                    UnityEngine.Object.DestroyImmediate(bossBattleObject);
+                }
             }
             finally
             {
